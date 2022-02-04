@@ -2876,7 +2876,8 @@ pub const MPR_VS_Ikev2Only: u32 = 7u32;
 pub unsafe fn MgmAddGroupMembershipEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmAddGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
         }
@@ -2891,7 +2892,8 @@ pub unsafe fn MgmAddGroupMembershipEntry<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MgmDeRegisterMProtocol<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmDeRegisterMProtocol(hprotocol: super::super::Foundation::HANDLE) -> u32;
         }
@@ -2906,7 +2908,8 @@ pub unsafe fn MgmDeRegisterMProtocol<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MgmDeleteGroupMembershipEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmDeleteGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
         }
@@ -2920,7 +2923,8 @@ pub unsafe fn MgmDeleteGroupMembershipEntry<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
         }
@@ -2934,7 +2938,8 @@ pub unsafe fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnume
 pub unsafe fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
         }
@@ -2949,7 +2954,8 @@ pub unsafe fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pd
 pub unsafe fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32;
         }
@@ -2964,7 +2970,8 @@ pub unsafe fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersi
 pub unsafe fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32;
         }
@@ -2979,7 +2986,8 @@ pub unsafe fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuf
 pub unsafe fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
         }
@@ -2994,7 +3002,8 @@ pub unsafe fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pd
 pub unsafe fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
         }
@@ -3008,7 +3017,8 @@ pub unsafe fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MF
 pub unsafe fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32;
         }
@@ -3023,7 +3033,8 @@ pub unsafe fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pd
 pub unsafe fn MgmGroupEnumerationEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmGroupEnumerationEnd(henum: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3038,7 +3049,8 @@ pub unsafe fn MgmGroupEnumerationEnd<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MgmGroupEnumerationGetNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmGroupEnumerationGetNext(henum: super::super::Foundation::HANDLE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
         }
@@ -3053,7 +3065,8 @@ pub unsafe fn MgmGroupEnumerationGetNext<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MgmGroupEnumerationStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmGroupEnumerationStart(hprotocol: super::super::Foundation::HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -3068,7 +3081,8 @@ pub unsafe fn MgmGroupEnumerationStart<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -3083,7 +3097,8 @@ pub unsafe fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwpro
 pub unsafe fn MgmReleaseInterfaceOwnership<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwifindex: u32, dwifnexthopaddr: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmReleaseInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
         }
@@ -3098,7 +3113,8 @@ pub unsafe fn MgmReleaseInterfaceOwnership<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MgmTakeInterfaceOwnership<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwifindex: u32, dwifnexthopaddr: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MgmTakeInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
         }
@@ -3112,7 +3128,8 @@ pub unsafe fn MgmTakeInterfaceOwnership<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
         }
@@ -3127,7 +3144,8 @@ pub unsafe fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
 pub unsafe fn MprAdminConnectionClearStats<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminConnectionClearStats(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3141,7 +3159,8 @@ pub unsafe fn MprAdminConnectionClearStats<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
         }
@@ -3156,7 +3175,8 @@ pub unsafe fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffe
 pub unsafe fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, pprasconn: *mut *mut RAS_CONNECTION_EX, lpdwresumehandle: *const u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, pprasconn: *mut *mut RAS_CONNECTION_EX, lpdwresumehandle: *const u32) -> u32;
         }
@@ -3171,7 +3191,8 @@ pub unsafe fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const 
 pub unsafe fn MprAdminConnectionGetInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hrasconnection: Param2, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminConnectionGetInfo(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
         }
@@ -3186,7 +3207,8 @@ pub unsafe fn MprAdminConnectionGetInfo<'a, Param2: ::windows::core::IntoParam<'
 pub unsafe fn MprAdminConnectionGetInfoEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1, prasconnection: *mut RAS_CONNECTION_EX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminConnectionGetInfoEx(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasconnection: *mut RAS_CONNECTION_EX) -> u32;
         }
@@ -3201,7 +3223,8 @@ pub unsafe fn MprAdminConnectionGetInfoEx<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn MprAdminConnectionRemoveQuarantine<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hrasserver: Param0, hrasconnection: Param1, fisipaddress: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminConnectionRemoveQuarantine(hrasserver: super::super::Foundation::HANDLE, hrasconnection: super::super::Foundation::HANDLE, fisipaddress: super::super::Foundation::BOOL) -> u32;
         }
@@ -3216,7 +3239,8 @@ pub unsafe fn MprAdminConnectionRemoveQuarantine<'a, Param0: ::windows::core::In
 pub unsafe fn MprAdminDeregisterConnectionNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, heventnotification: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminDeregisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3230,7 +3254,8 @@ pub unsafe fn MprAdminDeregisterConnectionNotification<'a, Param1: ::windows::co
 pub unsafe fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, lpdwtotalentries: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, lpdwtotalentries: *mut u32) -> u32;
         }
@@ -3245,7 +3270,8 @@ pub unsafe fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *
 pub unsafe fn MprAdminEstablishDomainRasServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pszdomain: Param0, pszmachine: Param1, benable: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminEstablishDomainRasServer(pszdomain: super::super::Foundation::PWSTR, pszmachine: super::super::Foundation::PWSTR, benable: super::super::Foundation::BOOL) -> u32;
         }
@@ -3260,7 +3286,8 @@ pub unsafe fn MprAdminEstablishDomainRasServer<'a, Param0: ::windows::core::Into
 pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -3275,7 +3302,8 @@ pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut super
 pub unsafe fn MprAdminGetPDCServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdomain: Param0, lpszserver: Param1, lpszpdcserver: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminGetPDCServer(lpszdomain: super::super::Foundation::PWSTR, lpszserver: super::super::Foundation::PWSTR, lpszpdcserver: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3290,7 +3318,8 @@ pub unsafe fn MprAdminGetPDCServer<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MprAdminInterfaceConnect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hmprserver: isize, hinterface: Param1, hevent: Param2, fsynchronous: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceConnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, hevent: super::super::Foundation::HANDLE, fsynchronous: super::super::Foundation::BOOL) -> u32;
         }
@@ -3305,7 +3334,8 @@ pub unsafe fn MprAdminInterfaceConnect<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8, phinterface: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8, phinterface: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -3320,7 +3350,8 @@ pub unsafe fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer
 pub unsafe fn MprAdminInterfaceDelete<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceDelete(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3335,7 +3366,8 @@ pub unsafe fn MprAdminInterfaceDelete<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn MprAdminInterfaceDeviceGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceDeviceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32;
         }
@@ -3350,7 +3382,8 @@ pub unsafe fn MprAdminInterfaceDeviceGetInfo<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn MprAdminInterfaceDeviceSetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceDeviceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32;
         }
@@ -3365,7 +3398,8 @@ pub unsafe fn MprAdminInterfaceDeviceSetInfo<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn MprAdminInterfaceDisconnect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceDisconnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3379,7 +3413,8 @@ pub unsafe fn MprAdminInterfaceDisconnect<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
         }
@@ -3394,7 +3429,8 @@ pub unsafe fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer
 pub unsafe fn MprAdminInterfaceGetCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsserver: Param0, lpwsinterfacename: Param1, lpwsusername: super::super::Foundation::PWSTR, lpwspassword: super::super::Foundation::PWSTR, lpwsdomainname: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceGetCredentials(lpwsserver: super::super::Foundation::PWSTR, lpwsinterfacename: super::super::Foundation::PWSTR, lpwsusername: super::super::Foundation::PWSTR, lpwspassword: super::super::Foundation::PWSTR, lpwsdomainname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3409,7 +3445,8 @@ pub unsafe fn MprAdminInterfaceGetCredentials<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MprAdminInterfaceGetCredentialsEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceGetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
         }
@@ -3424,7 +3461,8 @@ pub unsafe fn MprAdminInterfaceGetCredentialsEx<'a, Param1: ::windows::core::Int
 pub unsafe fn MprAdminInterfaceGetCustomInfoEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceGetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
         }
@@ -3439,7 +3477,8 @@ pub unsafe fn MprAdminInterfaceGetCustomInfoEx<'a, Param1: ::windows::core::Into
 pub unsafe fn MprAdminInterfaceGetHandle<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hmprserver: isize, lpwsinterfacename: Param1, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceGetHandle(hmprserver: isize, lpwsinterfacename: super::super::Foundation::PWSTR, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: super::super::Foundation::BOOL) -> u32;
         }
@@ -3454,7 +3493,8 @@ pub unsafe fn MprAdminInterfaceGetHandle<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn MprAdminInterfaceGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
         }
@@ -3469,7 +3509,8 @@ pub unsafe fn MprAdminInterfaceGetInfo<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn MprAdminInterfaceQueryUpdateResult<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceQueryUpdateResult(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32;
         }
@@ -3484,7 +3525,8 @@ pub unsafe fn MprAdminInterfaceQueryUpdateResult<'a, Param1: ::windows::core::In
 pub unsafe fn MprAdminInterfaceSetCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsserver: Param0, lpwsinterfacename: Param1, lpwsusername: Param2, lpwsdomainname: Param3, lpwspassword: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceSetCredentials(lpwsserver: super::super::Foundation::PWSTR, lpwsinterfacename: super::super::Foundation::PWSTR, lpwsusername: super::super::Foundation::PWSTR, lpwsdomainname: super::super::Foundation::PWSTR, lpwspassword: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3499,7 +3541,8 @@ pub unsafe fn MprAdminInterfaceSetCredentials<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MprAdminInterfaceSetCredentialsEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceSetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
         }
@@ -3514,7 +3557,8 @@ pub unsafe fn MprAdminInterfaceSetCredentialsEx<'a, Param1: ::windows::core::Int
 pub unsafe fn MprAdminInterfaceSetCustomInfoEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceSetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
         }
@@ -3529,7 +3573,8 @@ pub unsafe fn MprAdminInterfaceSetCustomInfoEx<'a, Param1: ::windows::core::Into
 pub unsafe fn MprAdminInterfaceSetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
         }
@@ -3544,7 +3589,8 @@ pub unsafe fn MprAdminInterfaceSetInfo<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn MprAdminInterfaceTransportAdd<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceTransportAdd(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
         }
@@ -3559,7 +3605,8 @@ pub unsafe fn MprAdminInterfaceTransportAdd<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn MprAdminInterfaceTransportGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceTransportGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
         }
@@ -3574,7 +3621,8 @@ pub unsafe fn MprAdminInterfaceTransportGetInfo<'a, Param1: ::windows::core::Int
 pub unsafe fn MprAdminInterfaceTransportRemove<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceTransportRemove(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32) -> u32;
         }
@@ -3589,7 +3637,8 @@ pub unsafe fn MprAdminInterfaceTransportRemove<'a, Param1: ::windows::core::Into
 pub unsafe fn MprAdminInterfaceTransportSetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceTransportSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
         }
@@ -3604,7 +3653,8 @@ pub unsafe fn MprAdminInterfaceTransportSetInfo<'a, Param1: ::windows::core::Int
 pub unsafe fn MprAdminInterfaceUpdatePhonebookInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceUpdatePhonebookInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3619,7 +3669,8 @@ pub unsafe fn MprAdminInterfaceUpdatePhonebookInfo<'a, Param1: ::windows::core::
 pub unsafe fn MprAdminInterfaceUpdateRoutes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwprotocolid: u32, hevent: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminInterfaceUpdateRoutes(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, hevent: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3634,7 +3685,8 @@ pub unsafe fn MprAdminInterfaceUpdateRoutes<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn MprAdminIsDomainRasServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdomain: Param0, pszmachine: Param1, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminIsDomainRasServer(pszdomain: super::super::Foundation::PWSTR, pszmachine: super::super::Foundation::PWSTR, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -3649,7 +3701,8 @@ pub unsafe fn MprAdminIsDomainRasServer<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MprAdminIsServiceInitialized<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsservername: Param0, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminIsServiceInitialized(lpwsservername: super::super::Foundation::PWSTR, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32;
         }
@@ -3664,7 +3717,8 @@ pub unsafe fn MprAdminIsServiceInitialized<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MprAdminIsServiceRunning<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsservername: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminIsServiceRunning(lpwsservername: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -3678,7 +3732,8 @@ pub unsafe fn MprAdminIsServiceRunning<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MprAdminMIBBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminMIBBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
         }
@@ -3692,7 +3747,8 @@ pub unsafe fn MprAdminMIBBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 
 pub unsafe fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
         }
@@ -3706,7 +3762,8 @@ pub unsafe fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid
 pub unsafe fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
         }
@@ -3720,7 +3777,8 @@ pub unsafe fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwrou
 pub unsafe fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
         }
@@ -3734,7 +3792,8 @@ pub unsafe fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutin
 pub unsafe fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
         }
@@ -3748,7 +3807,8 @@ pub unsafe fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwr
 pub unsafe fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
         }
@@ -3762,7 +3822,8 @@ pub unsafe fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwro
 pub unsafe fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
         }
@@ -3777,7 +3838,8 @@ pub unsafe fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutin
 pub unsafe fn MprAdminMIBServerConnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsservername: Param0, phmibserver: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminMIBServerConnect(lpwsservername: super::super::Foundation::PWSTR, phmibserver: *mut isize) -> u32;
         }
@@ -3791,7 +3853,8 @@ pub unsafe fn MprAdminMIBServerConnect<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminMIBServerDisconnect(hmibserver: isize);
         }
@@ -3806,7 +3869,8 @@ pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
 pub unsafe fn MprAdminPortClearStats<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminPortClearStats(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3821,7 +3885,8 @@ pub unsafe fn MprAdminPortClearStats<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn MprAdminPortDisconnect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminPortDisconnect(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3836,7 +3901,8 @@ pub unsafe fn MprAdminPortDisconnect<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn MprAdminPortEnum<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hrasconnection: Param2, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminPortEnum(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
         }
@@ -3851,7 +3917,8 @@ pub unsafe fn MprAdminPortEnum<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn MprAdminPortGetInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hport: Param2, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminPortGetInfo(hrasserver: isize, dwlevel: u32, hport: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
         }
@@ -3866,7 +3933,8 @@ pub unsafe fn MprAdminPortGetInfo<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MprAdminPortReset<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminPortReset(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3881,7 +3949,8 @@ pub unsafe fn MprAdminPortReset<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn MprAdminRegisterConnectionNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, heventnotification: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminRegisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
         }
@@ -3896,7 +3965,8 @@ pub unsafe fn MprAdminRegisterConnectionNotification<'a, Param1: ::windows::core
 pub unsafe fn MprAdminSendUserMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprserver: isize, hconnection: Param1, lpwszmessage: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminSendUserMessage(hmprserver: isize, hconnection: super::super::Foundation::HANDLE, lpwszmessage: super::super::Foundation::PWSTR) -> u32;
         }
@@ -3911,7 +3981,8 @@ pub unsafe fn MprAdminSendUserMessage<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn MprAdminServerConnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsservername: Param0, phmprserver: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminServerConnect(lpwsservername: super::super::Foundation::PWSTR, phmprserver: *mut isize) -> u32;
         }
@@ -3925,7 +3996,8 @@ pub unsafe fn MprAdminServerConnect<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MprAdminServerDisconnect(hmprserver: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminServerDisconnect(hmprserver: isize);
         }
@@ -3939,7 +4011,8 @@ pub unsafe fn MprAdminServerDisconnect(hmprserver: isize) {
 pub unsafe fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
         }
@@ -3953,7 +4026,8 @@ pub unsafe fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplp
 pub unsafe fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
         }
@@ -3968,7 +4042,8 @@ pub unsafe fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer
 pub unsafe fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
         }
@@ -3982,7 +4057,8 @@ pub unsafe fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_S
 pub unsafe fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
         }
@@ -3996,7 +4072,8 @@ pub unsafe fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbb
 pub unsafe fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
         }
@@ -4011,7 +4088,8 @@ pub unsafe fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: 
 pub unsafe fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
         }
@@ -4026,7 +4104,8 @@ pub unsafe fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR
 pub unsafe fn MprAdminTransportCreate<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprserver: isize, dwtransportid: u32, lpwstransportname: Param2, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param7) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminTransportCreate(hmprserver: isize, dwtransportid: u32, lpwstransportname: super::super::Foundation::PWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4040,7 +4119,8 @@ pub unsafe fn MprAdminTransportCreate<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32) -> u32;
         }
@@ -4054,7 +4134,8 @@ pub unsafe fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, pp
 pub unsafe fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32) -> u32;
         }
@@ -4069,7 +4150,8 @@ pub unsafe fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pg
 pub unsafe fn MprAdminUpdateConnection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminUpdateConnection(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32;
         }
@@ -4084,7 +4166,8 @@ pub unsafe fn MprAdminUpdateConnection<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn MprAdminUserGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszserver: Param0, lpszuser: Param1, dwlevel: u32, lpbbuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminUserGetInfo(lpszserver: super::super::Foundation::PWSTR, lpszuser: super::super::Foundation::PWSTR, dwlevel: u32, lpbbuffer: *mut u8) -> u32;
         }
@@ -4099,7 +4182,8 @@ pub unsafe fn MprAdminUserGetInfo<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MprAdminUserSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszserver: Param0, lpszuser: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprAdminUserSetInfo(lpszserver: super::super::Foundation::PWSTR, lpszuser: super::super::Foundation::PWSTR, dwlevel: u32, lpbbuffer: *const u8) -> u32;
         }
@@ -4113,7 +4197,8 @@ pub unsafe fn MprAdminUserSetInfo<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MprConfigBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
         }
@@ -4128,7 +4213,8 @@ pub unsafe fn MprConfigBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
 pub unsafe fn MprConfigFilterGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigFilterGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32;
         }
@@ -4143,7 +4229,8 @@ pub unsafe fn MprConfigFilterGetInfo<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MprConfigFilterSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigFilterSetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32;
         }
@@ -4158,7 +4245,8 @@ pub unsafe fn MprConfigFilterSetInfo<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MprConfigGetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, pszguidname: Param1, pszbuffer: super::super::Foundation::PWSTR, dwbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigGetFriendlyName(hmprconfig: super::super::Foundation::HANDLE, pszguidname: super::super::Foundation::PWSTR, pszbuffer: super::super::Foundation::PWSTR, dwbuffersize: u32) -> u32;
         }
@@ -4173,7 +4261,8 @@ pub unsafe fn MprConfigGetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MprConfigGetGuidName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, pszfriendlyname: Param1, pszbuffer: super::super::Foundation::PWSTR, dwbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigGetGuidName(hmprconfig: super::super::Foundation::HANDLE, pszfriendlyname: super::super::Foundation::PWSTR, pszbuffer: super::super::Foundation::PWSTR, dwbuffersize: u32) -> u32;
         }
@@ -4188,7 +4277,8 @@ pub unsafe fn MprConfigGetGuidName<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MprConfigInterfaceCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceCreate(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4203,7 +4293,8 @@ pub unsafe fn MprConfigInterfaceCreate<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MprConfigInterfaceDelete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceDelete(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4218,7 +4309,8 @@ pub unsafe fn MprConfigInterfaceDelete<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MprConfigInterfaceEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
         }
@@ -4233,7 +4325,8 @@ pub unsafe fn MprConfigInterfaceEnum<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MprConfigInterfaceGetCustomInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceGetCustomInfoEx(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
         }
@@ -4248,7 +4341,8 @@ pub unsafe fn MprConfigInterfaceGetCustomInfoEx<'a, Param0: ::windows::core::Int
 pub unsafe fn MprConfigInterfaceGetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, lpwsinterfacename: Param1, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceGetHandle(hmprconfig: super::super::Foundation::HANDLE, lpwsinterfacename: super::super::Foundation::PWSTR, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4263,7 +4357,8 @@ pub unsafe fn MprConfigInterfaceGetHandle<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn MprConfigInterfaceGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32;
         }
@@ -4278,7 +4373,8 @@ pub unsafe fn MprConfigInterfaceGetInfo<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MprConfigInterfaceSetCustomInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceSetCustomInfoEx(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
         }
@@ -4293,7 +4389,8 @@ pub unsafe fn MprConfigInterfaceSetCustomInfoEx<'a, Param0: ::windows::core::Int
 pub unsafe fn MprConfigInterfaceSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
         }
@@ -4308,7 +4405,8 @@ pub unsafe fn MprConfigInterfaceSetInfo<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MprConfigInterfaceTransportAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, hrouterinterface: Param1, dwtransportid: u32, lpwstransportname: Param3, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceTransportAdd(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: super::super::Foundation::PWSTR, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4323,7 +4421,8 @@ pub unsafe fn MprConfigInterfaceTransportAdd<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MprConfigInterfaceTransportEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceTransportEnum(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
         }
@@ -4338,7 +4437,8 @@ pub unsafe fn MprConfigInterfaceTransportEnum<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MprConfigInterfaceTransportGetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4353,7 +4453,8 @@ pub unsafe fn MprConfigInterfaceTransportGetHandle<'a, Param0: ::windows::core::
 pub unsafe fn MprConfigInterfaceTransportGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceTransportGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
         }
@@ -4368,7 +4469,8 @@ pub unsafe fn MprConfigInterfaceTransportGetInfo<'a, Param0: ::windows::core::In
 pub unsafe fn MprConfigInterfaceTransportRemove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceTransportRemove(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4383,7 +4485,8 @@ pub unsafe fn MprConfigInterfaceTransportRemove<'a, Param0: ::windows::core::Int
 pub unsafe fn MprConfigInterfaceTransportSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigInterfaceTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
         }
@@ -4398,7 +4501,8 @@ pub unsafe fn MprConfigInterfaceTransportSetInfo<'a, Param0: ::windows::core::In
 pub unsafe fn MprConfigServerBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, lpwspath: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigServerBackup(hmprconfig: super::super::Foundation::HANDLE, lpwspath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4413,7 +4517,8 @@ pub unsafe fn MprConfigServerBackup<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MprConfigServerConnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwsservername: Param0, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigServerConnect(lpwsservername: super::super::Foundation::PWSTR, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4428,7 +4533,8 @@ pub unsafe fn MprConfigServerConnect<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MprConfigServerDisconnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigServerDisconnect(hmprconfig: super::super::Foundation::HANDLE);
         }
@@ -4443,7 +4549,8 @@ pub unsafe fn MprConfigServerDisconnect<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MprConfigServerGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigServerGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
         }
@@ -4458,7 +4565,8 @@ pub unsafe fn MprConfigServerGetInfo<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MprConfigServerGetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigServerGetInfoEx(hmprconfig: super::super::Foundation::HANDLE, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
         }
@@ -4472,7 +4580,8 @@ pub unsafe fn MprConfigServerGetInfoEx<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::c_void) -> u32;
         }
@@ -4487,7 +4596,8 @@ pub unsafe fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::
 pub unsafe fn MprConfigServerRefresh<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigServerRefresh(hmprconfig: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4502,7 +4612,8 @@ pub unsafe fn MprConfigServerRefresh<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MprConfigServerRestore<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, lpwspath: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigServerRestore(hmprconfig: super::super::Foundation::HANDLE, lpwspath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4516,7 +4627,8 @@ pub unsafe fn MprConfigServerRestore<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
         }
@@ -4531,7 +4643,8 @@ pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer:
 pub unsafe fn MprConfigServerSetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigServerSetInfoEx(hmprconfig: super::super::Foundation::HANDLE, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
         }
@@ -4546,7 +4659,8 @@ pub unsafe fn MprConfigServerSetInfoEx<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MprConfigTransportCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, dwtransportid: u32, lpwstransportname: Param2, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param7, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigTransportCreate(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: super::super::Foundation::PWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: super::super::Foundation::PWSTR, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4561,7 +4675,8 @@ pub unsafe fn MprConfigTransportCreate<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MprConfigTransportDelete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigTransportDelete(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4576,7 +4691,8 @@ pub unsafe fn MprConfigTransportDelete<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MprConfigTransportEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigTransportEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
         }
@@ -4591,7 +4707,8 @@ pub unsafe fn MprConfigTransportEnum<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MprConfigTransportGetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4606,7 +4723,8 @@ pub unsafe fn MprConfigTransportGetHandle<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn MprConfigTransportGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32, lplpwsdllpath: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigTransportGetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32, lplpwsdllpath: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -4621,7 +4739,8 @@ pub unsafe fn MprConfigTransportGetInfo<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MprConfigTransportSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmprconfig: Param0, hroutertransport: Param1, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprConfigTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4635,7 +4754,8 @@ pub unsafe fn MprConfigTransportSetInfo<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MprInfoBlockAdd(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprInfoBlockAdd(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -4649,7 +4769,8 @@ pub unsafe fn MprInfoBlockAdd(lpheader: *const ::core::ffi::c_void, dwinfotype: 
 pub unsafe fn MprInfoBlockFind(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lpdwitemsize: *mut u32, lpdwitemcount: *mut u32, lplpitemdata: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprInfoBlockFind(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lpdwitemsize: *mut u32, lpdwitemcount: *mut u32, lplpitemdata: *mut *mut u8) -> u32;
         }
@@ -4663,7 +4784,8 @@ pub unsafe fn MprInfoBlockFind(lpheader: *const ::core::ffi::c_void, dwinfotype:
 pub unsafe fn MprInfoBlockQuerySize(lpheader: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprInfoBlockQuerySize(lpheader: *const ::core::ffi::c_void) -> u32;
         }
@@ -4677,7 +4799,8 @@ pub unsafe fn MprInfoBlockQuerySize(lpheader: *const ::core::ffi::c_void) -> u32
 pub unsafe fn MprInfoBlockRemove(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprInfoBlockRemove(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -4691,7 +4814,8 @@ pub unsafe fn MprInfoBlockRemove(lpheader: *const ::core::ffi::c_void, dwinfotyp
 pub unsafe fn MprInfoBlockSet(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprInfoBlockSet(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -4705,7 +4829,8 @@ pub unsafe fn MprInfoBlockSet(lpheader: *const ::core::ffi::c_void, dwinfotype: 
 pub unsafe fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -4719,7 +4844,8 @@ pub unsafe fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::core::ffi
 pub unsafe fn MprInfoDelete(lpheader: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprInfoDelete(lpheader: *const ::core::ffi::c_void) -> u32;
         }
@@ -4733,7 +4859,8 @@ pub unsafe fn MprInfoDelete(lpheader: *const ::core::ffi::c_void) -> u32 {
 pub unsafe fn MprInfoDuplicate(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprInfoDuplicate(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -4747,7 +4874,8 @@ pub unsafe fn MprInfoDuplicate(lpheader: *const ::core::ffi::c_void, lplpnewhead
 pub unsafe fn MprInfoRemoveAll(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MprInfoRemoveAll(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -10476,7 +10604,8 @@ pub const RTM_VIEW_MASK_UCAST: u32 = 1u32;
 pub unsafe fn RasClearConnectionStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasClearConnectionStatistics(hrasconn: HRASCONN) -> u32;
         }
@@ -10490,7 +10619,8 @@ pub unsafe fn RasClearConnectionStatistics<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RasClearLinkStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, dwsubentry: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasClearLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32) -> u32;
         }
@@ -10505,7 +10635,8 @@ pub unsafe fn RasClearLinkStatistics<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasConnectionNotificationA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(param0: Param0, param1: Param1, param2: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasConnectionNotificationA(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
         }
@@ -10520,7 +10651,8 @@ pub unsafe fn RasConnectionNotificationA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn RasConnectionNotificationW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(param0: Param0, param1: Param1, param2: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasConnectionNotificationW(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
         }
@@ -10535,7 +10667,8 @@ pub unsafe fn RasConnectionNotificationW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn RasCreatePhonebookEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasCreatePhonebookEntryA(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR) -> u32;
         }
@@ -10550,7 +10683,8 @@ pub unsafe fn RasCreatePhonebookEntryA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn RasCreatePhonebookEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasCreatePhonebookEntryW(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10582,7 +10716,8 @@ pub type RasCustomScriptExecuteFn = ::core::option::Option<unsafe extern "system
 pub unsafe fn RasDeleteEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasDeleteEntryA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR) -> u32;
         }
@@ -10597,7 +10732,8 @@ pub unsafe fn RasDeleteEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn RasDeleteEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasDeleteEntryW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10612,7 +10748,8 @@ pub unsafe fn RasDeleteEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn RasDeleteSubEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszphonebook: Param0, pszentry: Param1, dwsubentryid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasDeleteSubEntryA(pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, dwsubentryid: u32) -> u32;
         }
@@ -10627,7 +10764,8 @@ pub unsafe fn RasDeleteSubEntryA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RasDeleteSubEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszphonebook: Param0, pszentry: Param1, dwsubentryid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasDeleteSubEntryW(pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, dwsubentryid: u32) -> u32;
         }
@@ -10642,7 +10780,8 @@ pub unsafe fn RasDeleteSubEntryW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RasDialA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *const RASDIALEXTENSIONS, param1: Param1, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasDialA(param0: *const RASDIALEXTENSIONS, param1: super::super::Foundation::PSTR, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
         }
@@ -10657,7 +10796,8 @@ pub unsafe fn RasDialA<'a, Param1: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn RasDialDlgA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpszphonenumber: Param2, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasdlg", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasDialDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpszphonenumber: super::super::Foundation::PSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
         }
@@ -10672,7 +10812,8 @@ pub unsafe fn RasDialDlgA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn RasDialDlgW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpszphonenumber: Param2, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasdlg", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasDialDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpszphonenumber: super::super::Foundation::PWSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
         }
@@ -10687,7 +10828,8 @@ pub unsafe fn RasDialDlgW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn RasDialW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *const RASDIALEXTENSIONS, param1: Param1, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasDialW(param0: *const RASDIALEXTENSIONS, param1: super::super::Foundation::PWSTR, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
         }
@@ -10702,7 +10844,8 @@ pub unsafe fn RasDialW<'a, Param1: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn RasEditPhonebookEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEditPhonebookEntryA(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR) -> u32;
         }
@@ -10717,7 +10860,8 @@ pub unsafe fn RasEditPhonebookEntryA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasEditPhonebookEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEditPhonebookEntryW(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10732,7 +10876,8 @@ pub unsafe fn RasEditPhonebookEntryW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasEntryDlgA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasdlg", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEntryDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL;
         }
@@ -10747,7 +10892,8 @@ pub unsafe fn RasEntryDlgA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn RasEntryDlgW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasdlg", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEntryDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL;
         }
@@ -10762,7 +10908,8 @@ pub unsafe fn RasEntryDlgW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn RasEnumAutodialAddressesA(lpprasautodialaddresses: *mut super::super::Foundation::PSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEnumAutodialAddressesA(lpprasautodialaddresses: *mut super::super::Foundation::PSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32;
         }
@@ -10777,7 +10924,8 @@ pub unsafe fn RasEnumAutodialAddressesA(lpprasautodialaddresses: *mut super::sup
 pub unsafe fn RasEnumAutodialAddressesW(lpprasautodialaddresses: *mut super::super::Foundation::PWSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEnumAutodialAddressesW(lpprasautodialaddresses: *mut super::super::Foundation::PWSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32;
         }
@@ -10792,7 +10940,8 @@ pub unsafe fn RasEnumAutodialAddressesW(lpprasautodialaddresses: *mut super::sup
 pub unsafe fn RasEnumConnectionsA(param0: *mut RASCONNA, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEnumConnectionsA(param0: *mut RASCONNA, param1: *mut u32, param2: *mut u32) -> u32;
         }
@@ -10807,7 +10956,8 @@ pub unsafe fn RasEnumConnectionsA(param0: *mut RASCONNA, param1: *mut u32, param
 pub unsafe fn RasEnumConnectionsW(param0: *mut RASCONNW, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEnumConnectionsW(param0: *mut RASCONNW, param1: *mut u32, param2: *mut u32) -> u32;
         }
@@ -10822,7 +10972,8 @@ pub unsafe fn RasEnumConnectionsW(param0: *mut RASCONNW, param1: *mut u32, param
 pub unsafe fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2: *mut u32) -> u32;
         }
@@ -10836,7 +10987,8 @@ pub unsafe fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2
 pub unsafe fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2: *mut u32) -> u32;
         }
@@ -10851,7 +11003,8 @@ pub unsafe fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2
 pub unsafe fn RasEnumEntriesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYNAMEA, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEnumEntriesA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASENTRYNAMEA, param3: *mut u32, param4: *mut u32) -> u32;
         }
@@ -10866,7 +11019,8 @@ pub unsafe fn RasEnumEntriesA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn RasEnumEntriesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYNAMEW, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasEnumEntriesW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut RASENTRYNAMEW, param3: *mut u32, param4: *mut u32) -> u32;
         }
@@ -10881,7 +11035,8 @@ pub unsafe fn RasEnumEntriesW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA);
         }
@@ -10895,7 +11050,8 @@ pub unsafe fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDEN
 pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDENTITYW) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDENTITYW);
         }
@@ -10910,7 +11066,8 @@ pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDEN
 pub unsafe fn RasGetAutodialAddressA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: *const u32, param2: *mut RASAUTODIALENTRYA, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetAutodialAddressA(param0: super::super::Foundation::PSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYA, param3: *mut u32, param4: *mut u32) -> u32;
         }
@@ -10925,7 +11082,8 @@ pub unsafe fn RasGetAutodialAddressA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasGetAutodialAddressW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: *const u32, param2: *mut RASAUTODIALENTRYW, param3: *mut u32, param4: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetAutodialAddressW(param0: super::super::Foundation::PWSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYW, param3: *mut u32, param4: *mut u32) -> u32;
         }
@@ -10939,7 +11097,8 @@ pub unsafe fn RasGetAutodialAddressW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32;
         }
@@ -10953,7 +11112,8 @@ pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32 {
 pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32;
         }
@@ -10967,7 +11127,8 @@ pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32 {
 pub unsafe fn RasGetAutodialParamA(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetAutodialParamA(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32;
         }
@@ -10981,7 +11142,8 @@ pub unsafe fn RasGetAutodialParamA(param0: u32, param1: *mut ::core::ffi::c_void
 pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32;
         }
@@ -10996,7 +11158,8 @@ pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void
 pub unsafe fn RasGetConnectStatusA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: *mut RASCONNSTATUSA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetConnectStatusA(param0: HRASCONN, param1: *mut RASCONNSTATUSA) -> u32;
         }
@@ -11011,7 +11174,8 @@ pub unsafe fn RasGetConnectStatusA<'a, Param0: ::windows::core::IntoParam<'a, HR
 pub unsafe fn RasGetConnectStatusW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: *mut RASCONNSTATUSW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetConnectStatusW(param0: HRASCONN, param1: *mut RASCONNSTATUSW) -> u32;
         }
@@ -11025,7 +11189,8 @@ pub unsafe fn RasGetConnectStatusW<'a, Param0: ::windows::core::IntoParam<'a, HR
 pub unsafe fn RasGetConnectionStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, lpstatistics: *mut RAS_STATS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetConnectionStatistics(hrasconn: HRASCONN, lpstatistics: *mut RAS_STATS) -> u32;
         }
@@ -11039,7 +11204,8 @@ pub unsafe fn RasGetConnectionStatistics<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32;
         }
@@ -11053,7 +11219,8 @@ pub unsafe fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> 
 pub unsafe fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32;
         }
@@ -11068,7 +11235,8 @@ pub unsafe fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> 
 pub unsafe fn RasGetCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: *mut RASCREDENTIALSA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetCredentialsA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASCREDENTIALSA) -> u32;
         }
@@ -11083,7 +11251,8 @@ pub unsafe fn RasGetCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RasGetCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: *mut RASCREDENTIALSW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetCredentialsW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut RASCREDENTIALSW) -> u32;
         }
@@ -11098,7 +11267,8 @@ pub unsafe fn RasGetCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RasGetCustomAuthDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetCustomAuthDataA(pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32;
         }
@@ -11113,7 +11283,8 @@ pub unsafe fn RasGetCustomAuthDataA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn RasGetCustomAuthDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetCustomAuthDataW(pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32;
         }
@@ -11128,7 +11299,8 @@ pub unsafe fn RasGetCustomAuthDataW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn RasGetEapUserDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32;
         }
@@ -11143,7 +11315,8 @@ pub unsafe fn RasGetEapUserDataA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RasGetEapUserDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32;
         }
@@ -11158,7 +11331,8 @@ pub unsafe fn RasGetEapUserDataW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RasGetEapUserIdentityA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pszphonebook: Param0, pszentry: Param1, dwflags: u32, hwnd: Param3, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetEapUserIdentityA(pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32;
         }
@@ -11173,7 +11347,8 @@ pub unsafe fn RasGetEapUserIdentityA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasGetEapUserIdentityW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pszphonebook: Param0, pszentry: Param1, dwflags: u32, hwnd: Param3, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetEapUserIdentityW(pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32;
         }
@@ -11188,7 +11363,8 @@ pub unsafe fn RasGetEapUserIdentityW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasGetEntryDialParamsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetEntryDialParamsA(param0: super::super::Foundation::PSTR, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32;
         }
@@ -11203,7 +11379,8 @@ pub unsafe fn RasGetEntryDialParamsA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasGetEntryDialParamsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetEntryDialParamsW(param0: super::super::Foundation::PWSTR, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32;
         }
@@ -11218,7 +11395,8 @@ pub unsafe fn RasGetEntryDialParamsW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasGetEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYA, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetEntryPropertiesA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut RASENTRYA, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32;
         }
@@ -11233,7 +11411,8 @@ pub unsafe fn RasGetEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasGetEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYW, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetEntryPropertiesW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *mut RASENTRYW, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32;
         }
@@ -11248,7 +11427,8 @@ pub unsafe fn RasGetEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: super::super::Foundation::PSTR, inbufsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetErrorStringA(resourceid: u32, lpszstring: super::super::Foundation::PSTR, inbufsize: u32) -> u32;
         }
@@ -11263,7 +11443,8 @@ pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: super::super::Foun
 pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: super::super::Foundation::PWSTR, inbufsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetErrorStringW(resourceid: u32, lpszstring: super::super::Foundation::PWSTR, inbufsize: u32) -> u32;
         }
@@ -11277,7 +11458,8 @@ pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: super::super::Foun
 pub unsafe fn RasGetLinkStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32;
         }
@@ -11292,7 +11474,8 @@ pub unsafe fn RasGetLinkStatistics<'a, Param0: ::windows::core::IntoParam<'a, HR
 pub unsafe fn RasGetPCscf(lpszpcscf: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetPCscf(lpszpcscf: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11306,7 +11489,8 @@ pub unsafe fn RasGetPCscf(lpszpcscf: super::super::Foundation::PWSTR) -> u32 {
 pub unsafe fn RasGetProjectionInfoA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetProjectionInfoA(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
         }
@@ -11321,7 +11505,8 @@ pub unsafe fn RasGetProjectionInfoA<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn RasGetProjectionInfoEx<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, prasprojection: *mut RAS_PROJECTION_INFO, lpdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetProjectionInfoEx(hrasconn: HRASCONN, prasprojection: *mut RAS_PROJECTION_INFO, lpdwsize: *mut u32) -> u32;
         }
@@ -11335,7 +11520,8 @@ pub unsafe fn RasGetProjectionInfoEx<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasGetProjectionInfoW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetProjectionInfoW(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
         }
@@ -11349,7 +11535,8 @@ pub unsafe fn RasGetProjectionInfoW<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn RasGetSubEntryHandleA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: u32, param2: *mut HRASCONN) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetSubEntryHandleA(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
         }
@@ -11363,7 +11550,8 @@ pub unsafe fn RasGetSubEntryHandleA<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn RasGetSubEntryHandleW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: u32, param2: *mut HRASCONN) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
         }
@@ -11378,7 +11566,8 @@ pub unsafe fn RasGetSubEntryHandleW<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn RasGetSubEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetSubEntryPropertiesA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
         }
@@ -11393,7 +11582,8 @@ pub unsafe fn RasGetSubEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn RasGetSubEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasGetSubEntryPropertiesW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
         }
@@ -11407,7 +11597,8 @@ pub unsafe fn RasGetSubEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn RasHangUpA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasHangUpA(param0: HRASCONN) -> u32;
         }
@@ -11421,7 +11612,8 @@ pub unsafe fn RasHangUpA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(p
 pub unsafe fn RasHangUpW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasHangUpW(param0: HRASCONN) -> u32;
         }
@@ -11436,7 +11628,8 @@ pub unsafe fn RasHangUpW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(p
 pub unsafe fn RasInvokeEapUI<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0, param1: u32, param2: *const RASDIALEXTENSIONS, param3: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasInvokeEapUI(param0: HRASCONN, param1: u32, param2: *const RASDIALEXTENSIONS, param3: super::super::Foundation::HWND) -> u32;
         }
@@ -11451,7 +11644,8 @@ pub unsafe fn RasInvokeEapUI<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN
 pub unsafe fn RasPhonebookDlgA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasdlg", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasPhonebookDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL;
         }
@@ -11466,7 +11660,8 @@ pub unsafe fn RasPhonebookDlgA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn RasPhonebookDlgW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasdlg", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasPhonebookDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL;
         }
@@ -11481,7 +11676,8 @@ pub unsafe fn RasPhonebookDlgW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn RasRenameEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasRenameEntryA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR) -> u32;
         }
@@ -11496,7 +11692,8 @@ pub unsafe fn RasRenameEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn RasRenameEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasRenameEntryW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11511,7 +11708,8 @@ pub unsafe fn RasRenameEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn RasSetAutodialAddressA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetAutodialAddressA(param0: super::super::Foundation::PSTR, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32;
         }
@@ -11526,7 +11724,8 @@ pub unsafe fn RasSetAutodialAddressA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasSetAutodialAddressW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetAutodialAddressW(param0: super::super::Foundation::PWSTR, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32;
         }
@@ -11541,7 +11740,8 @@ pub unsafe fn RasSetAutodialAddressW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasSetAutodialEnableA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: u32, param1: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetAutodialEnableA(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
         }
@@ -11556,7 +11756,8 @@ pub unsafe fn RasSetAutodialEnableA<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn RasSetAutodialEnableW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: u32, param1: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetAutodialEnableW(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
         }
@@ -11570,7 +11771,8 @@ pub unsafe fn RasSetAutodialEnableW<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn RasSetAutodialParamA(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetAutodialParamA(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
         }
@@ -11584,7 +11786,8 @@ pub unsafe fn RasSetAutodialParamA(param0: u32, param1: *const ::core::ffi::c_vo
 pub unsafe fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
         }
@@ -11599,7 +11802,8 @@ pub unsafe fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_vo
 pub unsafe fn RasSetCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: Param1, param2: *const RASCREDENTIALSA, param3: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetCredentialsA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *const RASCREDENTIALSA, param3: super::super::Foundation::BOOL) -> u32;
         }
@@ -11614,7 +11818,8 @@ pub unsafe fn RasSetCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RasSetCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: Param1, param2: *const RASCREDENTIALSW, param3: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetCredentialsW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *const RASCREDENTIALSW, param3: super::super::Foundation::BOOL) -> u32;
         }
@@ -11629,7 +11834,8 @@ pub unsafe fn RasSetCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RasSetCustomAuthDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetCustomAuthDataA(pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
         }
@@ -11644,7 +11850,8 @@ pub unsafe fn RasSetCustomAuthDataA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn RasSetCustomAuthDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetCustomAuthDataW(pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
         }
@@ -11659,7 +11866,8 @@ pub unsafe fn RasSetCustomAuthDataW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn RasSetEapUserDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: super::super::Foundation::PSTR, pszentry: super::super::Foundation::PSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
         }
@@ -11674,7 +11882,8 @@ pub unsafe fn RasSetEapUserDataA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RasSetEapUserDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: super::super::Foundation::PWSTR, pszentry: super::super::Foundation::PWSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
         }
@@ -11689,7 +11898,8 @@ pub unsafe fn RasSetEapUserDataW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RasSetEntryDialParamsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: *const RASDIALPARAMSA, param2: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetEntryDialParamsA(param0: super::super::Foundation::PSTR, param1: *const RASDIALPARAMSA, param2: super::super::Foundation::BOOL) -> u32;
         }
@@ -11704,7 +11914,8 @@ pub unsafe fn RasSetEntryDialParamsA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasSetEntryDialParamsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: *const RASDIALPARAMSW, param2: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetEntryDialParamsW(param0: super::super::Foundation::PWSTR, param1: *const RASDIALPARAMSW, param2: super::super::Foundation::BOOL) -> u32;
         }
@@ -11719,7 +11930,8 @@ pub unsafe fn RasSetEntryDialParamsW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasSetEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetEntryPropertiesA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32;
         }
@@ -11734,7 +11946,8 @@ pub unsafe fn RasSetEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasSetEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetEntryPropertiesW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32;
         }
@@ -11749,7 +11962,8 @@ pub unsafe fn RasSetEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RasSetSubEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetSubEntryPropertiesA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32;
         }
@@ -11764,7 +11978,8 @@ pub unsafe fn RasSetSubEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn RasSetSubEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasSetSubEntryPropertiesW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32;
         }
@@ -11779,7 +11994,8 @@ pub unsafe fn RasSetSubEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn RasUpdateConnection<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, lprasupdateconn: *const RASUPDATECONN) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasUpdateConnection(hrasconn: HRASCONN, lprasupdateconn: *const RASUPDATECONN) -> u32;
         }
@@ -11794,7 +12010,8 @@ pub unsafe fn RasUpdateConnection<'a, Param0: ::windows::core::IntoParam<'a, HRA
 pub unsafe fn RasValidateEntryNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasValidateEntryNameA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR) -> u32;
         }
@@ -11809,7 +12026,8 @@ pub unsafe fn RasValidateEntryNameA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn RasValidateEntryNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RasValidateEntryNameW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11823,7 +12041,8 @@ pub unsafe fn RasValidateEntryNameW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, changeflags: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, changeflags: *mut u32) -> u32;
         }
@@ -11837,7 +12056,8 @@ pub unsafe fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_I
 pub unsafe fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, destaddress: *mut RTM_NET_ADDRESS, routeinfo: *mut RTM_ROUTE_INFO, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, destaddress: *mut RTM_NET_ADDRESS, routeinfo: *mut RTM_ROUTE_INFO, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32;
         }
@@ -11852,7 +12072,8 @@ pub unsafe fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, de
 pub unsafe fn RtmBlockMethods<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(rtmreghandle: isize, targethandle: Param1, targettype: u8, blockingflag: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmBlockMethods(rtmreghandle: isize, targethandle: super::super::Foundation::HANDLE, targettype: u8, blockingflag: u32) -> u32;
         }
@@ -11867,7 +12088,8 @@ pub unsafe fn RtmBlockMethods<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::IN6_ADDR>>(pnetaddress: *mut RTM_NET_ADDRESS, address: Param1, dwlength: u32, dwaddresssize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32;
         }
@@ -11882,7 +12104,8 @@ pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress<'a, Param1: ::windows::
 pub unsafe fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32;
         }
@@ -11896,7 +12119,8 @@ pub unsafe fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_N
 pub unsafe fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, protocolid: u32, rtmenumhandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, protocolid: u32, rtmenumhandle: *mut isize) -> u32;
         }
@@ -11910,7 +12134,8 @@ pub unsafe fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags
 pub unsafe fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, rtmenumhandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, rtmenumhandle: *mut isize) -> u32;
         }
@@ -11924,7 +12149,8 @@ pub unsafe fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddre
 pub unsafe fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetviews: u32, enumflags: u32, startdest: *mut RTM_NET_ADDRESS, matchingflags: u32, criteriaroute: *mut RTM_ROUTE_INFO, criteriainterface: u32, rtmenumhandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetviews: u32, enumflags: u32, startdest: *mut RTM_NET_ADDRESS, matchingflags: u32, criteriaroute: *mut RTM_ROUTE_INFO, criteriainterface: u32, rtmenumhandle: *mut isize) -> u32;
         }
@@ -11938,7 +12164,8 @@ pub unsafe fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetv
 pub unsafe fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isize) -> u32;
         }
@@ -11952,7 +12179,8 @@ pub unsafe fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isiz
 pub unsafe fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize, rtmenumhandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize, rtmenumhandle: *mut isize) -> u32;
         }
@@ -11966,7 +12194,8 @@ pub unsafe fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize
 pub unsafe fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32;
         }
@@ -11980,7 +12209,8 @@ pub unsafe fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32
 pub unsafe fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
         }
@@ -11994,7 +12224,8 @@ pub unsafe fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nextho
 pub unsafe fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) -> u32;
         }
@@ -12008,7 +12239,8 @@ pub unsafe fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) ->
 pub unsafe fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, changeflags: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, changeflags: *mut u32) -> u32;
         }
@@ -12022,7 +12254,8 @@ pub unsafe fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, chan
 pub unsafe fn RtmDeregisterEntity(rtmreghandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmDeregisterEntity(rtmreghandle: isize) -> u32;
         }
@@ -12036,7 +12269,8 @@ pub unsafe fn RtmDeregisterEntity(rtmreghandle: isize) -> u32 {
 pub unsafe fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhandle: isize) -> u32;
         }
@@ -12050,7 +12284,8 @@ pub unsafe fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhan
 pub unsafe fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
         }
@@ -12065,7 +12300,8 @@ pub unsafe fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_
 pub unsafe fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, changestatus: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, changestatus: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -12080,7 +12316,8 @@ pub unsafe fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desth
 pub unsafe fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: *mut u32, changeddests: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: *mut u32, changeddests: *mut RTM_DEST_INFO) -> u32;
         }
@@ -12095,7 +12332,8 @@ pub unsafe fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numde
 pub unsafe fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
         }
@@ -12109,7 +12347,8 @@ pub unsafe fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid:
 pub unsafe fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
         }
@@ -12123,7 +12362,8 @@ pub unsafe fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityi
 pub unsafe fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, nummethods: *mut u32, exptmethods: *mut RTM_ENTITY_EXPORT_METHOD) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, nummethods: *mut u32, exptmethods: *mut ::windows::core::RawPtr) -> u32;
         }
@@ -12138,7 +12378,8 @@ pub unsafe fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, numm
 pub unsafe fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: *mut u32, destinfos: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: *mut u32, destinfos: *mut RTM_DEST_INFO) -> u32;
         }
@@ -12152,7 +12393,8 @@ pub unsafe fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: 
 pub unsafe fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnexthops: *mut u32, nexthophandles: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnexthops: *mut u32, nexthophandles: *mut isize) -> u32;
         }
@@ -12166,7 +12408,8 @@ pub unsafe fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnext
 pub unsafe fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32;
         }
@@ -12181,7 +12424,8 @@ pub unsafe fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes
 pub unsafe fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
         }
@@ -12195,7 +12439,8 @@ pub unsafe fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut
 pub unsafe fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, matchingflags: u32, routeinfo: *mut RTM_ROUTE_INFO, interfaceindex: u32, targetviews: u32, routehandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, matchingflags: u32, routeinfo: *mut RTM_ROUTE_INFO, interfaceindex: u32, targetviews: u32, routehandle: *mut isize) -> u32;
         }
@@ -12210,7 +12455,8 @@ pub unsafe fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_N
 pub unsafe fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
         }
@@ -12224,7 +12470,8 @@ pub unsafe fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isi
 pub unsafe fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32;
         }
@@ -12239,7 +12486,8 @@ pub unsafe fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numro
 pub unsafe fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
         }
@@ -12253,7 +12501,8 @@ pub unsafe fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *m
 pub unsafe fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
         }
@@ -12267,7 +12516,8 @@ pub unsafe fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexth
 pub unsafe fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
         }
@@ -12281,7 +12531,8 @@ pub unsafe fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, ne
 pub unsafe fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: isize, opaqueinfopointer: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: isize, opaqueinfopointer: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -12295,7 +12546,8 @@ pub unsafe fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: is
 pub unsafe fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u32, entityhandles: *mut isize, entityinfos: *mut RTM_ENTITY_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u32, entityhandles: *mut isize, entityinfos: *mut RTM_ENTITY_INFO) -> u32;
         }
@@ -12309,7 +12561,8 @@ pub unsafe fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u3
 pub unsafe fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo: *mut RTM_ROUTE_INFO, destaddress: *mut RTM_NET_ADDRESS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo: *mut RTM_ROUTE_INFO, destaddress: *mut RTM_NET_ADDRESS) -> u32;
         }
@@ -12323,7 +12576,8 @@ pub unsafe fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo
 pub unsafe fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
         }
@@ -12337,7 +12591,8 @@ pub unsafe fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routep
 pub unsafe fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetviews: u32, holdtime: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetviews: u32, holdtime: u32) -> u32;
         }
@@ -12351,7 +12606,8 @@ pub unsafe fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetv
 pub unsafe fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut isize) -> u32;
         }
@@ -12365,7 +12621,8 @@ pub unsafe fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, nu
 pub unsafe fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, numroutes: u32, routehandles: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, numroutes: u32, routehandles: *mut isize) -> u32;
         }
@@ -12379,7 +12636,8 @@ pub unsafe fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, 
 pub unsafe fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, outputsize: *mut u32, output: *mut RTM_ENTITY_METHOD_OUTPUT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, outputsize: *mut u32, output: *mut RTM_ENTITY_METHOD_OUTPUT) -> u32;
         }
@@ -12393,7 +12651,8 @@ pub unsafe fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *
 pub unsafe fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinviews: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinviews: *mut u32) -> u32;
         }
@@ -12408,7 +12667,8 @@ pub unsafe fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinview
 pub unsafe fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, destmarked: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, destmarked: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -12423,7 +12683,8 @@ pub unsafe fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle
 pub unsafe fn RtmLockDestination<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, desthandle: isize, exclusive: Param2, lockdest: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmLockDestination(rtmreghandle: isize, desthandle: isize, exclusive: super::super::Foundation::BOOL, lockdest: super::super::Foundation::BOOL) -> u32;
         }
@@ -12438,7 +12699,8 @@ pub unsafe fn RtmLockDestination<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn RtmLockNextHop<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, nexthophandle: isize, exclusive: Param2, locknexthop: Param3, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmLockNextHop(rtmreghandle: isize, nexthophandle: isize, exclusive: super::super::Foundation::BOOL, locknexthop: super::super::Foundation::BOOL, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
         }
@@ -12453,7 +12715,8 @@ pub unsafe fn RtmLockNextHop<'a, Param2: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn RtmLockRoute<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, routehandle: isize, exclusive: Param2, lockroute: Param3, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmLockRoute(rtmreghandle: isize, routehandle: isize, exclusive: super::super::Foundation::BOOL, lockroute: super::super::Foundation::BOOL, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
         }
@@ -12468,7 +12731,8 @@ pub unsafe fn RtmLockRoute<'a, Param2: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn RtmMarkDestForChangeNotification<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmMarkDestForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: super::super::Foundation::BOOL) -> u32;
         }
@@ -12483,7 +12747,8 @@ pub unsafe fn RtmMarkDestForChangeNotification<'a, Param3: ::windows::core::Into
 pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandles: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandles: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -12498,7 +12763,8 @@ pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandl
 pub unsafe fn RtmRegisterEntity<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: RTM_EVENT_CALLBACK, reserveopaquepointer: Param3, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmRegisterEntity(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: ::windows::core::RawPtr, reserveopaquepointer: super::super::Foundation::BOOL, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32;
         }
@@ -12512,7 +12778,8 @@ pub unsafe fn RtmRegisterEntity<'a, Param3: ::windows::core::IntoParam<'a, super
 pub unsafe fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews: u32, notifyflags: u32, notifycontext: *mut ::core::ffi::c_void, notifyhandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews: u32, notifyflags: u32, notifycontext: *mut ::core::ffi::c_void, notifyhandle: *mut isize) -> u32;
         }
@@ -12527,7 +12794,8 @@ pub unsafe fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews:
 pub unsafe fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut RTM_DEST_INFO) -> u32;
         }
@@ -12542,7 +12810,8 @@ pub unsafe fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, n
 pub unsafe fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_INFO) -> u32;
         }
@@ -12557,7 +12826,8 @@ pub unsafe fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_IN
 pub unsafe fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mut RTM_DEST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mut RTM_DEST_INFO) -> u32;
         }
@@ -12571,7 +12841,8 @@ pub unsafe fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mu
 pub unsafe fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityhandles: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityhandles: *mut isize) -> u32;
         }
@@ -12585,7 +12856,8 @@ pub unsafe fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityha
 pub unsafe fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
         }
@@ -12599,7 +12871,8 @@ pub unsafe fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENT
 pub unsafe fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
         }
@@ -12613,7 +12886,8 @@ pub unsafe fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_N
 pub unsafe fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthophandles: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthophandles: *mut isize) -> u32;
         }
@@ -12627,7 +12901,8 @@ pub unsafe fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthoph
 pub unsafe fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE_INFO) -> u32;
         }
@@ -12641,7 +12916,8 @@ pub unsafe fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE
 pub unsafe fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles: *mut isize) -> u32;
         }
@@ -12655,7 +12931,8 @@ pub unsafe fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles
 pub unsafe fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32;
         }

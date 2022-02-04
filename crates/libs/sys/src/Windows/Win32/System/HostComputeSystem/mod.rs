@@ -1,9 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "computecore", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsAttachLayerStorageFilter(layerpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
     pub fn HcsCancelOperation(operation: HCS_OPERATION) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
@@ -34,33 +32,15 @@ extern "system" {
     pub fn HcsCreateProcess(computesystem: HCS_SYSTEM, processparameters: super::super::Foundation::PWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, process: *mut HCS_PROCESS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsDestroyLayer(layerpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsDetachLayerStorageFilter(layerpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn HcsEnumerateComputeSystems(query: super::super::Foundation::PWSTR, operation: HCS_OPERATION) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsEnumerateComputeSystemsInNamespace(idnamespace: super::super::Foundation::PWSTR, query: super::super::Foundation::PWSTR, operation: HCS_OPERATION) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsExportLayer(layerpath: super::super::Foundation::PWSTR, exportfolderpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsExportLegacyWritableLayer(writablelayermountpath: super::super::Foundation::PWSTR, writablelayerfolderpath: super::super::Foundation::PWSTR, exportfolderpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsFormatWritableLayerVhd(vhdhandle: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
     pub fn HcsGetComputeSystemFromOperation(operation: HCS_OPERATION) -> HCS_SYSTEM;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsGetComputeSystemProperties(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, propertyquery: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsGetLayerVhdMountPath(vhdhandle: super::super::Foundation::HANDLE, mountpath: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
     pub fn HcsGetOperationContext(operation: HCS_OPERATION) -> *mut ::core::ffi::c_void;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
@@ -92,15 +72,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsGrantVmGroupAccess(filepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsImportLayer(layerpath: super::super::Foundation::PWSTR, sourcefolderpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsInitializeLegacyWritableLayer(writablelayermountpath: super::super::Foundation::PWSTR, writablelayerfolderpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsInitializeWritableLayer(writablelayerpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsModifyComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, configuration: super::super::Foundation::PWSTR, identity: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
@@ -145,12 +116,6 @@ extern "system" {
     pub fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsSetupBaseOSLayer(layerpath: super::super::Foundation::PWSTR, vhdhandle: super::super::Foundation::HANDLE, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsSetupBaseOSVolume(layerpath: super::super::Foundation::PWSTR, volumepath: super::super::Foundation::PWSTR, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn HcsShutDownComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -179,6 +144,46 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "computestorage", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsAttachLayerStorageFilter(layerpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsDestroyLayer(layerpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsDetachLayerStorageFilter(layerpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsExportLayer(layerpath: super::super::Foundation::PWSTR, exportfolderpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsExportLegacyWritableLayer(writablelayermountpath: super::super::Foundation::PWSTR, writablelayerfolderpath: super::super::Foundation::PWSTR, exportfolderpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsFormatWritableLayerVhd(vhdhandle: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsGetLayerVhdMountPath(vhdhandle: super::super::Foundation::HANDLE, mountpath: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsImportLayer(layerpath: super::super::Foundation::PWSTR, sourcefolderpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsInitializeLegacyWritableLayer(writablelayermountpath: super::super::Foundation::PWSTR, writablelayerfolderpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsInitializeWritableLayer(writablelayerpath: super::super::Foundation::PWSTR, layerdata: super::super::Foundation::PWSTR, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsSetupBaseOSLayer(layerpath: super::super::Foundation::PWSTR, vhdhandle: super::super::Foundation::HANDLE, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_HostComputeSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn HcsSetupBaseOSVolume(layerpath: super::super::Foundation::PWSTR, volumepath: super::super::Foundation::PWSTR, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: 'Win32_System_HostComputeSystem'*"]
 pub type HCS_CREATE_OPTIONS = i32;

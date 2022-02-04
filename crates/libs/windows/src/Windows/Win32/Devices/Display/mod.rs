@@ -458,7 +458,8 @@ impl ::core::default::Default for BRUSHOBJ {
 pub unsafe fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::Foundation::HANDLE;
         }
@@ -472,7 +473,8 @@ pub unsafe fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::F
 pub unsafe fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::core::ffi::c_void;
         }
@@ -486,7 +488,8 @@ pub unsafe fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::core
 pub unsafe fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::core::ffi::c_void;
         }
@@ -500,7 +503,8 @@ pub unsafe fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::core::ffi::c_vo
 pub unsafe fn BRUSHOBJ_ulGetBrushColor(pbo: *mut BRUSHOBJ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BRUSHOBJ_ulGetBrushColor(pbo: *mut BRUSHOBJ) -> u32;
         }
@@ -795,7 +799,8 @@ impl ::core::default::Default for CLIPOBJ {
 pub unsafe fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -810,7 +815,8 @@ pub unsafe fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super:
 pub unsafe fn CLIPOBJ_cEnumStart<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pco: *mut CLIPOBJ, ball: Param1, itype: u32, idirection: u32, climit: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CLIPOBJ_cEnumStart(pco: *mut CLIPOBJ, ball: super::super::Foundation::BOOL, itype: u32, idirection: u32, climit: u32) -> u32;
         }
@@ -825,7 +831,8 @@ pub unsafe fn CLIPOBJ_cEnumStart<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ;
         }
@@ -1423,7 +1430,8 @@ pub const CT_RECTANGLES: i32 = 0i32;
 pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pszasciicapabilitiesstring: super::super::Foundation::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CapabilitiesRequestAndCapabilitiesReply(hmonitor: super::super::Foundation::HANDLE, pszasciicapabilitiesstring: super::super::Foundation::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32;
         }
@@ -3859,7 +3867,8 @@ pub const DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY: u32 = 1u32;
 pub unsafe fn DegaussMonitor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DegaussMonitor(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -3874,7 +3883,8 @@ pub unsafe fn DegaussMonitor<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DestroyPhysicalMonitor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DestroyPhysicalMonitor(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -3889,7 +3899,8 @@ pub unsafe fn DestroyPhysicalMonitor<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *const PHYSICAL_MONITOR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *const PHYSICAL_MONITOR) -> i32;
         }
@@ -3904,7 +3915,8 @@ pub unsafe fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysical
 pub unsafe fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
         }
@@ -3919,7 +3931,8 @@ pub unsafe fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVIC
 pub unsafe fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
         }
@@ -4256,7 +4269,8 @@ impl ::core::default::Default for ENUMRECTS {
 pub unsafe fn EngAcquireSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSEMAPHORE>>(hsem: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngAcquireSemaphore(hsem: HSEMAPHORE);
         }
@@ -4271,7 +4285,8 @@ pub unsafe fn EngAcquireSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSE
 pub unsafe fn EngAlphaBlend(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pblendobj: *mut BLENDOBJ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngAlphaBlend(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pblendobj: *mut BLENDOBJ) -> super::super::Foundation::BOOL;
         }
@@ -4286,7 +4301,8 @@ pub unsafe fn EngAlphaBlend(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *m
 pub unsafe fn EngAssociateSurface<'a, Param0: ::windows::core::IntoParam<'a, HSURF>, Param1: ::windows::core::IntoParam<'a, HDEV>>(hsurf: Param0, hdev: Param1, flhooks: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngAssociateSurface(hsurf: HSURF, hdev: HDEV, flhooks: u32) -> super::super::Foundation::BOOL;
         }
@@ -4301,7 +4317,8 @@ pub unsafe fn EngAssociateSurface<'a, Param0: ::windows::core::IntoParam<'a, HSU
 pub unsafe fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcltrg: *const super::super::Foundation::RECTL, pptlsrc: *const super::super::Foundation::POINTL, pptlmask: *const super::super::Foundation::POINTL, pbo: *const BRUSHOBJ, pptlbrush: *const super::super::Foundation::POINTL, rop4: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcltrg: *const super::super::Foundation::RECTL, pptlsrc: *const super::super::Foundation::POINTL, pptlmask: *const super::super::Foundation::POINTL, pbo: *const BRUSHOBJ, pptlbrush: *const super::super::Foundation::POINTL, rop4: u32) -> super::super::Foundation::BOOL;
         }
@@ -4316,7 +4333,8 @@ pub unsafe fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask:
 pub unsafe fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL;
         }
@@ -4330,7 +4348,8 @@ pub unsafe fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL
 pub unsafe fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -> *mut FD_GLYPHSET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -> *mut FD_GLYPHSET;
         }
@@ -4345,7 +4364,8 @@ pub unsafe fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -
 pub unsafe fn EngCopyBits(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, pptlsrc: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngCopyBits(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, pptlsrc: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
         }
@@ -4360,7 +4380,8 @@ pub unsafe fn EngCopyBits(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut
 pub unsafe fn EngCreateBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::SIZE>>(sizl: Param0, lwidth: i32, iformat: u32, fl: u32, pvbits: *mut ::core::ffi::c_void) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngCreateBitmap(sizl: super::super::Foundation::SIZE, lwidth: i32, iformat: u32, fl: u32, pvbits: *mut ::core::ffi::c_void) -> super::super::Graphics::Gdi::HBITMAP;
         }
@@ -4375,7 +4396,8 @@ pub unsafe fn EngCreateBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngCreateClip() -> *mut CLIPOBJ;
         }
@@ -4390,7 +4412,8 @@ pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
 pub unsafe fn EngCreateDeviceBitmap<'a, Param0: ::windows::core::IntoParam<'a, DHSURF>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::SIZE>>(dhsurf: Param0, sizl: Param1, iformatcompat: u32) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngCreateDeviceBitmap(dhsurf: DHSURF, sizl: super::super::Foundation::SIZE, iformatcompat: u32) -> super::super::Graphics::Gdi::HBITMAP;
         }
@@ -4405,7 +4428,8 @@ pub unsafe fn EngCreateDeviceBitmap<'a, Param0: ::windows::core::IntoParam<'a, D
 pub unsafe fn EngCreateDeviceSurface<'a, Param0: ::windows::core::IntoParam<'a, DHSURF>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::SIZE>>(dhsurf: Param0, sizl: Param1, iformatcompat: u32) -> HSURF {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngCreateDeviceSurface(dhsurf: DHSURF, sizl: super::super::Foundation::SIZE, iformatcompat: u32) -> HSURF;
         }
@@ -4420,7 +4444,8 @@ pub unsafe fn EngCreateDeviceSurface<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn EngCreatePalette(imode: u32, ccolors: u32, pulcolors: *mut u32, flred: u32, flgreen: u32, flblue: u32) -> super::super::Graphics::Gdi::HPALETTE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngCreatePalette(imode: u32, ccolors: u32, pulcolors: *mut u32, flred: u32, flgreen: u32, flblue: u32) -> super::super::Graphics::Gdi::HPALETTE;
         }
@@ -4434,7 +4459,8 @@ pub unsafe fn EngCreatePalette(imode: u32, ccolors: u32, pulcolors: *mut u32, fl
 pub unsafe fn EngCreateSemaphore() -> HSEMAPHORE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngCreateSemaphore() -> HSEMAPHORE;
         }
@@ -4449,7 +4475,8 @@ pub unsafe fn EngCreateSemaphore() -> HSEMAPHORE {
 pub unsafe fn EngDeleteClip(pco: *const CLIPOBJ) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngDeleteClip(pco: *const CLIPOBJ);
         }
@@ -4464,7 +4491,8 @@ pub unsafe fn EngDeleteClip(pco: *const CLIPOBJ) {
 pub unsafe fn EngDeletePalette<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hpal: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngDeletePalette(hpal: super::super::Graphics::Gdi::HPALETTE) -> super::super::Foundation::BOOL;
         }
@@ -4478,7 +4506,8 @@ pub unsafe fn EngDeletePalette<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngDeletePath(ppo: *mut PATHOBJ);
         }
@@ -4492,7 +4521,8 @@ pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
 pub unsafe fn EngDeleteSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSEMAPHORE>>(hsem: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngDeleteSemaphore(hsem: HSEMAPHORE);
         }
@@ -4507,7 +4537,8 @@ pub unsafe fn EngDeleteSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSEM
 pub unsafe fn EngDeleteSurface<'a, Param0: ::windows::core::IntoParam<'a, HSURF>>(hsurf: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngDeleteSurface(hsurf: HSURF) -> super::super::Foundation::BOOL;
         }
@@ -4522,7 +4553,8 @@ pub unsafe fn EngDeleteSurface<'a, Param0: ::windows::core::IntoParam<'a, HSURF>
 pub unsafe fn EngEraseSurface(pso: *mut SURFOBJ, prcl: *mut super::super::Foundation::RECTL, icolor: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngEraseSurface(pso: *mut SURFOBJ, prcl: *mut super::super::Foundation::RECTL, icolor: u32) -> super::super::Foundation::BOOL;
         }
@@ -4537,7 +4569,8 @@ pub unsafe fn EngEraseSurface(pso: *mut SURFOBJ, prcl: *mut super::super::Founda
 pub unsafe fn EngFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32, floptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32, floptions: u32) -> super::super::Foundation::BOOL;
         }
@@ -4552,7 +4585,8 @@ pub unsafe fn EngFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOB
 pub unsafe fn EngFindResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0, iname: i32, itype: i32, pulsize: *mut u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngFindResource(h: super::super::Foundation::HANDLE, iname: i32, itype: i32, pulsize: *mut u32) -> *mut ::core::ffi::c_void;
         }
@@ -4567,7 +4601,8 @@ pub unsafe fn EngFindResource<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn EngFreeModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngFreeModule(h: super::super::Foundation::HANDLE);
         }
@@ -4581,7 +4616,8 @@ pub unsafe fn EngFreeModule<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u16) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u16);
         }
@@ -4596,7 +4632,8 @@ pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u1
 pub unsafe fn EngGetDriverName<'a, Param0: ::windows::core::IntoParam<'a, HDEV>>(hdev: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngGetDriverName(hdev: HDEV) -> super::super::Foundation::PWSTR;
         }
@@ -4611,7 +4648,8 @@ pub unsafe fn EngGetDriverName<'a, Param0: ::windows::core::IntoParam<'a, HDEV>>
 pub unsafe fn EngGetPrinterDataFileName<'a, Param0: ::windows::core::IntoParam<'a, HDEV>>(hdev: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngGetPrinterDataFileName(hdev: HDEV) -> super::super::Foundation::PWSTR;
         }
@@ -4626,7 +4664,8 @@ pub unsafe fn EngGetPrinterDataFileName<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX, nvertex: u32, pmesh: *mut ::core::ffi::c_void, nmesh: u32, prclextents: *mut super::super::Foundation::RECTL, pptlditherorg: *mut super::super::Foundation::POINTL, ulmode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX, nvertex: u32, pmesh: *mut ::core::ffi::c_void, nmesh: u32, prclextents: *mut super::super::Foundation::RECTL, pptlditherorg: *mut super::super::Foundation::POINTL, ulmode: u32) -> super::super::Foundation::BOOL;
         }
@@ -4641,7 +4680,8 @@ pub unsafe fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *m
 pub unsafe fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, x1: i32, y1: i32, x2: i32, y2: i32, prclbounds: *mut super::super::Foundation::RECTL, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, x1: i32, y1: i32, x2: i32, y2: i32, prclbounds: *mut super::super::Foundation::RECTL, mix: u32) -> super::super::Foundation::BOOL;
         }
@@ -4656,7 +4696,8 @@ pub unsafe fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ
 pub unsafe fn EngLoadModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwsz: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngLoadModule(pwsz: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
@@ -4671,7 +4712,8 @@ pub unsafe fn EngLoadModule<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn EngLockSurface<'a, Param0: ::windows::core::IntoParam<'a, HSURF>>(hsurf: Param0) -> *mut SURFOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngLockSurface(hsurf: HSURF) -> *mut SURFOBJ;
         }
@@ -4686,7 +4728,8 @@ pub unsafe fn EngLockSurface<'a, Param0: ::windows::core::IntoParam<'a, HSURF>>(
 pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::core::IntoParam<'a, HSURF>>(hsurf: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngMarkBandingSurface(hsurf: HSURF) -> super::super::Foundation::BOOL;
         }
@@ -4701,7 +4744,8 @@ pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn EngMultiByteToUnicodeN<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(unicodestring: super::super::Foundation::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: *mut u32, multibytestring: Param3, bytesinmultibytestring: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngMultiByteToUnicodeN(unicodestring: super::super::Foundation::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: *mut u32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: u32);
         }
@@ -4716,7 +4760,8 @@ pub unsafe fn EngMultiByteToUnicodeN<'a, Param3: ::windows::core::IntoParam<'a, 
 pub unsafe fn EngMultiByteToWideChar<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(codepage: u32, widecharstring: super::super::Foundation::PWSTR, bytesinwidecharstring: i32, multibytestring: Param3, bytesinmultibytestring: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngMultiByteToWideChar(codepage: u32, widecharstring: super::super::Foundation::PWSTR, bytesinwidecharstring: i32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: i32) -> i32;
         }
@@ -4731,7 +4776,8 @@ pub unsafe fn EngMultiByteToWideChar<'a, Param3: ::windows::core::IntoParam<'a, 
 pub unsafe fn EngPaint(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngPaint(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL;
         }
@@ -4746,7 +4792,8 @@ pub unsafe fn EngPaint(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ,
 pub unsafe fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlbrushorg: *mut super::super::Foundation::POINTL, pptfx: *mut POINTFIX, prcl: *mut super::super::Foundation::RECTL, pptl: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlbrushorg: *mut super::super::Foundation::POINTL, pptfx: *mut POINTFIX, prcl: *mut super::super::Foundation::RECTL, pptl: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL;
         }
@@ -4761,7 +4808,8 @@ pub unsafe fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut
 pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::core::IntoParam<'a, HDEV>>(hdev: Param0, pemfinfo: *mut EMFINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngQueryEMFInfo(hdev: HDEV, pemfinfo: *mut EMFINFO) -> super::super::Foundation::BOOL;
         }
@@ -4775,7 +4823,8 @@ pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::core::IntoParam<'a, HDEV>>(
 pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS);
         }
@@ -4789,7 +4838,8 @@ pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
 pub unsafe fn EngReleaseSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSEMAPHORE>>(hsem: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngReleaseSemaphore(hsem: HSEMAPHORE);
         }
@@ -4804,7 +4854,8 @@ pub unsafe fn EngReleaseSemaphore<'a, Param0: ::windows::core::IntoParam<'a, HSE
 pub unsafe fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL;
         }
@@ -4819,7 +4870,8 @@ pub unsafe fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask
 pub unsafe fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32, pbo: *mut BRUSHOBJ, rop4: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32, pbo: *mut BRUSHOBJ, rop4: u32) -> super::super::Foundation::BOOL;
         }
@@ -4834,7 +4886,8 @@ pub unsafe fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psom
 pub unsafe fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut XFORMOBJ, pbostroke: *mut BRUSHOBJ, plineattrs: *mut LINEATTRS, pbofill: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mixfill: u32, floptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut XFORMOBJ, pbostroke: *mut BRUSHOBJ, plineattrs: *mut LINEATTRS, pbofill: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mixfill: u32, floptions: u32) -> super::super::Foundation::BOOL;
         }
@@ -4849,7 +4902,8 @@ pub unsafe fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *m
 pub unsafe fn EngStrokePath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut XFORMOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, plineattrs: *mut LINEATTRS, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngStrokePath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut XFORMOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, plineattrs: *mut LINEATTRS, mix: u32) -> super::super::Foundation::BOOL;
         }
@@ -4864,7 +4918,8 @@ pub unsafe fn EngStrokePath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIP
 pub unsafe fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOBJ, pco: *mut CLIPOBJ, prclextra: *mut super::super::Foundation::RECTL, prclopaque: *mut super::super::Foundation::RECTL, pbofore: *mut BRUSHOBJ, pboopaque: *mut BRUSHOBJ, pptlorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOBJ, pco: *mut CLIPOBJ, prclextra: *mut super::super::Foundation::RECTL, prclopaque: *mut super::super::Foundation::RECTL, pbofore: *mut BRUSHOBJ, pboopaque: *mut BRUSHOBJ, pptlorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL;
         }
@@ -4879,7 +4934,8 @@ pub unsafe fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOB
 pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcldst: *const super::super::Foundation::RECTL, prclsrc: *const super::super::Foundation::RECTL, transcolor: u32, bcalledfrombitblt: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcldst: *const super::super::Foundation::RECTL, prclsrc: *const super::super::Foundation::RECTL, transcolor: u32, bcalledfrombitblt: u32) -> super::super::Foundation::BOOL;
         }
@@ -4894,7 +4950,8 @@ pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, 
 pub unsafe fn EngUnicodeToMultiByteN<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(multibytestring: super::super::Foundation::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: Param3, bytesinunicodestring: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngUnicodeToMultiByteN(multibytestring: super::super::Foundation::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: super::super::Foundation::PWSTR, bytesinunicodestring: u32);
         }
@@ -4909,7 +4966,8 @@ pub unsafe fn EngUnicodeToMultiByteN<'a, Param3: ::windows::core::IntoParam<'a, 
 pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngUnlockSurface(pso: *mut SURFOBJ);
         }
@@ -4924,7 +4982,8 @@ pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
 pub unsafe fn EngWideCharToMultiByte<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(codepage: u32, widecharstring: Param1, bytesinwidecharstring: i32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EngWideCharToMultiByte(codepage: u32, widecharstring: super::super::Foundation::PWSTR, bytesinwidecharstring: i32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: i32) -> i32;
         }
@@ -5683,7 +5742,8 @@ impl ::core::default::Default for FONTOBJ {
 pub unsafe fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u32;
         }
@@ -5698,7 +5758,8 @@ pub unsafe fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u
 pub unsafe fn FONTOBJ_cGetGlyphs(pfo: *mut FONTOBJ, imode: u32, cglyph: u32, phg: *mut u32, ppvglyph: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FONTOBJ_cGetGlyphs(pfo: *mut FONTOBJ, imode: u32, cglyph: u32, phg: *mut u32, ppvglyph: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -5713,7 +5774,8 @@ pub unsafe fn FONTOBJ_cGetGlyphs(pfo: *mut FONTOBJ, imode: u32, cglyph: u32, phg
 pub unsafe fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD_GLYPHATTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD_GLYPHATTR;
         }
@@ -5728,7 +5790,8 @@ pub unsafe fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD
 pub unsafe fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET;
         }
@@ -5743,7 +5806,8 @@ pub unsafe fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET {
 pub unsafe fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS;
         }
@@ -5758,7 +5822,8 @@ pub unsafe fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS {
 pub unsafe fn FONTOBJ_pvTrueTypeFontFile(pfo: *mut FONTOBJ, pcjfile: *mut u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FONTOBJ_pvTrueTypeFontFile(pfo: *mut FONTOBJ, pcjfile: *mut u32) -> *mut ::core::ffi::c_void;
         }
@@ -5773,7 +5838,8 @@ pub unsafe fn FONTOBJ_pvTrueTypeFontFile(pfo: *mut FONTOBJ, pcjfile: *mut u32) -
 pub unsafe fn FONTOBJ_pxoGetXform(pfo: *const FONTOBJ) -> *mut XFORMOBJ {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FONTOBJ_pxoGetXform(pfo: *const FONTOBJ) -> *mut XFORMOBJ;
         }
@@ -5788,7 +5854,8 @@ pub unsafe fn FONTOBJ_pxoGetXform(pfo: *const FONTOBJ) -> *mut XFORMOBJ {
 pub unsafe fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO);
         }
@@ -6711,7 +6778,8 @@ pub const GX_SCALE: i32 = 2i32;
 pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Foundation::BOOL;
         }
@@ -6726,7 +6794,8 @@ pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Found
 pub unsafe fn GetCapabilitiesStringLength<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetCapabilitiesStringLength(hmonitor: super::super::Foundation::HANDLE, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32;
         }
@@ -6741,7 +6810,8 @@ pub unsafe fn GetCapabilitiesStringLength<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL;
         }
@@ -6755,7 +6825,8 @@ pub unsafe fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_P
 pub unsafe fn GetDisplayConfigBufferSizes(flags: u32, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDisplayConfigBufferSizes(flags: u32, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> i32;
         }
@@ -6770,7 +6841,8 @@ pub unsafe fn GetDisplayConfigBufferSizes(flags: u32, numpatharrayelements: *mut
 pub unsafe fn GetMonitorBrightness<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMonitorBrightness(hmonitor: super::super::Foundation::HANDLE, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32;
         }
@@ -6785,7 +6857,8 @@ pub unsafe fn GetMonitorBrightness<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn GetMonitorCapabilities<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMonitorCapabilities(hmonitor: super::super::Foundation::HANDLE, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32;
         }
@@ -6800,7 +6873,8 @@ pub unsafe fn GetMonitorCapabilities<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetMonitorColorTemperature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMonitorColorTemperature(hmonitor: super::super::Foundation::HANDLE, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32;
         }
@@ -6815,7 +6889,8 @@ pub unsafe fn GetMonitorColorTemperature<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetMonitorContrast<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMonitorContrast(hmonitor: super::super::Foundation::HANDLE, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32;
         }
@@ -6830,7 +6905,8 @@ pub unsafe fn GetMonitorContrast<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetMonitorDisplayAreaPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMonitorDisplayAreaPosition(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32;
         }
@@ -6845,7 +6921,8 @@ pub unsafe fn GetMonitorDisplayAreaPosition<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn GetMonitorDisplayAreaSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMonitorDisplayAreaSize(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32;
         }
@@ -6860,7 +6937,8 @@ pub unsafe fn GetMonitorDisplayAreaSize<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn GetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMonitorRedGreenOrBlueDrive(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32;
         }
@@ -6875,7 +6953,8 @@ pub unsafe fn GetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn GetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMonitorRedGreenOrBlueGain(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32;
         }
@@ -6890,7 +6969,8 @@ pub unsafe fn GetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn GetMonitorTechnologyType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMonitorTechnologyType(hmonitor: super::super::Foundation::HANDLE, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32;
         }
@@ -6905,7 +6985,8 @@ pub unsafe fn GetMonitorTechnologyType<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, pdwnumberofphysicalmonitors: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, pdwnumberofphysicalmonitors: *mut u32) -> i32;
         }
@@ -6920,7 +7001,8 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::cor
 pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: ::windows::core::RawPtr, pdwnumberofphysicalmonitors: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6936,7 +7018,8 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::wind
 pub unsafe fn GetPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> i32;
         }
@@ -6951,7 +7034,8 @@ pub unsafe fn GetPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::core::IntoP
 pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: ::windows::core::RawPtr, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows::core::HRESULT;
         }
@@ -6966,7 +7050,8 @@ pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::cor
 pub unsafe fn GetTimingReport<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTimingReport(hmonitor: super::super::Foundation::HANDLE, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32;
         }
@@ -6981,7 +7066,8 @@ pub unsafe fn GetTimingReport<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetVCPFeatureAndVCPFeatureReply<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, bvcpcode: u8, pvct: *mut MC_VCP_CODE_TYPE, pdwcurrentvalue: *mut u32, pdwmaximumvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetVCPFeatureAndVCPFeatureReply(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, pvct: *mut MC_VCP_CODE_TYPE, pdwcurrentvalue: *mut u32, pdwmaximumvalue: *mut u32) -> i32;
         }
@@ -7310,7 +7396,8 @@ pub const HT_FORMAT_8BPP: u32 = 4u32;
 pub unsafe fn HT_Get8BPPFormatPalette(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HT_Get8BPPFormatPalette(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32;
         }
@@ -7325,7 +7412,8 @@ pub unsafe fn HT_Get8BPPFormatPalette(ppaletteentry: *mut super::super::Graphics
 pub unsafe fn HT_Get8BPPMaskPalette<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, use8bppmaskpal: Param1, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HT_Get8BPPMaskPalette(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, use8bppmaskpal: super::super::Foundation::BOOL, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32;
         }
@@ -9888,7 +9976,8 @@ impl ::core::default::Default for PATHOBJ {
 pub unsafe fn PATHOBJ_bEnum(ppo: *mut PATHOBJ, ppd: *mut PATHDATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PATHOBJ_bEnum(ppo: *mut PATHOBJ, ppd: *mut PATHDATA) -> super::super::Foundation::BOOL;
         }
@@ -9903,7 +9992,8 @@ pub unsafe fn PATHOBJ_bEnum(ppo: *mut PATHOBJ, ppd: *mut PATHDATA) -> super::sup
 pub unsafe fn PATHOBJ_bEnumClipLines(ppo: *mut PATHOBJ, cb: u32, pcl: *mut CLIPLINE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PATHOBJ_bEnumClipLines(ppo: *mut PATHOBJ, cb: u32, pcl: *mut CLIPLINE) -> super::super::Foundation::BOOL;
         }
@@ -9917,7 +10007,8 @@ pub unsafe fn PATHOBJ_bEnumClipLines(ppo: *mut PATHOBJ, cb: u32, pcl: *mut CLIPL
 pub unsafe fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ);
         }
@@ -9932,7 +10023,8 @@ pub unsafe fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ) {
 pub unsafe fn PATHOBJ_vEnumStartClipLines(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pso: *mut SURFOBJ, pla: *mut LINEATTRS) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PATHOBJ_vEnumStartClipLines(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pso: *mut SURFOBJ, pla: *mut LINEATTRS);
         }
@@ -9946,7 +10038,8 @@ pub unsafe fn PATHOBJ_vEnumStartClipLines(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, 
 pub unsafe fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut RECTFX) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut RECTFX);
         }
@@ -10550,7 +10643,8 @@ pub const QSA_SSE3: u32 = 524288u32;
 pub unsafe fn QueryDisplayConfig(flags: u32, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryDisplayConfig(flags: u32, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> i32;
         }
@@ -10631,7 +10725,8 @@ impl ::core::default::Default for RUN {
 pub unsafe fn RestoreMonitorFactoryColorDefaults<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RestoreMonitorFactoryColorDefaults(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -10646,7 +10741,8 @@ pub unsafe fn RestoreMonitorFactoryColorDefaults<'a, Param0: ::windows::core::In
 pub unsafe fn RestoreMonitorFactoryDefaults<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RestoreMonitorFactoryDefaults(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -10806,7 +10902,8 @@ impl ::core::default::Default for STROBJ {
 pub unsafe fn STROBJ_bEnum(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn STROBJ_bEnum(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL;
         }
@@ -10821,7 +10918,8 @@ pub unsafe fn STROBJ_bEnum(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut G
 pub unsafe fn STROBJ_bEnumPositionsOnly(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn STROBJ_bEnumPositionsOnly(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL;
         }
@@ -10836,7 +10934,8 @@ pub unsafe fn STROBJ_bEnumPositionsOnly(pstro: *mut STROBJ, pc: *mut u32, ppgpos
 pub unsafe fn STROBJ_bGetAdvanceWidths(pso: *mut STROBJ, ifirst: u32, c: u32, pptqd: *mut POINTQF) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn STROBJ_bGetAdvanceWidths(pso: *mut STROBJ, ifirst: u32, c: u32, pptqd: *mut POINTQF) -> super::super::Foundation::BOOL;
         }
@@ -10851,7 +10950,8 @@ pub unsafe fn STROBJ_bGetAdvanceWidths(pso: *mut STROBJ, ifirst: u32, c: u32, pp
 pub unsafe fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32;
         }
@@ -10866,7 +10966,8 @@ pub unsafe fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32 {
 pub unsafe fn STROBJ_vEnumStart(pstro: *mut STROBJ) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn STROBJ_vEnumStart(pstro: *mut STROBJ);
         }
@@ -10937,7 +11038,8 @@ pub const S_INIT: u32 = 2u32;
 pub unsafe fn SaveCurrentMonitorSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SaveCurrentMonitorSettings(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -10952,7 +11054,8 @@ pub unsafe fn SaveCurrentMonitorSettings<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SaveCurrentSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SaveCurrentSettings(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
@@ -10967,7 +11070,8 @@ pub unsafe fn SaveCurrentSettings<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL;
         }
@@ -10982,7 +11086,8 @@ pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERE
 pub unsafe fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *const DISPLAYCONFIG_MODE_INFO, flags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *const DISPLAYCONFIG_MODE_INFO, flags: u32) -> i32;
         }
@@ -10997,7 +11102,8 @@ pub unsafe fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISP
 pub unsafe fn SetMonitorBrightness<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dwnewbrightness: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetMonitorBrightness(hmonitor: super::super::Foundation::HANDLE, dwnewbrightness: u32) -> i32;
         }
@@ -11012,7 +11118,8 @@ pub unsafe fn SetMonitorBrightness<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetMonitorColorTemperature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetMonitorColorTemperature(hmonitor: super::super::Foundation::HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32;
         }
@@ -11027,7 +11134,8 @@ pub unsafe fn SetMonitorColorTemperature<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetMonitorContrast<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dwnewcontrast: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetMonitorContrast(hmonitor: super::super::Foundation::HANDLE, dwnewcontrast: u32) -> i32;
         }
@@ -11042,7 +11150,8 @@ pub unsafe fn SetMonitorContrast<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SetMonitorDisplayAreaPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetMonitorDisplayAreaPosition(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32;
         }
@@ -11057,7 +11166,8 @@ pub unsafe fn SetMonitorDisplayAreaPosition<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn SetMonitorDisplayAreaSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetMonitorDisplayAreaSize(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32;
         }
@@ -11072,7 +11182,8 @@ pub unsafe fn SetMonitorDisplayAreaSize<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn SetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetMonitorRedGreenOrBlueDrive(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32;
         }
@@ -11087,7 +11198,8 @@ pub unsafe fn SetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn SetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetMonitorRedGreenOrBlueGain(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32;
         }
@@ -11102,7 +11214,8 @@ pub unsafe fn SetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn SetVCPFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, bvcpcode: u8, dwnewvalue: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetVCPFeature(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, dwnewvalue: u32) -> i32;
         }
@@ -13109,7 +13222,8 @@ impl ::core::default::Default for XFORMOBJ {
 pub unsafe fn XFORMOBJ_bApplyXform(pxo: *mut XFORMOBJ, imode: u32, cpoints: u32, pvin: *mut ::core::ffi::c_void, pvout: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XFORMOBJ_bApplyXform(pxo: *mut XFORMOBJ, imode: u32, cpoints: u32, pvin: *mut ::core::ffi::c_void, pvout: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13123,7 +13237,8 @@ pub unsafe fn XFORMOBJ_bApplyXform(pxo: *mut XFORMOBJ, imode: u32, cpoints: u32,
 pub unsafe fn XFORMOBJ_iGetXform(pxo: *const XFORMOBJ, pxform: *mut XFORML) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XFORMOBJ_iGetXform(pxo: *const XFORMOBJ, pxform: *mut XFORML) -> u32;
         }
@@ -13180,7 +13295,8 @@ impl ::core::default::Default for XLATEOBJ {
 pub unsafe fn XLATEOBJ_cGetPalette(pxlo: *mut XLATEOBJ, ipal: u32, cpal: u32, ppal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XLATEOBJ_cGetPalette(pxlo: *mut XLATEOBJ, ipal: u32, cpal: u32, ppal: *mut u32) -> u32;
         }
@@ -13195,7 +13311,8 @@ pub unsafe fn XLATEOBJ_cGetPalette(pxlo: *mut XLATEOBJ, ipal: u32, cpal: u32, pp
 pub unsafe fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::Foundation::HANDLE;
         }
@@ -13209,7 +13326,8 @@ pub unsafe fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::
 pub unsafe fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32;
         }
@@ -13223,7 +13341,8 @@ pub unsafe fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32 {
 pub unsafe fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32;
         }

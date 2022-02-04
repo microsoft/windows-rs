@@ -163,7 +163,8 @@ pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
 pub unsafe fn GetRegistryValueWithFallbackW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyprimary: Param0, pwszprimarysubkey: Param1, hkeyfallback: Param2, pwszfallbacksubkey: Param3, pwszvalue: Param4, dwflags: u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, cbdatain: u32, pcbdataout: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-state-helpers-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetRegistryValueWithFallbackW(hkeyprimary: HKEY, pwszprimarysubkey: super::super::Foundation::PWSTR, hkeyfallback: HKEY, pwszfallbacksubkey: super::super::Foundation::PWSTR, pwszvalue: super::super::Foundation::PWSTR, dwflags: u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, cbdatain: u32, pcbdataout: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2298,7 +2299,8 @@ pub const RRF_ZEROONFAILURE: u32 = 536870912u32;
 pub unsafe fn RegCloseKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegCloseKey(hkey: HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2313,7 +2315,8 @@ pub unsafe fn RegCloseKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey
 pub unsafe fn RegConnectRegistryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, HKEY>>(lpmachinename: Param0, hkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegConnectRegistryA(lpmachinename: super::super::Foundation::PSTR, hkey: HKEY, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2328,7 +2331,8 @@ pub unsafe fn RegConnectRegistryA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn RegConnectRegistryExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, HKEY>>(lpmachinename: Param0, hkey: Param1, flags: u32, phkresult: *mut HKEY) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegConnectRegistryExA(lpmachinename: super::super::Foundation::PSTR, hkey: HKEY, flags: u32, phkresult: *mut HKEY) -> i32;
         }
@@ -2343,7 +2347,8 @@ pub unsafe fn RegConnectRegistryExA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn RegConnectRegistryExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, HKEY>>(lpmachinename: Param0, hkey: Param1, flags: u32, phkresult: *mut HKEY) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegConnectRegistryExW(lpmachinename: super::super::Foundation::PWSTR, hkey: HKEY, flags: u32, phkresult: *mut HKEY) -> i32;
         }
@@ -2358,7 +2363,8 @@ pub unsafe fn RegConnectRegistryExW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn RegConnectRegistryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, HKEY>>(lpmachinename: Param0, hkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegConnectRegistryW(lpmachinename: super::super::Foundation::PWSTR, hkey: HKEY, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2373,7 +2379,8 @@ pub unsafe fn RegConnectRegistryW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn RegCopyTreeA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, HKEY>>(hkeysrc: Param0, lpsubkey: Param1, hkeydest: Param2) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegCopyTreeA(hkeysrc: HKEY, lpsubkey: super::super::Foundation::PSTR, hkeydest: HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2388,7 +2395,8 @@ pub unsafe fn RegCopyTreeA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Par
 pub unsafe fn RegCopyTreeW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, HKEY>>(hkeysrc: Param0, lpsubkey: Param1, hkeydest: Param2) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegCopyTreeW(hkeysrc: HKEY, lpsubkey: super::super::Foundation::PWSTR, hkeydest: HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2403,7 +2411,8 @@ pub unsafe fn RegCopyTreeW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Par
 pub unsafe fn RegCreateKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegCreateKeyA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2418,7 +2427,8 @@ pub unsafe fn RegCreateKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Pa
 pub unsafe fn RegCreateKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, reserved: u32, lpclass: Param3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegCreateKeyExA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, reserved: u32, lpclass: super::super::Foundation::PSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2433,7 +2443,8 @@ pub unsafe fn RegCreateKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, 
 pub unsafe fn RegCreateKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, reserved: u32, lpclass: Param3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegCreateKeyExW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, reserved: u32, lpclass: super::super::Foundation::PWSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2448,7 +2459,8 @@ pub unsafe fn RegCreateKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, 
 pub unsafe fn RegCreateKeyTransactedA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, reserved: u32, lpclass: Param3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: Param9, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegCreateKeyTransactedA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, reserved: u32, lpclass: super::super::Foundation::PSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2463,7 +2475,8 @@ pub unsafe fn RegCreateKeyTransactedA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RegCreateKeyTransactedW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, reserved: u32, lpclass: Param3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: Param9, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegCreateKeyTransactedW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, reserved: u32, lpclass: super::super::Foundation::PWSTR, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut HKEY, lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2478,7 +2491,8 @@ pub unsafe fn RegCreateKeyTransactedW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RegCreateKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegCreateKeyW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2493,7 +2507,8 @@ pub unsafe fn RegCreateKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Pa
 pub unsafe fn RegDeleteKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteKeyA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2508,7 +2523,8 @@ pub unsafe fn RegDeleteKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Pa
 pub unsafe fn RegDeleteKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, samdesired: u32, reserved: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteKeyExA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, samdesired: u32, reserved: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2523,7 +2539,8 @@ pub unsafe fn RegDeleteKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, 
 pub unsafe fn RegDeleteKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, samdesired: u32, reserved: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteKeyExW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, samdesired: u32, reserved: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2538,7 +2555,8 @@ pub unsafe fn RegDeleteKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, 
 pub unsafe fn RegDeleteKeyTransactedA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, samdesired: u32, reserved: u32, htransaction: Param4, pextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteKeyTransactedA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, samdesired: u32, reserved: u32, htransaction: super::super::Foundation::HANDLE, pextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2553,7 +2571,8 @@ pub unsafe fn RegDeleteKeyTransactedA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RegDeleteKeyTransactedW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, samdesired: u32, reserved: u32, htransaction: Param4, pextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteKeyTransactedW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, samdesired: u32, reserved: u32, htransaction: super::super::Foundation::HANDLE, pextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2568,7 +2587,8 @@ pub unsafe fn RegDeleteKeyTransactedW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RegDeleteKeyValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpvaluename: Param2) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteKeyValueA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, lpvaluename: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2583,7 +2603,8 @@ pub unsafe fn RegDeleteKeyValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY
 pub unsafe fn RegDeleteKeyValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpvaluename: Param2) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteKeyValueW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, lpvaluename: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2598,7 +2619,8 @@ pub unsafe fn RegDeleteKeyValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY
 pub unsafe fn RegDeleteKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteKeyW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2613,7 +2635,8 @@ pub unsafe fn RegDeleteKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Pa
 pub unsafe fn RegDeleteTreeA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteTreeA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2628,7 +2651,8 @@ pub unsafe fn RegDeleteTreeA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, P
 pub unsafe fn RegDeleteTreeW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteTreeW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2643,7 +2667,8 @@ pub unsafe fn RegDeleteTreeW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, P
 pub unsafe fn RegDeleteValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpvaluename: Param1) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteValueA(hkey: HKEY, lpvaluename: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2658,7 +2683,8 @@ pub unsafe fn RegDeleteValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, 
 pub unsafe fn RegDeleteValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpvaluename: Param1) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDeleteValueW(hkey: HKEY, lpvaluename: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2673,7 +2699,8 @@ pub unsafe fn RegDeleteValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, 
 pub unsafe fn RegDisablePredefinedCache() -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDisablePredefinedCache() -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2688,7 +2715,8 @@ pub unsafe fn RegDisablePredefinedCache() -> super::super::Foundation::WIN32_ERR
 pub unsafe fn RegDisablePredefinedCacheEx() -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDisablePredefinedCacheEx() -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2703,7 +2731,8 @@ pub unsafe fn RegDisablePredefinedCacheEx() -> super::super::Foundation::WIN32_E
 pub unsafe fn RegDisableReflectionKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hbase: Param0) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegDisableReflectionKey(hbase: HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2718,7 +2747,8 @@ pub unsafe fn RegDisableReflectionKey<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RegEnableReflectionKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hbase: Param0) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegEnableReflectionKey(hbase: HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2733,7 +2763,8 @@ pub unsafe fn RegEnableReflectionKey<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RegEnumKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: super::super::Foundation::PSTR, cchname: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegEnumKeyA(hkey: HKEY, dwindex: u32, lpname: super::super::Foundation::PSTR, cchname: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2748,7 +2779,8 @@ pub unsafe fn RegEnumKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey
 pub unsafe fn RegEnumKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: super::super::Foundation::PSTR, lpcchname: *mut u32, lpreserved: *mut u32, lpclass: super::super::Foundation::PSTR, lpcchclass: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegEnumKeyExA(hkey: HKEY, dwindex: u32, lpname: super::super::Foundation::PSTR, lpcchname: *mut u32, lpreserved: *mut u32, lpclass: super::super::Foundation::PSTR, lpcchclass: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2763,7 +2795,8 @@ pub unsafe fn RegEnumKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hk
 pub unsafe fn RegEnumKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpreserved: *mut u32, lpclass: super::super::Foundation::PWSTR, lpcchclass: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegEnumKeyExW(hkey: HKEY, dwindex: u32, lpname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpreserved: *mut u32, lpclass: super::super::Foundation::PWSTR, lpcchclass: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2778,7 +2811,8 @@ pub unsafe fn RegEnumKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hk
 pub unsafe fn RegEnumKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: super::super::Foundation::PWSTR, cchname: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegEnumKeyW(hkey: HKEY, dwindex: u32, lpname: super::super::Foundation::PWSTR, cchname: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2793,7 +2827,8 @@ pub unsafe fn RegEnumKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey
 pub unsafe fn RegEnumValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpvaluename: super::super::Foundation::PSTR, lpcchvaluename: *mut u32, lpreserved: *mut u32, lptype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegEnumValueA(hkey: HKEY, dwindex: u32, lpvaluename: super::super::Foundation::PSTR, lpcchvaluename: *mut u32, lpreserved: *mut u32, lptype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2808,7 +2843,8 @@ pub unsafe fn RegEnumValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hk
 pub unsafe fn RegEnumValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpvaluename: super::super::Foundation::PWSTR, lpcchvaluename: *mut u32, lpreserved: *mut u32, lptype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegEnumValueW(hkey: HKEY, dwindex: u32, lpvaluename: super::super::Foundation::PWSTR, lpcchvaluename: *mut u32, lpreserved: *mut u32, lptype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2823,7 +2859,8 @@ pub unsafe fn RegEnumValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hk
 pub unsafe fn RegFlushKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegFlushKey(hkey: HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2838,7 +2875,8 @@ pub unsafe fn RegFlushKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey
 pub unsafe fn RegGetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, securityinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegGetKeySecurity(hkey: HKEY, securityinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2853,7 +2891,8 @@ pub unsafe fn RegGetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a, HKEY>
 pub unsafe fn RegGetValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpvalue: Param2, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegGetValueA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, lpvalue: super::super::Foundation::PSTR, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2868,7 +2907,8 @@ pub unsafe fn RegGetValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Par
 pub unsafe fn RegGetValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpvalue: Param2, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegGetValueW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, lpvalue: super::super::Foundation::PWSTR, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2883,7 +2923,8 @@ pub unsafe fn RegGetValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Par
 pub unsafe fn RegLoadAppKeyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfile: Param0, phkresult: *mut HKEY, samdesired: u32, dwoptions: u32, reserved: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegLoadAppKeyA(lpfile: super::super::Foundation::PSTR, phkresult: *mut HKEY, samdesired: u32, dwoptions: u32, reserved: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2898,7 +2939,8 @@ pub unsafe fn RegLoadAppKeyA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn RegLoadAppKeyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfile: Param0, phkresult: *mut HKEY, samdesired: u32, dwoptions: u32, reserved: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegLoadAppKeyW(lpfile: super::super::Foundation::PWSTR, phkresult: *mut HKEY, samdesired: u32, dwoptions: u32, reserved: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2913,7 +2955,8 @@ pub unsafe fn RegLoadAppKeyW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn RegLoadKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpfile: Param2) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegLoadKeyA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, lpfile: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2928,7 +2971,8 @@ pub unsafe fn RegLoadKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Para
 pub unsafe fn RegLoadKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpfile: Param2) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegLoadKeyW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, lpfile: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2943,7 +2987,8 @@ pub unsafe fn RegLoadKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Para
 pub unsafe fn RegLoadMUIStringA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszvalue: Param1, pszoutbuf: super::super::Foundation::PSTR, cboutbuf: u32, pcbdata: *mut u32, flags: u32, pszdirectory: Param6) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegLoadMUIStringA(hkey: HKEY, pszvalue: super::super::Foundation::PSTR, pszoutbuf: super::super::Foundation::PSTR, cboutbuf: u32, pcbdata: *mut u32, flags: u32, pszdirectory: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2958,7 +3003,8 @@ pub unsafe fn RegLoadMUIStringA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>
 pub unsafe fn RegLoadMUIStringW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszvalue: Param1, pszoutbuf: super::super::Foundation::PWSTR, cboutbuf: u32, pcbdata: *mut u32, flags: u32, pszdirectory: Param6) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegLoadMUIStringW(hkey: HKEY, pszvalue: super::super::Foundation::PWSTR, pszoutbuf: super::super::Foundation::PWSTR, cboutbuf: u32, pcbdata: *mut u32, flags: u32, pszdirectory: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2973,7 +3019,8 @@ pub unsafe fn RegLoadMUIStringW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>
 pub unsafe fn RegNotifyChangeKeyValue<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hkey: Param0, bwatchsubtree: Param1, dwnotifyfilter: REG_NOTIFY_FILTER, hevent: Param3, fasynchronous: Param4) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegNotifyChangeKeyValue(hkey: HKEY, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: REG_NOTIFY_FILTER, hevent: super::super::Foundation::HANDLE, fasynchronous: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -2988,7 +3035,8 @@ pub unsafe fn RegNotifyChangeKeyValue<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RegOpenCurrentUser(samdesired: u32, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegOpenCurrentUser(samdesired: u32, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3003,7 +3051,8 @@ pub unsafe fn RegOpenCurrentUser(samdesired: u32, phkresult: *mut HKEY) -> super
 pub unsafe fn RegOpenKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegOpenKeyA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3018,7 +3067,8 @@ pub unsafe fn RegOpenKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Para
 pub unsafe fn RegOpenKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegOpenKeyExA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3033,7 +3083,8 @@ pub unsafe fn RegOpenKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Pa
 pub unsafe fn RegOpenKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegOpenKeyExW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3048,7 +3099,8 @@ pub unsafe fn RegOpenKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Pa
 pub unsafe fn RegOpenKeyTransactedA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: Param5, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegOpenKeyTransactedA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3063,7 +3115,8 @@ pub unsafe fn RegOpenKeyTransactedA<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn RegOpenKeyTransactedW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: Param5, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegOpenKeyTransactedW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: super::super::Foundation::HANDLE, pextendedparemeter: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3078,7 +3131,8 @@ pub unsafe fn RegOpenKeyTransactedW<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn RegOpenKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegOpenKeyW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3093,7 +3147,8 @@ pub unsafe fn RegOpenKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Para
 pub unsafe fn RegOpenUserClassesRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, dwoptions: u32, samdesired: u32, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegOpenUserClassesRoot(htoken: super::super::Foundation::HANDLE, dwoptions: u32, samdesired: u32, phkresult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3108,7 +3163,8 @@ pub unsafe fn RegOpenUserClassesRoot<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RegOverridePredefKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, hnewhkey: Param1) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegOverridePredefKey(hkey: HKEY, hnewhkey: HKEY) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3123,7 +3179,8 @@ pub unsafe fn RegOverridePredefKey<'a, Param0: ::windows::core::IntoParam<'a, HK
 pub unsafe fn RegQueryInfoKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, lpclass: super::super::Foundation::PSTR, lpcchclass: *mut u32, lpreserved: *mut u32, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcbmaxclasslen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegQueryInfoKeyA(hkey: HKEY, lpclass: super::super::Foundation::PSTR, lpcchclass: *mut u32, lpreserved: *mut u32, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcbmaxclasslen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3138,7 +3195,8 @@ pub unsafe fn RegQueryInfoKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>
 pub unsafe fn RegQueryInfoKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, lpclass: super::super::Foundation::PWSTR, lpcchclass: *mut u32, lpreserved: *mut u32, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcbmaxclasslen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegQueryInfoKeyW(hkey: HKEY, lpclass: super::super::Foundation::PWSTR, lpcchclass: *mut u32, lpreserved: *mut u32, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcbmaxclasslen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3153,7 +3211,8 @@ pub unsafe fn RegQueryInfoKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>
 pub unsafe fn RegQueryMultipleValuesA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, val_list: *mut VALENTA, num_vals: u32, lpvaluebuf: super::super::Foundation::PSTR, ldwtotsize: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegQueryMultipleValuesA(hkey: HKEY, val_list: *mut VALENTA, num_vals: u32, lpvaluebuf: super::super::Foundation::PSTR, ldwtotsize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3168,7 +3227,8 @@ pub unsafe fn RegQueryMultipleValuesA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RegQueryMultipleValuesW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, val_list: *mut VALENTW, num_vals: u32, lpvaluebuf: super::super::Foundation::PWSTR, ldwtotsize: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegQueryMultipleValuesW(hkey: HKEY, val_list: *mut VALENTW, num_vals: u32, lpvaluebuf: super::super::Foundation::PWSTR, ldwtotsize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3183,7 +3243,8 @@ pub unsafe fn RegQueryMultipleValuesW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn RegQueryReflectionKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hbase: Param0, bisreflectiondisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegQueryReflectionKey(hbase: HKEY, bisreflectiondisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3198,7 +3259,8 @@ pub unsafe fn RegQueryReflectionKey<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn RegQueryValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpdata: super::super::Foundation::PSTR, lpcbdata: *mut i32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegQueryValueA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, lpdata: super::super::Foundation::PSTR, lpcbdata: *mut i32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3213,7 +3275,8 @@ pub unsafe fn RegQueryValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, P
 pub unsafe fn RegQueryValueExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpvaluename: Param1, lpreserved: *mut u32, lptype: *mut REG_VALUE_TYPE, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegQueryValueExA(hkey: HKEY, lpvaluename: super::super::Foundation::PSTR, lpreserved: *mut u32, lptype: *mut REG_VALUE_TYPE, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3228,7 +3291,8 @@ pub unsafe fn RegQueryValueExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>,
 pub unsafe fn RegQueryValueExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpvaluename: Param1, lpreserved: *mut u32, lptype: *mut REG_VALUE_TYPE, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegQueryValueExW(hkey: HKEY, lpvaluename: super::super::Foundation::PWSTR, lpreserved: *mut u32, lptype: *mut REG_VALUE_TYPE, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3243,7 +3307,8 @@ pub unsafe fn RegQueryValueExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>,
 pub unsafe fn RegQueryValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpdata: super::super::Foundation::PWSTR, lpcbdata: *mut i32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegQueryValueW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, lpdata: super::super::Foundation::PWSTR, lpcbdata: *mut i32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3258,7 +3323,8 @@ pub unsafe fn RegQueryValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, P
 pub unsafe fn RegRenameKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkeyname: Param1, lpnewkeyname: Param2) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegRenameKey(hkey: HKEY, lpsubkeyname: super::super::Foundation::PWSTR, lpnewkeyname: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3273,7 +3339,8 @@ pub unsafe fn RegRenameKey<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Par
 pub unsafe fn RegReplaceKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpnewfile: Param2, lpoldfile: Param3) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegReplaceKeyA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, lpnewfile: super::super::Foundation::PSTR, lpoldfile: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3288,7 +3355,8 @@ pub unsafe fn RegReplaceKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, P
 pub unsafe fn RegReplaceKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpnewfile: Param2, lpoldfile: Param3) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegReplaceKeyW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, lpnewfile: super::super::Foundation::PWSTR, lpoldfile: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3303,7 +3371,8 @@ pub unsafe fn RegReplaceKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, P
 pub unsafe fn RegRestoreKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpfile: Param1, dwflags: REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegRestoreKeyA(hkey: HKEY, lpfile: super::super::Foundation::PSTR, dwflags: REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3318,7 +3387,8 @@ pub unsafe fn RegRestoreKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, P
 pub unsafe fn RegRestoreKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpfile: Param1, dwflags: REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegRestoreKeyW(hkey: HKEY, lpfile: super::super::Foundation::PWSTR, dwflags: REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3333,7 +3403,8 @@ pub unsafe fn RegRestoreKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, P
 pub unsafe fn RegSaveKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpfile: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSaveKeyA(hkey: HKEY, lpfile: super::super::Foundation::PSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3348,7 +3419,8 @@ pub unsafe fn RegSaveKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Para
 pub unsafe fn RegSaveKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpfile: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: REG_SAVE_FORMAT) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSaveKeyExA(hkey: HKEY, lpfile: super::super::Foundation::PSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: REG_SAVE_FORMAT) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3363,7 +3435,8 @@ pub unsafe fn RegSaveKeyExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Pa
 pub unsafe fn RegSaveKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpfile: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: REG_SAVE_FORMAT) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSaveKeyExW(hkey: HKEY, lpfile: super::super::Foundation::PWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: REG_SAVE_FORMAT) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3378,7 +3451,8 @@ pub unsafe fn RegSaveKeyExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Pa
 pub unsafe fn RegSaveKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpfile: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSaveKeyW(hkey: HKEY, lpfile: super::super::Foundation::PWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3393,7 +3467,8 @@ pub unsafe fn RegSaveKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Para
 pub unsafe fn RegSetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a, HKEY>>(hkey: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSetKeySecurity(hkey: HKEY, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3408,7 +3483,8 @@ pub unsafe fn RegSetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a, HKEY>
 pub unsafe fn RegSetKeyValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpvaluename: Param2, dwtype: u32, lpdata: *const ::core::ffi::c_void, cbdata: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSetKeyValueA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, lpvaluename: super::super::Foundation::PSTR, dwtype: u32, lpdata: *const ::core::ffi::c_void, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3423,7 +3499,8 @@ pub unsafe fn RegSetKeyValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, 
 pub unsafe fn RegSetKeyValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpvaluename: Param2, dwtype: u32, lpdata: *const ::core::ffi::c_void, cbdata: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSetKeyValueW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, lpvaluename: super::super::Foundation::PWSTR, dwtype: u32, lpdata: *const ::core::ffi::c_void, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3438,7 +3515,8 @@ pub unsafe fn RegSetKeyValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, 
 pub unsafe fn RegSetValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, dwtype: REG_VALUE_TYPE, lpdata: Param3, cbdata: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSetValueA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR, dwtype: REG_VALUE_TYPE, lpdata: super::super::Foundation::PSTR, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3453,7 +3531,8 @@ pub unsafe fn RegSetValueA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Par
 pub unsafe fn RegSetValueExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpvaluename: Param1, reserved: u32, dwtype: REG_VALUE_TYPE, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSetValueExA(hkey: HKEY, lpvaluename: super::super::Foundation::PSTR, reserved: u32, dwtype: REG_VALUE_TYPE, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3468,7 +3547,8 @@ pub unsafe fn RegSetValueExA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, P
 pub unsafe fn RegSetValueExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpvaluename: Param1, reserved: u32, dwtype: REG_VALUE_TYPE, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSetValueExW(hkey: HKEY, lpvaluename: super::super::Foundation::PWSTR, reserved: u32, dwtype: REG_VALUE_TYPE, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3483,7 +3563,8 @@ pub unsafe fn RegSetValueExW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, P
 pub unsafe fn RegSetValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, dwtype: REG_VALUE_TYPE, lpdata: Param3, cbdata: u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegSetValueW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR, dwtype: REG_VALUE_TYPE, lpdata: super::super::Foundation::PWSTR, cbdata: u32) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3498,7 +3579,8 @@ pub unsafe fn RegSetValueW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Par
 pub unsafe fn RegUnLoadKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegUnLoadKeyA(hkey: HKEY, lpsubkey: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
         }
@@ -3513,7 +3595,8 @@ pub unsafe fn RegUnLoadKeyA<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Pa
 pub unsafe fn RegUnLoadKeyW<'a, Param0: ::windows::core::IntoParam<'a, HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegUnLoadKeyW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
         }

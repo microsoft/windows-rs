@@ -1,51 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mprapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmAddGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmDeRegisterMProtocol(hprotocol: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmDeleteGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
-    pub fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
-    pub fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_NetworkManagement_IpHelper'*"]
-    #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-    pub fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_NetworkManagement_IpHelper'*"]
-    #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-    pub fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_NetworkManagement_IpHelper'*"]
-    #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-    pub fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_NetworkManagement_IpHelper'*"]
-    #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
-    pub fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
-    pub fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmGroupEnumerationEnd(henum: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmGroupEnumerationGetNext(henum: super::super::Foundation::HANDLE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmGroupEnumerationStart(hprotocol: super::super::Foundation::HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmReleaseInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MgmTakeInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
     pub fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
@@ -351,6 +307,10 @@ extern "system" {
     pub fn MprInfoDuplicate(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
     pub fn MprInfoRemoveAll(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rasapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
     pub fn RasClearConnectionStatistics(hrasconn: HRASCONN) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
@@ -384,12 +344,6 @@ extern "system" {
     pub fn RasDialA(param0: *const RASDIALEXTENSIONS, param1: super::super::Foundation::PSTR, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasDialDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpszphonenumber: super::super::Foundation::PSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RasDialDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpszphonenumber: super::super::Foundation::PWSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn RasDialW(param0: *const RASDIALEXTENSIONS, param1: super::super::Foundation::PWSTR, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -397,12 +351,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RasEditPhonebookEntryW(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEntryDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RasEntryDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RasEnumAutodialAddressesA(lpprasautodialaddresses: *mut super::super::Foundation::PSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32;
@@ -530,12 +478,6 @@ extern "system" {
     pub fn RasInvokeEapUI(param0: HRASCONN, param1: u32, param2: *const RASDIALEXTENSIONS, param3: super::super::Foundation::HWND) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RasPhonebookDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RasPhonebookDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn RasRenameEntryA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -601,6 +543,77 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RasValidateEntryNameW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rasdlg", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RasDialDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpszphonenumber: super::super::Foundation::PSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RasDialDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpszphonenumber: super::super::Foundation::PWSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RasEntryDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RasEntryDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RasPhonebookDlgA(lpszphonebook: super::super::Foundation::PSTR, lpszentry: super::super::Foundation::PSTR, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RasPhonebookDlgW(lpszphonebook: super::super::Foundation::PWSTR, lpszentry: super::super::Foundation::PWSTR, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MgmAddGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MgmDeRegisterMProtocol(hprotocol: super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MgmDeleteGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
+    pub fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
+    pub fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_NetworkManagement_IpHelper'*"]
+    #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+    pub fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_NetworkManagement_IpHelper'*"]
+    #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+    pub fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_NetworkManagement_IpHelper'*"]
+    #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+    pub fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_NetworkManagement_IpHelper'*"]
+    #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+    pub fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
+    pub fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MgmGroupEnumerationEnd(henum: super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MgmGroupEnumerationGetNext(henum: super::super::Foundation::HANDLE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MgmGroupEnumerationStart(hprotocol: super::super::Foundation::HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MgmReleaseInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MgmTakeInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
     pub fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, changeflags: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]

@@ -4,7 +4,8 @@
 pub unsafe fn AddPointerInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> ::windows::core::HRESULT;
         }
@@ -19,7 +20,8 @@ pub unsafe fn AddPointerInteractionContext<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn BufferPointerPacketsInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, entriescount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BufferPointerPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::HRESULT;
         }
@@ -160,7 +162,8 @@ impl ::core::fmt::Debug for CROSS_SLIDE_THRESHOLD {
 pub unsafe fn CreateInteractionContext() -> ::windows::core::Result<HINTERACTIONCONTEXT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateInteractionContext(interactioncontext: *mut HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
         }
@@ -175,7 +178,8 @@ pub unsafe fn CreateInteractionContext() -> ::windows::core::Result<HINTERACTION
 pub unsafe fn DestroyInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DestroyInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
         }
@@ -189,7 +193,8 @@ pub unsafe fn DestroyInteractionContext<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn GetCrossSlideParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, threshold: CROSS_SLIDE_THRESHOLD) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetCrossSlideParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD, distance: *mut f32) -> ::windows::core::HRESULT;
         }
@@ -204,7 +209,8 @@ pub unsafe fn GetCrossSlideParameterInteractionContext<'a, Param0: ::windows::co
 pub unsafe fn GetHoldParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: HOLD_PARAMETER) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
         }
@@ -219,7 +225,8 @@ pub unsafe fn GetHoldParameterInteractionContext<'a, Param0: ::windows::core::In
 pub unsafe fn GetInertiaParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, inertiaparameter: INERTIA_PARAMETER) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
         }
@@ -234,7 +241,8 @@ pub unsafe fn GetInertiaParameterInteractionContext<'a, Param0: ::windows::core:
 pub unsafe fn GetInteractionConfigurationInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, configurationcount: u32, configuration: *mut INTERACTION_CONTEXT_CONFIGURATION) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: u32, configuration: *mut INTERACTION_CONTEXT_CONFIGURATION) -> ::windows::core::HRESULT;
         }
@@ -248,7 +256,8 @@ pub unsafe fn GetInteractionConfigurationInteractionContext<'a, Param0: ::window
 pub unsafe fn GetMouseWheelParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: MOUSE_WHEEL_PARAMETER) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
         }
@@ -263,7 +272,8 @@ pub unsafe fn GetMouseWheelParameterInteractionContext<'a, Param0: ::windows::co
 pub unsafe fn GetPropertyInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, contextproperty: INTERACTION_CONTEXT_PROPERTY) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -279,7 +289,8 @@ pub unsafe fn GetPropertyInteractionContext<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn GetStateInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<INTERACTION_STATE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: *const super::Input::Pointer::POINTER_INFO, state: *mut INTERACTION_STATE) -> ::windows::core::HRESULT;
         }
@@ -294,7 +305,8 @@ pub unsafe fn GetStateInteractionContext<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetTapParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TAP_PARAMETER) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
         }
@@ -309,7 +321,8 @@ pub unsafe fn GetTapParameterInteractionContext<'a, Param0: ::windows::core::Int
 pub unsafe fn GetTranslationParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TRANSLATION_PARAMETER) -> ::windows::core::Result<f32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
         }
@@ -1108,7 +1121,8 @@ impl ::core::fmt::Debug for MOUSE_WHEEL_PARAMETER {
 pub unsafe fn ProcessBufferedPacketsInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ProcessBufferedPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
         }
@@ -1122,7 +1136,8 @@ pub unsafe fn ProcessBufferedPacketsInteractionContext<'a, Param0: ::windows::co
 pub unsafe fn ProcessInertiaInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ProcessInertiaInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
         }
@@ -1137,7 +1152,8 @@ pub unsafe fn ProcessInertiaInteractionContext<'a, Param0: ::windows::core::Into
 pub unsafe fn ProcessPointerFramesInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ProcessPointerFramesInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::HRESULT;
         }
@@ -1152,7 +1168,8 @@ pub unsafe fn ProcessPointerFramesInteractionContext<'a, Param0: ::windows::core
 pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: ::windows::core::RawPtr, clientdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1167,7 +1184,8 @@ pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::co
 pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: ::windows::core::RawPtr, clientdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1181,7 +1199,8 @@ pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::windows::c
 pub unsafe fn RemovePointerInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemovePointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> ::windows::core::HRESULT;
         }
@@ -1195,7 +1214,8 @@ pub unsafe fn RemovePointerInteractionContext<'a, Param0: ::windows::core::IntoP
 pub unsafe fn ResetInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResetInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
         }
@@ -1209,7 +1229,8 @@ pub unsafe fn ResetInteractionContext<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SetCrossSlideParametersInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parametercount: u32, crossslideparameters: *const CROSS_SLIDE_PARAMETER) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetCrossSlideParametersInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parametercount: u32, crossslideparameters: *const CROSS_SLIDE_PARAMETER) -> ::windows::core::HRESULT;
         }
@@ -1223,7 +1244,8 @@ pub unsafe fn SetCrossSlideParametersInteractionContext<'a, Param0: ::windows::c
 pub unsafe fn SetHoldParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: HOLD_PARAMETER, value: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: f32) -> ::windows::core::HRESULT;
         }
@@ -1237,7 +1259,8 @@ pub unsafe fn SetHoldParameterInteractionContext<'a, Param0: ::windows::core::In
 pub unsafe fn SetInertiaParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, inertiaparameter: INERTIA_PARAMETER, value: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: f32) -> ::windows::core::HRESULT;
         }
@@ -1251,7 +1274,8 @@ pub unsafe fn SetInertiaParameterInteractionContext<'a, Param0: ::windows::core:
 pub unsafe fn SetInteractionConfigurationInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, configurationcount: u32, configuration: *const INTERACTION_CONTEXT_CONFIGURATION) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: u32, configuration: *const INTERACTION_CONTEXT_CONFIGURATION) -> ::windows::core::HRESULT;
         }
@@ -1265,7 +1289,8 @@ pub unsafe fn SetInteractionConfigurationInteractionContext<'a, Param0: ::window
 pub unsafe fn SetMouseWheelParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows::core::HRESULT;
         }
@@ -1279,7 +1304,8 @@ pub unsafe fn SetMouseWheelParameterInteractionContext<'a, Param0: ::windows::co
 pub unsafe fn SetPivotInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, x: f32, y: f32, radius: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPivotInteractionContext(interactioncontext: HINTERACTIONCONTEXT, x: f32, y: f32, radius: f32) -> ::windows::core::HRESULT;
         }
@@ -1293,7 +1319,8 @@ pub unsafe fn SetPivotInteractionContext<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetPropertyInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> ::windows::core::HRESULT;
         }
@@ -1307,7 +1334,8 @@ pub unsafe fn SetPropertyInteractionContext<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn SetTapParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TAP_PARAMETER, value: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: f32) -> ::windows::core::HRESULT;
         }
@@ -1321,7 +1349,8 @@ pub unsafe fn SetTapParameterInteractionContext<'a, Param0: ::windows::core::Int
 pub unsafe fn SetTranslationParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows::core::HRESULT;
         }
@@ -1335,7 +1364,8 @@ pub unsafe fn SetTranslationParameterInteractionContext<'a, Param0: ::windows::c
 pub unsafe fn StopInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ninput", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StopInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
         }

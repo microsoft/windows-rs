@@ -1,30 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
-    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BSTR_UserFree(param0: *const u32, param1: *const super::super::super::Foundation::BSTR);
-    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BSTR_UserFree64(param0: *const u32, param1: *const super::super::super::Foundation::BSTR);
-    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BSTR_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::super::super::Foundation::BSTR) -> *mut u8;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BSTR_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::super::super::Foundation::BSTR) -> *mut u8;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BSTR_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::Foundation::BSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BSTR_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::Foundation::BSTR) -> u32;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BSTR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::super::Foundation::BSTR) -> *mut u8;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BSTR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::super::Foundation::BSTR) -> *mut u8;
     #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
     pub fn CLIPFORMAT_UserFree(param0: *const u32, param1: *const u16);
     #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
@@ -244,22 +221,6 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn HWND_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::super::Foundation::HWND) -> *mut u8;
     #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const super::SAFEARRAY);
-    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub fn LPSAFEARRAY_UserFree64(param0: *const u32, param1: *const *const super::SAFEARRAY);
-    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub fn LPSAFEARRAY_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const *const super::SAFEARRAY) -> *mut u8;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub fn LPSAFEARRAY_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const *const super::SAFEARRAY) -> *mut u8;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub fn LPSAFEARRAY_UserSize(param0: *const u32, param1: u32, param2: *const *const super::SAFEARRAY) -> u32;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub fn LPSAFEARRAY_UserSize64(param0: *const u32, param1: u32, param2: *const *const super::SAFEARRAY) -> u32;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub fn LPSAFEARRAY_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut *mut super::SAFEARRAY) -> *mut u8;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub fn LPSAFEARRAY_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut *mut super::SAFEARRAY) -> *mut u8;
-    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
     pub fn SNB_UserFree(param0: *const u32, param1: *const *const *const u16);
     #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
     pub fn SNB_UserFree64(param0: *const u32, param1: *const *const *const u16);
@@ -299,6 +260,50 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BSTR_UserFree(param0: *const u32, param1: *const super::super::super::Foundation::BSTR);
+    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BSTR_UserFree64(param0: *const u32, param1: *const super::super::super::Foundation::BSTR);
+    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BSTR_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::super::super::Foundation::BSTR) -> *mut u8;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BSTR_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::super::super::Foundation::BSTR) -> *mut u8;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BSTR_UserSize(param0: *const u32, param1: u32, param2: *const super::super::super::Foundation::BSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BSTR_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::super::Foundation::BSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BSTR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::super::Foundation::BSTR) -> *mut u8;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BSTR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::super::Foundation::BSTR) -> *mut u8;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
+    pub fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const super::SAFEARRAY);
+    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
+    pub fn LPSAFEARRAY_UserFree64(param0: *const u32, param1: *const *const super::SAFEARRAY);
+    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
+    pub fn LPSAFEARRAY_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const *const super::SAFEARRAY) -> *mut u8;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
+    pub fn LPSAFEARRAY_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const *const super::SAFEARRAY) -> *mut u8;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
+    pub fn LPSAFEARRAY_UserSize(param0: *const u32, param1: u32, param2: *const *const super::SAFEARRAY) -> u32;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
+    pub fn LPSAFEARRAY_UserSize64(param0: *const u32, param1: u32, param2: *const *const super::SAFEARRAY) -> u32;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
+    pub fn LPSAFEARRAY_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut *mut super::SAFEARRAY) -> *mut u8;
+    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
+    pub fn LPSAFEARRAY_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut *mut super::SAFEARRAY) -> *mut u8;
     #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT);

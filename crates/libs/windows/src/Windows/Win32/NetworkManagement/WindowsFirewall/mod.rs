@@ -7926,7 +7926,8 @@ pub const NetSharingManager: ::windows::core::GUID = ::windows::core::GUID::from
 pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszservername: Param0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-net-isolation-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: super::super::Foundation::PWSTR, netisoerror: *mut NETISO_ERROR_TYPE) -> u32;
         }
@@ -7941,7 +7942,8 @@ pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, Param0: ::win
 pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-net-isolation-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32;
         }
@@ -7956,7 +7958,8 @@ pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *
 pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-net-isolation-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32;
         }
@@ -7971,7 +7974,8 @@ pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWA
 pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-net-isolation-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32;
         }
@@ -7986,7 +7990,8 @@ pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32,
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: *const ::core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-net-isolation-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -8001,7 +8006,8 @@ pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callbac
 pub unsafe fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appcontainersids: *const super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-net-isolation-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appcontainersids: *const super::super::Security::SID_AND_ATTRIBUTES) -> u32;
         }
@@ -8016,7 +8022,8 @@ pub unsafe fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appco
 pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(applicationcontainersid: Param0, packagefullname: Param1, packagefolder: Param2, displayname: Param3, bbinariesfullycomputed: Param4, binaries: *const super::super::Foundation::PWSTR, binariescount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-net-isolation-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid: super::super::Foundation::PSID, packagefullname: super::super::Foundation::PWSTR, packagefolder: super::super::Foundation::PWSTR, displayname: super::super::Foundation::PWSTR, bbinariesfullycomputed: super::super::Foundation::BOOL, binaries: *const super::super::Foundation::PWSTR, binariescount: u32) -> ::windows::core::HRESULT;
         }
@@ -8031,7 +8038,8 @@ pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, Param0: ::windows::c
 pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(registrationobject: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-net-isolation-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject: super::super::Foundation::HANDLE) -> u32;
         }

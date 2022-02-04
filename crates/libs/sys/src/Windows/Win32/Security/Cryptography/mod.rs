@@ -7,7 +7,129 @@ pub mod Certificates;
 pub mod Sip;
 #[cfg(feature = "Win32_Security_Cryptography_UI")]
 pub mod UI;
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptAcquireContextA(phprov: *mut usize, szcontainer: super::super::Foundation::PSTR, szprovider: super::super::Foundation::PSTR, dwprovtype: u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptAcquireContextW(phprov: *mut usize, szcontainer: super::super::Foundation::PWSTR, szprovider: super::super::Foundation::PWSTR, dwprovtype: u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptContextAddRef(hprov: usize, pdwreserved: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptCreateHash(hprov: usize, algid: u32, hkey: usize, dwflags: u32, phhash: *mut usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptDecrypt(hkey: usize, hhash: usize, r#final: super::super::Foundation::BOOL, dwflags: u32, pbdata: *mut u8, pdwdatalen: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptDeriveKey(hprov: usize, algid: u32, hbasedata: usize, dwflags: u32, phkey: *mut usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptDestroyHash(hhash: usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptDestroyKey(hkey: usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptDuplicateHash(hhash: usize, pdwreserved: *mut u32, dwflags: u32, phhash: *mut usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptDuplicateKey(hkey: usize, pdwreserved: *mut u32, dwflags: u32, phkey: *mut usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptEncrypt(hkey: usize, hhash: usize, r#final: super::super::Foundation::BOOL, dwflags: u32, pbdata: *mut u8, pdwdatalen: *mut u32, dwbuflen: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptEnumProviderTypesA(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, sztypename: super::super::Foundation::PSTR, pcbtypename: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptEnumProviderTypesW(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, sztypename: super::super::Foundation::PWSTR, pcbtypename: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptEnumProvidersA(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, szprovname: super::super::Foundation::PSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptEnumProvidersW(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, szprovname: super::super::Foundation::PWSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptExportKey(hkey: usize, hexpkey: usize, dwblobtype: u32, dwflags: CRYPT_KEY_FLAGS, pbdata: *mut u8, pdwdatalen: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptGenKey(hprov: usize, algid: u32, dwflags: CRYPT_KEY_FLAGS, phkey: *mut usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptGenRandom(hprov: usize, dwlen: u32, pbbuffer: *mut u8) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptGetDefaultProviderA(dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32, pszprovname: super::super::Foundation::PSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptGetDefaultProviderW(dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32, pszprovname: super::super::Foundation::PWSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptGetHashParam(hhash: usize, dwparam: u32, pbdata: *mut u8, pdwdatalen: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptGetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata: *mut u8, pdwdatalen: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptGetProvParam(hprov: usize, dwparam: u32, pbdata: *mut u8, pdwdatalen: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptGetUserKey(hprov: usize, dwkeyspec: u32, phuserkey: *mut usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptHashData(hhash: usize, pbdata: *const u8, dwdatalen: u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptHashSessionKey(hhash: usize, hkey: usize, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptImportKey(hprov: usize, pbdata: *const u8, dwdatalen: u32, hpubkey: usize, dwflags: CRYPT_KEY_FLAGS, phkey: *mut usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptReleaseContext(hprov: usize, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptSetHashParam(hhash: usize, dwparam: CRYPT_SET_HASH_PARAM, pbdata: *const u8, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptSetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata: *const u8, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptSetProvParam(hprov: usize, dwparam: CRYPT_SET_PROV_PARAM_ID, pbdata: *const u8, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptSetProviderA(pszprovname: super::super::Foundation::PSTR, dwprovtype: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptSetProviderExA(pszprovname: super::super::Foundation::PSTR, dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptSetProviderExW(pszprovname: super::super::Foundation::PWSTR, dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptSetProviderW(pszprovname: super::super::Foundation::PWSTR, dwprovtype: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptSignHashA(hhash: usize, dwkeyspec: u32, szdescription: super::super::Foundation::PSTR, dwflags: u32, pbsignature: *mut u8, pdwsiglen: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptSignHashW(hhash: usize, dwkeyspec: u32, szdescription: super::super::Foundation::PWSTR, dwflags: u32, pbsignature: *mut u8, pdwsiglen: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptVerifySignatureA(hhash: usize, pbsignature: *const u8, dwsiglen: u32, hpubkey: usize, szdescription: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptVerifySignatureW(hhash: usize, pbsignature: *const u8, dwsiglen: u32, hpubkey: usize, szdescription: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "bcrypt", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -167,6 +289,10 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BCryptVerifySignature(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: *const ::core::ffi::c_void, pbhash: *const u8, cbhash: u32, pbsignature: *const u8, cbsignature: u32, dwflags: NCRYPT_FLAGS) -> super::super::Foundation::NTSTATUS;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "crypt32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CertAddCRLContextToStore(hcertstore: HCERTSTORE, pcrlcontext: *const CRL_CONTEXT, dwadddisposition: u32, ppstorecontext: *mut *mut CRL_CONTEXT) -> super::super::Foundation::BOOL;
@@ -528,17 +654,9 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CertVerifyValidityNesting(psubjectinfo: *const CERT_INFO, pissuerinfo: *const CERT_INFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-    pub fn CloseCryptoHandle(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptAcquireCertificatePrivateKey(pcert: *const CERT_CONTEXT, dwflags: CRYPT_ACQUIRE_FLAGS, pvparameters: *const ::core::ffi::c_void, phcryptprovorncryptkey: *mut HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, pdwkeyspec: *mut CERT_KEY_SPEC, pfcallerfreeprovorncryptkey: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptAcquireContextA(phprov: *mut usize, szcontainer: super::super::Foundation::PSTR, szprovider: super::super::Foundation::PSTR, dwprovtype: u32, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptAcquireContextW(phprov: *mut usize, szcontainer: super::super::Foundation::PWSTR, szprovider: super::super::Foundation::PWSTR, dwprovtype: u32, dwflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptBinaryToStringA(pbbinary: *const u8, cbbinary: u32, dwflags: CRYPT_STRING, pszstring: super::super::Foundation::PSTR, pcchstring: *mut u32) -> super::super::Foundation::BOOL;
@@ -550,13 +668,7 @@ extern "system" {
     pub fn CryptCloseAsyncHandle(hasync: HCRYPTASYNC) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptContextAddRef(hprov: usize, pdwreserved: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CryptCreateAsyncHandle(dwflags: u32, phasync: *mut HCRYPTASYNC) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptCreateHash(hprov: usize, algid: u32, hkey: usize, dwflags: u32, phhash: *mut usize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptCreateKeyIdentifierFromCSP(dwcertencodingtype: u32, pszpubkeyoid: super::super::Foundation::PSTR, ppubkeystruc: *const PUBLICKEYSTRUC, cbpubkeystruc: u32, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, pbhash: *mut u8, pcbhash: *mut u32) -> super::super::Foundation::BOOL;
@@ -571,37 +683,16 @@ extern "system" {
     pub fn CryptDecodeObjectEx(dwcertencodingtype: u32, lpszstructtype: super::super::Foundation::PSTR, pbencoded: *const u8, cbencoded: u32, dwflags: u32, pdecodepara: *const CRYPT_DECODE_PARA, pvstructinfo: *mut ::core::ffi::c_void, pcbstructinfo: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptDecrypt(hkey: usize, hhash: usize, r#final: super::super::Foundation::BOOL, dwflags: u32, pbdata: *mut u8, pdwdatalen: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CryptDecryptAndVerifyMessageSignature(pdecryptpara: *const CRYPT_DECRYPT_MESSAGE_PARA, pverifypara: *const CRYPT_VERIFY_MESSAGE_PARA, dwsignerindex: u32, pbencryptedblob: *const u8, cbencryptedblob: u32, pbdecrypted: *mut u8, pcbdecrypted: *mut u32, ppxchgcert: *mut *mut CERT_CONTEXT, ppsignercert: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptDecryptMessage(pdecryptpara: *const CRYPT_DECRYPT_MESSAGE_PARA, pbencryptedblob: *const u8, cbencryptedblob: u32, pbdecrypted: *mut u8, pcbdecrypted: *mut u32, ppxchgcert: *mut *mut CERT_CONTEXT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptDeriveKey(hprov: usize, algid: u32, hbasedata: usize, dwflags: u32, phkey: *mut usize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptDestroyHash(hhash: usize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptDestroyKey(hkey: usize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptDuplicateHash(hhash: usize, pdwreserved: *mut u32, dwflags: u32, phhash: *mut usize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptDuplicateKey(hkey: usize, pdwreserved: *mut u32, dwflags: u32, phkey: *mut usize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CryptEncodeObject(dwcertencodingtype: u32, lpszstructtype: super::super::Foundation::PSTR, pvstructinfo: *const ::core::ffi::c_void, pbencoded: *mut u8, pcbencoded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptEncodeObjectEx(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: super::super::Foundation::PSTR, pvstructinfo: *const ::core::ffi::c_void, dwflags: CRYPT_ENCODE_OBJECT_FLAGS, pencodepara: *const CRYPT_ENCODE_PARA, pvencoded: *mut ::core::ffi::c_void, pcbencoded: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptEncrypt(hkey: usize, hhash: usize, r#final: super::super::Foundation::BOOL, dwflags: u32, pbdata: *mut u8, pdwdatalen: *mut u32, dwbuflen: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptEncryptMessage(pencryptpara: *const CRYPT_ENCRYPT_MESSAGE_PARA, crecipientcert: u32, rgprecipientcert: *const *const CERT_CONTEXT, pbtobeencrypted: *const u8, cbtobeencrypted: u32, pbencryptedblob: *mut u8, pcbencryptedblob: *mut u32) -> super::super::Foundation::BOOL;
@@ -614,21 +705,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptEnumOIDInfo(dwgroupid: u32, dwflags: u32, pvarg: *mut ::core::ffi::c_void, pfnenumoidinfo: PFN_CRYPT_ENUM_OID_INFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptEnumProviderTypesA(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, sztypename: super::super::Foundation::PSTR, pcbtypename: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptEnumProviderTypesW(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, sztypename: super::super::Foundation::PWSTR, pcbtypename: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptEnumProvidersA(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, szprovname: super::super::Foundation::PSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptEnumProvidersW(dwindex: u32, pdwreserved: *mut u32, dwflags: u32, pdwprovtype: *mut u32, szprovname: super::super::Foundation::PWSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptExportKey(hkey: usize, hexpkey: usize, dwblobtype: u32, dwflags: CRYPT_KEY_FLAGS, pbdata: *mut u8, pdwdatalen: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptExportPKCS8(hcryptprov: usize, dwkeyspec: u32, pszprivatekeyobjid: super::super::Foundation::PSTR, dwflags: u32, pvauxinfo: *const ::core::ffi::c_void, pbprivatekeyblob: *mut u8, pcbprivatekeyblob: *mut u32) -> super::super::Foundation::BOOL;
@@ -658,12 +734,6 @@ extern "system" {
     pub fn CryptFreeOIDFunctionAddress(hfuncaddr: *const ::core::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptGenKey(hprov: usize, algid: u32, dwflags: CRYPT_KEY_FLAGS, phkey: *mut usize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptGenRandom(hprov: usize, dwlen: u32, pbbuffer: *mut u8) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CryptGetAsyncParam(hasync: HCRYPTASYNC, pszparamoid: super::super::Foundation::PSTR, ppvparam: *mut *mut ::core::ffi::c_void, ppfnfree: *mut PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -673,19 +743,7 @@ extern "system" {
     pub fn CryptGetDefaultOIDFunctionAddress(hfuncset: *const ::core::ffi::c_void, dwencodingtype: u32, pwszdll: super::super::Foundation::PWSTR, dwflags: u32, ppvfuncaddr: *mut *mut ::core::ffi::c_void, phfuncaddr: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptGetDefaultProviderA(dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32, pszprovname: super::super::Foundation::PSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptGetDefaultProviderW(dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32, pszprovname: super::super::Foundation::PWSTR, pcbprovname: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptGetHashParam(hhash: usize, dwparam: u32, pbdata: *mut u8, pdwdatalen: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CryptGetKeyIdentifierProperty(pkeyidentifier: *const CRYPTOAPI_BLOB, dwpropid: u32, dwflags: u32, pwszcomputername: super::super::Foundation::PWSTR, pvreserved: *mut ::core::ffi::c_void, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptGetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata: *mut u8, pdwdatalen: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
     pub fn CryptGetMessageCertificates(dwmsgandcertencodingtype: u32, hcryptprov: HCRYPTPROV_LEGACY, dwflags: u32, pbsignedblob: *const u8, cbsignedblob: u32) -> HCERTSTORE;
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -698,22 +756,10 @@ extern "system" {
     pub fn CryptGetOIDFunctionValue(dwencodingtype: u32, pszfuncname: super::super::Foundation::PSTR, pszoid: super::super::Foundation::PSTR, pwszvaluename: super::super::Foundation::PWSTR, pdwvaluetype: *mut u32, pbvaluedata: *mut u8, pcbvaluedata: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptGetObjectUrl(pszurloid: super::super::Foundation::PSTR, pvpara: *const ::core::ffi::c_void, dwflags: CRYPT_GET_URL_FLAGS, purlarray: *mut CRYPT_URL_ARRAY, pcburlarray: *mut u32, purlinfo: *mut CRYPT_URL_INFO, pcburlinfo: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptGetProvParam(hprov: usize, dwparam: u32, pbdata: *mut u8, pdwdatalen: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptGetUserKey(hprov: usize, dwkeyspec: u32, phuserkey: *mut usize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CryptHashCertificate(hcryptprov: HCRYPTPROV_LEGACY, algid: u32, dwflags: u32, pbencoded: *const u8, cbencoded: u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptHashCertificate2(pwszcnghashalgid: super::super::Foundation::PWSTR, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, pbencoded: *const u8, cbencoded: u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptHashData(hhash: usize, pbdata: *const u8, dwdatalen: u32, dwflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptHashMessage(phashpara: *const CRYPT_HASH_MESSAGE_PARA, fdetachedhash: super::super::Foundation::BOOL, ctobehashed: u32, rgpbtobehashed: *const *const u8, rgcbtobehashed: *const u32, pbhashedblob: *mut u8, pcbhashedblob: *mut u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL;
@@ -722,13 +768,7 @@ extern "system" {
     pub fn CryptHashPublicKeyInfo(hcryptprov: HCRYPTPROV_LEGACY, algid: u32, dwflags: u32, dwcertencodingtype: u32, pinfo: *const CERT_PUBLIC_KEY_INFO, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptHashSessionKey(hhash: usize, hkey: usize, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CryptHashToBeSigned(hcryptprov: HCRYPTPROV_LEGACY, dwcertencodingtype: u32, pbencoded: *const u8, cbencoded: u32, pbcomputedhash: *mut u8, pcbcomputedhash: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptImportKey(hprov: usize, pbdata: *const u8, dwdatalen: u32, hpubkey: usize, dwflags: CRYPT_KEY_FLAGS, phkey: *mut usize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptImportPKCS8(sprivatekeyandparams: CRYPT_PKCS8_IMPORT_PARAMS, dwflags: CRYPT_KEY_FLAGS, phcryptprov: *mut usize, pvauxinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -744,9 +784,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptInitOIDFunctionSet(pszfuncname: super::super::Foundation::PSTR, dwflags: u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptInstallCancelRetrieval(pfncancel: PFN_CRYPT_CANCEL_RETRIEVAL, pvarg: *const ::core::ffi::c_void, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptInstallDefaultContext(hcryptprov: usize, dwdefaulttype: CRYPT_DEFAULT_CONTEXT_TYPE, pvdefaultpara: *const ::core::ffi::c_void, dwflags: CRYPT_DEFAULT_CONTEXT_FLAGS, pvreserved: *mut ::core::ffi::c_void, phdefaultcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -823,46 +860,16 @@ extern "system" {
     pub fn CryptRegisterOIDInfo(pinfo: *const CRYPT_OID_INFO, dwflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptReleaseContext(hprov: usize, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptRetrieveObjectByUrlA(pszurl: super::super::Foundation::PSTR, pszobjectoid: super::super::Foundation::PSTR, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut ::core::ffi::c_void, hasyncretrieve: HCRYPTASYNC, pcredentials: *const CRYPT_CREDENTIALS, pvverify: *const ::core::ffi::c_void, pauxinfo: *mut CRYPT_RETRIEVE_AUX_INFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptRetrieveObjectByUrlW(pszurl: super::super::Foundation::PWSTR, pszobjectoid: super::super::Foundation::PSTR, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut ::core::ffi::c_void, hasyncretrieve: HCRYPTASYNC, pcredentials: *const CRYPT_CREDENTIALS, pvverify: *const ::core::ffi::c_void, pauxinfo: *mut CRYPT_RETRIEVE_AUX_INFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CryptRetrieveTimeStamp(wszurl: super::super::Foundation::PWSTR, dwretrievalflags: u32, dwtimeout: u32, pszhashid: super::super::Foundation::PSTR, ppara: *const CRYPT_TIMESTAMP_PARA, pbdata: *const u8, cbdata: u32, pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: *mut HCERTSTORE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptSetAsyncParam(hasync: HCRYPTASYNC, pszparamoid: super::super::Foundation::PSTR, pvparam: *const ::core::ffi::c_void, pfnfree: PFN_CRYPT_ASYNC_PARAM_FREE_FUNC) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSetHashParam(hhash: usize, dwparam: CRYPT_SET_HASH_PARAM, pbdata: *const u8, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CryptSetKeyIdentifierProperty(pkeyidentifier: *const CRYPTOAPI_BLOB, dwpropid: u32, dwflags: u32, pwszcomputername: super::super::Foundation::PWSTR, pvreserved: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata: *const u8, dwflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn CryptSetOIDFunctionValue(dwencodingtype: u32, pszfuncname: super::super::Foundation::PSTR, pszoid: super::super::Foundation::PSTR, pwszvaluename: super::super::Foundation::PWSTR, dwvaluetype: super::super::System::Registry::REG_VALUE_TYPE, pbvaluedata: *const u8, cbvaluedata: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSetProvParam(hprov: usize, dwparam: CRYPT_SET_PROV_PARAM_ID, pbdata: *const u8, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSetProviderA(pszprovname: super::super::Foundation::PSTR, dwprovtype: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSetProviderExA(pszprovname: super::super::Foundation::PSTR, dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSetProviderExW(pszprovname: super::super::Foundation::PWSTR, dwprovtype: u32, pdwreserved: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSetProviderW(pszprovname: super::super::Foundation::PWSTR, dwprovtype: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptSignAndEncodeCertificate(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: CERT_KEY_SPEC, dwcertencodingtype: u32, lpszstructtype: super::super::Foundation::PSTR, pvstructinfo: *const ::core::ffi::c_void, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: *const ::core::ffi::c_void, pbencoded: *mut u8, pcbencoded: *mut u32) -> super::super::Foundation::BOOL;
@@ -872,12 +879,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptSignCertificate(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: u32, dwcertencodingtype: u32, pbencodedtobesigned: *const u8, cbencodedtobesigned: u32, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: *const ::core::ffi::c_void, pbsignature: *mut u8, pcbsignature: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSignHashA(hhash: usize, dwkeyspec: u32, szdescription: super::super::Foundation::PSTR, dwflags: u32, pbsignature: *mut u8, pdwsiglen: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptSignHashW(hhash: usize, dwkeyspec: u32, szdescription: super::super::Foundation::PWSTR, dwflags: u32, pbsignature: *mut u8, pdwsiglen: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptSignMessage(psignpara: *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature: super::super::Foundation::BOOL, ctobesigned: u32, rgpbtobesigned: *const *const u8, rgcbtobesigned: *const u32, pbsignedblob: *mut u8, pcbsignedblob: *mut u32) -> super::super::Foundation::BOOL;
@@ -890,9 +891,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptStringToBinaryW(pszstring: super::super::Foundation::PWSTR, cchstring: u32, dwflags: CRYPT_STRING, pbbinary: *mut u8, pcbbinary: *mut u32, pdwskip: *mut u32, pdwflags: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptUninstallCancelRetrieval(dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptUninstallDefaultContext(hdefaultcontext: *const ::core::ffi::c_void, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -937,13 +935,45 @@ extern "system" {
     pub fn CryptVerifyMessageSignatureWithKey(pverifypara: *const CRYPT_KEY_VERIFY_MESSAGE_PARA, ppublickeyinfo: *const CERT_PUBLIC_KEY_INFO, pbsignedblob: *const u8, cbsignedblob: u32, pbdecoded: *mut u8, pcbdecoded: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptVerifySignatureA(hhash: usize, pbsignature: *const u8, dwsiglen: u32, hpubkey: usize, szdescription: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CryptVerifySignatureW(hhash: usize, pbsignature: *const u8, dwsiglen: u32, hpubkey: usize, szdescription: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CryptVerifyTimeStampSignature(pbtscontentinfo: *const u8, cbtscontentinfo: u32, pbdata: *const u8, cbdata: u32, hadditionalstore: HCERTSTORE, pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: *mut HCERTSTORE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PFXExportCertStore(hstore: HCERTSTORE, ppfx: *mut CRYPTOAPI_BLOB, szpassword: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PFXExportCertStoreEx(hstore: HCERTSTORE, ppfx: *mut CRYPTOAPI_BLOB, szpassword: super::super::Foundation::PWSTR, pvpara: *const ::core::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PFXImportCertStore(ppfx: *const CRYPTOAPI_BLOB, szpassword: super::super::Foundation::PWSTR, dwflags: CRYPT_KEY_FLAGS) -> HCERTSTORE;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PFXIsPFXBlob(ppfx: *const CRYPTOAPI_BLOB) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PFXVerifyPassword(ppfx: *const CRYPTOAPI_BLOB, szpassword: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "cryptnet", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptGetObjectUrl(pszurloid: super::super::Foundation::PSTR, pvpara: *const ::core::ffi::c_void, dwflags: CRYPT_GET_URL_FLAGS, purlarray: *mut CRYPT_URL_ARRAY, pcburlarray: *mut u32, purlinfo: *mut CRYPT_URL_INFO, pcburlinfo: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptInstallCancelRetrieval(pfncancel: PFN_CRYPT_CANCEL_RETRIEVAL, pvarg: *const ::core::ffi::c_void, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptRetrieveObjectByUrlA(pszurl: super::super::Foundation::PSTR, pszobjectoid: super::super::Foundation::PSTR, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut ::core::ffi::c_void, hasyncretrieve: HCRYPTASYNC, pcredentials: *const CRYPT_CREDENTIALS, pvverify: *const ::core::ffi::c_void, pauxinfo: *mut CRYPT_RETRIEVE_AUX_INFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptRetrieveObjectByUrlW(pszurl: super::super::Foundation::PWSTR, pszobjectoid: super::super::Foundation::PSTR, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut ::core::ffi::c_void, hasyncretrieve: HCRYPTASYNC, pcredentials: *const CRYPT_CREDENTIALS, pvverify: *const ::core::ffi::c_void, pauxinfo: *mut CRYPT_RETRIEVE_AUX_INFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CryptUninstallCancelRetrieval(dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "cryptxml", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptXmlAddObject(hsignatureorobject: *const ::core::ffi::c_void, dwflags: u32, rgproperty: *const CRYPT_XML_PROPERTY, cproperty: u32, pencoded: *const CRYPT_XML_BLOB, ppobject: *mut *mut CRYPT_XML_OBJECT) -> ::windows_sys::core::HRESULT;
@@ -995,15 +1025,18 @@ extern "system" {
     pub fn CryptXmlSign(hsignature: *const ::core::ffi::c_void, hkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: CERT_KEY_SPEC, dwflags: CRYPT_XML_FLAGS, dwkeyinfospec: CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec: *const ::core::ffi::c_void, psignaturemethod: *const CRYPT_XML_ALGORITHM, pcanonicalization: *const CRYPT_XML_ALGORITHM) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
     pub fn CryptXmlVerifySignature(hsignature: *const ::core::ffi::c_void, hkey: BCRYPT_KEY_HANDLE, dwflags: CRYPT_XML_FLAGS) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "infocardapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
+    pub fn CloseCryptoHandle(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn Decrypt(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, foaep: super::super::Foundation::BOOL, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn Encrypt(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, foaep: super::super::Foundation::BOOL, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FindCertsByIssuer(pcertchains: *mut CERT_CHAIN, pcbcertchains: *mut u32, pccertchains: *mut u32, pbencodedissuername: *const u8, cbencodedissuername: u32, pwszpurpose: super::super::Foundation::PWSTR, dwkeyspec: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FreeToken(pallocmemory: *const GENERIC_XML_TOKEN) -> super::super::Foundation::BOOL;
@@ -1028,6 +1061,20 @@ extern "system" {
     pub fn ImportInformationCard(filename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
     pub fn ManageCardSpace() -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SignHash(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash: u32, phash: *const u8, hashalgoid: super::super::Foundation::PWSTR, pcbsig: *mut u32, ppsig: *mut *mut u8) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
+    pub fn TransformBlock(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
+    pub fn TransformFinalBlock(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VerifyHash(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash: u32, phash: *const u8, hashalgoid: super::super::Foundation::PWSTR, cbsig: u32, psig: *const u8, pfverified: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ncrypt", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
     pub fn NCryptCloseProtectionDescriptor(hdescriptor: super::NCRYPT_DESCRIPTOR_HANDLE) -> i32;
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -1129,31 +1176,13 @@ extern "system" {
     pub fn NCryptVerifyClaim(hsubjectkey: NCRYPT_KEY_HANDLE, hauthoritykey: NCRYPT_KEY_HANDLE, dwclaimtype: u32, pparameterlist: *const BCryptBufferDesc, pbclaimblob: *const u8, cbclaimblob: u32, poutput: *mut BCryptBufferDesc, dwflags: u32) -> i32;
     #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
     pub fn NCryptVerifySignature(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: *const ::core::ffi::c_void, pbhashvalue: *const u8, cbhashvalue: u32, pbsignature: *const u8, cbsignature: u32, dwflags: NCRYPT_FLAGS) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PFXExportCertStore(hstore: HCERTSTORE, ppfx: *mut CRYPTOAPI_BLOB, szpassword: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PFXExportCertStoreEx(hstore: HCERTSTORE, ppfx: *mut CRYPTOAPI_BLOB, szpassword: super::super::Foundation::PWSTR, pvpara: *const ::core::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PFXImportCertStore(ppfx: *const CRYPTOAPI_BLOB, szpassword: super::super::Foundation::PWSTR, dwflags: CRYPT_KEY_FLAGS) -> HCERTSTORE;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PFXIsPFXBlob(ppfx: *const CRYPTOAPI_BLOB) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PFXVerifyPassword(ppfx: *const CRYPTOAPI_BLOB, szpassword: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SignHash(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash: u32, phash: *const u8, hashalgoid: super::super::Foundation::PWSTR, pcbsig: *mut u32, ppsig: *mut *mut u8) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-    pub fn TransformBlock(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-    pub fn TransformFinalBlock(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata: u32, pindata: *const u8, pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyHash(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash: u32, phash: *const u8, hashalgoid: super::super::Foundation::PWSTR, cbsig: u32, psig: *const u8, pfverified: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn FindCertsByIssuer(pcertchains: *mut CERT_CHAIN, pcbcertchains: *mut u32, pccertchains: *mut u32, pbencodedissuername: *const u8, cbencodedissuername: u32, pwszpurpose: super::super::Foundation::PWSTR, dwkeyspec: u32) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const ALG_CLASS_ALL: u32 = 57344u32;

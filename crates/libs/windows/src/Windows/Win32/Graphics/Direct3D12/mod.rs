@@ -9,7 +9,8 @@ pub const CLSID_D3D12Tools: ::windows::core::GUID = ::windows::core::GUID::from_
 pub unsafe fn D3D12CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, T: ::windows::core::Interface>(padapter: Param0, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d12", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D12CreateDevice(padapter: *mut ::core::ffi::c_void, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, riid: *const ::windows::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -23,7 +24,8 @@ pub unsafe fn D3D12CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::win
 pub unsafe fn D3D12CreateRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d12", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D12CreateRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -37,7 +39,8 @@ pub unsafe fn D3D12CreateRootSignatureDeserializer(psrcdata: *const ::core::ffi:
 pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d12", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -51,7 +54,8 @@ pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::c
 pub unsafe fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows::core::GUID, pconfigurationstructs: *const ::core::ffi::c_void, pconfigurationstructsizes: *const u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d12", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows::core::GUID, pconfigurationstructs: *const ::core::ffi::c_void, pconfigurationstructsizes: *const u32) -> ::windows::core::HRESULT;
         }
@@ -66,7 +70,8 @@ pub const D3D12ExperimentalShaderModels: ::windows::core::GUID = ::windows::core
 pub unsafe fn D3D12GetDebugInterface<T: ::windows::core::Interface>(result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d12", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D12GetDebugInterface(riid: *const ::windows::core::GUID, ppvdebug: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -80,7 +85,8 @@ pub unsafe fn D3D12GetDebugInterface<T: ::windows::core::Interface>(result__: *m
 pub unsafe fn D3D12GetInterface<T: ::windows::core::Interface>(rclsid: *const ::windows::core::GUID, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d12", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D12GetInterface(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvdebug: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -99,7 +105,8 @@ pub const D3D12MetaCommand: ::windows::core::GUID = ::windows::core::GUID::from_
 pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d12", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::windows::core::RawPtr, pperrorblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -114,7 +121,8 @@ pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGN
 pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d12", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::windows::core::RawPtr, pperrorblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }

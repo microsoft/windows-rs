@@ -2542,7 +2542,8 @@ impl ::core::fmt::Debug for AZ_PROP_CONSTANTS {
 pub unsafe fn AuthzAccessCheck<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>, Param3: ::windows::core::IntoParam<'a, AUTHZ_AUDIT_EVENT_HANDLE>>(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: Param1, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: Param3, psecuritydescriptor: *const super::SECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: *const *const super::SECURITY_DESCRIPTOR, optionalsecuritydescriptorcount: u32, preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzAccessCheck(flags: AUTHZ_ACCESS_CHECK_FLAGS, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: *const super::SECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: *const *const super::SECURITY_DESCRIPTOR, optionalsecuritydescriptorcount: u32, preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: *mut isize) -> super::super::Foundation::BOOL;
         }
@@ -2557,7 +2558,8 @@ pub unsafe fn AuthzAccessCheck<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_
 pub unsafe fn AuthzAddSidsToContext<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>>(hauthzclientcontext: Param0, sids: *const super::SID_AND_ATTRIBUTES, sidcount: u32, restrictedsids: *const super::SID_AND_ATTRIBUTES, restrictedsidcount: u32, phnewauthzclientcontext: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzAddSidsToContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sids: *const super::SID_AND_ATTRIBUTES, sidcount: u32, restrictedsids: *const super::SID_AND_ATTRIBUTES, restrictedsidcount: u32, phnewauthzclientcontext: *mut isize) -> super::super::Foundation::BOOL;
         }
@@ -2572,7 +2574,8 @@ pub unsafe fn AuthzAddSidsToContext<'a, Param0: ::windows::core::IntoParam<'a, A
 pub unsafe fn AuthzCachedAccessCheck<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>, Param3: ::windows::core::IntoParam<'a, AUTHZ_AUDIT_EVENT_HANDLE>>(flags: u32, haccesscheckresults: Param1, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: Param3, preply: *mut AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzCachedAccessCheck(flags: u32, haccesscheckresults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, preply: *mut AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL;
         }
@@ -2587,7 +2590,8 @@ pub unsafe fn AuthzCachedAccessCheck<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount: *mut u32, pdwlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION, pdwcount: *mut u32, pdwlength: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2602,7 +2606,8 @@ pub unsafe fn AuthzEnumerateSecurityEventSources(dwflags: u32, buffer: *mut AUTH
 pub unsafe fn AuthzEvaluateSacl<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(authzclientcontext: Param0, prequest: *const AUTHZ_ACCESS_REQUEST, sacl: *const super::ACL, grantedaccess: u32, accessgranted: Param4, pbgenerateaudit: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzEvaluateSacl(authzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, sacl: *const super::ACL, grantedaccess: u32, accessgranted: super::super::Foundation::BOOL, pbgenerateaudit: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -2617,7 +2622,8 @@ pub unsafe fn AuthzEvaluateSacl<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ
 pub unsafe fn AuthzFreeAuditEvent<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_AUDIT_EVENT_HANDLE>>(hauditevent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzFreeAuditEvent(hauditevent: AUTHZ_AUDIT_EVENT_HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2632,7 +2638,8 @@ pub unsafe fn AuthzFreeAuditEvent<'a, Param0: ::windows::core::IntoParam<'a, AUT
 pub unsafe fn AuthzFreeCentralAccessPolicyCache() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzFreeCentralAccessPolicyCache() -> super::super::Foundation::BOOL;
         }
@@ -2647,7 +2654,8 @@ pub unsafe fn AuthzFreeCentralAccessPolicyCache() -> super::super::Foundation::B
 pub unsafe fn AuthzFreeContext<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>>(hauthzclientcontext: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzFreeContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2662,7 +2670,8 @@ pub unsafe fn AuthzFreeContext<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_
 pub unsafe fn AuthzFreeHandle<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>>(haccesscheckresults: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzFreeHandle(haccesscheckresults: AUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2677,7 +2686,8 @@ pub unsafe fn AuthzFreeHandle<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_A
 pub unsafe fn AuthzFreeResourceManager<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_RESOURCE_MANAGER_HANDLE>>(hauthzresourcemanager: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzFreeResourceManager(hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2692,7 +2702,8 @@ pub unsafe fn AuthzFreeResourceManager<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn AuthzGetInformationFromContext<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>>(hauthzclientcontext: Param0, infoclass: AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize: u32, psizerequired: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzGetInformationFromContext(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, infoclass: AUTHZ_CONTEXT_INFORMATION_CLASS, buffersize: u32, psizerequired: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2707,7 +2718,8 @@ pub unsafe fn AuthzGetInformationFromContext<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn AuthzInitializeCompoundContext<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>, Param1: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>>(usercontext: Param0, devicecontext: Param1, phcompoundcontext: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzInitializeCompoundContext(usercontext: AUTHZ_CLIENT_CONTEXT_HANDLE, devicecontext: AUTHZ_CLIENT_CONTEXT_HANDLE, phcompoundcontext: *mut isize) -> super::super::Foundation::BOOL;
         }
@@ -2722,7 +2734,8 @@ pub unsafe fn AuthzInitializeCompoundContext<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn AuthzInitializeContextFromAuthzContext<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(flags: u32, hauthzclientcontext: Param1, pexpirationtime: *const i64, identifier: Param3, dynamicgroupargs: *const ::core::ffi::c_void, phnewauthzclientcontext: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzInitializeContextFromAuthzContext(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime: *const i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const ::core::ffi::c_void, phnewauthzclientcontext: *mut isize) -> super::super::Foundation::BOOL;
         }
@@ -2737,7 +2750,8 @@ pub unsafe fn AuthzInitializeContextFromAuthzContext<'a, Param1: ::windows::core
 pub unsafe fn AuthzInitializeContextFromSid<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, AUTHZ_RESOURCE_MANAGER_HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(flags: u32, usersid: Param1, hauthzresourcemanager: Param2, pexpirationtime: *const i64, identifier: Param4, dynamicgroupargs: *const ::core::ffi::c_void, phauthzclientcontext: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzInitializeContextFromSid(flags: u32, usersid: super::super::Foundation::PSID, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: *const i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const ::core::ffi::c_void, phauthzclientcontext: *mut isize) -> super::super::Foundation::BOOL;
         }
@@ -2752,7 +2766,8 @@ pub unsafe fn AuthzInitializeContextFromSid<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn AuthzInitializeContextFromToken<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, AUTHZ_RESOURCE_MANAGER_HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(flags: u32, tokenhandle: Param1, hauthzresourcemanager: Param2, pexpirationtime: *const i64, identifier: Param4, dynamicgroupargs: *const ::core::ffi::c_void, phauthzclientcontext: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzInitializeContextFromToken(flags: u32, tokenhandle: super::super::Foundation::HANDLE, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: *const i64, identifier: super::super::Foundation::LUID, dynamicgroupargs: *const ::core::ffi::c_void, phauthzclientcontext: *mut isize) -> super::super::Foundation::BOOL;
         }
@@ -2767,7 +2782,8 @@ pub unsafe fn AuthzInitializeContextFromToken<'a, Param1: ::windows::core::IntoP
 pub unsafe fn AuthzInitializeObjectAccessAuditEvent<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_AUDIT_EVENT_TYPE_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: Param1, szoperationtype: Param2, szobjecttype: Param3, szobjectname: Param4, szadditionalinfo: Param5, phauditevent: *mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzInitializeObjectAccessAuditEvent(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: super::super::Foundation::PWSTR, szobjecttype: super::super::Foundation::PWSTR, szobjectname: super::super::Foundation::PWSTR, szadditionalinfo: super::super::Foundation::PWSTR, phauditevent: *mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL;
         }
@@ -2782,7 +2798,8 @@ pub unsafe fn AuthzInitializeObjectAccessAuditEvent<'a, Param1: ::windows::core:
 pub unsafe fn AuthzInitializeObjectAccessAuditEvent2<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_AUDIT_EVENT_TYPE_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, hauditeventtype: Param1, szoperationtype: Param2, szobjecttype: Param3, szobjectname: Param4, szadditionalinfo: Param5, szadditionalinfo2: Param6, phauditevent: *mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzInitializeObjectAccessAuditEvent2(flags: u32, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: super::super::Foundation::PWSTR, szobjecttype: super::super::Foundation::PWSTR, szobjectname: super::super::Foundation::PWSTR, szadditionalinfo: super::super::Foundation::PWSTR, szadditionalinfo2: super::super::Foundation::PWSTR, phauditevent: *mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL;
         }
@@ -2797,7 +2814,8 @@ pub unsafe fn AuthzInitializeObjectAccessAuditEvent2<'a, Param1: ::windows::core
 pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *const AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *const AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2812,7 +2830,8 @@ pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: *const AUTHZ_RP
 pub unsafe fn AuthzInitializeResourceManager<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, pfndynamicaccesscheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK, pfncomputedynamicgroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS, pfnfreedynamicgroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS, szresourcemanagername: Param4, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzInitializeResourceManager(flags: u32, pfndynamicaccesscheck: ::windows::core::RawPtr, pfncomputedynamicgroups: ::windows::core::RawPtr, pfnfreedynamicgroups: ::windows::core::RawPtr, szresourcemanagername: super::super::Foundation::PWSTR, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2827,7 +2846,8 @@ pub unsafe fn AuthzInitializeResourceManager<'a, Param4: ::windows::core::IntoPa
 pub unsafe fn AuthzInitializeResourceManagerEx(flags: AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo: *const AUTHZ_INIT_INFO, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzInitializeResourceManagerEx(flags: AUTHZ_RESOURCE_MANAGER_FLAGS, pauthzinitinfo: *const AUTHZ_INIT_INFO, phauthzresourcemanager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2842,7 +2862,8 @@ pub unsafe fn AuthzInitializeResourceManagerEx(flags: AUTHZ_RESOURCE_MANAGER_FLA
 pub unsafe fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: *const AUTHZ_SOURCE_SCHEMA_REGISTRATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: *const AUTHZ_SOURCE_SCHEMA_REGISTRATION) -> super::super::Foundation::BOOL;
         }
@@ -2857,7 +2878,8 @@ pub unsafe fn AuthzInstallSecurityEventSource(dwflags: u32, pregistration: *cons
 pub unsafe fn AuthzModifyClaims<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>>(hauthzclientcontext: Param0, claimclass: AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims: *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzModifyClaims(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, claimclass: AUTHZ_CONTEXT_INFORMATION_CLASS, pclaimoperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pclaims: *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> super::super::Foundation::BOOL;
         }
@@ -2872,7 +2894,8 @@ pub unsafe fn AuthzModifyClaims<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ
 pub unsafe fn AuthzModifySecurityAttributes<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>>(hauthzclientcontext: Param0, poperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pattributes: *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzModifySecurityAttributes(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, poperations: *const AUTHZ_SECURITY_ATTRIBUTE_OPERATION, pattributes: *const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION) -> super::super::Foundation::BOOL;
         }
@@ -2887,7 +2910,8 @@ pub unsafe fn AuthzModifySecurityAttributes<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn AuthzModifySids<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>>(hauthzclientcontext: Param0, sidclass: AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations: *const AUTHZ_SID_OPERATION, psids: *const super::TOKEN_GROUPS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzModifySids(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, sidclass: AUTHZ_CONTEXT_INFORMATION_CLASS, psidoperations: *const AUTHZ_SID_OPERATION, psids: *const super::TOKEN_GROUPS) -> super::super::Foundation::BOOL;
         }
@@ -2902,7 +2926,8 @@ pub unsafe fn AuthzModifySids<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_C
 pub unsafe fn AuthzOpenObjectAudit<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>, Param3: ::windows::core::IntoParam<'a, AUTHZ_AUDIT_EVENT_HANDLE>>(flags: u32, hauthzclientcontext: Param1, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: Param3, psecuritydescriptor: *const super::SECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: *const *const super::SECURITY_DESCRIPTOR, optionalsecuritydescriptorcount: u32, preply: *const AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzOpenObjectAudit(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: *const super::SECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: *const *const super::SECURITY_DESCRIPTOR, optionalsecuritydescriptorcount: u32, preply: *const AUTHZ_ACCESS_REPLY) -> super::super::Foundation::BOOL;
         }
@@ -2917,7 +2942,8 @@ pub unsafe fn AuthzOpenObjectAudit<'a, Param1: ::windows::core::IntoParam<'a, AU
 pub unsafe fn AuthzRegisterCapChangeNotification(phcapchangesubscription: *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__, pfncapchangecallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, pcallbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzRegisterCapChangeNotification(phcapchangesubscription: *mut *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__, pfncapchangecallback: ::windows::core::RawPtr, pcallbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2932,7 +2958,8 @@ pub unsafe fn AuthzRegisterCapChangeNotification(phcapchangesubscription: *mut *
 pub unsafe fn AuthzRegisterSecurityEventSource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: u32, szeventsourcename: Param1, pheventprovider: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzRegisterSecurityEventSource(dwflags: u32, szeventsourcename: super::super::Foundation::PWSTR, pheventprovider: *mut isize) -> super::super::Foundation::BOOL;
         }
@@ -2947,7 +2974,8 @@ pub unsafe fn AuthzRegisterSecurityEventSource<'a, Param1: ::windows::core::Into
 pub unsafe fn AuthzReportSecurityEvent<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, heventprovider: Param1, dwauditid: u32, pusersid: Param3, dwcount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzReportSecurityEvent(dwflags: u32, heventprovider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid: u32, pusersid: super::super::Foundation::PSID, dwcount: u32) -> super::super::Foundation::BOOL;
         }
@@ -2962,7 +2990,8 @@ pub unsafe fn AuthzReportSecurityEvent<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn AuthzReportSecurityEventFromParams<'a, Param1: ::windows::core::IntoParam<'a, AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, heventprovider: Param1, dwauditid: u32, pusersid: Param3, pparams: *const AUDIT_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzReportSecurityEventFromParams(dwflags: u32, heventprovider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid: u32, pusersid: super::super::Foundation::PSID, pparams: *const AUDIT_PARAMS) -> super::super::Foundation::BOOL;
         }
@@ -2977,7 +3006,8 @@ pub unsafe fn AuthzReportSecurityEventFromParams<'a, Param1: ::windows::core::In
 pub unsafe fn AuthzSetAppContainerInformation<'a, Param0: ::windows::core::IntoParam<'a, AUTHZ_CLIENT_CONTEXT_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(hauthzclientcontext: Param0, pappcontainersid: Param1, capabilitycount: u32, pcapabilitysids: *const super::SID_AND_ATTRIBUTES) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzSetAppContainerInformation(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid: super::super::Foundation::PSID, capabilitycount: u32, pcapabilitysids: *const super::SID_AND_ATTRIBUTES) -> super::super::Foundation::BOOL;
         }
@@ -2992,7 +3022,8 @@ pub unsafe fn AuthzSetAppContainerInformation<'a, Param0: ::windows::core::IntoP
 pub unsafe fn AuthzUninstallSecurityEventSource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: u32, szeventsourcename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzUninstallSecurityEventSource(dwflags: u32, szeventsourcename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -3007,7 +3038,8 @@ pub unsafe fn AuthzUninstallSecurityEventSource<'a, Param1: ::windows::core::Int
 pub unsafe fn AuthzUnregisterCapChangeNotification(hcapchangesubscription: *const AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzUnregisterCapChangeNotification(hcapchangesubscription: *const AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__) -> super::super::Foundation::BOOL;
         }
@@ -3022,7 +3054,8 @@ pub unsafe fn AuthzUnregisterCapChangeNotification(hcapchangesubscription: *cons
 pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: *mut isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "authz", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: *mut isize) -> super::super::Foundation::BOOL;
         }
@@ -3040,7 +3073,8 @@ pub const AzPrincipalLocator: ::windows::core::GUID = ::windows::core::GUID::fro
 pub unsafe fn BuildExplicitAccessWithNameA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: Param1, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildExplicitAccessWithNameA(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: super::super::Foundation::PSTR, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS);
         }
@@ -3055,7 +3089,8 @@ pub unsafe fn BuildExplicitAccessWithNameA<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn BuildExplicitAccessWithNameW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: Param1, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildExplicitAccessWithNameW(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: super::super::Foundation::PWSTR, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS);
         }
@@ -3070,7 +3105,8 @@ pub unsafe fn BuildExplicitAccessWithNameW<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn BuildImpersonateExplicitAccessWithNameA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: Param1, ptrustee: *const TRUSTEE_A, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildImpersonateExplicitAccessWithNameA(pexplicitaccess: *mut EXPLICIT_ACCESS_A, ptrusteename: super::super::Foundation::PSTR, ptrustee: *const TRUSTEE_A, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32);
         }
@@ -3085,7 +3121,8 @@ pub unsafe fn BuildImpersonateExplicitAccessWithNameA<'a, Param1: ::windows::cor
 pub unsafe fn BuildImpersonateExplicitAccessWithNameW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: Param1, ptrustee: *const TRUSTEE_W, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildImpersonateExplicitAccessWithNameW(pexplicitaccess: *mut EXPLICIT_ACCESS_W, ptrusteename: super::super::Foundation::PWSTR, ptrustee: *const TRUSTEE_W, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: u32);
         }
@@ -3100,7 +3137,8 @@ pub unsafe fn BuildImpersonateExplicitAccessWithNameW<'a, Param1: ::windows::cor
 pub unsafe fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetrustee: *const TRUSTEE_A) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetrustee: *const TRUSTEE_A);
         }
@@ -3115,7 +3153,8 @@ pub unsafe fn BuildImpersonateTrusteeA(ptrustee: *mut TRUSTEE_A, pimpersonatetru
 pub unsafe fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetrustee: *const TRUSTEE_W) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetrustee: *const TRUSTEE_W);
         }
@@ -3130,7 +3169,8 @@ pub unsafe fn BuildImpersonateTrusteeW(ptrustee: *mut TRUSTEE_W, pimpersonatetru
 pub unsafe fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const TRUSTEE_A, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_A, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_A, poldsd: *const super::SECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut *mut super::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const TRUSTEE_A, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_A, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_A, poldsd: *const super::SECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut *mut super::SECURITY_DESCRIPTOR) -> u32;
         }
@@ -3145,7 +3185,8 @@ pub unsafe fn BuildSecurityDescriptorA(powner: *const TRUSTEE_A, pgroup: *const 
 pub unsafe fn BuildSecurityDescriptorW(powner: *const TRUSTEE_W, pgroup: *const TRUSTEE_W, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_W, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_W, poldsd: *const super::SECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut *mut super::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildSecurityDescriptorW(powner: *const TRUSTEE_W, pgroup: *const TRUSTEE_W, ccountofaccessentries: u32, plistofaccessentries: *const EXPLICIT_ACCESS_W, ccountofauditentries: u32, plistofauditentries: *const EXPLICIT_ACCESS_W, poldsd: *const super::SECURITY_DESCRIPTOR, psizenewsd: *mut u32, pnewsd: *mut *mut super::SECURITY_DESCRIPTOR) -> u32;
         }
@@ -3160,7 +3201,8 @@ pub unsafe fn BuildSecurityDescriptorW(powner: *const TRUSTEE_W, pgroup: *const 
 pub unsafe fn BuildTrusteeWithNameA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ptrustee: *mut TRUSTEE_A, pname: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildTrusteeWithNameA(ptrustee: *mut TRUSTEE_A, pname: super::super::Foundation::PSTR);
         }
@@ -3175,7 +3217,8 @@ pub unsafe fn BuildTrusteeWithNameA<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn BuildTrusteeWithNameW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ptrustee: *mut TRUSTEE_W, pname: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildTrusteeWithNameW(ptrustee: *mut TRUSTEE_W, pname: super::super::Foundation::PWSTR);
         }
@@ -3190,7 +3233,8 @@ pub unsafe fn BuildTrusteeWithNameW<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn BuildTrusteeWithObjectsAndNameA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ptrustee: *mut TRUSTEE_A, pobjname: *const OBJECTS_AND_NAME_A, objecttype: SE_OBJECT_TYPE, objecttypename: Param3, inheritedobjecttypename: Param4, name: Param5) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildTrusteeWithObjectsAndNameA(ptrustee: *mut TRUSTEE_A, pobjname: *const OBJECTS_AND_NAME_A, objecttype: SE_OBJECT_TYPE, objecttypename: super::super::Foundation::PSTR, inheritedobjecttypename: super::super::Foundation::PSTR, name: super::super::Foundation::PSTR);
         }
@@ -3205,7 +3249,8 @@ pub unsafe fn BuildTrusteeWithObjectsAndNameA<'a, Param3: ::windows::core::IntoP
 pub unsafe fn BuildTrusteeWithObjectsAndNameW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ptrustee: *mut TRUSTEE_W, pobjname: *const OBJECTS_AND_NAME_W, objecttype: SE_OBJECT_TYPE, objecttypename: Param3, inheritedobjecttypename: Param4, name: Param5) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildTrusteeWithObjectsAndNameW(ptrustee: *mut TRUSTEE_W, pobjname: *const OBJECTS_AND_NAME_W, objecttype: SE_OBJECT_TYPE, objecttypename: super::super::Foundation::PWSTR, inheritedobjecttypename: super::super::Foundation::PWSTR, name: super::super::Foundation::PWSTR);
         }
@@ -3220,7 +3265,8 @@ pub unsafe fn BuildTrusteeWithObjectsAndNameW<'a, Param3: ::windows::core::IntoP
 pub unsafe fn BuildTrusteeWithObjectsAndSidA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(ptrustee: *mut TRUSTEE_A, pobjsid: *const OBJECTS_AND_SID, pobjectguid: *const ::windows::core::GUID, pinheritedobjectguid: *const ::windows::core::GUID, psid: Param4) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildTrusteeWithObjectsAndSidA(ptrustee: *mut TRUSTEE_A, pobjsid: *const OBJECTS_AND_SID, pobjectguid: *const ::windows::core::GUID, pinheritedobjectguid: *const ::windows::core::GUID, psid: super::super::Foundation::PSID);
         }
@@ -3235,7 +3281,8 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidA<'a, Param4: ::windows::core::IntoPa
 pub unsafe fn BuildTrusteeWithObjectsAndSidW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(ptrustee: *mut TRUSTEE_W, pobjsid: *const OBJECTS_AND_SID, pobjectguid: *const ::windows::core::GUID, pinheritedobjectguid: *const ::windows::core::GUID, psid: Param4) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildTrusteeWithObjectsAndSidW(ptrustee: *mut TRUSTEE_W, pobjsid: *const OBJECTS_AND_SID, pobjectguid: *const ::windows::core::GUID, pinheritedobjectguid: *const ::windows::core::GUID, psid: super::super::Foundation::PSID);
         }
@@ -3250,7 +3297,8 @@ pub unsafe fn BuildTrusteeWithObjectsAndSidW<'a, Param4: ::windows::core::IntoPa
 pub unsafe fn BuildTrusteeWithSidA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(ptrustee: *mut TRUSTEE_A, psid: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildTrusteeWithSidA(ptrustee: *mut TRUSTEE_A, psid: super::super::Foundation::PSID);
         }
@@ -3265,7 +3313,8 @@ pub unsafe fn BuildTrusteeWithSidA<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn BuildTrusteeWithSidW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(ptrustee: *mut TRUSTEE_W, psid: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildTrusteeWithSidW(ptrustee: *mut TRUSTEE_W, psid: super::super::Foundation::PSID);
         }
@@ -3280,7 +3329,8 @@ pub unsafe fn BuildTrusteeWithSidW<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: *const super::SECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut super::super::Foundation::PSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor: *const super::SECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut super::super::Foundation::PSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3295,7 +3345,8 @@ pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescr
 pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: *const super::SECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut super::super::Foundation::PWSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor: *const super::SECURITY_DESCRIPTOR, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut super::super::Foundation::PWSTR, stringsecuritydescriptorlen: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3310,7 +3361,8 @@ pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescr
 pub unsafe fn ConvertSidToStringSidA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(sid: Param0, stringsid: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConvertSidToStringSidA(sid: super::super::Foundation::PSID, stringsid: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -3325,7 +3377,8 @@ pub unsafe fn ConvertSidToStringSidA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ConvertSidToStringSidW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(sid: Param0, stringsid: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConvertSidToStringSidW(sid: super::super::Foundation::PSID, stringsid: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -3340,7 +3393,8 @@ pub unsafe fn ConvertSidToStringSidW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(stringsecuritydescriptor: Param0, stringsdrevision: u32, securitydescriptor: *mut *mut super::SECURITY_DESCRIPTOR, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConvertStringSecurityDescriptorToSecurityDescriptorA(stringsecuritydescriptor: super::super::Foundation::PSTR, stringsdrevision: u32, securitydescriptor: *mut *mut super::SECURITY_DESCRIPTOR, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3355,7 +3409,8 @@ pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorA<'a, Param0: :
 pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(stringsecuritydescriptor: Param0, stringsdrevision: u32, securitydescriptor: *mut *mut super::SECURITY_DESCRIPTOR, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConvertStringSecurityDescriptorToSecurityDescriptorW(stringsecuritydescriptor: super::super::Foundation::PWSTR, stringsdrevision: u32, securitydescriptor: *mut *mut super::SECURITY_DESCRIPTOR, securitydescriptorsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -3370,7 +3425,8 @@ pub unsafe fn ConvertStringSecurityDescriptorToSecurityDescriptorW<'a, Param0: :
 pub unsafe fn ConvertStringSidToSidA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(stringsid: Param0, sid: *mut super::super::Foundation::PSID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConvertStringSidToSidA(stringsid: super::super::Foundation::PSTR, sid: *mut super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
         }
@@ -3385,7 +3441,8 @@ pub unsafe fn ConvertStringSidToSidA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ConvertStringSidToSidW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(stringsid: Param0, sid: *mut super::super::Foundation::PSID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConvertStringSidToSidW(stringsid: super::super::Foundation::PWSTR, sid: *mut super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
         }
@@ -3515,7 +3572,8 @@ pub type FN_PROGRESS = ::core::option::Option<unsafe extern "system" fn(pobjectn
 pub unsafe fn FreeInheritedFromArray(pinheritarray: *const INHERITED_FROMW, acecnt: u16, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeInheritedFromArray(pinheritarray: *const INHERITED_FROMW, acecnt: u16, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS) -> u32;
         }
@@ -3530,7 +3588,8 @@ pub unsafe fn FreeInheritedFromArray(pinheritarray: *const INHERITED_FROMW, acec
 pub unsafe fn GetAuditedPermissionsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAuditedPermissionsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> u32;
         }
@@ -3545,7 +3604,8 @@ pub unsafe fn GetAuditedPermissionsFromAclA(pacl: *const super::ACL, ptrustee: *
 pub unsafe fn GetAuditedPermissionsFromAclW(pacl: *const super::ACL, ptrustee: *const TRUSTEE_W, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAuditedPermissionsFromAclW(pacl: *const super::ACL, ptrustee: *const TRUSTEE_W, psuccessfulauditedrights: *mut u32, pfailedauditrights: *mut u32) -> u32;
         }
@@ -3560,7 +3620,8 @@ pub unsafe fn GetAuditedPermissionsFromAclW(pacl: *const super::ACL, ptrustee: *
 pub unsafe fn GetEffectiveRightsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, paccessrights: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetEffectiveRightsFromAclA(pacl: *const super::ACL, ptrustee: *const TRUSTEE_A, paccessrights: *mut u32) -> u32;
         }
@@ -3575,7 +3636,8 @@ pub unsafe fn GetEffectiveRightsFromAclA(pacl: *const super::ACL, ptrustee: *con
 pub unsafe fn GetEffectiveRightsFromAclW(pacl: *const super::ACL, ptrustee: *const TRUSTEE_W, paccessrights: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetEffectiveRightsFromAclW(pacl: *const super::ACL, ptrustee: *const TRUSTEE_W, paccessrights: *mut u32) -> u32;
         }
@@ -3590,7 +3652,8 @@ pub unsafe fn GetEffectiveRightsFromAclW(pacl: *const super::ACL, ptrustee: *con
 pub unsafe fn GetExplicitEntriesFromAclA(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_A) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetExplicitEntriesFromAclA(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_A) -> u32;
         }
@@ -3605,7 +3668,8 @@ pub unsafe fn GetExplicitEntriesFromAclA(pacl: *const super::ACL, pccountofexpli
 pub unsafe fn GetExplicitEntriesFromAclW(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_W) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetExplicitEntriesFromAclW(pacl: *const super::ACL, pccountofexplicitentries: *mut u32, plistofexplicitentries: *mut *mut EXPLICIT_ACCESS_W) -> u32;
         }
@@ -3620,7 +3684,8 @@ pub unsafe fn GetExplicitEntriesFromAclW(pacl: *const super::ACL, pccountofexpli
 pub unsafe fn GetInheritanceSourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: Param3, pobjectclassguids: *const *const ::windows::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetInheritanceSourceA(pobjectname: super::super::Foundation::PSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> u32;
         }
@@ -3635,7 +3700,8 @@ pub unsafe fn GetInheritanceSourceA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GetInheritanceSourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: Param3, pobjectclassguids: *const *const ::windows::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetInheritanceSourceW(pobjectname: super::super::Foundation::PWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: super::super::Foundation::BOOL, pobjectclassguids: *const *const ::windows::core::GUID, guidcount: u32, pacl: *const super::ACL, pfnarray: *const FN_OBJECT_MGR_FUNCTIONS, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> u32;
         }
@@ -3650,7 +3716,8 @@ pub unsafe fn GetInheritanceSourceW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GetMultipleTrusteeA(ptrustee: *const TRUSTEE_A) -> *mut TRUSTEE_A {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMultipleTrusteeA(ptrustee: *const TRUSTEE_A) -> *mut TRUSTEE_A;
         }
@@ -3665,7 +3732,8 @@ pub unsafe fn GetMultipleTrusteeA(ptrustee: *const TRUSTEE_A) -> *mut TRUSTEE_A 
 pub unsafe fn GetMultipleTrusteeOperationA(ptrustee: *const TRUSTEE_A) -> MULTIPLE_TRUSTEE_OPERATION {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMultipleTrusteeOperationA(ptrustee: *const TRUSTEE_A) -> MULTIPLE_TRUSTEE_OPERATION;
         }
@@ -3680,7 +3748,8 @@ pub unsafe fn GetMultipleTrusteeOperationA(ptrustee: *const TRUSTEE_A) -> MULTIP
 pub unsafe fn GetMultipleTrusteeOperationW(ptrustee: *const TRUSTEE_W) -> MULTIPLE_TRUSTEE_OPERATION {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMultipleTrusteeOperationW(ptrustee: *const TRUSTEE_W) -> MULTIPLE_TRUSTEE_OPERATION;
         }
@@ -3695,7 +3764,8 @@ pub unsafe fn GetMultipleTrusteeOperationW(ptrustee: *const TRUSTEE_W) -> MULTIP
 pub unsafe fn GetMultipleTrusteeW(ptrustee: *const TRUSTEE_W) -> *mut TRUSTEE_W {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMultipleTrusteeW(ptrustee: *const TRUSTEE_W) -> *mut TRUSTEE_W;
         }
@@ -3710,7 +3780,8 @@ pub unsafe fn GetMultipleTrusteeW(ptrustee: *const TRUSTEE_W) -> *mut TRUSTEE_W 
 pub unsafe fn GetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut super::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNamedSecurityInfoA(pobjectname: super::super::Foundation::PSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut super::SECURITY_DESCRIPTOR) -> u32;
         }
@@ -3725,7 +3796,8 @@ pub unsafe fn GetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut super::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNamedSecurityInfoW(pobjectname: super::super::Foundation::PWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut super::SECURITY_DESCRIPTOR) -> u32;
         }
@@ -3740,7 +3812,8 @@ pub unsafe fn GetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GetSecurityInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut super::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetSecurityInfo(handle: super::super::Foundation::HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: *mut super::super::Foundation::PSID, ppsidgroup: *mut super::super::Foundation::PSID, ppdacl: *mut *mut super::ACL, ppsacl: *mut *mut super::ACL, ppsecuritydescriptor: *mut *mut super::SECURITY_DESCRIPTOR) -> u32;
         }
@@ -3755,7 +3828,8 @@ pub unsafe fn GetSecurityInfo<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM;
         }
@@ -3770,7 +3844,8 @@ pub unsafe fn GetTrusteeFormA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_FORM {
 pub unsafe fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM;
         }
@@ -3785,7 +3860,8 @@ pub unsafe fn GetTrusteeFormW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_FORM {
 pub unsafe fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> super::super::Foundation::PSTR;
         }
@@ -3800,7 +3876,8 @@ pub unsafe fn GetTrusteeNameA(ptrustee: *const TRUSTEE_A) -> super::super::Found
 pub unsafe fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> super::super::Foundation::PWSTR;
         }
@@ -3815,7 +3892,8 @@ pub unsafe fn GetTrusteeNameW(ptrustee: *const TRUSTEE_W) -> super::super::Found
 pub unsafe fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE;
         }
@@ -3830,7 +3908,8 @@ pub unsafe fn GetTrusteeTypeA(ptrustee: *const TRUSTEE_A) -> TRUSTEE_TYPE {
 pub unsafe fn GetTrusteeTypeW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetTrusteeTypeW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE;
         }
@@ -13653,7 +13732,8 @@ pub const INHERITED_PARENT: u32 = 268435456u32;
 pub unsafe fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: *const super::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: *const super::SECURITY_DESCRIPTOR) -> u32;
         }
@@ -13668,7 +13748,8 @@ pub unsafe fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgro
 pub unsafe fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: *const super::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: *const super::SECURITY_DESCRIPTOR) -> u32;
         }
@@ -14231,7 +14312,8 @@ impl ::core::fmt::Debug for SE_OBJECT_TYPE {
 pub unsafe fn SetEntriesInAclA(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_A, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetEntriesInAclA(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_A, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32;
         }
@@ -14246,7 +14328,8 @@ pub unsafe fn SetEntriesInAclA(ccountofexplicitentries: u32, plistofexplicitentr
 pub unsafe fn SetEntriesInAclW(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_W, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetEntriesInAclW(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_W, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32;
         }
@@ -14261,7 +14344,8 @@ pub unsafe fn SetEntriesInAclW(ccountofexplicitentries: u32, plistofexplicitentr
 pub unsafe fn SetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: Param3, psidgroup: Param4, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetNamedSecurityInfoA(pobjectname: super::super::Foundation::PSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
         }
@@ -14276,7 +14360,8 @@ pub unsafe fn SetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: Param3, psidgroup: Param4, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetNamedSecurityInfoW(pobjectname: super::super::Foundation::PWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
         }
@@ -14291,7 +14376,8 @@ pub unsafe fn SetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetSecurityInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(handle: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, psidowner: Param3, psidgroup: Param4, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetSecurityInfo(handle: super::super::Foundation::HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: u32, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
         }
@@ -14585,7 +14671,8 @@ impl ::core::default::Default for TRUSTEE_W {
 pub unsafe fn TreeResetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: Param3, pgroup: Param4, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: Param7, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TreeResetNamedSecurityInfoA(pobjectname: super::super::Foundation::PSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: super::super::Foundation::BOOL, fnprogress: ::windows::core::RawPtr, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
         }
@@ -14600,7 +14687,8 @@ pub unsafe fn TreeResetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn TreeResetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: Param3, pgroup: Param4, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: Param7, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TreeResetNamedSecurityInfoW(pobjectname: super::super::Foundation::PWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: super::super::Foundation::BOOL, fnprogress: ::windows::core::RawPtr, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
         }
@@ -14615,7 +14703,8 @@ pub unsafe fn TreeResetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn TreeSetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: Param3, pgroup: Param4, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TreeSetNamedSecurityInfoA(pobjectname: super::super::Foundation::PSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: ::windows::core::RawPtr, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
         }
@@ -14630,7 +14719,8 @@ pub unsafe fn TreeSetNamedSecurityInfoA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn TreeSetNamedSecurityInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(pobjectname: Param0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: Param3, pgroup: Param4, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TreeSetNamedSecurityInfoW(pobjectname: super::super::Foundation::PWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: ::windows::core::RawPtr, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
         }

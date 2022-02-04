@@ -7,7 +7,8 @@ pub struct CD3D11_VIDEO_DEFAULT(pub u8);
 pub unsafe fn D3D11CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: Param2, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, ppdevice: *mut ::core::option::Option<ID3D11Device>, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d11", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D11CreateDevice(padapter: ::windows::core::RawPtr, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, ppdevice: *mut ::windows::core::RawPtr, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -22,7 +23,8 @@ pub unsafe fn D3D11CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn D3D11CreateDeviceAndSwapChain<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: Param2, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, ppdevice: *mut ::core::option::Option<ID3D11Device>, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d11", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D11CreateDeviceAndSwapChain(padapter: ::windows::core::RawPtr, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::core::RawPtr, ppdevice: *mut ::windows::core::RawPtr, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -14993,7 +14995,8 @@ pub const D3DCSX_DLL_W: &'static str = "d3dcsx_47.dll";
 pub unsafe fn D3DDisassemble11Trace<'a, Param2: ::windows::core::IntoParam<'a, ID3D11ShaderTrace>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ptrace: Param2, startstep: u32, numsteps: u32, flags: u32) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcompiler_47", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DDisassemble11Trace(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ptrace: ::windows::core::RawPtr, startstep: u32, numsteps: u32, flags: u32, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -15008,7 +15011,8 @@ pub unsafe fn D3DDisassemble11Trace<'a, Param2: ::windows::core::IntoParam<'a, I
 pub unsafe fn D3DX11CreateFFT<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, pdesc: *const D3DX11_FFT_DESC, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcsx", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DX11CreateFFT(pdevicecontext: ::windows::core::RawPtr, pdesc: *const D3DX11_FFT_DESC, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -15022,7 +15026,8 @@ pub unsafe fn D3DX11CreateFFT<'a, Param0: ::windows::core::IntoParam<'a, ID3D11D
 pub unsafe fn D3DX11CreateFFT1DComplex<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcsx", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DX11CreateFFT1DComplex(pdevicecontext: ::windows::core::RawPtr, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -15036,7 +15041,8 @@ pub unsafe fn D3DX11CreateFFT1DComplex<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn D3DX11CreateFFT1DReal<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcsx", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DX11CreateFFT1DReal(pdevicecontext: ::windows::core::RawPtr, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -15050,7 +15056,8 @@ pub unsafe fn D3DX11CreateFFT1DReal<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn D3DX11CreateFFT2DComplex<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcsx", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DX11CreateFFT2DComplex(pdevicecontext: ::windows::core::RawPtr, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -15064,7 +15071,8 @@ pub unsafe fn D3DX11CreateFFT2DComplex<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn D3DX11CreateFFT2DReal<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcsx", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DX11CreateFFT2DReal(pdevicecontext: ::windows::core::RawPtr, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -15078,7 +15086,8 @@ pub unsafe fn D3DX11CreateFFT2DReal<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn D3DX11CreateFFT3DComplex<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcsx", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DX11CreateFFT3DComplex(pdevicecontext: ::windows::core::RawPtr, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -15092,7 +15101,8 @@ pub unsafe fn D3DX11CreateFFT3DComplex<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn D3DX11CreateFFT3DReal<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcsx", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DX11CreateFFT3DReal(pdevicecontext: ::windows::core::RawPtr, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -15106,7 +15116,8 @@ pub unsafe fn D3DX11CreateFFT3DReal<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn D3DX11CreateScan<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, maxelementscansize: u32, maxscancount: u32) -> ::windows::core::Result<ID3DX11Scan> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcsx", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DX11CreateScan(pdevicecontext: ::windows::core::RawPtr, maxelementscansize: u32, maxscancount: u32, ppscan: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -15121,7 +15132,8 @@ pub unsafe fn D3DX11CreateScan<'a, Param0: ::windows::core::IntoParam<'a, ID3D11
 pub unsafe fn D3DX11CreateSegmentedScan<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, maxelementscansize: u32) -> ::windows::core::Result<ID3DX11SegmentedScan> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcsx", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DX11CreateSegmentedScan(pdevicecontext: ::windows::core::RawPtr, maxelementscansize: u32, ppscan: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }

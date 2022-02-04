@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
     pub fn CMP_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32;
@@ -563,6 +564,10 @@ extern "system" {
     pub fn CM_Unregister_Device_Interface_ExW(pszdeviceinterface: super::super::Foundation::PWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
     #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
     pub fn CM_Unregister_Notification(notifycontext: HCMNOTIFICATION) -> CONFIGRET;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DiInstallDevice(hwndparent: super::super::Foundation::HWND, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
@@ -590,6 +595,16 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DiUninstallDriverW(hwndparent: super::super::Foundation::HWND, infpath: super::super::Foundation::PWSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UpdateDriverForPlugAndPlayDevicesA(hwndparent: super::super::Foundation::HWND, hardwareid: super::super::Foundation::PSTR, fullinfpath: super::super::Foundation::PSTR, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UpdateDriverForPlugAndPlayDevicesW(hwndparent: super::super::Foundation::HWND, hardwareid: super::super::Foundation::PWSTR, fullinfpath: super::super::Foundation::PWSTR, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InstallHinfSectionA(window: super::super::Foundation::HWND, modulehandle: super::super::Foundation::HINSTANCE, commandline: super::super::Foundation::PSTR, showcommand: i32);
@@ -1577,12 +1592,6 @@ extern "system" {
     pub fn SetupWriteTextLogError(logtoken: u64, category: u32, logflags: u32, error: u32, messagestr: super::super::Foundation::PSTR);
     #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
     pub fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *const ::core::ffi::c_void, context: *const INFCONTEXT);
-    #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateDriverForPlugAndPlayDevicesA(hwndparent: super::super::Foundation::HWND, hardwareid: super::super::Foundation::PSTR, fullinfpath: super::super::Foundation::PSTR, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateDriverForPlugAndPlayDevicesW(hwndparent: super::super::Foundation::HWND, hardwareid: super::super::Foundation::PWSTR, fullinfpath: super::super::Foundation::PWSTR, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
 }
 #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
 pub const ALLOC_LOG_CONF: u32 = 2u32;

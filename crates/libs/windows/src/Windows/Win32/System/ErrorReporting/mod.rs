@@ -7,7 +7,8 @@ pub const APPCRASH_EVENT: &'static str = "APPCRASH";
 pub unsafe fn AddERExcludedApplicationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szapplication: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "faultrep", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddERExcludedApplicationA(szapplication: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -22,7 +23,8 @@ pub unsafe fn AddERExcludedApplicationA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn AddERExcludedApplicationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszapplication: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "faultrep", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddERExcludedApplicationW(wszapplication: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -194,7 +196,8 @@ impl ::core::fmt::Debug for REPORT_STORE_TYPES {
 pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "faultrep", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal;
         }
@@ -1500,7 +1503,8 @@ impl ::core::fmt::Debug for WER_SUBMIT_RESULT {
 pub unsafe fn WerAddExcludedApplication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pwzexename: Param0, ballusers: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerAddExcludedApplication(pwzexename: super::super::Foundation::PWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -1515,7 +1519,8 @@ pub unsafe fn WerAddExcludedApplication<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WerFreeString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszstr: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerFreeString(pwszstr: super::super::Foundation::PWSTR);
         }
@@ -1530,7 +1535,8 @@ pub unsafe fn WerFreeString<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn WerGetFlags<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> ::windows::core::Result<WER_FAULT_REPORTING> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerGetFlags(hprocess: super::super::Foundation::HANDLE, pdwflags: *mut WER_FAULT_REPORTING) -> ::windows::core::HRESULT;
         }
@@ -1545,7 +1551,8 @@ pub unsafe fn WerGetFlags<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn WerRegisterAdditionalProcess(processid: u32, captureextrainfoforthreadid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerRegisterAdditionalProcess(processid: u32, captureextrainfoforthreadid: u32) -> ::windows::core::HRESULT;
         }
@@ -1560,7 +1567,8 @@ pub unsafe fn WerRegisterAdditionalProcess(processid: u32, captureextrainfoforth
 pub unsafe fn WerRegisterAppLocalDump<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(localappdatarelativepath: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerRegisterAppLocalDump(localappdatarelativepath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1575,7 +1583,8 @@ pub unsafe fn WerRegisterAppLocalDump<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WerRegisterCustomMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(key: Param0, value: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerRegisterCustomMetadata(key: super::super::Foundation::PWSTR, value: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1589,7 +1598,8 @@ pub unsafe fn WerRegisterCustomMetadata<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WerRegisterExcludedMemoryBlock(address: *const ::core::ffi::c_void, size: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerRegisterExcludedMemoryBlock(address: *const ::core::ffi::c_void, size: u32) -> ::windows::core::HRESULT;
         }
@@ -1604,7 +1614,8 @@ pub unsafe fn WerRegisterExcludedMemoryBlock(address: *const ::core::ffi::c_void
 pub unsafe fn WerRegisterFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzfile: Param0, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: WER_FILE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerRegisterFile(pwzfile: super::super::Foundation::PWSTR, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: WER_FILE) -> ::windows::core::HRESULT;
         }
@@ -1618,7 +1629,8 @@ pub unsafe fn WerRegisterFile<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn WerRegisterMemoryBlock(pvaddress: *const ::core::ffi::c_void, dwsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerRegisterMemoryBlock(pvaddress: *const ::core::ffi::c_void, dwsize: u32) -> ::windows::core::HRESULT;
         }
@@ -1633,7 +1645,8 @@ pub unsafe fn WerRegisterMemoryBlock(pvaddress: *const ::core::ffi::c_void, dwsi
 pub unsafe fn WerRegisterRuntimeExceptionModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszoutofprocesscallbackdll: Param0, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: super::super::Foundation::PWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1648,7 +1661,8 @@ pub unsafe fn WerRegisterRuntimeExceptionModule<'a, Param0: ::windows::core::Int
 pub unsafe fn WerRemoveExcludedApplication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pwzexename: Param0, ballusers: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerRemoveExcludedApplication(pwzexename: super::super::Foundation::PWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -1663,7 +1677,8 @@ pub unsafe fn WerRemoveExcludedApplication<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WerReportAddDump<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hreporthandle: Param0, hprocess: Param1, hthread: Param2, dumptype: WER_DUMP_TYPE, pexceptionparam: *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions: *const WER_DUMP_CUSTOM_OPTIONS, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerReportAddDump(hreporthandle: HREPORT, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE, dumptype: WER_DUMP_TYPE, pexceptionparam: *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions: *const WER_DUMP_CUSTOM_OPTIONS, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -1678,7 +1693,8 @@ pub unsafe fn WerReportAddDump<'a, Param0: ::windows::core::IntoParam<'a, HREPOR
 pub unsafe fn WerReportAddFile<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreporthandle: Param0, pwzpath: Param1, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerReportAddFile(hreporthandle: HREPORT, pwzpath: super::super::Foundation::PWSTR, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE) -> ::windows::core::HRESULT;
         }
@@ -1692,7 +1708,8 @@ pub unsafe fn WerReportAddFile<'a, Param0: ::windows::core::IntoParam<'a, HREPOR
 pub unsafe fn WerReportCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>>(hreporthandle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerReportCloseHandle(hreporthandle: HREPORT) -> ::windows::core::HRESULT;
         }
@@ -1707,7 +1724,8 @@ pub unsafe fn WerReportCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HR
 pub unsafe fn WerReportCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzeventtype: Param0, reptype: WER_REPORT_TYPE, preportinformation: *const WER_REPORT_INFORMATION) -> ::windows::core::Result<HREPORT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerReportCreate(pwzeventtype: super::super::Foundation::PWSTR, reptype: WER_REPORT_TYPE, preportinformation: *const WER_REPORT_INFORMATION, phreporthandle: *mut HREPORT) -> ::windows::core::HRESULT;
         }
@@ -1723,7 +1741,8 @@ pub unsafe fn WerReportCreate<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn WerReportHang<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndhungapp: Param0, pwzhungapplicationname: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "faultrep", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerReportHang(hwndhungapp: super::super::Foundation::HWND, pwzhungapplicationname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1738,7 +1757,8 @@ pub unsafe fn WerReportHang<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn WerReportSetParameter<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreporthandle: Param0, dwparamid: u32, pwzname: Param2, pwzvalue: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerReportSetParameter(hreporthandle: HREPORT, dwparamid: u32, pwzname: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1753,7 +1773,8 @@ pub unsafe fn WerReportSetParameter<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn WerReportSetUIOption<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreporthandle: Param0, repuitypeid: WER_REPORT_UI, pwzvalue: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerReportSetUIOption(hreporthandle: HREPORT, repuitypeid: WER_REPORT_UI, pwzvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1767,7 +1788,8 @@ pub unsafe fn WerReportSetUIOption<'a, Param0: ::windows::core::IntoParam<'a, HR
 pub unsafe fn WerReportSubmit<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>>(hreporthandle: Param0, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS) -> ::windows::core::Result<WER_SUBMIT_RESULT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
         }
@@ -1782,7 +1804,8 @@ pub unsafe fn WerReportSubmit<'a, Param0: ::windows::core::IntoParam<'a, HREPORT
 pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::core::HRESULT;
         }
@@ -1796,7 +1819,8 @@ pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::core::Resu
 pub unsafe fn WerStoreClose<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStoreClose(hreportstore: HREPORTSTORE);
         }
@@ -1811,7 +1835,8 @@ pub unsafe fn WerStoreClose<'a, Param0: ::windows::core::IntoParam<'a, HREPORTST
 pub unsafe fn WerStoreGetFirstReportKey<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1827,7 +1852,8 @@ pub unsafe fn WerStoreGetFirstReportKey<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WerStoreGetNextReportKey<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1842,7 +1868,8 @@ pub unsafe fn WerStoreGetNextReportKey<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn WerStoreGetReportCount<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1857,7 +1884,8 @@ pub unsafe fn WerStoreGetReportCount<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WerStoreGetSizeOnDisk<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -1872,7 +1900,8 @@ pub unsafe fn WerStoreGetSizeOnDisk<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core::Result<HREPORTSTORE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: *mut HREPORTSTORE) -> ::windows::core::HRESULT;
         }
@@ -1887,7 +1916,8 @@ pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core:
 pub unsafe fn WerStorePurge() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStorePurge() -> ::windows::core::HRESULT;
         }
@@ -1902,7 +1932,8 @@ pub unsafe fn WerStorePurge() -> ::windows::core::Result<()> {
 pub unsafe fn WerStoreQueryReportMetadataV1<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreportstore: Param0, pszreportkey: Param1) -> ::windows::core::Result<WER_REPORT_METADATA_V1> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: super::super::Foundation::PWSTR, preportmetadata: *mut WER_REPORT_METADATA_V1) -> ::windows::core::HRESULT;
         }
@@ -1918,7 +1949,8 @@ pub unsafe fn WerStoreQueryReportMetadataV1<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn WerStoreQueryReportMetadataV2<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreportstore: Param0, pszreportkey: Param1) -> ::windows::core::Result<WER_REPORT_METADATA_V2> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: super::super::Foundation::PWSTR, preportmetadata: *mut WER_REPORT_METADATA_V2) -> ::windows::core::HRESULT;
         }
@@ -1934,7 +1966,8 @@ pub unsafe fn WerStoreQueryReportMetadataV2<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn WerStoreQueryReportMetadataV3<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreportstore: Param0, pszreportkey: Param1) -> ::windows::core::Result<WER_REPORT_METADATA_V3> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: super::super::Foundation::PWSTR, preportmetadata: *mut WER_REPORT_METADATA_V3) -> ::windows::core::HRESULT;
         }
@@ -1950,7 +1983,8 @@ pub unsafe fn WerStoreQueryReportMetadataV3<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn WerStoreUploadReport<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hreportstore: Param0, pszreportkey: Param1, dwflags: u32) -> ::windows::core::Result<WER_SUBMIT_RESULT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: super::super::Foundation::PWSTR, dwflags: u32, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
         }
@@ -1965,7 +1999,8 @@ pub unsafe fn WerStoreUploadReport<'a, Param0: ::windows::core::IntoParam<'a, HR
 pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::core::HRESULT;
         }
@@ -1979,7 +2014,8 @@ pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::core:
 pub unsafe fn WerUnregisterAppLocalDump() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerUnregisterAppLocalDump() -> ::windows::core::HRESULT;
         }
@@ -1994,7 +2030,8 @@ pub unsafe fn WerUnregisterAppLocalDump() -> ::windows::core::Result<()> {
 pub unsafe fn WerUnregisterCustomMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(key: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerUnregisterCustomMetadata(key: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -2008,7 +2045,8 @@ pub unsafe fn WerUnregisterCustomMetadata<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2023,7 +2061,8 @@ pub unsafe fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_vo
 pub unsafe fn WerUnregisterFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzfilepath: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerUnregisterFile(pwzfilepath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -2037,7 +2076,8 @@ pub unsafe fn WerUnregisterFile<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2052,7 +2092,8 @@ pub unsafe fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) ->
 pub unsafe fn WerUnregisterRuntimeExceptionModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszoutofprocesscallbackdll: Param0, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: super::super::Foundation::PWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

@@ -5,7 +5,8 @@
 pub unsafe fn AddDllDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(newdirectory: Param0) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddDllDirectory(newdirectory: super::super::Foundation::PWSTR) -> *mut ::core::ffi::c_void;
         }
@@ -20,7 +21,8 @@ pub unsafe fn AddDllDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn BeginUpdateResourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pfilename: Param0, bdeleteexistingresources: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BeginUpdateResourceA(pfilename: super::super::Foundation::PSTR, bdeleteexistingresources: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
         }
@@ -35,7 +37,8 @@ pub unsafe fn BeginUpdateResourceA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn BeginUpdateResourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pfilename: Param0, bdeleteexistingresources: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BeginUpdateResourceW(pfilename: super::super::Foundation::PWSTR, bdeleteexistingresources: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
         }
@@ -52,7 +55,8 @@ pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
 pub unsafe fn DisableThreadLibraryCalls<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hlibmodule: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DisableThreadLibraryCalls(hlibmodule: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
         }
@@ -117,7 +121,8 @@ impl ::core::default::Default for ENUMUILANG {
 pub unsafe fn EndUpdateResourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hupdate: Param0, fdiscard: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EndUpdateResourceA(hupdate: super::super::Foundation::HANDLE, fdiscard: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -132,7 +137,8 @@ pub unsafe fn EndUpdateResourceA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn EndUpdateResourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hupdate: Param0, fdiscard: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EndUpdateResourceW(hupdate: super::super::Foundation::HANDLE, fdiscard: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -147,7 +153,8 @@ pub unsafe fn EndUpdateResourceW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn EnumResourceLanguagesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lptype: Param1, lpname: Param2, lpenumfunc: ENUMRESLANGPROCA, lparam: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceLanguagesA(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
         }
@@ -162,7 +169,8 @@ pub unsafe fn EnumResourceLanguagesA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn EnumResourceLanguagesExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lptype: Param1, lpname: Param2, lpenumfunc: ENUMRESLANGPROCA, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceLanguagesExA(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
@@ -177,7 +185,8 @@ pub unsafe fn EnumResourceLanguagesExA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn EnumResourceLanguagesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, lptype: Param1, lpname: Param2, lpenumfunc: ENUMRESLANGPROCW, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceLanguagesExW(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
@@ -192,7 +201,8 @@ pub unsafe fn EnumResourceLanguagesExW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn EnumResourceLanguagesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, lptype: Param1, lpname: Param2, lpenumfunc: ENUMRESLANGPROCW, lparam: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceLanguagesW(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
         }
@@ -207,7 +217,8 @@ pub unsafe fn EnumResourceLanguagesW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn EnumResourceNamesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lptype: Param1, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceNamesA(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
         }
@@ -222,7 +233,8 @@ pub unsafe fn EnumResourceNamesA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn EnumResourceNamesExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lptype: Param1, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceNamesExA(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
@@ -237,7 +249,8 @@ pub unsafe fn EnumResourceNamesExA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn EnumResourceNamesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, lptype: Param1, lpenumfunc: ENUMRESNAMEPROCW, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceNamesExW(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
@@ -252,7 +265,8 @@ pub unsafe fn EnumResourceNamesExW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn EnumResourceNamesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, lptype: Param1, lpenumfunc: ENUMRESNAMEPROCW, lparam: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceNamesW(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
         }
@@ -267,7 +281,8 @@ pub unsafe fn EnumResourceNamesW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn EnumResourceTypesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hmodule: Param0, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceTypesA(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
         }
@@ -282,7 +297,8 @@ pub unsafe fn EnumResourceTypesA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn EnumResourceTypesExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hmodule: Param0, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceTypesExA(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
@@ -297,7 +313,8 @@ pub unsafe fn EnumResourceTypesExA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn EnumResourceTypesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hmodule: Param0, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceTypesExW(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
@@ -312,7 +329,8 @@ pub unsafe fn EnumResourceTypesExW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn EnumResourceTypesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hmodule: Param0, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumResourceTypesW(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
         }
@@ -333,7 +351,8 @@ pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
 pub unsafe fn FindResourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lpname: Param1, lptype: Param2) -> super::super::Foundation::HRSRC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindResourceA(hmodule: super::super::Foundation::HINSTANCE, lpname: super::super::Foundation::PSTR, lptype: super::super::Foundation::PSTR) -> super::super::Foundation::HRSRC;
         }
@@ -348,7 +367,8 @@ pub unsafe fn FindResourceA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn FindResourceExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lptype: Param1, lpname: Param2, wlanguage: u16) -> super::super::Foundation::HRSRC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindResourceExA(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, wlanguage: u16) -> super::super::Foundation::HRSRC;
         }
@@ -363,7 +383,8 @@ pub unsafe fn FindResourceExA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn FindResourceExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, lptype: Param1, lpname: Param2, wlanguage: u16) -> super::super::Foundation::HRSRC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindResourceExW(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, wlanguage: u16) -> super::super::Foundation::HRSRC;
         }
@@ -378,7 +399,8 @@ pub unsafe fn FindResourceExW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn FindResourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, lpname: Param1, lptype: Param2) -> super::super::Foundation::HRSRC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindResourceW(hmodule: super::super::Foundation::HINSTANCE, lpname: super::super::Foundation::PWSTR, lptype: super::super::Foundation::PWSTR) -> super::super::Foundation::HRSRC;
         }
@@ -393,7 +415,8 @@ pub unsafe fn FindResourceW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn FreeLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hlibmodule: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeLibrary(hlibmodule: super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
         }
@@ -408,7 +431,8 @@ pub unsafe fn FreeLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn FreeLibraryAndExitThread<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hlibmodule: Param0, dwexitcode: u32) -> ! {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeLibraryAndExitThread(hlibmodule: super::super::Foundation::HINSTANCE, dwexitcode: u32) -> !;
         }
@@ -423,7 +447,8 @@ pub unsafe fn FreeLibraryAndExitThread<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL;
         }
@@ -444,7 +469,8 @@ pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2u32;
 pub unsafe fn GetDllDirectoryA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDllDirectoryA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32;
         }
@@ -459,7 +485,8 @@ pub unsafe fn GetDllDirectoryA(nbufferlength: u32, lpbuffer: super::super::Found
 pub unsafe fn GetDllDirectoryW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDllDirectoryW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32;
         }
@@ -474,7 +501,8 @@ pub unsafe fn GetDllDirectoryW(nbufferlength: u32, lpbuffer: super::super::Found
 pub unsafe fn GetModuleFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hmodule: Param0, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetModuleFileNameA(hmodule: super::super::Foundation::HINSTANCE, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
         }
@@ -489,7 +517,8 @@ pub unsafe fn GetModuleFileNameA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetModuleFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hmodule: Param0, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetModuleFileNameW(hmodule: super::super::Foundation::HINSTANCE, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
         }
@@ -504,7 +533,8 @@ pub unsafe fn GetModuleFileNameW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetModuleHandleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpmodulename: Param0) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetModuleHandleA(lpmodulename: super::super::Foundation::PSTR) -> super::super::Foundation::HINSTANCE;
         }
@@ -519,7 +549,8 @@ pub unsafe fn GetModuleHandleA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetModuleHandleExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: u32, lpmodulename: Param1, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetModuleHandleExA(dwflags: u32, lpmodulename: super::super::Foundation::PSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
         }
@@ -534,7 +565,8 @@ pub unsafe fn GetModuleHandleExA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetModuleHandleExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: u32, lpmodulename: Param1, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetModuleHandleExW(dwflags: u32, lpmodulename: super::super::Foundation::PWSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
         }
@@ -549,7 +581,8 @@ pub unsafe fn GetModuleHandleExW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetModuleHandleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpmodulename: Param0) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetModuleHandleW(lpmodulename: super::super::Foundation::PWSTR) -> super::super::Foundation::HINSTANCE;
         }
@@ -564,7 +597,8 @@ pub unsafe fn GetModuleHandleW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lpprocname: Param1) -> super::super::Foundation::FARPROC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetProcAddress(hmodule: super::super::Foundation::HINSTANCE, lpprocname: super::super::Foundation::PSTR) -> super::super::Foundation::FARPROC;
         }
@@ -660,7 +694,8 @@ pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
 pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lplibfilename: Param0) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadLibraryA(lplibfilename: super::super::Foundation::PSTR) -> super::super::Foundation::HINSTANCE;
         }
@@ -675,7 +710,8 @@ pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn LoadLibraryExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lplibfilename: Param0, hfile: Param1, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadLibraryExA(lplibfilename: super::super::Foundation::PSTR, hfile: super::super::Foundation::HANDLE, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE;
         }
@@ -690,7 +726,8 @@ pub unsafe fn LoadLibraryExA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn LoadLibraryExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lplibfilename: Param0, hfile: Param1, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadLibraryExW(lplibfilename: super::super::Foundation::PWSTR, hfile: super::super::Foundation::HANDLE, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE;
         }
@@ -705,7 +742,8 @@ pub unsafe fn LoadLibraryExW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn LoadLibraryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lplibfilename: Param0) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadLibraryW(lplibfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::HINSTANCE;
         }
@@ -720,7 +758,8 @@ pub unsafe fn LoadLibraryW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn LoadModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpmodulename: Param0, lpparameterblock: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadModule(lpmodulename: super::super::Foundation::PSTR, lpparameterblock: *const ::core::ffi::c_void) -> u32;
         }
@@ -735,7 +774,8 @@ pub unsafe fn LoadModule<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn LoadPackagedLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwlibfilename: Param0, reserved: u32) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadPackagedLibrary(lpwlibfilename: super::super::Foundation::PWSTR, reserved: u32) -> super::super::Foundation::HINSTANCE;
         }
@@ -750,7 +790,8 @@ pub unsafe fn LoadPackagedLibrary<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn LoadResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HRSRC>>(hmodule: Param0, hresinfo: Param1) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadResource(hmodule: super::super::Foundation::HINSTANCE, hresinfo: super::super::Foundation::HRSRC) -> isize;
         }
@@ -764,7 +805,8 @@ pub unsafe fn LoadResource<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn LockResource(hresdata: isize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LockResource(hresdata: isize) -> *mut ::core::ffi::c_void;
         }
@@ -875,7 +917,8 @@ pub const RESOURCE_ENUM_VALIDATE: u32 = 8u32;
 pub unsafe fn RemoveDllDirectory(cookie: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveDllDirectory(cookie: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -892,7 +935,8 @@ pub const SUPPORT_LANG_NUMBER: u32 = 32u32;
 pub unsafe fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::BOOL;
         }
@@ -907,7 +951,8 @@ pub unsafe fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> su
 pub unsafe fn SetDllDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetDllDirectoryA(lppathname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -922,7 +967,8 @@ pub unsafe fn SetDllDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetDllDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetDllDirectoryW(lppathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -937,7 +983,8 @@ pub unsafe fn SetDllDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SizeofResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HRSRC>>(hmodule: Param0, hresinfo: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SizeofResource(hmodule: super::super::Foundation::HINSTANCE, hresinfo: super::super::Foundation::HRSRC) -> u32;
         }
@@ -952,7 +999,8 @@ pub unsafe fn SizeofResource<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn UpdateResourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hupdate: Param0, lptype: Param1, lpname: Param2, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UpdateResourceA(hupdate: super::super::Foundation::HANDLE, lptype: super::super::Foundation::PSTR, lpname: super::super::Foundation::PSTR, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
         }
@@ -967,7 +1015,8 @@ pub unsafe fn UpdateResourceA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn UpdateResourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hupdate: Param0, lptype: Param1, lpname: Param2, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UpdateResourceW(hupdate: super::super::Foundation::HANDLE, lptype: super::super::Foundation::PWSTR, lpname: super::super::Foundation::PWSTR, wlanguage: u16, lpdata: *const ::core::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
         }

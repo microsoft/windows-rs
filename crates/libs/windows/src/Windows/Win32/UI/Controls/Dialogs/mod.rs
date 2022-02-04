@@ -770,7 +770,8 @@ impl ::core::fmt::Debug for COMMON_DLG_ERRORS {
 pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL;
         }
@@ -785,7 +786,8 @@ pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Fo
 pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL;
         }
@@ -800,7 +802,8 @@ pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Fo
 pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL;
         }
@@ -815,7 +818,8 @@ pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foun
 pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL;
         }
@@ -829,7 +833,8 @@ pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foun
 pub unsafe fn CommDlgExtendedError() -> COMMON_DLG_ERRORS {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CommDlgExtendedError() -> COMMON_DLG_ERRORS;
         }
@@ -1227,7 +1232,8 @@ pub const FR_WRAPAROUND: u32 = 1048576u32;
 pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
         }
@@ -1242,7 +1248,8 @@ pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Found
 pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
         }
@@ -1257,7 +1264,8 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
 pub unsafe fn GetFileTitleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, buf: super::super::super::Foundation::PSTR, cchsize: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetFileTitleA(param0: super::super::super::Foundation::PSTR, buf: super::super::super::Foundation::PSTR, cchsize: u16) -> i16;
         }
@@ -1272,7 +1280,8 @@ pub unsafe fn GetFileTitleA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn GetFileTitleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, buf: super::super::super::Foundation::PWSTR, cchsize: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetFileTitleW(param0: super::super::super::Foundation::PWSTR, buf: super::super::super::Foundation::PWSTR, cchsize: u16) -> i16;
         }
@@ -1287,7 +1296,8 @@ pub unsafe fn GetFileTitleW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
         }
@@ -1302,7 +1312,8 @@ pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::supe
 pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
         }
@@ -1317,7 +1328,8 @@ pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::supe
 pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
         }
@@ -1332,7 +1344,8 @@ pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::supe
 pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
         }
@@ -3505,7 +3518,8 @@ pub const PS_OPENTYPE_FONTTYPE: u32 = 65536u32;
 pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL;
         }
@@ -3520,7 +3534,8 @@ pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::
 pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL;
         }
@@ -3535,7 +3550,8 @@ pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::
 pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL;
         }
@@ -3550,7 +3566,8 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation:
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::HRESULT;
         }
@@ -3565,7 +3582,8 @@ pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> 
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::HRESULT;
         }
@@ -3580,7 +3598,8 @@ pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::Result<()> 
 pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL;
         }
@@ -3595,7 +3614,8 @@ pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation:
 pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
         }
@@ -3610,7 +3630,8 @@ pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Fo
 pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comdlg32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
         }

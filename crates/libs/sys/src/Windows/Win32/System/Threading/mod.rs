@@ -1,19 +1,38 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    pub fn CreateProcessAsUserA(htoken: super::super::Foundation::HANDLE, lpapplicationname: super::super::Foundation::PSTR, lpcommandline: super::super::Foundation::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    pub fn CreateProcessAsUserW(htoken: super::super::Foundation::HANDLE, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateProcessWithLogonW(lpusername: super::super::Foundation::PWSTR, lpdomain: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateProcessWithTokenW(htoken: super::super::Foundation::HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    pub fn OpenProcessToken(processhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    pub fn OpenThreadToken(threadhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, openasself: super::super::Foundation::BOOL, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetThreadToken(thread: *const super::super::Foundation::HANDLE, token: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-wow64-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading'*"]
-    pub fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
-    #[doc = "*Required features: 'Win32_System_Threading'*"]
-    pub fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK);
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: *mut super::super::Foundation::HANDLE, integritylabel: super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AddSIDToBoundaryDescriptor(boundarydescriptor: *mut super::super::Foundation::HANDLE, requiredsid: super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn AttachThreadInput(idattach: u32, idattachto: u32, fattach: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "avrt", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AvQuerySystemResponsiveness(avrthandle: super::super::Foundation::HANDLE, systemresponsivenessvalue: *mut u32) -> super::super::Foundation::BOOL;
@@ -56,6 +75,20 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AvSetMmThreadPriority(avrthandle: super::super::Foundation::HANDLE, priority: AVRT_PRIORITY) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Threading'*"]
+    pub fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
+    #[doc = "*Required features: 'Win32_System_Threading'*"]
+    pub fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK);
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: *mut super::super::Foundation::HANDLE, integritylabel: super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AddSIDToBoundaryDescriptor(boundarydescriptor: *mut super::super::Foundation::HANDLE, requiredsid: super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CallbackMayRunLong(pci: *mut TP_CALLBACK_INSTANCE) -> super::super::Foundation::BOOL;
@@ -137,19 +170,7 @@ extern "system" {
     pub fn CreateProcessA(lpapplicationname: super::super::Foundation::PSTR, lpcommandline: super::super::Foundation::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateProcessAsUserA(htoken: super::super::Foundation::HANDLE, lpapplicationname: super::super::Foundation::PSTR, lpcommandline: super::super::Foundation::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateProcessAsUserW(htoken: super::super::Foundation::HANDLE, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn CreateProcessW(lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateProcessWithLogonW(lpusername: super::super::Foundation::PWSTR, lpdomain: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateProcessWithTokenW(htoken: super::super::Foundation::HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn CreateRemoteThread(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
@@ -294,9 +315,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetExitCodeThread(hthread: super::super::Foundation::HANDLE, lpexitcode: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetGuiResources(hprocess: super::super::Foundation::HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS) -> u32;
     #[doc = "*Required features: 'Win32_System_Threading'*"]
     pub fn GetMachineTypeAttributes(machine: u16, machinetypeattributes: *mut MACHINE_ATTRIBUTES) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -483,9 +501,6 @@ extern "system" {
     pub fn InterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsImmersiveProcess(hprocess: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn IsProcessCritical(hprocess: super::super::Foundation::HANDLE, critical: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -510,15 +525,6 @@ extern "system" {
     pub fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, pcs: *mut RTL_CRITICAL_SECTION);
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NtQueryInformationProcess(processhandle: super::super::Foundation::HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NtQueryInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NtSetInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::Foundation::NTSTATUS;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn OpenEventA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: super::super::Foundation::PSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -535,18 +541,12 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwprocessid: u32) -> super::super::Foundation::HANDLE;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn OpenProcessToken(processhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenSemaphoreW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwthreadid: u32) -> super::super::Foundation::HANDLE;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation', 'Win32_Security'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn OpenThreadToken(threadhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, openasself: super::super::Foundation::BOOL, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenWaitableTimerW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lptimername: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
@@ -652,9 +652,6 @@ extern "system" {
     pub fn SetProcessPriorityBoost(hprocess: super::super::Foundation::HANDLE, bdisablepriorityboost: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessRestrictionExemption(fenableexemption: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -695,9 +692,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetThreadStackGuarantee(stacksizeinbytes: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadToken(thread: *const super::super::Foundation::HANDLE, token: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: *const TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL;
@@ -795,9 +789,6 @@ extern "system" {
     pub fn UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: u32, attribute: usize, lpvalue: *const ::core::ffi::c_void, cbsize: usize, lppreviousvalue: *mut ::core::ffi::c_void, lpreturnsize: *const usize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitForInputIdle(hprocess: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn WaitForMultipleObjects(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -820,25 +811,59 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WaitForThreadpoolWorkCallbacks(pwk: *mut TP_WORK, fcancelpendingcallbacks: super::super::Foundation::BOOL);
-    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress: *const ::core::ffi::c_void, addresssize: usize, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Threading'*"]
     pub fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
-    #[doc = "*Required features: 'Win32_System_Threading'*"]
-    pub fn WakeByAddressAll(address: *const ::core::ffi::c_void);
-    #[doc = "*Required features: 'Win32_System_Threading'*"]
-    pub fn WakeByAddressSingle(address: *const ::core::ffi::c_void);
     #[doc = "*Required features: 'Win32_System_Threading'*"]
     pub fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WinExec(lpcmdline: super::super::Foundation::PSTR, ucmdshow: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Threading'*"]
-    pub fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16;
     #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn Wow64SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NtQueryInformationProcess(processhandle: super::super::Foundation::HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NtQueryInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NtSetInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::Foundation::NTSTATUS;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AttachThreadInput(idattach: u32, idattachto: u32, fattach: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetGuiResources(hprocess: super::super::Foundation::HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS) -> u32;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsImmersiveProcess(hprocess: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetProcessRestrictionExemption(fenableexemption: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WaitForInputIdle(hprocess: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "vertdll", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress: *const ::core::ffi::c_void, addresssize: usize, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Threading'*"]
+    pub fn WakeByAddressAll(address: *const ::core::ffi::c_void);
+    #[doc = "*Required features: 'Win32_System_Threading'*"]
+    pub fn WakeByAddressSingle(address: *const ::core::ffi::c_void);
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Threading'*"]

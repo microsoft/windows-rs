@@ -3735,7 +3735,8 @@ pub const D3DPBLENDCAPS_SRCCOLOR2: i32 = 16384i32;
 pub unsafe fn D3DPERF_BeginEvent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(col: u32, wszname: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d9", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DPERF_BeginEvent(col: u32, wszname: super::super::Foundation::PWSTR) -> i32;
         }
@@ -3749,7 +3750,8 @@ pub unsafe fn D3DPERF_BeginEvent<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn D3DPERF_EndEvent() -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d9", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DPERF_EndEvent() -> i32;
         }
@@ -3763,7 +3765,8 @@ pub unsafe fn D3DPERF_EndEvent() -> i32 {
 pub unsafe fn D3DPERF_GetStatus() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d9", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DPERF_GetStatus() -> u32;
         }
@@ -3778,7 +3781,8 @@ pub unsafe fn D3DPERF_GetStatus() -> u32 {
 pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d9", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL;
         }
@@ -3793,7 +3797,8 @@ pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
 pub unsafe fn D3DPERF_SetMarker<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(col: u32, wszname: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d9", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DPERF_SetMarker(col: u32, wszname: super::super::Foundation::PWSTR);
         }
@@ -3807,7 +3812,8 @@ pub unsafe fn D3DPERF_SetMarker<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d9", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DPERF_SetOptions(dwoptions: u32);
         }
@@ -3822,7 +3828,8 @@ pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
 pub unsafe fn D3DPERF_SetRegion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(col: u32, wszname: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d9", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3DPERF_SetRegion(col: u32, wszname: super::super::Foundation::PWSTR);
         }
@@ -6320,7 +6327,8 @@ pub const D3D_SDK_VERSION: u32 = 32u32;
 pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect3D9> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d9", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect3D9>;
         }
@@ -6334,7 +6342,8 @@ pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::core::Result<IDirect3D9Ex> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d9", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn Direct3DCreate9Ex(sdkversion: u32, param1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }

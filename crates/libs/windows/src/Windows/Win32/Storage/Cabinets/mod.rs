@@ -117,7 +117,8 @@ impl ::core::default::Default for ERF {
 pub unsafe fn FCIAddFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfci: *const ::core::ffi::c_void, pszsourcefile: Param1, pszfilename: Param2, fexecute: Param3, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cabinet", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FCIAddFile(hfci: *const ::core::ffi::c_void, pszsourcefile: super::super::Foundation::PSTR, pszfilename: super::super::Foundation::PSTR, fexecute: super::super::Foundation::BOOL, pfnfcignc: ::windows::core::RawPtr, pfnfcis: ::windows::core::RawPtr, pfnfcigoi: ::windows::core::RawPtr, typecompress: u16) -> super::super::Foundation::BOOL;
         }
@@ -132,7 +133,8 @@ pub unsafe fn FCIAddFile<'a, Param1: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn FCICreate(perf: *const ERF, pfnfcifp: PFNFCIFILEPLACED, pfna: PFNFCIALLOC, pfnf: PFNFCIFREE, pfnopen: PFNFCIOPEN, pfnread: PFNFCIREAD, pfnwrite: PFNFCIWRITE, pfnclose: PFNFCICLOSE, pfnseek: PFNFCISEEK, pfndelete: PFNFCIDELETE, pfnfcigtf: PFNFCIGETTEMPFILE, pccab: *const CCAB, pv: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cabinet", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FCICreate(perf: *const ERF, pfnfcifp: ::windows::core::RawPtr, pfna: ::windows::core::RawPtr, pfnf: ::windows::core::RawPtr, pfnopen: ::windows::core::RawPtr, pfnread: ::windows::core::RawPtr, pfnwrite: ::windows::core::RawPtr, pfnclose: ::windows::core::RawPtr, pfnseek: ::windows::core::RawPtr, pfndelete: ::windows::core::RawPtr, pfnfcigtf: ::windows::core::RawPtr, pccab: *const CCAB, pv: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }
@@ -147,7 +149,8 @@ pub unsafe fn FCICreate(perf: *const ERF, pfnfcifp: PFNFCIFILEPLACED, pfna: PFNF
 pub unsafe fn FCIDestroy(hfci: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cabinet", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FCIDestroy(hfci: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -205,7 +208,8 @@ impl ::core::fmt::Debug for FCIERROR {
 pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfci: *const ::core::ffi::c_void, fgetnextcab: Param1, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cabinet", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FCIFlushCabinet(hfci: *const ::core::ffi::c_void, fgetnextcab: super::super::Foundation::BOOL, pfnfcignc: ::windows::core::RawPtr, pfnfcis: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
         }
@@ -220,7 +224,8 @@ pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cabinet", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: ::windows::core::RawPtr, pfnfcis: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
         }
@@ -309,7 +314,8 @@ impl ::core::fmt::Debug for FDICREATE_CPU_TYPE {
 pub unsafe fn FDICopy<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinet: Param1, pszcabpath: Param2, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cabinet", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FDICopy(hfdi: *const ::core::ffi::c_void, pszcabinet: super::super::Foundation::PSTR, pszcabpath: super::super::Foundation::PSTR, flags: i32, pfnfdin: ::windows::core::RawPtr, pfnfdid: ::windows::core::RawPtr, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -324,7 +330,8 @@ pub unsafe fn FDICopy<'a, Param1: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn FDICreate(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, pfnread: PFNREAD, pfnwrite: PFNWRITE, pfnclose: PFNCLOSE, pfnseek: PFNSEEK, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cabinet", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FDICreate(pfnalloc: ::windows::core::RawPtr, pfnfree: ::windows::core::RawPtr, pfnopen: ::windows::core::RawPtr, pfnread: ::windows::core::RawPtr, pfnwrite: ::windows::core::RawPtr, pfnclose: ::windows::core::RawPtr, pfnseek: ::windows::core::RawPtr, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void;
         }
@@ -560,7 +567,8 @@ impl ::core::fmt::Debug for FDIDECRYPTTYPE {
 pub unsafe fn FDIDestroy(hfdi: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cabinet", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FDIDestroy(hfdi: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -624,7 +632,8 @@ impl ::core::fmt::Debug for FDIERROR {
 pub unsafe fn FDIIsCabinet(hfdi: *const ::core::ffi::c_void, hf: isize, pfdici: *mut FDICABINETINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cabinet", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FDIIsCabinet(hfdi: *const ::core::ffi::c_void, hf: isize, pfdici: *mut FDICABINETINFO) -> super::super::Foundation::BOOL;
         }
@@ -804,7 +813,8 @@ impl ::core::default::Default for FDISPILLFILE {
 pub unsafe fn FDITruncateCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::core::ffi::c_void, pszcabinetname: Param1, ifoldertodelete: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cabinet", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FDITruncateCabinet(hfdi: *const ::core::ffi::c_void, pszcabinetname: super::super::Foundation::PSTR, ifoldertodelete: u16) -> super::super::Foundation::BOOL;
         }

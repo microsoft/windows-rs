@@ -78,7 +78,8 @@ impl ::core::fmt::Debug for CompositionFrameInstanceKind {
 pub unsafe fn CreatePresentationFactory<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(d3ddevice: Param0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePresentationFactory(d3ddevice: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

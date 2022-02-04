@@ -2199,7 +2199,8 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
 pub unsafe fn RoGetAgileReference<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: Param2) -> ::windows::core::Result<IAgileReference> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }

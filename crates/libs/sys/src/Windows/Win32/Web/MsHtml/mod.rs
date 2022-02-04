@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "imgutil", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -18,13 +19,17 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn DitherTo8(pdestbits: *mut u8, ndestpitch: i32, psrcbits: *mut u8, nsrcpitch: i32, bfidsrc: *const ::windows_sys::core::GUID, prgbdestcolors: *mut super::super::Graphics::Gdi::RGBQUAD, prgbsrccolors: *mut super::super::Graphics::Gdi::RGBQUAD, pbdestinvmap: *mut u8, x: i32, y: i32, cx: i32, cy: i32, ldesttrans: i32, lsrctrans: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DoPrivacyDlg(hwndowner: super::super::Foundation::HWND, pszurl: super::super::Foundation::PWSTR, pprivacyenum: IEnumPrivacyRecords, freportallsites: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
     pub fn GetMaxMIMEIDBytes(pnmaxbytes: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
     pub fn IdentifyMIMEType(pbbytes: *const u8, nbytes: u32, pnformat: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub fn SniffStream(pinstream: super::super::System::Com::IStream, pnformat: *mut u32, ppoutstream: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "msrating", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RatingAccessDeniedDialog(hdlg: super::super::Foundation::HWND, pszusername: super::super::Foundation::PSTR, pszcontentdescription: super::super::Foundation::PSTR, pratingdetails: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -79,9 +84,13 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RatingSetupUIW(hdlg: super::super::Foundation::HWND, pszusername: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn SniffStream(pinstream: super::super::System::Com::IStream, pnformat: *mut u32, ppoutstream: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "shdocvw", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Web_MsHtml', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DoPrivacyDlg(hwndowner: super::super::Foundation::HWND, pszurl: super::super::Foundation::PWSTR, pprivacyenum: IEnumPrivacyRecords, freportallsites: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: 'Win32_Web_MsHtml'*"]
 pub const ADDRESSBAND: u32 = 2u32;

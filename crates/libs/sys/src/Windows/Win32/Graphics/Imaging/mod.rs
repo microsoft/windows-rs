@@ -1,7 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Imaging_D2D")]
 pub mod D2D;
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "windowscodecs", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub fn WICConvertBitmapSource(dstformat: *const ::windows_sys::core::GUID, pisrc: IWICBitmapSource, ppidst: *mut IWICBitmapSource) -> ::windows_sys::core::HRESULT;

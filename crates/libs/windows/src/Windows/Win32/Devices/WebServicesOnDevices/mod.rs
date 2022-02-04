@@ -3673,7 +3673,8 @@ pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4u32;
 pub unsafe fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize: usize) -> *mut ::core::ffi::c_void;
         }
@@ -3687,7 +3688,8 @@ pub unsafe fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize:
 pub unsafe fn WSDAttachLinkedMemory(pparent: *mut ::core::ffi::c_void, pchild: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDAttachLinkedMemory(pparent: *mut ::core::ffi::c_void, pchild: *mut ::core::ffi::c_void);
         }
@@ -3702,7 +3704,8 @@ pub unsafe fn WSDAttachLinkedMemory(pparent: *mut ::core::ffi::c_void, pchild: *
 pub unsafe fn WSDCreateDeviceHost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pszlocalid: Param0, pcontext: Param1) -> ::windows::core::Result<IWSDDeviceHost> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateDeviceHost(pszlocalid: super::super::Foundation::PWSTR, pcontext: ::windows::core::RawPtr, ppdevicehost: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3718,7 +3721,8 @@ pub unsafe fn WSDCreateDeviceHost<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WSDCreateDeviceHost2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pszlocalid: Param0, pcontext: Param1, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32) -> ::windows::core::Result<IWSDDeviceHost> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateDeviceHost2(pszlocalid: super::super::Foundation::PWSTR, pcontext: ::windows::core::RawPtr, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppdevicehost: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3734,7 +3738,8 @@ pub unsafe fn WSDCreateDeviceHost2<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn WSDCreateDeviceHostAdvanced<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pszlocalid: Param0, pcontext: Param1, pphostaddresses: *const ::core::option::Option<IWSDAddress>, dwhostaddresscount: u32) -> ::windows::core::Result<IWSDDeviceHost> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateDeviceHostAdvanced(pszlocalid: super::super::Foundation::PWSTR, pcontext: ::windows::core::RawPtr, pphostaddresses: *const ::windows::core::RawPtr, dwhostaddresscount: u32, ppdevicehost: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3750,7 +3755,8 @@ pub unsafe fn WSDCreateDeviceHostAdvanced<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WSDCreateDeviceProxy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pszdeviceid: Param0, pszlocalid: Param1, pcontext: Param2) -> ::windows::core::Result<IWSDDeviceProxy> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateDeviceProxy(pszdeviceid: super::super::Foundation::PWSTR, pszlocalid: super::super::Foundation::PWSTR, pcontext: ::windows::core::RawPtr, ppdeviceproxy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3766,7 +3772,8 @@ pub unsafe fn WSDCreateDeviceProxy<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn WSDCreateDeviceProxy2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pszdeviceid: Param0, pszlocalid: Param1, pcontext: Param2, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32) -> ::windows::core::Result<IWSDDeviceProxy> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateDeviceProxy2(pszdeviceid: super::super::Foundation::PWSTR, pszlocalid: super::super::Foundation::PWSTR, pcontext: ::windows::core::RawPtr, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppdeviceproxy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3782,7 +3789,8 @@ pub unsafe fn WSDCreateDeviceProxy2<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WSDCreateDeviceProxyAdvanced<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IWSDAddress>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pszdeviceid: Param0, pdeviceaddress: Param1, pszlocalid: Param2, pcontext: Param3) -> ::windows::core::Result<IWSDDeviceProxy> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateDeviceProxyAdvanced(pszdeviceid: super::super::Foundation::PWSTR, pdeviceaddress: ::windows::core::RawPtr, pszlocalid: super::super::Foundation::PWSTR, pcontext: ::windows::core::RawPtr, ppdeviceproxy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3797,7 +3805,8 @@ pub unsafe fn WSDCreateDeviceProxyAdvanced<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WSDCreateDiscoveryProvider<'a, Param0: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pcontext: Param0) -> ::windows::core::Result<IWSDiscoveryProvider> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateDiscoveryProvider(pcontext: ::windows::core::RawPtr, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3812,7 +3821,8 @@ pub unsafe fn WSDCreateDiscoveryProvider<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WSDCreateDiscoveryProvider2<'a, Param0: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pcontext: Param0, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32) -> ::windows::core::Result<IWSDiscoveryProvider> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateDiscoveryProvider2(pcontext: ::windows::core::RawPtr, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3827,7 +3837,8 @@ pub unsafe fn WSDCreateDiscoveryProvider2<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WSDCreateDiscoveryPublisher<'a, Param0: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pcontext: Param0) -> ::windows::core::Result<IWSDiscoveryPublisher> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateDiscoveryPublisher(pcontext: ::windows::core::RawPtr, pppublisher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3842,7 +3853,8 @@ pub unsafe fn WSDCreateDiscoveryPublisher<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WSDCreateDiscoveryPublisher2<'a, Param0: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pcontext: Param0, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32) -> ::windows::core::Result<IWSDiscoveryPublisher> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateDiscoveryPublisher2(pcontext: ::windows::core::RawPtr, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, pppublisher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3857,7 +3869,8 @@ pub unsafe fn WSDCreateDiscoveryPublisher2<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WSDCreateHttpAddress() -> ::windows::core::Result<IWSDHttpAddress> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateHttpAddress(ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3872,7 +3885,8 @@ pub unsafe fn WSDCreateHttpAddress() -> ::windows::core::Result<IWSDHttpAddress>
 pub unsafe fn WSDCreateHttpMessageParameters() -> ::windows::core::Result<IWSDHttpMessageParameters> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateHttpMessageParameters(pptxparams: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3887,7 +3901,8 @@ pub unsafe fn WSDCreateHttpMessageParameters() -> ::windows::core::Result<IWSDHt
 pub unsafe fn WSDCreateOutboundAttachment() -> ::windows::core::Result<IWSDOutboundAttachment> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateOutboundAttachment(ppattachment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3902,7 +3917,8 @@ pub unsafe fn WSDCreateOutboundAttachment() -> ::windows::core::Result<IWSDOutbo
 pub unsafe fn WSDCreateUdpAddress() -> ::windows::core::Result<IWSDUdpAddress> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateUdpAddress(ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3917,7 +3933,8 @@ pub unsafe fn WSDCreateUdpAddress() -> ::windows::core::Result<IWSDUdpAddress> {
 pub unsafe fn WSDCreateUdpMessageParameters() -> ::windows::core::Result<IWSDUdpMessageParameters> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDCreateUdpMessageParameters(pptxparams: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3932,7 +3949,8 @@ pub unsafe fn WSDCreateUdpMessageParameters() -> ::windows::core::Result<IWSDUdp
 pub unsafe fn WSDDetachLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDDetachLinkedMemory(pvoid: *mut ::core::ffi::c_void);
         }
@@ -3979,7 +3997,8 @@ impl ::core::fmt::Debug for WSDEventType {
 pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDFreeLinkedMemory(pvoid: *mut ::core::ffi::c_void);
         }
@@ -3994,7 +4013,8 @@ pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::core::ffi::c_void) {
 pub unsafe fn WSDGenerateFault<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IWSDXMLContext>>(pszcode: Param0, pszsubcode: Param1, pszreason: Param2, pszdetail: Param3, pcontext: Param4) -> ::windows::core::Result<*mut WSD_SOAP_FAULT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDGenerateFault(pszcode: super::super::Foundation::PWSTR, pszsubcode: super::super::Foundation::PWSTR, pszreason: super::super::Foundation::PWSTR, pszdetail: super::super::Foundation::PWSTR, pcontext: ::windows::core::RawPtr, ppfault: *mut *mut WSD_SOAP_FAULT) -> ::windows::core::HRESULT;
         }
@@ -4010,7 +4030,8 @@ pub unsafe fn WSDGenerateFault<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn WSDGenerateFaultEx<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pcode: *const WSDXML_NAME, psubcode: *const WSDXML_NAME, preasons: *const WSD_LOCALIZED_STRING_LIST, pszdetail: Param3) -> ::windows::core::Result<*mut WSD_SOAP_FAULT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDGenerateFaultEx(pcode: *const WSDXML_NAME, psubcode: *const WSDXML_NAME, preasons: *const WSD_LOCALIZED_STRING_LIST, pszdetail: super::super::Foundation::PWSTR, ppfault: *mut *mut WSD_SOAP_FAULT) -> ::windows::core::HRESULT;
         }
@@ -4025,7 +4046,8 @@ pub unsafe fn WSDGenerateFaultEx<'a, Param3: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::c_void, cboutbuffer: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::c_void, cboutbuffer: u32) -> ::windows::core::HRESULT;
         }
@@ -4039,7 +4061,8 @@ pub unsafe fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::
 pub unsafe fn WSDSetConfigurationOption(dwoption: u32, pvoid: *const ::core::ffi::c_void, cbinbuffer: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDSetConfigurationOption(dwoption: u32, pvoid: *const ::core::ffi::c_void, cbinbuffer: u32) -> ::windows::core::HRESULT;
         }
@@ -4115,7 +4138,8 @@ impl ::core::default::Default for WSDUdpRetransmitParams {
 pub unsafe fn WSDUriDecode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(source: Param0, cchsource: u32, destout: *mut super::super::Foundation::PWSTR, cchdestout: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDUriDecode(source: super::super::Foundation::PWSTR, cchsource: u32, destout: *mut super::super::Foundation::PWSTR, cchdestout: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4130,7 +4154,8 @@ pub unsafe fn WSDUriDecode<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn WSDUriEncode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(source: Param0, cchsource: u32, destout: *mut super::super::Foundation::PWSTR, cchdestout: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDUriEncode(source: super::super::Foundation::PWSTR, cchsource: u32, destout: *mut super::super::Foundation::PWSTR, cchdestout: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4145,7 +4170,8 @@ pub unsafe fn WSDUriEncode<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn WSDXMLAddChild(pparent: *mut WSDXML_ELEMENT, pchild: *mut WSDXML_ELEMENT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDXMLAddChild(pparent: *mut WSDXML_ELEMENT, pchild: *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT;
         }
@@ -4160,7 +4186,8 @@ pub unsafe fn WSDXMLAddChild(pparent: *mut WSDXML_ELEMENT, pchild: *mut WSDXML_E
 pub unsafe fn WSDXMLAddSibling(pfirst: *mut WSDXML_ELEMENT, psecond: *mut WSDXML_ELEMENT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDXMLAddSibling(pfirst: *mut WSDXML_ELEMENT, psecond: *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT;
         }
@@ -4175,7 +4202,8 @@ pub unsafe fn WSDXMLAddSibling(pfirst: *mut WSDXML_ELEMENT, psecond: *mut WSDXML
 pub unsafe fn WSDXMLBuildAnyForSingleElement<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pelementname: *mut WSDXML_NAME, psztext: Param1, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDXMLBuildAnyForSingleElement(pelementname: *mut WSDXML_NAME, psztext: super::super::Foundation::PWSTR, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT;
         }
@@ -4190,7 +4218,8 @@ pub unsafe fn WSDXMLBuildAnyForSingleElement<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT;
         }
@@ -4204,7 +4233,8 @@ pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows::core
 pub unsafe fn WSDXMLCreateContext() -> ::windows::core::Result<IWSDXMLContext> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDXMLCreateContext(ppcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -4220,7 +4250,8 @@ pub unsafe fn WSDXMLCreateContext() -> ::windows::core::Result<IWSDXMLContext> {
 pub unsafe fn WSDXMLGetNameFromBuiltinNamespace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(psznamespace: Param0, pszname: Param1) -> ::windows::core::Result<*mut WSDXML_NAME> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDXMLGetNameFromBuiltinNamespace(psznamespace: super::super::Foundation::PWSTR, pszname: super::super::Foundation::PWSTR, ppname: *mut *mut WSDXML_NAME) -> ::windows::core::HRESULT;
         }
@@ -4236,7 +4267,8 @@ pub unsafe fn WSDXMLGetNameFromBuiltinNamespace<'a, Param0: ::windows::core::Int
 pub unsafe fn WSDXMLGetValueFromAny<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(psznamespace: Param0, pszname: Param1, pany: *mut WSDXML_ELEMENT, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsdapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSDXMLGetValueFromAny(psznamespace: super::super::Foundation::PWSTR, pszname: super::super::Foundation::PWSTR, pany: *mut WSDXML_ELEMENT, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }

@@ -233,7 +233,8 @@ pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMe
 pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::windows::core::Result<ServerInformation> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64, pserverinformation: *mut ServerInformation) -> ::windows::core::HRESULT;
         }
@@ -249,7 +250,8 @@ pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::window
 pub unsafe fn CreateDispatcherQueueController<'a, Param0: ::windows::core::IntoParam<'a, DispatcherQueueOptions>>(options: Param0) -> ::windows::core::Result<super::super::super::System::DispatcherQueueController> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "coremessaging", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateDispatcherQueueController(options: DispatcherQueueOptions, dispatcherqueuecontroller: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -265,7 +267,8 @@ pub unsafe fn CreateDispatcherQueueController<'a, Param0: ::windows::core::IntoP
 pub unsafe fn CreateRandomAccessStreamOnFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(filepath: Param0, accessmode: u32) -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-shcore-stream-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateRandomAccessStreamOnFile(filepath: super::super::Foundation::PWSTR, accessmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -281,7 +284,8 @@ pub unsafe fn CreateRandomAccessStreamOnFile<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn CreateRandomAccessStreamOverStream<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, T: ::windows::core::Interface>(stream: Param0, options: BSOS_OPTIONS) -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-shcore-stream-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateRandomAccessStreamOverStream(stream: ::windows::core::RawPtr, options: BSOS_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -296,7 +300,8 @@ pub unsafe fn CreateRandomAccessStreamOverStream<'a, Param0: ::windows::core::In
 pub unsafe fn CreateStreamOverRandomAccessStream<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, T: ::windows::core::Interface>(randomaccessstream: Param0) -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-shcore-stream-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateStreamOverRandomAccessStream(randomaccessstream: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -429,7 +434,8 @@ impl ::core::default::Default for EventRegistrationToken {
 pub unsafe fn GetRestrictedErrorInfo() -> ::windows::core::Result<IRestrictedErrorInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetRestrictedErrorInfo(pprestrictederrorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -543,7 +549,8 @@ impl ::core::default::Default for HSTRING_HEADER_0 {
 pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::core::HSTRING) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HSTRING_UserFree(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>);
         }
@@ -557,7 +564,8 @@ pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::cor
 pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows::core::HSTRING) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HSTRING_UserFree64(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>);
         }
@@ -571,7 +579,8 @@ pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows::c
 pub unsafe fn HSTRING_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::windows::core::HSTRING) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HSTRING_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> *mut u8;
         }
@@ -585,7 +594,8 @@ pub unsafe fn HSTRING_UserMarshal(param0: *const u32, param1: *mut u8, param2: *
 pub unsafe fn HSTRING_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::windows::core::HSTRING) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HSTRING_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> *mut u8;
         }
@@ -599,7 +609,8 @@ pub unsafe fn HSTRING_UserMarshal64(param0: *const u32, param1: *mut u8, param2:
 pub unsafe fn HSTRING_UserSize(param0: *const u32, param1: u32, param2: *const ::windows::core::HSTRING) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HSTRING_UserSize(param0: *const u32, param1: u32, param2: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> u32;
         }
@@ -613,7 +624,8 @@ pub unsafe fn HSTRING_UserSize(param0: *const u32, param1: u32, param2: *const :
 pub unsafe fn HSTRING_UserSize64(param0: *const u32, param1: u32, param2: *const ::windows::core::HSTRING) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HSTRING_UserSize64(param0: *const u32, param1: u32, param2: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> u32;
         }
@@ -627,7 +639,8 @@ pub unsafe fn HSTRING_UserSize64(param0: *const u32, param1: u32, param2: *const
 pub unsafe fn HSTRING_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::windows::core::HSTRING) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HSTRING_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> *mut u8;
         }
@@ -641,7 +654,8 @@ pub unsafe fn HSTRING_UserUnmarshal(param0: *const u32, param1: *const u8, param
 pub unsafe fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::windows::core::HSTRING) -> *mut u8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> *mut u8;
         }
@@ -3211,7 +3225,8 @@ pub struct IWebAuthenticationCoreManagerInterop_Vtbl {
 pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL;
         }
@@ -3227,7 +3242,8 @@ pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
 pub unsafe fn MetaDataGetDispenser(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rometadata", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MetaDataGetDispenser(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -3369,7 +3385,8 @@ impl ::core::fmt::Debug for RO_INIT_TYPE {
 pub unsafe fn RoActivateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(activatableclassid: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoActivateInstance(activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, instance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -3384,7 +3401,8 @@ pub unsafe fn RoActivateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn RoCaptureErrorContext(hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoCaptureErrorContext(hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
         }
@@ -3398,7 +3416,8 @@ pub unsafe fn RoCaptureErrorContext(hr: ::windows::core::HRESULT) -> ::windows::
 pub unsafe fn RoClearError() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoClearError();
         }
@@ -3412,7 +3431,8 @@ pub unsafe fn RoClearError() {
 pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT);
         }
@@ -3426,7 +3446,8 @@ pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT) {
 pub unsafe fn RoFreeParameterizedTypeExtra<'a, Param0: ::windows::core::IntoParam<'a, ROPARAMIIDHANDLE>>(extra: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-roparameterizediid-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE);
         }
@@ -3440,7 +3461,8 @@ pub unsafe fn RoFreeParameterizedTypeExtra<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RoGetActivationFactory<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, T: ::windows::core::Interface>(activatableclassid: Param0) -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoGetActivationFactory(activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, iid: *const ::windows::core::GUID, factory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -3455,7 +3477,8 @@ pub unsafe fn RoGetActivationFactory<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RoGetAgileReference<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: Param2) -> ::windows::core::Result<IAgileReference> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3470,7 +3493,8 @@ pub unsafe fn RoGetAgileReference<'a, Param2: ::windows::core::IntoParam<'a, ::w
 pub unsafe fn RoGetApartmentIdentifier() -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoGetApartmentIdentifier(apartmentidentifier: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -3486,7 +3510,8 @@ pub unsafe fn RoGetApartmentIdentifier() -> ::windows::core::Result<u64> {
 pub unsafe fn RoGetBufferMarshaler() -> ::windows::core::Result<super::Com::Marshal::IMarshal> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-robuffer-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoGetBufferMarshaler(buffermarshaler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3501,7 +3526,8 @@ pub unsafe fn RoGetBufferMarshaler() -> ::windows::core::Result<super::Com::Mars
 pub unsafe fn RoGetErrorReportingFlags() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoGetErrorReportingFlags(pflags: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -3516,7 +3542,8 @@ pub unsafe fn RoGetErrorReportingFlags() -> ::windows::core::Result<u32> {
 pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -> ::windows::core::Result<IRestrictedErrorInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT, pprestrictederrorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3532,7 +3559,8 @@ pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -
 pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, Param2: ::windows::core::IntoParam<'a, IRoMetaDataLocator>>(nameelementcount: u32, nameelements: *const super::super::Foundation::PWSTR, metadatalocator: Param2, iid: *mut ::windows::core::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-roparameterizediid-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoGetParameterizedTypeInstanceIID(nameelementcount: u32, nameelements: *const super::super::Foundation::PWSTR, metadatalocator: ::windows::core::RawPtr, iid: *mut ::windows::core::GUID, pextra: *mut ROPARAMIIDHANDLE) -> ::windows::core::HRESULT;
         }
@@ -3546,7 +3574,8 @@ pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, Param2: ::windows::core::Int
 pub unsafe fn RoGetServerActivatableClasses<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(servername: Param0, activatableclassids: *mut *mut ::windows::core::HSTRING, count: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-registration-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoGetServerActivatableClasses(servername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activatableclassids: *mut *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, count: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -3560,7 +3589,8 @@ pub unsafe fn RoGetServerActivatableClasses<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::HRESULT;
         }
@@ -3574,7 +3604,8 @@ pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::Result<()
 pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const ::core::ffi::c_void, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> ::windows::core::HRESULT;
         }
@@ -3588,7 +3619,8 @@ pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, mac
 pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows::core::Result<usize> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, targeterrorinfoaddress: *mut usize) -> ::windows::core::HRESULT;
         }
@@ -3604,7 +3636,8 @@ pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, re
 pub unsafe fn RoOriginateError<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(error: ::windows::core::HRESULT, message: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoOriginateError(error: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
         }
@@ -3619,7 +3652,8 @@ pub unsafe fn RoOriginateError<'a, Param1: ::windows::core::IntoParam<'a, ::wind
 pub unsafe fn RoOriginateErrorW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(error: ::windows::core::HRESULT, cchmax: u32, message: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -3634,7 +3668,8 @@ pub unsafe fn RoOriginateErrorW<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn RoOriginateLanguageException<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(error: ::windows::core::HRESULT, message: Param1, languageexception: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoOriginateLanguageException(error: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, languageexception: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -3649,7 +3684,8 @@ pub unsafe fn RoOriginateLanguageException<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<'a, Param0: ::windows::core::IntoParam<'a, ROPARAMIIDHANDLE>>(extra: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-roparameterizediid-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoParameterizedTypeExtraGetTypeSignature(extra: ROPARAMIIDHANDLE) -> super::super::Foundation::PSTR;
         }
@@ -3663,7 +3699,8 @@ pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<'a, Param0: ::windows::co
 pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows::core::HSTRING, activationfactorycallbacks: *const isize, count: u32) -> ::windows::core::Result<isize> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoRegisterActivationFactories(activatableclassids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, activationfactorycallbacks: *const isize, count: u32, cookie: *mut isize) -> ::windows::core::HRESULT;
         }
@@ -3678,7 +3715,8 @@ pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::window
 pub unsafe fn RoRegisterForApartmentShutdown<'a, Param0: ::windows::core::IntoParam<'a, IApartmentShutdown>>(callbackobject: Param0, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoRegisterForApartmentShutdown(callbackobject: ::windows::core::RawPtr, apartmentidentifier: *mut u64, regcookie: *mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::HRESULT;
         }
@@ -3692,7 +3730,8 @@ pub unsafe fn RoRegisterForApartmentShutdown<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn RoReportFailedDelegate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, IRestrictedErrorInfo>>(punkdelegate: Param0, prestrictederrorinfo: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoReportFailedDelegate(punkdelegate: *mut ::core::ffi::c_void, prestrictederrorinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3706,7 +3745,8 @@ pub unsafe fn RoReportFailedDelegate<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RoReportUnhandledError<'a, Param0: ::windows::core::IntoParam<'a, IRestrictedErrorInfo>>(prestrictederrorinfo: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoReportUnhandledError(prestrictederrorinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3721,7 +3761,8 @@ pub unsafe fn RoReportUnhandledError<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RoResolveRestrictedErrorInfoReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(reference: Param0) -> ::windows::core::Result<IRestrictedErrorInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoResolveRestrictedErrorInfoReference(reference: super::super::Foundation::PWSTR, pprestrictederrorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3736,7 +3777,8 @@ pub unsafe fn RoResolveRestrictedErrorInfoReference<'a, Param0: ::windows::core:
 pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoRevokeActivationFactories(cookie: isize);
         }
@@ -3750,7 +3792,8 @@ pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
 pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::HRESULT;
         }
@@ -3765,7 +3808,8 @@ pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::Result<()
 pub unsafe fn RoTransformError<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
         }
@@ -3780,7 +3824,8 @@ pub unsafe fn RoTransformError<'a, Param2: ::windows::core::IntoParam<'a, ::wind
 pub unsafe fn RoTransformErrorW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -3794,7 +3839,8 @@ pub unsafe fn RoTransformErrorW<'a, Param3: ::windows::core::IntoParam<'a, super
 pub unsafe fn RoUninitialize() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoUninitialize();
         }
@@ -3808,7 +3854,8 @@ pub unsafe fn RoUninitialize() {
 pub unsafe fn RoUnregisterForApartmentShutdown<'a, Param0: ::windows::core::IntoParam<'a, APARTMENT_SHUTDOWN_REGISTRATION_COOKIE>>(regcookie: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RoUnregisterForApartmentShutdown(regcookie: APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::HRESULT;
         }
@@ -3854,7 +3901,8 @@ impl ::core::default::Default for ServerInformation {
 pub unsafe fn SetRestrictedErrorInfo<'a, Param0: ::windows::core::IntoParam<'a, IRestrictedErrorInfo>>(prestrictederrorinfo: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-error-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetRestrictedErrorInfo(prestrictederrorinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3897,7 +3945,8 @@ impl ::core::fmt::Debug for TrustLevel {
 pub unsafe fn WindowsCompareStringOrdinal<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string1: Param0, string2: Param1) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsCompareStringOrdinal(string1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -3912,7 +3961,8 @@ pub unsafe fn WindowsCompareStringOrdinal<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WindowsConcatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string1: Param0, string2: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsConcatString(string1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, string2: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
@@ -3928,7 +3978,8 @@ pub unsafe fn WindowsConcatString<'a, Param0: ::windows::core::IntoParam<'a, ::w
 pub unsafe fn WindowsCreateString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sourcestring: Param0, length: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsCreateString(sourcestring: super::super::Foundation::PWSTR, length: u32, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
@@ -3944,7 +3995,8 @@ pub unsafe fn WindowsCreateString<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WindowsCreateStringReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sourcestring: Param0, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::windows::core::HSTRING) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsCreateStringReference(sourcestring: super::super::Foundation::PWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
@@ -3958,7 +4010,8 @@ pub unsafe fn WindowsCreateStringReference<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WindowsDeleteString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsDeleteString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
@@ -3972,7 +4025,8 @@ pub unsafe fn WindowsDeleteString<'a, Param0: ::windows::core::IntoParam<'a, ::w
 pub unsafe fn WindowsDeleteStringBuffer<'a, Param0: ::windows::core::IntoParam<'a, HSTRING_BUFFER>>(bufferhandle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsDeleteStringBuffer(bufferhandle: HSTRING_BUFFER) -> ::windows::core::HRESULT;
         }
@@ -3986,7 +4040,8 @@ pub unsafe fn WindowsDeleteStringBuffer<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WindowsDuplicateString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsDuplicateString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
@@ -4001,7 +4056,8 @@ pub unsafe fn WindowsDuplicateString<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WindowsGetStringLen<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsGetStringLen(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> u32;
         }
@@ -4016,7 +4072,8 @@ pub unsafe fn WindowsGetStringLen<'a, Param0: ::windows::core::IntoParam<'a, ::w
 pub unsafe fn WindowsGetStringRawBuffer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0, length: *mut u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsGetStringRawBuffer(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, length: *mut u32) -> super::super::Foundation::PWSTR;
         }
@@ -4030,7 +4087,8 @@ pub unsafe fn WindowsGetStringRawBuffer<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsInspectString(targethstring: usize, machine: u16, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut usize) -> ::windows::core::HRESULT;
         }
@@ -4044,7 +4102,8 @@ pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback:
 pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsInspectString2(targethstring: u64, machine: u16, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, length: *mut u32, targetstringaddress: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -4059,7 +4118,8 @@ pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: 
 pub unsafe fn WindowsIsStringEmpty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsIsStringEmpty(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> super::super::Foundation::BOOL;
         }
@@ -4073,7 +4133,8 @@ pub unsafe fn WindowsIsStringEmpty<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut u16, bufferhandle: *mut HSTRING_BUFFER) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut u16, bufferhandle: *mut HSTRING_BUFFER) -> ::windows::core::HRESULT;
         }
@@ -4087,7 +4148,8 @@ pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: *mut *mut 
 pub unsafe fn WindowsPromoteStringBuffer<'a, Param0: ::windows::core::IntoParam<'a, HSTRING_BUFFER>>(bufferhandle: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsPromoteStringBuffer(bufferhandle: HSTRING_BUFFER, string: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
@@ -4102,7 +4164,8 @@ pub unsafe fn WindowsPromoteStringBuffer<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WindowsReplaceString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0, stringreplaced: Param1, stringreplacewith: Param2) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsReplaceString(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringreplaced: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, stringreplacewith: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
@@ -4118,7 +4181,8 @@ pub unsafe fn WindowsReplaceString<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub unsafe fn WindowsStringHasEmbeddedNull<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsStringHasEmbeddedNull(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasembednull: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -4133,7 +4197,8 @@ pub unsafe fn WindowsStringHasEmbeddedNull<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WindowsSubstring<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0, startindex: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsSubstring(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
@@ -4148,7 +4213,8 @@ pub unsafe fn WindowsSubstring<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 pub unsafe fn WindowsSubstringWithSpecifiedLength<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0, startindex: u32, length: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsSubstringWithSpecifiedLength(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, startindex: u32, length: u32, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
@@ -4163,7 +4229,8 @@ pub unsafe fn WindowsSubstringWithSpecifiedLength<'a, Param0: ::windows::core::I
 pub unsafe fn WindowsTrimStringEnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0, trimstring: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsTrimStringEnd(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }
@@ -4178,7 +4245,8 @@ pub unsafe fn WindowsTrimStringEnd<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub unsafe fn WindowsTrimStringStart<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string: Param0, trimstring: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-winrt-string-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WindowsTrimStringStart(string: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, trimstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, newstring: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT;
         }

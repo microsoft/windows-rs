@@ -81,7 +81,8 @@ pub const DEVSVC_SERVICEINFO_VERSION: u32 = 100u32;
 pub unsafe fn DMProcessConfigXMLFiltered<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszxmlin: Param0, rgszallowedcspnodes: *const super::super::Foundation::PWSTR, dwnumallowedcspnodes: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dmprocessxmlfiltered", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DMProcessConfigXMLFiltered(pszxmlin: super::super::Foundation::PWSTR, rgszallowedcspnodes: *const super::super::Foundation::PWSTR, dwnumallowedcspnodes: u32, pbstrxmlout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }

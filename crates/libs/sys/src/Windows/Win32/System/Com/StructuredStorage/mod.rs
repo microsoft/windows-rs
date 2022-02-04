@@ -1,5 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dflayout", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StgOpenLayoutDocfile(pwcsdfname: super::super::super::Foundation::PWSTR, grfmode: u32, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -76,9 +84,6 @@ extern "system" {
     pub fn StgCreateStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn StgGetIFillLockBytesOnFile(pwcsname: super::super::super::Foundation::PWSTR, ppflb: *mut IFillLockBytes) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgGetIFillLockBytesOnILockBytes(pilb: ILockBytes, ppflb: *mut IFillLockBytes) -> ::windows_sys::core::HRESULT;
@@ -89,9 +94,6 @@ extern "system" {
     pub fn StgIsStorageILockBytes(plkbyt: ILockBytes) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgOpenAsyncDocfileOnIFillLockBytes(pflb: IFillLockBytes, grfmode: u32, asyncflags: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn StgOpenLayoutDocfile(pwcsdfname: super::super::super::Foundation::PWSTR, grfmode: u32, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgOpenPropStg(punk: ::windows_sys::core::IUnknown, fmtid: *const ::windows_sys::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut IPropertyStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
@@ -106,9 +108,6 @@ extern "system" {
     pub fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn StgSetTimes(lpszname: super::super::super::Foundation::PWSTR, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn WriteClassStg(pstg: IStorage, rclsid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
@@ -117,6 +116,16 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WriteFmtUserTypeStg(pstg: IStorage, cf: u16, lpszusertype: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows_sys::core::HRESULT;
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]

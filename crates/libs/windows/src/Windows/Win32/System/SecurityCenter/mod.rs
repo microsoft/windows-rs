@@ -1053,7 +1053,8 @@ impl ::core::fmt::Debug for WSC_SECURITY_SIGNATURE_STATUS {
 pub unsafe fn WscGetAntiMalwareUri() -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wscapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WscGetAntiMalwareUri(ppszuri: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -1068,7 +1069,8 @@ pub unsafe fn WscGetAntiMalwareUri() -> ::windows::core::Result<super::super::Fo
 pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wscapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> ::windows::core::HRESULT;
         }
@@ -1082,7 +1084,8 @@ pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SEC
 pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wscapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WscQueryAntiMalwareUri() -> ::windows::core::HRESULT;
         }
@@ -1097,7 +1100,8 @@ pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::core::Result<()> {
 pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wscapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: ::windows::core::RawPtr, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1111,7 +1115,8 @@ pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallba
 pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wscapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WscRegisterForUserNotifications() -> ::windows::core::HRESULT;
         }
@@ -1126,7 +1131,8 @@ pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
 pub unsafe fn WscUnRegisterChanges<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hregistrationhandle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wscapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }

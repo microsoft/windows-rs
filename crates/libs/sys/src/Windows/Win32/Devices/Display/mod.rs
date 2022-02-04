@@ -1,5 +1,106 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CapabilitiesRequestAndCapabilitiesReply(hmonitor: super::super::Foundation::HANDLE, pszasciicapabilitiesstring: super::super::Foundation::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DegaussMonitor(hmonitor: super::super::Foundation::HANDLE) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DestroyPhysicalMonitor(hmonitor: super::super::Foundation::HANDLE) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *const PHYSICAL_MONITOR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCapabilitiesStringLength(hmonitor: super::super::Foundation::HANDLE, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorBrightness(hmonitor: super::super::Foundation::HANDLE, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorCapabilities(hmonitor: super::super::Foundation::HANDLE, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorColorTemperature(hmonitor: super::super::Foundation::HANDLE, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorContrast(hmonitor: super::super::Foundation::HANDLE, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorDisplayAreaPosition(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorDisplayAreaSize(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorRedGreenOrBlueDrive(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorRedGreenOrBlueGain(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorTechnologyType(hmonitor: super::super::Foundation::HANDLE, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, pdwnumberofphysicalmonitors: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Graphics_Direct3D9'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    pub fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: super::super::Graphics::Direct3D9::IDirect3DDevice9, pdwnumberofphysicalmonitors: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+    pub fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: super::super::Graphics::Direct3D9::IDirect3DDevice9, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetTimingReport(hmonitor: super::super::Foundation::HANDLE, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetVCPFeatureAndVCPFeatureReply(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, pvct: *mut MC_VCP_CODE_TYPE, pdwcurrentvalue: *mut u32, pdwmaximumvalue: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RestoreMonitorFactoryColorDefaults(hmonitor: super::super::Foundation::HANDLE) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RestoreMonitorFactoryDefaults(hmonitor: super::super::Foundation::HANDLE) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SaveCurrentMonitorSettings(hmonitor: super::super::Foundation::HANDLE) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SaveCurrentSettings(hmonitor: super::super::Foundation::HANDLE) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMonitorBrightness(hmonitor: super::super::Foundation::HANDLE, dwnewbrightness: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMonitorColorTemperature(hmonitor: super::super::Foundation::HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMonitorContrast(hmonitor: super::super::Foundation::HANDLE, dwnewcontrast: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMonitorDisplayAreaPosition(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMonitorDisplayAreaSize(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMonitorRedGreenOrBlueDrive(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetMonitorRedGreenOrBlueGain(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetVCPFeature(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, dwnewvalue: u32) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19,24 +120,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CapabilitiesRequestAndCapabilitiesReply(hmonitor: super::super::Foundation::HANDLE, pszasciicapabilitiesstring: super::super::Foundation::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DegaussMonitor(hmonitor: super::super::Foundation::HANDLE) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DestroyPhysicalMonitor(hmonitor: super::super::Foundation::HANDLE) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *const PHYSICAL_MONITOR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Display'*"]
     pub fn EngAcquireSemaphore(hsem: HSEMAPHORE);
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
@@ -191,62 +274,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO);
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCapabilitiesStringLength(hmonitor: super::super::Foundation::HANDLE, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Devices_Display'*"]
-    pub fn GetDisplayConfigBufferSizes(flags: u32, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorBrightness(hmonitor: super::super::Foundation::HANDLE, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorCapabilities(hmonitor: super::super::Foundation::HANDLE, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorColorTemperature(hmonitor: super::super::Foundation::HANDLE, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorContrast(hmonitor: super::super::Foundation::HANDLE, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorDisplayAreaPosition(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorDisplayAreaSize(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorRedGreenOrBlueDrive(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorRedGreenOrBlueGain(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorTechnologyType(hmonitor: super::super::Foundation::HANDLE, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, pdwnumberofphysicalmonitors: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Graphics_Direct3D9'*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: super::super::Graphics::Direct3D9::IDirect3DDevice9, pdwnumberofphysicalmonitors: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-    pub fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: super::super::Graphics::Direct3D9::IDirect3DDevice9, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTimingReport(hmonitor: super::super::Foundation::HANDLE, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVCPFeatureAndVCPFeatureReply(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, pvct: *mut MC_VCP_CODE_TYPE, pdwcurrentvalue: *mut u32, pdwmaximumvalue: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn HT_Get8BPPFormatPalette(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32;
@@ -268,15 +295,6 @@ extern "system" {
     pub fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut RECTFX);
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryDisplayConfig(flags: u32, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RestoreMonitorFactoryColorDefaults(hmonitor: super::super::Foundation::HANDLE) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RestoreMonitorFactoryDefaults(hmonitor: super::super::Foundation::HANDLE) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn STROBJ_bEnum(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -292,42 +310,6 @@ extern "system" {
     pub fn STROBJ_vEnumStart(pstro: *mut STROBJ);
     #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SaveCurrentMonitorSettings(hmonitor: super::super::Foundation::HANDLE) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SaveCurrentSettings(hmonitor: super::super::Foundation::HANDLE) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *const DISPLAYCONFIG_MODE_INFO, flags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetMonitorBrightness(hmonitor: super::super::Foundation::HANDLE, dwnewbrightness: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetMonitorColorTemperature(hmonitor: super::super::Foundation::HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetMonitorContrast(hmonitor: super::super::Foundation::HANDLE, dwnewcontrast: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetMonitorDisplayAreaPosition(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetMonitorDisplayAreaSize(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetMonitorRedGreenOrBlueDrive(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetMonitorRedGreenOrBlueGain(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetVCPFeature(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, dwnewvalue: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn XFORMOBJ_bApplyXform(pxo: *mut XFORMOBJ, imode: u32, cpoints: u32, pvin: *mut ::core::ffi::c_void, pvout: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Display'*"]
     pub fn XFORMOBJ_iGetXform(pxo: *const XFORMOBJ, pxform: *mut XFORML) -> u32;
@@ -340,6 +322,33 @@ extern "system" {
     pub fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32;
     #[doc = "*Required features: 'Win32_Devices_Display'*"]
     pub fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Devices_Display'*"]
+    pub fn GetDisplayConfigBufferSizes(flags: u32, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn QueryDisplayConfig(flags: u32, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *const DISPLAYCONFIG_MODE_INFO, flags: u32) -> i32;
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub type AR_STATE = i32;

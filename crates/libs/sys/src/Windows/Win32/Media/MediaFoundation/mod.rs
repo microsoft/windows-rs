@@ -1,12 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub fn CreateNamedPropertyStore(ppstore: *mut super::super::UI::Shell::PropertiesSystem::INamedPropertyStore) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub fn CreatePropertyStore(ppstore: *mut super::super::UI::Shell::PropertiesSystem::IPropertyStore) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut IDirect3DDeviceManager9) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
@@ -15,6 +10,189 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub fn DXVAHD_CreateDevice(pd3ddevice: super::super::Graphics::Direct3D9::IDirect3DDevice9Ex, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin, ppdevice: *mut IDXVAHD_Device) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS, ppopmvideooutput: *mut IOPMVideoOutput) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn OPMGetVideoOutputsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut IOPMVideoOutput) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D9")]
+    pub fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9: super::super::Graphics::Direct3D9::IDirect3DDevice9, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut IOPMVideoOutput) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "evr", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateVideoMixer(powner: ::windows_sys::core::IUnknown, riiddevice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateVideoMixerAndPresenter(pmixerowner: ::windows_sys::core::IUnknown, ppresenterowner: ::windows_sys::core::IUnknown, riidmixer: *const ::windows_sys::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows_sys::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateVideoPresenter(powner: ::windows_sys::core::IUnknown, riiddevice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateVideoSampleAllocator(riid: *const ::windows_sys::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateVideoSampleFromSurface(punksurface: ::windows_sys::core::IUnknown, ppsample: *mut IMFSample) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32, pdwplanesize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    pub fn CreateNamedPropertyStore(ppstore: *mut super::super::UI::Shell::PropertiesSystem::INamedPropertyStore) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreate3GPMediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateAC3MediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateADTSMediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFContentInfo(ppicontentinfo: *mut IMFASFContentInfo) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFIndexer(ppiindexer: *mut IMFASFIndexer) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFIndexerByteStream(picontentbytestream: IMFByteStream, cbindexstartoffset: u64, piindexbytestream: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFMediaSink(pibytestream: IMFByteStream, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateASFMediaSinkActivate(pwszfilename: super::super::Foundation::PWSTR, pcontentinfo: IMFASFContentInfo, ppiactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFMultiplexer(ppimultiplexer: *mut IMFASFMultiplexer) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFProfile(ppiprofile: *mut IMFASFProfile) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFProfileFromPresentationDescriptor(pipd: IMFPresentationDescriptor, ppiprofile: *mut IMFASFProfile) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFSplitter(ppisplitter: *mut IMFASFSplitter) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFStreamSelector(piasfprofile: IMFASFProfile, ppselector: *mut IMFASFStreamSelector) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFStreamingMediaSink(pibytestream: IMFByteStream, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate: IMFActivate, pcontentinfo: IMFASFContentInfo, ppiactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateAggregateSource(psourcecollection: IMFCollection, ppaggsource: *mut IMFMediaSource) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateAudioRenderer(paudioattributes: IMFAttributes, ppsink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateAudioRendererActivate(ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateCredentialCache(ppcache: *mut IMFNetCredentialCache) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateDeviceSource(pattributes: IMFAttributes, ppsource: *mut IMFMediaSource) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateDeviceSourceActivate(pattributes: IMFAttributes, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn MFCreateEncryptedMediaExtensionsStoreActivate(pmphost: IMFPMPHostApp, objectstream: super::super::System::Com::IStream, classid: super::super::Foundation::PWSTR, activate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateFMPEG4MediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateMP3MediaSink(ptargetbytestream: IMFByteStream, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateMPEG4MediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateMediaSession(pconfiguration: IMFAttributes, ppmediasession: *mut IMFMediaSession) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateMuxSink(guidoutputsubtype: ::windows_sys::core::GUID, poutputattributes: IMFAttributes, poutputbytestream: IMFByteStream, ppmuxsink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateNetSchemePlugin(riid: *const ::windows_sys::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreatePMPMediaSession(dwcreationflags: u32, pconfiguration: IMFAttributes, ppmediasession: *mut IMFMediaSession, ppenableractivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreatePMPServer(dwcreationflags: u32, pppmpserver: *mut IMFPMPServer) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreatePresentationClock(pppresentationclock: *mut IMFPresentationClock) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreatePresentationDescriptorFromASFProfile(piprofile: IMFASFProfile, ppipd: *mut IMFPresentationDescriptor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateProtectedEnvironmentAccess(ppaccess: *mut IMFProtectedEnvironmentAccess) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+    pub fn MFCreateProxyLocator(pszprotocol: super::super::Foundation::PWSTR, pproxyconfig: super::super::UI::Shell::PropertiesSystem::IPropertyStore, ppproxylocator: *mut IMFNetProxyLocator) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateRemoteDesktopPlugin(ppplugin: *mut IMFRemoteDesktopPlugin) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateSampleCopierMFT(ppcopiermft: *mut IMFTransform) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateSampleGrabberSinkActivate(pimfmediatype: IMFMediaType, pimfsamplegrabbersinkcallback: IMFSampleGrabberSinkCallback, ppiactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64, pvarsegmentoffset: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateSequencerSource(preserved: ::windows_sys::core::IUnknown, ppsequencersource: *mut IMFSequencerSource) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateSimpleTypeHandler(pphandler: *mut IMFMediaTypeHandler) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateStandardQualityManager(ppqualitymanager: *mut IMFQualityManager) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateTopoLoader(ppobj: *mut IMFTopoLoader) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateTopology(pptopo: *mut IMFTopology) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE, ppnode: *mut IMFTopologyNode) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateTranscodeProfile(pptranscodeprofile: *mut IMFTranscodeProfile) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateTranscodeSinkActivate(ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateTranscodeTopology(psrc: IMFMediaSource, pwszoutputfilepath: super::super::Foundation::PWSTR, pprofile: IMFTranscodeProfile, pptranscodetopo: *mut IMFTopology) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateTranscodeTopologyFromByteStream(psrc: IMFMediaSource, poutputstream: IMFByteStream, pprofile: IMFTranscodeProfile, pptranscodetopo: *mut IMFTopology) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateVideoRenderer(riidrenderer: *const ::windows_sys::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateVideoRendererActivate(hwndvideo: super::super::Foundation::HWND, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    pub fn MFCreateWMAEncoderActivate(pmediatype: IMFMediaType, pencodingconfigurationproperties: super::super::UI::Shell::PropertiesSystem::IPropertyStore, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    pub fn MFCreateWMVEncoderActivate(pmediatype: IMFMediaType, pencodingconfigurationproperties: super::super::UI::Shell::PropertiesSystem::IPropertyStore, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFEnumDeviceSources(pattributes: IMFAttributes, pppsourceactivate: *mut *mut IMFActivate, pcsourceactivate: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFGetLocalId(verifier: *const u8, size: u32, id: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFGetService(punkobject: ::windows_sys::core::IUnknown, guidservice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFGetSystemId(ppid: *mut IMFSystemId) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFGetTopoNodeCurrentType(pnode: IMFTopologyNode, dwstreamindex: u32, foutput: super::super::Foundation::BOOL, pptype: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFLoadSignedLibrary(pszname: super::super::Foundation::PWSTR, pplib: *mut IMFSignedLibrary) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFRequireProtectedEnvironment(ppresentationdescriptor: IMFPresentationDescriptor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFShutdownObject(punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype: *const ::windows_sys::core::GUID, dwmftflags: u32, pcodecconfig: IMFAttributes, ppavailabletypes: *mut IMFCollection) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfcore", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel: *mut IMFExtendedCameraIntrinsicModel) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics: *mut IMFExtendedCameraIntrinsics) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
+    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    pub fn CreatePropertyStore(ppstore: *mut super::super::UI::Shell::PropertiesSystem::IPropertyStore) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFAddPeriodicCallback(callback: MFPERIODICCALLBACK, pcontext: ::windows_sys::core::IUnknown, pdwkey: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -66,44 +244,9 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFCreate2DMediaBuffer(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: super::super::Foundation::BOOL, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreate3GPMediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateAC3MediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateADTSMediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Media_DirectShow'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
     pub fn MFCreateAMMediaTypeFromMFMediaType(pmftype: IMFMediaType, guidformatblocktype: ::windows_sys::core::GUID, ppamtype: *mut *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFContentInfo(ppicontentinfo: *mut IMFASFContentInfo) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFIndexer(ppiindexer: *mut IMFASFIndexer) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFIndexerByteStream(picontentbytestream: IMFByteStream, cbindexstartoffset: u64, piindexbytestream: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFMediaSink(pibytestream: IMFByteStream, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateASFMediaSinkActivate(pwszfilename: super::super::Foundation::PWSTR, pcontentinfo: IMFASFContentInfo, ppiactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFMultiplexer(ppimultiplexer: *mut IMFASFMultiplexer) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFProfile(ppiprofile: *mut IMFASFProfile) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFProfileFromPresentationDescriptor(pipd: IMFPresentationDescriptor, ppiprofile: *mut IMFASFProfile) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFSplitter(ppisplitter: *mut IMFASFSplitter) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFStreamSelector(piasfprofile: IMFASFProfile, ppselector: *mut IMFASFStreamSelector) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFStreamingMediaSink(pibytestream: IMFByteStream, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate: IMFActivate, pcontentinfo: IMFASFContentInfo, ppiactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateAVIMediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateAggregateSource(psourcecollection: IMFCollection, ppaggsource: *mut IMFMediaSource) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -114,20 +257,11 @@ extern "system" {
     #[cfg(feature = "Win32_Media_Audio")]
     pub fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX, ppiaudiomediatype: *mut IMFAudioMediaType) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateAudioRenderer(paudioattributes: IMFAttributes, ppsink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateAudioRendererActivate(ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateCameraOcclusionStateMonitor(symboliclink: super::super::Foundation::PWSTR, callback: IMFCameraOcclusionStateReportCallback, occlusionstatemonitor: *mut IMFCameraOcclusionStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateCollection(ppimfcollection: *mut IMFCollection) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid: *const ::windows_sys::core::GUID, pd3dmanager: IMFDXGIDeviceManager, pcontentprotectiondevice: IMFContentProtectionDevice, ppcontentdecryptorcontext: *mut IMFContentDecryptorContext) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows_sys::core::GUID, contentprotectiondevice: *mut IMFContentProtectionDevice) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateCredentialCache(ppcache: *mut IMFNetCredentialCache) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub fn MFCreateD3D12SynchronizationObject(pdevice: super::super::Graphics::Direct3D12::ID3D12Device, riid: *const ::windows_sys::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -140,20 +274,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFCreateDXSurfaceBuffer(riid: *const ::windows_sys::core::GUID, punksurface: ::windows_sys::core::IUnknown, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateDeviceSource(pattributes: IMFAttributes, ppsource: *mut IMFMediaSource) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateDeviceSourceActivate(pattributes: IMFAttributes, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn MFCreateEncryptedMediaExtensionsStoreActivate(pmphost: IMFPMPHostApp, objectstream: super::super::System::Com::IStream, classid: super::super::Foundation::PWSTR, activate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateEventQueue(ppmediaeventqueue: *mut IMFMediaEventQueue) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel: *mut IMFExtendedCameraIntrinsicModel) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics: *mut IMFExtendedCameraIntrinsics) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateFMPEG4MediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfileurl: super::super::Foundation::PWSTR, ppibytestream: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
@@ -171,10 +292,6 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFCreateMFVideoFormatFromMFMediaType(pmftype: IMFMediaType, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateMP3MediaSink(ptargetbytestream: IMFByteStream, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateMPEG4MediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateMediaBufferFromMediaType(pmediatype: IMFMediaType, llduration: i64, dwminlength: u32, dwminalignment: u32, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateMediaBufferWrapper(pbuffer: IMFMediaBuffer, cboffset: u32, dwlength: u32, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
@@ -185,8 +302,6 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFCreateMediaExtensionActivate(szactivatableclassid: super::super::Foundation::PWSTR, pconfiguration: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateMediaSession(pconfiguration: IMFAttributes, ppmediasession: *mut IMFMediaSession) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateMediaType(ppmftype: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateMediaTypeFromProperties(punkstream: ::windows_sys::core::IUnknown, ppmediatype: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
@@ -195,78 +310,19 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateMemoryBuffer(cbmaxlength: u32, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateMuxSink(guidoutputsubtype: ::windows_sys::core::GUID, poutputattributes: IMFAttributes, poutputbytestream: IMFByteStream, ppmuxsink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateMuxStreamAttributes(pattributestomux: IMFCollection, ppmuxattribs: *mut IMFAttributes) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateMuxStreamMediaType(pmediatypestomux: IMFCollection, ppmuxmediatype: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateMuxStreamSample(psamplestomux: IMFCollection, ppmuxsample: *mut IMFSample) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateNetSchemePlugin(riid: *const ::windows_sys::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreatePMPMediaSession(dwcreationflags: u32, pconfiguration: IMFAttributes, ppmediasession: *mut IMFMediaSession, ppenableractivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreatePMPServer(dwcreationflags: u32, pppmpserver: *mut IMFPMPServer) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreatePresentationClock(pppresentationclock: *mut IMFPresentationClock) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreatePresentationDescriptor(cstreamdescriptors: u32, apstreamdescriptors: *const IMFStreamDescriptor, pppresentationdescriptor: *mut IMFPresentationDescriptor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreatePresentationDescriptorFromASFProfile(piprofile: IMFASFProfile, ppipd: *mut IMFPresentationDescriptor) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreatePropertiesFromMediaType(pmediatype: IMFMediaType, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateProtectedEnvironmentAccess(ppaccess: *mut IMFProtectedEnvironmentAccess) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub fn MFCreateProxyLocator(pszprotocol: super::super::Foundation::PWSTR, pproxyconfig: super::super::UI::Shell::PropertiesSystem::IPropertyStore, ppproxylocator: *mut IMFNetProxyLocator) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateRelativePanelWatcher(videodeviceid: super::super::Foundation::PWSTR, displaymonitordeviceid: super::super::Foundation::PWSTR, pprelativepanelwatcher: *mut IMFRelativePanelWatcher) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateRemoteDesktopPlugin(ppplugin: *mut IMFRemoteDesktopPlugin) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateSample(ppimfsample: *mut IMFSample) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateSampleCopierMFT(ppcopiermft: *mut IMFTransform) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateSampleGrabberSinkActivate(pimfmediatype: IMFMediaType, pimfsamplegrabbersinkcallback: IMFSampleGrabberSinkCallback, ppiactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateSensorActivityMonitor(pcallback: IMFSensorActivitiesReportCallback, ppactivitymonitor: *mut IMFSensorActivityMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateSensorGroup(sensorgroupsymboliclink: super::super::Foundation::PWSTR, ppsensorgroup: *mut IMFSensorGroup) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateSensorProfile(profiletype: *const ::windows_sys::core::GUID, profileindex: u32, constraints: super::super::Foundation::PWSTR, ppprofile: *mut IMFSensorProfile) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateSensorProfileCollection(ppsensorprofile: *mut IMFSensorProfileCollection) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateSensorStream(streamid: u32, pattributes: IMFAttributes, pmediatypecollection: IMFCollection, ppstream: *mut IMFSensorStream) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64, pvarsegmentoffset: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateSequencerSource(preserved: ::windows_sys::core::IUnknown, ppsequencersource: *mut IMFSequencerSource) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateSimpleTypeHandler(pphandler: *mut IMFMediaTypeHandler) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateSinkWriterFromMediaSink(pmediasink: IMFMediaSink, pattributes: IMFAttributes, ppsinkwriter: *mut IMFSinkWriter) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateSinkWriterFromURL(pwszoutputurl: super::super::Foundation::PWSTR, pbytestream: IMFByteStream, pattributes: IMFAttributes, ppsinkwriter: *mut IMFSinkWriter) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateSourceReaderFromByteStream(pbytestream: IMFByteStream, pattributes: IMFAttributes, ppsourcereader: *mut IMFSourceReader) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateSourceReaderFromMediaSource(pmediasource: IMFMediaSource, pattributes: IMFAttributes, ppsourcereader: *mut IMFSourceReader) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateSourceReaderFromURL(pwszurl: super::super::Foundation::PWSTR, pattributes: IMFAttributes, ppsourcereader: *mut IMFSourceReader) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateSourceResolver(ppisourceresolver: *mut IMFSourceResolver) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateStandardQualityManager(ppqualitymanager: *mut IMFQualityManager) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32, apmediatypes: *const IMFMediaType, ppdescriptor: *mut IMFStreamDescriptor) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_System_Com'*"]
@@ -279,22 +335,7 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, ppibytestream: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateTopoLoader(ppobj: *mut IMFTopoLoader) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateTopology(pptopo: *mut IMFTopology) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE, ppnode: *mut IMFTopologyNode) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateTrackedSample(ppmfsample: *mut IMFTrackedSample) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateTranscodeProfile(pptranscodeprofile: *mut IMFTranscodeProfile) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateTranscodeSinkActivate(ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateTranscodeTopology(psrc: IMFMediaSource, pwszoutputfilepath: super::super::Foundation::PWSTR, pprofile: IMFTranscodeProfile, pptranscodetopo: *mut IMFTopology) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateTranscodeTopologyFromByteStream(psrc: IMFMediaSource, poutputstream: IMFByteStream, pprofile: IMFTranscodeProfile, pptranscodetopo: *mut IMFTopology) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateTransformActivate(ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
@@ -309,35 +350,9 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows_sys::core::GUID, ppivideomediatype: *mut IMFVideoMediaType) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateVideoMixer(powner: ::windows_sys::core::IUnknown, riiddevice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateVideoMixerAndPresenter(pmixerowner: ::windows_sys::core::IUnknown, ppresenterowner: ::windows_sys::core::IUnknown, riidmixer: *const ::windows_sys::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows_sys::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateVideoPresenter(powner: ::windows_sys::core::IUnknown, riiddevice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateVideoRenderer(riidrenderer: *const ::windows_sys::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateVideoRendererActivate(hwndvideo: super::super::Foundation::HWND, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateVideoSampleAllocator(riid: *const ::windows_sys::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows_sys::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateVideoSampleFromSurface(punksurface: ::windows_sys::core::IUnknown, ppsample: *mut IMFSample) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: super::super::Foundation::PWSTR, sourceid: super::super::Foundation::PWSTR, categories: *const ::windows_sys::core::GUID, categorycount: u32, virtualcamera: *mut IMFVirtualCamera) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFCreateWAVEMediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFCreateWICBitmapBuffer(riid: *const ::windows_sys::core::GUID, punksurface: ::windows_sys::core::IUnknown, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub fn MFCreateWMAEncoderActivate(pmediatype: IMFMediaType, pencodingconfigurationproperties: super::super::UI::Shell::PropertiesSystem::IPropertyStore, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub fn MFCreateWMVEncoderActivate(pmediatype: IMFMediaType, pencodingconfigurationproperties: super::super::UI::Shell::PropertiesSystem::IPropertyStore, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Media_Audio'*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub fn MFCreateWaveFormatExFromMFMediaType(pmftype: IMFMediaType, ppwf: *mut *mut super::Audio::WAVEFORMATEX, pcbsize: *mut u32, flags: u32) -> ::windows_sys::core::HRESULT;
@@ -353,8 +368,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFEndUnregisterWorkQueueWithMMCSS(presult: IMFAsyncResult) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFEnumDeviceSources(pattributes: IMFAttributes, pppsourceactivate: *mut *mut IMFActivate, pcsourceactivate: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: u32, punaveragetimeperframe: *mut u64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFGetAttributesAsBlob(pattributes: IMFAttributes, pbuf: *mut u8, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
@@ -362,17 +375,10 @@ extern "system" {
     pub fn MFGetAttributesAsBlobSize(pattributes: IMFAttributes, pcbbufsize: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows_sys::core::GUID, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFGetLocalId(verifier: *const u8, size: u32, id: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFGetMFTMerit(pmft: ::windows_sys::core::IUnknown, cbverifier: u32, verifier: *const u8, merit: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32, pdwplanesize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFGetPluginControl(ppplugincontrol: *mut IMFPluginControl) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFGetService(punkobject: ::windows_sys::core::IUnknown, guidservice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32, pstride: *mut i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
@@ -382,14 +388,9 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn MFGetSupportedSchemes(ppropvarschemearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFGetSystemId(ppid: *mut IMFSystemId) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFGetSystemTime() -> i64;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFGetTimerPeriodicity(periodicity: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFGetTopoNodeCurrentType(pnode: IMFTopologyNode, dwstreamindex: u32, foutput: super::super::Foundation::BOOL, pptype: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32;
@@ -442,15 +443,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows_sys::core::GUID, issupported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, supported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFLoadSignedLibrary(pszname: super::super::Foundation::PWSTR, pplib: *mut IMFSignedLibrary) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut IMFDXGIDeviceManager) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -466,9 +458,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MFPCreateMediaPlayer(pwszurl: super::super::Foundation::PWSTR, fstartplayback: super::super::Foundation::BOOL, creationoptions: MFP_CREATION_OPTIONS, pcallback: IMFPMediaPlayerCallback, hwnd: super::super::Foundation::HWND, ppmediaplayer: *mut IMFPMediaPlayer) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFPutWaitingWorkItem(hevent: super::super::Foundation::HANDLE, priority: i32, presult: IMFAsyncResult, pkey: *mut u64) -> ::windows_sys::core::HRESULT;
@@ -492,8 +481,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFRequireProtectedEnvironment(ppresentationdescriptor: IMFPresentationDescriptor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFScheduleWorkItem(pcallback: IMFAsyncCallback, pstate: ::windows_sys::core::IUnknown, timeout: i64, pkey: *mut u64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFScheduleWorkItemEx(presult: IMFAsyncResult, timeout: i64, pkey: *mut u64) -> ::windows_sys::core::HRESULT;
@@ -504,8 +491,6 @@ extern "system" {
     pub fn MFSerializePresentationDescriptor(ppd: IMFPresentationDescriptor, pcbdata: *mut u32, ppbdata: *mut *mut u8) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFShutdown() -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFShutdownObject(punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFSplitSample(psample: IMFSample, poutputsamples: *mut IMFSample, dwoutputsamplemaxcount: u32, pdwoutputsamplecount: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
@@ -536,8 +521,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFTUnregisterLocalByCLSID(clsidmft: ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
-    pub fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype: *const ::windows_sys::core::GUID, dwmftflags: u32, pcodecconfig: IMFAttributes, ppavailabletypes: *mut IMFCollection) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFUnlockDXGIDeviceManager() -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFUnlockPlatform() -> ::windows_sys::core::HRESULT;
@@ -553,15 +536,69 @@ extern "system" {
     pub fn MFWrapMediaType(porig: IMFMediaType, majortype: *const ::windows_sys::core::GUID, subtype: *const ::windows_sys::core::GUID, ppwrap: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfplay", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS, ppopmvideooutput: *mut IOPMVideoOutput) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn OPMGetVideoOutputsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut IOPMVideoOutput) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9: super::super::Graphics::Direct3D9::IDirect3DDevice9, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut IOPMVideoOutput) -> ::windows_sys::core::HRESULT;
+    pub fn MFPCreateMediaPlayer(pwszurl: super::super::Foundation::PWSTR, fstartplayback: super::super::Foundation::BOOL, creationoptions: MFP_CREATION_OPTIONS, pcallback: IMFPMediaPlayerCallback, hwnd: super::super::Foundation::HWND, ppmediaplayer: *mut IMFPMediaPlayer) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfreadwrite", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateSinkWriterFromMediaSink(pmediasink: IMFMediaSink, pattributes: IMFAttributes, ppsinkwriter: *mut IMFSinkWriter) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateSinkWriterFromURL(pwszoutputurl: super::super::Foundation::PWSTR, pbytestream: IMFByteStream, pattributes: IMFAttributes, ppsinkwriter: *mut IMFSinkWriter) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateSourceReaderFromByteStream(pbytestream: IMFByteStream, pattributes: IMFAttributes, ppsourcereader: *mut IMFSourceReader) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateSourceReaderFromMediaSource(pmediasource: IMFMediaSource, pattributes: IMFAttributes, ppsourcereader: *mut IMFSourceReader) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateSourceReaderFromURL(pwszurl: super::super::Foundation::PWSTR, pattributes: IMFAttributes, ppsourcereader: *mut IMFSourceReader) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateCameraOcclusionStateMonitor(symboliclink: super::super::Foundation::PWSTR, callback: IMFCameraOcclusionStateReportCallback, occlusionstatemonitor: *mut IMFCameraOcclusionStateMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateRelativePanelWatcher(videodeviceid: super::super::Foundation::PWSTR, displaymonitordeviceid: super::super::Foundation::PWSTR, pprelativepanelwatcher: *mut IMFRelativePanelWatcher) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateSensorActivityMonitor(pcallback: IMFSensorActivitiesReportCallback, ppactivitymonitor: *mut IMFSensorActivityMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateSensorGroup(sensorgroupsymboliclink: super::super::Foundation::PWSTR, ppsensorgroup: *mut IMFSensorGroup) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateSensorProfile(profiletype: *const ::windows_sys::core::GUID, profileindex: u32, constraints: super::super::Foundation::PWSTR, ppprofile: *mut IMFSensorProfile) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateSensorProfileCollection(ppsensorprofile: *mut IMFSensorProfileCollection) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateSensorStream(streamid: u32, pattributes: IMFAttributes, pmediatypecollection: IMFCollection, ppstream: *mut IMFSensorStream) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: super::super::Foundation::PWSTR, sourceid: super::super::Foundation::PWSTR, categories: *const ::windows_sys::core::GUID, categorycount: u32, virtualcamera: *mut IMFVirtualCamera) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, supported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mfsrcsnk", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateAVIMediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
+    pub fn MFCreateWAVEMediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "opmxbox", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
     pub fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]

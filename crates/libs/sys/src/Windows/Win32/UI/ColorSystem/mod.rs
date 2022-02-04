@@ -1,12 +1,74 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn CheckColorsInGamut(hdc: super::super::Graphics::Gdi::HDC, lprgbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, dlpbuffer: *mut ::core::ffi::c_void, ncount: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ColorCorrectPalette(hdc: super::super::Graphics::Gdi::HDC, hpal: super::super::Graphics::Gdi::HPALETTE, defirst: u32, num: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ColorMatchToTarget(hdc: super::super::Graphics::Gdi::HDC, hdctarget: super::super::Graphics::Gdi::HDC, action: COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AssociateColorProfileWithDeviceA(pmachinename: super::super::Foundation::PSTR, pprofilename: super::super::Foundation::PSTR, pdevicename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    pub fn DeleteColorSpace(hcs: HCOLORSPACE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn EnumICMProfilesA(hdc: super::super::Graphics::Gdi::HDC, proc: ICMENUMPROCA, param2: super::super::Foundation::LPARAM) -> i32;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn EnumICMProfilesW(hdc: super::super::Graphics::Gdi::HDC, proc: ICMENUMPROCW, param2: super::super::Foundation::LPARAM) -> i32;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn GetColorSpace(hdc: super::super::Graphics::Gdi::HDC) -> HCOLORSPACE;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpramp: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, pbufsize: *mut u32, pszfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, pbufsize: *mut u32, pszfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetLogColorSpaceA(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn GetLogColorSpaceW(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn SetColorSpace(hdc: super::super::Graphics::Gdi::HDC, hcs: HCOLORSPACE) -> HCOLORSPACE;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn SetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpramp: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn SetICMMode(hdc: super::super::Graphics::Gdi::HDC, mode: i32) -> i32;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn SetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn SetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AssociateColorProfileWithDeviceW(pmachinename: super::super::Foundation::PWSTR, pprofilename: super::super::Foundation::PWSTR, pdevicename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn UpdateICMRegKeyA(reserved: u32, lpszcmid: super::super::Foundation::PSTR, lpszfilename: super::super::Foundation::PSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UpdateICMRegKeyW(reserved: u32, lpszcmid: super::super::Foundation::PWSTR, lpszfilename: super::super::Foundation::PWSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "icm32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CMCheckColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lparesult: *mut u8) -> super::super::Foundation::BOOL;
@@ -68,24 +130,35 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CMTranslateRGBsExt(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: LPBMCALLBACKFN, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "icmui", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mscms", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AssociateColorProfileWithDeviceA(pmachinename: super::super::Foundation::PSTR, pprofilename: super::super::Foundation::PSTR, pdevicename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AssociateColorProfileWithDeviceW(pmachinename: super::super::Foundation::PWSTR, pprofilename: super::super::Foundation::PWSTR, pdevicename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CheckBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: LPBMCALLBACKFN, lpcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CheckColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paresult: *mut u8) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn CheckColorsInGamut(hdc: super::super::Graphics::Gdi::HDC, lprgbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, dlpbuffer: *mut ::core::ffi::c_void, ncount: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ColorCorrectPalette(hdc: super::super::Graphics::Gdi::HDC, hpal: super::super::Graphics::Gdi::HPALETTE, defirst: u32, num: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ColorMatchToTarget(hdc: super::super::Graphics::Gdi::HDC, hdctarget: super::super::Graphics::Gdi::HDC, action: COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: super::super::Foundation::PWSTR, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: super::super::Foundation::BOOL, associateasadvancedcolor: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
@@ -112,12 +185,6 @@ extern "system" {
     pub fn ConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn CreateColorTransformA(plogcolorspace: *const LOGCOLORSPACEA, hdestprofile: isize, htargetprofile: isize, dwflags: u32) -> isize;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -135,9 +202,6 @@ extern "system" {
     pub fn CreateProfileFromLogColorSpaceW(plogcolorspace: *const LOGCOLORSPACEW, pprofile: *mut *mut u8) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeleteColorSpace(hcs: HCOLORSPACE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -151,12 +215,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnumColorProfilesW(pmachinename: super::super::Foundation::PWSTR, penumrecord: *const ENUMTYPEW, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn EnumICMProfilesA(hdc: super::super::Graphics::Gdi::HDC, proc: ICMENUMPROCA, param2: super::super::Foundation::LPARAM) -> i32;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn EnumICMProfilesW(hdc: super::super::Graphics::Gdi::HDC, proc: ICMENUMPROCW, param2: super::super::Foundation::LPARAM) -> i32;
     #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
     pub fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
@@ -177,27 +235,9 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn GetColorProfileHeader(hprofile: isize, pheader: *mut PROFILEHEADER) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn GetColorSpace(hdc: super::super::Graphics::Gdi::HDC) -> HCOLORSPACE;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetCountColorProfileElements(hprofile: isize, pnelementcount: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpramp: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, pbufsize: *mut u32, pszfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, pbufsize: *mut u32, pszfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetLogColorSpaceA(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn GetLogColorSpaceW(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL;
@@ -253,33 +293,12 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn SetColorProfileHeader(hprofile: isize, pheader: *const PROFILEHEADER) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn SetColorSpace(hdc: super::super::Graphics::Gdi::HDC, hcs: HCOLORSPACE) -> HCOLORSPACE;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn SetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpramp: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn SetICMMode(hdc: super::super::Graphics::Gdi::HDC, mode: i32) -> i32;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn SetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn SetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetStandardColorSpaceProfileA(pmachinename: super::super::Foundation::PSTR, dwprofileid: u32, pprofilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetStandardColorSpaceProfileW(pmachinename: super::super::Foundation::PWSTR, dwprofileid: u32, pprofilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TranslateBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: LPBMCALLBACKFN, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
@@ -298,12 +317,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnregisterCMMW(pmachinename: super::super::Foundation::PWSTR, cmmid: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateICMRegKeyA(reserved: u32, lpszcmid: super::super::Foundation::PSTR, lpszfilename: super::super::Foundation::PSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateICMRegKeyW(reserved: u32, lpszcmid: super::super::Foundation::PWSTR, lpszfilename: super::super::Foundation::PWSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WcsAssociateColorProfileWithDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: super::super::Foundation::PWSTR, pdevicename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;

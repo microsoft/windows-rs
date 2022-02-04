@@ -1,10 +1,15 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-handle-l1-1-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Foundation'*"]
+    pub fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Foundation'*"]
     pub fn CloseHandle(hobject: HANDLE) -> BOOL;
-    #[doc = "*Required features: 'Win32_Foundation'*"]
-    pub fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
     #[doc = "*Required features: 'Win32_Foundation'*"]
     pub fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
     #[doc = "*Required features: 'Win32_Foundation'*"]
@@ -12,13 +17,19 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Foundation'*"]
     pub fn GetLastError() -> WIN32_ERROR;
     #[doc = "*Required features: 'Win32_Foundation'*"]
-    pub fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
-    #[doc = "*Required features: 'Win32_Foundation'*"]
     pub fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
     #[doc = "*Required features: 'Win32_Foundation'*"]
     pub fn SetLastError(dwerrcode: WIN32_ERROR);
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Foundation'*"]
-    pub fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
+    pub fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Foundation'*"]
     pub fn SysAddRefString(bstrstring: BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Foundation'*"]
@@ -39,6 +50,12 @@ extern "system" {
     pub fn SysStringByteLen(bstr: BSTR) -> u32;
     #[doc = "*Required features: 'Win32_Foundation'*"]
     pub fn SysStringLen(pbstr: BSTR) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Foundation'*"]
+    pub fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
 }
 #[doc = "*Required features: 'Win32_Foundation'*"]
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID: i32 = 15705i32;

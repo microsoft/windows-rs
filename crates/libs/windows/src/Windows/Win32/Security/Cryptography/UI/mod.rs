@@ -2081,7 +2081,8 @@ impl ::core::fmt::Debug for CTL_MODIFY_REQUEST_OPERATION {
 pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut ::core::ffi::c_void, puloutbuffersize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cryptui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut ::core::ffi::c_void, puloutbuffersize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2096,7 +2097,8 @@ pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, p
 pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cryptui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT) -> super::super::super::Foundation::BOOL;
         }
@@ -2111,7 +2113,8 @@ pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT)
 pub unsafe fn CryptUIDlgSelectCertificateFromStore<'a, Param0: ::windows::core::IntoParam<'a, super::HCERTSTORE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcertstore: Param0, hwnd: Param1, pwsztitle: Param2, pwszdisplaystring: Param3, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cryptui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptUIDlgSelectCertificateFromStore(hcertstore: super::HCERTSTORE, hwnd: super::super::super::Foundation::HWND, pwsztitle: super::super::super::Foundation::PWSTR, pwszdisplaystring: super::super::super::Foundation::PWSTR, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT;
         }
@@ -2126,7 +2129,8 @@ pub unsafe fn CryptUIDlgSelectCertificateFromStore<'a, Param0: ::windows::core::
 pub unsafe fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cryptui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
@@ -2141,7 +2145,8 @@ pub unsafe fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTI
 pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cryptui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
@@ -2156,7 +2161,8 @@ pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTI
 pub unsafe fn CryptUIDlgViewContext<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwcontexttype: u32, pvcontext: *const ::core::ffi::c_void, hwnd: Param2, pwsztitle: Param3, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cryptui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptUIDlgViewContext(dwcontexttype: u32, pvcontext: *const ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, pwsztitle: super::super::super::Foundation::PWSTR, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
         }
@@ -2171,7 +2177,8 @@ pub unsafe fn CryptUIDlgViewContext<'a, Param2: ::windows::core::IntoParam<'a, s
 pub unsafe fn CryptUIWizDigitalSign<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwflags: u32, hwndparent: Param1, pwszwizardtitle: Param2, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cryptui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptUIWizDigitalSign(dwflags: u32, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: super::super::super::Foundation::PWSTR, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL;
         }
@@ -2186,7 +2193,8 @@ pub unsafe fn CryptUIWizDigitalSign<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn CryptUIWizExport<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Param1, pwszwizardtitle: Param2, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cryptui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptUIWizExport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: super::super::super::Foundation::PWSTR, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
         }
@@ -2201,7 +2209,8 @@ pub unsafe fn CryptUIWizExport<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cryptui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL;
         }
@@ -2216,7 +2225,8 @@ pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_
 pub unsafe fn CryptUIWizImport<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::HCERTSTORE>>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Param1, pwszwizardtitle: Param2, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: Param4) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cryptui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptUIWizImport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: super::super::super::Foundation::PWSTR, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: super::HCERTSTORE) -> super::super::super::Foundation::BOOL;
         }

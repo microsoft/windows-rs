@@ -27,7 +27,8 @@ pub const CLSID_SmtpCat: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS);
         }
@@ -1464,7 +1465,8 @@ pub const GUID_SMTP_SOURCE_TYPE: ::windows::core::GUID = ::windows::core::GUID::
 pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows::core::HRESULT;
         }
@@ -12284,7 +12286,8 @@ pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcal
 pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MapStorageSCode(stgscode: i32) -> i32;
         }
@@ -12322,7 +12325,8 @@ pub const NMP_PROCESS_POST: u32 = 1u32;
 pub unsafe fn OpenIMsgOnIStg<'a, Param4: ::windows::core::IntoParam<'a, super::super::System::Com::IMalloc>, Param6: ::windows::core::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>>(lpmsgsess: *mut _MSGSESS, lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER, lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE, lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER, lpmalloc: Param4, lpmapisup: *mut ::core::ffi::c_void, lpstg: Param6, lpfmsgcallrelease: *mut MSGCALLRELEASE, ulcallerdata: u32, ulflags: u32, lppmsg: *mut ::core::option::Option<super::super::System::AddressBook::IMessage>) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenIMsgOnIStg(lpmsgsess: *mut _MSGSESS, lpallocatebuffer: ::windows::core::RawPtr, lpallocatemore: ::windows::core::RawPtr, lpfreebuffer: ::windows::core::RawPtr, lpmalloc: ::windows::core::RawPtr, lpmapisup: *mut ::core::ffi::c_void, lpstg: ::windows::core::RawPtr, lpfmsgcallrelease: *mut ::windows::core::RawPtr, ulcallerdata: u32, ulflags: u32, lppmsg: *mut ::windows::core::RawPtr) -> i32;
         }
@@ -12337,7 +12341,8 @@ pub unsafe fn OpenIMsgOnIStg<'a, Param4: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn OpenIMsgSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IMalloc>>(lpmalloc: Param0, ulflags: u32, lppmsgsess: *mut *mut _MSGSESS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenIMsgSession(lpmalloc: ::windows::core::RawPtr, ulflags: u32, lppmsgsess: *mut *mut _MSGSESS) -> i32;
         }
@@ -12495,7 +12500,8 @@ pub const SZ_PROGID_SMTPCAT: &'static str = "Smtp.Cat";
 pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows::core::HRESULT;
         }

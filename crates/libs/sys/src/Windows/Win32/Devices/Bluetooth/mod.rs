@@ -1,18 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "bluetoothapis", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
-    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothAuthenticateDevice(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, pbtbi: *mut BLUETOOTH_DEVICE_INFO, pszpasskey: super::super::Foundation::PWSTR, ulpasskeylength: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothAuthenticateDeviceEx(hwndparentin: super::super::Foundation::HWND, hradioin: super::super::Foundation::HANDLE, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32;
-    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothAuthenticateMultipleDevices(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, cdevices: u32, rgbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32;
-    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothDisplayDeviceProperties(hwndparent: super::super::Foundation::HWND, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothEnableDiscovery(hradio: super::super::Foundation::HANDLE, fenabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
@@ -80,12 +69,6 @@ extern "system" {
     pub fn BluetoothSdpGetString(precordstream: *const u8, cbrecordlength: u32, pstringdata: *const SDP_STRING_TYPE_DATA, usstringoffset: u16, pszstring: super::super::Foundation::PWSTR, pcchstringlength: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothSendAuthenticationResponse(hradio: super::super::Foundation::HANDLE, pbtdi: *const BLUETOOTH_DEVICE_INFO, pszpasskey: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -102,6 +85,28 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BluetoothUpdateDeviceRecord(pbtdi: *const BLUETOOTH_DEVICE_INFO) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "bthprops.cpl", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothAuthenticateDevice(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, pbtbi: *mut BLUETOOTH_DEVICE_INFO, pszpasskey: super::super::Foundation::PWSTR, ulpasskeylength: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothAuthenticateDeviceEx(hwndparentin: super::super::Foundation::HWND, hradioin: super::super::Foundation::HANDLE, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: *const BLUETOOTH_OOB_DATA_INFO, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32;
+    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothAuthenticateMultipleDevices(hwndparent: super::super::Foundation::HWND, hradio: super::super::Foundation::HANDLE, cdevices: u32, rgbtdi: *mut BLUETOOTH_DEVICE_INFO) -> u32;
+    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothDisplayDeviceProperties(hwndparent: super::super::Foundation::HWND, pbtdi: *mut BLUETOOTH_DEVICE_INFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothSelectDevices(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Devices_Bluetooth', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BluetoothSelectDevicesFree(pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS) -> super::super::Foundation::BOOL;
 }
 #[doc = "*Required features: 'Win32_Devices_Bluetooth'*"]
 pub const A2DP_SINK_SUPPORTED_FEATURES_AMPLIFIER: u32 = 8u32;

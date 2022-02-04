@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "oleacc", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -29,12 +30,6 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: super::super::Foundation::PWSTR, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32);
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -48,13 +43,29 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetStateTextW(lstatebit: u32, lpszstate: super::super::Foundation::PWSTR, cchstate: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LresultFromObject(riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::windows_sys::core::IUnknown) -> super::super::Foundation::LRESULT;
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn WindowFromAccessibleObject(param0: IAccessible, phwnd: *mut super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "uiautomationcore", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: super::super::System::Com::VARIANT, pfound: *mut HUIANODE) -> ::windows_sys::core::HRESULT;
@@ -70,26 +81,11 @@ extern "system" {
     pub fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LresultFromObject(riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::windows_sys::core::IUnknown) -> super::super::Foundation::LRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
@@ -102,9 +98,6 @@ extern "system" {
     pub fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
@@ -295,21 +288,9 @@ extern "system" {
     pub fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn WindowFromAccessibleObject(param0: IAccessible, phwnd: *mut super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
@@ -317,6 +298,34 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Accessibility'*"]

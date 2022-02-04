@@ -54,7 +54,8 @@ pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
 pub unsafe fn AddStroke<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddStroke(hrc: HRECOCONTEXT, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows::core::HRESULT;
         }
@@ -69,7 +70,8 @@ pub unsafe fn AddStroke<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>
 pub unsafe fn AddWordsToWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOWORDLIST>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwl: Param0, pwcwords: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -84,7 +86,8 @@ pub unsafe fn AddWordsToWordList<'a, Param0: ::windows::core::IntoParam<'a, HREC
 pub unsafe fn AdviseInkChange<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hrc: Param0, bnewstroke: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -280,7 +283,8 @@ impl ::core::fmt::Debug for CorrectionPosition {
 pub unsafe fn CreateContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, phrc: *mut HRECOCONTEXT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> ::windows::core::HRESULT;
         }
@@ -294,7 +298,8 @@ pub unsafe fn CreateContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZ
 pub unsafe fn CreateRecognizer(pclsid: *mut ::windows::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateRecognizer(pclsid: *mut ::windows::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows::core::HRESULT;
         }
@@ -2182,7 +2187,8 @@ impl ::core::default::Default for DYNAMIC_RENDERER_CACHED_DATA {
 pub unsafe fn DestroyContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DestroyContext(hrc: HRECOCONTEXT) -> ::windows::core::HRESULT;
         }
@@ -2196,7 +2202,8 @@ pub unsafe fn DestroyContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOCON
 pub unsafe fn DestroyRecognizer<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DestroyRecognizer(hrec: HRECOGNIZER) -> ::windows::core::HRESULT;
         }
@@ -2210,7 +2217,8 @@ pub unsafe fn DestroyRecognizer<'a, Param0: ::windows::core::IntoParam<'a, HRECO
 pub unsafe fn DestroyWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOWORDLIST>>(hwl: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DestroyWordList(hwl: HRECOWORDLIST) -> ::windows::core::HRESULT;
         }
@@ -2277,7 +2285,8 @@ pub const EM_SETUSEMOUSEFORINPUT: u32 = 1560u32;
 pub unsafe fn EndInkInput<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EndInkInput(hrc: HRECOCONTEXT) -> ::windows::core::HRESULT;
         }
@@ -2903,7 +2912,8 @@ pub const GestureRecognizer: ::windows::core::GUID = ::windows::core::GUID::from
 pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2918,7 +2928,8 @@ pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUI
 pub unsafe fn GetBestResultString<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcbestresult: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetBestResultString(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcbestresult: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -2932,7 +2943,8 @@ pub unsafe fn GetBestResultString<'a, Param0: ::windows::core::IntoParam<'a, HRE
 pub unsafe fn GetLatticePtr<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pplattice: *mut *mut RECO_LATTICE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE) -> ::windows::core::HRESULT;
         }
@@ -2947,7 +2959,8 @@ pub unsafe fn GetLatticePtr<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONT
 pub unsafe fn GetLeftSeparator<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcleftseparator: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcleftseparator: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -2961,7 +2974,8 @@ pub unsafe fn GetLeftSeparator<'a, Param0: ::windows::core::IntoParam<'a, HRECOC
 pub unsafe fn GetRecoAttributes<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, precoattrs: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: *mut RECO_ATTRS) -> ::windows::core::HRESULT;
         }
@@ -2975,7 +2989,8 @@ pub unsafe fn GetRecoAttributes<'a, Param0: ::windows::core::IntoParam<'a, HRECO
 pub unsafe fn GetResultPropertyList<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, ppropertycount: *mut u32, ppropertyguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: *mut u32, ppropertyguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2990,7 +3005,8 @@ pub unsafe fn GetResultPropertyList<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn GetRightSeparator<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcrightseparator: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetRightSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcrightseparator: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -3004,7 +3020,8 @@ pub unsafe fn GetRightSeparator<'a, Param0: ::windows::core::IntoParam<'a, HRECO
 pub unsafe fn GetUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::HRESULT;
         }
@@ -15573,7 +15590,8 @@ impl ::core::fmt::Debug for InteractionMode {
 pub unsafe fn IsStringSupported<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrc: Param0, wcstring: u32, pwcstring: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsStringSupported(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -15731,7 +15749,8 @@ impl ::core::default::Default for LINE_SEGMENT {
 pub unsafe fn LoadCachedAttributes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsid: Param0, precoattributes: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows::core::HRESULT;
         }
@@ -15840,7 +15859,8 @@ impl ::core::fmt::Debug for MICUIELEMENTSTATE {
 pub unsafe fn MakeWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrec: Param0, pbuffer: Param1, phwl: *mut HRECOWORDLIST) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MakeWordList(hrec: HRECOGNIZER, pbuffer: super::super::Foundation::PWSTR, phwl: *mut HRECOWORDLIST) -> ::windows::core::HRESULT;
         }
@@ -16110,7 +16130,8 @@ pub type PfnRecoCallback = ::core::option::Option<unsafe extern "system" fn(para
 pub unsafe fn Process<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -16790,7 +16811,8 @@ impl ::core::fmt::Debug for SelectionHitResult {
 pub unsafe fn SetEnabledUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::HRESULT;
         }
@@ -16805,7 +16827,8 @@ pub unsafe fn SetEnabledUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SetFactoid<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrc: Param0, cwcfactoid: u32, pwcfactoid: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -16819,7 +16842,8 @@ pub unsafe fn SetFactoid<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT
 pub unsafe fn SetFlags<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -16833,7 +16857,8 @@ pub unsafe fn SetFlags<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>
 pub unsafe fn SetGuide<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetGuide(hrc: HRECOCONTEXT, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows::core::HRESULT;
         }
@@ -16848,7 +16873,8 @@ pub unsafe fn SetGuide<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>
 pub unsafe fn SetTextContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrc: Param0, cwcbefore: u32, pwcbefore: Param2, cwcafter: u32, pwcafter: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetTextContext(hrc: HRECOCONTEXT, cwcbefore: u32, pwcbefore: super::super::Foundation::PWSTR, cwcafter: u32, pwcafter: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -16862,7 +16888,8 @@ pub unsafe fn SetTextContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOCON
 pub unsafe fn SetWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param1: ::windows::core::IntoParam<'a, HRECOWORDLIST>>(hrc: Param0, hwl: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "inkobjcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> ::windows::core::HRESULT;
         }

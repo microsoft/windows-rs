@@ -34,7 +34,8 @@ impl ::core::fmt::Debug for APPSTATE {
 pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gpedit", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::core::HRESULT;
         }
@@ -52,7 +53,8 @@ pub const CLSID_RSOPSnapIn: ::windows::core::GUID = ::windows::core::GUID::from_
 pub unsafe fn CommandLineFromMsiDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(descriptor: Param0, commandline: super::super::Foundation::PWSTR, commandlinelength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CommandLineFromMsiDescriptor(descriptor: super::super::Foundation::PWSTR, commandline: super::super::Foundation::PWSTR, commandlinelength: *mut u32) -> u32;
         }
@@ -67,7 +69,8 @@ pub unsafe fn CommandLineFromMsiDescriptor<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn CreateGPOLink<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpgpo: Param0, lpcontainer: Param1, fhighpriority: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gpedit", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateGPOLink(lpgpo: super::super::Foundation::PWSTR, lpcontainer: super::super::Foundation::PWSTR, fhighpriority: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -116,7 +119,8 @@ unsafe impl ::windows::core::Abi for CriticalPolicySectionHandle {
 pub unsafe fn DeleteAllGPOLinks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpcontainer: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gpedit", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteAllGPOLinks(lpcontainer: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -131,7 +135,8 @@ pub unsafe fn DeleteAllGPOLinks<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DeleteGPOLink<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpgpo: Param0, lpcontainer: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gpedit", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteGPOLink(lpgpo: super::super::Foundation::PWSTR, lpcontainer: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -146,7 +151,8 @@ pub unsafe fn DeleteGPOLink<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn EnterCriticalPolicySection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnterCriticalPolicySection(bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
         }
@@ -161,7 +167,8 @@ pub unsafe fn EnterCriticalPolicySection<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn ExportRSoPData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpnamespace: Param0, lpfilename: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gpedit", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ExportRSoPData(lpnamespace: super::super::Foundation::PWSTR, lpfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -198,7 +205,8 @@ pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
 pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL;
         }
@@ -213,7 +221,8 @@ pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::supe
 pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL;
         }
@@ -1022,7 +1031,8 @@ impl ::core::fmt::Debug for GROUP_POLICY_OBJECT_TYPE {
 pub unsafe fn GenerateGPNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(bmachine: Param0, lpwszmgmtproduct: Param1, dwmgmtproductoptions: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GenerateGPNotification(bmachine: super::super::Foundation::BOOL, lpwszmgmtproduct: super::super::Foundation::PWSTR, dwmgmtproductoptions: u32) -> u32;
         }
@@ -1037,7 +1047,8 @@ pub unsafe fn GenerateGPNotification<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetAppliedGPOListA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, pmachinename: Param1, psiduser: Param2, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAppliedGPOListA(dwflags: u32, pmachinename: super::super::Foundation::PSTR, psiduser: super::super::Foundation::PSID, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32;
         }
@@ -1052,7 +1063,8 @@ pub unsafe fn GetAppliedGPOListA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetAppliedGPOListW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, pmachinename: Param1, psiduser: Param2, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAppliedGPOListW(dwflags: u32, pmachinename: super::super::Foundation::PWSTR, psiduser: super::super::Foundation::PSID, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32;
         }
@@ -1067,7 +1079,8 @@ pub unsafe fn GetAppliedGPOListW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetGPOListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(htoken: Param0, lpname: Param1, lphostname: Param2, lpcomputername: Param3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetGPOListA(htoken: super::super::Foundation::HANDLE, lpname: super::super::Foundation::PSTR, lphostname: super::super::Foundation::PSTR, lpcomputername: super::super::Foundation::PSTR, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL;
         }
@@ -1082,7 +1095,8 @@ pub unsafe fn GetGPOListA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn GetGPOListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(htoken: Param0, lpname: Param1, lphostname: Param2, lpcomputername: Param3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetGPOListW(htoken: super::super::Foundation::HANDLE, lpname: super::super::Foundation::PWSTR, lphostname: super::super::Foundation::PWSTR, lpcomputername: super::super::Foundation::PWSTR, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL;
         }
@@ -1097,7 +1111,8 @@ pub unsafe fn GetGPOListW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn GetLocalManagedApplicationData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(productcode: Param0, displayname: *mut super::super::Foundation::PWSTR, supporturl: *mut super::super::Foundation::PWSTR) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetLocalManagedApplicationData(productcode: super::super::Foundation::PWSTR, displayname: *mut super::super::Foundation::PWSTR, supporturl: *mut super::super::Foundation::PWSTR);
         }
@@ -1112,7 +1127,8 @@ pub unsafe fn GetLocalManagedApplicationData<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn GetLocalManagedApplications<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(buserapps: Param0, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetLocalManagedApplications(buserapps: super::super::Foundation::BOOL, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32;
         }
@@ -1127,7 +1143,8 @@ pub unsafe fn GetLocalManagedApplications<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32;
         }
@@ -1142,7 +1159,8 @@ pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mu
 pub unsafe fn GetManagedApplications(pcategory: *const ::windows::core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetManagedApplications(pcategory: *const ::windows::core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32;
         }
@@ -9863,7 +9881,8 @@ pub struct IRSOPInformation_Vtbl {
 pub unsafe fn ImportRSoPData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpnamespace: Param0, lpfilename: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gpedit", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImportRSoPData(lpnamespace: super::super::Foundation::PWSTR, lpfilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -9878,7 +9897,8 @@ pub unsafe fn ImportRSoPData<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32;
         }
@@ -9948,7 +9968,8 @@ pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
 pub unsafe fn LeaveCriticalPolicySection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsection: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LeaveCriticalPolicySection(hsection: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -10120,7 +10141,8 @@ pub const PT_TEMPORARY: u32 = 1u32;
 pub unsafe fn ProcessGroupPolicyCompleted(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ProcessGroupPolicyCompleted(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32) -> u32;
         }
@@ -10134,7 +10156,8 @@ pub unsafe fn ProcessGroupPolicyCompleted(extensionid: *const ::windows::core::G
 pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32, rsopstatus: ::windows::core::HRESULT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ProcessGroupPolicyCompletedEx(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32, rsopstatus: ::windows::core::HRESULT) -> u32;
         }
@@ -10223,7 +10246,8 @@ pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
 pub unsafe fn RefreshPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RefreshPolicy(bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -10238,7 +10262,8 @@ pub unsafe fn RefreshPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn RefreshPolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0, dwoptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RefreshPolicyEx(bmachine: super::super::Foundation::BOOL, dwoptions: u32) -> super::super::Foundation::BOOL;
         }
@@ -10253,7 +10278,8 @@ pub unsafe fn RefreshPolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn RegisterGPNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hevent: Param0, bmachine: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterGPNotification(hevent: super::super::Foundation::HANDLE, bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -10268,7 +10294,8 @@ pub unsafe fn RegisterGPNotification<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RsopAccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, pprincipalselfsid: Param1, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: *const super::super::Security::OBJECT_TYPE_LIST, objecttypelistlength: u32, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength: *const u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RsopAccessCheckByType(psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, pprincipalselfsid: super::super::Foundation::PSID, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: *const super::super::Security::OBJECT_TYPE_LIST, objecttypelistlength: u32, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength: *const u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -10283,7 +10310,8 @@ pub unsafe fn RsopAccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn RsopFileAccessCheck<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RsopFileAccessCheck(pszfilename: super::super::Foundation::PWSTR, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -10298,7 +10326,8 @@ pub unsafe fn RsopFileAccessCheck<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn RsopResetPolicySettingStatus<'a, Param1: ::windows::core::IntoParam<'a, super::Wmi::IWbemServices>, Param2: ::windows::core::IntoParam<'a, super::Wmi::IWbemClassObject>>(dwflags: u32, pservices: Param1, psettinginstance: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RsopResetPolicySettingStatus(dwflags: u32, pservices: ::windows::core::RawPtr, psettinginstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -10313,7 +10342,8 @@ pub unsafe fn RsopResetPolicySettingStatus<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn RsopSetPolicySettingStatus<'a, Param1: ::windows::core::IntoParam<'a, super::Wmi::IWbemServices>, Param2: ::windows::core::IntoParam<'a, super::Wmi::IWbemClassObject>>(dwflags: u32, pservices: Param1, psettinginstance: Param2, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RsopSetPolicySettingStatus(dwflags: u32, pservices: ::windows::core::RawPtr, psettinginstance: ::windows::core::RawPtr, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> ::windows::core::HRESULT;
         }
@@ -10361,7 +10391,8 @@ impl ::core::fmt::Debug for SETTINGSTATUS {
 pub unsafe fn UninstallApplication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(productcode: Param0, dwstatus: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UninstallApplication(productcode: super::super::Foundation::PWSTR, dwstatus: u32) -> u32;
         }
@@ -10376,7 +10407,8 @@ pub unsafe fn UninstallApplication<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn UnregisterGPNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }

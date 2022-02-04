@@ -9,37 +9,16 @@ pub mod DirectSound;
 pub mod Endpoints;
 #[cfg(feature = "Win32_Media_Audio_XAudio2")]
 pub mod XAudio2;
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mmdevapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn ActivateAudioInterfaceAsync(deviceinterfacepath: super::super::Foundation::PWSTR, riid: *const ::windows_sys::core::GUID, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: IActivateAudioInterfaceCompletionHandler, activationoperation: *mut IActivateAudioInterfaceAsyncOperation) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio'*"]
-    pub fn CoRegisterMessageFilter(lpmessagefilter: IMessageFilter, lplpmessagefilter: *mut IMessageFilter) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio'*"]
-    pub fn CreateCaptureAudioStateMonitor(audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio'*"]
-    pub fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio'*"]
-    pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio'*"]
-    pub fn CreateRenderAudioStateMonitor(audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio'*"]
-    pub fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio'*"]
-    pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PlaySoundA(pszsound: super::super::Foundation::PSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PlaySoundW(pszsound: super::super::Foundation::PWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "msacm32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn acmDriverAddA(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
@@ -147,6 +126,44 @@ extern "system" {
     pub fn acmStreamSize(has: HACMSTREAM, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32;
     #[doc = "*Required features: 'Win32_Media_Audio'*"]
     pub fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn CoRegisterMessageFilter(lpmessagefilter: IMessageFilter, lplpmessagefilter: *mut IMessageFilter) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "windows.media.mediacontrol", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn CreateCaptureAudioStateMonitor(audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn CreateRenderAudioStateMonitor(audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Audio'*"]
+    pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PlaySoundA(pszsound: super::super::Foundation::PSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PlaySoundW(pszsound: super::super::Foundation::PWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32;

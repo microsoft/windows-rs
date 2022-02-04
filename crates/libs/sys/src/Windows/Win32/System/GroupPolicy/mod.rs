@@ -1,12 +1,35 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CommandLineFromMsiDescriptor(descriptor: super::super::Foundation::PWSTR, commandline: super::super::Foundation::PWSTR, commandlinelength: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetLocalManagedApplicationData(productcode: super::super::Foundation::PWSTR, displayname: *mut super::super::Foundation::PWSTR, supporturl: *mut super::super::Foundation::PWSTR);
+    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetLocalManagedApplications(buserapps: super::super::Foundation::BOOL, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32;
+    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_UI_Shell'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+    pub fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32;
+    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetManagedApplications(pcategory: *const ::windows_sys::core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32;
+    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32;
+    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UninstallApplication(productcode: super::super::Foundation::PWSTR, dwstatus: u32) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gpedit", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CommandLineFromMsiDescriptor(descriptor: super::super::Foundation::PWSTR, commandline: super::super::Foundation::PWSTR, commandlinelength: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateGPOLink(lpgpo: super::super::Foundation::PWSTR, lpcontainer: super::super::Foundation::PWSTR, fhighpriority: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
@@ -18,10 +41,17 @@ extern "system" {
     pub fn DeleteGPOLink(lpgpo: super::super::Foundation::PWSTR, lpcontainer: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnterCriticalPolicySection(bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
+    pub fn ExportRSoPData(lpnamespace: super::super::Foundation::PWSTR, lpfilename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ExportRSoPData(lpnamespace: super::super::Foundation::PWSTR, lpfilename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn ImportRSoPData(lpnamespace: super::super::Foundation::PWSTR, lpfilename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "userenv", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnterCriticalPolicySection(bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL;
@@ -43,24 +73,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetGPOListW(htoken: super::super::Foundation::HANDLE, lpname: super::super::Foundation::PWSTR, lphostname: super::super::Foundation::PWSTR, lpcomputername: super::super::Foundation::PWSTR, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLocalManagedApplicationData(productcode: super::super::Foundation::PWSTR, displayname: *mut super::super::Foundation::PWSTR, supporturl: *mut super::super::Foundation::PWSTR);
-    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLocalManagedApplications(buserapps: super::super::Foundation::BOOL, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32;
-    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_UI_Shell'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-    pub fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32;
-    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetManagedApplications(pcategory: *const ::windows_sys::core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32;
-    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ImportRSoPData(lpnamespace: super::super::Foundation::PWSTR, lpfilename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32;
     #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LeaveCriticalPolicySection(hsection: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
@@ -89,9 +101,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_System_Wmi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Wmi"))]
     pub fn RsopSetPolicySettingStatus(dwflags: u32, pservices: super::Wmi::IWbemServices, psettinginstance: super::Wmi::IWbemClassObject, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UninstallApplication(productcode: super::super::Foundation::PWSTR, dwstatus: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;

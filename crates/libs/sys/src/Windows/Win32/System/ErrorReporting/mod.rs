@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "faultrep", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12,10 +13,11 @@ extern "system" {
     pub fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal;
     #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WerAddExcludedApplication(pwzexename: super::super::Foundation::PWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WerFreeString(pwszstr: super::super::Foundation::PWSTR);
+    pub fn WerReportHang(hwndhungapp: super::super::Foundation::HWND, pwzhungapplicationname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WerGetFlags(hprocess: super::super::Foundation::HANDLE, pdwflags: *mut WER_FAULT_REPORTING) -> ::windows_sys::core::HRESULT;
@@ -37,6 +39,35 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: super::super::Foundation::PWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
+    pub fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
+    pub fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
+    pub fn WerUnregisterAppLocalDump() -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WerUnregisterCustomMetadata(key: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
+    pub fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WerUnregisterFile(pwzfilepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
+    pub fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: super::super::Foundation::PWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "wer", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WerAddExcludedApplication(pwzexename: super::super::Foundation::PWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WerFreeString(pwszstr: super::super::Foundation::PWSTR);
     #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WerRemoveExcludedApplication(pwzexename: super::super::Foundation::PWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
@@ -53,17 +84,12 @@ extern "system" {
     pub fn WerReportCreate(pwzeventtype: super::super::Foundation::PWSTR, reptype: WER_REPORT_TYPE, preportinformation: *const WER_REPORT_INFORMATION, phreporthandle: *mut HREPORT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WerReportHang(hwndhungapp: super::super::Foundation::HWND, pwzhungapplicationname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn WerReportSetParameter(hreporthandle: HREPORT, dwparamid: u32, pwzname: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WerReportSetUIOption(hreporthandle: HREPORT, repuitypeid: WER_REPORT_UI, pwzvalue: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
     pub fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-    pub fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
     pub fn WerStoreClose(hreportstore: HREPORTSTORE);
     #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
@@ -92,23 +118,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: super::super::Foundation::PWSTR, dwflags: u32, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-    pub fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-    pub fn WerUnregisterAppLocalDump() -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WerUnregisterCustomMetadata(key: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-    pub fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WerUnregisterFile(pwzfilepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
-    pub fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_System_ErrorReporting', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: super::super::Foundation::PWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: 'Win32_System_ErrorReporting'*"]
 pub const APPCRASH_EVENT: &'static str = "APPCRASH";

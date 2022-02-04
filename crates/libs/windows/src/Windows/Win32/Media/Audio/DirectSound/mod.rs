@@ -1524,7 +1524,8 @@ pub const DS_UNCERTIFIED: u32 = 1u32;
 pub unsafe fn DirectSoundCaptureCreate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguiddevice: *const ::windows::core::GUID, ppdsc: *mut ::core::option::Option<IDirectSoundCapture>, punkouter: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsound", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DirectSoundCaptureCreate(pcguiddevice: *const ::windows::core::GUID, ppdsc: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1538,7 +1539,8 @@ pub unsafe fn DirectSoundCaptureCreate<'a, Param2: ::windows::core::IntoParam<'a
 pub unsafe fn DirectSoundCaptureCreate8<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguiddevice: *const ::windows::core::GUID, ppdsc8: *mut ::core::option::Option<IDirectSoundCapture>, punkouter: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsound", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DirectSoundCaptureCreate8(pcguiddevice: *const ::windows::core::GUID, ppdsc8: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1553,7 +1555,8 @@ pub unsafe fn DirectSoundCaptureCreate8<'a, Param2: ::windows::core::IntoParam<'
 pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsound", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::windows::core::RawPtr, pcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1568,7 +1571,8 @@ pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, p
 pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsound", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DirectSoundCaptureEnumerateW(pdsenumcallback: ::windows::core::RawPtr, pcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1582,7 +1586,8 @@ pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, p
 pub unsafe fn DirectSoundCreate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguiddevice: *const ::windows::core::GUID, ppds: *mut ::core::option::Option<IDirectSound>, punkouter: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsound", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DirectSoundCreate(pcguiddevice: *const ::windows::core::GUID, ppds: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1596,7 +1601,8 @@ pub unsafe fn DirectSoundCreate<'a, Param2: ::windows::core::IntoParam<'a, ::win
 pub unsafe fn DirectSoundCreate8<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguiddevice: *const ::windows::core::GUID, ppds8: *mut ::core::option::Option<IDirectSound8>, punkouter: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsound", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DirectSoundCreate8(pcguiddevice: *const ::windows::core::GUID, ppds8: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1611,7 +1617,8 @@ pub unsafe fn DirectSoundCreate8<'a, Param2: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsound", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DirectSoundEnumerateA(pdsenumcallback: ::windows::core::RawPtr, pcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1626,7 +1633,8 @@ pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext
 pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsound", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DirectSoundEnumerateW(pdsenumcallback: ::windows::core::RawPtr, pcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1641,7 +1649,8 @@ pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext
 pub unsafe fn DirectSoundFullDuplexCreate<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param9: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguidcapturedevice: *const ::windows::core::GUID, pcguidrenderdevice: *const ::windows::core::GUID, pcdscbufferdesc: *const DSCBUFFERDESC, pcdsbufferdesc: *const DSBUFFERDESC, hwnd: Param4, dwlevel: u32, ppdsfd: *mut ::core::option::Option<IDirectSoundFullDuplex>, ppdscbuffer8: *mut ::core::option::Option<IDirectSoundCaptureBuffer8>, ppdsbuffer8: *mut ::core::option::Option<IDirectSoundBuffer8>, punkouter: Param9) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsound", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DirectSoundFullDuplexCreate(pcguidcapturedevice: *const ::windows::core::GUID, pcguidrenderdevice: *const ::windows::core::GUID, pcdscbufferdesc: *const DSCBUFFERDESC, pcdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, ppdsfd: *mut ::windows::core::RawPtr, ppdscbuffer8: *mut ::windows::core::RawPtr, ppdsbuffer8: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1671,7 +1680,8 @@ pub const GUID_DSFX_WAVES_REVERB: ::windows::core::GUID = ::windows::core::GUID:
 pub unsafe fn GetDeviceID(pguidsrc: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsound", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDeviceID(pguidsrc: *const ::windows::core::GUID, pguiddest: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }

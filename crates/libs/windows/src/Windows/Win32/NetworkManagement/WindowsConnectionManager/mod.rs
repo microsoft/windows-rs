@@ -5,7 +5,8 @@
 pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ondemandconnroutehelper", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE);
         }
@@ -20,7 +21,8 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
 pub unsafe fn GetInterfaceContextTableForHostName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, proxyname: Param1, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32) -> ::windows::core::Result<*mut NET_INTERFACE_CONTEXT_TABLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ondemandconnroutehelper", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetInterfaceContextTableForHostName(hostname: super::super::Foundation::PWSTR, proxyname: super::super::Foundation::PWSTR, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32, interfacecontexttable: *mut *mut NET_INTERFACE_CONTEXT_TABLE) -> ::windows::core::HRESULT;
         }
@@ -121,7 +123,8 @@ pub type ONDEMAND_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "
 pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationhostname: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ondemandconnroutehelper", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OnDemandGetRoutingHint(destinationhostname: super::super::Foundation::PWSTR, interfaceindex: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -137,7 +140,8 @@ pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ondemandconnroutehelper", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OnDemandRegisterNotification(callback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void, registrationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -153,7 +157,8 @@ pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLB
 pub unsafe fn OnDemandUnRegisterNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(registrationhandle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ondemandconnroutehelper", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -609,7 +614,8 @@ impl ::core::default::Default for WCM_USAGE_DATA {
 pub unsafe fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wcmapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void);
         }
@@ -623,7 +629,8 @@ pub unsafe fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void) {
 pub unsafe fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wcmapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32;
         }
@@ -638,7 +645,8 @@ pub unsafe fn WcmGetProfileList(preserved: *mut ::core::ffi::c_void, ppprofileli
 pub unsafe fn WcmQueryProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::core::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wcmapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WcmQueryProperty(pinterface: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
         }
@@ -653,7 +661,8 @@ pub unsafe fn WcmQueryProperty<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: Param2, preserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wcmapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WcmSetProfileList(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> u32;
         }
@@ -668,7 +677,8 @@ pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn WcmSetProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::core::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wcmapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WcmSetProperty(pinterface: *const ::windows::core::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::core::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
         }

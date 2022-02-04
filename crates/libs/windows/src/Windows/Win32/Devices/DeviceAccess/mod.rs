@@ -6,7 +6,8 @@ pub const CLSID_DeviceIoControl: ::windows::core::GUID = ::windows::core::GUID::
 pub unsafe fn CreateDeviceAccessInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinterfacepath: Param0, desiredaccess: u32) -> ::windows::core::Result<ICreateDeviceAccessAsync> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "deviceaccess", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateDeviceAccessInstance(deviceinterfacepath: super::super::Foundation::PWSTR, desiredaccess: u32, createasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }

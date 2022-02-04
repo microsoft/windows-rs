@@ -403,7 +403,8 @@ impl ::core::fmt::Debug for DCOMPOSITION_OPACITY_MODE {
 pub unsafe fn DCompositionAttachMouseDragToHwnd<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionVisual>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(visual: Param0, hwnd: Param1, enable: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionAttachMouseDragToHwnd(visual: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -418,7 +419,8 @@ pub unsafe fn DCompositionAttachMouseDragToHwnd<'a, Param0: ::windows::core::Int
 pub unsafe fn DCompositionAttachMouseWheelToHwnd<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionVisual>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(visual: Param0, hwnd: Param1, enable: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionAttachMouseWheelToHwnd(visual: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -433,7 +435,8 @@ pub unsafe fn DCompositionAttachMouseWheelToHwnd<'a, Param0: ::windows::core::In
 pub unsafe fn DCompositionBoostCompositorClock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(enable: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionBoostCompositorClock(enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -448,7 +451,8 @@ pub unsafe fn DCompositionBoostCompositorClock<'a, Param0: ::windows::core::Into
 pub unsafe fn DCompositionCreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(dxgidevice: Param0, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionCreateDevice(dxgidevice: ::windows::core::RawPtr, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -462,7 +466,8 @@ pub unsafe fn DCompositionCreateDevice<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DCompositionCreateDevice2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(renderingdevice: Param0, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionCreateDevice2(renderingdevice: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -476,7 +481,8 @@ pub unsafe fn DCompositionCreateDevice2<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DCompositionCreateDevice3<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(renderingdevice: Param0, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionCreateDevice3(renderingdevice: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -491,7 +497,8 @@ pub unsafe fn DCompositionCreateDevice3<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, surfacehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -506,7 +513,8 @@ pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattrib
 pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE, frameid: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -522,7 +530,8 @@ pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> 
 pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: *mut COMPOSITION_TARGET_ID, actualtargetidcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: *mut COMPOSITION_TARGET_ID, actualtargetidcount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -537,7 +546,8 @@ pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITI
 pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID) -> ::windows::core::Result<COMPOSITION_TARGET_STATS> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID, targetstats: *mut COMPOSITION_TARGET_STATS) -> ::windows::core::HRESULT;
         }
@@ -585,7 +595,8 @@ impl ::core::default::Default for DCompositionInkTrailPoint {
 pub unsafe fn DCompositionWaitForCompositorClock(count: u32, handles: *const super::super::Foundation::HANDLE, timeoutinms: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dcomp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DCompositionWaitForCompositorClock(count: u32, handles: *const super::super::Foundation::HANDLE, timeoutinms: u32) -> u32;
         }

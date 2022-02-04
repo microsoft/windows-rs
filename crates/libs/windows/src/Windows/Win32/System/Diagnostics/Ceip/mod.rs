@@ -5,7 +5,8 @@
 pub unsafe fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL;
         }

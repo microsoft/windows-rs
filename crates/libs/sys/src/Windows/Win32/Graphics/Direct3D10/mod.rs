@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation', 'Win32_Graphics_Direct3D'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -13,15 +14,9 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation', 'Win32_Graphics_Dxgi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
     pub fn D3D10CreateDevice(padapter: super::Dxgi::IDXGIAdapter, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, sdkversion: u32, ppdevice: *mut ID3D10Device) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    pub fn D3D10CreateDevice1(padapter: super::Dxgi::IDXGIAdapter, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, ppdevice: *mut ID3D10Device1) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
     pub fn D3D10CreateDeviceAndSwapChain(padapter: super::Dxgi::IDXGIAdapter, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut super::Dxgi::IDXGISwapChain, ppdevice: *mut ID3D10Device) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub fn D3D10CreateDeviceAndSwapChain1(padapter: super::Dxgi::IDXGIAdapter, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut super::Dxgi::IDXGISwapChain, ppdevice: *mut ID3D10Device1) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub fn D3D10CreateEffectFromMemory(pdata: *const ::core::ffi::c_void, datalength: usize, fxflags: u32, pdevice: ID3D10Device, peffectpool: ID3D10EffectPool, ppeffect: *mut ID3D10Effect) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
@@ -77,6 +72,16 @@ extern "system" {
     pub fn D3D10StateBlockMaskIntersect(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
     pub fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10_1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+    pub fn D3D10CreateDevice1(padapter: super::Dxgi::IDXGIAdapter, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, ppdevice: *mut ID3D10Device1) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D10', 'Win32_Foundation', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub fn D3D10CreateDeviceAndSwapChain1(padapter: super::Dxgi::IDXGIAdapter, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut super::Dxgi::IDXGISwapChain, ppdevice: *mut ID3D10Device1) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct3D10'*"]
 pub const D3D10_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535u32;

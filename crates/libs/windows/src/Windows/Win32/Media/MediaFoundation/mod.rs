@@ -869,7 +869,8 @@ impl ::core::default::Default for CodecAPIEventData {
 pub unsafe fn CreateNamedPropertyStore() -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateNamedPropertyStore(ppstore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -885,7 +886,8 @@ pub unsafe fn CreateNamedPropertyStore() -> ::windows::core::Result<super::super
 pub unsafe fn CreatePropertyStore() -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePropertyStore(ppstore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -9255,7 +9257,8 @@ impl ::core::default::Default for DIRTYRECT_INFO {
 pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IDirect3DDeviceManager9>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -9270,7 +9273,8 @@ pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicem
 pub unsafe fn DXVA2CreateVideoService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdd: Param0, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DXVA2CreateVideoService(pdd: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -11683,7 +11687,8 @@ impl ::core::default::Default for DXVAHD_CUSTOM_RATE_DATA {
 pub unsafe fn DXVAHD_CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>>(pd3ddevice: Param0, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin) -> ::windows::core::Result<IDXVAHD_Device> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DXVAHD_CreateDevice(pd3ddevice: ::windows::core::RawPtr, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: ::windows::core::RawPtr, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -51525,7 +51530,8 @@ impl ::core::default::Default for MFAYUVSample {
 pub unsafe fn MFAddPeriodicCallback<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(callback: MFPERIODICCALLBACK, pcontext: Param1) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFAddPeriodicCallback(callback: ::windows::core::RawPtr, pcontext: *mut ::core::ffi::c_void, pdwkey: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -51540,7 +51546,8 @@ pub unsafe fn MFAddPeriodicCallback<'a, Param1: ::windows::core::IntoParam<'a, :
 pub unsafe fn MFAllocateSerialWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFAllocateSerialWorkQueue(dwworkqueue: u32, pdwworkqueue: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -51555,7 +51562,8 @@ pub unsafe fn MFAllocateSerialWorkQueue(dwworkqueue: u32) -> ::windows::core::Re
 pub unsafe fn MFAllocateWorkQueue() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFAllocateWorkQueue(pdwworkqueue: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -51570,7 +51578,8 @@ pub unsafe fn MFAllocateWorkQueue() -> ::windows::core::Result<u32> {
 pub unsafe fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE, pdwworkqueue: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -51691,7 +51700,8 @@ pub const MFAudioFormat_WMAudio_Lossless: ::windows::core::GUID = ::windows::cor
 pub unsafe fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -51790,7 +51800,8 @@ pub const MFBYTESTREAM_SHARE_WRITE: u32 = 1024u32;
 pub unsafe fn MFBeginCreateFile<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfilepath: Param3, pcallback: Param4, pstate: Param5) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFBeginCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfilepath: super::super::Foundation::PWSTR, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void, ppcancelcookie: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -51806,7 +51817,8 @@ pub unsafe fn MFBeginCreateFile<'a, Param3: ::windows::core::IntoParam<'a, super
 pub unsafe fn MFBeginRegisterWorkQueueWithMMCSS<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwworkqueueid: u32, wszclass: Param1, dwtaskid: u32, pdonecallback: Param3, pdonestate: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFBeginRegisterWorkQueueWithMMCSS(dwworkqueueid: u32, wszclass: super::super::Foundation::PWSTR, dwtaskid: u32, pdonecallback: ::windows::core::RawPtr, pdonestate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -51821,7 +51833,8 @@ pub unsafe fn MFBeginRegisterWorkQueueWithMMCSS<'a, Param1: ::windows::core::Int
 pub unsafe fn MFBeginRegisterWorkQueueWithMMCSSEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwworkqueueid: u32, wszclass: Param1, dwtaskid: u32, lpriority: i32, pdonecallback: Param4, pdonestate: Param5) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFBeginRegisterWorkQueueWithMMCSSEx(dwworkqueueid: u32, wszclass: super::super::Foundation::PWSTR, dwtaskid: u32, lpriority: i32, pdonecallback: ::windows::core::RawPtr, pdonestate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -51835,7 +51848,8 @@ pub unsafe fn MFBeginRegisterWorkQueueWithMMCSSEx<'a, Param1: ::windows::core::I
 pub unsafe fn MFBeginUnregisterWorkQueueWithMMCSS<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwworkqueueid: u32, pdonecallback: Param1, pdonestate: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid: u32, pdonecallback: ::windows::core::RawPtr, pdonestate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -52122,7 +52136,8 @@ pub const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: u32 = 671088
 pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -52136,7 +52151,8 @@ pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::G
 pub unsafe fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, unwidth: u32, unheight: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, unwidth: u32, unheight: u32, pcbimagesize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -52439,7 +52455,8 @@ impl ::core::fmt::Debug for MFCameraOcclusionState {
 pub unsafe fn MFCancelCreateFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcancelcookie: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCancelCreateFile(pcancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -52453,7 +52470,8 @@ pub unsafe fn MFCancelCreateFile<'a, Param0: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn MFCancelWorkItem(key: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCancelWorkItem(key: u64) -> ::windows::core::HRESULT;
         }
@@ -52468,7 +52486,8 @@ pub unsafe fn MFCancelWorkItem(key: u64) -> ::windows::core::Result<()> {
 pub unsafe fn MFCombineSamples<'a, Param0: ::windows::core::IntoParam<'a, IMFSample>, Param1: ::windows::core::IntoParam<'a, IMFSample>>(psample: Param0, psampletoadd: Param1, dwmaxmergeddurationinms: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCombineSamples(psample: ::windows::core::RawPtr, psampletoadd: ::windows::core::RawPtr, dwmaxmergeddurationinms: u32, pmerged: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -52484,7 +52503,8 @@ pub unsafe fn MFCombineSamples<'a, Param0: ::windows::core::IntoParam<'a, IMFSam
 pub unsafe fn MFCompareFullToPartialMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftypefull: Param0, pmftypepartial: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCompareFullToPartialMediaType(pmftypefull: ::windows::core::RawPtr, pmftypepartial: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
         }
@@ -52499,7 +52519,8 @@ pub unsafe fn MFCompareFullToPartialMediaType<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows::core::HRESULT;
         }
@@ -52514,7 +52535,8 @@ pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdx
 pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> ::windows::core::HRESULT;
         }
@@ -52528,7 +52550,8 @@ pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const 
 pub unsafe fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount: u32) -> ::windows::core::HRESULT;
         }
@@ -52542,7 +52565,8 @@ pub unsafe fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount:
 pub unsafe fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> ::windows::core::HRESULT;
         }
@@ -52556,7 +52580,8 @@ pub unsafe fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u
 pub unsafe fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsrcstride: i32, dwwidthinbytes: u32, dwlines: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsrcstride: i32, dwwidthinbytes: u32, dwlines: u32) -> ::windows::core::HRESULT;
         }
@@ -52571,7 +52596,8 @@ pub unsafe fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsr
 pub unsafe fn MFCreate2DMediaBuffer<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: Param3) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreate2DMediaBuffer(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: super::super::Foundation::BOOL, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52586,7 +52612,8 @@ pub unsafe fn MFCreate2DMediaBuffer<'a, Param3: ::windows::core::IntoParam<'a, s
 pub unsafe fn MFCreate3GPMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreate3GPMediaSink(pibytestream: ::windows::core::RawPtr, pvideomediatype: ::windows::core::RawPtr, paudiomediatype: ::windows::core::RawPtr, ppimediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52601,7 +52628,8 @@ pub unsafe fn MFCreate3GPMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IM
 pub unsafe fn MFCreateAC3MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(ptargetbytestream: Param0, paudiomediatype: Param1) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateAC3MediaSink(ptargetbytestream: ::windows::core::RawPtr, paudiomediatype: ::windows::core::RawPtr, ppmediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52616,7 +52644,8 @@ pub unsafe fn MFCreateAC3MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IM
 pub unsafe fn MFCreateADTSMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(ptargetbytestream: Param0, paudiomediatype: Param1) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateADTSMediaSink(ptargetbytestream: ::windows::core::RawPtr, paudiomediatype: ::windows::core::RawPtr, ppmediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52632,7 +52661,8 @@ pub unsafe fn MFCreateADTSMediaSink<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(pmftype: Param0, guidformatblocktype: Param1, ppamtype: *mut *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateAMMediaTypeFromMFMediaType(pmftype: ::windows::core::RawPtr, guidformatblocktype: ::windows::core::GUID, ppamtype: *mut *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
         }
@@ -52646,7 +52676,8 @@ pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::In
 pub unsafe fn MFCreateASFContentInfo() -> ::windows::core::Result<IMFASFContentInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFContentInfo(ppicontentinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52661,7 +52692,8 @@ pub unsafe fn MFCreateASFContentInfo() -> ::windows::core::Result<IMFASFContentI
 pub unsafe fn MFCreateASFIndexer() -> ::windows::core::Result<IMFASFIndexer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFIndexer(ppiindexer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52676,7 +52708,8 @@ pub unsafe fn MFCreateASFIndexer() -> ::windows::core::Result<IMFASFIndexer> {
 pub unsafe fn MFCreateASFIndexerByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(picontentbytestream: Param0, cbindexstartoffset: u64) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFIndexerByteStream(picontentbytestream: ::windows::core::RawPtr, cbindexstartoffset: u64, piindexbytestream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52691,7 +52724,8 @@ pub unsafe fn MFCreateASFIndexerByteStream<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MFCreateASFMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pibytestream: Param0) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFMediaSink(pibytestream: ::windows::core::RawPtr, ppimediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52707,7 +52741,8 @@ pub unsafe fn MFCreateASFMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IM
 pub unsafe fn MFCreateASFMediaSinkActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IMFASFContentInfo>>(pwszfilename: Param0, pcontentinfo: Param1) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFMediaSinkActivate(pwszfilename: super::super::Foundation::PWSTR, pcontentinfo: ::windows::core::RawPtr, ppiactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52722,7 +52757,8 @@ pub unsafe fn MFCreateASFMediaSinkActivate<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MFCreateASFMultiplexer() -> ::windows::core::Result<IMFASFMultiplexer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFMultiplexer(ppimultiplexer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52737,7 +52773,8 @@ pub unsafe fn MFCreateASFMultiplexer() -> ::windows::core::Result<IMFASFMultiple
 pub unsafe fn MFCreateASFProfile() -> ::windows::core::Result<IMFASFProfile> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFProfile(ppiprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52752,7 +52789,8 @@ pub unsafe fn MFCreateASFProfile() -> ::windows::core::Result<IMFASFProfile> {
 pub unsafe fn MFCreateASFProfileFromPresentationDescriptor<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(pipd: Param0) -> ::windows::core::Result<IMFASFProfile> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFProfileFromPresentationDescriptor(pipd: ::windows::core::RawPtr, ppiprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52767,7 +52805,8 @@ pub unsafe fn MFCreateASFProfileFromPresentationDescriptor<'a, Param0: ::windows
 pub unsafe fn MFCreateASFSplitter() -> ::windows::core::Result<IMFASFSplitter> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFSplitter(ppisplitter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52782,7 +52821,8 @@ pub unsafe fn MFCreateASFSplitter() -> ::windows::core::Result<IMFASFSplitter> {
 pub unsafe fn MFCreateASFStreamSelector<'a, Param0: ::windows::core::IntoParam<'a, IMFASFProfile>>(piasfprofile: Param0) -> ::windows::core::Result<IMFASFStreamSelector> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFStreamSelector(piasfprofile: ::windows::core::RawPtr, ppselector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52797,7 +52837,8 @@ pub unsafe fn MFCreateASFStreamSelector<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MFCreateASFStreamingMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pibytestream: Param0) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFStreamingMediaSink(pibytestream: ::windows::core::RawPtr, ppimediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52812,7 +52853,8 @@ pub unsafe fn MFCreateASFStreamingMediaSink<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MFCreateASFStreamingMediaSinkActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFActivate>, Param1: ::windows::core::IntoParam<'a, IMFASFContentInfo>>(pbytestreamactivate: Param0, pcontentinfo: Param1) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate: ::windows::core::RawPtr, pcontentinfo: ::windows::core::RawPtr, ppiactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52827,7 +52869,8 @@ pub unsafe fn MFCreateASFStreamingMediaSinkActivate<'a, Param0: ::windows::core:
 pub unsafe fn MFCreateAVIMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsrcsnk", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateAVIMediaSink(pibytestream: ::windows::core::RawPtr, pvideomediatype: ::windows::core::RawPtr, paudiomediatype: ::windows::core::RawPtr, ppimediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52842,7 +52885,8 @@ pub unsafe fn MFCreateAVIMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IM
 pub unsafe fn MFCreateAggregateSource<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(psourcecollection: Param0) -> ::windows::core::Result<IMFMediaSource> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateAggregateSource(psourcecollection: ::windows::core::RawPtr, ppaggsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52857,7 +52901,8 @@ pub unsafe fn MFCreateAggregateSource<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52872,7 +52917,8 @@ pub unsafe fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32) -> 
 pub unsafe fn MFCreateAsyncResult<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkobject: Param0, pcallback: Param1, punkstate: Param2) -> ::windows::core::Result<IMFAsyncResult> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateAsyncResult(punkobject: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void, ppasyncresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52887,7 +52933,8 @@ pub unsafe fn MFCreateAsyncResult<'a, Param0: ::windows::core::IntoParam<'a, ::w
 pub unsafe fn MFCreateAttributes(ppmfattributes: *mut ::core::option::Option<IMFAttributes>, cinitialsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateAttributes(ppmfattributes: *mut ::windows::core::RawPtr, cinitialsize: u32) -> ::windows::core::HRESULT;
         }
@@ -52902,7 +52949,8 @@ pub unsafe fn MFCreateAttributes(ppmfattributes: *mut ::core::option::Option<IMF
 pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<IMFAudioMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX, ppiaudiomediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52917,7 +52965,8 @@ pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORM
 pub unsafe fn MFCreateAudioRenderer<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(paudioattributes: Param0) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateAudioRenderer(paudioattributes: ::windows::core::RawPtr, ppsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52932,7 +52981,8 @@ pub unsafe fn MFCreateAudioRenderer<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn MFCreateAudioRendererActivate() -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateAudioRendererActivate(ppactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52948,7 +52998,8 @@ pub unsafe fn MFCreateAudioRendererActivate() -> ::windows::core::Result<IMFActi
 pub unsafe fn MFCreateCameraOcclusionStateMonitor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IMFCameraOcclusionStateReportCallback>>(symboliclink: Param0, callback: Param1) -> ::windows::core::Result<IMFCameraOcclusionStateMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateCameraOcclusionStateMonitor(symboliclink: super::super::Foundation::PWSTR, callback: ::windows::core::RawPtr, occlusionstatemonitor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52963,7 +53014,8 @@ pub unsafe fn MFCreateCameraOcclusionStateMonitor<'a, Param0: ::windows::core::I
 pub unsafe fn MFCreateCollection() -> ::windows::core::Result<IMFCollection> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateCollection(ppimfcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52978,7 +53030,8 @@ pub unsafe fn MFCreateCollection() -> ::windows::core::Result<IMFCollection> {
 pub unsafe fn MFCreateContentDecryptorContext<'a, Param1: ::windows::core::IntoParam<'a, IMFDXGIDeviceManager>, Param2: ::windows::core::IntoParam<'a, IMFContentProtectionDevice>>(guidmediaprotectionsystemid: *const ::windows::core::GUID, pd3dmanager: Param1, pcontentprotectiondevice: Param2) -> ::windows::core::Result<IMFContentDecryptorContext> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid: *const ::windows::core::GUID, pd3dmanager: ::windows::core::RawPtr, pcontentprotectiondevice: ::windows::core::RawPtr, ppcontentdecryptorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -52993,7 +53046,8 @@ pub unsafe fn MFCreateContentDecryptorContext<'a, Param1: ::windows::core::IntoP
 pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<IMFContentProtectionDevice> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows::core::GUID, contentprotectiondevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53008,7 +53062,8 @@ pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windo
 pub unsafe fn MFCreateCredentialCache() -> ::windows::core::Result<IMFNetCredentialCache> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateCredentialCache(ppcache: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53024,7 +53079,8 @@ pub unsafe fn MFCreateCredentialCache() -> ::windows::core::Result<IMFNetCredent
 pub unsafe fn MFCreateD3D12SynchronizationObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>(pdevice: Param0, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateD3D12SynchronizationObject(pdevice: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -53038,7 +53094,8 @@ pub unsafe fn MFCreateD3D12SynchronizationObject<'a, Param0: ::windows::core::In
 pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53053,7 +53110,8 @@ pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *
 pub unsafe fn MFCreateDXGISurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(riid: *const ::windows::core::GUID, punksurface: Param1, usubresourceindex: u32, fbottomupwhenlinear: Param3) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateDXGISurfaceBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, usubresourceindex: u32, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53069,7 +53127,8 @@ pub unsafe fn MFCreateDXGISurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn MFCreateDXSurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(riid: *const ::windows::core::GUID, punksurface: Param1, fbottomupwhenlinear: Param2) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateDXSurfaceBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53084,7 +53143,8 @@ pub unsafe fn MFCreateDXSurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn MFCreateDeviceSource<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0) -> ::windows::core::Result<IMFMediaSource> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateDeviceSource(pattributes: ::windows::core::RawPtr, ppsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53099,7 +53159,8 @@ pub unsafe fn MFCreateDeviceSource<'a, Param0: ::windows::core::IntoParam<'a, IM
 pub unsafe fn MFCreateDeviceSourceActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateDeviceSourceActivate(pattributes: ::windows::core::RawPtr, ppactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53115,7 +53176,8 @@ pub unsafe fn MFCreateDeviceSourceActivate<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MFCreateEncryptedMediaExtensionsStoreActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFPMPHostApp>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmphost: Param0, objectstream: Param1, classid: Param2) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateEncryptedMediaExtensionsStoreActivate(pmphost: ::windows::core::RawPtr, objectstream: ::windows::core::RawPtr, classid: super::super::Foundation::PWSTR, activate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53130,7 +53192,8 @@ pub unsafe fn MFCreateEncryptedMediaExtensionsStoreActivate<'a, Param0: ::window
 pub unsafe fn MFCreateEventQueue() -> ::windows::core::Result<IMFMediaEventQueue> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateEventQueue(ppmediaeventqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53145,7 +53208,8 @@ pub unsafe fn MFCreateEventQueue() -> ::windows::core::Result<IMFMediaEventQueue
 pub unsafe fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType) -> ::windows::core::Result<IMFExtendedCameraIntrinsicModel> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53160,7 +53224,8 @@ pub unsafe fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCamera
 pub unsafe fn MFCreateExtendedCameraIntrinsics() -> ::windows::core::Result<IMFExtendedCameraIntrinsics> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfcore", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53175,7 +53240,8 @@ pub unsafe fn MFCreateExtendedCameraIntrinsics() -> ::windows::core::Result<IMFE
 pub unsafe fn MFCreateFMPEG4MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateFMPEG4MediaSink(pibytestream: ::windows::core::RawPtr, pvideomediatype: ::windows::core::RawPtr, paudiomediatype: ::windows::core::RawPtr, ppimediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53191,7 +53257,8 @@ pub unsafe fn MFCreateFMPEG4MediaSink<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MFCreateFile<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfileurl: Param3) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfileurl: super::super::Foundation::PWSTR, ppibytestream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53207,7 +53274,8 @@ pub unsafe fn MFCreateFile<'a, Param3: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn MFCreateLegacyMediaBufferOnMFMediaBuffer<'a, Param0: ::windows::core::IntoParam<'a, IMFSample>, Param1: ::windows::core::IntoParam<'a, IMFMediaBuffer>>(psample: Param0, pmfmediabuffer: Param1, cboffset: u32) -> ::windows::core::Result<super::DxMediaObjects::IMediaBuffer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateLegacyMediaBufferOnMFMediaBuffer(psample: ::windows::core::RawPtr, pmfmediabuffer: ::windows::core::RawPtr, cboffset: u32, ppmediabuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53223,7 +53291,8 @@ pub unsafe fn MFCreateLegacyMediaBufferOnMFMediaBuffer<'a, Param0: ::windows::co
 pub unsafe fn MFCreateMFByteStreamOnStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(pstream: Param0) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMFByteStreamOnStream(pstream: ::windows::core::RawPtr, ppbytestream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53238,7 +53307,8 @@ pub unsafe fn MFCreateMFByteStreamOnStream<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MFCreateMFByteStreamOnStreamEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkstream: Param0) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMFByteStreamOnStreamEx(punkstream: *mut ::core::ffi::c_void, ppbytestream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53253,7 +53323,8 @@ pub unsafe fn MFCreateMFByteStreamOnStreamEx<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MFCreateMFByteStreamWrapper<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pstream: Param0) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMFByteStreamWrapper(pstream: ::windows::core::RawPtr, ppstreamwrapper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53269,7 +53340,8 @@ pub unsafe fn MFCreateMFByteStreamWrapper<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn MFCreateMFVideoFormatFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMFVideoFormatFromMFMediaType(pmftype: ::windows::core::RawPtr, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -53283,7 +53355,8 @@ pub unsafe fn MFCreateMFVideoFormatFromMFMediaType<'a, Param0: ::windows::core::
 pub unsafe fn MFCreateMP3MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(ptargetbytestream: Param0) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMP3MediaSink(ptargetbytestream: ::windows::core::RawPtr, ppmediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53298,7 +53371,8 @@ pub unsafe fn MFCreateMP3MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IM
 pub unsafe fn MFCreateMPEG4MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMPEG4MediaSink(pibytestream: ::windows::core::RawPtr, pvideomediatype: ::windows::core::RawPtr, paudiomediatype: ::windows::core::RawPtr, ppimediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53313,7 +53387,8 @@ pub unsafe fn MFCreateMPEG4MediaSink<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MFCreateMediaBufferFromMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmediatype: Param0, llduration: i64, dwminlength: u32, dwminalignment: u32) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMediaBufferFromMediaType(pmediatype: ::windows::core::RawPtr, llduration: i64, dwminlength: u32, dwminalignment: u32, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53328,7 +53403,8 @@ pub unsafe fn MFCreateMediaBufferFromMediaType<'a, Param0: ::windows::core::Into
 pub unsafe fn MFCreateMediaBufferWrapper<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaBuffer>>(pbuffer: Param0, cboffset: u32, dwlength: u32) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMediaBufferWrapper(pbuffer: ::windows::core::RawPtr, cboffset: u32, dwlength: u32, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53344,7 +53420,8 @@ pub unsafe fn MFCreateMediaBufferWrapper<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<IMFMediaEvent> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53360,7 +53437,8 @@ pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::c
 pub unsafe fn MFCreateMediaExtensionActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(szactivatableclassid: Param0, pconfiguration: Param1, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMediaExtensionActivate(szactivatableclassid: super::super::Foundation::PWSTR, pconfiguration: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -53374,7 +53452,8 @@ pub unsafe fn MFCreateMediaExtensionActivate<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MFCreateMediaSession<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pconfiguration: Param0) -> ::windows::core::Result<IMFMediaSession> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMediaSession(pconfiguration: ::windows::core::RawPtr, ppmediasession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53389,7 +53468,8 @@ pub unsafe fn MFCreateMediaSession<'a, Param0: ::windows::core::IntoParam<'a, IM
 pub unsafe fn MFCreateMediaType() -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMediaType(ppmftype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53404,7 +53484,8 @@ pub unsafe fn MFCreateMediaType() -> ::windows::core::Result<IMFMediaType> {
 pub unsafe fn MFCreateMediaTypeFromProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkstream: Param0) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMediaTypeFromProperties(punkstream: *mut ::core::ffi::c_void, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53419,7 +53500,8 @@ pub unsafe fn MFCreateMediaTypeFromProperties<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MFCreateMediaTypeFromRepresentation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(guidrepresentation: Param0, pvrepresentation: *const ::core::ffi::c_void) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMediaTypeFromRepresentation(guidrepresentation: ::windows::core::GUID, pvrepresentation: *const ::core::ffi::c_void, ppimediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53434,7 +53516,8 @@ pub unsafe fn MFCreateMediaTypeFromRepresentation<'a, Param0: ::windows::core::I
 pub unsafe fn MFCreateMemoryBuffer(cbmaxlength: u32) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMemoryBuffer(cbmaxlength: u32, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53449,7 +53532,8 @@ pub unsafe fn MFCreateMemoryBuffer(cbmaxlength: u32) -> ::windows::core::Result<
 pub unsafe fn MFCreateMuxSink<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, IMFByteStream>>(guidoutputsubtype: Param0, poutputattributes: Param1, poutputbytestream: Param2) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMuxSink(guidoutputsubtype: ::windows::core::GUID, poutputattributes: ::windows::core::RawPtr, poutputbytestream: ::windows::core::RawPtr, ppmuxsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53464,7 +53548,8 @@ pub unsafe fn MFCreateMuxSink<'a, Param0: ::windows::core::IntoParam<'a, ::windo
 pub unsafe fn MFCreateMuxStreamAttributes<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(pattributestomux: Param0) -> ::windows::core::Result<IMFAttributes> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMuxStreamAttributes(pattributestomux: ::windows::core::RawPtr, ppmuxattribs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53479,7 +53564,8 @@ pub unsafe fn MFCreateMuxStreamAttributes<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn MFCreateMuxStreamMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(pmediatypestomux: Param0) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMuxStreamMediaType(pmediatypestomux: ::windows::core::RawPtr, ppmuxmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53494,7 +53580,8 @@ pub unsafe fn MFCreateMuxStreamMediaType<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MFCreateMuxStreamSample<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(psamplestomux: Param0) -> ::windows::core::Result<IMFSample> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateMuxStreamSample(psamplestomux: ::windows::core::RawPtr, ppmuxsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53509,7 +53596,8 @@ pub unsafe fn MFCreateMuxStreamSample<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -53523,7 +53611,8 @@ pub unsafe fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhan
 pub unsafe fn MFCreatePMPMediaSession<'a, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(dwcreationflags: u32, pconfiguration: Param1, ppmediasession: *mut ::core::option::Option<IMFMediaSession>, ppenableractivate: *mut ::core::option::Option<IMFActivate>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreatePMPMediaSession(dwcreationflags: u32, pconfiguration: ::windows::core::RawPtr, ppmediasession: *mut ::windows::core::RawPtr, ppenableractivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53537,7 +53626,8 @@ pub unsafe fn MFCreatePMPMediaSession<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn MFCreatePMPServer(dwcreationflags: u32) -> ::windows::core::Result<IMFPMPServer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreatePMPServer(dwcreationflags: u32, pppmpserver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53552,7 +53642,8 @@ pub unsafe fn MFCreatePMPServer(dwcreationflags: u32) -> ::windows::core::Result
 pub unsafe fn MFCreatePresentationClock() -> ::windows::core::Result<IMFPresentationClock> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreatePresentationClock(pppresentationclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53567,7 +53658,8 @@ pub unsafe fn MFCreatePresentationClock() -> ::windows::core::Result<IMFPresenta
 pub unsafe fn MFCreatePresentationDescriptor(cstreamdescriptors: u32, apstreamdescriptors: *const ::core::option::Option<IMFStreamDescriptor>) -> ::windows::core::Result<IMFPresentationDescriptor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreatePresentationDescriptor(cstreamdescriptors: u32, apstreamdescriptors: *const ::windows::core::RawPtr, pppresentationdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53582,7 +53674,8 @@ pub unsafe fn MFCreatePresentationDescriptor(cstreamdescriptors: u32, apstreamde
 pub unsafe fn MFCreatePresentationDescriptorFromASFProfile<'a, Param0: ::windows::core::IntoParam<'a, IMFASFProfile>>(piprofile: Param0) -> ::windows::core::Result<IMFPresentationDescriptor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreatePresentationDescriptorFromASFProfile(piprofile: ::windows::core::RawPtr, ppipd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53597,7 +53690,8 @@ pub unsafe fn MFCreatePresentationDescriptorFromASFProfile<'a, Param0: ::windows
 pub unsafe fn MFCreatePropertiesFromMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmediatype: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreatePropertiesFromMediaType(pmediatype: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -53611,7 +53705,8 @@ pub unsafe fn MFCreatePropertiesFromMediaType<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MFCreateProtectedEnvironmentAccess() -> ::windows::core::Result<IMFProtectedEnvironmentAccess> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateProtectedEnvironmentAccess(ppaccess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53627,7 +53722,8 @@ pub unsafe fn MFCreateProtectedEnvironmentAccess() -> ::windows::core::Result<IM
 pub unsafe fn MFCreateProxyLocator<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(pszprotocol: Param0, pproxyconfig: Param1) -> ::windows::core::Result<IMFNetProxyLocator> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateProxyLocator(pszprotocol: super::super::Foundation::PWSTR, pproxyconfig: ::windows::core::RawPtr, ppproxylocator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53643,7 +53739,8 @@ pub unsafe fn MFCreateProxyLocator<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MFCreateRelativePanelWatcher<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(videodeviceid: Param0, displaymonitordeviceid: Param1) -> ::windows::core::Result<IMFRelativePanelWatcher> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateRelativePanelWatcher(videodeviceid: super::super::Foundation::PWSTR, displaymonitordeviceid: super::super::Foundation::PWSTR, pprelativepanelwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53658,7 +53755,8 @@ pub unsafe fn MFCreateRelativePanelWatcher<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MFCreateRemoteDesktopPlugin() -> ::windows::core::Result<IMFRemoteDesktopPlugin> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateRemoteDesktopPlugin(ppplugin: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53673,7 +53771,8 @@ pub unsafe fn MFCreateRemoteDesktopPlugin() -> ::windows::core::Result<IMFRemote
 pub unsafe fn MFCreateSample() -> ::windows::core::Result<IMFSample> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSample(ppimfsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53688,7 +53787,8 @@ pub unsafe fn MFCreateSample() -> ::windows::core::Result<IMFSample> {
 pub unsafe fn MFCreateSampleCopierMFT() -> ::windows::core::Result<IMFTransform> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSampleCopierMFT(ppcopiermft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53703,7 +53803,8 @@ pub unsafe fn MFCreateSampleCopierMFT() -> ::windows::core::Result<IMFTransform>
 pub unsafe fn MFCreateSampleGrabberSinkActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, IMFSampleGrabberSinkCallback>>(pimfmediatype: Param0, pimfsamplegrabbersinkcallback: Param1) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSampleGrabberSinkActivate(pimfmediatype: ::windows::core::RawPtr, pimfsamplegrabbersinkcallback: ::windows::core::RawPtr, ppiactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53718,7 +53819,8 @@ pub unsafe fn MFCreateSampleGrabberSinkActivate<'a, Param0: ::windows::core::Int
 pub unsafe fn MFCreateSensorActivityMonitor<'a, Param0: ::windows::core::IntoParam<'a, IMFSensorActivitiesReportCallback>>(pcallback: Param0) -> ::windows::core::Result<IMFSensorActivityMonitor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSensorActivityMonitor(pcallback: ::windows::core::RawPtr, ppactivitymonitor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53734,7 +53836,8 @@ pub unsafe fn MFCreateSensorActivityMonitor<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MFCreateSensorGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sensorgroupsymboliclink: Param0) -> ::windows::core::Result<IMFSensorGroup> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSensorGroup(sensorgroupsymboliclink: super::super::Foundation::PWSTR, ppsensorgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53750,7 +53853,8 @@ pub unsafe fn MFCreateSensorGroup<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MFCreateSensorProfile<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(profiletype: *const ::windows::core::GUID, profileindex: u32, constraints: Param2) -> ::windows::core::Result<IMFSensorProfile> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSensorProfile(profiletype: *const ::windows::core::GUID, profileindex: u32, constraints: super::super::Foundation::PWSTR, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53765,7 +53869,8 @@ pub unsafe fn MFCreateSensorProfile<'a, Param2: ::windows::core::IntoParam<'a, s
 pub unsafe fn MFCreateSensorProfileCollection() -> ::windows::core::Result<IMFSensorProfileCollection> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSensorProfileCollection(ppsensorprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53780,7 +53885,8 @@ pub unsafe fn MFCreateSensorProfileCollection() -> ::windows::core::Result<IMFSe
 pub unsafe fn MFCreateSensorStream<'a, Param1: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, IMFCollection>>(streamid: u32, pattributes: Param1, pmediatypecollection: Param2) -> ::windows::core::Result<IMFSensorStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSensorStream(streamid: u32, pattributes: ::windows::core::RawPtr, pmediatypecollection: ::windows::core::RawPtr, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53796,7 +53902,8 @@ pub unsafe fn MFCreateSensorStream<'a, Param1: ::windows::core::IntoParam<'a, IM
 pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64, pvarsegmentoffset: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -53811,7 +53918,8 @@ pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> ::win
 pub unsafe fn MFCreateSequencerSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(preserved: Param0) -> ::windows::core::Result<IMFSequencerSource> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSequencerSource(preserved: *mut ::core::ffi::c_void, ppsequencersource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53826,7 +53934,8 @@ pub unsafe fn MFCreateSequencerSource<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MFCreateSimpleTypeHandler() -> ::windows::core::Result<IMFMediaTypeHandler> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSimpleTypeHandler(pphandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53841,7 +53950,8 @@ pub unsafe fn MFCreateSimpleTypeHandler() -> ::windows::core::Result<IMFMediaTyp
 pub unsafe fn MFCreateSinkWriterFromMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSink>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pmediasink: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSinkWriter> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfreadwrite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSinkWriterFromMediaSink(pmediasink: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, ppsinkwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53857,7 +53967,8 @@ pub unsafe fn MFCreateSinkWriterFromMediaSink<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MFCreateSinkWriterFromURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IMFByteStream>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(pwszoutputurl: Param0, pbytestream: Param1, pattributes: Param2) -> ::windows::core::Result<IMFSinkWriter> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfreadwrite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSinkWriterFromURL(pwszoutputurl: super::super::Foundation::PWSTR, pbytestream: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, ppsinkwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53872,7 +53983,8 @@ pub unsafe fn MFCreateSinkWriterFromURL<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MFCreateSourceReaderFromByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pbytestream: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSourceReader> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfreadwrite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSourceReaderFromByteStream(pbytestream: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, ppsourcereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53887,7 +53999,8 @@ pub unsafe fn MFCreateSourceReaderFromByteStream<'a, Param0: ::windows::core::In
 pub unsafe fn MFCreateSourceReaderFromMediaSource<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSource>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pmediasource: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSourceReader> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfreadwrite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSourceReaderFromMediaSource(pmediasource: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, ppsourcereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53903,7 +54016,8 @@ pub unsafe fn MFCreateSourceReaderFromMediaSource<'a, Param0: ::windows::core::I
 pub unsafe fn MFCreateSourceReaderFromURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pwszurl: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSourceReader> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfreadwrite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSourceReaderFromURL(pwszurl: super::super::Foundation::PWSTR, pattributes: ::windows::core::RawPtr, ppsourcereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53918,7 +54032,8 @@ pub unsafe fn MFCreateSourceReaderFromURL<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn MFCreateSourceResolver() -> ::windows::core::Result<IMFSourceResolver> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSourceResolver(ppisourceresolver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53933,7 +54048,8 @@ pub unsafe fn MFCreateSourceResolver() -> ::windows::core::Result<IMFSourceResol
 pub unsafe fn MFCreateStandardQualityManager() -> ::windows::core::Result<IMFQualityManager> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateStandardQualityManager(ppqualitymanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53948,7 +54064,8 @@ pub unsafe fn MFCreateStandardQualityManager() -> ::windows::core::Result<IMFQua
 pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32, apmediatypes: *const ::core::option::Option<IMFMediaType>) -> ::windows::core::Result<IMFStreamDescriptor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32, apmediatypes: *const ::windows::core::RawPtr, ppdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53964,7 +54081,8 @@ pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32
 pub unsafe fn MFCreateStreamOnMFByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pbytestream: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateStreamOnMFByteStream(pbytestream: ::windows::core::RawPtr, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -53979,7 +54097,8 @@ pub unsafe fn MFCreateStreamOnMFByteStream<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MFCreateStreamOnMFByteStreamEx<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pbytestream: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateStreamOnMFByteStreamEx(pbytestream: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -53993,7 +54112,8 @@ pub unsafe fn MFCreateStreamOnMFByteStreamEx<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MFCreateSystemTimeSource() -> ::windows::core::Result<IMFPresentationTimeSource> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateSystemTimeSource(ppsystemtimesource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54008,7 +54128,8 @@ pub unsafe fn MFCreateSystemTimeSource() -> ::windows::core::Result<IMFPresentat
 pub unsafe fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, ppibytestream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54023,7 +54144,8 @@ pub unsafe fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE
 pub unsafe fn MFCreateTopoLoader() -> ::windows::core::Result<IMFTopoLoader> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateTopoLoader(ppobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54038,7 +54160,8 @@ pub unsafe fn MFCreateTopoLoader() -> ::windows::core::Result<IMFTopoLoader> {
 pub unsafe fn MFCreateTopology() -> ::windows::core::Result<IMFTopology> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateTopology(pptopo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54053,7 +54176,8 @@ pub unsafe fn MFCreateTopology() -> ::windows::core::Result<IMFTopology> {
 pub unsafe fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE) -> ::windows::core::Result<IMFTopologyNode> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE, ppnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54068,7 +54192,8 @@ pub unsafe fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE) -> ::windows::cor
 pub unsafe fn MFCreateTrackedSample() -> ::windows::core::Result<IMFTrackedSample> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateTrackedSample(ppmfsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54083,7 +54208,8 @@ pub unsafe fn MFCreateTrackedSample() -> ::windows::core::Result<IMFTrackedSampl
 pub unsafe fn MFCreateTranscodeProfile() -> ::windows::core::Result<IMFTranscodeProfile> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateTranscodeProfile(pptranscodeprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54098,7 +54224,8 @@ pub unsafe fn MFCreateTranscodeProfile() -> ::windows::core::Result<IMFTranscode
 pub unsafe fn MFCreateTranscodeSinkActivate() -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateTranscodeSinkActivate(ppactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54114,7 +54241,8 @@ pub unsafe fn MFCreateTranscodeSinkActivate() -> ::windows::core::Result<IMFActi
 pub unsafe fn MFCreateTranscodeTopology<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSource>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IMFTranscodeProfile>>(psrc: Param0, pwszoutputfilepath: Param1, pprofile: Param2) -> ::windows::core::Result<IMFTopology> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateTranscodeTopology(psrc: ::windows::core::RawPtr, pwszoutputfilepath: super::super::Foundation::PWSTR, pprofile: ::windows::core::RawPtr, pptranscodetopo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54129,7 +54257,8 @@ pub unsafe fn MFCreateTranscodeTopology<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MFCreateTranscodeTopologyFromByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSource>, Param1: ::windows::core::IntoParam<'a, IMFByteStream>, Param2: ::windows::core::IntoParam<'a, IMFTranscodeProfile>>(psrc: Param0, poutputstream: Param1, pprofile: Param2) -> ::windows::core::Result<IMFTopology> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateTranscodeTopologyFromByteStream(psrc: ::windows::core::RawPtr, poutputstream: ::windows::core::RawPtr, pprofile: ::windows::core::RawPtr, pptranscodetopo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54144,7 +54273,8 @@ pub unsafe fn MFCreateTranscodeTopologyFromByteStream<'a, Param0: ::windows::cor
 pub unsafe fn MFCreateTransformActivate() -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateTransformActivate(ppactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54160,7 +54290,8 @@ pub unsafe fn MFCreateTransformActivate() -> ::windows::core::Result<IMFActivate
 pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::windows::core::Result<IMFVideoMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT, ppivideomediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54176,7 +54307,8 @@ pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::wi
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32) -> ::windows::core::Result<IMFVideoMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32, ppivideomediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54192,7 +54324,8 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: 
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32) -> ::windows::core::Result<IMFVideoMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32, ppivideomediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54207,7 +54340,8 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader
 pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::core::GUID) -> ::windows::core::Result<IMFVideoMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::core::GUID, ppivideomediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54222,7 +54356,8 @@ pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::co
 pub unsafe fn MFCreateVideoMixer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(powner: Param0, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "evr", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoMixer(powner: *mut ::core::ffi::c_void, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -54236,7 +54371,8 @@ pub unsafe fn MFCreateVideoMixer<'a, Param0: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn MFCreateVideoMixerAndPresenter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pmixerowner: Param0, ppresenterowner: Param1, riidmixer: *const ::windows::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "evr", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoMixerAndPresenter(pmixerowner: *mut ::core::ffi::c_void, ppresenterowner: *mut ::core::ffi::c_void, riidmixer: *const ::windows::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -54250,7 +54386,8 @@ pub unsafe fn MFCreateVideoMixerAndPresenter<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MFCreateVideoPresenter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(powner: Param0, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "evr", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoPresenter(powner: *mut ::core::ffi::c_void, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -54264,7 +54401,8 @@ pub unsafe fn MFCreateVideoPresenter<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -54279,7 +54417,8 @@ pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, 
 pub unsafe fn MFCreateVideoRendererActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndvideo: Param0) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoRendererActivate(hwndvideo: super::super::Foundation::HWND, ppactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54294,7 +54433,8 @@ pub unsafe fn MFCreateVideoRendererActivate<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "evr", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -54308,7 +54448,8 @@ pub unsafe fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, p
 pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -54322,7 +54463,8 @@ pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID,
 pub unsafe fn MFCreateVideoSampleFromSurface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punksurface: Param0) -> ::windows::core::Result<IMFSample> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "evr", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVideoSampleFromSurface(punksurface: *mut ::core::ffi::c_void, ppsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54338,7 +54480,8 @@ pub unsafe fn MFCreateVideoSampleFromSurface<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: Param3, sourceid: Param4, categories: *const ::windows::core::GUID, categorycount: u32) -> ::windows::core::Result<IMFVirtualCamera> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: super::super::Foundation::PWSTR, sourceid: super::super::Foundation::PWSTR, categories: *const ::windows::core::GUID, categorycount: u32, virtualcamera: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54353,7 +54496,8 @@ pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, s
 pub unsafe fn MFCreateWAVEMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(ptargetbytestream: Param0, paudiomediatype: Param1) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsrcsnk", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateWAVEMediaSink(ptargetbytestream: ::windows::core::RawPtr, paudiomediatype: ::windows::core::RawPtr, ppmediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54368,7 +54512,8 @@ pub unsafe fn MFCreateWAVEMediaSink<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn MFCreateWICBitmapBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(riid: *const ::windows::core::GUID, punksurface: Param1) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateWICBitmapBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54384,7 +54529,8 @@ pub unsafe fn MFCreateWICBitmapBuffer<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn MFCreateWMAEncoderActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(pmediatype: Param0, pencodingconfigurationproperties: Param1) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateWMAEncoderActivate(pmediatype: ::windows::core::RawPtr, pencodingconfigurationproperties: ::windows::core::RawPtr, ppactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54400,7 +54546,8 @@ pub unsafe fn MFCreateWMAEncoderActivate<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MFCreateWMVEncoderActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(pmediatype: Param0, pencodingconfigurationproperties: Param1) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateWMVEncoderActivate(pmediatype: ::windows::core::RawPtr, pencodingconfigurationproperties: ::windows::core::RawPtr, ppactivate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54416,7 +54563,8 @@ pub unsafe fn MFCreateWMVEncoderActivate<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MFCreateWaveFormatExFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, ppwf: *mut *mut super::Audio::WAVEFORMATEX, pcbsize: *mut u32, flags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFCreateWaveFormatExFromMFMediaType(pmftype: ::windows::core::RawPtr, ppwf: *mut *mut super::Audio::WAVEFORMATEX, pcbsize: *mut u32, flags: u32) -> ::windows::core::HRESULT;
         }
@@ -54458,7 +54606,8 @@ impl ::core::fmt::Debug for MFDepthMeasurement {
 pub unsafe fn MFDeserializeAttributesFromStream<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(pattr: Param0, dwoptions: u32, pstm: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFDeserializeAttributesFromStream(pattr: ::windows::core::RawPtr, dwoptions: u32, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54472,7 +54621,8 @@ pub unsafe fn MFDeserializeAttributesFromStream<'a, Param0: ::windows::core::Int
 pub unsafe fn MFDeserializePresentationDescriptor(cbdata: u32, pbdata: *const u8) -> ::windows::core::Result<IMFPresentationDescriptor> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFDeserializePresentationDescriptor(cbdata: u32, pbdata: *const u8, pppd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54495,7 +54645,8 @@ pub const MFEVRDLL: u32 = 0u32;
 pub unsafe fn MFEndCreateFile<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFEndCreateFile(presult: ::windows::core::RawPtr, ppfile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54510,7 +54661,8 @@ pub unsafe fn MFEndCreateFile<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyn
 pub unsafe fn MFEndRegisterWorkQueueWithMMCSS<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFEndRegisterWorkQueueWithMMCSS(presult: ::windows::core::RawPtr, pdwtaskid: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -54525,7 +54677,8 @@ pub unsafe fn MFEndRegisterWorkQueueWithMMCSS<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MFEndUnregisterWorkQueueWithMMCSS<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFEndUnregisterWorkQueueWithMMCSS(presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54539,7 +54692,8 @@ pub unsafe fn MFEndUnregisterWorkQueueWithMMCSS<'a, Param0: ::windows::core::Int
 pub unsafe fn MFEnumDeviceSources<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0, pppsourceactivate: *mut *mut ::core::option::Option<IMFActivate>, pcsourceactivate: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFEnumDeviceSources(pattributes: ::windows::core::RawPtr, pppsourceactivate: *mut *mut ::windows::core::RawPtr, pcsourceactivate: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -54622,7 +54776,8 @@ impl ::core::default::Default for MFFOLDDOWN_MATRIX {
 pub unsafe fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: u32) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: u32, punaveragetimeperframe: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -54670,7 +54825,8 @@ impl ::core::fmt::Debug for MFFrameSourceTypes {
 pub unsafe fn MFGetAttributesAsBlob<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0, pbuf: *mut u8, cbbufsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetAttributesAsBlob(pattributes: ::windows::core::RawPtr, pbuf: *mut u8, cbbufsize: u32) -> ::windows::core::HRESULT;
         }
@@ -54684,7 +54840,8 @@ pub unsafe fn MFGetAttributesAsBlob<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn MFGetAttributesAsBlobSize<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetAttributesAsBlobSize(pattributes: ::windows::core::RawPtr, pcbbufsize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -54699,7 +54856,8 @@ pub unsafe fn MFGetAttributesAsBlobSize<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows::core::GUID, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -54715,7 +54873,8 @@ pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const :
 pub unsafe fn MFGetLocalId(verifier: *const u8, size: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetLocalId(verifier: *const u8, size: u32, id: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -54730,7 +54889,8 @@ pub unsafe fn MFGetLocalId(verifier: *const u8, size: u32) -> ::windows::core::R
 pub unsafe fn MFGetMFTMerit<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pmft: Param0, cbverifier: u32, verifier: *const u8, merit: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetMFTMerit(pmft: *mut ::core::ffi::c_void, cbverifier: u32, verifier: *const u8, merit: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -54744,7 +54904,8 @@ pub unsafe fn MFGetMFTMerit<'a, Param0: ::windows::core::IntoParam<'a, ::windows
 pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "evr", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32, pdwplanesize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -54759,7 +54920,8 @@ pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> ::wind
 pub unsafe fn MFGetPluginControl() -> ::windows::core::Result<IMFPluginControl> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetPluginControl(ppplugincontrol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54774,7 +54936,8 @@ pub unsafe fn MFGetPluginControl() -> ::windows::core::Result<IMFPluginControl> 
 pub unsafe fn MFGetService<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkobject: Param0, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetService(punkobject: *mut ::core::ffi::c_void, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -54788,7 +54951,8 @@ pub unsafe fn MFGetService<'a, Param0: ::windows::core::IntoParam<'a, ::windows:
 pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32, pstride: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -54804,7 +54968,8 @@ pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> ::win
 pub unsafe fn MFGetSupportedMimeTypes() -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetSupportedMimeTypes(ppropvarmimetypearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -54820,7 +54985,8 @@ pub unsafe fn MFGetSupportedMimeTypes() -> ::windows::core::Result<super::super:
 pub unsafe fn MFGetSupportedSchemes() -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetSupportedSchemes(ppropvarschemearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -54835,7 +55001,8 @@ pub unsafe fn MFGetSupportedSchemes() -> ::windows::core::Result<super::super::S
 pub unsafe fn MFGetSystemId() -> ::windows::core::Result<IMFSystemId> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetSystemId(ppid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54850,7 +55017,8 @@ pub unsafe fn MFGetSystemId() -> ::windows::core::Result<IMFSystemId> {
 pub unsafe fn MFGetSystemTime() -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetSystemTime() -> i64;
         }
@@ -54864,7 +55032,8 @@ pub unsafe fn MFGetSystemTime() -> i64 {
 pub unsafe fn MFGetTimerPeriodicity() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetTimerPeriodicity(periodicity: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -54880,7 +55049,8 @@ pub unsafe fn MFGetTimerPeriodicity() -> ::windows::core::Result<u32> {
 pub unsafe fn MFGetTopoNodeCurrentType<'a, Param0: ::windows::core::IntoParam<'a, IMFTopologyNode>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pnode: Param0, dwstreamindex: u32, foutput: Param2) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetTopoNodeCurrentType(pnode: ::windows::core::RawPtr, dwstreamindex: u32, foutput: super::super::Foundation::BOOL, pptype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -54896,7 +55066,8 @@ pub unsafe fn MFGetTopoNodeCurrentType<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32;
         }
@@ -54911,7 +55082,8 @@ pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -
 pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: super::super::Foundation::PWSTR, pcchclass: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: super::super::Foundation::PWSTR, pcchclass: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -54925,7 +55097,8 @@ pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: super::sup
 pub unsafe fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32, lpriority: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -54940,7 +55113,8 @@ pub unsafe fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32) -> ::windows::core
 pub unsafe fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32, pdwtaskid: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -54956,7 +55130,8 @@ pub unsafe fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32) -> ::windows::core::
 pub unsafe fn MFHeapAlloc<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(nsize: usize, dwflags: u32, pszfile: Param2, line: i32, eat: EAllocationType) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFHeapAlloc(nsize: usize, dwflags: u32, pszfile: super::super::Foundation::PSTR, line: i32, eat: EAllocationType) -> *mut ::core::ffi::c_void;
         }
@@ -54970,7 +55145,8 @@ pub unsafe fn MFHeapAlloc<'a, Param2: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn MFHeapFree(pv: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFHeapFree(pv: *mut ::core::ffi::c_void);
         }
@@ -55056,7 +55232,8 @@ pub const MFImageFormat_RGB32: ::windows::core::GUID = ::windows::core::GUID::fr
 pub unsafe fn MFInitAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(pmftype: Param0, guidformatblocktype: Param1, pamtype: *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitAMMediaTypeFromMFMediaType(pmftype: ::windows::core::RawPtr, guidformatblocktype: ::windows::core::GUID, pamtype: *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
         }
@@ -55070,7 +55247,8 @@ pub unsafe fn MFInitAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::Into
 pub unsafe fn MFInitAttributesFromBlob<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitAttributesFromBlob(pattributes: ::windows::core::RawPtr, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT;
         }
@@ -55085,7 +55263,8 @@ pub unsafe fn MFInitAttributesFromBlob<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MFInitMediaTypeFromAMMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pamtype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitMediaTypeFromAMMediaType(pmftype: ::windows::core::RawPtr, pamtype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
         }
@@ -55100,7 +55279,8 @@ pub unsafe fn MFInitMediaTypeFromAMMediaType<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MFInitMediaTypeFromMFVideoFormat<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitMediaTypeFromMFVideoFormat(pmftype: ::windows::core::RawPtr, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows::core::HRESULT;
         }
@@ -55115,7 +55295,8 @@ pub unsafe fn MFInitMediaTypeFromMFVideoFormat<'a, Param0: ::windows::core::Into
 pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: ::windows::core::RawPtr, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -55130,7 +55311,8 @@ pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::core::Int
 pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: ::windows::core::RawPtr, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -55145,7 +55327,8 @@ pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::core::Int
 pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitMediaTypeFromVideoInfoHeader(pmftype: ::windows::core::RawPtr, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -55160,7 +55343,8 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::core::In
 pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: ::windows::core::RawPtr, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -55175,7 +55359,8 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::core::I
 pub unsafe fn MFInitMediaTypeFromWaveFormatEx<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pwaveformat: *const super::Audio::WAVEFORMATEX, cbbufsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitMediaTypeFromWaveFormatEx(pmftype: ::windows::core::RawPtr, pwaveformat: *const super::Audio::WAVEFORMATEX, cbbufsize: u32) -> ::windows::core::HRESULT;
         }
@@ -55190,7 +55375,8 @@ pub unsafe fn MFInitMediaTypeFromWaveFormatEx<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows::core::HRESULT;
         }
@@ -55205,7 +55391,8 @@ pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFSt
 pub unsafe fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows::core::HRESULT;
         }
@@ -55219,7 +55406,8 @@ pub unsafe fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth:
 pub unsafe fn MFInvokeCallback<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(pasyncresult: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFInvokeCallback(pasyncresult: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -55234,7 +55422,8 @@ pub unsafe fn MFInvokeCallback<'a, Param0: ::windows::core::IntoParam<'a, IMFAsy
 pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::core::GUID, issupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -55250,7 +55439,8 @@ pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::
 pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "evr", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL;
         }
@@ -55265,7 +55455,8 @@ pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
 pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfsensorgroup", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, supported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -55281,7 +55472,8 @@ pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtual
 pub unsafe fn MFLoadSignedLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszname: Param0) -> ::windows::core::Result<IMFSignedLibrary> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFLoadSignedLibrary(pszname: super::super::Foundation::PWSTR, pplib: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -55296,7 +55488,8 @@ pub unsafe fn MFLoadSignedLibrary<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -55310,7 +55503,8 @@ pub unsafe fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut ::c
 pub unsafe fn MFLockPlatform() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFLockPlatform() -> ::windows::core::HRESULT;
         }
@@ -55325,7 +55519,8 @@ pub unsafe fn MFLockPlatform() -> ::windows::core::Result<()> {
 pub unsafe fn MFLockSharedWorkQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszclass: Param0, basepriority: i32, pdwtaskid: *mut u32, pid: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFLockSharedWorkQueue(wszclass: super::super::Foundation::PWSTR, basepriority: i32, pdwtaskid: *mut u32, pid: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -55339,7 +55534,8 @@ pub unsafe fn MFLockSharedWorkQueue<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MFLockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFLockWorkQueue(dwworkqueue: u32) -> ::windows::core::HRESULT;
         }
@@ -55460,7 +55656,8 @@ pub const MFMPEG4Format_Base: ::windows::core::GUID = ::windows::core::GUID::fro
 pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT;
         }
@@ -55475,7 +55672,8 @@ pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dx
 pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32;
         }
@@ -55995,7 +56193,8 @@ impl ::core::default::Default for MFOffset {
 pub unsafe fn MFPCreateMediaPlayer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, IMFPMediaPlayerCallback>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pwszurl: Param0, fstartplayback: Param1, creationoptions: MFP_CREATION_OPTIONS, pcallback: Param3, hwnd: Param4) -> ::windows::core::Result<IMFPMediaPlayer> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplay", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFPCreateMediaPlayer(pwszurl: super::super::Foundation::PWSTR, fstartplayback: super::super::Foundation::BOOL, creationoptions: MFP_CREATION_OPTIONS, pcallback: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, ppmediaplayer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -56868,7 +57067,8 @@ impl ::core::default::Default for MFPinholeCameraIntrinsics {
 pub unsafe fn MFPutWaitingWorkItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, IMFAsyncResult>>(hevent: Param0, priority: i32, presult: Param2) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFPutWaitingWorkItem(hevent: super::super::Foundation::HANDLE, priority: i32, presult: ::windows::core::RawPtr, pkey: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -56883,7 +57083,8 @@ pub unsafe fn MFPutWaitingWorkItem<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MFPutWorkItem<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwqueue: u32, pcallback: Param1, pstate: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFPutWorkItem(dwqueue: u32, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -56897,7 +57098,8 @@ pub unsafe fn MFPutWorkItem<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncC
 pub unsafe fn MFPutWorkItem2<'a, Param2: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwqueue: u32, priority: i32, pcallback: Param2, pstate: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFPutWorkItem2(dwqueue: u32, priority: i32, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -56911,7 +57113,8 @@ pub unsafe fn MFPutWorkItem2<'a, Param2: ::windows::core::IntoParam<'a, IMFAsync
 pub unsafe fn MFPutWorkItemEx<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncResult>>(dwqueue: u32, presult: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFPutWorkItemEx(dwqueue: u32, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -56925,7 +57128,8 @@ pub unsafe fn MFPutWorkItemEx<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyn
 pub unsafe fn MFPutWorkItemEx2<'a, Param2: ::windows::core::IntoParam<'a, IMFAsyncResult>>(dwqueue: u32, priority: i32, presult: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFPutWorkItemEx2(dwqueue: u32, priority: i32, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -57065,7 +57269,8 @@ impl ::core::default::Default for MFRatio {
 pub unsafe fn MFRegisterLocalByteStreamHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IMFActivate>>(szfileextension: Param0, szmimetype: Param1, pactivate: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFRegisterLocalByteStreamHandler(szfileextension: super::super::Foundation::PWSTR, szmimetype: super::super::Foundation::PWSTR, pactivate: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -57080,7 +57285,8 @@ pub unsafe fn MFRegisterLocalByteStreamHandler<'a, Param0: ::windows::core::Into
 pub unsafe fn MFRegisterLocalSchemeHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IMFActivate>>(szscheme: Param0, pactivate: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFRegisterLocalSchemeHandler(szscheme: super::super::Foundation::PWSTR, pactivate: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -57095,7 +57301,8 @@ pub unsafe fn MFRegisterLocalSchemeHandler<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MFRegisterPlatformWithMMCSS<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszclass: Param0, pdwtaskid: *mut u32, lpriority: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFRegisterPlatformWithMMCSS(wszclass: super::super::Foundation::PWSTR, pdwtaskid: *mut u32, lpriority: i32) -> ::windows::core::HRESULT;
         }
@@ -57109,7 +57316,8 @@ pub unsafe fn MFRegisterPlatformWithMMCSS<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows::core::HRESULT;
         }
@@ -57123,7 +57331,8 @@ pub unsafe fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows::core::Result<()
 pub unsafe fn MFRequireProtectedEnvironment<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(ppresentationdescriptor: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFRequireProtectedEnvironment(ppresentationdescriptor: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -57435,7 +57644,8 @@ pub const MFSampleExtension_VideoEncodeQP: ::windows::core::GUID = ::windows::co
 pub unsafe fn MFScheduleWorkItem<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcallback: Param0, pstate: Param1, timeout: i64) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFScheduleWorkItem(pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void, timeout: i64, pkey: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -57450,7 +57660,8 @@ pub unsafe fn MFScheduleWorkItem<'a, Param0: ::windows::core::IntoParam<'a, IMFA
 pub unsafe fn MFScheduleWorkItemEx<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0, timeout: i64) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFScheduleWorkItemEx(presult: ::windows::core::RawPtr, timeout: i64, pkey: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -57580,7 +57791,8 @@ impl ::core::fmt::Debug for MFSequencerTopologyFlags {
 pub unsafe fn MFSerializeAttributesToStream<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(pattr: Param0, dwoptions: u32, pstm: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFSerializeAttributesToStream(pattr: ::windows::core::RawPtr, dwoptions: u32, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -57594,7 +57806,8 @@ pub unsafe fn MFSerializeAttributesToStream<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MFSerializePresentationDescriptor<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(ppd: Param0, pcbdata: *mut u32, ppbdata: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFSerializePresentationDescriptor(ppd: ::windows::core::RawPtr, pcbdata: *mut u32, ppbdata: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -57608,7 +57821,8 @@ pub unsafe fn MFSerializePresentationDescriptor<'a, Param0: ::windows::core::Int
 pub unsafe fn MFShutdown() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFShutdown() -> ::windows::core::HRESULT;
         }
@@ -57622,7 +57836,8 @@ pub unsafe fn MFShutdown() -> ::windows::core::Result<()> {
 pub unsafe fn MFShutdownObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFShutdownObject(punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -57636,7 +57851,8 @@ pub unsafe fn MFShutdownObject<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 pub unsafe fn MFSplitSample<'a, Param0: ::windows::core::IntoParam<'a, IMFSample>>(psample: Param0, poutputsamples: *mut ::core::option::Option<IMFSample>, dwoutputsamplemaxcount: u32, pdwoutputsamplecount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFSplitSample(psample: ::windows::core::RawPtr, poutputsamples: *mut ::windows::core::RawPtr, dwoutputsamplemaxcount: u32, pdwoutputsamplecount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -57693,7 +57909,8 @@ impl ::core::fmt::Debug for MFStandardVideoFormat {
 pub unsafe fn MFStartup(version: u32, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFStartup(version: u32, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -57721,7 +57938,8 @@ pub const MFSubtitleFormat_XML: ::windows::core::GUID = ::windows::core::GUID::f
 pub unsafe fn MFTEnum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, IMFAttributes>>(guidcategory: Param0, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: Param4, ppclsidmft: *mut *mut ::windows::core::GUID, pcmfts: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTEnum(guidcategory: ::windows::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: ::windows::core::RawPtr, ppclsidmft: *mut *mut ::windows::core::GUID, pcmfts: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -57735,7 +57953,8 @@ pub unsafe fn MFTEnum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core
 pub unsafe fn MFTEnum2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, IMFAttributes>>(guidcategory: Param0, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: Param4, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTEnum2(guidcategory: ::windows::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: ::windows::core::RawPtr, pppmftactivate: *mut *mut ::windows::core::RawPtr, pnummftactivate: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -57749,7 +57968,8 @@ pub unsafe fn MFTEnum2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::cor
 pub unsafe fn MFTEnumEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(guidcategory: Param0, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTEnumEx(guidcategory: ::windows::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut ::windows::core::RawPtr, pnummftactivate: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -57764,7 +57984,8 @@ pub unsafe fn MFTEnumEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::co
 pub unsafe fn MFTGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsidmft: Param0, pszname: *mut super::super::Foundation::PWSTR, ppinputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes: *mut u32, ppoutputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes: *mut u32, ppattributes: *mut ::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTGetInfo(clsidmft: ::windows::core::GUID, pszname: *mut super::super::Foundation::PWSTR, ppinputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes: *mut u32, ppoutputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes: *mut u32, ppattributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -57917,7 +58138,8 @@ impl ::core::default::Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
 pub unsafe fn MFTRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IMFAttributes>>(clsidmft: Param0, guidcategory: Param1, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO, pattributes: Param8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTRegister(clsidmft: ::windows::core::GUID, guidcategory: ::windows::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -57932,7 +58154,8 @@ pub unsafe fn MFTRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::
 pub unsafe fn MFTRegisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IClassFactory>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pclassfactory: Param0, guidcategory: *const ::windows::core::GUID, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTRegisterLocal(pclassfactory: ::windows::core::RawPtr, guidcategory: *const ::windows::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::HRESULT;
         }
@@ -57947,7 +58170,8 @@ pub unsafe fn MFTRegisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn MFTRegisterLocalByCLSID<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(clisdmft: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTRegisterLocalByCLSID(clisdmft: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::HRESULT;
         }
@@ -57961,7 +58185,8 @@ pub unsafe fn MFTRegisterLocalByCLSID<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn MFTUnregister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsidmft: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTUnregister(clsidmft: ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -57976,7 +58201,8 @@ pub unsafe fn MFTUnregister<'a, Param0: ::windows::core::IntoParam<'a, ::windows
 pub unsafe fn MFTUnregisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IClassFactory>>(pclassfactory: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTUnregisterLocal(pclassfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -57990,7 +58216,8 @@ pub unsafe fn MFTUnregisterLocal<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MFTUnregisterLocalByCLSID<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsidmft: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTUnregisterLocalByCLSID(clsidmft: ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -58408,7 +58635,8 @@ pub const MFTranscodeContainerType_WAVE: ::windows::core::GUID = ::windows::core
 pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<'a, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(guidsubtype: *const ::windows::core::GUID, dwmftflags: u32, pcodecconfig: Param2) -> ::windows::core::Result<IMFCollection> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mf", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype: *const ::windows::core::GUID, dwmftflags: u32, pcodecconfig: ::windows::core::RawPtr, ppavailabletypes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -58423,7 +58651,8 @@ pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<'a, Param2: ::windows::cor
 pub unsafe fn MFUnlockDXGIDeviceManager() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFUnlockDXGIDeviceManager() -> ::windows::core::HRESULT;
         }
@@ -58437,7 +58666,8 @@ pub unsafe fn MFUnlockDXGIDeviceManager() -> ::windows::core::Result<()> {
 pub unsafe fn MFUnlockPlatform() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFUnlockPlatform() -> ::windows::core::HRESULT;
         }
@@ -58451,7 +58681,8 @@ pub unsafe fn MFUnlockPlatform() -> ::windows::core::Result<()> {
 pub unsafe fn MFUnlockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFUnlockWorkQueue(dwworkqueue: u32) -> ::windows::core::HRESULT;
         }
@@ -58465,7 +58696,8 @@ pub unsafe fn MFUnlockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()>
 pub unsafe fn MFUnregisterPlatformFromMMCSS() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFUnregisterPlatformFromMMCSS() -> ::windows::core::HRESULT;
         }
@@ -58479,7 +58711,8 @@ pub unsafe fn MFUnregisterPlatformFromMMCSS() -> ::windows::core::Result<()> {
 pub unsafe fn MFUnwrapMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pwrap: Param0) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFUnwrapMediaType(pwrap: ::windows::core::RawPtr, pporig: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -58569,7 +58802,8 @@ impl ::core::fmt::Debug for MFVP_MESSAGE_TYPE {
 pub unsafe fn MFValidateMediaTypeSize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(formattype: Param0, pblock: *const u8, cbsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFValidateMediaTypeSize(formattype: ::windows::core::GUID, pblock: *const u8, cbsize: u32) -> ::windows::core::HRESULT;
         }
@@ -59739,7 +59973,8 @@ impl ::core::fmt::Debug for MFWaveFormatExConvertFlags {
 pub unsafe fn MFWrapMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(porig: Param0, majortype: *const ::windows::core::GUID, subtype: *const ::windows::core::GUID) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFWrapMediaType(porig: ::windows::core::RawPtr, majortype: *const ::windows::core::GUID, subtype: *const ::windows::core::GUID, ppwrap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -64580,7 +64815,8 @@ pub const MF_XVP_SAMPLE_LOCK_TIMEOUT: ::windows::core::GUID = ::windows::core::G
 pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mfplat", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64;
         }
@@ -64799,7 +65035,8 @@ pub const MULawCodecWrapper: ::windows::core::GUID = ::windows::core::GUID::from
 pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS) -> ::windows::core::Result<IOPMVideoOutput> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS, ppopmvideooutput: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -64815,7 +65052,8 @@ pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foun
 pub unsafe fn OPMGetVideoOutputsFromHMONITOR<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OPMGetVideoOutputsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -64830,7 +65068,8 @@ pub unsafe fn OPMGetVideoOutputsFromHMONITOR<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn OPMGetVideoOutputsFromIDirect3DDevice9Object<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dxva2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9: ::windows::core::RawPtr, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -64844,7 +65083,8 @@ pub unsafe fn OPMGetVideoOutputsFromIDirect3DDevice9Object<'a, Param0: ::windows
 pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opmxbox", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
         }
@@ -64858,7 +65098,8 @@ pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Res
 pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opmxbox", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::HRESULT;
         }
@@ -64872,7 +65113,8 @@ pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windo
 pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "opmxbox", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
         }

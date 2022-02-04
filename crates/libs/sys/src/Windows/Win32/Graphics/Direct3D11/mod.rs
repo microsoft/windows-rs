@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "d3d11", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
@@ -7,9 +8,17 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
     pub fn D3D11CreateDeviceAndSwapChain(padapter: super::Dxgi::IDXGIAdapter, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut super::Dxgi::IDXGISwapChain, ppdevice: *mut ID3D11Device, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcompiler_47", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub fn D3DDisassemble11Trace(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ptrace: ID3D11ShaderTrace, startstep: u32, numsteps: u32, flags: u32, ppdisassembly: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "d3dcsx", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub fn D3DX11CreateFFT(pdevicecontext: ID3D11DeviceContext, pdesc: *const D3DX11_FFT_DESC, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ID3DX11FFT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]

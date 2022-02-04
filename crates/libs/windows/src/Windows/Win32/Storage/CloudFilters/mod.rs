@@ -4459,7 +4459,8 @@ impl ::core::ops::Not for CF_UPDATE_FLAGS {
 pub unsafe fn CfCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfCloseHandle(filehandle: super::super::Foundation::HANDLE);
         }
@@ -4474,7 +4475,8 @@ pub unsafe fn CfCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS) -> ::windows::core::Result<CF_CONNECTION_KEY> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfConnectSyncRoot(syncrootpath: super::super::Foundation::PWSTR, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
         }
@@ -4490,7 +4492,8 @@ pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn CfConvertToPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
@@ -4505,7 +4508,8 @@ pub unsafe fn CfConvertToPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CfCreatePlaceholders<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(basedirectorypath: Param0, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfCreatePlaceholders(basedirectorypath: super::super::Foundation::PWSTR, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4520,7 +4524,8 @@ pub unsafe fn CfCreatePlaceholders<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CfDehydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
@@ -4534,7 +4539,8 @@ pub unsafe fn CfDehydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CfDisconnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
         }
@@ -4549,7 +4555,8 @@ pub unsafe fn CfDisconnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, CF
 pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::core::HRESULT;
         }
@@ -4564,7 +4571,8 @@ pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPER
 pub unsafe fn CfGetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::core::Result<super::super::System::CorrelationVector::CORRELATION_VECTOR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::HRESULT;
         }
@@ -4580,7 +4588,8 @@ pub unsafe fn CfGetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CfGetPlaceholderInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4595,7 +4604,8 @@ pub unsafe fn CfGetPlaceholderInfo<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CfGetPlaceholderRangeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4609,7 +4619,8 @@ pub unsafe fn CfGetPlaceholderRangeInfo<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE;
         }
@@ -4624,7 +4635,8 @@ pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparse
 pub unsafe fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::c_void, infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::c_void, infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE;
         }
@@ -4639,7 +4651,8 @@ pub unsafe fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::
 pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSystem::WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSystem::WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE;
         }
@@ -4653,7 +4666,8 @@ pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSyst
 pub unsafe fn CfGetPlatformInfo() -> ::windows::core::Result<CF_PLATFORM_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetPlatformInfo(platformversion: *mut CF_PLATFORM_INFO) -> ::windows::core::HRESULT;
         }
@@ -4669,7 +4683,8 @@ pub unsafe fn CfGetPlatformInfo() -> ::windows::core::Result<CF_PLATFORM_INFO> {
 pub unsafe fn CfGetSyncRootInfoByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4684,7 +4699,8 @@ pub unsafe fn CfGetSyncRootInfoByHandle<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn CfGetSyncRootInfoByPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetSyncRootInfoByPath(filepath: super::super::Foundation::PWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4699,7 +4715,8 @@ pub unsafe fn CfGetSyncRootInfoByPath<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn CfGetTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::core::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64) -> ::windows::core::HRESULT;
         }
@@ -4715,7 +4732,8 @@ pub unsafe fn CfGetTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CfGetWin32HandleFromProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfGetWin32HandleFromProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
         }
@@ -4730,7 +4748,8 @@ pub unsafe fn CfGetWin32HandleFromProtectedHandle<'a, Param0: ::windows::core::I
 pub unsafe fn CfHydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
@@ -4745,7 +4764,8 @@ pub unsafe fn CfHydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CfOpenFileWithOplock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, flags: CF_OPEN_FILE_FLAGS) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfOpenFileWithOplock(filepath: super::super::Foundation::PWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -4760,7 +4780,8 @@ pub unsafe fn CfOpenFileWithOplock<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CfQuerySyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::core::Result<CF_SYNC_PROVIDER_STATUS> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: *mut CF_SYNC_PROVIDER_STATUS) -> ::windows::core::HRESULT;
         }
@@ -4776,7 +4797,8 @@ pub unsafe fn CfQuerySyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn CfReferenceProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
         }
@@ -4791,7 +4813,8 @@ pub unsafe fn CfReferenceProtectedHandle<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn CfRegisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfRegisterSyncRoot(syncrootpath: super::super::Foundation::PWSTR, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::core::HRESULT;
         }
@@ -4806,7 +4829,8 @@ pub unsafe fn CfRegisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CfReleaseProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfReleaseProtectedHandle(protectedhandle: super::super::Foundation::HANDLE);
         }
@@ -4821,7 +4845,8 @@ pub unsafe fn CfReleaseProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn CfReleaseTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, transferkey: *mut i64) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfReleaseTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64);
         }
@@ -4835,7 +4860,8 @@ pub unsafe fn CfReleaseTransferKey<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CfReportProviderProgress<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::core::HRESULT;
         }
@@ -4849,7 +4875,8 @@ pub unsafe fn CfReportProviderProgress<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn CfReportProviderProgress2<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::core::HRESULT;
         }
@@ -4864,7 +4891,8 @@ pub unsafe fn CfReportProviderProgress2<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn CfReportSyncStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, syncstatus: *const CF_SYNC_STATUS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfReportSyncStatus(syncrootpath: super::super::Foundation::PWSTR, syncstatus: *const CF_SYNC_STATUS) -> ::windows::core::HRESULT;
         }
@@ -4879,7 +4907,8 @@ pub unsafe fn CfReportSyncStatus<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CfRevertPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
@@ -4894,7 +4923,8 @@ pub unsafe fn CfRevertPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CfSetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfSetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::HRESULT;
         }
@@ -4909,7 +4939,8 @@ pub unsafe fn CfSetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CfSetInSyncState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfSetInSyncState(filehandle: super::super::Foundation::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::core::HRESULT;
         }
@@ -4924,7 +4955,8 @@ pub unsafe fn CfSetInSyncState<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CfSetPinState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
@@ -4939,7 +4971,8 @@ pub unsafe fn CfSetPinState<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn CfUnregisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfUnregisterSyncRoot(syncrootpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -4954,7 +4987,8 @@ pub unsafe fn CfUnregisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
         }
@@ -4968,7 +5002,8 @@ pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CfUpdateSyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cldapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::core::HRESULT;
         }

@@ -72,7 +72,8 @@ pub const CLSID_D2D1YCbCr: ::windows::core::GUID = ::windows::core::GUID::from_u
 pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32;
         }
@@ -87,7 +88,8 @@ pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::
 pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F;
         }
@@ -102,7 +104,8 @@ pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinat
 pub unsafe fn D2D1CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(dxgidevice: Param0, creationproperties: *const D2D1_CREATION_PROPERTIES) -> ::windows::core::Result<ID2D1Device> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1CreateDevice(dxgidevice: ::windows::core::RawPtr, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -118,7 +121,8 @@ pub unsafe fn D2D1CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn D2D1CreateDeviceContext<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(dxgisurface: Param0, creationproperties: *const D2D1_CREATION_PROPERTIES) -> ::windows::core::Result<ID2D1DeviceContext> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1CreateDeviceContext(dxgisurface: ::windows::core::RawPtr, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevicecontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -133,7 +137,8 @@ pub unsafe fn D2D1CreateDeviceContext<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -148,7 +153,8 @@ pub unsafe fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::w
 pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Common::D2D_POINT_2F, ppoint1: *const Common::D2D_POINT_2F, ppoint2: *const Common::D2D_POINT_2F, ppoint3: *const Common::D2D_POINT_2F, ppoint4: *const Common::D2D_POINT_2F, ppoint5: *const Common::D2D_POINT_2F, ppoint6: *const Common::D2D_POINT_2F, ppoint7: *const Common::D2D_POINT_2F, ppoint8: *const Common::D2D_POINT_2F, ppoint9: *const Common::D2D_POINT_2F, ppoint10: *const Common::D2D_POINT_2F, ppoint11: *const Common::D2D_POINT_2F, ptensorpoint11: *mut Common::D2D_POINT_2F, ptensorpoint12: *mut Common::D2D_POINT_2F, ptensorpoint21: *mut Common::D2D_POINT_2F, ptensorpoint22: *mut Common::D2D_POINT_2F) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Common::D2D_POINT_2F, ppoint1: *const Common::D2D_POINT_2F, ppoint2: *const Common::D2D_POINT_2F, ppoint3: *const Common::D2D_POINT_2F, ppoint4: *const Common::D2D_POINT_2F, ppoint5: *const Common::D2D_POINT_2F, ppoint6: *const Common::D2D_POINT_2F, ppoint7: *const Common::D2D_POINT_2F, ppoint8: *const Common::D2D_POINT_2F, ppoint9: *const Common::D2D_POINT_2F, ppoint10: *const Common::D2D_POINT_2F, ppoint11: *const Common::D2D_POINT_2F, ptensorpoint11: *mut Common::D2D_POINT_2F, ptensorpoint12: *mut Common::D2D_POINT_2F, ptensorpoint21: *mut Common::D2D_POINT_2F, ptensorpoint22: *mut Common::D2D_POINT_2F);
         }
@@ -180,7 +186,8 @@ pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Co
 pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
         }
@@ -195,7 +202,8 @@ pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Num
 pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
         }
@@ -210,7 +218,8 @@ pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundat
 pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>>(angle: f32, center: Param1, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
         }
@@ -225,7 +234,8 @@ pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::core::IntoParam<'a, Co
 pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>>(anglex: f32, angley: f32, center: Param2, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
         }
@@ -239,7 +249,8 @@ pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::core::IntoParam<'a, Comm
 pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32);
         }
@@ -253,7 +264,8 @@ pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
 pub unsafe fn D2D1Tan(angle: f32) -> f32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1Tan(angle: f32) -> f32;
         }
@@ -267,7 +279,8 @@ pub unsafe fn D2D1Tan(angle: f32) -> f32 {
 pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d2d1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32;
         }

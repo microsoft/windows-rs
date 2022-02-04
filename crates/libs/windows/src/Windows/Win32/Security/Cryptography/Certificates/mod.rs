@@ -2571,7 +2571,8 @@ pub const CX509SCEPEnrollmentHelper: ::windows::core::GUID = ::windows::core::GU
 pub unsafe fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2585,7 +2586,8 @@ pub unsafe fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows::co
 pub unsafe fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2599,7 +2601,8 @@ pub unsafe fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core
 pub unsafe fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void);
         }
@@ -2614,7 +2617,8 @@ pub unsafe fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void) {
 pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2629,7 +2633,8 @@ pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwsz
 pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2644,7 +2649,8 @@ pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, pp
 pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2659,7 +2665,8 @@ pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, 
 pub unsafe fn CertSrvBackupOpenFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hbc: *mut ::core::ffi::c_void, pwszattachmentname: Param1, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvBackupOpenFileW(hbc: *mut ::core::ffi::c_void, pwszattachmentname: super::super::super::Foundation::PWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::HRESULT;
         }
@@ -2674,7 +2681,8 @@ pub unsafe fn CertSrvBackupOpenFileW<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn CertSrvBackupPrepareW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszservername: Param0, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvBackupPrepareW(pwszservername: super::super::super::Foundation::PWSTR, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2688,7 +2696,8 @@ pub unsafe fn CertSrvBackupPrepareW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2702,7 +2711,8 @@ pub unsafe fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::
 pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2717,7 +2727,8 @@ pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::wind
 pub unsafe fn CertSrvIsServerOnlineW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszservername: Param0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvIsServerOnlineW(pwszservername: super::super::super::Foundation::PWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -2731,7 +2742,8 @@ pub unsafe fn CertSrvIsServerOnlineW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2746,7 +2758,8 @@ pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::cor
 pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut super::super::super::Foundation::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2761,7 +2774,8 @@ pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_voi
 pub unsafe fn CertSrvRestorePrepareW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszservername: Param0, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvRestorePrepareW(pwszservername: super::super::super::Foundation::PWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2775,7 +2789,8 @@ pub unsafe fn CertSrvRestorePrepareW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
         }
@@ -2790,7 +2805,8 @@ pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrre
 pub unsafe fn CertSrvRestoreRegisterThroughFile<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: Param1, pwszlogpath: Param2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: Param5, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvRestoreRegisterThroughFile(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
         }
@@ -2805,7 +2821,8 @@ pub unsafe fn CertSrvRestoreRegisterThroughFile<'a, Param1: ::windows::core::Int
 pub unsafe fn CertSrvRestoreRegisterW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: Param1, pwszlogpath: Param2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: Param5, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvRestoreRegisterW(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
         }
@@ -2820,7 +2837,8 @@ pub unsafe fn CertSrvRestoreRegisterW<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn CertSrvServerControlW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszservername: Param0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certadm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CertSrvServerControlW(pwszservername: super::super::super::Foundation::PWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT;
         }
@@ -37465,7 +37483,8 @@ impl ::core::fmt::Debug for PolicyServerUrlPropertyID {
 pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certpoleng", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -37480,7 +37499,8 @@ pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> ::windo
 pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certpoleng", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -37495,7 +37515,8 @@ pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrusted
 pub unsafe fn PstGetCertificates<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, bisclient: Param3, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certpoleng", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PstGetCertificates(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, bisclient: super::super::super::Foundation::BOOL, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -37510,7 +37531,8 @@ pub unsafe fn PstGetCertificates<'a, Param3: ::windows::core::IntoParam<'a, supe
 pub unsafe fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certpoleng", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -37525,7 +37547,8 @@ pub unsafe fn PstGetTrustAnchors(ptargetname: *const super::super::super::Founda
 pub unsafe fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pcertcontext: *const super::CERT_CONTEXT, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certpoleng", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pcertcontext: *const super::CERT_CONTEXT, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -37540,7 +37563,8 @@ pub unsafe fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foun
 pub unsafe fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certpoleng", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -37555,7 +37579,8 @@ pub unsafe fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONT
 pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certpoleng", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
         }
@@ -37570,7 +37595,8 @@ pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninforma
 pub unsafe fn PstValidate<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, bisclient: Param1, prequestedissuancepolicy: *const super::CERT_USAGE_MATCH, phadditionalcertstore: *const super::HCERTSTORE, pcert: *const super::CERT_CONTEXT, pprovguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "certpoleng", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PstValidate(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, bisclient: super::super::super::Foundation::BOOL, prequestedissuancepolicy: *const super::CERT_USAGE_MATCH, phadditionalcertstore: *const super::HCERTSTORE, pcert: *const super::CERT_CONTEXT, pprovguid: *mut ::windows::core::GUID) -> super::super::super::Foundation::NTSTATUS;
         }

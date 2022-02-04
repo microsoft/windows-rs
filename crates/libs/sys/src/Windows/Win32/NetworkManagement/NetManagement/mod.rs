@@ -1,28 +1,20 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mstask", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetNetScheduleAccountInformation(pwszservername: super::super::Foundation::PWSTR, ccaccount: u32, wszaccount: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
+    pub fn SetNetScheduleAccountInformation(pwszservername: super::super::Foundation::PWSTR, pwszaccount: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub fn I_NetLogonControl2(servername: super::super::Foundation::PWSTR, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR, dwerrorcode: u32);
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR, dwerrorcode: u32);
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR);
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR);
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
-    pub fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8, lpdwentriesread: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
-    pub fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetAccessAdd(servername: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
@@ -408,6 +400,26 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetWkstaUserSetInfo(reserved: super::super::Foundation::PWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rtutils", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR, dwerrorcode: u32);
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR, dwerrorcode: u32);
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR);
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR);
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn MprSetupProtocolEnum(dwtransportid: u32, lplpbuffer: *mut *mut u8, lpdwentriesread: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
+    pub fn MprSetupProtocolFree(lpbuffer: *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RouterAssert(pszfailedassertion: super::super::Foundation::PSTR, pszfilename: super::super::Foundation::PSTR, dwlinenumber: u32, pszmessage: super::super::Foundation::PSTR);
@@ -459,9 +471,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RouterLogRegisterW(lpszsource: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
-    #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetNetScheduleAccountInformation(pwszservername: super::super::Foundation::PWSTR, pwszaccount: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]
     pub fn TraceDeregisterA(dwtraceid: u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_NetManagement'*"]

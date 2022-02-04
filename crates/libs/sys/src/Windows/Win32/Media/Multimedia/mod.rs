@@ -1,5 +1,29 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-mm-misc-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn sndOpenSound(eventname: super::super::Foundation::PWSTR, appname: super::super::Foundation::PWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "avicap32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn capCreateCaptureWindowA(lpszwindowname: super::super::Foundation::PSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn capCreateCaptureWindowW(lpszwindowname: super::super::Foundation::PWSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: super::super::Foundation::PSTR, cbname: i32, lpszver: super::super::Foundation::PSTR, cbver: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: super::super::Foundation::PWSTR, cbname: i32, lpszver: super::super::Foundation::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "avifil32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -121,14 +145,32 @@ extern "system" {
     pub fn AVIStreamWrite(pavi: IAVIStream, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub fn AVIStreamWriteData(pavi: IAVIStream, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CloseDriver(hdriver: HDRVR, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
     pub fn CreateEditableStream(ppseditable: *mut IAVIStream, pssource: IAVIStream) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+    pub fn EditStreamClone(pavi: IAVIStream, ppresult: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+    pub fn EditStreamCopy(pavi: IAVIStream, plstart: *mut i32, pllength: *mut i32, ppresult: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+    pub fn EditStreamCut(pavi: IAVIStream, plstart: *mut i32, pllength: *mut i32, ppresult: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+    pub fn EditStreamPaste(pavi: IAVIStream, plpos: *mut i32, pllength: *mut i32, pstream: IAVIStream, lstart: i32, lend: i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DefDriverProc(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+    pub fn EditStreamSetInfoA(pavi: IAVIStream, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EditStreamSetInfoW(pavi: IAVIStream, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EditStreamSetNameA(pavi: IAVIStream, lpszname: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EditStreamSetNameW(pavi: IAVIStream, lpszname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "msvfw32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawDibBegin(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
@@ -170,35 +212,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrvGetModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
-    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
-    pub fn EditStreamClone(pavi: IAVIStream, ppresult: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
-    pub fn EditStreamCopy(pavi: IAVIStream, plstart: *mut i32, pllength: *mut i32, ppresult: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
-    pub fn EditStreamCut(pavi: IAVIStream, plstart: *mut i32, pllength: *mut i32, ppresult: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
-    pub fn EditStreamPaste(pavi: IAVIStream, plpos: *mut i32, pllength: *mut i32, pstream: IAVIStream, lstart: i32, lend: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EditStreamSetInfoA(pavi: IAVIStream, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EditStreamSetInfoW(pavi: IAVIStream, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EditStreamSetNameA(pavi: IAVIStream, lpszname: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EditStreamSetNameW(pavi: IAVIStream, lpszname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDriverModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation', 'Win32_UI_Controls_Dialogs'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
     pub fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
@@ -281,26 +294,33 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MCIWndRegisterClass() -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+    pub fn VideoForWindowsVersion() -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "winmm", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CloseDriver(hdriver: HDRVR, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DefDriverProc(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrvGetModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDriverModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenDriver(szdrivername: super::super::Foundation::PWSTR, szsectionname: super::super::Foundation::PWSTR, lparam2: super::super::Foundation::LPARAM) -> HDRVR;
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SendDriverMessage(hdriver: HDRVR, message: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
-    pub fn VideoForWindowsVersion() -> u32;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn capCreateCaptureWindowA(lpszwindowname: super::super::Foundation::PSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn capCreateCaptureWindowW(lpszwindowname: super::super::Foundation::PWSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: super::super::Foundation::PSTR, cbname: i32, lpszver: super::super::Foundation::PSTR, cbver: i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: super::super::Foundation::PWSTR, cbname: i32, lpszver: super::super::Foundation::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
@@ -443,9 +463,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmioWrite(hmmio: HMMIO, pch: super::super::Foundation::PSTR, cch: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn sndOpenSound(eventname: super::super::Foundation::PWSTR, appname: super::super::Foundation::PWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
 }
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 pub const ACMDM_BASE: u32 = 24576u32;

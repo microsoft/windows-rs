@@ -24189,7 +24189,8 @@ pub const OCC_INVALID: u32 = 4294967295u32;
 pub unsafe fn ODBCGetTryWaitValue() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ODBCGetTryWaitValue() -> u32;
         }
@@ -24204,7 +24205,8 @@ pub unsafe fn ODBCGetTryWaitValue() -> u32 {
 pub unsafe fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL;
         }
@@ -26177,7 +26179,8 @@ pub const SQLAOPVARP: u32 = 51u32;
 pub unsafe fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut *mut ::core::ffi::c_void) -> i16;
         }
@@ -26191,7 +26194,8 @@ pub unsafe fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, conne
 pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i16;
         }
@@ -26205,7 +26209,8 @@ pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i
 pub unsafe fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void, outputhandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void, outputhandle: *mut *mut ::core::ffi::c_void) -> i16;
         }
@@ -26219,7 +26224,8 @@ pub unsafe fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_v
 pub unsafe fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_void, phoutput: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_void, phoutput: *mut *mut ::core::ffi::c_void) -> i16;
         }
@@ -26233,7 +26239,8 @@ pub unsafe fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_vo
 pub unsafe fn SQLAllocStmt(connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLAllocStmt(connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut *mut ::core::ffi::c_void) -> i16;
         }
@@ -26262,7 +26269,8 @@ pub const SQLBITN: u32 = 104u32;
 pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16;
         }
@@ -26277,7 +26285,8 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber
 pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16;
         }
@@ -26292,7 +26301,8 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber
 pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16;
         }
@@ -26307,7 +26317,8 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parametern
 pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16;
         }
@@ -26322,7 +26333,8 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parametern
 pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16;
         }
@@ -26337,7 +26349,8 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fpara
 pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
         }
@@ -26351,7 +26364,8 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fpara
 pub unsafe fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16;
         }
@@ -26365,7 +26379,8 @@ pub unsafe fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: *con
 pub unsafe fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16) -> i16;
         }
@@ -26379,7 +26394,8 @@ pub unsafe fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: *co
 pub unsafe fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16;
         }
@@ -26393,7 +26409,8 @@ pub unsafe fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: *co
 pub unsafe fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, operation: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, operation: i16) -> i16;
         }
@@ -26409,7 +26426,8 @@ pub const SQLCHARACTER: u32 = 47u32;
 pub unsafe fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16;
         }
@@ -26423,7 +26441,8 @@ pub unsafe fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16 {
 pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void) -> i16;
         }
@@ -26437,7 +26456,8 @@ pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_
 pub unsafe fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16;
         }
@@ -26452,7 +26472,8 @@ pub unsafe fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16 {
 pub unsafe fn SQLCloseEnumServers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLCloseEnumServers(henumhandle: super::super::Foundation::HANDLE) -> i16;
         }
@@ -26467,7 +26488,8 @@ pub unsafe fn SQLCloseEnumServers<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16;
         }
@@ -26482,7 +26504,8 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnn
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::core::ffi::c_void) -> i16;
         }
@@ -26497,7 +26520,8 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnn
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16;
         }
@@ -26512,7 +26536,8 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifiel
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16;
         }
@@ -26527,7 +26552,8 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifiel
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16;
         }
@@ -26542,7 +26568,8 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifiel
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16;
         }
@@ -26557,7 +26584,8 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifiel
 pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
         }
@@ -26572,7 +26600,8 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesc
 pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
         }
@@ -26587,7 +26616,8 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesc
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
         }
@@ -26602,7 +26632,8 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
         }
@@ -26617,7 +26648,8 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
         }
@@ -26632,7 +26664,8 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
         }
@@ -26646,7 +26679,8 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
 pub unsafe fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16;
         }
@@ -26660,7 +26694,8 @@ pub unsafe fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname
 pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16;
         }
@@ -26674,7 +26709,8 @@ pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalognam
 pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16;
         }
@@ -26688,7 +26724,8 @@ pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalognam
 pub unsafe fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, columnname: *const u8, namelength4: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, columnname: *const u8, namelength4: i16) -> i16;
         }
@@ -26702,7 +26739,8 @@ pub unsafe fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname:
 pub unsafe fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16;
         }
@@ -26716,7 +26754,8 @@ pub unsafe fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const
 pub unsafe fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16;
         }
@@ -26730,7 +26769,8 @@ pub unsafe fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const
 pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void, asyncretcodeptr: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void, asyncretcodeptr: *mut i16) -> i16;
         }
@@ -26744,7 +26784,8 @@ pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void
 pub unsafe fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername: *const u8, namelength1: i16, username: *const u8, namelength2: i16, authentication: *const u8, namelength3: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername: *const u8, namelength1: i16, username: *const u8, namelength2: i16, authentication: *const u8, namelength3: i16) -> i16;
         }
@@ -26758,7 +26799,8 @@ pub unsafe fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername:
 pub unsafe fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: *const u8, cbdsn: i16, szuid: *const u8, cbuid: i16, szauthstr: *const u8, cbauthstr: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: *const u8, cbdsn: i16, szuid: *const u8, cbuid: i16, szauthstr: *const u8, cbauthstr: i16) -> i16;
         }
@@ -26772,7 +26814,8 @@ pub unsafe fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: *const u8, cbds
 pub unsafe fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: *const u16, cchdsn: i16, szuid: *const u16, cchuid: i16, szauthstr: *const u16, cchauthstr: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: *const u16, cchdsn: i16, szuid: *const u16, cchuid: i16, szauthstr: *const u16, cchauthstr: i16) -> i16;
         }
@@ -26786,7 +26829,8 @@ pub unsafe fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: *const u16, cch
 pub unsafe fn SQLCopyDesc(sourcedeschandle: *mut ::core::ffi::c_void, targetdeschandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLCopyDesc(sourcedeschandle: *mut ::core::ffi::c_void, targetdeschandle: *mut ::core::ffi::c_void) -> i16;
         }
@@ -26810,7 +26854,8 @@ pub const SQLDECIMALN: u32 = 106u32;
 pub unsafe fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direction: u16, servername: *mut u8, bufferlength1: i16, namelength1ptr: *mut i16, description: *mut u8, bufferlength2: i16, namelength2ptr: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direction: u16, servername: *mut u8, bufferlength1: i16, namelength1ptr: *mut i16, description: *mut u8, bufferlength2: i16, namelength2ptr: *mut i16) -> i16;
         }
@@ -26824,7 +26869,8 @@ pub unsafe fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direct
 pub unsafe fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u8, cbdsnmax: i16, pcbdsn: *mut i16, szdescription: *mut u8, cbdescriptionmax: i16, pcbdescription: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u8, cbdsnmax: i16, pcbdsn: *mut i16, szdescription: *mut u8, cbdescriptionmax: i16, pcbdescription: *mut i16) -> i16;
         }
@@ -26838,7 +26884,8 @@ pub unsafe fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, s
 pub unsafe fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u16, cchdsnmax: i16, pcchdsn: *mut i16, wszdescription: *mut u16, cchdescriptionmax: i16, pcchdescription: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u16, cchdsnmax: i16, pcchdsn: *mut i16, wszdescription: *mut u16, cchdescriptionmax: i16, pcchdescription: *mut i16) -> i16;
         }
@@ -26853,7 +26900,8 @@ pub unsafe fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, s
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16;
         }
@@ -26868,7 +26916,8 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnu
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16;
         }
@@ -26883,7 +26932,8 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnu
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
         }
@@ -26898,7 +26948,8 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
         }
@@ -26913,7 +26964,8 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
         }
@@ -26928,7 +26980,8 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
         }
@@ -26943,7 +26996,8 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
         }
@@ -26958,7 +27012,8 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsql
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
         }
@@ -26972,7 +27027,8 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsql
 pub unsafe fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16;
         }
@@ -26986,7 +27042,8 @@ pub unsafe fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
 pub unsafe fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
         }
@@ -27000,7 +27057,8 @@ pub unsafe fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szco
 pub unsafe fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
         }
@@ -27014,7 +27072,8 @@ pub unsafe fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szc
 pub unsafe fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
         }
@@ -27028,7 +27087,8 @@ pub unsafe fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szc
 pub unsafe fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u8, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u8, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16;
         }
@@ -27042,7 +27102,8 @@ pub unsafe fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriv
 pub unsafe fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cbdriverdescmax: i16, pcbdriverdesc: *mut i16, szdriverattributes: *mut u8, cbdrvrattrmax: i16, pcbdrvrattr: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cbdriverdescmax: i16, pcbdriverdesc: *mut i16, szdriverattributes: *mut u8, cbdrvrattrmax: i16, pcbdrvrattr: *mut i16) -> i16;
         }
@@ -27056,7 +27117,8 @@ pub unsafe fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdri
 pub unsafe fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u16, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u16, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u16, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u16, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16;
         }
@@ -27070,7 +27132,8 @@ pub unsafe fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdri
 pub unsafe fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, completiontype: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, completiontype: i16) -> i16;
         }
@@ -27084,7 +27147,8 @@ pub unsafe fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, comp
 pub unsafe fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut ::core::ffi::c_void, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut ::core::ffi::c_void, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16;
         }
@@ -27098,7 +27162,8 @@ pub unsafe fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionha
 pub unsafe fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16;
         }
@@ -27112,7 +27177,8 @@ pub unsafe fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::
 pub unsafe fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, wszsqlstate: *mut u16, pfnativeerror: *mut i32, wszerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, wszsqlstate: *mut u16, pfnativeerror: *mut i32, wszerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16;
         }
@@ -27126,7 +27192,8 @@ pub unsafe fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::
 pub unsafe fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16;
         }
@@ -27140,7 +27207,8 @@ pub unsafe fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statement
 pub unsafe fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16;
         }
@@ -27154,7 +27222,8 @@ pub unsafe fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u
 pub unsafe fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16, textlength: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16, textlength: i32) -> i16;
         }
@@ -27168,7 +27237,8 @@ pub unsafe fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u
 pub unsafe fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16;
         }
@@ -27183,7 +27253,8 @@ pub unsafe fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16 {
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16;
         }
@@ -27198,7 +27269,8 @@ pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16,
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16;
         }
@@ -27218,7 +27290,8 @@ pub const SQLFLTN: u32 = 109u32;
 pub unsafe fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16;
         }
@@ -27233,7 +27306,8 @@ pub unsafe fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16 {
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16;
         }
@@ -27248,7 +27322,8 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchori
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16;
         }
@@ -27262,7 +27337,8 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchori
 pub unsafe fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u8, cchpkcatalogname: i16, szpkschemaname: *const u8, cchpkschemaname: i16, szpktablename: *const u8, cchpktablename: i16, szfkcatalogname: *const u8, cchfkcatalogname: i16, szfkschemaname: *const u8, cchfkschemaname: i16, szfktablename: *const u8, cchfktablename: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u8, cchpkcatalogname: i16, szpkschemaname: *const u8, cchpkschemaname: i16, szpktablename: *const u8, cchpktablename: i16, szfkcatalogname: *const u8, cchfkcatalogname: i16, szfkschemaname: *const u8, cchfkschemaname: i16, szfktablename: *const u8, cchfktablename: i16) -> i16;
         }
@@ -27290,7 +27366,8 @@ pub unsafe fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *
 pub unsafe fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u8, cbpkcatalogname: i16, szpkschemaname: *const u8, cbpkschemaname: i16, szpktablename: *const u8, cbpktablename: i16, szfkcatalogname: *const u8, cbfkcatalogname: i16, szfkschemaname: *const u8, cbfkschemaname: i16, szfktablename: *const u8, cbfktablename: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u8, cbpkcatalogname: i16, szpkschemaname: *const u8, cbpkschemaname: i16, szpktablename: *const u8, cbpktablename: i16, szfkcatalogname: *const u8, cbfkcatalogname: i16, szfkschemaname: *const u8, cbfkschemaname: i16, szfktablename: *const u8, cbfktablename: i16) -> i16;
         }
@@ -27318,7 +27395,8 @@ pub unsafe fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: 
 pub unsafe fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u16, cchpkcatalogname: i16, szpkschemaname: *const u16, cchpkschemaname: i16, szpktablename: *const u16, cchpktablename: i16, szfkcatalogname: *const u16, cchfkcatalogname: i16, szfkschemaname: *const u16, cchfkschemaname: i16, szfktablename: *const u16, cchfktablename: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u16, cchpkcatalogname: i16, szpkschemaname: *const u16, cchpkschemaname: i16, szpktablename: *const u16, cchpktablename: i16, szfkcatalogname: *const u16, cchfkcatalogname: i16, szfkschemaname: *const u16, cchfkschemaname: i16, szfktablename: *const u16, cchfktablename: i16) -> i16;
         }
@@ -27346,7 +27424,8 @@ pub unsafe fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: 
 pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16;
         }
@@ -27360,7 +27439,8 @@ pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 
 pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16;
         }
@@ -27374,7 +27454,8 @@ pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16 {
 pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -> i16;
         }
@@ -27388,7 +27469,8 @@ pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -
 pub unsafe fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16) -> i16;
         }
@@ -27402,7 +27484,8 @@ pub unsafe fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16
 pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlengthptr: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlengthptr: *mut i32) -> i16;
         }
@@ -27416,7 +27499,8 @@ pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attr
 pub unsafe fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
         }
@@ -27430,7 +27514,8 @@ pub unsafe fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32
 pub unsafe fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
         }
@@ -27444,7 +27529,8 @@ pub unsafe fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32
 pub unsafe fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16;
         }
@@ -27458,7 +27544,8 @@ pub unsafe fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
 pub unsafe fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16;
         }
@@ -27472,7 +27559,8 @@ pub unsafe fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
 pub unsafe fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16;
         }
@@ -27486,7 +27574,8 @@ pub unsafe fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
 pub unsafe fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: *mut u8, bufferlength: i16, namelengthptr: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: *mut u8, bufferlength: i16, namelengthptr: *mut i16) -> i16;
         }
@@ -27500,7 +27589,8 @@ pub unsafe fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursor
 pub unsafe fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *mut u8, cbcursormax: i16, pcbcursor: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *mut u8, cbcursormax: i16, pcbcursor: *mut i16) -> i16;
         }
@@ -27514,7 +27604,8 @@ pub unsafe fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *mut 
 pub unsafe fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *mut u16, cchcursormax: i16, pcchcursor: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *mut u16, cchcursormax: i16, pcchcursor: *mut i16) -> i16;
         }
@@ -27529,7 +27620,8 @@ pub unsafe fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *mut 
 pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16;
         }
@@ -27544,7 +27636,8 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber
 pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16;
         }
@@ -27558,7 +27651,8 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber
 pub unsafe fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
         }
@@ -27572,7 +27666,8 @@ pub unsafe fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnum
 pub unsafe fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16;
         }
@@ -27586,7 +27681,8 @@ pub unsafe fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, if
 pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16;
         }
@@ -27601,7 +27697,8 @@ pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, if
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16;
         }
@@ -27616,7 +27713,8 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16;
         }
@@ -27631,7 +27729,8 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
         }
@@ -27646,7 +27745,8 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
         }
@@ -27661,7 +27761,8 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
         }
@@ -27676,7 +27777,8 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
         }
@@ -27690,7 +27792,8 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
 pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16) -> i16;
         }
@@ -27704,7 +27807,8 @@ pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void,
 pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbdiaginfomax: i16, pcbdiaginfo: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbdiaginfomax: i16, pcbdiaginfo: *mut i16) -> i16;
         }
@@ -27718,7 +27822,8 @@ pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_voi
 pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbbufferlength: i16, pcbstringlength: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbbufferlength: i16, pcbstringlength: *mut i16) -> i16;
         }
@@ -27732,7 +27837,8 @@ pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_voi
 pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16;
         }
@@ -27746,7 +27852,8 @@ pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, r
 pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16;
         }
@@ -27760,7 +27867,8 @@ pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void,
 pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u16, pfnativeerror: *mut i32, szerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u16, pfnativeerror: *mut i32, szerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16;
         }
@@ -27774,7 +27882,8 @@ pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void,
 pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
         }
@@ -27788,7 +27897,8 @@ pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribu
 pub unsafe fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functionid: u16, supported: *mut u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functionid: u16, supported: *mut u16) -> i16;
         }
@@ -27802,7 +27912,8 @@ pub unsafe fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functi
 pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: *mut ::core::ffi::c_void, bufferlength: i16, stringlengthptr: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: *mut ::core::ffi::c_void, bufferlength: i16, stringlengthptr: *mut i16) -> i16;
         }
@@ -27816,7 +27927,8 @@ pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u
 pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
         }
@@ -27830,7 +27942,8 @@ pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinf
 pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
         }
@@ -27845,7 +27958,8 @@ pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinf
 pub unsafe fn SQLGetNextEnumeration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetNextEnumeration(henumhandle: super::super::Foundation::HANDLE, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16;
         }
@@ -27859,7 +27973,8 @@ pub unsafe fn SQLGetNextEnumeration<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
         }
@@ -27873,7 +27988,8 @@ pub unsafe fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribut
 pub unsafe fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
         }
@@ -27887,7 +28003,8 @@ pub unsafe fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
 pub unsafe fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
         }
@@ -27901,7 +28018,8 @@ pub unsafe fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
 pub unsafe fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16;
         }
@@ -27915,7 +28033,8 @@ pub unsafe fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
 pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
         }
@@ -27929,7 +28048,8 @@ pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype
 pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
         }
@@ -27943,7 +28063,8 @@ pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatyp
 pub unsafe fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
         }
@@ -28019,7 +28140,8 @@ pub const SQLINTN: u32 = 38u32;
 pub unsafe fn SQLInitEnumServers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwchservername: Param0, pwchinstancename: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLInitEnumServers(pwchservername: super::super::Foundation::PWSTR, pwchinstancename: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
@@ -28034,7 +28156,8 @@ pub unsafe fn SQLInitEnumServers<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SQLLinkedCatalogsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLLinkedCatalogsA(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PSTR, param2: i16) -> i16;
         }
@@ -28049,7 +28172,8 @@ pub unsafe fn SQLLinkedCatalogsA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SQLLinkedCatalogsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLLinkedCatalogsW(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PWSTR, param2: i16) -> i16;
         }
@@ -28063,7 +28187,8 @@ pub unsafe fn SQLLinkedCatalogsW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16;
         }
@@ -28083,7 +28208,8 @@ pub const SQLMONEYN: u32 = 110u32;
 pub unsafe fn SQLMoreResults(hstmt: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLMoreResults(hstmt: *mut ::core::ffi::c_void) -> i16;
         }
@@ -28107,7 +28233,8 @@ pub const SQLNVARCHAR: u32 = 231u32;
 pub unsafe fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8, cchsqlstrin: i32, szsqlstr: *mut u8, cchsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8, cchsqlstrin: i32, szsqlstr: *mut u8, cchsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16;
         }
@@ -28121,7 +28248,8 @@ pub unsafe fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8
 pub unsafe fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8, cbsqlstrin: i32, szsqlstr: *mut u8, cbsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8, cbsqlstrin: i32, szsqlstr: *mut u8, cbsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16;
         }
@@ -28135,7 +28263,8 @@ pub unsafe fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u
 pub unsafe fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u16, cchsqlstrin: i32, szsqlstr: *mut u16, cchsqlstrmax: i32, pcchsqlstr: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u16, cchsqlstrin: i32, szsqlstr: *mut u16, cchsqlstrmax: i32, pcchsqlstr: *mut i32) -> i16;
         }
@@ -28149,7 +28278,8 @@ pub unsafe fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u
 pub unsafe fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: *mut i16) -> i16;
         }
@@ -28163,7 +28293,8 @@ pub unsafe fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: *mut i16) -> 
 pub unsafe fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, columncount: *mut i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, columncount: *mut i16) -> i16;
         }
@@ -28177,7 +28308,8 @@ pub unsafe fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, column
 pub unsafe fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> i16;
         }
@@ -28192,7 +28324,8 @@ pub unsafe fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: *mu
 pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16;
         }
@@ -28207,7 +28340,8 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow:
 pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16;
         }
@@ -28221,7 +28355,8 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow:
 pub unsafe fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16;
         }
@@ -28235,7 +28370,8 @@ pub unsafe fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtex
 pub unsafe fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16;
         }
@@ -28249,7 +28385,8 @@ pub unsafe fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, 
 pub unsafe fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16, cchsqlstr: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16, cchsqlstr: i32) -> i16;
         }
@@ -28263,7 +28400,8 @@ pub unsafe fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16,
 pub unsafe fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16;
         }
@@ -28277,7 +28415,8 @@ pub unsafe fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: *co
 pub unsafe fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16;
         }
@@ -28291,7 +28430,8 @@ pub unsafe fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *c
 pub unsafe fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16;
         }
@@ -28305,7 +28445,8 @@ pub unsafe fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *c
 pub unsafe fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16;
         }
@@ -28319,7 +28460,8 @@ pub unsafe fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname
 pub unsafe fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16;
         }
@@ -28333,7 +28475,8 @@ pub unsafe fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalognam
 pub unsafe fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16;
         }
@@ -28347,7 +28490,8 @@ pub unsafe fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalognam
 pub unsafe fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16) -> i16;
         }
@@ -28361,7 +28505,8 @@ pub unsafe fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: *con
 pub unsafe fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16) -> i16;
         }
@@ -28375,7 +28520,8 @@ pub unsafe fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *co
 pub unsafe fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16) -> i16;
         }
@@ -28390,7 +28536,8 @@ pub unsafe fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *co
 pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i64) -> i16;
         }
@@ -28405,7 +28552,8 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const
 pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i32) -> i16;
         }
@@ -28420,7 +28568,8 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const
 pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i64) -> i16;
         }
@@ -28435,7 +28584,8 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount:
 pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i32) -> i16;
         }
@@ -28449,7 +28599,8 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount:
 pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
         }
@@ -28463,7 +28614,8 @@ pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attr
 pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16;
         }
@@ -28477,7 +28629,8 @@ pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32
 pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16;
         }
@@ -28492,7 +28645,8 @@ pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16;
         }
@@ -28507,7 +28661,8 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16;
         }
@@ -28522,7 +28677,8 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16;
         }
@@ -28537,7 +28693,8 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16;
         }
@@ -28552,7 +28709,8 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16;
         }
@@ -28567,7 +28725,8 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16;
         }
@@ -28581,7 +28740,8 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
 pub unsafe fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: *const u8, namelength: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: *const u8, namelength: i16) -> i16;
         }
@@ -28595,7 +28755,8 @@ pub unsafe fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursor
 pub unsafe fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *const u8, cbcursor: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *const u8, cbcursor: i16) -> i16;
         }
@@ -28609,7 +28770,8 @@ pub unsafe fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *cons
 pub unsafe fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *const u16, cchcursor: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *const u16, cchcursor: i16) -> i16;
         }
@@ -28623,7 +28785,8 @@ pub unsafe fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *cons
 pub unsafe fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *const ::core::ffi::c_void, bufferlength: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *const ::core::ffi::c_void, bufferlength: i32) -> i16;
         }
@@ -28637,7 +28800,8 @@ pub unsafe fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnum
 pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32) -> i16;
         }
@@ -28652,7 +28816,8 @@ pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnu
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16;
         }
@@ -28667,7 +28832,8 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16;
         }
@@ -28681,7 +28847,8 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
 pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
         }
@@ -28696,7 +28863,8 @@ pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribu
 pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16;
         }
@@ -28711,7 +28879,8 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternu
 pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16;
         }
@@ -28726,7 +28895,8 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternu
 pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16;
         }
@@ -28741,7 +28911,8 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16
 pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16;
         }
@@ -28756,7 +28927,8 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16;
         }
@@ -28771,7 +28943,8 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency:
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16;
         }
@@ -28785,7 +28958,8 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency:
 pub unsafe fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
         }
@@ -28799,7 +28973,8 @@ pub unsafe fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribut
 pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32) -> i16;
         }
@@ -28814,7 +28989,8 @@ pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16;
         }
@@ -28829,7 +29005,8 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16;
         }
@@ -28843,7 +29020,8 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
 pub unsafe fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, identifiertype: u16, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, scope: u16, nullable: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, identifiertype: u16, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, scope: u16, nullable: u16) -> i16;
         }
@@ -28857,7 +29035,8 @@ pub unsafe fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, ident
 pub unsafe fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, fscope: u16, fnullable: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, fscope: u16, fnullable: u16) -> i16;
         }
@@ -28871,7 +29050,8 @@ pub unsafe fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16,
 pub unsafe fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, fscope: u16, fnullable: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, fscope: u16, fnullable: u16) -> i16;
         }
@@ -28885,7 +29065,8 @@ pub unsafe fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16,
 pub unsafe fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, unique: u16, reserved: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, unique: u16, reserved: u16) -> i16;
         }
@@ -28899,7 +29080,8 @@ pub unsafe fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogna
 pub unsafe fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, funique: u16, faccuracy: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, funique: u16, faccuracy: u16) -> i16;
         }
@@ -28913,7 +29095,8 @@ pub unsafe fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *co
 pub unsafe fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, funique: u16, faccuracy: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, funique: u16, faccuracy: u16) -> i16;
         }
@@ -28929,7 +29112,8 @@ pub const SQLTEXT: u32 = 35u32;
 pub unsafe fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16;
         }
@@ -28943,7 +29127,8 @@ pub unsafe fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname:
 pub unsafe fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16;
         }
@@ -28957,7 +29142,8 @@ pub unsafe fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname
 pub unsafe fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16;
         }
@@ -28971,7 +29157,8 @@ pub unsafe fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname
 pub unsafe fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, tabletype: *const u8, namelength4: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, tabletype: *const u8, namelength4: i16) -> i16;
         }
@@ -28985,7 +29172,8 @@ pub unsafe fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: 
 pub unsafe fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, sztabletype: *const u8, cbtabletype: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, sztabletype: *const u8, cbtabletype: i16) -> i16;
         }
@@ -28999,7 +29187,8 @@ pub unsafe fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const 
 pub unsafe fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, sztabletype: *const u16, cchtabletype: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, sztabletype: *const u16, cchtabletype: i16) -> i16;
         }
@@ -29013,7 +29202,8 @@ pub unsafe fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const 
 pub unsafe fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, completiontype: u16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, completiontype: u16) -> i16;
         }
@@ -33567,7 +33757,8 @@ pub const _MAPI_W_NO_SERVICE: i32 = 262659i32;
 pub unsafe fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32;
         }
@@ -33581,7 +33772,8 @@ pub unsafe fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32 {
 pub unsafe fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32, param3: i32, param4: *mut u8, param5: i32, param6: i32, param7: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32, param3: i32, param4: *mut u8, param5: i32, param6: i32, param7: i32) -> i16;
         }
@@ -33595,7 +33787,8 @@ pub unsafe fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2
 pub unsafe fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: u8, param3: i32, param4: i32, param5: *mut u8, param6: i32, param7: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: u8, param3: i32, param4: i32, param5: *mut u8, param6: i32, param7: i32) -> i16;
         }
@@ -33609,7 +33802,8 @@ pub unsafe fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: 
 pub unsafe fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32) -> i16;
         }
@@ -33623,7 +33817,8 @@ pub unsafe fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: 
 pub unsafe fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32) -> i16;
         }
@@ -33637,7 +33832,8 @@ pub unsafe fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, para
 pub unsafe fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16;
         }
@@ -33651,7 +33847,8 @@ pub unsafe fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16 
 pub unsafe fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut ::core::ffi::c_void) -> i16;
         }
@@ -33665,7 +33862,8 @@ pub unsafe fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2:
 pub unsafe fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32;
         }
@@ -33679,7 +33877,8 @@ pub unsafe fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32 {
 pub unsafe fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i16;
         }
@@ -33693,7 +33892,8 @@ pub unsafe fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i1
 pub unsafe fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32, param5: *mut i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32, param5: *mut i32) -> i16;
         }
@@ -33708,7 +33908,8 @@ pub unsafe fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param
 pub unsafe fn bcp_initA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: Param2, param3: Param3, param4: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_initA(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: super::super::Foundation::PSTR, param4: i32) -> i16;
         }
@@ -33723,7 +33924,8 @@ pub unsafe fn bcp_initA<'a, Param1: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn bcp_initW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: Param2, param3: Param3, param4: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_initW(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: super::super::Foundation::PWSTR, param4: i32) -> i16;
         }
@@ -33737,7 +33939,8 @@ pub unsafe fn bcp_initW<'a, Param1: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut u8) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut u8) -> i16;
         }
@@ -33752,7 +33955,8 @@ pub unsafe fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2
 pub unsafe fn bcp_readfmtA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_readfmtA(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PSTR) -> i16;
         }
@@ -33767,7 +33971,8 @@ pub unsafe fn bcp_readfmtA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn bcp_readfmtW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_readfmtW(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PWSTR) -> i16;
         }
@@ -33781,7 +33986,8 @@ pub unsafe fn bcp_readfmtW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16;
         }
@@ -33795,7 +34001,8 @@ pub unsafe fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16 {
 pub unsafe fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32) -> i16;
         }
@@ -33810,7 +34017,8 @@ pub unsafe fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param
 pub unsafe fn bcp_writefmtA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_writefmtA(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PSTR) -> i16;
         }
@@ -33825,7 +34033,8 @@ pub unsafe fn bcp_writefmtA<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn bcp_writefmtW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn bcp_writefmtW(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PWSTR) -> i16;
         }
@@ -33933,7 +34142,8 @@ impl ::core::default::Default for dbmoney {
 pub unsafe fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR;
         }
@@ -33948,7 +34158,8 @@ pub unsafe fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR {
 pub unsafe fn dbprtypeW(param0: i32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn dbprtypeW(param0: i32) -> super::super::Foundation::PWSTR;
         }

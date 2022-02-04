@@ -489,7 +489,8 @@ pub unsafe fn StartXpsPrintJob<'a, Param0: ::windows::core::IntoParam<'a, super:
 ) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xpsprint", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartXpsPrintJob(printername: super::super::super::Foundation::PWSTR, jobname: super::super::super::Foundation::PWSTR, outputfilename: super::super::super::Foundation::PWSTR, progressevent: super::super::super::Foundation::HANDLE, completionevent: super::super::super::Foundation::HANDLE, printablepageson: *const u8, printablepagesoncount: u32, xpsprintjob: *mut ::windows::core::RawPtr, documentstream: *mut ::windows::core::RawPtr, printticketstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -504,7 +505,8 @@ pub unsafe fn StartXpsPrintJob<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn StartXpsPrintJob1<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(printername: Param0, jobname: Param1, outputfilename: Param2, progressevent: Param3, completionevent: Param4, xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, printcontentreceiver: *mut ::core::option::Option<super::IXpsOMPackageTarget>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xpsprint", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartXpsPrintJob1(printername: super::super::super::Foundation::PWSTR, jobname: super::super::super::Foundation::PWSTR, outputfilename: super::super::super::Foundation::PWSTR, progressevent: super::super::super::Foundation::HANDLE, completionevent: super::super::super::Foundation::HANDLE, xpsprintjob: *mut ::windows::core::RawPtr, printcontentreceiver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }

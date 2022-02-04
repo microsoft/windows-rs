@@ -2318,7 +2318,8 @@ pub const ADSystemInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub unsafe fn ADsBuildEnumerator<'a, Param0: ::windows::core::IntoParam<'a, IADsContainer>>(padscontainer: Param0) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsBuildEnumerator(padscontainer: ::windows::core::RawPtr, ppenumvariant: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2334,7 +2335,8 @@ pub unsafe fn ADsBuildEnumerator<'a, Param0: ::windows::core::IntoParam<'a, IADs
 pub unsafe fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -2349,7 +2351,8 @@ pub unsafe fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32,
 pub unsafe fn ADsBuildVarArrayStr(lpppathnames: *const super::super::Foundation::PWSTR, dwpathnames: u32, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsBuildVarArrayStr(lpppathnames: *const super::super::Foundation::PWSTR, dwpathnames: u32, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -2364,7 +2367,8 @@ pub unsafe fn ADsBuildVarArrayStr(lpppathnames: *const super::super::Foundation:
 pub unsafe fn ADsDecodeBinaryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szsrcdata: Param0, ppbdestdata: *mut *mut u8, pdwdestlen: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsDecodeBinaryData(szsrcdata: super::super::Foundation::PWSTR, ppbdestdata: *mut *mut u8, pdwdestlen: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2379,7 +2383,8 @@ pub unsafe fn ADsDecodeBinaryData<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdata: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdata: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -2394,7 +2399,8 @@ pub unsafe fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdat
 pub unsafe fn ADsEnumerateNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IEnumVARIANT>>(penumvariant: Param0, celements: u32, pvar: *mut super::super::System::Com::VARIANT, pcelementsfetched: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsEnumerateNext(penumvariant: ::windows::core::RawPtr, celements: u32, pvar: *mut super::super::System::Com::VARIANT, pcelementsfetched: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2409,7 +2415,8 @@ pub unsafe fn ADsEnumerateNext<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ADsFreeEnumerator<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IEnumVARIANT>>(penumvariant: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsFreeEnumerator(penumvariant: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2424,7 +2431,8 @@ pub unsafe fn ADsFreeEnumerator<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: super::super::Foundation::PWSTR, dwerrorbuflen: u32, lpnamebuf: super::super::Foundation::PWSTR, dwnamebuflen: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsGetLastError(lperror: *mut u32, lperrorbuf: super::super::Foundation::PWSTR, dwerrorbuflen: u32, lpnamebuf: super::super::Foundation::PWSTR, dwnamebuflen: u32) -> ::windows::core::HRESULT;
         }
@@ -2439,7 +2447,8 @@ pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: super::super::Found
 pub unsafe fn ADsGetObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsGetObject(lpszpathname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2454,7 +2463,8 @@ pub unsafe fn ADsGetObject<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn ADsOpenObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0, lpszusername: Param1, lpszpassword: Param2, dwreserved: ADS_AUTHENTICATION_ENUM, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsOpenObject(lpszpathname: super::super::Foundation::PWSTR, lpszusername: super::super::Foundation::PWSTR, lpszpassword: super::super::Foundation::PWSTR, dwreserved: ADS_AUTHENTICATION_ENUM, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2469,7 +2479,8 @@ pub unsafe fn ADsOpenObject<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn ADsPropCheckIfWritable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzattr: Param0, pwritableattrs: *const ADS_ATTR_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsprop", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsPropCheckIfWritable(pwzattr: super::super::Foundation::PWSTR, pwritableattrs: *const ADS_ATTR_INFO) -> super::super::Foundation::BOOL;
         }
@@ -2484,7 +2495,8 @@ pub unsafe fn ADsPropCheckIfWritable<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ADsPropCreateNotifyObj<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDataObject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pappthddataobj: Param0, pwzadsobjname: Param1, phnotifyobj: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsprop", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsPropCreateNotifyObj(pappthddataobj: ::windows::core::RawPtr, pwzadsobjname: super::super::Foundation::PWSTR, phnotifyobj: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -2499,7 +2511,8 @@ pub unsafe fn ADsPropCreateNotifyObj<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ADsPropGetInitInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, pinitparams: *mut ADSPROPINITPARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsprop", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsPropGetInitInfo(hnotifyobj: super::super::Foundation::HWND, pinitparams: *mut ADSPROPINITPARAMS) -> super::super::Foundation::BOOL;
         }
@@ -2514,7 +2527,8 @@ pub unsafe fn ADsPropGetInitInfo<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ADsPropSendErrorMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, perror: *mut ADSPROPERROR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsprop", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsPropSendErrorMessage(hnotifyobj: super::super::Foundation::HWND, perror: *mut ADSPROPERROR) -> super::super::Foundation::BOOL;
         }
@@ -2529,7 +2543,8 @@ pub unsafe fn ADsPropSendErrorMessage<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ADsPropSetHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsprop", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsPropSetHwnd(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -2544,7 +2559,8 @@ pub unsafe fn ADsPropSetHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ADsPropSetHwndWithTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1, ptztitle: *const i8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsprop", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsPropSetHwndWithTitle(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND, ptztitle: *const i8) -> super::super::Foundation::BOOL;
         }
@@ -2559,7 +2575,8 @@ pub unsafe fn ADsPropSetHwndWithTitle<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ADsPropShowErrorDialog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsprop", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsPropShowErrorDialog(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -2575,7 +2592,8 @@ pub const ADsSecurityUtility: ::windows::core::GUID = ::windows::core::GUID::fro
 pub unsafe fn ADsSetLastError<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwerr: u32, pszerror: Param1, pszprovider: Param2) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ADsSetLastError(dwerr: u32, pszerror: super::super::Foundation::PWSTR, pszprovider: super::super::Foundation::PWSTR);
         }
@@ -2592,7 +2610,8 @@ pub const AccessControlList: ::windows::core::GUID = ::windows::core::GUID::from
 pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32);
         }
@@ -2607,7 +2626,8 @@ pub unsafe fn AdsFreeAdsValues(padsvalues: *mut ADSVALUE, dwnumvalues: u32) {
 pub unsafe fn AdsTypeToPropVariant(padsvalues: *mut ADSVALUE, dwnumvalues: u32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AdsTypeToPropVariant(padsvalues: *mut ADSVALUE, dwnumvalues: u32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -2621,7 +2641,8 @@ pub unsafe fn AdsTypeToPropVariant(padsvalues: *mut ADSVALUE, dwnumvalues: u32, 
 pub unsafe fn AllocADsMem(cb: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AllocADsMem(cb: u32) -> *mut ::core::ffi::c_void;
         }
@@ -2636,7 +2657,8 @@ pub unsafe fn AllocADsMem(cb: u32) -> *mut ::core::ffi::c_void {
 pub unsafe fn AllocADsStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pstr: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AllocADsStr(pstr: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
@@ -2652,7 +2674,8 @@ pub const BackLink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf
 pub unsafe fn BinarySDToSecurityDescriptor<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, pvarsec: *mut super::super::System::Com::VARIANT, pszservername: Param2, username: Param3, password: Param4, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BinarySDToSecurityDescriptor(psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, pvarsec: *mut super::super::System::Com::VARIANT, pszservername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -7433,7 +7456,8 @@ pub const DS_WS_FLAG: u32 = 8192u32;
 pub unsafe fn DsAddSidHistoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, flags: u32, srcdomain: Param2, srcprincipal: Param3, srcdomaincontroller: Param4, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: Param6, dstprincipal: Param7) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsAddSidHistoryA(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: super::super::Foundation::PSTR, srcprincipal: super::super::Foundation::PSTR, srcdomaincontroller: super::super::Foundation::PSTR, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: super::super::Foundation::PSTR, dstprincipal: super::super::Foundation::PSTR) -> u32;
         }
@@ -7448,7 +7472,8 @@ pub unsafe fn DsAddSidHistoryA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DsAddSidHistoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, flags: u32, srcdomain: Param2, srcprincipal: Param3, srcdomaincontroller: Param4, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: Param6, dstprincipal: Param7) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsAddSidHistoryW(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: super::super::Foundation::PWSTR, srcprincipal: super::super::Foundation::PWSTR, srcdomaincontroller: super::super::Foundation::PWSTR, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: super::super::Foundation::PWSTR, dstprincipal: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7463,7 +7488,8 @@ pub unsafe fn DsAddSidHistoryW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DsAddressToSiteNamesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(computername: Param0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsAddressToSiteNamesA(computername: super::super::Foundation::PSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PSTR) -> u32;
         }
@@ -7478,7 +7504,8 @@ pub unsafe fn DsAddressToSiteNamesA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DsAddressToSiteNamesExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(computername: Param0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PSTR, subnetnames: *mut *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsAddressToSiteNamesExA(computername: super::super::Foundation::PSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PSTR, subnetnames: *mut *mut super::super::Foundation::PSTR) -> u32;
         }
@@ -7493,7 +7520,8 @@ pub unsafe fn DsAddressToSiteNamesExA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DsAddressToSiteNamesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(computername: Param0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PWSTR, subnetnames: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsAddressToSiteNamesExW(computername: super::super::Foundation::PWSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PWSTR, subnetnames: *mut *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -7508,7 +7536,8 @@ pub unsafe fn DsAddressToSiteNamesExW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DsAddressToSiteNamesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(computername: Param0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsAddressToSiteNamesW(computername: super::super::Foundation::PWSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -7523,7 +7552,8 @@ pub unsafe fn DsAddressToSiteNamesW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DsBindA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindA(domaincontrollername: super::super::Foundation::PSTR, dnsdomainname: super::super::Foundation::PSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7538,7 +7568,8 @@ pub unsafe fn DsBindA<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn DsBindByInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(servername: Param0, annotation: Param1, instanceguid: *const ::windows::core::GUID, dnsdomainname: Param3, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param5, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindByInstanceA(servername: super::super::Foundation::PSTR, annotation: super::super::Foundation::PSTR, instanceguid: *const ::windows::core::GUID, dnsdomainname: super::super::Foundation::PSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: super::super::Foundation::PSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7553,7 +7584,8 @@ pub unsafe fn DsBindByInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsBindByInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, annotation: Param1, instanceguid: *const ::windows::core::GUID, dnsdomainname: Param3, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param5, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindByInstanceW(servername: super::super::Foundation::PWSTR, annotation: super::super::Foundation::PWSTR, instanceguid: *const ::windows::core::GUID, dnsdomainname: super::super::Foundation::PWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: super::super::Foundation::PWSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7568,7 +7600,8 @@ pub unsafe fn DsBindByInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsBindToISTGA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sitename: Param0, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindToISTGA(sitename: super::super::Foundation::PSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7583,7 +7616,8 @@ pub unsafe fn DsBindToISTGA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DsBindToISTGW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sitename: Param0, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindToISTGW(sitename: super::super::Foundation::PWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7598,7 +7632,8 @@ pub unsafe fn DsBindToISTGW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DsBindW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindW(domaincontrollername: super::super::Foundation::PWSTR, dnsdomainname: super::super::Foundation::PWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7613,7 +7648,8 @@ pub unsafe fn DsBindW<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn DsBindWithCredA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindWithCredA(domaincontrollername: super::super::Foundation::PSTR, dnsdomainname: super::super::Foundation::PSTR, authidentity: *const ::core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7628,7 +7664,8 @@ pub unsafe fn DsBindWithCredA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DsBindWithCredW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindWithCredW(domaincontrollername: super::super::Foundation::PWSTR, dnsdomainname: super::super::Foundation::PWSTR, authidentity: *const ::core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7643,7 +7680,8 @@ pub unsafe fn DsBindWithCredW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DsBindWithSpnA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param3, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindWithSpnA(domaincontrollername: super::super::Foundation::PSTR, dnsdomainname: super::super::Foundation::PSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: super::super::Foundation::PSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7658,7 +7696,8 @@ pub unsafe fn DsBindWithSpnA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DsBindWithSpnExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param3, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindWithSpnExA(domaincontrollername: super::super::Foundation::PSTR, dnsdomainname: super::super::Foundation::PSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: super::super::Foundation::PSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7673,7 +7712,8 @@ pub unsafe fn DsBindWithSpnExA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DsBindWithSpnExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param3, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindWithSpnExW(domaincontrollername: super::super::Foundation::PWSTR, dnsdomainname: super::super::Foundation::PWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: super::super::Foundation::PWSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7688,7 +7728,8 @@ pub unsafe fn DsBindWithSpnExW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DsBindWithSpnW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param3, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindWithSpnW(domaincontrollername: super::super::Foundation::PWSTR, dnsdomainname: super::super::Foundation::PWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: super::super::Foundation::PWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7703,7 +7744,8 @@ pub unsafe fn DsBindWithSpnW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DsBindingSetTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, ctimeoutsecs: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBindingSetTimeout(hds: super::super::Foundation::HANDLE, ctimeoutsecs: u32) -> u32;
         }
@@ -7718,7 +7760,8 @@ pub unsafe fn DsBindingSetTimeout<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsuiext", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32;
         }
@@ -7733,7 +7776,8 @@ pub unsafe fn DsBrowseForContainerA(pinfo: *mut DSBROWSEINFOA) -> i32 {
 pub unsafe fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsuiext", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32;
         }
@@ -7748,7 +7792,8 @@ pub unsafe fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32 {
 pub unsafe fn DsClientMakeSpnForTargetServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(serviceclass: Param0, servicename: Param1, pcspnlength: *mut u32, pszspn: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsClientMakeSpnForTargetServerA(serviceclass: super::super::Foundation::PSTR, servicename: super::super::Foundation::PSTR, pcspnlength: *mut u32, pszspn: super::super::Foundation::PSTR) -> u32;
         }
@@ -7763,7 +7808,8 @@ pub unsafe fn DsClientMakeSpnForTargetServerA<'a, Param0: ::windows::core::IntoP
 pub unsafe fn DsClientMakeSpnForTargetServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serviceclass: Param0, servicename: Param1, pcspnlength: *mut u32, pszspn: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsClientMakeSpnForTargetServerW(serviceclass: super::super::Foundation::PWSTR, servicename: super::super::Foundation::PWSTR, pcspnlength: *mut u32, pszspn: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7778,7 +7824,8 @@ pub unsafe fn DsClientMakeSpnForTargetServerW<'a, Param0: ::windows::core::IntoP
 pub unsafe fn DsCrackNamesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const super::super::Foundation::PSTR, ppresult: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsCrackNamesA(hds: super::super::Foundation::HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const super::super::Foundation::PSTR, ppresult: *mut *mut DS_NAME_RESULTA) -> u32;
         }
@@ -7793,7 +7840,8 @@ pub unsafe fn DsCrackNamesA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DsCrackNamesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const super::super::Foundation::PWSTR, ppresult: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsCrackNamesW(hds: super::super::Foundation::HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const super::super::Foundation::PWSTR, ppresult: *mut *mut DS_NAME_RESULTW) -> u32;
         }
@@ -7808,7 +7856,8 @@ pub unsafe fn DsCrackNamesW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DsCrackSpn2A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszspn: Param0, cspn: u32, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PSTR, pinstanceport: *mut u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsCrackSpn2A(pszspn: super::super::Foundation::PSTR, cspn: u32, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PSTR, pinstanceport: *mut u16) -> u32;
         }
@@ -7823,7 +7872,8 @@ pub unsafe fn DsCrackSpn2A<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsCrackSpn2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszspn: Param0, cspn: u32, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PWSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pinstanceport: *mut u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsCrackSpn2W(pszspn: super::super::Foundation::PWSTR, cspn: u32, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PWSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pinstanceport: *mut u16) -> u32;
         }
@@ -7838,7 +7888,8 @@ pub unsafe fn DsCrackSpn2W<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsCrackSpn3W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszspn: Param0, cspn: u32, pchostname: *mut u32, hostname: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pportnumber: *mut u16, pcdomainname: *mut u32, domainname: super::super::Foundation::PWSTR, pcrealmname: *mut u32, realmname: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsCrackSpn3W(pszspn: super::super::Foundation::PWSTR, cspn: u32, pchostname: *mut u32, hostname: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pportnumber: *mut u16, pcdomainname: *mut u32, domainname: super::super::Foundation::PWSTR, pcrealmname: *mut u32, realmname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7853,7 +7904,8 @@ pub unsafe fn DsCrackSpn3W<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsCrackSpn4W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszspn: Param0, cspn: u32, pchostname: *mut u32, hostname: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pcportname: *mut u32, portname: super::super::Foundation::PWSTR, pcdomainname: *mut u32, domainname: super::super::Foundation::PWSTR, pcrealmname: *mut u32, realmname: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsCrackSpn4W(pszspn: super::super::Foundation::PWSTR, cspn: u32, pchostname: *mut u32, hostname: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pcportname: *mut u32, portname: super::super::Foundation::PWSTR, pcdomainname: *mut u32, domainname: super::super::Foundation::PWSTR, pcrealmname: *mut u32, realmname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7868,7 +7920,8 @@ pub unsafe fn DsCrackSpn4W<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsCrackSpnA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszspn: Param0, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PSTR, pinstanceport: *mut u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsCrackSpnA(pszspn: super::super::Foundation::PSTR, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PSTR, pinstanceport: *mut u16) -> u32;
         }
@@ -7883,7 +7936,8 @@ pub unsafe fn DsCrackSpnA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn DsCrackSpnW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszspn: Param0, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PWSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pinstanceport: *mut u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsCrackSpnW(pszspn: super::super::Foundation::PWSTR, pcserviceclass: *mut u32, serviceclass: super::super::Foundation::PWSTR, pcservicename: *mut u32, servicename: super::super::Foundation::PWSTR, pcinstancename: *mut u32, instancename: super::super::Foundation::PWSTR, pinstanceport: *mut u16) -> u32;
         }
@@ -7898,7 +7952,8 @@ pub unsafe fn DsCrackSpnW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn DsCrackUnquotedMangledRdnA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszrdn: Param0, cchrdn: u32, pguid: *mut ::windows::core::GUID, pedsmanglefor: *mut DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsCrackUnquotedMangledRdnA(pszrdn: super::super::Foundation::PSTR, cchrdn: u32, pguid: *mut ::windows::core::GUID, pedsmanglefor: *mut DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
         }
@@ -7913,7 +7968,8 @@ pub unsafe fn DsCrackUnquotedMangledRdnA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DsCrackUnquotedMangledRdnW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszrdn: Param0, cchrdn: u32, pguid: *mut ::windows::core::GUID, pedsmanglefor: *mut DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsCrackUnquotedMangledRdnW(pszrdn: super::super::Foundation::PWSTR, cchrdn: u32, pguid: *mut ::windows::core::GUID, pedsmanglefor: *mut DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
         }
@@ -7928,7 +7984,8 @@ pub unsafe fn DsCrackUnquotedMangledRdnW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DsDeregisterDnsHostRecordsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(servername: Param0, dnsdomainname: Param1, domainguid: *const ::windows::core::GUID, dsaguid: *const ::windows::core::GUID, dnshostname: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsDeregisterDnsHostRecordsA(servername: super::super::Foundation::PSTR, dnsdomainname: super::super::Foundation::PSTR, domainguid: *const ::windows::core::GUID, dsaguid: *const ::windows::core::GUID, dnshostname: super::super::Foundation::PSTR) -> u32;
         }
@@ -7943,7 +8000,8 @@ pub unsafe fn DsDeregisterDnsHostRecordsA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DsDeregisterDnsHostRecordsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dnsdomainname: Param1, domainguid: *const ::windows::core::GUID, dsaguid: *const ::windows::core::GUID, dnshostname: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsDeregisterDnsHostRecordsW(servername: super::super::Foundation::PWSTR, dnsdomainname: super::super::Foundation::PWSTR, domainguid: *const ::windows::core::GUID, dsaguid: *const ::windows::core::GUID, dnshostname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -7958,7 +8016,8 @@ pub unsafe fn DsDeregisterDnsHostRecordsW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DsEnumerateDomainTrustsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(servername: Param0, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsEnumerateDomainTrustsA(servername: super::super::Foundation::PSTR, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32;
         }
@@ -7973,7 +8032,8 @@ pub unsafe fn DsEnumerateDomainTrustsA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DsEnumerateDomainTrustsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsEnumerateDomainTrustsW(servername: super::super::Foundation::PWSTR, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32;
         }
@@ -7987,7 +8047,8 @@ pub unsafe fn DsEnumerateDomainTrustsW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DsFreeDomainControllerInfoA(infolevel: u32, cinfo: u32, pinfo: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsFreeDomainControllerInfoA(infolevel: u32, cinfo: u32, pinfo: *const ::core::ffi::c_void);
         }
@@ -8001,7 +8062,8 @@ pub unsafe fn DsFreeDomainControllerInfoA(infolevel: u32, cinfo: u32, pinfo: *co
 pub unsafe fn DsFreeDomainControllerInfoW(infolevel: u32, cinfo: u32, pinfo: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsFreeDomainControllerInfoW(infolevel: u32, cinfo: u32, pinfo: *const ::core::ffi::c_void);
         }
@@ -8016,7 +8078,8 @@ pub unsafe fn DsFreeDomainControllerInfoW(infolevel: u32, cinfo: u32, pinfo: *co
 pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA);
         }
@@ -8031,7 +8094,8 @@ pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
 pub unsafe fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW);
         }
@@ -8045,7 +8109,8 @@ pub unsafe fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW) {
 pub unsafe fn DsFreePasswordCredentials(authidentity: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsFreePasswordCredentials(authidentity: *const ::core::ffi::c_void);
         }
@@ -8060,7 +8125,8 @@ pub unsafe fn DsFreePasswordCredentials(authidentity: *const ::core::ffi::c_void
 pub unsafe fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA);
         }
@@ -8075,7 +8141,8 @@ pub unsafe fn DsFreeSchemaGuidMapA(pguidmap: *const DS_SCHEMA_GUID_MAPA) {
 pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW);
         }
@@ -8090,7 +8157,8 @@ pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
 pub unsafe fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation::PSTR) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation::PSTR);
         }
@@ -8105,7 +8173,8 @@ pub unsafe fn DsFreeSpnArrayA(cspn: u32, rpszspn: *mut super::super::Foundation:
 pub unsafe fn DsFreeSpnArrayW(cspn: u32, rpszspn: *mut super::super::Foundation::PWSTR) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsFreeSpnArrayW(cspn: u32, rpszspn: *mut super::super::Foundation::PWSTR);
         }
@@ -8119,7 +8188,8 @@ pub unsafe fn DsFreeSpnArrayW(cspn: u32, rpszspn: *mut super::super::Foundation:
 pub unsafe fn DsGetDcCloseW<'a, Param0: ::windows::core::IntoParam<'a, GetDcContextHandle>>(getdccontexthandle: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDcCloseW(getdccontexthandle: GetDcContextHandle);
         }
@@ -8134,7 +8204,8 @@ pub unsafe fn DsGetDcCloseW<'a, Param0: ::windows::core::IntoParam<'a, GetDcCont
 pub unsafe fn DsGetDcNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(computername: Param0, domainname: Param1, domainguid: *const ::windows::core::GUID, sitename: Param3, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDcNameA(computername: super::super::Foundation::PSTR, domainname: super::super::Foundation::PSTR, domainguid: *const ::windows::core::GUID, sitename: super::super::Foundation::PSTR, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32;
         }
@@ -8149,7 +8220,8 @@ pub unsafe fn DsGetDcNameA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsGetDcNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(computername: Param0, domainname: Param1, domainguid: *const ::windows::core::GUID, sitename: Param3, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDcNameW(computername: super::super::Foundation::PWSTR, domainname: super::super::Foundation::PWSTR, domainguid: *const ::windows::core::GUID, sitename: super::super::Foundation::PWSTR, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32;
         }
@@ -8164,7 +8236,8 @@ pub unsafe fn DsGetDcNameW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsGetDcNextA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(getdccontexthandle: Param0, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDcNextA(getdccontexthandle: super::super::Foundation::HANDLE, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut super::super::Foundation::PSTR) -> u32;
         }
@@ -8179,7 +8252,8 @@ pub unsafe fn DsGetDcNextA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsGetDcNextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(getdccontexthandle: Param0, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDcNextW(getdccontexthandle: super::super::Foundation::HANDLE, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -8194,7 +8268,8 @@ pub unsafe fn DsGetDcNextW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsGetDcOpenA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dnsname: Param0, optionflags: u32, sitename: Param2, domainguid: *const ::windows::core::GUID, dnsforestname: Param4, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDcOpenA(dnsname: super::super::Foundation::PSTR, optionflags: u32, sitename: super::super::Foundation::PSTR, domainguid: *const ::windows::core::GUID, dnsforestname: super::super::Foundation::PSTR, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32;
         }
@@ -8209,7 +8284,8 @@ pub unsafe fn DsGetDcOpenA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsGetDcOpenW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dnsname: Param0, optionflags: u32, sitename: Param2, domainguid: *const ::windows::core::GUID, dnsforestname: Param4, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDcOpenW(dnsname: super::super::Foundation::PWSTR, optionflags: u32, sitename: super::super::Foundation::PWSTR, domainguid: *const ::windows::core::GUID, dnsforestname: super::super::Foundation::PWSTR, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32;
         }
@@ -8224,7 +8300,8 @@ pub unsafe fn DsGetDcOpenW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsGetDcSiteCoverageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(servername: Param0, entrycount: *mut u32, sitenames: *mut *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDcSiteCoverageA(servername: super::super::Foundation::PSTR, entrycount: *mut u32, sitenames: *mut *mut super::super::Foundation::PSTR) -> u32;
         }
@@ -8239,7 +8316,8 @@ pub unsafe fn DsGetDcSiteCoverageA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsGetDcSiteCoverageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, entrycount: *mut u32, sitenames: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDcSiteCoverageW(servername: super::super::Foundation::PWSTR, entrycount: *mut u32, sitenames: *mut *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -8254,7 +8332,8 @@ pub unsafe fn DsGetDcSiteCoverageW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsGetDomainControllerInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, domainname: Param1, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDomainControllerInfoA(hds: super::super::Foundation::HANDLE, domainname: super::super::Foundation::PSTR, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -8269,7 +8348,8 @@ pub unsafe fn DsGetDomainControllerInfoA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DsGetDomainControllerInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, domainname: Param1, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetDomainControllerInfoW(hds: super::super::Foundation::HANDLE, domainname: super::super::Foundation::PWSTR, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -8284,7 +8364,8 @@ pub unsafe fn DsGetDomainControllerInfoW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DsGetForestTrustInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, trusteddomainname: Param1, flags: u32, foresttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetForestTrustInformationW(servername: super::super::Foundation::PWSTR, trusteddomainname: super::super::Foundation::PWSTR, flags: u32, foresttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32;
         }
@@ -8299,7 +8380,8 @@ pub unsafe fn DsGetForestTrustInformationW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn DsGetFriendlyClassName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszobjectclass: Param0, pszbuffer: super::super::Foundation::PWSTR, cchbuffer: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsuiext", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetFriendlyClassName(pszobjectclass: super::super::Foundation::PWSTR, pszbuffer: super::super::Foundation::PWSTR, cchbuffer: u32) -> ::windows::core::HRESULT;
         }
@@ -8314,7 +8396,8 @@ pub unsafe fn DsGetFriendlyClassName<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DsGetIcon<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: u32, pszobjectclass: Param1, cximage: i32, cyimage: i32) -> super::super::UI::WindowsAndMessaging::HICON {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsuiext", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetIcon(dwflags: u32, pszobjectclass: super::super::Foundation::PWSTR, cximage: i32, cyimage: i32) -> super::super::UI::WindowsAndMessaging::HICON;
         }
@@ -8329,7 +8412,8 @@ pub unsafe fn DsGetIcon<'a, Param1: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn DsGetRdnW(ppdn: *mut super::super::Foundation::PWSTR, pcdn: *mut u32, ppkey: *mut super::super::Foundation::PWSTR, pckey: *mut u32, ppval: *mut super::super::Foundation::PWSTR, pcval: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetRdnW(ppdn: *mut super::super::Foundation::PWSTR, pcdn: *mut u32, ppkey: *mut super::super::Foundation::PWSTR, pckey: *mut u32, ppval: *mut super::super::Foundation::PWSTR, pcval: *mut u32) -> u32;
         }
@@ -8344,7 +8428,8 @@ pub unsafe fn DsGetRdnW(ppdn: *mut super::super::Foundation::PWSTR, pcdn: *mut u
 pub unsafe fn DsGetSiteNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(computername: Param0, sitename: *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetSiteNameA(computername: super::super::Foundation::PSTR, sitename: *mut super::super::Foundation::PSTR) -> u32;
         }
@@ -8359,7 +8444,8 @@ pub unsafe fn DsGetSiteNameA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DsGetSiteNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(computername: Param0, sitename: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetSiteNameW(computername: super::super::Foundation::PWSTR, sitename: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -8374,7 +8460,8 @@ pub unsafe fn DsGetSiteNameW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DsGetSpnA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(servicetype: DS_SPN_NAME_TYPE, serviceclass: Param1, servicename: Param2, instanceport: u16, cinstancenames: u16, pinstancenames: *const super::super::Foundation::PSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetSpnA(servicetype: DS_SPN_NAME_TYPE, serviceclass: super::super::Foundation::PSTR, servicename: super::super::Foundation::PSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const super::super::Foundation::PSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut super::super::Foundation::PSTR) -> u32;
         }
@@ -8389,7 +8476,8 @@ pub unsafe fn DsGetSpnA<'a, Param1: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn DsGetSpnW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servicetype: DS_SPN_NAME_TYPE, serviceclass: Param1, servicename: Param2, instanceport: u16, cinstancenames: u16, pinstancenames: *const super::super::Foundation::PWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsGetSpnW(servicetype: DS_SPN_NAME_TYPE, serviceclass: super::super::Foundation::PWSTR, servicename: super::super::Foundation::PWSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const super::super::Foundation::PWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -8404,7 +8492,8 @@ pub unsafe fn DsGetSpnW<'a, Param1: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn DsInheritSecurityIdentityA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, flags: u32, srcprincipal: Param2, dstprincipal: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsInheritSecurityIdentityA(hds: super::super::Foundation::HANDLE, flags: u32, srcprincipal: super::super::Foundation::PSTR, dstprincipal: super::super::Foundation::PSTR) -> u32;
         }
@@ -8419,7 +8508,8 @@ pub unsafe fn DsInheritSecurityIdentityA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DsInheritSecurityIdentityW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, flags: u32, srcprincipal: Param2, dstprincipal: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsInheritSecurityIdentityW(hds: super::super::Foundation::HANDLE, flags: u32, srcprincipal: super::super::Foundation::PWSTR, dstprincipal: super::super::Foundation::PWSTR) -> u32;
         }
@@ -8434,7 +8524,8 @@ pub unsafe fn DsInheritSecurityIdentityW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DsIsMangledDnA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdn: Param0, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsIsMangledDnA(pszdn: super::super::Foundation::PSTR, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
         }
@@ -8449,7 +8540,8 @@ pub unsafe fn DsIsMangledDnA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DsIsMangledDnW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdn: Param0, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsIsMangledDnW(pszdn: super::super::Foundation::PWSTR, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
         }
@@ -8464,7 +8556,8 @@ pub unsafe fn DsIsMangledDnW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DsIsMangledRdnValueA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszrdn: Param0, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsIsMangledRdnValueA(pszrdn: super::super::Foundation::PSTR, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
         }
@@ -8479,7 +8572,8 @@ pub unsafe fn DsIsMangledRdnValueA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsIsMangledRdnValueW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszrdn: Param0, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsIsMangledRdnValueW(pszrdn: super::super::Foundation::PWSTR, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
         }
@@ -8494,7 +8588,8 @@ pub unsafe fn DsIsMangledRdnValueW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsListDomainsInSiteA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, site: Param1, ppdomains: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListDomainsInSiteA(hds: super::super::Foundation::HANDLE, site: super::super::Foundation::PSTR, ppdomains: *mut *mut DS_NAME_RESULTA) -> u32;
         }
@@ -8509,7 +8604,8 @@ pub unsafe fn DsListDomainsInSiteA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsListDomainsInSiteW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, site: Param1, ppdomains: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListDomainsInSiteW(hds: super::super::Foundation::HANDLE, site: super::super::Foundation::PWSTR, ppdomains: *mut *mut DS_NAME_RESULTW) -> u32;
         }
@@ -8524,7 +8620,8 @@ pub unsafe fn DsListDomainsInSiteW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsListInfoForServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, server: Param1, ppinfo: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListInfoForServerA(hds: super::super::Foundation::HANDLE, server: super::super::Foundation::PSTR, ppinfo: *mut *mut DS_NAME_RESULTA) -> u32;
         }
@@ -8539,7 +8636,8 @@ pub unsafe fn DsListInfoForServerA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsListInfoForServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, server: Param1, ppinfo: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListInfoForServerW(hds: super::super::Foundation::HANDLE, server: super::super::Foundation::PWSTR, ppinfo: *mut *mut DS_NAME_RESULTW) -> u32;
         }
@@ -8554,7 +8652,8 @@ pub unsafe fn DsListInfoForServerW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsListRolesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, pproles: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListRolesA(hds: super::super::Foundation::HANDLE, pproles: *mut *mut DS_NAME_RESULTA) -> u32;
         }
@@ -8569,7 +8668,8 @@ pub unsafe fn DsListRolesA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsListRolesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, pproles: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListRolesW(hds: super::super::Foundation::HANDLE, pproles: *mut *mut DS_NAME_RESULTW) -> u32;
         }
@@ -8584,7 +8684,8 @@ pub unsafe fn DsListRolesW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsListServersForDomainInSiteA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, domain: Param1, site: Param2, ppservers: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListServersForDomainInSiteA(hds: super::super::Foundation::HANDLE, domain: super::super::Foundation::PSTR, site: super::super::Foundation::PSTR, ppservers: *mut *mut DS_NAME_RESULTA) -> u32;
         }
@@ -8599,7 +8700,8 @@ pub unsafe fn DsListServersForDomainInSiteA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn DsListServersForDomainInSiteW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, domain: Param1, site: Param2, ppservers: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListServersForDomainInSiteW(hds: super::super::Foundation::HANDLE, domain: super::super::Foundation::PWSTR, site: super::super::Foundation::PWSTR, ppservers: *mut *mut DS_NAME_RESULTW) -> u32;
         }
@@ -8614,7 +8716,8 @@ pub unsafe fn DsListServersForDomainInSiteW<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn DsListServersInSiteA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, site: Param1, ppservers: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListServersInSiteA(hds: super::super::Foundation::HANDLE, site: super::super::Foundation::PSTR, ppservers: *mut *mut DS_NAME_RESULTA) -> u32;
         }
@@ -8629,7 +8732,8 @@ pub unsafe fn DsListServersInSiteA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsListServersInSiteW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, site: Param1, ppservers: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListServersInSiteW(hds: super::super::Foundation::HANDLE, site: super::super::Foundation::PWSTR, ppservers: *mut *mut DS_NAME_RESULTW) -> u32;
         }
@@ -8644,7 +8748,8 @@ pub unsafe fn DsListServersInSiteW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsListSitesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, ppsites: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListSitesA(hds: super::super::Foundation::HANDLE, ppsites: *mut *mut DS_NAME_RESULTA) -> u32;
         }
@@ -8659,7 +8764,8 @@ pub unsafe fn DsListSitesA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsListSitesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, ppsites: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsListSitesW(hds: super::super::Foundation::HANDLE, ppsites: *mut *mut DS_NAME_RESULTW) -> u32;
         }
@@ -8674,7 +8780,8 @@ pub unsafe fn DsListSitesW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DsMakePasswordCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(user: Param0, domain: Param1, password: Param2, pauthidentity: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsMakePasswordCredentialsA(user: super::super::Foundation::PSTR, domain: super::super::Foundation::PSTR, password: super::super::Foundation::PSTR, pauthidentity: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -8689,7 +8796,8 @@ pub unsafe fn DsMakePasswordCredentialsA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DsMakePasswordCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(user: Param0, domain: Param1, password: Param2, pauthidentity: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsMakePasswordCredentialsW(user: super::super::Foundation::PWSTR, domain: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, pauthidentity: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -8704,7 +8812,8 @@ pub unsafe fn DsMakePasswordCredentialsW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn DsMakeSpnA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(serviceclass: Param0, servicename: Param1, instancename: Param2, instanceport: u16, referrer: Param4, pcspnlength: *mut u32, pszspn: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsMakeSpnA(serviceclass: super::super::Foundation::PSTR, servicename: super::super::Foundation::PSTR, instancename: super::super::Foundation::PSTR, instanceport: u16, referrer: super::super::Foundation::PSTR, pcspnlength: *mut u32, pszspn: super::super::Foundation::PSTR) -> u32;
         }
@@ -8719,7 +8828,8 @@ pub unsafe fn DsMakeSpnA<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn DsMakeSpnW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(serviceclass: Param0, servicename: Param1, instancename: Param2, instanceport: u16, referrer: Param4, pcspnlength: *mut u32, pszspn: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsMakeSpnW(serviceclass: super::super::Foundation::PWSTR, servicename: super::super::Foundation::PWSTR, instancename: super::super::Foundation::PWSTR, instanceport: u16, referrer: super::super::Foundation::PWSTR, pcspnlength: *mut u32, pszspn: super::super::Foundation::PWSTR) -> u32;
         }
@@ -8734,7 +8844,8 @@ pub unsafe fn DsMakeSpnW<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn DsMapSchemaGuidsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, cguids: u32, rguids: *const ::windows::core::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsMapSchemaGuidsA(hds: super::super::Foundation::HANDLE, cguids: u32, rguids: *const ::windows::core::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32;
         }
@@ -8749,7 +8860,8 @@ pub unsafe fn DsMapSchemaGuidsA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsMapSchemaGuidsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, cguids: u32, rguids: *const ::windows::core::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsMapSchemaGuidsW(hds: super::super::Foundation::HANDLE, cguids: u32, rguids: *const ::windows::core::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32;
         }
@@ -8764,7 +8876,8 @@ pub unsafe fn DsMapSchemaGuidsW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsMergeForestTrustInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, newforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsMergeForestTrustInformationW(domainname: super::super::Foundation::PWSTR, newforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32;
         }
@@ -8779,7 +8892,8 @@ pub unsafe fn DsMergeForestTrustInformationW<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn DsQuerySitesByCostA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, pszfromsite: Param1, rgsztosites: *const super::super::Foundation::PSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsQuerySitesByCostA(hds: super::super::Foundation::HANDLE, pszfromsite: super::super::Foundation::PSTR, rgsztosites: *const super::super::Foundation::PSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32;
         }
@@ -8794,7 +8908,8 @@ pub unsafe fn DsQuerySitesByCostA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DsQuerySitesByCostW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, pwszfromsite: Param1, rgwsztosites: *const super::super::Foundation::PWSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsQuerySitesByCostW(hds: super::super::Foundation::HANDLE, pwszfromsite: super::super::Foundation::PWSTR, rgwsztosites: *const super::super::Foundation::PWSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32;
         }
@@ -8808,7 +8923,8 @@ pub unsafe fn DsQuerySitesByCostW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO);
         }
@@ -8823,7 +8939,8 @@ pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
 pub unsafe fn DsQuoteRdnValueA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cunquotedrdnvaluelength: u32, psunquotedrdnvalue: Param1, pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsQuoteRdnValueA(cunquotedrdnvaluelength: u32, psunquotedrdnvalue: super::super::Foundation::PSTR, pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: super::super::Foundation::PSTR) -> u32;
         }
@@ -8838,7 +8955,8 @@ pub unsafe fn DsQuoteRdnValueA<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DsQuoteRdnValueW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(cunquotedrdnvaluelength: u32, psunquotedrdnvalue: Param1, pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsQuoteRdnValueW(cunquotedrdnvaluelength: u32, psunquotedrdnvalue: super::super::Foundation::PWSTR, pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: super::super::Foundation::PWSTR) -> u32;
         }
@@ -8853,7 +8971,8 @@ pub unsafe fn DsQuoteRdnValueW<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DsRemoveDsDomainA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, domaindn: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsRemoveDsDomainA(hds: super::super::Foundation::HANDLE, domaindn: super::super::Foundation::PSTR) -> u32;
         }
@@ -8868,7 +8987,8 @@ pub unsafe fn DsRemoveDsDomainA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsRemoveDsDomainW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, domaindn: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsRemoveDsDomainW(hds: super::super::Foundation::HANDLE, domaindn: super::super::Foundation::PWSTR) -> u32;
         }
@@ -8883,7 +9003,8 @@ pub unsafe fn DsRemoveDsDomainW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsRemoveDsServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hds: Param0, serverdn: Param1, domaindn: Param2, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsRemoveDsServerA(hds: super::super::Foundation::HANDLE, serverdn: super::super::Foundation::PSTR, domaindn: super::super::Foundation::PSTR, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: super::super::Foundation::BOOL) -> u32;
         }
@@ -8898,7 +9019,8 @@ pub unsafe fn DsRemoveDsServerA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsRemoveDsServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hds: Param0, serverdn: Param1, domaindn: Param2, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsRemoveDsServerW(hds: super::super::Foundation::HANDLE, serverdn: super::super::Foundation::PWSTR, domaindn: super::super::Foundation::PWSTR, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: super::super::Foundation::BOOL) -> u32;
         }
@@ -8913,7 +9035,8 @@ pub unsafe fn DsRemoveDsServerW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsReplicaAddA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, sourcedsadn: Param2, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, options: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaAddA(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PSTR, sourcedsadn: super::super::Foundation::PSTR, transportdn: super::super::Foundation::PSTR, sourcedsaaddress: super::super::Foundation::PSTR, pschedule: *const SCHEDULE, options: u32) -> u32;
         }
@@ -8928,7 +9051,8 @@ pub unsafe fn DsReplicaAddA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DsReplicaAddW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, sourcedsadn: Param2, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, options: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaAddW(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PWSTR, sourcedsadn: super::super::Foundation::PWSTR, transportdn: super::super::Foundation::PWSTR, sourcedsaaddress: super::super::Foundation::PWSTR, pschedule: *const SCHEDULE, options: u32) -> u32;
         }
@@ -8943,7 +9067,8 @@ pub unsafe fn DsReplicaAddW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DsReplicaConsistencyCheck<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, taskid: DS_KCC_TASKID, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaConsistencyCheck(hds: super::super::Foundation::HANDLE, taskid: DS_KCC_TASKID, dwflags: u32) -> u32;
         }
@@ -8958,7 +9083,8 @@ pub unsafe fn DsReplicaConsistencyCheck<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DsReplicaDelA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, dsasrc: Param2, options: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaDelA(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PSTR, dsasrc: super::super::Foundation::PSTR, options: u32) -> u32;
         }
@@ -8973,7 +9099,8 @@ pub unsafe fn DsReplicaDelA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DsReplicaDelW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, dsasrc: Param2, options: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaDelW(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PWSTR, dsasrc: super::super::Foundation::PWSTR, options: u32) -> u32;
         }
@@ -8987,7 +9114,8 @@ pub unsafe fn DsReplicaDelW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::core::ffi::c_void);
         }
@@ -9002,7 +9130,8 @@ pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::cor
 pub unsafe fn DsReplicaGetInfo2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, infotype: DS_REPL_INFO_TYPE, pszobject: Param2, puuidforsourcedsaobjguid: *const ::windows::core::GUID, pszattributename: Param4, pszvalue: Param5, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaGetInfo2W(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: super::super::Foundation::PWSTR, puuidforsourcedsaobjguid: *const ::windows::core::GUID, pszattributename: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -9017,7 +9146,8 @@ pub unsafe fn DsReplicaGetInfo2W<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DsReplicaGetInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, infotype: DS_REPL_INFO_TYPE, pszobject: Param2, puuidforsourcedsaobjguid: *const ::windows::core::GUID, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaGetInfoW(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: super::super::Foundation::PWSTR, puuidforsourcedsaobjguid: *const ::windows::core::GUID, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -9032,7 +9162,8 @@ pub unsafe fn DsReplicaGetInfoW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsReplicaModifyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, puuidsourcedsa: *const ::windows::core::GUID, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaModifyA(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PSTR, puuidsourcedsa: *const ::windows::core::GUID, transportdn: super::super::Foundation::PSTR, sourcedsaaddress: super::super::Foundation::PSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32;
         }
@@ -9047,7 +9178,8 @@ pub unsafe fn DsReplicaModifyA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DsReplicaModifyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, puuidsourcedsa: *const ::windows::core::GUID, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaModifyW(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PWSTR, puuidsourcedsa: *const ::windows::core::GUID, transportdn: super::super::Foundation::PWSTR, sourcedsaaddress: super::super::Foundation::PWSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32;
         }
@@ -9062,7 +9194,8 @@ pub unsafe fn DsReplicaModifyW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DsReplicaSyncA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaSyncA(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PSTR, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32;
         }
@@ -9077,7 +9210,8 @@ pub unsafe fn DsReplicaSyncA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DsReplicaSyncAllA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, psznamecontext: Param1, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaSyncAllA(hds: super::super::Foundation::HANDLE, psznamecontext: super::super::Foundation::PSTR, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32;
         }
@@ -9092,7 +9226,8 @@ pub unsafe fn DsReplicaSyncAllA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsReplicaSyncAllW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, psznamecontext: Param1, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaSyncAllW(hds: super::super::Foundation::HANDLE, psznamecontext: super::super::Foundation::PWSTR, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32;
         }
@@ -9107,7 +9242,8 @@ pub unsafe fn DsReplicaSyncAllW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DsReplicaSyncW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaSyncW(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PWSTR, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32;
         }
@@ -9122,7 +9258,8 @@ pub unsafe fn DsReplicaSyncW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DsReplicaUpdateRefsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, dsadest: Param2, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaUpdateRefsA(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PSTR, dsadest: super::super::Foundation::PSTR, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32;
         }
@@ -9137,7 +9274,8 @@ pub unsafe fn DsReplicaUpdateRefsA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsReplicaUpdateRefsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, dsadest: Param2, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaUpdateRefsW(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PWSTR, dsadest: super::super::Foundation::PWSTR, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32;
         }
@@ -9152,7 +9290,8 @@ pub unsafe fn DsReplicaUpdateRefsW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsReplicaVerifyObjectsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaVerifyObjectsA(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PSTR, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32;
         }
@@ -9167,7 +9306,8 @@ pub unsafe fn DsReplicaVerifyObjectsA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DsReplicaVerifyObjectsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsReplicaVerifyObjectsW(hds: super::super::Foundation::HANDLE, namecontext: super::super::Foundation::PWSTR, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32;
         }
@@ -9181,7 +9321,8 @@ pub unsafe fn DsReplicaVerifyObjectsW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DsRoleFreeMemory(buffer: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsRoleFreeMemory(buffer: *mut ::core::ffi::c_void);
         }
@@ -9196,7 +9337,8 @@ pub unsafe fn DsRoleFreeMemory(buffer: *mut ::core::ffi::c_void) {
 pub unsafe fn DsRoleGetPrimaryDomainInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsRoleGetPrimaryDomainInformation(lpserver: super::super::Foundation::PWSTR, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: *mut *mut u8) -> u32;
         }
@@ -9211,7 +9353,8 @@ pub unsafe fn DsRoleGetPrimaryDomainInformation<'a, Param0: ::windows::core::Int
 pub unsafe fn DsServerRegisterSpnA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(operation: DS_SPN_WRITE_OP, serviceclass: Param1, userobjectdn: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsServerRegisterSpnA(operation: DS_SPN_WRITE_OP, serviceclass: super::super::Foundation::PSTR, userobjectdn: super::super::Foundation::PSTR) -> u32;
         }
@@ -9226,7 +9369,8 @@ pub unsafe fn DsServerRegisterSpnA<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsServerRegisterSpnW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(operation: DS_SPN_WRITE_OP, serviceclass: Param1, userobjectdn: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsServerRegisterSpnW(operation: DS_SPN_WRITE_OP, serviceclass: super::super::Foundation::PWSTR, userobjectdn: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9241,7 +9385,8 @@ pub unsafe fn DsServerRegisterSpnW<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32;
         }
@@ -9256,7 +9401,8 @@ pub unsafe fn DsUnBindA(phds: *const super::super::Foundation::HANDLE) -> u32 {
 pub unsafe fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32;
         }
@@ -9271,7 +9417,8 @@ pub unsafe fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32 {
 pub unsafe fn DsUnquoteRdnValueA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cquotedrdnvaluelength: u32, psquotedrdnvalue: Param1, pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsUnquoteRdnValueA(cquotedrdnvaluelength: u32, psquotedrdnvalue: super::super::Foundation::PSTR, pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: super::super::Foundation::PSTR) -> u32;
         }
@@ -9286,7 +9433,8 @@ pub unsafe fn DsUnquoteRdnValueA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DsUnquoteRdnValueW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(cquotedrdnvaluelength: u32, psquotedrdnvalue: Param1, pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dsparse", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsUnquoteRdnValueW(cquotedrdnvaluelength: u32, psquotedrdnvalue: super::super::Foundation::PWSTR, pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9301,7 +9449,8 @@ pub unsafe fn DsUnquoteRdnValueW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DsValidateSubnetNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(subnetname: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsValidateSubnetNameA(subnetname: super::super::Foundation::PSTR) -> u32;
         }
@@ -9316,7 +9465,8 @@ pub unsafe fn DsValidateSubnetNameA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DsValidateSubnetNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(subnetname: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsValidateSubnetNameW(subnetname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9331,7 +9481,8 @@ pub unsafe fn DsValidateSubnetNameW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DsWriteAccountSpnA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hds: Param0, operation: DS_SPN_WRITE_OP, pszaccount: Param2, cspn: u32, rpszspn: *const super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsWriteAccountSpnA(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: super::super::Foundation::PSTR, cspn: u32, rpszspn: *const super::super::Foundation::PSTR) -> u32;
         }
@@ -9346,7 +9497,8 @@ pub unsafe fn DsWriteAccountSpnA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DsWriteAccountSpnW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hds: Param0, operation: DS_SPN_WRITE_OP, pszaccount: Param2, cspn: u32, rpszspn: *const super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntdsapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DsWriteAccountSpnW(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: super::super::Foundation::PWSTR, cspn: u32, rpszspn: *const super::super::Foundation::PWSTR) -> u32;
         }
@@ -9381,7 +9533,8 @@ pub const FaxNumber: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub unsafe fn FreeADsMem(pmem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeADsMem(pmem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -9396,7 +9549,8 @@ pub unsafe fn FreeADsMem(pmem: *mut ::core::ffi::c_void) -> super::super::Founda
 pub unsafe fn FreeADsStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pstr: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeADsStr(pstr: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -24798,7 +24952,8 @@ pub const PostalAddress: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub unsafe fn PropVariantToAdsType(pvariant: *mut super::super::System::Com::VARIANT, dwnumvariant: u32, ppadsvalues: *mut *mut ADSVALUE, pdwnumvalues: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToAdsType(pvariant: *mut super::super::System::Com::VARIANT, dwnumvariant: u32, ppadsvalues: *mut *mut ADSVALUE, pdwnumvalues: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -24818,7 +24973,8 @@ pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2u64;
 pub unsafe fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew: u32) -> *mut ::core::ffi::c_void;
         }
@@ -24833,7 +24989,8 @@ pub unsafe fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew
 pub unsafe fn ReallocADsStr<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppstr: *mut super::super::Foundation::PWSTR, pstr: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReallocADsStr(ppstr: *mut super::super::Foundation::PWSTR, pstr: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -24928,7 +25085,8 @@ pub const SecurityDescriptor: ::windows::core::GUID = ::windows::core::GUID::fro
 pub unsafe fn SecurityDescriptorToBinarySD<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(vvarsecdes: Param0, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: Param3, username: Param4, password: Param5, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "activeds", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SecurityDescriptorToBinarySD(vvarsecdes: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT;
         }

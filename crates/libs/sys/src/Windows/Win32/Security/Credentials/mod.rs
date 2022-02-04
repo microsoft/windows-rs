@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -50,12 +51,6 @@ extern "system" {
     pub fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *const ::core::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CredPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pszusername: super::super::Foundation::PSTR, pszpassword: super::super::Foundation::PSTR, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CredPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CredProtectA(fasself: super::super::Foundation::BOOL, pszcredentials: super::super::Foundation::PSTR, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -78,6 +73,40 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CredRenameW(oldtargetname: super::super::Foundation::PWSTR, newtargetname: super::super::Foundation::PWSTR, r#type: u32, flags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CredUnmarshalCredentialA(marshaledcredential: super::super::Foundation::PSTR, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CredUnmarshalCredentialW(marshaledcredential: super::super::Foundation::PWSTR, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CredUnprotectA(fasself: super::super::Foundation::BOOL, pszprotectedcredentials: super::super::Foundation::PSTR, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CredUnprotectW(fasself: super::super::Foundation::BOOL, pszprotectedcredentials: super::super::Foundation::PWSTR, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "credui", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CredPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pszusername: super::super::Foundation::PSTR, pszpassword: super::super::Foundation::PSTR, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CredPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CredUICmdLinePromptForCredentialsA(psztargetname: super::super::Foundation::PSTR, pcontext: *mut SecHandle, dwautherror: u32, username: super::super::Foundation::PSTR, uluserbuffersize: u32, pszpassword: super::super::Foundation::PSTR, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
@@ -120,36 +149,10 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PWSTR, pcchmaxusername: *mut u32, pszdomainname: super::super::Foundation::PWSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PWSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CredUnmarshalCredentialA(marshaledcredential: super::super::Foundation::PSTR, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CredUnmarshalCredentialW(marshaledcredential: super::super::Foundation::PWSTR, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CredUnprotectA(fasself: super::super::Foundation::BOOL, pszprotectedcredentials: super::super::Foundation::PSTR, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CredUnprotectW(fasself: super::super::Foundation::BOOL, pszprotectedcredentials: super::super::Foundation::PWSTR, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "keycredmgr", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials'*"]
     pub fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo);
     #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -160,6 +163,28 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn KeyCredentialManagerShowUIOperation(hwndowner: super::super::Foundation::HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "scarddlg", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32;
+    #[doc = "*Required features: 'Win32_Security_Credentials'*"]
+    pub fn SCardDlgExtendedError() -> i32;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32;
+    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "winscard", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE;
@@ -185,8 +210,6 @@ extern "system" {
     pub fn SCardControl(hcard: usize, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Security_Credentials'*"]
     pub fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Security_Credentials'*"]
-    pub fn SCardDlgExtendedError() -> i32;
     #[doc = "*Required features: 'Win32_Security_Credentials'*"]
     pub fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32;
     #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -349,12 +372,6 @@ extern "system" {
     pub fn SCardStatusW(hcard: usize, mszreadernames: super::super::Foundation::PWSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Security_Credentials'*"]
     pub fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, pbsendbuffer: *const u8, cbsendlength: u32, piorecvpci: *mut SCARD_IO_REQUEST, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32;
-    #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32;
     #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SCardWriteCacheA(hcontext: usize, cardidentifier: *const ::windows_sys::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *const u8, datalen: u32) -> i32;

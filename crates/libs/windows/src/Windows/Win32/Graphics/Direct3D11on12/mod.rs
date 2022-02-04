@@ -5,7 +5,8 @@
 pub unsafe fn D3D11On12CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pdevice: Param0, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const ::core::option::Option<::windows::core::IUnknown>, numqueues: u32, nodemask: u32, ppdevice: *mut ::core::option::Option<super::Direct3D11::ID3D11Device>, ppimmediatecontext: *mut ::core::option::Option<super::Direct3D11::ID3D11DeviceContext>, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d11", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D11On12CreateDevice(pdevice: *mut ::core::ffi::c_void, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const *mut ::core::ffi::c_void, numqueues: u32, nodemask: u32, ppdevice: *mut ::windows::core::RawPtr, ppimmediatecontext: *mut ::windows::core::RawPtr, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::HRESULT;
         }

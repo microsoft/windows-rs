@@ -291,7 +291,8 @@ impl ::core::default::Default for ATTRIBUTE_INFO_4 {
 pub unsafe fn AbortPrinter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AbortPrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -306,7 +307,8 @@ pub unsafe fn AbortPrinter<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn AddFormA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddFormA(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -321,7 +323,8 @@ pub unsafe fn AddFormA<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn AddFormW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddFormW(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -336,7 +339,8 @@ pub unsafe fn AddFormW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn AddJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pdata: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddJobA(hprinter: super::super::Foundation::HANDLE, level: u32, pdata: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -351,7 +355,8 @@ pub unsafe fn AddJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn AddJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pdata: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddJobW(hprinter: super::super::Foundation::HANDLE, level: u32, pdata: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -366,7 +371,8 @@ pub unsafe fn AddJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn AddMonitorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddMonitorA(pname: super::super::Foundation::PSTR, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -381,7 +387,8 @@ pub unsafe fn AddMonitorA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn AddMonitorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddMonitorW(pname: super::super::Foundation::PWSTR, level: u32, pmonitors: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -396,7 +403,8 @@ pub unsafe fn AddMonitorW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn AddPortA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, hwnd: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPortA(pname: super::super::Foundation::PSTR, hwnd: super::super::Foundation::HWND, pmonitorname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -411,7 +419,8 @@ pub unsafe fn AddPortA<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn AddPortW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, hwnd: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPortW(pname: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND, pmonitorname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -426,7 +435,8 @@ pub unsafe fn AddPortW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn AddPrintDeviceObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrintDeviceObject(hprinter: super::super::Foundation::HANDLE, phdeviceobject: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -442,7 +452,8 @@ pub unsafe fn AddPrintDeviceObject<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn AddPrintProcessorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, ppathname: Param2, pprintprocessorname: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrintProcessorA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, ppathname: super::super::Foundation::PSTR, pprintprocessorname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -457,7 +468,8 @@ pub unsafe fn AddPrintProcessorA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn AddPrintProcessorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, ppathname: Param2, pprintprocessorname: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrintProcessorW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, ppathname: super::super::Foundation::PWSTR, pprintprocessorname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -472,7 +484,8 @@ pub unsafe fn AddPrintProcessorW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn AddPrintProvidorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrintProvidorA(pname: super::super::Foundation::PSTR, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -487,7 +500,8 @@ pub unsafe fn AddPrintProvidorA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn AddPrintProvidorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrintProvidorW(pname: super::super::Foundation::PWSTR, level: u32, pprovidorinfo: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -502,7 +516,8 @@ pub unsafe fn AddPrintProvidorW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn AddPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrinterA(pname: super::super::Foundation::PSTR, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE;
         }
@@ -517,7 +532,8 @@ pub unsafe fn AddPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn AddPrinterConnection2A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, pszname: Param1, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrinterConnection2A(hwnd: super::super::Foundation::HWND, pszname: super::super::Foundation::PSTR, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -532,7 +548,8 @@ pub unsafe fn AddPrinterConnection2A<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn AddPrinterConnection2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszname: Param1, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrinterConnection2W(hwnd: super::super::Foundation::HWND, pszname: super::super::Foundation::PWSTR, dwlevel: u32, pconnectioninfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -547,7 +564,8 @@ pub unsafe fn AddPrinterConnection2W<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn AddPrinterConnectionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrinterConnectionA(pname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -562,7 +580,8 @@ pub unsafe fn AddPrinterConnectionA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AddPrinterConnectionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrinterConnectionW(pname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -577,7 +596,8 @@ pub unsafe fn AddPrinterConnectionW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn AddPrinterDriverA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrinterDriverA(pname: super::super::Foundation::PSTR, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -592,7 +612,8 @@ pub unsafe fn AddPrinterDriverA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn AddPrinterDriverExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrinterDriverExA(pname: super::super::Foundation::PSTR, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -607,7 +628,8 @@ pub unsafe fn AddPrinterDriverExA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn AddPrinterDriverExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrinterDriverExW(pname: super::super::Foundation::PWSTR, level: u32, lpbdriverinfo: *const u8, dwfilecopyflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -622,7 +644,8 @@ pub unsafe fn AddPrinterDriverExW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn AddPrinterDriverW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrinterDriverW(pname: super::super::Foundation::PWSTR, level: u32, pdriverinfo: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -637,7 +660,8 @@ pub unsafe fn AddPrinterDriverW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn AddPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddPrinterW(pname: super::super::Foundation::PWSTR, level: u32, pprinter: *const u8) -> super::super::Foundation::HANDLE;
         }
@@ -652,7 +676,8 @@ pub unsafe fn AddPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn AdvancedDocumentPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AdvancedDocumentPropertiesA(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: super::super::Foundation::PSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA) -> i32;
         }
@@ -667,7 +692,8 @@ pub unsafe fn AdvancedDocumentPropertiesA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn AdvancedDocumentPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AdvancedDocumentPropertiesW(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: super::super::Foundation::PWSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW) -> i32;
         }
@@ -682,7 +708,8 @@ pub unsafe fn AdvancedDocumentPropertiesW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn AppendPrinterNotifyInfoData(pinfodest: *const PRINTER_NOTIFY_INFO, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA, fdwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AppendPrinterNotifyInfoData(pinfodest: *const PRINTER_NOTIFY_INFO, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA, fdwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1840,7 +1867,8 @@ impl ::core::default::Default for CUSTOMSIZEPARAM {
 pub unsafe fn CallRouterFindFirstPrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinterrpc: Param0, fdwfilterflags: u32, fdwoptions: u32, hnotify: Param3, pprinternotifyoptions: *const PRINTER_NOTIFY_OPTIONS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CallRouterFindFirstPrinterChangeNotification(hprinterrpc: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, hnotify: super::super::Foundation::HANDLE, pprinternotifyoptions: *const PRINTER_NOTIFY_OPTIONS) -> u32;
         }
@@ -1855,7 +1883,8 @@ pub unsafe fn CallRouterFindFirstPrinterChangeNotification<'a, Param0: ::windows
 pub unsafe fn ClosePrinter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClosePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1870,7 +1899,8 @@ pub unsafe fn ClosePrinter<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn CloseSpoolFileHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, hspoolfile: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseSpoolFileHandle(hprinter: super::super::Foundation::HANDLE, hspoolfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1885,7 +1915,8 @@ pub unsafe fn CloseSpoolFileHandle<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CommitSpoolData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, hspoolfile: Param1, cbcommit: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CommitSpoolData(hprinter: super::super::Foundation::HANDLE, hspoolfile: super::super::Foundation::HANDLE, cbcommit: u32) -> super::super::Foundation::HANDLE;
         }
@@ -1900,7 +1931,8 @@ pub unsafe fn CommitSpoolData<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn CommonPropertySheetUIA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndowner: Param0, pfnpropsheetui: PFNPROPSHEETUI, lparam: Param2, presult: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "compstui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CommonPropertySheetUIA(hwndowner: super::super::Foundation::HWND, pfnpropsheetui: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM, presult: *mut u32) -> i32;
         }
@@ -1915,7 +1947,8 @@ pub unsafe fn CommonPropertySheetUIA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CommonPropertySheetUIW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndowner: Param0, pfnpropsheetui: PFNPROPSHEETUI, lparam: Param2, presult: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "compstui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CommonPropertySheetUIW(hwndowner: super::super::Foundation::HWND, pfnpropsheetui: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM, presult: *mut u32) -> i32;
         }
@@ -1930,7 +1963,8 @@ pub unsafe fn CommonPropertySheetUIW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ConfigurePortA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConfigurePortA(pname: super::super::Foundation::PSTR, hwnd: super::super::Foundation::HWND, pportname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -1945,7 +1979,8 @@ pub unsafe fn ConfigurePortA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ConfigurePortW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConfigurePortW(pname: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND, pportname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -1960,7 +1995,8 @@ pub unsafe fn ConfigurePortW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ConnectToPrinterDlg<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, flags: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ConnectToPrinterDlg(hwnd: super::super::Foundation::HWND, flags: u32) -> super::super::Foundation::HANDLE;
         }
@@ -1975,7 +2011,8 @@ pub unsafe fn ConnectToPrinterDlg<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CorePrinterDriverInstalledA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(pszserver: Param0, pszenvironment: Param1, coredriverguid: Param2, ftdriverdate: Param3, dwldriverversion: u64) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CorePrinterDriverInstalledA(pszserver: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR, coredriverguid: ::windows::core::GUID, ftdriverdate: super::super::Foundation::FILETIME, dwldriverversion: u64, pbdriverinstalled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -1991,7 +2028,8 @@ pub unsafe fn CorePrinterDriverInstalledA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn CorePrinterDriverInstalledW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(pszserver: Param0, pszenvironment: Param1, coredriverguid: Param2, ftdriverdate: Param3, dwldriverversion: u64) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CorePrinterDriverInstalledW(pszserver: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR, coredriverguid: ::windows::core::GUID, ftdriverdate: super::super::Foundation::FILETIME, dwldriverversion: u64, pbdriverinstalled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -2007,7 +2045,8 @@ pub unsafe fn CorePrinterDriverInstalledW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn CreatePrintAsyncNotifyChannel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IPrintAsyncNotifyCallback>>(pszname: Param0, pnotificationtype: *const ::windows::core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: Param4) -> ::windows::core::Result<IPrintAsyncNotifyChannel> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePrintAsyncNotifyChannel(pszname: super::super::Foundation::PWSTR, pnotificationtype: *const ::windows::core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: ::windows::core::RawPtr, ppiasynchnotification: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2023,7 +2062,8 @@ pub unsafe fn CreatePrintAsyncNotifyChannel<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn CreatePrinterIC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pdevmode: *const super::Gdi::DEVMODEW) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePrinterIC(hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEW) -> super::super::Foundation::HANDLE;
         }
@@ -4085,7 +4125,8 @@ pub const DSPRINT_UPDATE: u32 = 2u32;
 pub unsafe fn DeleteFormA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pformname: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteFormA(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -4100,7 +4141,8 @@ pub unsafe fn DeleteFormA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn DeleteFormW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pformname: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteFormW(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -4115,7 +4157,8 @@ pub unsafe fn DeleteFormW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn DeleteJobNamedProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, jobid: u32, pszname: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteJobNamedProperty(hprinter: super::super::Foundation::HANDLE, jobid: u32, pszname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4130,7 +4173,8 @@ pub unsafe fn DeleteJobNamedProperty<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DeleteMonitorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteMonitorA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, pmonitorname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -4145,7 +4189,8 @@ pub unsafe fn DeleteMonitorA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DeleteMonitorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, pmonitorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteMonitorW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, pmonitorname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -4160,7 +4205,8 @@ pub unsafe fn DeleteMonitorW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DeletePortA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePortA(pname: super::super::Foundation::PSTR, hwnd: super::super::Foundation::HWND, pportname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -4175,7 +4221,8 @@ pub unsafe fn DeletePortA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn DeletePortW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, hwnd: Param1, pportname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePortW(pname: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND, pportname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -4190,7 +4237,8 @@ pub unsafe fn DeletePortW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn DeletePrintProcessorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, pprintprocessorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrintProcessorA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, pprintprocessorname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -4205,7 +4253,8 @@ pub unsafe fn DeletePrintProcessorA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DeletePrintProcessorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, pprintprocessorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrintProcessorW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, pprintprocessorname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -4220,7 +4269,8 @@ pub unsafe fn DeletePrintProcessorW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn DeletePrintProvidorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, pprintprovidorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrintProvidorA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, pprintprovidorname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -4235,7 +4285,8 @@ pub unsafe fn DeletePrintProvidorA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DeletePrintProvidorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, pprintprovidorname: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrintProvidorW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, pprintprovidorname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -4250,7 +4301,8 @@ pub unsafe fn DeletePrintProvidorW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DeletePrinter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -4265,7 +4317,8 @@ pub unsafe fn DeletePrinter<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DeletePrinterConnectionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterConnectionA(pname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -4280,7 +4333,8 @@ pub unsafe fn DeletePrinterConnectionA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DeletePrinterConnectionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterConnectionW(pname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -4295,7 +4349,8 @@ pub unsafe fn DeletePrinterConnectionW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DeletePrinterDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pvaluename: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PSTR) -> u32;
         }
@@ -4310,7 +4365,8 @@ pub unsafe fn DeletePrinterDataA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DeletePrinterDataExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR, pvaluename: super::super::Foundation::PSTR) -> u32;
         }
@@ -4325,7 +4381,8 @@ pub unsafe fn DeletePrinterDataExA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DeletePrinterDataExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4340,7 +4397,8 @@ pub unsafe fn DeletePrinterDataExW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DeletePrinterDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pvaluename: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4355,7 +4413,8 @@ pub unsafe fn DeletePrinterDataW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DeletePrinterDriverA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterDriverA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, pdrivername: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -4370,7 +4429,8 @@ pub unsafe fn DeletePrinterDriverA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DeletePrinterDriverExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterDriverExA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, pdrivername: super::super::Foundation::PSTR, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL;
         }
@@ -4385,7 +4445,8 @@ pub unsafe fn DeletePrinterDriverExA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DeletePrinterDriverExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterDriverExW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, pdrivername: super::super::Foundation::PWSTR, dwdeleteflag: u32, dwversionflag: u32) -> super::super::Foundation::BOOL;
         }
@@ -4400,7 +4461,8 @@ pub unsafe fn DeletePrinterDriverExW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn DeletePrinterDriverPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterDriverPackageA(pszserver: super::super::Foundation::PSTR, pszinfpath: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR) -> ::windows::core::HRESULT;
         }
@@ -4415,7 +4477,8 @@ pub unsafe fn DeletePrinterDriverPackageA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DeletePrinterDriverPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterDriverPackageW(pszserver: super::super::Foundation::PWSTR, pszinfpath: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -4430,7 +4493,8 @@ pub unsafe fn DeletePrinterDriverPackageW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DeletePrinterDriverW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, pdrivername: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterDriverW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, pdrivername: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -4445,7 +4509,8 @@ pub unsafe fn DeletePrinterDriverW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DeletePrinterIC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinteric: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterIC(hprinteric: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -4460,7 +4525,8 @@ pub unsafe fn DeletePrinterIC<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DeletePrinterKeyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterKeyA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR) -> u32;
         }
@@ -4475,7 +4541,8 @@ pub unsafe fn DeletePrinterKeyA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DeletePrinterKeyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeletePrinterKeyW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4490,7 +4557,8 @@ pub unsafe fn DeletePrinterKeyW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DevQueryPrint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pdevmode: *const super::Gdi::DEVMODEA, presid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DevQueryPrint(hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, presid: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -4505,7 +4573,8 @@ pub unsafe fn DevQueryPrint<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super::Foundation::BOOL;
         }
@@ -4520,7 +4589,8 @@ pub unsafe fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super
 pub unsafe fn DocumentPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA, fmode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DocumentPropertiesA(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: super::super::Foundation::PSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevmodeinput: *const super::Gdi::DEVMODEA, fmode: u32) -> i32;
         }
@@ -4535,7 +4605,8 @@ pub unsafe fn DocumentPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DocumentPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, hprinter: Param1, pdevicename: Param2, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW, fmode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DocumentPropertiesW(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, pdevicename: super::super::Foundation::PWSTR, pdevmodeoutput: *mut super::Gdi::DEVMODEW, pdevmodeinput: *const super::Gdi::DEVMODEW, fmode: u32) -> i32;
         }
@@ -5257,7 +5328,8 @@ pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
 pub unsafe fn EndDocPrinter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EndDocPrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -5272,7 +5344,8 @@ pub unsafe fn EndDocPrinter<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn EndPagePrinter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EndPagePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -5287,7 +5360,8 @@ pub unsafe fn EndPagePrinter<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn EnumFormsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumFormsA(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5302,7 +5376,8 @@ pub unsafe fn EnumFormsA<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn EnumFormsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumFormsW(hprinter: super::super::Foundation::HANDLE, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5317,7 +5392,8 @@ pub unsafe fn EnumFormsW<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn EnumJobNamedProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, pcproperties: *mut u32, ppproperties: *mut *mut PrintNamedProperty) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumJobNamedProperties(hprinter: super::super::Foundation::HANDLE, jobid: u32, pcproperties: *mut u32, ppproperties: *mut *mut PrintNamedProperty) -> u32;
         }
@@ -5332,7 +5408,8 @@ pub unsafe fn EnumJobNamedProperties<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn EnumJobsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, firstjob: u32, nojobs: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumJobsA(hprinter: super::super::Foundation::HANDLE, firstjob: u32, nojobs: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5347,7 +5424,8 @@ pub unsafe fn EnumJobsA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn EnumJobsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, firstjob: u32, nojobs: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumJobsW(hprinter: super::super::Foundation::HANDLE, firstjob: u32, nojobs: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5362,7 +5440,8 @@ pub unsafe fn EnumJobsW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn EnumMonitorsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumMonitorsA(pname: super::super::Foundation::PSTR, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5377,7 +5456,8 @@ pub unsafe fn EnumMonitorsA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn EnumMonitorsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumMonitorsW(pname: super::super::Foundation::PWSTR, level: u32, pmonitor: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5392,7 +5472,8 @@ pub unsafe fn EnumMonitorsW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn EnumPortsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPortsA(pname: super::super::Foundation::PSTR, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5407,7 +5488,8 @@ pub unsafe fn EnumPortsA<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn EnumPortsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPortsW(pname: super::super::Foundation::PWSTR, level: u32, pport: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5422,7 +5504,8 @@ pub unsafe fn EnumPortsW<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn EnumPrintProcessorDatatypesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, pprintprocessorname: Param1, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrintProcessorDatatypesA(pname: super::super::Foundation::PSTR, pprintprocessorname: super::super::Foundation::PSTR, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5437,7 +5520,8 @@ pub unsafe fn EnumPrintProcessorDatatypesA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn EnumPrintProcessorDatatypesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, pprintprocessorname: Param1, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrintProcessorDatatypesW(pname: super::super::Foundation::PWSTR, pprintprocessorname: super::super::Foundation::PWSTR, level: u32, pdatatypes: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5452,7 +5536,8 @@ pub unsafe fn EnumPrintProcessorDatatypesW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn EnumPrintProcessorsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrintProcessorsA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5467,7 +5552,8 @@ pub unsafe fn EnumPrintProcessorsA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn EnumPrintProcessorsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrintProcessorsW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5482,7 +5568,8 @@ pub unsafe fn EnumPrintProcessorsW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn EnumPrinterDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, dwindex: u32, pvaluename: super::super::Foundation::PSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrinterDataA(hprinter: super::super::Foundation::HANDLE, dwindex: u32, pvaluename: super::super::Foundation::PSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32;
         }
@@ -5497,7 +5584,8 @@ pub unsafe fn EnumPrinterDataA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn EnumPrinterDataExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32;
         }
@@ -5512,7 +5600,8 @@ pub unsafe fn EnumPrinterDataExA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn EnumPrinterDataExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR, penumvalues: *mut u8, cbenumvalues: u32, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32;
         }
@@ -5527,7 +5616,8 @@ pub unsafe fn EnumPrinterDataExW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn EnumPrinterDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, dwindex: u32, pvaluename: super::super::Foundation::PWSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrinterDataW(hprinter: super::super::Foundation::HANDLE, dwindex: u32, pvaluename: super::super::Foundation::PWSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32;
         }
@@ -5542,7 +5632,8 @@ pub unsafe fn EnumPrinterDataW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn EnumPrinterDriversA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrinterDriversA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5557,7 +5648,8 @@ pub unsafe fn EnumPrinterDriversA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn EnumPrinterDriversW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrinterDriversW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5572,7 +5664,8 @@ pub unsafe fn EnumPrinterDriversW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn EnumPrinterKeyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1, psubkey: super::super::Foundation::PSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrinterKeyA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR, psubkey: super::super::Foundation::PSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32;
         }
@@ -5587,7 +5680,8 @@ pub unsafe fn EnumPrinterKeyA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn EnumPrinterKeyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1, psubkey: super::super::Foundation::PWSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrinterKeyW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR, psubkey: super::super::Foundation::PWSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32;
         }
@@ -5602,7 +5696,8 @@ pub unsafe fn EnumPrinterKeyW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn EnumPrintersA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, name: Param1, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrintersA(flags: u32, name: super::super::Foundation::PSTR, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5617,7 +5712,8 @@ pub unsafe fn EnumPrintersA<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn EnumPrintersW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, name: Param1, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumPrintersW(flags: u32, name: super::super::Foundation::PWSTR, level: u32, pprinterenum: *mut u8, cbbuf: u32, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -5632,7 +5728,8 @@ pub unsafe fn EnumPrintersW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn ExtDeviceMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hinst: Param1, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevicename: Param3, pport: Param4, pdevmodeinput: *const super::Gdi::DEVMODEA, pprofile: Param6, fmode: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ExtDeviceMode(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HANDLE, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevicename: super::super::Foundation::PSTR, pport: super::super::Foundation::PSTR, pdevmodeinput: *const super::Gdi::DEVMODEA, pprofile: super::super::Foundation::PSTR, fmode: u32) -> i32;
         }
@@ -5882,7 +5979,8 @@ pub const FORM_USER: u32 = 0u32;
 pub unsafe fn FindClosePrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hchange: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindClosePrinterChangeNotification(hchange: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -5897,7 +5995,8 @@ pub unsafe fn FindClosePrinterChangeNotification<'a, Param0: ::windows::core::In
 pub unsafe fn FindFirstPrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, fdwfilter: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwfilter: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
@@ -5912,7 +6011,8 @@ pub unsafe fn FindFirstPrinterChangeNotification<'a, Param0: ::windows::core::In
 pub unsafe fn FindNextPrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hchange: Param0, pdwchange: *mut u32, pvreserved: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindNextPrinterChangeNotification(hchange: super::super::Foundation::HANDLE, pdwchange: *mut u32, pvreserved: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -5927,7 +6027,8 @@ pub unsafe fn FindNextPrinterChangeNotification<'a, Param0: ::windows::core::Int
 pub unsafe fn FlushPrinter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32, csleep: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlushPrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32, csleep: u32) -> super::super::Foundation::BOOL;
         }
@@ -5942,7 +6043,8 @@ pub unsafe fn FlushPrinter<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn FreePrintNamedPropertyArray(cproperties: u32, ppproperties: *mut *mut PrintNamedProperty) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreePrintNamedPropertyArray(cproperties: u32, ppproperties: *mut *mut PrintNamedProperty);
         }
@@ -5957,7 +6059,8 @@ pub unsafe fn FreePrintNamedPropertyArray(cproperties: u32, ppproperties: *mut *
 pub unsafe fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue);
         }
@@ -5972,7 +6075,8 @@ pub unsafe fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue) {
 pub unsafe fn FreePrinterNotifyInfo(pprinternotifyinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreePrinterNotifyInfo(pprinternotifyinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
         }
@@ -6022,7 +6126,8 @@ pub const GUID_DEVINTERFACE_USBPRINT: ::windows::core::GUID = ::windows::core::G
 pub unsafe fn GdiDeleteSpoolFileHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiDeleteSpoolFileHandle(spoolfilehandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -6037,7 +6142,8 @@ pub unsafe fn GdiDeleteSpoolFileHandle<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn GdiEndDocEMF<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiEndDocEMF(spoolfilehandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -6052,7 +6158,8 @@ pub unsafe fn GdiEndDocEMF<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn GdiEndPageEMF<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, dwoptimization: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiEndPageEMF(spoolfilehandle: super::super::Foundation::HANDLE, dwoptimization: u32) -> super::super::Foundation::BOOL;
         }
@@ -6067,7 +6174,8 @@ pub unsafe fn GdiEndPageEMF<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn GdiGetDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0) -> super::Gdi::HDC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiGetDC(spoolfilehandle: super::super::Foundation::HANDLE) -> super::Gdi::HDC;
         }
@@ -6082,7 +6190,8 @@ pub unsafe fn GdiGetDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn GdiGetDevmodeForPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, dwpagenumber: u32, pcurrdm: *mut *mut super::Gdi::DEVMODEW, plastdm: *mut *mut super::Gdi::DEVMODEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiGetDevmodeForPage(spoolfilehandle: super::super::Foundation::HANDLE, dwpagenumber: u32, pcurrdm: *mut *mut super::Gdi::DEVMODEW, plastdm: *mut *mut super::Gdi::DEVMODEW) -> super::super::Foundation::BOOL;
         }
@@ -6097,7 +6206,8 @@ pub unsafe fn GdiGetDevmodeForPage<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn GdiGetPageCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiGetPageCount(spoolfilehandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -6112,7 +6222,8 @@ pub unsafe fn GdiGetPageCount<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GdiGetPageHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, page: u32, pdwpagetype: *mut u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiGetPageHandle(spoolfilehandle: super::super::Foundation::HANDLE, page: u32, pdwpagetype: *mut u32) -> super::super::Foundation::HANDLE;
         }
@@ -6127,7 +6238,8 @@ pub unsafe fn GdiGetPageHandle<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GdiGetSpoolFileHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszprintername: Param0, pdevmode: *mut super::Gdi::DEVMODEW, pwszdocname: Param2) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiGetSpoolFileHandle(pwszprintername: super::super::Foundation::PWSTR, pdevmode: *mut super::Gdi::DEVMODEW, pwszdocname: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
@@ -6142,7 +6254,8 @@ pub unsafe fn GdiGetSpoolFileHandle<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GdiPlayPageEMF<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, hemf: Param1, prectdocument: *mut super::super::Foundation::RECT, prectborder: *mut super::super::Foundation::RECT, prectclip: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiPlayPageEMF(spoolfilehandle: super::super::Foundation::HANDLE, hemf: super::super::Foundation::HANDLE, prectdocument: *mut super::super::Foundation::RECT, prectborder: *mut super::super::Foundation::RECT, prectclip: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
         }
@@ -6157,7 +6270,8 @@ pub unsafe fn GdiPlayPageEMF<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GdiResetDCEMF<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, pcurrdm: *mut super::Gdi::DEVMODEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiResetDCEMF(spoolfilehandle: super::super::Foundation::HANDLE, pcurrdm: *mut super::Gdi::DEVMODEW) -> super::super::Foundation::BOOL;
         }
@@ -6172,7 +6286,8 @@ pub unsafe fn GdiResetDCEMF<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn GdiStartDocEMF<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0, pdocinfo: *mut super::super::Storage::Xps::DOCINFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiStartDocEMF(spoolfilehandle: super::super::Foundation::HANDLE, pdocinfo: *mut super::super::Storage::Xps::DOCINFOW) -> super::super::Foundation::BOOL;
         }
@@ -6187,7 +6302,8 @@ pub unsafe fn GdiStartDocEMF<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GdiStartPageEMF<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(spoolfilehandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GdiStartPageEMF(spoolfilehandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -6202,7 +6318,8 @@ pub unsafe fn GdiStartPageEMF<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GenerateCopyFilePaths<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprintername: Param0, pszdirectory: Param1, psplclientinfo: *const u8, dwlevel: u32, pszsourcedir: Param4, pcchsourcedirsize: *mut u32, psztargetdir: Param6, pcchtargetdirsize: *mut u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mscms", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GenerateCopyFilePaths(pszprintername: super::super::Foundation::PWSTR, pszdirectory: super::super::Foundation::PWSTR, psplclientinfo: *const u8, dwlevel: u32, pszsourcedir: super::super::Foundation::PWSTR, pcchsourcedirsize: *mut u32, psztargetdir: super::super::Foundation::PWSTR, pcchtargetdirsize: *mut u32, dwflags: u32) -> u32;
         }
@@ -6217,7 +6334,8 @@ pub unsafe fn GenerateCopyFilePaths<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn GetCPSUIUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0) -> usize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "compstui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetCPSUIUserData(hdlg: super::super::Foundation::HWND) -> usize;
         }
@@ -6232,7 +6350,8 @@ pub unsafe fn GetCPSUIUserData<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetCorePrinterDriversA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszserver: Param0, pszenvironment: Param1, pszzcoredriverdependencies: Param2, ccoreprinterdrivers: u32, pcoreprinterdrivers: *mut CORE_PRINTER_DRIVERA) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetCorePrinterDriversA(pszserver: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR, pszzcoredriverdependencies: super::super::Foundation::PSTR, ccoreprinterdrivers: u32, pcoreprinterdrivers: *mut CORE_PRINTER_DRIVERA) -> ::windows::core::HRESULT;
         }
@@ -6247,7 +6366,8 @@ pub unsafe fn GetCorePrinterDriversA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetCorePrinterDriversW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszserver: Param0, pszenvironment: Param1, pszzcoredriverdependencies: Param2, ccoreprinterdrivers: u32, pcoreprinterdrivers: *mut CORE_PRINTER_DRIVERW) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetCorePrinterDriversW(pszserver: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR, pszzcoredriverdependencies: super::super::Foundation::PWSTR, ccoreprinterdrivers: u32, pcoreprinterdrivers: *mut CORE_PRINTER_DRIVERW) -> ::windows::core::HRESULT;
         }
@@ -6262,7 +6382,8 @@ pub unsafe fn GetCorePrinterDriversW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetDefaultPrinterA(pszbuffer: super::super::Foundation::PSTR, pcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDefaultPrinterA(pszbuffer: super::super::Foundation::PSTR, pcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6277,7 +6398,8 @@ pub unsafe fn GetDefaultPrinterA(pszbuffer: super::super::Foundation::PSTR, pcch
 pub unsafe fn GetDefaultPrinterW(pszbuffer: super::super::Foundation::PWSTR, pcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDefaultPrinterW(pszbuffer: super::super::Foundation::PWSTR, pcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6292,7 +6414,8 @@ pub unsafe fn GetDefaultPrinterW(pszbuffer: super::super::Foundation::PWSTR, pcc
 pub unsafe fn GetFormA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetFormA(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PSTR, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6307,7 +6430,8 @@ pub unsafe fn GetFormA<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn GetFormW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetFormW(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PWSTR, level: u32, pform: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6322,7 +6446,8 @@ pub unsafe fn GetFormW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn GetJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetJobA(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6337,7 +6462,8 @@ pub unsafe fn GetJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn GetJobAttributes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pprintername: Param0, pdevmode: *const super::Gdi::DEVMODEW, pattributeinfo: *mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetJobAttributes(pprintername: super::super::Foundation::PWSTR, pdevmode: *const super::Gdi::DEVMODEW, pattributeinfo: *mut ATTRIBUTE_INFO_3) -> super::super::Foundation::BOOL;
         }
@@ -6352,7 +6478,8 @@ pub unsafe fn GetJobAttributes<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetJobAttributesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pprintername: Param0, pdevmode: *const super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: *mut u8, nsize: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetJobAttributesEx(pprintername: super::super::Foundation::PWSTR, pdevmode: *const super::Gdi::DEVMODEW, dwlevel: u32, pattributeinfo: *mut u8, nsize: u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -6367,7 +6494,8 @@ pub unsafe fn GetJobAttributesEx<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetJobNamedPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, jobid: u32, pszname: Param2, pvalue: *mut PrintPropertyValue) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetJobNamedPropertyValue(hprinter: super::super::Foundation::HANDLE, jobid: u32, pszname: super::super::Foundation::PWSTR, pvalue: *mut PrintPropertyValue) -> u32;
         }
@@ -6382,7 +6510,8 @@ pub unsafe fn GetJobNamedPropertyValue<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn GetJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetJobW(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6397,7 +6526,8 @@ pub unsafe fn GetJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn GetPrintExecutionData(pdata: *mut PRINT_EXECUTION_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrintExecutionData(pdata: *mut PRINT_EXECUTION_DATA) -> super::super::Foundation::BOOL;
         }
@@ -6412,7 +6542,8 @@ pub unsafe fn GetPrintExecutionData(pdata: *mut PRINT_EXECUTION_DATA) -> super::
 pub unsafe fn GetPrintOutputInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszprinter: Param1, phfile: *mut super::super::Foundation::HANDLE, ppszoutputfile: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrintOutputInfo(hwnd: super::super::Foundation::HWND, pszprinter: super::super::Foundation::PWSTR, phfile: *mut super::super::Foundation::HANDLE, ppszoutputfile: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -6427,7 +6558,8 @@ pub unsafe fn GetPrintOutputInfo<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetPrintProcessorDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrintProcessorDirectoryA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6442,7 +6574,8 @@ pub unsafe fn GetPrintProcessorDirectoryA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn GetPrintProcessorDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrintProcessorDirectoryW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, level: u32, pprintprocessorinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6457,7 +6590,8 @@ pub unsafe fn GetPrintProcessorDirectoryW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn GetPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pprinter: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterA(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6472,7 +6606,8 @@ pub unsafe fn GetPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn GetPrinterDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pvaluename: Param1, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
         }
@@ -6487,7 +6622,8 @@ pub unsafe fn GetPrinterDataA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetPrinterDataExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR, pvaluename: super::super::Foundation::PSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
         }
@@ -6502,7 +6638,8 @@ pub unsafe fn GetPrinterDataExA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn GetPrinterDataExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
         }
@@ -6517,7 +6654,8 @@ pub unsafe fn GetPrinterDataExW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn GetPrinterDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pvaluename: Param1, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PWSTR, ptype: *mut u32, pdata: *mut u8, nsize: u32, pcbneeded: *mut u32) -> u32;
         }
@@ -6532,7 +6670,8 @@ pub unsafe fn GetPrinterDataW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetPrinterDriver2A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hprinter: Param1, penvironment: Param2, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDriver2A(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, penvironment: super::super::Foundation::PSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6547,7 +6686,8 @@ pub unsafe fn GetPrinterDriver2A<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetPrinterDriver2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, hprinter: Param1, penvironment: Param2, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDriver2W(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE, penvironment: super::super::Foundation::PWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6562,7 +6702,8 @@ pub unsafe fn GetPrinterDriver2W<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetPrinterDriverA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDriverA(hprinter: super::super::Foundation::HANDLE, penvironment: super::super::Foundation::PSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6577,7 +6718,8 @@ pub unsafe fn GetPrinterDriverA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn GetPrinterDriverDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDriverDirectoryA(pname: super::super::Foundation::PSTR, penvironment: super::super::Foundation::PSTR, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6592,7 +6734,8 @@ pub unsafe fn GetPrinterDriverDirectoryA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetPrinterDriverDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, penvironment: Param1, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDriverDirectoryW(pname: super::super::Foundation::PWSTR, penvironment: super::super::Foundation::PWSTR, level: u32, pdriverdirectory: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6607,7 +6750,8 @@ pub unsafe fn GetPrinterDriverDirectoryW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetPrinterDriverPackagePathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszserver: Param0, pszenvironment: Param1, pszlanguage: Param2, pszpackageid: Param3, pszdriverpackagecab: Param4, cchdriverpackagecab: u32, pcchrequiredsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDriverPackagePathA(pszserver: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR, pszlanguage: super::super::Foundation::PSTR, pszpackageid: super::super::Foundation::PSTR, pszdriverpackagecab: super::super::Foundation::PSTR, cchdriverpackagecab: u32, pcchrequiredsize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6622,7 +6766,8 @@ pub unsafe fn GetPrinterDriverPackagePathA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn GetPrinterDriverPackagePathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszserver: Param0, pszenvironment: Param1, pszlanguage: Param2, pszpackageid: Param3, pszdriverpackagecab: Param4, cchdriverpackagecab: u32, pcchrequiredsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDriverPackagePathW(pszserver: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR, pszlanguage: super::super::Foundation::PWSTR, pszpackageid: super::super::Foundation::PWSTR, pszdriverpackagecab: super::super::Foundation::PWSTR, cchdriverpackagecab: u32, pcchrequiredsize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6637,7 +6782,8 @@ pub unsafe fn GetPrinterDriverPackagePathW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn GetPrinterDriverW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, penvironment: Param1, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterDriverW(hprinter: super::super::Foundation::HANDLE, penvironment: super::super::Foundation::PWSTR, level: u32, pdriverinfo: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6652,7 +6798,8 @@ pub unsafe fn GetPrinterDriverW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn GetPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pprinter: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetPrinterW(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *mut u8, cbbuf: u32, pcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -6667,7 +6814,8 @@ pub unsafe fn GetPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn GetSpoolFileHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetSpoolFileHandle(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
         }
@@ -18757,7 +18905,8 @@ pub struct IXpsRasterizerNotificationCallback_Vtbl {
 pub unsafe fn ImpersonatePrinterClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImpersonatePrinterClient(htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -18772,7 +18921,8 @@ pub unsafe fn ImpersonatePrinterClient<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn InstallPrinterDriverFromPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszserver: Param0, pszinfpath: Param1, pszdrivername: Param2, pszenvironment: Param3, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InstallPrinterDriverFromPackageA(pszserver: super::super::Foundation::PSTR, pszinfpath: super::super::Foundation::PSTR, pszdrivername: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -18787,7 +18937,8 @@ pub unsafe fn InstallPrinterDriverFromPackageA<'a, Param0: ::windows::core::Into
 pub unsafe fn InstallPrinterDriverFromPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszserver: Param0, pszinfpath: Param1, pszdrivername: Param2, pszenvironment: Param3, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InstallPrinterDriverFromPackageW(pszserver: super::super::Foundation::PWSTR, pszinfpath: super::super::Foundation::PWSTR, pszdrivername: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -18802,7 +18953,8 @@ pub unsafe fn InstallPrinterDriverFromPackageW<'a, Param0: ::windows::core::Into
 pub unsafe fn IsValidDevmodeA(pdevmode: *const super::Gdi::DEVMODEA, devmodesize: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsValidDevmodeA(pdevmode: *const super::Gdi::DEVMODEA, devmodesize: usize) -> super::super::Foundation::BOOL;
         }
@@ -18817,7 +18969,8 @@ pub unsafe fn IsValidDevmodeA(pdevmode: *const super::Gdi::DEVMODEA, devmodesize
 pub unsafe fn IsValidDevmodeW(pdevmode: *const super::Gdi::DEVMODEW, devmodesize: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsValidDevmodeW(pdevmode: *const super::Gdi::DEVMODEW, devmodesize: usize) -> super::super::Foundation::BOOL;
         }
@@ -21261,7 +21414,8 @@ pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64u32;
 pub unsafe fn OpenPrinter2A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA, poptions: *const PRINTER_OPTIONSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenPrinter2A(pprintername: super::super::Foundation::PSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA, poptions: *const PRINTER_OPTIONSA) -> super::super::Foundation::BOOL;
         }
@@ -21276,7 +21430,8 @@ pub unsafe fn OpenPrinter2A<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn OpenPrinter2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW, poptions: *const PRINTER_OPTIONSW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenPrinter2W(pprintername: super::super::Foundation::PWSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW, poptions: *const PRINTER_OPTIONSW) -> super::super::Foundation::BOOL;
         }
@@ -21291,7 +21446,8 @@ pub unsafe fn OpenPrinter2W<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn OpenPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenPrinterA(pprintername: super::super::Foundation::PSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL;
         }
@@ -21306,7 +21462,8 @@ pub unsafe fn OpenPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn OpenPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pprintername: Param0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenPrinterW(pprintername: super::super::Foundation::PWSTR, phprinter: *mut super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL;
         }
@@ -24719,7 +24876,8 @@ impl ::core::fmt::Debug for PageCountType {
 pub unsafe fn PartialReplyPrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PartialReplyPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, pdatasrc: *const PRINTER_NOTIFY_INFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -24734,7 +24892,8 @@ pub unsafe fn PartialReplyPrinterChangeNotification<'a, Param0: ::windows::core:
 pub unsafe fn PlayGdiScriptOnPrinterIC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinteric: Param0, pin: *const u8, cin: u32, pout: *mut u8, cout: u32, ul: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PlayGdiScriptOnPrinterIC(hprinteric: super::super::Foundation::HANDLE, pin: *const u8, cin: u32, pout: *mut u8, cout: u32, ul: u32) -> super::super::Foundation::BOOL;
         }
@@ -25194,7 +25353,8 @@ pub const PrinterExtensionManager: ::windows::core::GUID = ::windows::core::GUID
 pub unsafe fn PrinterMessageBoxA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, error: u32, hwnd: Param2, ptext: Param3, pcaption: Param4, dwtype: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrinterMessageBoxA(hprinter: super::super::Foundation::HANDLE, error: u32, hwnd: super::super::Foundation::HWND, ptext: super::super::Foundation::PSTR, pcaption: super::super::Foundation::PSTR, dwtype: u32) -> u32;
         }
@@ -25209,7 +25369,8 @@ pub unsafe fn PrinterMessageBoxA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn PrinterMessageBoxW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, error: u32, hwnd: Param2, ptext: Param3, pcaption: Param4, dwtype: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrinterMessageBoxW(hprinter: super::super::Foundation::HANDLE, error: u32, hwnd: super::super::Foundation::HWND, ptext: super::super::Foundation::PWSTR, pcaption: super::super::Foundation::PWSTR, dwtype: u32) -> u32;
         }
@@ -25224,7 +25385,8 @@ pub unsafe fn PrinterMessageBoxW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn PrinterProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hwnd: Param0, hprinter: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrinterProperties(hwnd: super::super::Foundation::HWND, hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -25241,7 +25403,8 @@ pub const PrinterQueueView: ::windows::core::GUID = ::windows::core::GUID::from_
 pub unsafe fn ProvidorFindClosePrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ProvidorFindClosePrinterChangeNotification(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -25256,7 +25419,8 @@ pub unsafe fn ProvidorFindClosePrinterChangeNotification<'a, Param0: ::windows::
 pub unsafe fn ProvidorFindFirstPrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, fdwflags: u32, fdwoptions: u32, hnotify: Param3, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ProvidorFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwflags: u32, fdwoptions: u32, hnotify: super::super::Foundation::HANDLE, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -25296,7 +25460,8 @@ pub const ROUTER_UNKNOWN: u32 = 0u32;
 pub unsafe fn ReadPrinter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pbuf: *mut ::core::ffi::c_void, cbbuf: u32, pnobytesread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReadPrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *mut ::core::ffi::c_void, cbbuf: u32, pnobytesread: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -25311,7 +25476,8 @@ pub unsafe fn ReadPrinter<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn RegisterForPrintAsyncNotifications<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IPrintAsyncNotifyCallback>>(pszname: Param0, pnotificationtype: *const ::windows::core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: Param4) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterForPrintAsyncNotifications(pszname: super::super::Foundation::PWSTR, pnotificationtype: *const ::windows::core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: ::windows::core::RawPtr, phnotify: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -25327,7 +25493,8 @@ pub unsafe fn RegisterForPrintAsyncNotifications<'a, Param0: ::windows::core::In
 pub unsafe fn RemovePrintDeviceObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdeviceobject: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemovePrintDeviceObject(hdeviceobject: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -25342,7 +25509,8 @@ pub unsafe fn RemovePrintDeviceObject<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ReplyPrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, fdwchangeflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReplyPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwchangeflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -25357,7 +25525,8 @@ pub unsafe fn ReplyPrinterChangeNotification<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn ReplyPrinterChangeNotificationEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hnotify: Param0, dwcolor: u32, fdwflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReplyPrinterChangeNotificationEx(hnotify: super::super::Foundation::HANDLE, dwcolor: u32, fdwflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -25372,7 +25541,8 @@ pub unsafe fn ReplyPrinterChangeNotificationEx<'a, Param0: ::windows::core::Into
 pub unsafe fn ReportJobProcessingProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(printerhandle: Param0, jobid: u32, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReportJobProcessingProgress(printerhandle: super::super::Foundation::HANDLE, jobid: u32, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress) -> ::windows::core::HRESULT;
         }
@@ -25387,7 +25557,8 @@ pub unsafe fn ReportJobProcessingProgress<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ResetPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResetPrinterA(hprinter: super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSA) -> super::super::Foundation::BOOL;
         }
@@ -25402,7 +25573,8 @@ pub unsafe fn ResetPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn ResetPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResetPrinterW(hprinter: super::super::Foundation::HANDLE, pdefault: *const PRINTER_DEFAULTSW) -> super::super::Foundation::BOOL;
         }
@@ -25417,7 +25589,8 @@ pub unsafe fn ResetPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE;
         }
@@ -25431,7 +25604,8 @@ pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
 pub unsafe fn RouterAllocBidiMem(numbytes: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RouterAllocBidiMem(numbytes: usize) -> *mut ::core::ffi::c_void;
         }
@@ -25446,7 +25620,8 @@ pub unsafe fn RouterAllocBidiMem(numbytes: usize) -> *mut ::core::ffi::c_void {
 pub unsafe fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER;
         }
@@ -25460,7 +25635,8 @@ pub unsafe fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE
 pub unsafe fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: u32) -> *mut PRINTER_NOTIFY_INFO {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: u32) -> *mut PRINTER_NOTIFY_INFO;
         }
@@ -25474,7 +25650,8 @@ pub unsafe fn RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: u32) -> *mut 
 pub unsafe fn RouterFreeBidiMem(pmempointer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RouterFreeBidiMem(pmempointer: *const ::core::ffi::c_void);
         }
@@ -25489,7 +25666,8 @@ pub unsafe fn RouterFreeBidiMem(pmempointer: *const ::core::ffi::c_void) {
 pub unsafe fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAINER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAINER) -> u32;
         }
@@ -25504,7 +25682,8 @@ pub unsafe fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAI
 pub unsafe fn RouterFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RouterFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
         }
@@ -25959,7 +26138,8 @@ pub const S_NO_CONFLICT: u32 = 262145u32;
 pub unsafe fn ScheduleJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScheduleJob(hprinter: super::super::Foundation::HANDLE, jobid: u32) -> super::super::Foundation::BOOL;
         }
@@ -25974,7 +26154,8 @@ pub unsafe fn ScheduleJob<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn SetCPSUIUserData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, cpsuiuserdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "compstui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetCPSUIUserData(hdlg: super::super::Foundation::HWND, cpsuiuserdata: usize) -> super::super::Foundation::BOOL;
         }
@@ -25989,7 +26170,8 @@ pub unsafe fn SetCPSUIUserData<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetDefaultPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetDefaultPrinterA(pszprinter: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -26004,7 +26186,8 @@ pub unsafe fn SetDefaultPrinterA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SetDefaultPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetDefaultPrinterW(pszprinter: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -26019,7 +26202,8 @@ pub unsafe fn SetDefaultPrinterW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SetFormA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetFormA(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PSTR, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -26034,7 +26218,8 @@ pub unsafe fn SetFormA<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn SetFormW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pformname: Param1, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetFormW(hprinter: super::super::Foundation::HANDLE, pformname: super::super::Foundation::PWSTR, level: u32, pform: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -26049,7 +26234,8 @@ pub unsafe fn SetFormW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn SetJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetJobA(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL;
         }
@@ -26064,7 +26250,8 @@ pub unsafe fn SetJobA<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn SetJobNamedProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, pproperty: *const PrintNamedProperty) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetJobNamedProperty(hprinter: super::super::Foundation::HANDLE, jobid: u32, pproperty: *const PrintNamedProperty) -> u32;
         }
@@ -26079,7 +26266,8 @@ pub unsafe fn SetJobNamedProperty<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetJobW(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL;
         }
@@ -26094,7 +26282,8 @@ pub unsafe fn SetJobW<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn SetPortA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pname: Param0, pportname: Param1, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPortA(pname: super::super::Foundation::PSTR, pportname: super::super::Foundation::PSTR, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -26109,7 +26298,8 @@ pub unsafe fn SetPortA<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn SetPortW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pname: Param0, pportname: Param1, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPortW(pname: super::super::Foundation::PWSTR, pportname: super::super::Foundation::PWSTR, dwlevel: u32, pportinfo: *const u8) -> super::super::Foundation::BOOL;
         }
@@ -26124,7 +26314,8 @@ pub unsafe fn SetPortW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn SetPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pprinter: *const u8, command: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPrinterA(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *const u8, command: u32) -> super::super::Foundation::BOOL;
         }
@@ -26139,7 +26330,8 @@ pub unsafe fn SetPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn SetPrinterDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pvaluename: Param1, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPrinterDataA(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
         }
@@ -26154,7 +26346,8 @@ pub unsafe fn SetPrinterDataA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SetPrinterDataExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPrinterDataExA(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PSTR, pvaluename: super::super::Foundation::PSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
         }
@@ -26169,7 +26362,8 @@ pub unsafe fn SetPrinterDataExA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetPrinterDataExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pkeyname: Param1, pvaluename: Param2, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPrinterDataExW(hprinter: super::super::Foundation::HANDLE, pkeyname: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
         }
@@ -26184,7 +26378,8 @@ pub unsafe fn SetPrinterDataExW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetPrinterDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprinter: Param0, pvaluename: Param1, r#type: u32, pdata: *const u8, cbdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPrinterDataW(hprinter: super::super::Foundation::HANDLE, pvaluename: super::super::Foundation::PWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> u32;
         }
@@ -26199,7 +26394,8 @@ pub unsafe fn SetPrinterDataW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SetPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pprinter: *const u8, command: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetPrinterW(hprinter: super::super::Foundation::HANDLE, level: u32, pprinter: *const u8, command: u32) -> super::super::Foundation::BOOL;
         }
@@ -26214,7 +26410,8 @@ pub unsafe fn SetPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn SplIsSessionZero<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, pissessionzero: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SplIsSessionZero(hprinter: super::super::Foundation::HANDLE, jobid: u32, pissessionzero: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -26229,7 +26426,8 @@ pub unsafe fn SplIsSessionZero<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SplPromptUIInUsersSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, jobid: u32, puiparams: *const SHOWUIPARAMS, presponse: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SplPromptUIInUsersSession(hprinter: super::super::Foundation::HANDLE, jobid: u32, puiparams: *const SHOWUIPARAMS, presponse: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -26244,7 +26442,8 @@ pub unsafe fn SplPromptUIInUsersSession<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn SpoolerCopyFileEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprintername: Param0, pszkey: Param1, dwcopyfileevent: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mscms", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SpoolerCopyFileEvent(pszprintername: super::super::Foundation::PWSTR, pszkey: super::super::Foundation::PWSTR, dwcopyfileevent: u32) -> super::super::Foundation::BOOL;
         }
@@ -26259,7 +26458,8 @@ pub unsafe fn SpoolerCopyFileEvent<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn SpoolerFindClosePrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SpoolerFindClosePrinterChangeNotification(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -26274,7 +26474,8 @@ pub unsafe fn SpoolerFindClosePrinterChangeNotification<'a, Param0: ::windows::c
 pub unsafe fn SpoolerFindFirstPrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, pnotificationconfig: *const ::core::ffi::c_void, phnotify: *mut super::super::Foundation::HANDLE, phevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SpoolerFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, pnotificationconfig: *const ::core::ffi::c_void, phnotify: *mut super::super::Foundation::HANDLE, phevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -26289,7 +26490,8 @@ pub unsafe fn SpoolerFindFirstPrinterChangeNotification<'a, Param0: ::windows::c
 pub unsafe fn SpoolerFindNextPrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pfdwchange: *mut u32, pprinternotifyoptions: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SpoolerFindNextPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, pfdwchange: *mut u32, pprinternotifyoptions: *const ::core::ffi::c_void, ppprinternotifyinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -26303,7 +26505,8 @@ pub unsafe fn SpoolerFindNextPrinterChangeNotification<'a, Param0: ::windows::co
 pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO);
         }
@@ -26318,7 +26521,8 @@ pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) {
 pub unsafe fn SpoolerRefreshPrinterChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, dwcolor: u32, poptions: *const PRINTER_NOTIFY_OPTIONS, ppinfo: *mut *mut PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SpoolerRefreshPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, dwcolor: u32, poptions: *const PRINTER_NOTIFY_OPTIONS, ppinfo: *mut *mut PRINTER_NOTIFY_INFO) -> super::super::Foundation::BOOL;
         }
@@ -26333,7 +26537,8 @@ pub unsafe fn SpoolerRefreshPrinterChangeNotification<'a, Param0: ::windows::cor
 pub unsafe fn StartDocPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pdocinfo: *const DOC_INFO_1A) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartDocPrinterA(hprinter: super::super::Foundation::HANDLE, level: u32, pdocinfo: *const DOC_INFO_1A) -> u32;
         }
@@ -26348,7 +26553,8 @@ pub unsafe fn StartDocPrinterA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn StartDocPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, level: u32, pdocinfo: *const DOC_INFO_1W) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartDocPrinterW(hprinter: super::super::Foundation::HANDLE, level: u32, pdocinfo: *const DOC_INFO_1W) -> u32;
         }
@@ -26363,7 +26569,8 @@ pub unsafe fn StartDocPrinterW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn StartPagePrinter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartPagePrinter(hprinter: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -26864,7 +27071,8 @@ impl ::core::default::Default for USERDATA {
 pub unsafe fn UnRegisterForPrintAsyncNotifications<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(param0: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnRegisterForPrintAsyncNotifications(param0: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -26879,7 +27087,8 @@ pub unsafe fn UnRegisterForPrintAsyncNotifications<'a, Param0: ::windows::core::
 pub unsafe fn UpdatePrintDeviceObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, hdeviceobject: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "spoolss", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UpdatePrintDeviceObject(hprinter: super::super::Foundation::HANDLE, hdeviceobject: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -26894,7 +27103,8 @@ pub unsafe fn UpdatePrintDeviceObject<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn UploadPrinterDriverPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2, dwflags: u32, hwnd: Param4, pszdestinfpath: super::super::Foundation::PSTR, pcchdestinfpath: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UploadPrinterDriverPackageA(pszserver: super::super::Foundation::PSTR, pszinfpath: super::super::Foundation::PSTR, pszenvironment: super::super::Foundation::PSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, pszdestinfpath: super::super::Foundation::PSTR, pcchdestinfpath: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -26909,7 +27119,8 @@ pub unsafe fn UploadPrinterDriverPackageA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn UploadPrinterDriverPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2, dwflags: u32, hwnd: Param4, pszdestinfpath: super::super::Foundation::PWSTR, pcchdestinfpath: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UploadPrinterDriverPackageW(pszserver: super::super::Foundation::PWSTR, pszinfpath: super::super::Foundation::PWSTR, pszenvironment: super::super::Foundation::PWSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, pszdestinfpath: super::super::Foundation::PWSTR, pcchdestinfpath: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -26990,7 +27201,8 @@ pub const WM_FI_FILENAME: u32 = 900u32;
 pub unsafe fn WaitForPrinterChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WaitForPrinterChange(hprinter: super::super::Foundation::HANDLE, flags: u32) -> u32;
         }
@@ -27005,7 +27217,8 @@ pub unsafe fn WaitForPrinterChange<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn WritePrinter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprinter: Param0, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WritePrinter(hprinter: super::super::Foundation::HANDLE, pbuf: *const ::core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -27137,7 +27350,8 @@ pub const XPS_FP_USER_TOKEN: &'static str = "UserSecurityToken";
 pub unsafe fn XcvDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hxcv: Param0, pszdataname: Param1, pinputdata: *const u8, cbinputdata: u32, poutputdata: *mut u8, cboutputdata: u32, pcboutputneeded: *mut u32, pdwstatus: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XcvDataW(hxcv: super::super::Foundation::HANDLE, pszdataname: super::super::Foundation::PWSTR, pinputdata: *const u8, cbinputdata: u32, poutputdata: *mut u8, cboutputdata: u32, pcboutputneeded: *mut u32, pdwstatus: *mut u32) -> super::super::Foundation::BOOL;
         }

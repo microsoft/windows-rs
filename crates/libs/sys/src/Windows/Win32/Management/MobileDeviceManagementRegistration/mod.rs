@@ -1,9 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mdmlocalmanagement", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ApplyLocalManagementSyncML(syncmlrequest: super::super::Foundation::PWSTR, syncmlresult: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegisterDeviceWithLocalManagement(alreadyregistered: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
+    pub fn UnregisterDeviceWithLocalManagement() -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DiscoverManagementService(pszupn: super::super::Foundation::PWSTR, ppmgmtinfo: *mut *mut MANAGEMENT_SERVICE_INFO) -> ::windows_sys::core::HRESULT;
@@ -29,9 +39,6 @@ extern "system" {
     pub fn IsMdmUxWithoutAadAllowed(isenrollmentallowed: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterDeviceWithLocalManagement(alreadyregistered: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterDeviceWithManagement(pszupn: super::super::Foundation::PWSTR, ppszmdmserviceuri: super::super::Foundation::PWSTR, ppzsaccesstoken: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -47,8 +54,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetManagedExternally(ismanagedexternally: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
-    pub fn UnregisterDeviceWithLocalManagement() -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnregisterDeviceWithManagement(enrollmentid: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;

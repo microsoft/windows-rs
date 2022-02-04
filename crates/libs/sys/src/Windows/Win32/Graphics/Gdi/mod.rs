@@ -1,5 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "fontsub", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+    pub fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+    pub fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffersize: u32, puchfontpackagebuffer: *const u8, ulfontpackagebuffersize: u32, ppuchdestbuffer: *mut *mut u8, puldestbuffersize: *mut u32, pulbyteswritten: *mut u32, usmode: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21,9 +30,6 @@ extern "system" {
     pub fn AddFontResourceW(param0: super::super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AlphaBlend(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn AngleArc(hdc: HDC, x: i32, y: i32, r: u32, startangle: f32, sweepangle: f32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -36,9 +42,6 @@ extern "system" {
     pub fn ArcTo(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BeginPaint(hwnd: super::super::Foundation::HWND, lppaint: *mut PAINTSTRUCT) -> HDC;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn BeginPath(hdc: HDC) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -48,22 +51,7 @@ extern "system" {
     pub fn CancelDC(hdc: HDC) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TYPE) -> DISP_CHANGE;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ChangeDisplaySettingsExA(lpszdevicename: super::super::Foundation::PSTR, lpdevmode: *const DEVMODEA, hwnd: super::super::Foundation::HWND, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ChangeDisplaySettingsExW(lpszdevicename: super::super::Foundation::PWSTR, lpdevmode: *const DEVMODEW, hwnd: super::super::Foundation::HWND, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TYPE) -> DISP_CHANGE;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn Chord(hdc: HDC, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClientToScreen(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn CloseEnhMetaFile(hdc: HDC) -> HENHMETAFILE;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
@@ -88,9 +76,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CopyMetaFileW(param0: HMETAFILE, param1: super::super::Foundation::PWSTR) -> HMETAFILE;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CopyRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn CreateBitmap(nwidth: i32, nheight: i32, nplanes: u32, nbitcount: u32, lpbits: *const ::core::ffi::c_void) -> HBITMAP;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -142,8 +127,6 @@ extern "system" {
     pub fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-    pub fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateFontW(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: super::super::Foundation::PWSTR) -> HFONT;
@@ -210,70 +193,13 @@ extern "system" {
     pub fn DeleteObject(ho: HGDIOBJ) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawAnimatedRects(hwnd: super::super::Foundation::HWND, idani: i32, lprcfrom: *const super::super::Foundation::RECT, lprcto: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawCaption(hwnd: super::super::Foundation::HWND, hdc: HDC, lprect: *const super::super::Foundation::RECT, flags: DRAW_CAPTION_FLAGS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawEdge(hdc: HDC, qrc: *mut super::super::Foundation::RECT, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn DrawEscape(hdc: HDC, iescape: i32, cjin: i32, lpin: super::super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawFocusRect(hdc: HDC, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawFrameControl(param0: HDC, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawTextA(hdc: HDC, lpchtext: super::super::Foundation::PSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawTextExA(hdc: HDC, lpchtext: super::super::Foundation::PSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawTextExW(hdc: HDC, lpchtext: super::super::Foundation::PWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawTextW(hdc: HDC, lpchtext: super::super::Foundation::PWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn Ellipse(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EndPaint(hwnd: super::super::Foundation::HWND, lppaint: *const PAINTSTRUCT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn EndPath(hdc: HDC) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDisplayDevicesA(lpdevice: super::super::Foundation::PSTR, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEA, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDisplayDevicesW(lpdevice: super::super::Foundation::PWSTR, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEW, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDisplayMonitors(hdc: HDC, lprcclip: *const super::super::Foundation::RECT, lpfnenum: MONITORENUMPROC, dwdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDisplaySettingsA(lpszdevicename: super::super::Foundation::PSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDisplaySettingsExA(lpszdevicename: super::super::Foundation::PSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDisplaySettingsExW(lpszdevicename: super::super::Foundation::PWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDisplaySettingsW(lpszdevicename: super::super::Foundation::PWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnumEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, proc: ENHMFENUMPROC, param3: *const ::core::ffi::c_void, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
@@ -303,15 +229,9 @@ extern "system" {
     pub fn EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: super::super::Foundation::LPARAM) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn EqualRgn(hrgn1: HRGN, hrgn2: HRGN) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn ExcludeClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ExcludeUpdateRgn(hdc: HDC, hwnd: super::super::Foundation::HWND) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LOGBRUSH, cstyle: u32, pstyle: *const u32) -> HPEN;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
@@ -333,9 +253,6 @@ extern "system" {
     pub fn FillPath(hdc: HDC) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FillRect(hdc: HDC, lprc: *const super::super::Foundation::RECT, hbr: HBRUSH) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn FillRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -346,9 +263,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FloodFill(hdc: HDC, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FrameRect(hdc: HDC, lprc: *const super::super::Foundation::RECT, hbr: HBRUSH) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FrameRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH, w: i32, h: i32) -> super::super::Foundation::BOOL;
@@ -446,14 +360,8 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetCurrentPositionEx(hdc: HDC, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDC(hwnd: super::super::Foundation::HWND) -> HDC;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn GetDCBrushColor(hdc: HDC) -> u32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDCEx(hwnd: super::super::Foundation::HWND, hrgnclip: HRGN, flags: GET_DCX_FLAGS) -> HDC;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetDCOrgEx(hdc: HDC, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
@@ -525,12 +433,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetMiterLimit(hdc: HDC, plimit: *mut f32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorInfoA(hmonitor: HMONITOR, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetMonitorInfoW(hmonitor: HMONITOR, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn GetNearestColor(hdc: HDC, color: u32) -> u32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -574,17 +476,9 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn GetStretchBltMode(hdc: HDC) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-    pub fn GetSysColorBrush(nindex: i32) -> HBRUSH;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn GetSystemPaletteEntries(hdc: HDC, istart: u32, centries: u32, ppalentries: *mut PALETTEENTRY) -> u32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn GetSystemPaletteUse(hdc: HDC) -> u32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTabbedTextExtentA(hdc: HDC, lpstring: super::super::Foundation::PSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32) -> u32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTabbedTextExtentW(hdc: HDC, lpstring: super::super::Foundation::PWSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32) -> u32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn GetTextAlign(hdc: HDC) -> u32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
@@ -629,12 +523,6 @@ extern "system" {
     pub fn GetTextMetricsW(hdc: HDC, lptm: *mut TEXTMETRICW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetUpdateRect(hwnd: super::super::Foundation::HWND, lprect: *mut super::super::Foundation::RECT, berase: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetUpdateRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN, berase: super::super::Foundation::BOOL) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn GetViewportExtEx(hdc: HDC, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -643,54 +531,18 @@ extern "system" {
     pub fn GetWinMetaFileBits(hemf: HENHMETAFILE, cbdata16: u32, pdata16: *mut u8, imapmode: i32, hdcref: HDC) -> u32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowDC(hwnd: super::super::Foundation::HWND) -> HDC;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowExtEx(hdc: HDC, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowOrgEx(hdc: HDC, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowRgnBox(hwnd: super::super::Foundation::HWND, lprc: *mut super::super::Foundation::RECT) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn GetWorldTransform(hdc: HDC, lpxf: *mut XFORM) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GradientFill(hdc: HDC, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GrayStringA(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GrayStringW(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn IntersectClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InvalidateRect(hwnd: super::super::Foundation::HWND, lprect: *const super::super::Foundation::RECT, berase: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InvalidateRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN, berase: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InvertRect(hdc: HDC, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn InvertRgn(hdc: HDC, hrgn: HRGN) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsRectEmpty(lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LPtoDP(hdc: HDC, lppt: *mut super::super::Foundation::POINT, c: i32) -> super::super::Foundation::BOOL;
@@ -702,41 +554,15 @@ extern "system" {
     pub fn LineTo(hdc: HDC, x: i32, y: i32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadBitmapA(hinstance: super::super::Foundation::HINSTANCE, lpbitmapname: super::super::Foundation::PSTR) -> HBITMAP;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadBitmapW(hinstance: super::super::Foundation::HINSTANCE, lpbitmapname: super::super::Foundation::PWSTR) -> HBITMAP;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LockWindowUpdate(hwndlock: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MapWindowPoints(hwndfrom: super::super::Foundation::HWND, hwndto: super::super::Foundation::HWND, lppoints: *mut super::super::Foundation::POINT, cpoints: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn MaskBlt(hdcdest: HDC, xdest: i32, ydest: i32, width: i32, height: i32, hdcsrc: HDC, xsrc: i32, ysrc: i32, hbmmask: HBITMAP, xmask: i32, ymask: i32, rop: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-    pub fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffersize: u32, puchfontpackagebuffer: *const u8, ulfontpackagebuffersize: u32, ppuchdestbuffer: *mut *mut u8, puldestbuffersize: *mut u32, pulbyteswritten: *mut u32, usmode: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ModifyWorldTransform(hdc: HDC, lpxf: *const XFORM, mode: MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MonitorFromPoint(pt: super::super::Foundation::POINT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MonitorFromWindow(hwnd: super::super::Foundation::HWND, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn MoveToEx(hdc: HDC, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn OffsetClipRgn(hdc: HDC, x: i32, y: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn OffsetRgn(hrgn: HRGN, x: i32, y: i32) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
@@ -745,9 +571,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OffsetWindowOrgEx(hdc: HDC, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PaintDesktop(hdc: HDC) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PaintRgn(hdc: HDC, hrgn: HRGN) -> super::super::Foundation::BOOL;
@@ -806,9 +629,6 @@ extern "system" {
     pub fn PolylineTo(hdc: HDC, apt: *const super::super::Foundation::POINT, cpt: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PtInRect(lprc: *const super::super::Foundation::RECT, pt: super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn PtInRegion(hrgn: HRGN, x: i32, y: i32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -824,12 +644,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn Rectangle(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RedrawWindow(hwnd: super::super::Foundation::HWND, lprcupdate: *const super::super::Foundation::RECT, hrgnupdate: HRGN, flags: REDRAW_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReleaseDC(hwnd: super::super::Foundation::HWND, hdc: HDC) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RemoveFontMemResourceEx(h: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
@@ -868,9 +682,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ScaleWindowExtEx(hdc: HDC, xn: i32, xd: i32, yn: i32, yd: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ScreenToClient(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SelectClipPath(hdc: HDC, mode: RGN_COMBINE_MODE) -> super::super::Foundation::BOOL;
@@ -941,12 +752,6 @@ extern "system" {
     pub fn SetROP2(hdc: HDC, rop2: R2_MODE) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, ytop: i32, xright: i32, ybottom: i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn SetRectRgn(hrgn: HRGN, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn SetStretchBltMode(hdc: HDC, mode: STRETCH_BLT_MODE) -> i32;
@@ -975,9 +780,6 @@ extern "system" {
     pub fn SetWindowOrgEx(hdc: HDC, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWindowRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN, bredraw: super::super::Foundation::BOOL) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn SetWorldTransform(hdc: HDC, lpxf: *const XFORM) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -992,7 +794,42 @@ extern "system" {
     pub fn StrokePath(hdc: HDC) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SubtractRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
+    pub fn TextOutA(hdc: HDC, x: i32, y: i32, lpstring: super::super::Foundation::PSTR, c: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TextOutW(hdc: HDC, x: i32, y: i32, lpstring: super::super::Foundation::PWSTR, c: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnrealizeObject(h: HGDIOBJ) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UpdateColors(hdc: HDC) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WidenPath(hdc: HDC) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "msimg32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn AlphaBlend(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GradientFill(hdc: HDC, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TransparentBlt(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+    pub fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "t2embed", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn TTCharToUnicode(hdc: HDC, puccharcodes: *const u8, ulcharcodesize: u32, pusshortcodes: *mut u16, ulshortcodesize: u32, ulflags: u32) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
@@ -1028,6 +865,210 @@ extern "system" {
     pub fn TTRunValidationTests(hdc: HDC, ptestparam: *const TTVALIDATIONTESTSPARAMS) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
     pub fn TTRunValidationTestsEx(hdc: HDC, ptestparam: *const TTVALIDATIONTESTSPARAMSEX) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn BeginPaint(hwnd: super::super::Foundation::HWND, lppaint: *mut PAINTSTRUCT) -> HDC;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TYPE) -> DISP_CHANGE;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ChangeDisplaySettingsExA(lpszdevicename: super::super::Foundation::PSTR, lpdevmode: *const DEVMODEA, hwnd: super::super::Foundation::HWND, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ChangeDisplaySettingsExW(lpszdevicename: super::super::Foundation::PWSTR, lpdevmode: *const DEVMODEW, hwnd: super::super::Foundation::HWND, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TYPE) -> DISP_CHANGE;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClientToScreen(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CopyRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawAnimatedRects(hwnd: super::super::Foundation::HWND, idani: i32, lprcfrom: *const super::super::Foundation::RECT, lprcto: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawCaption(hwnd: super::super::Foundation::HWND, hdc: HDC, lprect: *const super::super::Foundation::RECT, flags: DRAW_CAPTION_FLAGS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawEdge(hdc: HDC, qrc: *mut super::super::Foundation::RECT, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawFocusRect(hdc: HDC, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawFrameControl(param0: HDC, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawTextA(hdc: HDC, lpchtext: super::super::Foundation::PSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawTextExA(hdc: HDC, lpchtext: super::super::Foundation::PSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawTextExW(hdc: HDC, lpchtext: super::super::Foundation::PWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DrawTextW(hdc: HDC, lpchtext: super::super::Foundation::PWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EndPaint(hwnd: super::super::Foundation::HWND, lppaint: *const PAINTSTRUCT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDisplayDevicesA(lpdevice: super::super::Foundation::PSTR, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEA, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDisplayDevicesW(lpdevice: super::super::Foundation::PWSTR, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEW, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDisplayMonitors(hdc: HDC, lprcclip: *const super::super::Foundation::RECT, lpfnenum: MONITORENUMPROC, dwdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDisplaySettingsA(lpszdevicename: super::super::Foundation::PSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDisplaySettingsExA(lpszdevicename: super::super::Foundation::PSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDisplaySettingsExW(lpszdevicename: super::super::Foundation::PWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDisplaySettingsW(lpszdevicename: super::super::Foundation::PWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ExcludeUpdateRgn(hdc: HDC, hwnd: super::super::Foundation::HWND) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FillRect(hdc: HDC, lprc: *const super::super::Foundation::RECT, hbr: HBRUSH) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FrameRect(hdc: HDC, lprc: *const super::super::Foundation::RECT, hbr: HBRUSH) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDC(hwnd: super::super::Foundation::HWND) -> HDC;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDCEx(hwnd: super::super::Foundation::HWND, hrgnclip: HRGN, flags: GET_DCX_FLAGS) -> HDC;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorInfoA(hmonitor: HMONITOR, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetMonitorInfoW(hmonitor: HMONITOR, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
+    pub fn GetSysColorBrush(nindex: i32) -> HBRUSH;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetTabbedTextExtentA(hdc: HDC, lpstring: super::super::Foundation::PSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32) -> u32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetTabbedTextExtentW(hdc: HDC, lpstring: super::super::Foundation::PWSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32) -> u32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetUpdateRect(hwnd: super::super::Foundation::HWND, lprect: *mut super::super::Foundation::RECT, berase: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetUpdateRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN, berase: super::super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowDC(hwnd: super::super::Foundation::HWND) -> HDC;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetWindowRgnBox(hwnd: super::super::Foundation::HWND, lprc: *mut super::super::Foundation::RECT) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GrayStringA(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GrayStringW(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InvalidateRect(hwnd: super::super::Foundation::HWND, lprect: *const super::super::Foundation::RECT, berase: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InvalidateRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN, berase: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InvertRect(hdc: HDC, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsRectEmpty(lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadBitmapA(hinstance: super::super::Foundation::HINSTANCE, lpbitmapname: super::super::Foundation::PSTR) -> HBITMAP;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LoadBitmapW(hinstance: super::super::Foundation::HINSTANCE, lpbitmapname: super::super::Foundation::PWSTR) -> HBITMAP;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LockWindowUpdate(hwndlock: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MapWindowPoints(hwndfrom: super::super::Foundation::HWND, hwndto: super::super::Foundation::HWND, lppoints: *mut super::super::Foundation::POINT, cpoints: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MonitorFromPoint(pt: super::super::Foundation::POINT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MonitorFromWindow(hwnd: super::super::Foundation::HWND, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PaintDesktop(hdc: HDC) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PtInRect(lprc: *const super::super::Foundation::RECT, pt: super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RedrawWindow(hwnd: super::super::Foundation::HWND, lprcupdate: *const super::super::Foundation::RECT, hrgnupdate: HRGN, flags: REDRAW_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ReleaseDC(hwnd: super::super::Foundation::HWND, hdc: HDC) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ScreenToClient(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, ytop: i32, xright: i32, ybottom: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetWindowRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN, bredraw: super::super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SubtractRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TabbedTextOutA(hdc: HDC, x: i32, y: i32, lpstring: super::super::Foundation::PSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32, ntaborigin: i32) -> i32;
@@ -1036,22 +1077,7 @@ extern "system" {
     pub fn TabbedTextOutW(hdc: HDC, x: i32, y: i32, lpstring: super::super::Foundation::PWSTR, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32, ntaborigin: i32) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TextOutA(hdc: HDC, x: i32, y: i32, lpstring: super::super::Foundation::PSTR, c: i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TextOutW(hdc: HDC, x: i32, y: i32, lpstring: super::super::Foundation::PWSTR, c: i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TransparentBlt(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn UnionRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UnrealizeObject(h: HGDIOBJ) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateColors(hdc: HDC) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdateWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
@@ -1063,12 +1089,7 @@ extern "system" {
     pub fn ValidateRgn(hwnd: super::super::Foundation::HWND, hrgn: HRGN) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WidenPath(hdc: HDC) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn WindowFromDC(hdc: HDC) -> super::super::Foundation::HWND;
-    #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
-    pub fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32;
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Gdi'*"]

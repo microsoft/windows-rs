@@ -5,7 +5,8 @@
 pub unsafe fn ClearPropVariantArray(rgpropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, cvars: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClearPropVariantArray(rgpropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, cvars: u32);
         }
@@ -20,7 +21,8 @@ pub unsafe fn ClearPropVariantArray(rgpropvar: *mut super::super::super::System:
 pub unsafe fn ClearVariantArray(pvars: *mut super::super::super::System::Com::VARIANT, cvars: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClearVariantArray(pvars: *mut super::super::super::System::Com::VARIANT, cvars: u32);
         }
@@ -2876,7 +2878,8 @@ pub const InMemoryPropertyStoreMarshalByValue: ::windows::core::GUID = ::windows
 pub unsafe fn InitPropVariantFromBooleanVector(prgf: *const super::super::super::Foundation::BOOL, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromBooleanVector(prgf: *const super::super::super::Foundation::BOOL, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -2892,7 +2895,8 @@ pub unsafe fn InitPropVariantFromBooleanVector(prgf: *const super::super::super:
 pub unsafe fn InitPropVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -2908,7 +2912,8 @@ pub unsafe fn InitPropVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32)
 pub unsafe fn InitPropVariantFromCLSID(clsid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromCLSID(clsid: *const ::windows::core::GUID, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -2924,7 +2929,8 @@ pub unsafe fn InitPropVariantFromCLSID(clsid: *const ::windows::core::GUID) -> :
 pub unsafe fn InitPropVariantFromDoubleVector(prgn: *const f64, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromDoubleVector(prgn: *const f64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -2940,7 +2946,8 @@ pub unsafe fn InitPropVariantFromDoubleVector(prgn: *const f64, celems: u32) -> 
 pub unsafe fn InitPropVariantFromFileTime(pftin: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromFileTime(pftin: *const super::super::super::Foundation::FILETIME, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -2956,7 +2963,8 @@ pub unsafe fn InitPropVariantFromFileTime(pftin: *const super::super::super::Fou
 pub unsafe fn InitPropVariantFromFileTimeVector(prgft: *const super::super::super::Foundation::FILETIME, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromFileTimeVector(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -2972,7 +2980,8 @@ pub unsafe fn InitPropVariantFromFileTimeVector(prgft: *const super::super::supe
 pub unsafe fn InitPropVariantFromGUIDAsString(guid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromGUIDAsString(guid: *const ::windows::core::GUID, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -2988,7 +2997,8 @@ pub unsafe fn InitPropVariantFromGUIDAsString(guid: *const ::windows::core::GUID
 pub unsafe fn InitPropVariantFromInt16Vector(prgn: *const i16, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromInt16Vector(prgn: *const i16, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3004,7 +3014,8 @@ pub unsafe fn InitPropVariantFromInt16Vector(prgn: *const i16, celems: u32) -> :
 pub unsafe fn InitPropVariantFromInt32Vector(prgn: *const i32, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromInt32Vector(prgn: *const i32, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3020,7 +3031,8 @@ pub unsafe fn InitPropVariantFromInt32Vector(prgn: *const i32, celems: u32) -> :
 pub unsafe fn InitPropVariantFromInt64Vector(prgn: *const i64, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromInt64Vector(prgn: *const i64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3036,7 +3048,8 @@ pub unsafe fn InitPropVariantFromInt64Vector(prgn: *const i64, celems: u32) -> :
 pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3052,7 +3065,8 @@ pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::
 pub unsafe fn InitPropVariantFromResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HINSTANCE>>(hinst: Param0, id: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3068,7 +3082,8 @@ pub unsafe fn InitPropVariantFromResource<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn InitPropVariantFromStrRet(pstrret: *mut super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromStrRet(pstrret: *mut super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3083,7 +3098,8 @@ pub unsafe fn InitPropVariantFromStrRet(pstrret: *mut super::Common::STRRET, pid
 pub unsafe fn InitPropVariantFromStringAsVector<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(psz: Param0) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromStringAsVector(psz: super::super::super::Foundation::PWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3099,7 +3115,8 @@ pub unsafe fn InitPropVariantFromStringAsVector<'a, Param0: ::windows::core::Int
 pub unsafe fn InitPropVariantFromStringVector(prgsz: *const super::super::super::Foundation::PWSTR, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromStringVector(prgsz: *const super::super::super::Foundation::PWSTR, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3115,7 +3132,8 @@ pub unsafe fn InitPropVariantFromStringVector(prgsz: *const super::super::super:
 pub unsafe fn InitPropVariantFromUInt16Vector(prgn: *const u16, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromUInt16Vector(prgn: *const u16, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3131,7 +3149,8 @@ pub unsafe fn InitPropVariantFromUInt16Vector(prgn: *const u16, celems: u32) -> 
 pub unsafe fn InitPropVariantFromUInt32Vector(prgn: *const u32, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromUInt32Vector(prgn: *const u32, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3147,7 +3166,8 @@ pub unsafe fn InitPropVariantFromUInt32Vector(prgn: *const u32, celems: u32) -> 
 pub unsafe fn InitPropVariantFromUInt64Vector(prgn: *const u64, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantFromUInt64Vector(prgn: *const u64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3163,7 +3183,8 @@ pub unsafe fn InitPropVariantFromUInt64Vector(prgn: *const u64, celems: u32) -> 
 pub unsafe fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvarvector: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -3179,7 +3200,8 @@ pub unsafe fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::
 pub unsafe fn InitVariantFromBooleanArray(prgf: *const super::super::super::Foundation::BOOL, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromBooleanArray(prgf: *const super::super::super::Foundation::BOOL, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3195,7 +3217,8 @@ pub unsafe fn InitVariantFromBooleanArray(prgf: *const super::super::super::Foun
 pub unsafe fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3211,7 +3234,8 @@ pub unsafe fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32) -> 
 pub unsafe fn InitVariantFromDoubleArray(prgn: *const f64, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromDoubleArray(prgn: *const f64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3227,7 +3251,8 @@ pub unsafe fn InitVariantFromDoubleArray(prgn: *const f64, celems: u32) -> ::win
 pub unsafe fn InitVariantFromFileTime(pft: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromFileTime(pft: *const super::super::super::Foundation::FILETIME, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3243,7 +3268,8 @@ pub unsafe fn InitVariantFromFileTime(pft: *const super::super::super::Foundatio
 pub unsafe fn InitVariantFromFileTimeArray(prgft: *const super::super::super::Foundation::FILETIME, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromFileTimeArray(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3259,7 +3285,8 @@ pub unsafe fn InitVariantFromFileTimeArray(prgft: *const super::super::super::Fo
 pub unsafe fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3275,7 +3302,8 @@ pub unsafe fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID) ->
 pub unsafe fn InitVariantFromInt16Array(prgn: *const i16, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromInt16Array(prgn: *const i16, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3291,7 +3319,8 @@ pub unsafe fn InitVariantFromInt16Array(prgn: *const i16, celems: u32) -> ::wind
 pub unsafe fn InitVariantFromInt32Array(prgn: *const i32, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromInt32Array(prgn: *const i32, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3307,7 +3336,8 @@ pub unsafe fn InitVariantFromInt32Array(prgn: *const i32, celems: u32) -> ::wind
 pub unsafe fn InitVariantFromInt64Array(prgn: *const i64, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromInt64Array(prgn: *const i64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3323,7 +3353,8 @@ pub unsafe fn InitVariantFromInt64Array(prgn: *const i64, celems: u32) -> ::wind
 pub unsafe fn InitVariantFromResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HINSTANCE>>(hinst: Param0, id: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3339,7 +3370,8 @@ pub unsafe fn InitVariantFromResource<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3355,7 +3387,8 @@ pub unsafe fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl:
 pub unsafe fn InitVariantFromStringArray(prgsz: *const super::super::super::Foundation::PWSTR, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromStringArray(prgsz: *const super::super::super::Foundation::PWSTR, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3371,7 +3404,8 @@ pub unsafe fn InitVariantFromStringArray(prgsz: *const super::super::super::Foun
 pub unsafe fn InitVariantFromUInt16Array(prgn: *const u16, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromUInt16Array(prgn: *const u16, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3387,7 +3421,8 @@ pub unsafe fn InitVariantFromUInt16Array(prgn: *const u16, celems: u32) -> ::win
 pub unsafe fn InitVariantFromUInt32Array(prgn: *const u32, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromUInt32Array(prgn: *const u32, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3403,7 +3438,8 @@ pub unsafe fn InitVariantFromUInt32Array(prgn: *const u32, celems: u32) -> ::win
 pub unsafe fn InitVariantFromUInt64Array(prgn: *const u64, celems: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromUInt64Array(prgn: *const u64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -3419,7 +3455,8 @@ pub unsafe fn InitVariantFromUInt64Array(prgn: *const u64, celems: u32) -> ::win
 pub unsafe fn InitVariantFromVariantArrayElem(varin: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitVariantFromVariantArrayElem(varin: *const super::super::super::System::Com::VARIANT, ielem: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -4666,7 +4703,8 @@ impl ::core::fmt::Debug for PSC_STATE {
 pub unsafe fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -4680,7 +4718,8 @@ pub unsafe fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut s
 pub unsafe fn PSCreateAdapterFromPropertyStore<'a, Param0: ::windows::core::IntoParam<'a, IPropertyStore>>(pps: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSCreateAdapterFromPropertyStore(pps: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4694,7 +4733,8 @@ pub unsafe fn PSCreateAdapterFromPropertyStore<'a, Param0: ::windows::core::Into
 pub unsafe fn PSCreateDelayedMultiplexPropertyStore<'a, Param1: ::windows::core::IntoParam<'a, IDelayedPropertyStoreFactory>>(flags: GETPROPERTYSTOREFLAGS, pdpsf: Param1, rgstoreids: *const u32, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSCreateDelayedMultiplexPropertyStore(flags: GETPROPERTYSTOREFLAGS, pdpsf: ::windows::core::RawPtr, rgstoreids: *const u32, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4708,7 +4748,8 @@ pub unsafe fn PSCreateDelayedMultiplexPropertyStore<'a, Param1: ::windows::core:
 pub unsafe fn PSCreateMemoryPropertyStore(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSCreateMemoryPropertyStore(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4722,7 +4763,8 @@ pub unsafe fn PSCreateMemoryPropertyStore(riid: *const ::windows::core::GUID, pp
 pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: *const ::core::option::Option<::windows::core::IUnknown>, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSCreateMultiplexPropertyStore(prgpunkstores: *const *mut ::core::ffi::c_void, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4737,7 +4779,8 @@ pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: *const ::core::optio
 pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4751,7 +4794,8 @@ pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags
 pub unsafe fn PSCreatePropertyStoreFromObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, grfmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSCreatePropertyStoreFromObject(punk: *mut ::core::ffi::c_void, grfmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4766,7 +4810,8 @@ pub unsafe fn PSCreatePropertyStoreFromObject<'a, Param0: ::windows::core::IntoP
 pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertySetStorage>>(ppss: Param0, grfmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSCreatePropertyStoreFromPropertySetStorage(ppss: ::windows::core::RawPtr, grfmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4781,7 +4826,8 @@ pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<'a, Param0: ::windows:
 pub unsafe fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4795,7 +4841,8 @@ pub unsafe fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERT
 pub unsafe fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4810,7 +4857,8 @@ pub unsafe fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, rii
 pub unsafe fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::HRESULT;
         }
@@ -4825,7 +4873,8 @@ pub unsafe fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const su
 pub unsafe fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -4841,7 +4890,8 @@ pub unsafe fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const s
 pub unsafe fn PSFormatPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, IPropertyStore>, Param1: ::windows::core::IntoParam<'a, IPropertyDescription>>(pps: Param0, ppd: Param1, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSFormatPropertyValue(pps: ::windows::core::RawPtr, ppd: ::windows::core::RawPtr, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -4857,7 +4907,8 @@ pub unsafe fn PSFormatPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszimageres: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -4873,7 +4924,8 @@ pub unsafe fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: 
 pub unsafe fn PSGetItemPropertyHandler<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(punkitem: Param0, freadwrite: Param1, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetItemPropertyHandler(punkitem: *mut ::core::ffi::c_void, freadwrite: super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4888,7 +4940,8 @@ pub unsafe fn PSGetItemPropertyHandler<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkitem: Param0, freadwrite: Param1, punkcreateobject: Param2, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetItemPropertyHandlerWithCreateObject(punkitem: *mut ::core::ffi::c_void, freadwrite: super::super::super::Foundation::BOOL, punkcreateobject: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4903,7 +4956,8 @@ pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<'a, Param0: ::windows::co
 pub unsafe fn PSGetNameFromPropertyKey(propkey: *const PROPERTYKEY) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetNameFromPropertyKey(propkey: *const PROPERTYKEY, ppszcanonicalname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -4919,7 +4973,8 @@ pub unsafe fn PSGetNameFromPropertyKey(propkey: *const PROPERTYKEY) -> ::windows
 pub unsafe fn PSGetNamedPropertyFromPropertyStorage<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, pszname: Param2) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetNamedPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, pszname: super::super::super::Foundation::PWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -4934,7 +4989,8 @@ pub unsafe fn PSGetNamedPropertyFromPropertyStorage<'a, Param2: ::windows::core:
 pub unsafe fn PSGetPropertyDescription(propkey: *const PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetPropertyDescription(propkey: *const PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4949,7 +5005,8 @@ pub unsafe fn PSGetPropertyDescription(propkey: *const PROPERTYKEY, riid: *const
 pub unsafe fn PSGetPropertyDescriptionByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszcanonicalname: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetPropertyDescriptionByName(pszcanonicalname: super::super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4964,7 +5021,8 @@ pub unsafe fn PSGetPropertyDescriptionByName<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn PSGetPropertyDescriptionListFromString<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszproplist: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetPropertyDescriptionListFromString(pszproplist: super::super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -4979,7 +5037,8 @@ pub unsafe fn PSGetPropertyDescriptionListFromString<'a, Param0: ::windows::core
 pub unsafe fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -4995,7 +5054,8 @@ pub unsafe fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAG
 pub unsafe fn PSGetPropertyKeyFromName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszname: Param0) -> ::windows::core::Result<PROPERTYKEY> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetPropertyKeyFromName(pszname: super::super::super::Foundation::PWSTR, ppropkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT;
         }
@@ -5010,7 +5070,8 @@ pub unsafe fn PSGetPropertyKeyFromName<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PSGetPropertySystem(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetPropertySystem(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5025,7 +5086,8 @@ pub unsafe fn PSGetPropertySystem(riid: *const ::windows::core::GUID, ppv: *mut 
 pub unsafe fn PSGetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, IPropertyStore>, Param1: ::windows::core::IntoParam<'a, IPropertyDescription>>(pps: Param0, ppd: Param1) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSGetPropertyValue(pps: ::windows::core::RawPtr, ppd: ::windows::core::RawPtr, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -5041,7 +5103,8 @@ pub unsafe fn PSGetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, IPro
 pub unsafe fn PSLookupPropertyHandlerCLSID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszfilepath: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSLookupPropertyHandlerCLSID(pszfilepath: super::super::super::Foundation::PWSTR, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -5057,7 +5120,8 @@ pub unsafe fn PSLookupPropertyHandlerCLSID<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn PSPropertyBag_Delete<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_Delete(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -5072,7 +5136,8 @@ pub unsafe fn PSPropertyBag_Delete<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn PSPropertyBag_ReadBOOL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadBOOL(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -5088,7 +5153,8 @@ pub unsafe fn PSPropertyBag_ReadBOOL<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PSPropertyBag_ReadBSTR<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadBSTR(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -5104,7 +5170,8 @@ pub unsafe fn PSPropertyBag_ReadBSTR<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PSPropertyBag_ReadDWORD<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadDWORD(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5120,7 +5187,8 @@ pub unsafe fn PSPropertyBag_ReadDWORD<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PSPropertyBag_ReadGUID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadGUID(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -5136,7 +5204,8 @@ pub unsafe fn PSPropertyBag_ReadGUID<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PSPropertyBag_ReadInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadInt(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -5152,7 +5221,8 @@ pub unsafe fn PSPropertyBag_ReadInt<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PSPropertyBag_ReadLONG<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadLONG(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -5168,7 +5238,8 @@ pub unsafe fn PSPropertyBag_ReadLONG<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PSPropertyBag_ReadPOINTL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::POINTL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadPOINTL(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::POINTL) -> ::windows::core::HRESULT;
         }
@@ -5184,7 +5255,8 @@ pub unsafe fn PSPropertyBag_ReadPOINTL<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PSPropertyBag_ReadPOINTS<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::POINTS> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadPOINTS(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::POINTS) -> ::windows::core::HRESULT;
         }
@@ -5200,7 +5272,8 @@ pub unsafe fn PSPropertyBag_ReadPOINTS<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PSPropertyBag_ReadPropertyKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<PROPERTYKEY> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadPropertyKey(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut PROPERTYKEY) -> ::windows::core::HRESULT;
         }
@@ -5216,7 +5289,8 @@ pub unsafe fn PSPropertyBag_ReadPropertyKey<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn PSPropertyBag_ReadRECTL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::RECTL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadRECTL(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::RECTL) -> ::windows::core::HRESULT;
         }
@@ -5232,7 +5306,8 @@ pub unsafe fn PSPropertyBag_ReadRECTL<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PSPropertyBag_ReadSHORT<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadSHORT(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut i16) -> ::windows::core::HRESULT;
         }
@@ -5248,7 +5323,8 @@ pub unsafe fn PSPropertyBag_ReadSHORT<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PSPropertyBag_ReadStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: super::super::super::Foundation::PWSTR, charactercount: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadStr(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::PWSTR, charactercount: i32) -> ::windows::core::HRESULT;
         }
@@ -5263,7 +5339,8 @@ pub unsafe fn PSPropertyBag_ReadStr<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PSPropertyBag_ReadStrAlloc<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadStrAlloc(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -5279,7 +5356,8 @@ pub unsafe fn PSPropertyBag_ReadStrAlloc<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn PSPropertyBag_ReadStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadStream(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -5295,7 +5373,8 @@ pub unsafe fn PSPropertyBag_ReadStream<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PSPropertyBag_ReadType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, var: *mut super::super::super::System::Com::VARIANT, r#type: u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadType(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, var: *mut super::super::super::System::Com::VARIANT, r#type: u16) -> ::windows::core::HRESULT;
         }
@@ -5310,7 +5389,8 @@ pub unsafe fn PSPropertyBag_ReadType<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PSPropertyBag_ReadULONGLONG<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadULONGLONG(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -5326,7 +5406,8 @@ pub unsafe fn PSPropertyBag_ReadULONGLONG<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn PSPropertyBag_ReadUnknown<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_ReadUnknown(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5341,7 +5422,8 @@ pub unsafe fn PSPropertyBag_ReadUnknown<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn PSPropertyBag_WriteBOOL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(propbag: Param0, propname: Param1, value: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteBOOL(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -5356,7 +5438,8 @@ pub unsafe fn PSPropertyBag_WriteBOOL<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PSPropertyBag_WriteBSTR<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(propbag: Param0, propname: Param1, value: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteBSTR(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT;
         }
@@ -5371,7 +5454,8 @@ pub unsafe fn PSPropertyBag_WriteBSTR<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PSPropertyBag_WriteDWORD<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteDWORD(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: u32) -> ::windows::core::HRESULT;
         }
@@ -5386,7 +5470,8 @@ pub unsafe fn PSPropertyBag_WriteDWORD<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PSPropertyBag_WriteGUID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteGUID(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -5401,7 +5486,8 @@ pub unsafe fn PSPropertyBag_WriteGUID<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PSPropertyBag_WriteInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteInt(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: i32) -> ::windows::core::HRESULT;
         }
@@ -5416,7 +5502,8 @@ pub unsafe fn PSPropertyBag_WriteInt<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PSPropertyBag_WriteLONG<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteLONG(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: i32) -> ::windows::core::HRESULT;
         }
@@ -5431,7 +5518,8 @@ pub unsafe fn PSPropertyBag_WriteLONG<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PSPropertyBag_WritePOINTL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: *const super::super::super::Foundation::POINTL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WritePOINTL(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *const super::super::super::Foundation::POINTL) -> ::windows::core::HRESULT;
         }
@@ -5446,7 +5534,8 @@ pub unsafe fn PSPropertyBag_WritePOINTL<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn PSPropertyBag_WritePOINTS<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: *const super::super::super::Foundation::POINTS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WritePOINTS(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *const super::super::super::Foundation::POINTS) -> ::windows::core::HRESULT;
         }
@@ -5461,7 +5550,8 @@ pub unsafe fn PSPropertyBag_WritePOINTS<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn PSPropertyBag_WritePropertyKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: *const PROPERTYKEY) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WritePropertyKey(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *const PROPERTYKEY) -> ::windows::core::HRESULT;
         }
@@ -5476,7 +5566,8 @@ pub unsafe fn PSPropertyBag_WritePropertyKey<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn PSPropertyBag_WriteRECTL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: *const super::super::super::Foundation::RECTL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteRECTL(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: *const super::super::super::Foundation::RECTL) -> ::windows::core::HRESULT;
         }
@@ -5491,7 +5582,8 @@ pub unsafe fn PSPropertyBag_WriteRECTL<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PSPropertyBag_WriteSHORT<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: i16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteSHORT(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: i16) -> ::windows::core::HRESULT;
         }
@@ -5506,7 +5598,8 @@ pub unsafe fn PSPropertyBag_WriteSHORT<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PSPropertyBag_WriteStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteStr(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -5521,7 +5614,8 @@ pub unsafe fn PSPropertyBag_WriteStr<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PSPropertyBag_WriteStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(propbag: Param0, propname: Param1, value: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteStream(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -5536,7 +5630,8 @@ pub unsafe fn PSPropertyBag_WriteStream<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn PSPropertyBag_WriteULONGLONG<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propbag: Param0, propname: Param1, value: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteULONGLONG(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, value: u64) -> ::windows::core::HRESULT;
         }
@@ -5551,7 +5646,8 @@ pub unsafe fn PSPropertyBag_WriteULONGLONG<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn PSPropertyBag_WriteUnknown<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(propbag: Param0, propname: Param1, punk: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyBag_WriteUnknown(propbag: ::windows::core::RawPtr, propname: super::super::super::Foundation::PWSTR, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5566,7 +5662,8 @@ pub unsafe fn PSPropertyBag_WriteUnknown<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn PSPropertyKeyFromString<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszstring: Param0) -> ::windows::core::Result<PROPERTYKEY> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSPropertyKeyFromString(pszstring: super::super::super::Foundation::PWSTR, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT;
         }
@@ -5581,7 +5678,8 @@ pub unsafe fn PSPropertyKeyFromString<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PSRefreshPropertySchema() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSRefreshPropertySchema() -> ::windows::core::HRESULT;
         }
@@ -5596,7 +5694,8 @@ pub unsafe fn PSRefreshPropertySchema() -> ::windows::core::Result<()> {
 pub unsafe fn PSRegisterPropertySchema<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszpath: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSRegisterPropertySchema(pszpath: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -5611,7 +5710,8 @@ pub unsafe fn PSRegisterPropertySchema<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PSSetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, IPropertyStore>, Param1: ::windows::core::IntoParam<'a, IPropertyDescription>>(pps: Param0, ppd: Param1, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSSetPropertyValue(pps: ::windows::core::RawPtr, ppd: ::windows::core::RawPtr, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -5626,7 +5726,8 @@ pub unsafe fn PSSetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, IPro
 pub unsafe fn PSStringFromPropertyKey(pkey: *const PROPERTYKEY, psz: super::super::super::Foundation::PWSTR, cch: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSStringFromPropertyKey(pkey: *const PROPERTYKEY, psz: super::super::super::Foundation::PWSTR, cch: u32) -> ::windows::core::HRESULT;
         }
@@ -5696,7 +5797,8 @@ impl ::core::ops::Not for PSTIME_FLAGS {
 pub unsafe fn PSUnregisterPropertySchema<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszpath: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PSUnregisterPropertySchema(pszpath: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -5711,7 +5813,8 @@ pub unsafe fn PSUnregisterPropertySchema<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn PifMgr_CloseProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprops: Param0, flopt: u32) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PifMgr_CloseProperties(hprops: super::super::super::Foundation::HANDLE, flopt: u32) -> super::super::super::Foundation::HANDLE;
         }
@@ -5726,7 +5829,8 @@ pub unsafe fn PifMgr_CloseProperties<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PifMgr_GetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprops: Param0, pszgroup: Param1, lpprops: *mut ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PifMgr_GetProperties(hprops: super::super::super::Foundation::HANDLE, pszgroup: super::super::super::Foundation::PSTR, lpprops: *mut ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32;
         }
@@ -5741,7 +5845,8 @@ pub unsafe fn PifMgr_GetProperties<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn PifMgr_OpenProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszapp: Param0, pszpif: Param1, hinf: u32, flopt: u32) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PifMgr_OpenProperties(pszapp: super::super::super::Foundation::PWSTR, pszpif: super::super::super::Foundation::PWSTR, hinf: u32, flopt: u32) -> super::super::super::Foundation::HANDLE;
         }
@@ -5756,7 +5861,8 @@ pub unsafe fn PifMgr_OpenProperties<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PifMgr_SetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprops: Param0, pszgroup: Param1, lpprops: *const ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PifMgr_SetProperties(hprops: super::super::super::Foundation::HANDLE, pszgroup: super::super::super::Foundation::PSTR, lpprops: *const ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32;
         }
@@ -5771,7 +5877,8 @@ pub unsafe fn PifMgr_SetProperties<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: u16) -> ::windows::core::HRESULT;
         }
@@ -5786,7 +5893,8 @@ pub unsafe fn PropVariantChangeType(ppropvardest: *mut super::super::super::Syst
 pub unsafe fn PropVariantCompareEx(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantCompareEx(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32;
         }
@@ -5801,7 +5909,8 @@ pub unsafe fn PropVariantCompareEx(propvar1: *const super::super::super::System:
 pub unsafe fn PropVariantGetBooleanElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetBooleanElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pfval: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -5817,7 +5926,8 @@ pub unsafe fn PropVariantGetBooleanElem(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantGetDoubleElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetDoubleElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut f64) -> ::windows::core::HRESULT;
         }
@@ -5833,7 +5943,8 @@ pub unsafe fn PropVariantGetDoubleElem(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantGetElementCount(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetElementCount(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> u32;
         }
@@ -5848,7 +5959,8 @@ pub unsafe fn PropVariantGetElementCount(propvar: *const super::super::super::Sy
 pub unsafe fn PropVariantGetFileTimeElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetFileTimeElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pftval: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
@@ -5864,7 +5976,8 @@ pub unsafe fn PropVariantGetFileTimeElem(propvar: *const super::super::super::Sy
 pub unsafe fn PropVariantGetInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i16) -> ::windows::core::HRESULT;
         }
@@ -5880,7 +5993,8 @@ pub unsafe fn PropVariantGetInt16Elem(propvar: *const super::super::super::Syste
 pub unsafe fn PropVariantGetInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -5896,7 +6010,8 @@ pub unsafe fn PropVariantGetInt32Elem(propvar: *const super::super::super::Syste
 pub unsafe fn PropVariantGetInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i64) -> ::windows::core::HRESULT;
         }
@@ -5912,7 +6027,8 @@ pub unsafe fn PropVariantGetInt64Elem(propvar: *const super::super::super::Syste
 pub unsafe fn PropVariantGetStringElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetStringElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, ppszval: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -5928,7 +6044,8 @@ pub unsafe fn PropVariantGetStringElem(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantGetUInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetUInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u16) -> ::windows::core::HRESULT;
         }
@@ -5944,7 +6061,8 @@ pub unsafe fn PropVariantGetUInt16Elem(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantGetUInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetUInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5960,7 +6078,8 @@ pub unsafe fn PropVariantGetUInt32Elem(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantGetUInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantGetUInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -5976,7 +6095,8 @@ pub unsafe fn PropVariantGetUInt64Elem(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantToBSTR(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToBSTR(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pbstrout: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
         }
@@ -5992,7 +6112,8 @@ pub unsafe fn PropVariantToBSTR(propvar: *const super::super::super::System::Com
 pub unsafe fn PropVariantToBoolean(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToBoolean(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -6008,7 +6129,8 @@ pub unsafe fn PropVariantToBoolean(propvarin: *const super::super::super::System
 pub unsafe fn PropVariantToBooleanVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgf: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToBooleanVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgf: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6023,7 +6145,8 @@ pub unsafe fn PropVariantToBooleanVector(propvar: *const super::super::super::Sy
 pub unsafe fn PropVariantToBooleanVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToBooleanVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6038,7 +6161,8 @@ pub unsafe fn PropVariantToBooleanVectorAlloc(propvar: *const super::super::supe
 pub unsafe fn PropVariantToBooleanWithDefault<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, fdefault: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToBooleanWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
@@ -6053,7 +6177,8 @@ pub unsafe fn PropVariantToBooleanWithDefault<'a, Param1: ::windows::core::IntoP
 pub unsafe fn PropVariantToBuffer(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToBuffer(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
         }
@@ -6068,7 +6193,8 @@ pub unsafe fn PropVariantToBuffer(propvar: *const super::super::super::System::C
 pub unsafe fn PropVariantToDouble(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToDouble(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdblret: *mut f64) -> ::windows::core::HRESULT;
         }
@@ -6084,7 +6210,8 @@ pub unsafe fn PropVariantToDouble(propvarin: *const super::super::super::System:
 pub unsafe fn PropVariantToDoubleVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToDoubleVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6099,7 +6226,8 @@ pub unsafe fn PropVariantToDoubleVector(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantToDoubleVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToDoubleVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6114,7 +6242,8 @@ pub unsafe fn PropVariantToDoubleVectorAlloc(propvar: *const super::super::super
 pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, dbldefault: f64) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToDoubleWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, dbldefault: f64) -> f64;
         }
@@ -6129,7 +6258,8 @@ pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const super::super::sup
 pub unsafe fn PropVariantToFileTime(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToFileTime(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
@@ -6145,7 +6275,8 @@ pub unsafe fn PropVariantToFileTime(propvar: *const super::super::super::System:
 pub unsafe fn PropVariantToFileTimeVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgft: *mut super::super::super::Foundation::FILETIME, crgft: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToFileTimeVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgft: *mut super::super::super::Foundation::FILETIME, crgft: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6160,7 +6291,8 @@ pub unsafe fn PropVariantToFileTimeVector(propvar: *const super::super::super::S
 pub unsafe fn PropVariantToFileTimeVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToFileTimeVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6175,7 +6307,8 @@ pub unsafe fn PropVariantToFileTimeVectorAlloc(propvar: *const super::super::sup
 pub unsafe fn PropVariantToGUID(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToGUID(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -6191,7 +6324,8 @@ pub unsafe fn PropVariantToGUID(propvar: *const super::super::super::System::Com
 pub unsafe fn PropVariantToInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, piret: *mut i16) -> ::windows::core::HRESULT;
         }
@@ -6207,7 +6341,8 @@ pub unsafe fn PropVariantToInt16(propvarin: *const super::super::super::System::
 pub unsafe fn PropVariantToInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6222,7 +6357,8 @@ pub unsafe fn PropVariantToInt16Vector(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantToInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6237,7 +6373,8 @@ pub unsafe fn PropVariantToInt16VectorAlloc(propvar: *const super::super::super:
 pub unsafe fn PropVariantToInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, idefault: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, idefault: i16) -> i16;
         }
@@ -6252,7 +6389,8 @@ pub unsafe fn PropVariantToInt16WithDefault(propvarin: *const super::super::supe
 pub unsafe fn PropVariantToInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, plret: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -6268,7 +6406,8 @@ pub unsafe fn PropVariantToInt32(propvarin: *const super::super::super::System::
 pub unsafe fn PropVariantToInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6283,7 +6422,8 @@ pub unsafe fn PropVariantToInt32Vector(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantToInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6298,7 +6438,8 @@ pub unsafe fn PropVariantToInt32VectorAlloc(propvar: *const super::super::super:
 pub unsafe fn PropVariantToInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ldefault: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ldefault: i32) -> i32;
         }
@@ -6313,7 +6454,8 @@ pub unsafe fn PropVariantToInt32WithDefault(propvarin: *const super::super::supe
 pub unsafe fn PropVariantToInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pllret: *mut i64) -> ::windows::core::HRESULT;
         }
@@ -6329,7 +6471,8 @@ pub unsafe fn PropVariantToInt64(propvarin: *const super::super::super::System::
 pub unsafe fn PropVariantToInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6344,7 +6487,8 @@ pub unsafe fn PropVariantToInt64Vector(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantToInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6359,7 +6503,8 @@ pub unsafe fn PropVariantToInt64VectorAlloc(propvar: *const super::super::super:
 pub unsafe fn PropVariantToInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, lldefault: i64) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, lldefault: i64) -> i64;
         }
@@ -6374,7 +6519,8 @@ pub unsafe fn PropVariantToInt64WithDefault(propvarin: *const super::super::supe
 pub unsafe fn PropVariantToStrRet(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::Common::STRRET> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToStrRet(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstrret: *mut super::Common::STRRET) -> ::windows::core::HRESULT;
         }
@@ -6390,7 +6536,8 @@ pub unsafe fn PropVariantToStrRet(propvar: *const super::super::super::System::C
 pub unsafe fn PropVariantToString(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, psz: super::super::super::Foundation::PWSTR, cch: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToString(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, psz: super::super::super::Foundation::PWSTR, cch: u32) -> ::windows::core::HRESULT;
         }
@@ -6405,7 +6552,8 @@ pub unsafe fn PropVariantToString(propvar: *const super::super::super::System::C
 pub unsafe fn PropVariantToStringAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToStringAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszout: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -6421,7 +6569,8 @@ pub unsafe fn PropVariantToStringAlloc(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantToStringVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgsz: *mut super::super::super::Foundation::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToStringVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgsz: *mut super::super::super::Foundation::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6436,7 +6585,8 @@ pub unsafe fn PropVariantToStringVector(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantToStringVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgsz: *mut *mut super::super::super::Foundation::PWSTR, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToStringVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgsz: *mut *mut super::super::super::Foundation::PWSTR, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6451,7 +6601,8 @@ pub unsafe fn PropVariantToStringVectorAlloc(propvar: *const super::super::super
 pub unsafe fn PropVariantToStringWithDefault<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pszdefault: Param1) -> super::super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToStringWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pszdefault: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::PWSTR;
         }
@@ -6466,7 +6617,8 @@ pub unsafe fn PropVariantToStringWithDefault<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn PropVariantToUInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiret: *mut u16) -> ::windows::core::HRESULT;
         }
@@ -6482,7 +6634,8 @@ pub unsafe fn PropVariantToUInt16(propvarin: *const super::super::super::System:
 pub unsafe fn PropVariantToUInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6497,7 +6650,8 @@ pub unsafe fn PropVariantToUInt16Vector(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantToUInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6512,7 +6666,8 @@ pub unsafe fn PropVariantToUInt16VectorAlloc(propvar: *const super::super::super
 pub unsafe fn PropVariantToUInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uidefault: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uidefault: u16) -> u16;
         }
@@ -6527,7 +6682,8 @@ pub unsafe fn PropVariantToUInt16WithDefault(propvarin: *const super::super::sup
 pub unsafe fn PropVariantToUInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pulret: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6543,7 +6699,8 @@ pub unsafe fn PropVariantToUInt32(propvarin: *const super::super::super::System:
 pub unsafe fn PropVariantToUInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6558,7 +6715,8 @@ pub unsafe fn PropVariantToUInt32Vector(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantToUInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6573,7 +6731,8 @@ pub unsafe fn PropVariantToUInt32VectorAlloc(propvar: *const super::super::super
 pub unsafe fn PropVariantToUInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uldefault: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uldefault: u32) -> u32;
         }
@@ -6588,7 +6747,8 @@ pub unsafe fn PropVariantToUInt32WithDefault(propvarin: *const super::super::sup
 pub unsafe fn PropVariantToUInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pullret: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -6604,7 +6764,8 @@ pub unsafe fn PropVariantToUInt64(propvarin: *const super::super::super::System:
 pub unsafe fn PropVariantToUInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6619,7 +6780,8 @@ pub unsafe fn PropVariantToUInt64Vector(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantToUInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6634,7 +6796,8 @@ pub unsafe fn PropVariantToUInt64VectorAlloc(propvar: *const super::super::super
 pub unsafe fn PropVariantToUInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ulldefault: u64) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToUInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ulldefault: u64) -> u64;
         }
@@ -6649,7 +6812,8 @@ pub unsafe fn PropVariantToUInt64WithDefault(propvarin: *const super::super::sup
 pub unsafe fn PropVariantToVariant(ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToVariant(ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
         }
@@ -6665,7 +6829,8 @@ pub unsafe fn PropVariantToVariant(ppropvar: *const super::super::super::System:
 pub unsafe fn PropVariantToWinRTPropertyValue<T: ::windows::core::Interface>(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropVariantToWinRTPropertyValue(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -6683,7 +6848,8 @@ pub struct SERIALIZEDPROPSTORAGE(pub u8);
 pub unsafe fn SHAddDefaultPropertiesByExt<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IPropertyStore>>(pszext: Param0, ppropstore: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SHAddDefaultPropertiesByExt(pszext: super::super::super::Foundation::PWSTR, ppropstore: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6698,7 +6864,8 @@ pub unsafe fn SHAddDefaultPropertiesByExt<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn SHGetPropertyStoreForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SHGetPropertyStoreForWindow(hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -6713,7 +6880,8 @@ pub unsafe fn SHGetPropertyStoreForWindow<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn SHGetPropertyStoreFromIDList(pidl: *const super::Common::ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SHGetPropertyStoreFromIDList(pidl: *const super::Common::ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -6728,7 +6896,8 @@ pub unsafe fn SHGetPropertyStoreFromIDList(pidl: *const super::Common::ITEMIDLIS
 pub unsafe fn SHGetPropertyStoreFromParsingName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IBindCtx>>(pszpath: Param0, pbc: Param1, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SHGetPropertyStoreFromParsingName(pszpath: super::super::super::Foundation::PWSTR, pbc: ::windows::core::RawPtr, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -6743,7 +6912,8 @@ pub unsafe fn SHGetPropertyStoreFromParsingName<'a, Param0: ::windows::core::Int
 pub unsafe fn SHPropStgCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertySetStorage>>(psstg: Param0, fmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, grfmode: u32, dwdisposition: u32, ppstg: *mut ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyStorage>, pucodepage: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SHPropStgCreate(psstg: ::windows::core::RawPtr, fmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, grfmode: u32, dwdisposition: u32, ppstg: *mut ::windows::core::RawPtr, pucodepage: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6758,7 +6928,8 @@ pub unsafe fn SHPropStgCreate<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SHPropStgReadMultiple<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyStorage>>(pps: Param0, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SHPropStgReadMultiple(pps: ::windows::core::RawPtr, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -6774,7 +6945,8 @@ pub unsafe fn SHPropStgReadMultiple<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SHPropStgWriteMultiple<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyStorage>>(pps: Param0, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "shell32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SHPropStgWriteMultiple(pps: ::windows::core::RawPtr, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::HRESULT;
         }
@@ -6937,7 +7109,8 @@ impl ::core::ops::Not for SYNC_TRANSFER_STATUS {
 pub unsafe fn VariantCompare(var1: *const super::super::super::System::Com::VARIANT, var2: *const super::super::super::System::Com::VARIANT) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantCompare(var1: *const super::super::super::System::Com::VARIANT, var2: *const super::super::super::System::Com::VARIANT) -> i32;
         }
@@ -6952,7 +7125,8 @@ pub unsafe fn VariantCompare(var1: *const super::super::super::System::Com::VARI
 pub unsafe fn VariantGetBooleanElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantGetBooleanElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pfval: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -6968,7 +7142,8 @@ pub unsafe fn VariantGetBooleanElem(var: *const super::super::super::System::Com
 pub unsafe fn VariantGetDoubleElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantGetDoubleElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut f64) -> ::windows::core::HRESULT;
         }
@@ -6984,7 +7159,8 @@ pub unsafe fn VariantGetDoubleElem(var: *const super::super::super::System::Com:
 pub unsafe fn VariantGetElementCount(varin: *const super::super::super::System::Com::VARIANT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantGetElementCount(varin: *const super::super::super::System::Com::VARIANT) -> u32;
         }
@@ -6999,7 +7175,8 @@ pub unsafe fn VariantGetElementCount(varin: *const super::super::super::System::
 pub unsafe fn VariantGetInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantGetInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i16) -> ::windows::core::HRESULT;
         }
@@ -7015,7 +7192,8 @@ pub unsafe fn VariantGetInt16Elem(var: *const super::super::super::System::Com::
 pub unsafe fn VariantGetInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantGetInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7031,7 +7209,8 @@ pub unsafe fn VariantGetInt32Elem(var: *const super::super::super::System::Com::
 pub unsafe fn VariantGetInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantGetInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i64) -> ::windows::core::HRESULT;
         }
@@ -7047,7 +7226,8 @@ pub unsafe fn VariantGetInt64Elem(var: *const super::super::super::System::Com::
 pub unsafe fn VariantGetStringElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantGetStringElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, ppszval: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -7063,7 +7243,8 @@ pub unsafe fn VariantGetStringElem(var: *const super::super::super::System::Com:
 pub unsafe fn VariantGetUInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantGetUInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u16) -> ::windows::core::HRESULT;
         }
@@ -7079,7 +7260,8 @@ pub unsafe fn VariantGetUInt16Elem(var: *const super::super::super::System::Com:
 pub unsafe fn VariantGetUInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantGetUInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7095,7 +7277,8 @@ pub unsafe fn VariantGetUInt32Elem(var: *const super::super::super::System::Com:
 pub unsafe fn VariantGetUInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantGetUInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -7111,7 +7294,8 @@ pub unsafe fn VariantGetUInt64Elem(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToBoolean(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToBoolean(varin: *const super::super::super::System::Com::VARIANT, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -7127,7 +7311,8 @@ pub unsafe fn VariantToBoolean(varin: *const super::super::super::System::Com::V
 pub unsafe fn VariantToBooleanArray(var: *const super::super::super::System::Com::VARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToBooleanArray(var: *const super::super::super::System::Com::VARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7142,7 +7327,8 @@ pub unsafe fn VariantToBooleanArray(var: *const super::super::super::System::Com
 pub unsafe fn VariantToBooleanArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToBooleanArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7157,7 +7343,8 @@ pub unsafe fn VariantToBooleanArrayAlloc(var: *const super::super::super::System
 pub unsafe fn VariantToBooleanWithDefault<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(varin: *const super::super::super::System::Com::VARIANT, fdefault: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToBooleanWithDefault(varin: *const super::super::super::System::Com::VARIANT, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
@@ -7172,7 +7359,8 @@ pub unsafe fn VariantToBooleanWithDefault<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn VariantToBuffer(varin: *const super::super::super::System::Com::VARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToBuffer(varin: *const super::super::super::System::Com::VARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
         }
@@ -7187,7 +7375,8 @@ pub unsafe fn VariantToBuffer(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToDosDateTime(varin: *const super::super::super::System::Com::VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToDosDateTime(varin: *const super::super::super::System::Com::VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> ::windows::core::HRESULT;
         }
@@ -7202,7 +7391,8 @@ pub unsafe fn VariantToDosDateTime(varin: *const super::super::super::System::Co
 pub unsafe fn VariantToDouble(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<f64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToDouble(varin: *const super::super::super::System::Com::VARIANT, pdblret: *mut f64) -> ::windows::core::HRESULT;
         }
@@ -7218,7 +7408,8 @@ pub unsafe fn VariantToDouble(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToDoubleArray(var: *const super::super::super::System::Com::VARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToDoubleArray(var: *const super::super::super::System::Com::VARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7233,7 +7424,8 @@ pub unsafe fn VariantToDoubleArray(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToDoubleArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToDoubleArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7248,7 +7440,8 @@ pub unsafe fn VariantToDoubleArrayAlloc(var: *const super::super::super::System:
 pub unsafe fn VariantToDoubleWithDefault(varin: *const super::super::super::System::Com::VARIANT, dbldefault: f64) -> f64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToDoubleWithDefault(varin: *const super::super::super::System::Com::VARIANT, dbldefault: f64) -> f64;
         }
@@ -7263,7 +7456,8 @@ pub unsafe fn VariantToDoubleWithDefault(varin: *const super::super::super::Syst
 pub unsafe fn VariantToFileTime(varin: *const super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToFileTime(varin: *const super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
@@ -7279,7 +7473,8 @@ pub unsafe fn VariantToFileTime(varin: *const super::super::super::System::Com::
 pub unsafe fn VariantToGUID(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToGUID(varin: *const super::super::super::System::Com::VARIANT, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -7295,7 +7490,8 @@ pub unsafe fn VariantToGUID(varin: *const super::super::super::System::Com::VARI
 pub unsafe fn VariantToInt16(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt16(varin: *const super::super::super::System::Com::VARIANT, piret: *mut i16) -> ::windows::core::HRESULT;
         }
@@ -7311,7 +7507,8 @@ pub unsafe fn VariantToInt16(varin: *const super::super::super::System::Com::VAR
 pub unsafe fn VariantToInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7326,7 +7523,8 @@ pub unsafe fn VariantToInt16Array(var: *const super::super::super::System::Com::
 pub unsafe fn VariantToInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7341,7 +7539,8 @@ pub unsafe fn VariantToInt16ArrayAlloc(var: *const super::super::super::System::
 pub unsafe fn VariantToInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, idefault: i16) -> i16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, idefault: i16) -> i16;
         }
@@ -7356,7 +7555,8 @@ pub unsafe fn VariantToInt16WithDefault(varin: *const super::super::super::Syste
 pub unsafe fn VariantToInt32(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt32(varin: *const super::super::super::System::Com::VARIANT, plret: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -7372,7 +7572,8 @@ pub unsafe fn VariantToInt32(varin: *const super::super::super::System::Com::VAR
 pub unsafe fn VariantToInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7387,7 +7588,8 @@ pub unsafe fn VariantToInt32Array(var: *const super::super::super::System::Com::
 pub unsafe fn VariantToInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7402,7 +7604,8 @@ pub unsafe fn VariantToInt32ArrayAlloc(var: *const super::super::super::System::
 pub unsafe fn VariantToInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, ldefault: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, ldefault: i32) -> i32;
         }
@@ -7417,7 +7620,8 @@ pub unsafe fn VariantToInt32WithDefault(varin: *const super::super::super::Syste
 pub unsafe fn VariantToInt64(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt64(varin: *const super::super::super::System::Com::VARIANT, pllret: *mut i64) -> ::windows::core::HRESULT;
         }
@@ -7433,7 +7637,8 @@ pub unsafe fn VariantToInt64(varin: *const super::super::super::System::Com::VAR
 pub unsafe fn VariantToInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7448,7 +7653,8 @@ pub unsafe fn VariantToInt64Array(var: *const super::super::super::System::Com::
 pub unsafe fn VariantToInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7463,7 +7669,8 @@ pub unsafe fn VariantToInt64ArrayAlloc(var: *const super::super::super::System::
 pub unsafe fn VariantToInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, lldefault: i64) -> i64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, lldefault: i64) -> i64;
         }
@@ -7478,7 +7685,8 @@ pub unsafe fn VariantToInt64WithDefault(varin: *const super::super::super::Syste
 pub unsafe fn VariantToPropVariant(pvar: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToPropVariant(pvar: *const super::super::super::System::Com::VARIANT, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }
@@ -7494,7 +7702,8 @@ pub unsafe fn VariantToPropVariant(pvar: *const super::super::super::System::Com
 pub unsafe fn VariantToStrRet(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::Common::STRRET> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToStrRet(varin: *const super::super::super::System::Com::VARIANT, pstrret: *mut super::Common::STRRET) -> ::windows::core::HRESULT;
         }
@@ -7510,7 +7719,8 @@ pub unsafe fn VariantToStrRet(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToString(varin: *const super::super::super::System::Com::VARIANT, pszbuf: super::super::super::Foundation::PWSTR, cchbuf: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToString(varin: *const super::super::super::System::Com::VARIANT, pszbuf: super::super::super::Foundation::PWSTR, cchbuf: u32) -> ::windows::core::HRESULT;
         }
@@ -7525,7 +7735,8 @@ pub unsafe fn VariantToString(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToStringAlloc(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToStringAlloc(varin: *const super::super::super::System::Com::VARIANT, ppszbuf: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -7541,7 +7752,8 @@ pub unsafe fn VariantToStringAlloc(varin: *const super::super::super::System::Co
 pub unsafe fn VariantToStringArray(var: *const super::super::super::System::Com::VARIANT, prgsz: *mut super::super::super::Foundation::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToStringArray(var: *const super::super::super::System::Com::VARIANT, prgsz: *mut super::super::super::Foundation::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7556,7 +7768,8 @@ pub unsafe fn VariantToStringArray(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToStringArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgsz: *mut *mut super::super::super::Foundation::PWSTR, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToStringArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgsz: *mut *mut super::super::super::Foundation::PWSTR, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7571,7 +7784,8 @@ pub unsafe fn VariantToStringArrayAlloc(var: *const super::super::super::System:
 pub unsafe fn VariantToStringWithDefault<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(varin: *const super::super::super::System::Com::VARIANT, pszdefault: Param1) -> super::super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToStringWithDefault(varin: *const super::super::super::System::Com::VARIANT, pszdefault: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::PWSTR;
         }
@@ -7586,7 +7800,8 @@ pub unsafe fn VariantToStringWithDefault<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn VariantToUInt16(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt16(varin: *const super::super::super::System::Com::VARIANT, puiret: *mut u16) -> ::windows::core::HRESULT;
         }
@@ -7602,7 +7817,8 @@ pub unsafe fn VariantToUInt16(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToUInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7617,7 +7833,8 @@ pub unsafe fn VariantToUInt16Array(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToUInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7632,7 +7849,8 @@ pub unsafe fn VariantToUInt16ArrayAlloc(var: *const super::super::super::System:
 pub unsafe fn VariantToUInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, uidefault: u16) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, uidefault: u16) -> u16;
         }
@@ -7647,7 +7865,8 @@ pub unsafe fn VariantToUInt16WithDefault(varin: *const super::super::super::Syst
 pub unsafe fn VariantToUInt32(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt32(varin: *const super::super::super::System::Com::VARIANT, pulret: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7663,7 +7882,8 @@ pub unsafe fn VariantToUInt32(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToUInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7678,7 +7898,8 @@ pub unsafe fn VariantToUInt32Array(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToUInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7693,7 +7914,8 @@ pub unsafe fn VariantToUInt32ArrayAlloc(var: *const super::super::super::System:
 pub unsafe fn VariantToUInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, uldefault: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, uldefault: u32) -> u32;
         }
@@ -7708,7 +7930,8 @@ pub unsafe fn VariantToUInt32WithDefault(varin: *const super::super::super::Syst
 pub unsafe fn VariantToUInt64(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt64(varin: *const super::super::super::System::Com::VARIANT, pullret: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -7724,7 +7947,8 @@ pub unsafe fn VariantToUInt64(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToUInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7739,7 +7963,8 @@ pub unsafe fn VariantToUInt64Array(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToUInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7754,7 +7979,8 @@ pub unsafe fn VariantToUInt64ArrayAlloc(var: *const super::super::super::System:
 pub unsafe fn VariantToUInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn VariantToUInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64;
         }
@@ -7769,7 +7995,8 @@ pub unsafe fn VariantToUInt64WithDefault(varin: *const super::super::super::Syst
 pub unsafe fn WinRTPropertyValueToPropVariant<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkpropertyvalue: Param0) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "propsys", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinRTPropertyValueToPropVariant(punkpropertyvalue: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
         }

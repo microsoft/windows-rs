@@ -5,7 +5,8 @@
 pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(pwszobjectpath: Param0, pwszobjectclass: Param1, dwflags: u32, ppsi: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: Param6) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dssec", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSCreateISecurityInfoObject(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, ppsi: *mut ::windows::core::RawPtr, pfnreadsd: ::windows::core::RawPtr, pfnwritesd: ::windows::core::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
         }
@@ -31,7 +32,8 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<'a, Param0: ::windows::core::IntoPar
 ) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dssec", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSCreateISecurityInfoObjectEx(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, pwszserver: super::super::Foundation::PWSTR, pwszusername: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR, dwflags: u32, ppsi: *mut ::windows::core::RawPtr, pfnreadsd: ::windows::core::RawPtr, pfnwritesd: ::windows::core::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
         }
@@ -46,7 +48,8 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(pwszobjectpath: Param0, pwszobjectclass: Param1, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: Param6) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dssec", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSCreateSecurityPage(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: ::windows::core::RawPtr, pfnwritesd: ::windows::core::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
         }
@@ -61,7 +64,8 @@ pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn DSEditSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndowner: Param0, pwszobjectpath: Param1, pwszobjectclass: Param2, dwflags: u32, pwszcaption: Param4, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: Param7) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "dssec", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSEditSecurity(hwndowner: super::super::Foundation::HWND, pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, pwszcaption: super::super::Foundation::PWSTR, pfnreadsd: ::windows::core::RawPtr, pfnwritesd: ::windows::core::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
         }

@@ -6,7 +6,8 @@ pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows::core::GUID = ::windo
 pub unsafe fn ChangeServiceConfig2A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChangeServiceConfig2A(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -21,7 +22,8 @@ pub unsafe fn ChangeServiceConfig2A<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ChangeServiceConfig2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChangeServiceConfig2W(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpinfo: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -48,7 +50,8 @@ pub unsafe fn ChangeServiceConfigA<'a, Param0: ::windows::core::IntoParam<'a, su
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChangeServiceConfigA(hservice: super::super::Security::SC_HANDLE, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: super::super::Foundation::PSTR, lploadordergroup: super::super::Foundation::PSTR, lpdwtagid: *mut u32, lpdependencies: super::super::Foundation::PSTR, lpservicestartname: super::super::Foundation::PSTR, lppassword: super::super::Foundation::PSTR, lpdisplayname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -75,7 +78,8 @@ pub unsafe fn ChangeServiceConfigW<'a, Param0: ::windows::core::IntoParam<'a, su
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChangeServiceConfigW(hservice: super::super::Security::SC_HANDLE, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: super::super::Foundation::PWSTR, lploadordergroup: super::super::Foundation::PWSTR, lpdwtagid: *mut u32, lpdependencies: super::super::Foundation::PWSTR, lpservicestartname: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, lpdisplayname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -90,7 +94,8 @@ pub unsafe fn ChangeServiceConfigW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CloseServiceHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscobject: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseServiceHandle(hscobject: super::super::Security::SC_HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -105,7 +110,8 @@ pub unsafe fn CloseServiceHandle<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ControlService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ControlService(hservice: super::super::Security::SC_HANDLE, dwcontrol: u32, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL;
         }
@@ -120,7 +126,8 @@ pub unsafe fn ControlService<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ControlServiceExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ControlServiceExA(hservice: super::super::Security::SC_HANDLE, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -135,7 +142,8 @@ pub unsafe fn ControlServiceExA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ControlServiceExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ControlServiceExW(hservice: super::super::Security::SC_HANDLE, dwcontrol: u32, dwinfolevel: u32, pcontrolparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -164,7 +172,8 @@ pub unsafe fn CreateServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 ) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: super::super::Foundation::PSTR, lpdisplayname: super::super::Foundation::PSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: super::super::Foundation::PSTR, lploadordergroup: super::super::Foundation::PSTR, lpdwtagid: *mut u32, lpdependencies: super::super::Foundation::PSTR, lpservicestartname: super::super::Foundation::PSTR, lppassword: super::super::Foundation::PSTR) -> super::super::Security::SC_HANDLE;
         }
@@ -207,7 +216,8 @@ pub unsafe fn CreateServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 ) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: super::super::Foundation::PWSTR, lpdisplayname: super::super::Foundation::PWSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: super::super::Foundation::PWSTR, lploadordergroup: super::super::Foundation::PWSTR, lpdwtagid: *mut u32, lpdependencies: super::super::Foundation::PWSTR, lpservicestartname: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR) -> super::super::Security::SC_HANDLE;
         }
@@ -238,7 +248,8 @@ pub const DOMAIN_LEAVE_GUID: ::windows::core::GUID = ::windows::core::GUID::from
 pub unsafe fn DeleteService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteService(hservice: super::super::Security::SC_HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -517,7 +528,8 @@ impl ::core::ops::Not for ENUM_SERVICE_TYPE {
 pub unsafe fn EnumDependentServicesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumDependentServicesA(hservice: super::super::Security::SC_HANDLE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -532,7 +544,8 @@ pub unsafe fn EnumDependentServicesA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn EnumDependentServicesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumDependentServicesW(hservice: super::super::Security::SC_HANDLE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -547,7 +560,8 @@ pub unsafe fn EnumDependentServicesW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn EnumServicesStatusA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumServicesStatusA(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -562,7 +576,8 @@ pub unsafe fn EnumServicesStatusA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn EnumServicesStatusExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: Param9) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumServicesStatusExA(hscmanager: super::super::Security::SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -577,7 +592,8 @@ pub unsafe fn EnumServicesStatusExA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn EnumServicesStatusExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: Param9) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumServicesStatusExW(hscmanager: super::super::Security::SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -592,7 +608,8 @@ pub unsafe fn EnumServicesStatusExW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn EnumServicesStatusW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnumServicesStatusW(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -609,7 +626,8 @@ pub const FIREWALL_PORT_OPEN_GUID: ::windows::core::GUID = ::windows::core::GUID
 pub unsafe fn GetServiceDirectory<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: super::super::Foundation::PWSTR, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-service-core-l1-1-4", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: super::super::Foundation::PWSTR, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32;
         }
@@ -624,7 +642,8 @@ pub unsafe fn GetServiceDirectory<'a, Param0: ::windows::core::IntoParam<'a, SER
 pub unsafe fn GetServiceDisplayNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, lpservicename: Param1, lpdisplayname: super::super::Foundation::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetServiceDisplayNameA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: super::super::Foundation::PSTR, lpdisplayname: super::super::Foundation::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -639,7 +658,8 @@ pub unsafe fn GetServiceDisplayNameA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetServiceDisplayNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, lpservicename: Param1, lpdisplayname: super::super::Foundation::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetServiceDisplayNameW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: super::super::Foundation::PWSTR, lpdisplayname: super::super::Foundation::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -654,7 +674,8 @@ pub unsafe fn GetServiceDisplayNameW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetServiceKeyNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, lpdisplayname: Param1, lpservicename: super::super::Foundation::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetServiceKeyNameA(hscmanager: super::super::Security::SC_HANDLE, lpdisplayname: super::super::Foundation::PSTR, lpservicename: super::super::Foundation::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -669,7 +690,8 @@ pub unsafe fn GetServiceKeyNameA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetServiceKeyNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, lpdisplayname: Param1, lpservicename: super::super::Foundation::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetServiceKeyNameW(hscmanager: super::super::Security::SC_HANDLE, lpdisplayname: super::super::Foundation::PWSTR, lpservicename: super::super::Foundation::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -684,7 +706,8 @@ pub unsafe fn GetServiceKeyNameW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetServiceRegistryStateKey<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_STATUS_HANDLE>>(servicestatushandle: Param0, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-service-core-l1-1-3", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetServiceRegistryStateKey(servicestatushandle: SERVICE_STATUS_HANDLE, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32;
         }
@@ -699,7 +722,8 @@ pub unsafe fn GetServiceRegistryStateKey<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetSharedServiceDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(servicehandle: Param0, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: super::super::Foundation::PWSTR, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-service-core-l1-1-5", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetSharedServiceDirectory(servicehandle: super::super::Security::SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: super::super::Foundation::PWSTR, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32;
         }
@@ -714,7 +738,8 @@ pub unsafe fn GetSharedServiceDirectory<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn GetSharedServiceRegistryStateKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(servicehandle: Param0, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-service-core-l1-1-5", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetSharedServiceRegistryStateKey(servicehandle: super::super::Security::SC_HANDLE, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32;
         }
@@ -743,7 +768,8 @@ pub type LPSERVICE_MAIN_FUNCTIONW = ::core::option::Option<unsafe extern "system
 pub unsafe fn LockServiceDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LockServiceDatabase(hscmanager: super::super::Security::SC_HANDLE) -> *mut ::core::ffi::c_void;
         }
@@ -762,7 +788,8 @@ pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows::core::GUID = 
 pub unsafe fn NotifyBootConfigStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bootacceptable: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NotifyBootConfigStatus(bootacceptable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -777,7 +804,8 @@ pub unsafe fn NotifyBootConfigStatus<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn NotifyServiceStatusChangeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2A) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NotifyServiceStatusChangeA(hservice: super::super::Security::SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2A) -> u32;
         }
@@ -792,7 +820,8 @@ pub unsafe fn NotifyServiceStatusChangeA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn NotifyServiceStatusChangeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2W) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NotifyServiceStatusChangeW(hservice: super::super::Security::SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: *const SERVICE_NOTIFY_2W) -> u32;
         }
@@ -807,7 +836,8 @@ pub unsafe fn NotifyServiceStatusChangeW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn OpenSCManagerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpmachinename: Param0, lpdatabasename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenSCManagerA(lpmachinename: super::super::Foundation::PSTR, lpdatabasename: super::super::Foundation::PSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
         }
@@ -822,7 +852,8 @@ pub unsafe fn OpenSCManagerA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn OpenSCManagerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpmachinename: Param0, lpdatabasename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenSCManagerW(lpmachinename: super::super::Foundation::PWSTR, lpdatabasename: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
         }
@@ -837,7 +868,8 @@ pub unsafe fn OpenSCManagerW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn OpenServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hscmanager: Param0, lpservicename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: super::super::Foundation::PSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
         }
@@ -852,7 +884,8 @@ pub unsafe fn OpenServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn OpenServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hscmanager: Param0, lpservicename: Param1, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> super::super::Security::SC_HANDLE;
         }
@@ -1043,7 +1076,8 @@ impl ::core::default::Default for QUERY_SERVICE_LOCK_STATUSW {
 pub unsafe fn QueryServiceConfig2A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryServiceConfig2A(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1058,7 +1092,8 @@ pub unsafe fn QueryServiceConfig2A<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn QueryServiceConfig2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryServiceConfig2W(hservice: super::super::Security::SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1073,7 +1108,8 @@ pub unsafe fn QueryServiceConfig2W<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn QueryServiceConfigA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, lpserviceconfig: *mut QUERY_SERVICE_CONFIGA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryServiceConfigA(hservice: super::super::Security::SC_HANDLE, lpserviceconfig: *mut QUERY_SERVICE_CONFIGA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1088,7 +1124,8 @@ pub unsafe fn QueryServiceConfigA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn QueryServiceConfigW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, lpserviceconfig: *mut QUERY_SERVICE_CONFIGW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryServiceConfigW(hservice: super::super::Security::SC_HANDLE, lpserviceconfig: *mut QUERY_SERVICE_CONFIGW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1103,7 +1140,8 @@ pub unsafe fn QueryServiceConfigW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn QueryServiceDynamicInformation<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, dwinfolevel: u32, ppdynamicinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryServiceDynamicInformation(hservicestatus: SERVICE_STATUS_HANDLE, dwinfolevel: u32, ppdynamicinfo: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1118,7 +1156,8 @@ pub unsafe fn QueryServiceDynamicInformation<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn QueryServiceLockStatusA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryServiceLockStatusA(hscmanager: super::super::Security::SC_HANDLE, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1133,7 +1172,8 @@ pub unsafe fn QueryServiceLockStatusA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn QueryServiceLockStatusW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hscmanager: Param0, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryServiceLockStatusW(hscmanager: super::super::Security::SC_HANDLE, lplockstatus: *mut QUERY_SERVICE_LOCK_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1148,7 +1188,8 @@ pub unsafe fn QueryServiceLockStatusW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn QueryServiceObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwsecurityinformation: u32, lpsecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryServiceObjectSecurity(hservice: super::super::Security::SC_HANDLE, dwsecurityinformation: u32, lpsecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1163,7 +1204,8 @@ pub unsafe fn QueryServiceObjectSecurity<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn QueryServiceStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryServiceStatus(hservice: super::super::Security::SC_HANDLE, lpservicestatus: *mut SERVICE_STATUS) -> super::super::Foundation::BOOL;
         }
@@ -1178,7 +1220,8 @@ pub unsafe fn QueryServiceStatus<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn QueryServiceStatusEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, infolevel: SC_STATUS_TYPE, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryServiceStatusEx(hservice: super::super::Security::SC_HANDLE, infolevel: SC_STATUS_TYPE, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1194,7 +1237,8 @@ pub const RPC_INTERFACE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUI
 pub unsafe fn RegisterServiceCtrlHandlerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterServiceCtrlHandlerA(lpservicename: super::super::Foundation::PSTR, lphandlerproc: ::windows::core::RawPtr) -> SERVICE_STATUS_HANDLE;
         }
@@ -1209,7 +1253,8 @@ pub unsafe fn RegisterServiceCtrlHandlerA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn RegisterServiceCtrlHandlerExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterServiceCtrlHandlerExA(lpservicename: super::super::Foundation::PSTR, lphandlerproc: ::windows::core::RawPtr, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
         }
@@ -1224,7 +1269,8 @@ pub unsafe fn RegisterServiceCtrlHandlerExA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn RegisterServiceCtrlHandlerExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterServiceCtrlHandlerExW(lpservicename: super::super::Foundation::PWSTR, lphandlerproc: ::windows::core::RawPtr, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
         }
@@ -1239,7 +1285,8 @@ pub unsafe fn RegisterServiceCtrlHandlerExW<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn RegisterServiceCtrlHandlerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpservicename: Param0, lphandlerproc: LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterServiceCtrlHandlerW(lpservicename: super::super::Foundation::PWSTR, lphandlerproc: ::windows::core::RawPtr) -> SERVICE_STATUS_HANDLE;
         }
@@ -3187,7 +3234,8 @@ pub const SERVICE_USER_DEFINED_CONTROL: u32 = 256u32;
 pub unsafe fn SetServiceBits<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_STATUS_HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hservicestatus: Param0, dwservicebits: u32, bsetbitson: Param2, bupdateimmediately: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetServiceBits(hservicestatus: SERVICE_STATUS_HANDLE, dwservicebits: u32, bsetbitson: super::super::Foundation::BOOL, bupdateimmediately: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -3202,7 +3250,8 @@ pub unsafe fn SetServiceBits<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_
 pub unsafe fn SetServiceObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetServiceObjectSecurity(hservice: super::super::Security::SC_HANDLE, dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
         }
@@ -3217,7 +3266,8 @@ pub unsafe fn SetServiceObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn SetServiceStatus<'a, Param0: ::windows::core::IntoParam<'a, SERVICE_STATUS_HANDLE>>(hservicestatus: Param0, lpservicestatus: *const SERVICE_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservicestatus: *const SERVICE_STATUS) -> super::super::Foundation::BOOL;
         }
@@ -3232,7 +3282,8 @@ pub unsafe fn SetServiceStatus<'a, Param0: ::windows::core::IntoParam<'a, SERVIC
 pub unsafe fn StartServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnumserviceargs: u32, lpserviceargvectors: *const super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartServiceA(hservice: super::super::Security::SC_HANDLE, dwnumserviceargs: u32, lpserviceargvectors: *const super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -3247,7 +3298,8 @@ pub unsafe fn StartServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn StartServiceCtrlDispatcherA(lpservicestarttable: *const SERVICE_TABLE_ENTRYA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartServiceCtrlDispatcherA(lpservicestarttable: *const SERVICE_TABLE_ENTRYA) -> super::super::Foundation::BOOL;
         }
@@ -3262,7 +3314,8 @@ pub unsafe fn StartServiceCtrlDispatcherA(lpservicestarttable: *const SERVICE_TA
 pub unsafe fn StartServiceCtrlDispatcherW(lpservicestarttable: *const SERVICE_TABLE_ENTRYW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartServiceCtrlDispatcherW(lpservicestarttable: *const SERVICE_TABLE_ENTRYW) -> super::super::Foundation::BOOL;
         }
@@ -3277,7 +3330,8 @@ pub unsafe fn StartServiceCtrlDispatcherW(lpservicestarttable: *const SERVICE_TA
 pub unsafe fn StartServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwnumserviceargs: u32, lpserviceargvectors: *const super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StartServiceW(hservice: super::super::Security::SC_HANDLE, dwnumserviceargs: u32, lpserviceargvectors: *const super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -3293,7 +3347,8 @@ pub const USER_POLICY_PRESENT_GUID: ::windows::core::GUID = ::windows::core::GUI
 pub unsafe fn UnlockServiceDatabase(sclock: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnlockServiceDatabase(sclock: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -3308,7 +3363,8 @@ pub unsafe fn UnlockServiceDatabase(sclock: *const ::core::ffi::c_void) -> super
 pub unsafe fn WaitServiceState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hservice: Param0, dwnotify: u32, dwtimeout: u32, hcancelevent: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WaitServiceState(hservice: super::super::Security::SC_HANDLE, dwnotify: u32, dwtimeout: u32, hcancelevent: super::super::Foundation::HANDLE) -> u32;
         }

@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_OpenGL', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -19,6 +20,119 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_OpenGL', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn SwapBuffers(param0: super::Gdi::HDC) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "glu32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluBeginCurve(nobj: *mut GLUnurbs);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluBeginPolygon(tess: *mut GLUtesselator);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluBeginSurface(nobj: *mut GLUnurbs);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluBeginTrim(nobj: *mut GLUnurbs);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluDeleteQuadric(state: *mut GLUquadric);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluDeleteTess(tess: *mut GLUtesselator);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluEndCurve(nobj: *mut GLUnurbs);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluEndPolygon(tess: *mut GLUtesselator);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluEndSurface(nobj: *mut GLUnurbs);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluEndTrim(nobj: *mut GLUnurbs);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluErrorString(errcode: u32) -> *mut u8;
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn gluErrorUnicodeStringEXT(errcode: u32) -> super::super::Foundation::PWSTR;
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mut f32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluGetString(name: u32) -> *mut u8;
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *mut f64);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluNewNurbsRenderer() -> *mut GLUnurbs;
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluNewQuadric() -> *mut GLUquadric;
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluNewTess() -> *mut GLUtesselator;
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluNextContour(tess: *mut GLUtesselator, r#type: u32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *mut i32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks: i32);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluTessBeginContour(tess: *mut GLUtesselator);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut ::core::ffi::c_void);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluTessEndContour(tess: *mut GLUtesselator);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluTessEndPolygon(tess: *mut GLUtesselator);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::core::ffi::c_void);
+    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
+    pub fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "opengl32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
     pub fn glAccum(op: u32, value: f32);
     #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
@@ -691,111 +805,6 @@ extern "system" {
     pub fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
     #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
     pub fn glViewport(x: i32, y: i32, width: i32, height: i32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluBeginCurve(nobj: *mut GLUnurbs);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluBeginPolygon(tess: *mut GLUtesselator);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluBeginSurface(nobj: *mut GLUnurbs);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluBeginTrim(nobj: *mut GLUnurbs);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluDeleteQuadric(state: *mut GLUquadric);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluDeleteTess(tess: *mut GLUtesselator);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluEndCurve(nobj: *mut GLUnurbs);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluEndPolygon(tess: *mut GLUtesselator);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluEndSurface(nobj: *mut GLUnurbs);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluEndTrim(nobj: *mut GLUnurbs);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluErrorString(errcode: u32) -> *mut u8;
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn gluErrorUnicodeStringEXT(errcode: u32) -> super::super::Foundation::PWSTR;
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mut f32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluGetString(name: u32) -> *mut u8;
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *mut f64);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluNewNurbsRenderer() -> *mut GLUnurbs;
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluNewQuadric() -> *mut GLUquadric;
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluNewTess() -> *mut GLUtesselator;
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluNextContour(tess: *mut GLUtesselator, r#type: u32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *mut i32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32;
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks: i32);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluTessBeginContour(tess: *mut GLUtesselator);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut ::core::ffi::c_void);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluTessEndContour(tess: *mut GLUtesselator);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluTessEndPolygon(tess: *mut GLUtesselator);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::core::ffi::c_void);
-    #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
-    pub fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32;
     #[doc = "*Required features: 'Win32_Graphics_OpenGL', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> super::super::Foundation::BOOL;

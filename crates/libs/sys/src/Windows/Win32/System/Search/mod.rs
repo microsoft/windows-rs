@@ -1,7 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_System_Search_Common")]
 pub mod Common;
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "odbc32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Search'*"]
     pub fn ODBCGetTryWaitValue() -> u32;
@@ -50,9 +51,6 @@ extern "system" {
     pub fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void) -> i16;
     #[doc = "*Required features: 'Win32_System_Search'*"]
     pub fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16;
-    #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SQLCloseEnumServers(henumhandle: super::super::Foundation::HANDLE) -> i16;
     #[doc = "*Required features: 'Win32_System_Search'*"]
     #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
     pub fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16;
@@ -269,9 +267,6 @@ extern "system" {
     pub fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
     #[doc = "*Required features: 'Win32_System_Search'*"]
     pub fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
-    #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SQLGetNextEnumeration(henumhandle: super::super::Foundation::HANDLE, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16;
     #[doc = "*Required features: 'Win32_System_Search'*"]
     pub fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
     #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -286,17 +281,6 @@ extern "system" {
     pub fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
     #[doc = "*Required features: 'Win32_System_Search'*"]
     pub fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
-    #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SQLInitEnumServers(pwchservername: super::super::Foundation::PWSTR, pwchinstancename: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
-    #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SQLLinkedCatalogsA(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PSTR, param2: i16) -> i16;
-    #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SQLLinkedCatalogsW(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PWSTR, param2: i16) -> i16;
-    #[doc = "*Required features: 'Win32_System_Search'*"]
-    pub fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16;
     #[doc = "*Required features: 'Win32_System_Search'*"]
     pub fn SQLMoreResults(hstmt: *mut ::core::ffi::c_void) -> i16;
     #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -449,6 +433,27 @@ extern "system" {
     pub fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, sztabletype: *const u16, cchtabletype: i16) -> i16;
     #[doc = "*Required features: 'Win32_System_Search'*"]
     pub fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, completiontype: u16) -> i16;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "odbcbcp", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SQLCloseEnumServers(henumhandle: super::super::Foundation::HANDLE) -> i16;
+    #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SQLGetNextEnumeration(henumhandle: super::super::Foundation::HANDLE, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16;
+    #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SQLInitEnumServers(pwchservername: super::super::Foundation::PWSTR, pwchinstancename: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
+    #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SQLLinkedCatalogsA(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PSTR, param2: i16) -> i16;
+    #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SQLLinkedCatalogsW(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::PWSTR, param2: i16) -> i16;
+    #[doc = "*Required features: 'Win32_System_Search'*"]
+    pub fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16;
     #[doc = "*Required features: 'Win32_System_Search'*"]
     pub fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32;
     #[doc = "*Required features: 'Win32_System_Search'*"]

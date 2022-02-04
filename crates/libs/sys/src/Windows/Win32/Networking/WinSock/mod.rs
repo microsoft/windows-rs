@@ -1,5 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "fwpuclnt", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn WSADeleteSocketPeerTargetName(socket: SOCKET, peeraddr: *const SOCKADDR, peeraddrlen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WSAImpersonateSocketPeer(socket: SOCKET, peeraddr: *const SOCKADDR, peeraddrlen: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn WSAQuerySocketSecurity(socket: SOCKET, securityquerytemplate: *const SOCKET_SECURITY_QUERY_TEMPLATE, securityquerytemplatelen: u32, securityqueryinfo: *mut SOCKET_SECURITY_QUERY_INFO, securityqueryinfolen: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
+    pub fn WSARevertImpersonation() -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn WSASetSocketPeerTargetName(socket: SOCKET, peertargetname: *const SOCKET_PEER_TARGET_NAME, peertargetnamelen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn WSASetSocketSecurity(socket: SOCKET, securitysettings: *const SOCKET_SECURITY_SETTINGS, securitysettingslen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mswsock", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -10,31 +32,7 @@ extern "system" {
     pub fn EnumProtocolsW(lpiprotocols: *const i32, lpprotocolbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA);
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW);
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeAddrInfoW(paddrinfo: *const addrinfoW);
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut SOCKADDR, remotesockaddrlength: *mut i32);
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn GetAddrInfoExA(pname: super::super::Foundation::PSTR, pservicename: super::super::Foundation::PSTR, dwnamespace: u32, lpnspid: *const ::windows_sys::core::GUID, hints: *const addrinfoexA, ppresult: *mut *mut addrinfoexA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HANDLE) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn GetAddrInfoExW(pname: super::super::Foundation::PWSTR, pservicename: super::super::Foundation::PWSTR, dwnamespace: u32, lpnspid: *const ::windows_sys::core::GUID, hints: *const addrinfoexW, ppresult: *mut *mut addrinfoexW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: *mut super::super::Foundation::HANDLE) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAddrInfoW(pnodename: super::super::Foundation::PWSTR, pservicename: super::super::Foundation::PWSTR, phints: *const addrinfoW, ppresult: *mut *mut addrinfoW) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetAddressByNameA(dwnamespace: u32, lpservicetype: *const ::windows_sys::core::GUID, lpservicename: super::super::Foundation::PSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: super::super::Foundation::PSTR, lpdwaliasbufferlength: *mut u32) -> i32;
@@ -43,16 +41,10 @@ extern "system" {
     pub fn GetAddressByNameW(dwnamespace: u32, lpservicetype: *const ::windows_sys::core::GUID, lpservicename: super::super::Foundation::PWSTR, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: super::super::Foundation::PWSTR, lpdwaliasbufferlength: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetHostNameW(name: super::super::Foundation::PWSTR, namelen: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn GetNameByTypeA(lpservicetype: *const ::windows_sys::core::GUID, lpservicename: super::super::Foundation::PSTR, dwnamelength: u32) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetNameByTypeW(lpservicetype: *const ::windows_sys::core::GUID, lpservicename: super::super::Foundation::PWSTR, dwnamelength: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: super::super::Foundation::PWSTR, nodebuffersize: u32, pservicebuffer: super::super::Foundation::PWSTR, servicebuffersize: u32, flags: i32) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetServiceA(dwnamespace: u32, lpguid: *const ::windows_sys::core::GUID, lpservicename: super::super::Foundation::PSTR, dwproperties: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32;
@@ -65,15 +57,22 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetTypeByNameW(lpservicename: super::super::Foundation::PWSTR, lpservicetype: *mut ::windows_sys::core::GUID) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: super::super::Foundation::PWSTR, stringbufsize: usize) -> super::super::Foundation::PWSTR;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InetPtonW(family: i32, pszaddrstring: super::super::Foundation::PWSTR, paddrbuf: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn ProcessSocketNotifications(completionport: super::super::Foundation::HANDLE, registrationcount: u32, registrationinfos: *mut SOCK_NOTIFY_REGISTRATION, timeoutms: u32, completioncount: u32, completionportentries: *mut super::super::System::IO::OVERLAPPED_ENTRY, receivedentrycount: *mut u32) -> u32;
+    pub fn TransmitFile(hsocket: SOCKET, hfile: super::super::Foundation::HANDLE, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WSARecvEx(s: SOCKET, buf: super::super::Foundation::PSTR, len: i32, flags: *mut i32) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntdll", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WindowsFilteringPlatform"))]
     pub fn RtlEthernetAddressToStringA(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
@@ -134,24 +133,62 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtlIpv6StringToAddressW(s: super::super::Foundation::PWSTR, terminator: *mut super::super::Foundation::PWSTR, addr: *mut IN6_ADDR) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "windows.networking", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetSocketMediaStreamingMode(value: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ws2_32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA);
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW);
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FreeAddrInfoW(paddrinfo: *const addrinfoW);
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn GetAddrInfoExA(pname: super::super::Foundation::PSTR, pservicename: super::super::Foundation::PSTR, dwnamespace: u32, lpnspid: *const ::windows_sys::core::GUID, hints: *const addrinfoexA, ppresult: *mut *mut addrinfoexA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HANDLE) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn GetAddrInfoExW(pname: super::super::Foundation::PWSTR, pservicename: super::super::Foundation::PWSTR, dwnamespace: u32, lpnspid: *const ::windows_sys::core::GUID, hints: *const addrinfoexW, ppresult: *mut *mut addrinfoexW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: *mut super::super::Foundation::HANDLE) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetAddrInfoW(pnodename: super::super::Foundation::PWSTR, pservicename: super::super::Foundation::PWSTR, phints: *const addrinfoW, ppresult: *mut *mut addrinfoW) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetHostNameW(name: super::super::Foundation::PWSTR, namelen: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: super::super::Foundation::PWSTR, nodebuffersize: u32, pservicebuffer: super::super::Foundation::PWSTR, servicebuffersize: u32, flags: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InetNtopW(family: i32, paddr: *const ::core::ffi::c_void, pstringbuf: super::super::Foundation::PWSTR, stringbufsize: usize) -> super::super::Foundation::PWSTR;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InetPtonW(family: i32, pszaddrstring: super::super::Foundation::PWSTR, paddrbuf: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+    pub fn ProcessSocketNotifications(completionport: super::super::Foundation::HANDLE, registrationcount: u32, registrationinfos: *mut SOCK_NOTIFY_REGISTRATION, timeoutms: u32, completioncount: u32, completionportentries: *mut super::super::System::IO::OVERLAPPED_ENTRY, receivedentrycount: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
     pub fn SetAddrInfoExA(pname: super::super::Foundation::PSTR, pservicename: super::super::Foundation::PSTR, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows_sys::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
     pub fn SetAddrInfoExW(pname: super::super::Foundation::PWSTR, pservicename: super::super::Foundation::PWSTR, paddresses: *const SOCKET_ADDRESS, dwaddresscount: u32, lpblob: *const super::super::System::Com::BLOB, dwflags: u32, dwnamespace: u32, lpnspid: *const ::windows_sys::core::GUID, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSocketMediaStreamingMode(value: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn TransmitFile(hsocket: SOCKET, hfile: super::super::Foundation::HANDLE, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn WPUCompleteOverlappedRequest(s: SOCKET, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwerror: u32, cbtransferred: u32, lperrno: *mut i32) -> i32;
@@ -213,9 +250,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSACreateEvent() -> super::super::Foundation::HANDLE;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn WSADeleteSocketPeerTargetName(socket: SOCKET, peeraddr: *const SOCKADDR, peeraddrlen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSADuplicateSocketA(s: SOCKET, dwprocessid: u32, lpprotocolinfo: *mut WSAPROTOCOL_INFOA) -> i32;
@@ -270,9 +304,6 @@ extern "system" {
     pub fn WSAHtons(s: SOCKET, hostshort: u16, lpnetshort: *mut u16) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WSAImpersonateSocketPeer(socket: SOCKET, peeraddr: *const SOCKADDR, peeraddrlen: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn WSAInstallServiceClassA(lpserviceclassinfo: *const WSASERVICECLASSINFOA) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -318,16 +349,10 @@ extern "system" {
     pub fn WSAProviderConfigChange(lpnotificationhandle: *mut super::super::Foundation::HANDLE, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn WSAQuerySocketSecurity(socket: SOCKET, securityquerytemplate: *const SOCKET_SECURITY_QUERY_TEMPLATE, securityquerytemplatelen: u32, securityqueryinfo: *mut SOCKET_SECURITY_QUERY_INFO, securityqueryinfolen: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn WSARecv(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSARecvDisconnect(s: SOCKET, lpinbounddisconnectdata: *const WSABUF) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WSARecvEx(s: SOCKET, buf: super::super::Foundation::PSTR, len: i32, flags: *mut i32) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn WSARecvFrom(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
@@ -336,8 +361,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSAResetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-    pub fn WSARevertImpersonation() -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn WSASend(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
@@ -364,12 +387,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn WSASetSocketPeerTargetName(socket: SOCKET, peertargetname: *const SOCKET_PEER_TARGET_NAME, peertargetnamelen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
-    #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub fn WSASetSocketSecurity(socket: SOCKET, securitysettings: *const SOCKET_SECURITY_SETTINGS, securitysettingslen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32;
     #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSASocketA(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, g: u32, dwflags: u32) -> SOCKET;

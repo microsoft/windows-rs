@@ -139,7 +139,8 @@ pub const MAX_NAME_LEN: u32 = 48u32;
 pub unsafe fn MatchEnumTag<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, pwcarg: Param1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netsh", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: super::super::Foundation::PWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32;
         }
@@ -154,7 +155,8 @@ pub unsafe fn MatchEnumTag<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn MatchToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszusertoken: Param0, pwszcmdtoken: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netsh", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MatchToken(pwszusertoken: super::super::Foundation::PWSTR, pwszcmdtoken: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -546,7 +548,8 @@ pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(c
 pub unsafe fn PreprocessCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netsh", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
         }
@@ -561,7 +564,8 @@ pub unsafe fn PreprocessCommand<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn PrintError<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwerrid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netsh", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
         }
@@ -576,7 +580,8 @@ pub unsafe fn PrintError<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn PrintMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszformat: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netsh", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrintMessage(pwszformat: super::super::Foundation::PWSTR) -> u32;
         }
@@ -591,7 +596,8 @@ pub unsafe fn PrintMessage<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn PrintMessageFromModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwmsgid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netsh", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32;
         }
@@ -606,7 +612,8 @@ pub unsafe fn PrintMessageFromModule<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netsh", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32;
         }
@@ -620,7 +627,8 @@ pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u3
 pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "netsh", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
         }

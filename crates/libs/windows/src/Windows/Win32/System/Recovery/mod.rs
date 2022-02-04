@@ -5,7 +5,8 @@
 pub unsafe fn ApplicationRecoveryFinished<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bsuccess: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplicationRecoveryFinished(bsuccess: super::super::Foundation::BOOL);
         }
@@ -20,7 +21,8 @@ pub unsafe fn ApplicationRecoveryFinished<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ApplicationRecoveryInProgress() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplicationRecoveryInProgress(pbcancelled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -36,7 +38,8 @@ pub unsafe fn ApplicationRecoveryInProgress() -> ::windows::core::Result<super::
 pub unsafe fn GetApplicationRecoveryCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, precoverycallback: *mut super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK, ppvparameter: *mut *mut ::core::ffi::c_void, pdwpinginterval: *mut u32, pdwflags: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetApplicationRecoveryCallback(hprocess: super::super::Foundation::HANDLE, precoverycallback: *mut ::windows::core::RawPtr, ppvparameter: *mut *mut ::core::ffi::c_void, pdwpinginterval: *mut u32, pdwflags: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -51,7 +54,8 @@ pub unsafe fn GetApplicationRecoveryCallback<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn GetApplicationRestartSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pwzcommandline: super::super::Foundation::PWSTR, pcchsize: *mut u32, pdwflags: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetApplicationRestartSettings(hprocess: super::super::Foundation::HANDLE, pwzcommandline: super::super::Foundation::PWSTR, pcchsize: *mut u32, pdwflags: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -125,7 +129,8 @@ impl ::core::ops::Not for REGISTER_APPLICATION_RESTART_FLAGS {
 pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterApplicationRecoveryCallback(precoveycallback: ::windows::core::RawPtr, pvparameter: *const ::core::ffi::c_void, dwpinginterval: u32, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -140,7 +145,8 @@ pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::Windo
 pub unsafe fn RegisterApplicationRestart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzcommandline: Param0, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterApplicationRestart(pwzcommandline: super::super::Foundation::PWSTR, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> ::windows::core::HRESULT;
         }
@@ -154,7 +160,8 @@ pub unsafe fn RegisterApplicationRestart<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnregisterApplicationRecoveryCallback() -> ::windows::core::HRESULT;
         }
@@ -168,7 +175,8 @@ pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::core::Result
 pub unsafe fn UnregisterApplicationRestart() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnregisterApplicationRestart() -> ::windows::core::HRESULT;
         }

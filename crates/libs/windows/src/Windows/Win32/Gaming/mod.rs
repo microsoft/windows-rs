@@ -5,7 +5,8 @@
 pub unsafe fn CheckGamingPrivilegeSilently<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(privilegeid: u32, scope: Param1, policy: Param2) -> ::windows::core::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasprivilege: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -21,7 +22,8 @@ pub unsafe fn CheckGamingPrivilegeSilently<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn CheckGamingPrivilegeSilentlyForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, privilegeid: u32, scope: Param2, policy: Param3) -> ::windows::core::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CheckGamingPrivilegeSilentlyForUser(user: *mut ::core::ffi::c_void, privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, hasprivilege: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -36,7 +38,8 @@ pub unsafe fn CheckGamingPrivilegeSilentlyForUser<'a, Param0: ::windows::core::I
 pub unsafe fn CheckGamingPrivilegeWithUI<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(privilegeid: u32, scope: Param1, policy: Param2, friendlymessage: Param3, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CheckGamingPrivilegeWithUI(privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, friendlymessage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -50,7 +53,8 @@ pub unsafe fn CheckGamingPrivilegeWithUI<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn CheckGamingPrivilegeWithUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, privilegeid: u32, scope: Param2, policy: Param3, friendlymessage: Param4, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CheckGamingPrivilegeWithUIForUser(user: *mut ::core::ffi::c_void, privilegeid: u32, scope: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, policy: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, friendlymessage: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -242,7 +246,8 @@ pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system"
 pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-expandedresources-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetExpandedResourceExclusiveCpuCount(exclusivecpucount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -257,7 +262,8 @@ pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::core::Result<
 pub unsafe fn GetGamingDeviceModelInformation() -> ::windows::core::Result<GAMING_DEVICE_MODEL_INFORMATION> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-deviceinformation-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetGamingDeviceModelInformation(information: *mut GAMING_DEVICE_MODEL_INFORMATION) -> ::windows::core::HRESULT;
         }
@@ -273,7 +279,8 @@ pub unsafe fn GetGamingDeviceModelInformation() -> ::windows::core::Result<GAMIN
 pub unsafe fn HasExpandedResources() -> ::windows::core::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-expandedresources-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HasExpandedResources(hasexpandedresources: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -1165,7 +1172,8 @@ pub type PlayerPickerUICompletionRoutine = ::core::option::Option<unsafe extern 
 pub unsafe fn ProcessPendingGameUI<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(waitforcompletion: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ProcessPendingGameUI(waitforcompletion: super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -1179,7 +1187,8 @@ pub unsafe fn ProcessPendingGameUI<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-expandedresources-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReleaseExclusiveCpuSets() -> ::windows::core::HRESULT;
         }
@@ -1193,7 +1202,8 @@ pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows::core::Result<()> {
 pub unsafe fn ShowChangeFriendRelationshipUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(targetuserxuid: Param0, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowChangeFriendRelationshipUI(targetuserxuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1207,7 +1217,8 @@ pub unsafe fn ShowChangeFriendRelationshipUI<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn ShowChangeFriendRelationshipUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, targetuserxuid: Param1, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowChangeFriendRelationshipUIForUser(user: *mut ::core::ffi::c_void, targetuserxuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1221,7 +1232,8 @@ pub unsafe fn ShowChangeFriendRelationshipUIForUser<'a, Param0: ::windows::core:
 pub unsafe fn ShowCustomizeUserProfileUI(completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-4", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowCustomizeUserProfileUI(completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1235,7 +1247,8 @@ pub unsafe fn ShowCustomizeUserProfileUI(completionroutine: GameUICompletionRout
 pub unsafe fn ShowCustomizeUserProfileUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-4", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowCustomizeUserProfileUIForUser(user: *mut ::core::ffi::c_void, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1249,7 +1262,8 @@ pub unsafe fn ShowCustomizeUserProfileUIForUser<'a, Param0: ::windows::core::Int
 pub unsafe fn ShowFindFriendsUI(completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-4", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowFindFriendsUI(completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1263,7 +1277,8 @@ pub unsafe fn ShowFindFriendsUI(completionroutine: GameUICompletionRoutine, cont
 pub unsafe fn ShowFindFriendsUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-4", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowFindFriendsUIForUser(user: *mut ::core::ffi::c_void, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1277,7 +1292,8 @@ pub unsafe fn ShowFindFriendsUIForUser<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-4", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowGameInfoUI(titleid: u32, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1291,7 +1307,8 @@ pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: GameUICompletionRo
 pub unsafe fn ShowGameInfoUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, titleid: u32, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-4", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowGameInfoUIForUser(user: *mut ::core::ffi::c_void, titleid: u32, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1305,7 +1322,8 @@ pub unsafe fn ShowGameInfoUIForUser<'a, Param0: ::windows::core::IntoParam<'a, :
 pub unsafe fn ShowGameInviteUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(serviceconfigurationid: Param0, sessiontemplatename: Param1, sessionid: Param2, invitationdisplaytext: Param3, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowGameInviteUI(serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1319,7 +1337,8 @@ pub unsafe fn ShowGameInviteUI<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, serviceconfigurationid: Param1, sessiontemplatename: Param2, sessionid: Param3, invitationdisplaytext: Param4, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowGameInviteUIForUser(user: *mut ::core::ffi::c_void, serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1333,7 +1352,8 @@ pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(serviceconfigurationid: Param0, sessiontemplatename: Param1, sessionid: Param2, invitationdisplaytext: Param3, customactivationcontext: Param4, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-3", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowGameInviteUIWithContext(serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, customactivationcontext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1347,7 +1367,8 @@ pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ShowGameInviteUIWithContextForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, serviceconfigurationid: Param1, sessiontemplatename: Param2, sessionid: Param3, invitationdisplaytext: Param4, customactivationcontext: Param5, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-3", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowGameInviteUIWithContextForUser(user: *mut ::core::ffi::c_void, serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, customactivationcontext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1361,7 +1382,8 @@ pub unsafe fn ShowGameInviteUIWithContextForUser<'a, Param0: ::windows::core::In
 pub unsafe fn ShowPlayerPickerUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(promptdisplaytext: Param0, xuids: *const ::windows::core::HSTRING, xuidscount: usize, preselectedxuids: *const ::windows::core::HSTRING, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: PlayerPickerUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowPlayerPickerUI(promptdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuidscount: usize, preselectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1375,7 +1397,8 @@ pub unsafe fn ShowPlayerPickerUI<'a, Param0: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn ShowPlayerPickerUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, promptdisplaytext: Param1, xuids: *const ::windows::core::HSTRING, xuidscount: usize, preselectedxuids: *const ::windows::core::HSTRING, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: PlayerPickerUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowPlayerPickerUIForUser(user: *mut ::core::ffi::c_void, promptdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuidscount: usize, preselectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1389,7 +1412,8 @@ pub unsafe fn ShowPlayerPickerUIForUser<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ShowProfileCardUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(targetuserxuid: Param0, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowProfileCardUI(targetuserxuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1403,7 +1427,8 @@ pub unsafe fn ShowProfileCardUI<'a, Param0: ::windows::core::IntoParam<'a, ::win
 pub unsafe fn ShowProfileCardUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, targetuserxuid: Param1, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowProfileCardUIForUser(user: *mut ::core::ffi::c_void, targetuserxuid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1417,7 +1442,8 @@ pub unsafe fn ShowProfileCardUIForUser<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowTitleAchievementsUI(titleid: u32, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1431,7 +1457,8 @@ pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: GameUICom
 pub unsafe fn ShowTitleAchievementsUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, titleid: u32, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-2", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowTitleAchievementsUIForUser(user: *mut ::core::ffi::c_void, titleid: u32, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1445,7 +1472,8 @@ pub unsafe fn ShowTitleAchievementsUIForUser<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn ShowUserSettingsUI(completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-4", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowUserSettingsUI(completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1459,7 +1487,8 @@ pub unsafe fn ShowUserSettingsUI(completionroutine: GameUICompletionRoutine, con
 pub unsafe fn ShowUserSettingsUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(user: Param0, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-4", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowUserSettingsUIForUser(user: *mut ::core::ffi::c_void, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1474,7 +1503,8 @@ pub unsafe fn ShowUserSettingsUIForUser<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-gaming-tcui-l1-1-0", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TryCancelPendingGameUI() -> super::Foundation::BOOL;
         }

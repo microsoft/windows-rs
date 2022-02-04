@@ -18917,7 +18917,8 @@ pub const KS_iTRUECOLOR: u32 = 16u32;
 pub unsafe fn KsCreateAllocator<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectionhandle: Param0, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ksuser", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn KsCreateAllocator(connectionhandle: super::super::Foundation::HANDLE, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -18932,7 +18933,8 @@ pub unsafe fn KsCreateAllocator<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn KsCreateAllocator2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectionhandle: Param0, allocatorframing: *const KSALLOCATOR_FRAMING) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ksuser", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn KsCreateAllocator2(connectionhandle: super::super::Foundation::HANDLE, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -18948,7 +18950,8 @@ pub unsafe fn KsCreateAllocator2<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn KsCreateClock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectionhandle: Param0, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ksuser", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn KsCreateClock(connectionhandle: super::super::Foundation::HANDLE, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -18963,7 +18966,8 @@ pub unsafe fn KsCreateClock<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn KsCreateClock2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(connectionhandle: Param0, clockcreate: *const KSCLOCK_CREATE) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ksuser", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn KsCreateClock2(connectionhandle: super::super::Foundation::HANDLE, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -18979,7 +18983,8 @@ pub unsafe fn KsCreateClock2<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn KsCreatePin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filterhandle: Param0, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ksuser", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn KsCreatePin(filterhandle: super::super::Foundation::HANDLE, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -18994,7 +18999,8 @@ pub unsafe fn KsCreatePin<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn KsCreatePin2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filterhandle: Param0, connect: *const KSPIN_CONNECT, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ksuser", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn KsCreatePin2(filterhandle: super::super::Foundation::HANDLE, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -19010,7 +19016,8 @@ pub unsafe fn KsCreatePin2<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn KsCreateTopologyNode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(parenthandle: Param0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ksuser", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn KsCreateTopologyNode(parenthandle: super::super::Foundation::HANDLE, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -19025,7 +19032,8 @@ pub unsafe fn KsCreateTopologyNode<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn KsCreateTopologyNode2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(parenthandle: Param0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ksuser", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn KsCreateTopologyNode2(parenthandle: super::super::Foundation::HANDLE, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }

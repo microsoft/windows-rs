@@ -1,329 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8, cchcount1: i32, lpstring2: *const i8, cchcount2: i32) -> i32;
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CompareStringEx(lplocalename: super::Foundation::PWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32, lpversioninformation: *mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: super::Foundation::LPARAM) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CompareStringOrdinal(lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32, bignorecase: super::Foundation::BOOL) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ConvertDefaultLocale(locale: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumCalendarInfoExEx(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: super::Foundation::PWSTR, calendar: u32, lpreserved: super::Foundation::PWSTR, caltype: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDateFormatsExEx(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: super::Foundation::PWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GEO_ENUMPROC) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemGeoNames(geoclass: u32, geoenumproc: GEO_ENUMNAMEPROC, data: super::Foundation::LPARAM) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: u32, lparam: super::Foundation::LPARAM, lpreserved: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumTimeFormatsEx(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: super::Foundation::PWSTR, dwflags: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, pcchfound: *mut i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FindNLSStringEx(lplocalename: super::Foundation::PWSTR, dwfindnlsstringflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, pcchfound: *mut i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FindStringOrdinal(dwfindstringordinalflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, bignorecase: super::Foundation::BOOL) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpdeststr: super::Foundation::PSTR, cchdest: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetACP() -> u32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXA) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXW) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCalendarInfoEx(lplocalename: super::Foundation::PWSTR, calendar: u32, lpreserved: super::Foundation::PWSTR, caltype: u32, lpcaldata: super::Foundation::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrencyFormatA(locale: u32, dwflags: u32, lpvalue: super::Foundation::PSTR, lpformat: *const CURRENCYFMTA, lpcurrencystr: super::Foundation::PSTR, cchcurrency: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrencyFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const CURRENCYFMTW, lpcurrencystr: super::Foundation::PWSTR, cchcurrency: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetCurrencyFormatW(locale: u32, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const CURRENCYFMTW, lpcurrencystr: super::Foundation::PWSTR, cchcurrency: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDateFormatA(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PSTR, lpdatestr: super::Foundation::PSTR, cchdate: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDateFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lpdatestr: super::Foundation::PWSTR, cchdate: i32, lpcalendar: super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDateFormatW(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lpdatestr: super::Foundation::PWSTR, cchdate: i32) -> i32;
+    pub fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "bcp47mrm", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetDistanceOfClosestLanguageInList(pszlanguage: super::Foundation::PWSTR, pszlanguageslist: super::Foundation::PWSTR, wchlistdelimiter: u16, pclosestdistance: *mut f64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDurationFormat(locale: u32, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: super::Foundation::PWSTR, lpdurationstr: super::Foundation::PWSTR, cchduration: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDurationFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: super::Foundation::PWSTR, lpdurationstr: super::Foundation::PWSTR, cchduration: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileMUIInfo(dwflags: u32, pcwszfilepath: super::Foundation::PWSTR, pfilemuiinfo: *mut FILEMUIINFO, pcbfilemuiinfo: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFileMUIPath(dwflags: u32, pcwszfilepath: super::Foundation::PWSTR, pwszlanguage: super::Foundation::PWSTR, pcchlanguage: *mut u32, pwszfilemuipath: super::Foundation::PWSTR, pcchfilemuipath: *mut u32, pululenumerator: *mut u64) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: super::Foundation::PSTR, cchdata: i32, langid: u16) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetGeoInfoEx(location: super::Foundation::PWSTR, geotype: u32, geodata: super::Foundation::PWSTR, geodatacount: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: super::Foundation::PWSTR, cchdata: i32, langid: u16) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: super::Foundation::PSTR, cchdata: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLocaleInfoEx(lplocalename: super::Foundation::PWSTR, lctype: u32, lplcdata: super::Foundation::PWSTR, cchdata: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: super::Foundation::PWSTR, cchdata: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *mut NLSVERSIONINFO) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNLSVersionEx(function: u32, lplocalename: super::Foundation::PWSTR, lpversioninformation: *mut NLSVERSIONINFOEX) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumberFormatA(locale: u32, dwflags: u32, lpvalue: super::Foundation::PSTR, lpformat: *const NUMBERFMTA, lpnumberstr: super::Foundation::PSTR, cchnumber: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumberFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const NUMBERFMTW, lpnumberstr: super::Foundation::PWSTR, cchnumber: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumberFormatW(locale: u32, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const NUMBERFMTW, lpnumberstr: super::Foundation::PWSTR, cchnumber: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetOEMCP() -> u32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStringScripts(dwflags: u32, lpstring: super::Foundation::PWSTR, cchstring: i32, lpscripts: super::Foundation::PWSTR, cchscripts: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetStringTypeW(dwinfotype: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetSystemDefaultLCID() -> u32;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetSystemDefaultLangID() -> u16;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemDefaultLocaleName(lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetSystemDefaultUILanguage() -> u16;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn GetTextCharset(hdc: super::Graphics::Gdi::HDC) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn GetTextCharsetInfo(hdc: super::Graphics::Gdi::HDC, lpsig: *mut FONTSIGNATURE, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetThreadLocale() -> u32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetThreadUILanguage() -> u16;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTimeFormatA(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PSTR, lptimestr: super::Foundation::PSTR, cchtime: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTimeFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: TIME_FORMAT_FLAGS, lptime: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lptimestr: super::Foundation::PWSTR, cchtime: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetTimeFormatW(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lptimestr: super::Foundation::PWSTR, cchtime: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetUILanguageInfo(dwflags: u32, pwmszlanguage: super::Foundation::PWSTR, pwszfallbacklanguages: super::Foundation::PWSTR, pcchfallbacklanguages: *mut u32, pattributes: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetUserDefaultGeoName(geoname: super::Foundation::PWSTR, geonamecount: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetUserDefaultLCID() -> u32;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetUserDefaultLangID() -> u16;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetUserDefaultLocaleName(lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetUserDefaultUILanguage() -> u16;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn GetUserGeoID(geoclass: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IdnToAscii(dwflags: u32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32, lpasciicharstr: super::Foundation::PWSTR, cchasciichar: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IdnToNameprepUnicode(dwflags: u32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32, lpnameprepcharstr: super::Foundation::PWSTR, cchnameprepchar: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IdnToUnicode(dwflags: u32, lpasciicharstr: super::Foundation::PWSTR, cchasciichar: i32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: super::Foundation::PWSTR, cchstr: i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsNormalizedString(normform: NORM_FORM, lpstring: super::Foundation::PWSTR, cwlength: i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsValidLocaleName(lplocalename: super::Foundation::PWSTR) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsValidNLSVersion(function: u32, lplocalename: super::Foundation::PWSTR, lpversioninformation: *const NLSVERSIONINFOEX) -> u32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn IsWellFormedTag(psztag: super::Foundation::PWSTR) -> u8;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LCIDToLocaleName(locale: u32, lpname: super::Foundation::PWSTR, cchname: i32, dwflags: u32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpdeststr: super::Foundation::PSTR, cchdest: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LCMapStringEx(lplocalename: super::Foundation::PWSTR, dwmapflags: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LCMapStringW(locale: u32, dwmapflags: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn LocaleNameToLCID(lpname: super::Foundation::PWSTR, dwflags: u32) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "elscore", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MappingDoAction(pbag: *mut MAPPING_PROPERTY_BAG, dwrangeindex: u32, pszactionid: super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
@@ -339,160 +34,23 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: super::Foundation::PWSTR, dwlength: u32, dwindex: u32, poptions: *const MAPPING_OPTIONS, pbag: *mut MAPPING_PROPERTY_BAG) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MultiByteToWideChar(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: super::Foundation::PSTR, cbmultibyte: i32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NormalizeString(normform: NORM_FORM, lpsrcstring: super::Foundation::PWSTR, cwsrclength: i32, lpdststring: super::Foundation::PWSTR, cwdstlength: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NotifyUILanguageChange(dwflags: u32, pcwstrnewlanguage: super::Foundation::PWSTR, pcwstrpreviouslanguage: super::Foundation::PWSTR, dwreserved: u32, pdwstatusrtrn: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ResolveLocaleName(lpnametoresolve: super::Foundation::PWSTR, lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES);
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: *mut super::Graphics::Gdi::ABC, pijustify: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ScriptBreak(pwcchars: super::Foundation::PWSTR, cchars: i32, psa: *const SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ScriptCPtoX(icp: i32, ftrailing: super::Foundation::BOOL, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> ::windows_sys::core::HRESULT;
+    pub fn GetTextCharset(hdc: super::Graphics::Gdi::HDC) -> i32;
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptCacheGetHeight(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, tmheight: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptFreeCache(psc: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ScriptGetCMap(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcinchars: super::Foundation::PWSTR, cchars: i32, dwflags: u32, pwoutglyphs: *mut u16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptGetFontAlternateGlyphs(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, cmaxalternates: i32, palternateglyphs: *mut u16, pcalternates: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptGetFontFeatureTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, cmaxtags: i32, pfeaturetags: *mut u32, pctags: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptGetFontLanguageTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, cmaxtags: i32, plangsystags: *mut u32, pctags: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptGetFontProperties(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, sfp: *mut SCRIPT_FONTPROPERTIES) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptGetFontScriptTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, cmaxtags: i32, pscripttags: *mut u32, pctags: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptGetGlyphABCWidth(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, wglyph: u16, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ScriptIsComplex(pwcinchars: super::Foundation::PWSTR, cinchars: i32, dwflags: SCRIPT_IS_COMPLEX_FLAGS) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ScriptItemize(pwcinchars: super::Foundation::PWSTR, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ScriptItemizeOpenType(pwcinchars: super::Foundation::PWSTR, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *mut i32, pilogicaltovisual: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptPlace(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ScriptPlaceOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: super::Foundation::PWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptPositionSingleGlyph(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptRecordDigitSubstitution(locale: u32, psds: *mut SCRIPT_DIGITSUBSTITUTE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ScriptShape(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcchars: super::Foundation::PWSTR, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ScriptShapeOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: super::Foundation::PWSTR, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptStringAnalyse(hdc: super::Graphics::Gdi::HDC, pstring: *const ::core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pidx: *const i32, ptabdef: *const SCRIPT_TABDEF, pbinclass: *const u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ScriptStringCPtoX(ssa: *const ::core::ffi::c_void, icp: i32, ftrailing: super::Foundation::BOOL, px: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptStringFree(pssa: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ScriptStringOut(ssa: *const ::core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: *const super::Foundation::RECT, iminsel: i32, imaxsel: i32, fdisabled: super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptStringValidate(ssa: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: *mut i32, pitrailing: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptString_pLogAttr(ssa: *const ::core::ffi::c_void) -> *mut SCRIPT_LOGATTR;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ScriptString_pSize(ssa: *const ::core::ffi::c_void) -> *mut super::Foundation::SIZE;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn ScriptSubstituteSingleGlyph(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, pwoutglyphid: *mut u16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ScriptTextOut(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: super::Foundation::PWSTR, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: *const i32, pgoffset: *const GOFFSET) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PSTR) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PWSTR) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetLocaleInfoA(locale: u32, lctype: u32, lplcdata: super::Foundation::PSTR) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetLocaleInfoW(locale: u32, lctype: u32, lplcdata: super::Foundation::PWSTR) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetProcessPreferredUILanguages(dwflags: u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pulnumlanguages: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadPreferredUILanguages(dwflags: u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pulnumlanguages: *mut u32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetThreadPreferredUILanguages2(flags: u32, languages: super::Foundation::PWSTR, numlanguagesset: *mut u32, snapshot: *mut HSAVEDUILANGUAGES) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization'*"]
-    pub fn SetThreadUILanguage(langid: u16) -> u16;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetUserGeoName(geoname: super::Foundation::PWSTR) -> super::Foundation::BOOL;
+    pub fn GetTextCharsetInfo(hdc: super::Graphics::Gdi::HDC, lpsig: *mut FONTSIGNATURE, dwflags: u32) -> i32;
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: TRANSLATE_CHARSET_INFO_FLAGS) -> super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "icu", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
@@ -517,48 +75,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode);
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyScripts(dwflags: u32, lplocalescripts: super::Foundation::PWSTR, cchlocalescripts: i32, lptestscripts: super::Foundation::PWSTR, cchtestscripts: i32) -> super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WideCharToMultiByte(codepage: u32, dwflags: u32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: i32, lpmultibytestr: super::Foundation::PSTR, cbmultibyte: i32, lpdefaultchar: super::Foundation::PSTR, lpuseddefaultchar: *mut i32) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrcatA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> super::Foundation::PSTR;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrcatW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> super::Foundation::PWSTR;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrcmpA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrcmpW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrcmpiA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrcmpiW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrcpyA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> super::Foundation::PSTR;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrcpyW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> super::Foundation::PWSTR;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrcpynA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR, imaxlength: i32) -> super::Foundation::PSTR;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrcpynW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR, imaxlength: i32) -> super::Foundation::PWSTR;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrlenA(lpstring: super::Foundation::PSTR) -> i32;
-    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn lstrlenW(lpstring: super::Foundation::PWSTR) -> i32;
     #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn u_UCharsToChars(us: *const u16, cs: super::Foundation::PSTR, length: i32);
@@ -2828,6 +2344,519 @@ extern "system" {
     pub fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, start: i32, limit: *mut i32, status: *mut UErrorCode);
     #[doc = "*Required features: 'Win32_Globalization'*"]
     pub fn utrans_unregisterID(id: *const u16, idlength: i32);
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8, cchcount1: i32, lpstring2: *const i8, cchcount2: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CompareStringEx(lplocalename: super::Foundation::PWSTR, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32, lpversioninformation: *mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: super::Foundation::LPARAM) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CompareStringOrdinal(lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32, bignorecase: super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ConvertDefaultLocale(locale: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumCalendarInfoExEx(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: super::Foundation::PWSTR, calendar: u32, lpreserved: super::Foundation::PWSTR, caltype: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDateFormatsExEx(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: super::Foundation::PWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GEO_ENUMPROC) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumSystemGeoNames(geoclass: u32, geoenumproc: GEO_ENUMNAMEPROC, data: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: u32, lparam: super::Foundation::LPARAM, lpreserved: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumTimeFormatsEx(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: super::Foundation::PWSTR, dwflags: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, pcchfound: *mut i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindNLSStringEx(lplocalename: super::Foundation::PWSTR, dwfindnlsstringflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, pcchfound: *mut i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindStringOrdinal(dwfindstringordinalflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, bignorecase: super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FoldStringA(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpdeststr: super::Foundation::PSTR, cchdest: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FoldStringW(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetACP() -> u32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXA) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXW) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCalendarInfoEx(lplocalename: super::Foundation::PWSTR, calendar: u32, lpreserved: super::Foundation::PWSTR, caltype: u32, lpcaldata: super::Foundation::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCurrencyFormatA(locale: u32, dwflags: u32, lpvalue: super::Foundation::PSTR, lpformat: *const CURRENCYFMTA, lpcurrencystr: super::Foundation::PSTR, cchcurrency: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCurrencyFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const CURRENCYFMTW, lpcurrencystr: super::Foundation::PWSTR, cchcurrency: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetCurrencyFormatW(locale: u32, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const CURRENCYFMTW, lpcurrencystr: super::Foundation::PWSTR, cchcurrency: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDateFormatA(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PSTR, lpdatestr: super::Foundation::PSTR, cchdate: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDateFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lpdatestr: super::Foundation::PWSTR, cchdate: i32, lpcalendar: super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDateFormatW(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lpdatestr: super::Foundation::PWSTR, cchdate: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDurationFormat(locale: u32, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: super::Foundation::PWSTR, lpdurationstr: super::Foundation::PWSTR, cchduration: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDurationFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: super::Foundation::PWSTR, lpdurationstr: super::Foundation::PWSTR, cchduration: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetFileMUIInfo(dwflags: u32, pcwszfilepath: super::Foundation::PWSTR, pfilemuiinfo: *mut FILEMUIINFO, pcbfilemuiinfo: *mut u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetFileMUIPath(dwflags: u32, pcwszfilepath: super::Foundation::PWSTR, pwszlanguage: super::Foundation::PWSTR, pcchlanguage: *mut u32, pwszfilemuipath: super::Foundation::PWSTR, pcchfilemuipath: *mut u32, pululenumerator: *mut u64) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: super::Foundation::PSTR, cchdata: i32, langid: u16) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetGeoInfoEx(location: super::Foundation::PWSTR, geotype: u32, geodata: super::Foundation::PWSTR, geodatacount: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: super::Foundation::PWSTR, cchdata: i32, langid: u16) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: super::Foundation::PSTR, cchdata: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetLocaleInfoEx(lplocalename: super::Foundation::PWSTR, lctype: u32, lplcdata: super::Foundation::PWSTR, cchdata: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: super::Foundation::PWSTR, cchdata: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *mut NLSVERSIONINFO) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetNLSVersionEx(function: u32, lplocalename: super::Foundation::PWSTR, lpversioninformation: *mut NLSVERSIONINFOEX) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetNumberFormatA(locale: u32, dwflags: u32, lpvalue: super::Foundation::PSTR, lpformat: *const NUMBERFMTA, lpnumberstr: super::Foundation::PSTR, cchnumber: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetNumberFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const NUMBERFMTW, lpnumberstr: super::Foundation::PWSTR, cchnumber: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetNumberFormatW(locale: u32, dwflags: u32, lpvalue: super::Foundation::PWSTR, lpformat: *const NUMBERFMTW, lpnumberstr: super::Foundation::PWSTR, cchnumber: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetOEMCP() -> u32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetStringScripts(dwflags: u32, lpstring: super::Foundation::PWSTR, cchstring: i32, lpscripts: super::Foundation::PWSTR, cchscripts: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetStringTypeExA(locale: u32, dwinfotype: u32, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetStringTypeExW(locale: u32, dwinfotype: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetStringTypeW(dwinfotype: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetSystemDefaultLCID() -> u32;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetSystemDefaultLangID() -> u16;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetSystemDefaultLocaleName(lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetSystemDefaultUILanguage() -> u16;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetThreadLocale() -> u32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetThreadUILanguage() -> u16;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetTimeFormatA(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PSTR, lptimestr: super::Foundation::PSTR, cchtime: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetTimeFormatEx(lplocalename: super::Foundation::PWSTR, dwflags: TIME_FORMAT_FLAGS, lptime: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lptimestr: super::Foundation::PWSTR, cchtime: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetTimeFormatW(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: super::Foundation::PWSTR, lptimestr: super::Foundation::PWSTR, cchtime: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetUILanguageInfo(dwflags: u32, pwmszlanguage: super::Foundation::PWSTR, pwszfallbacklanguages: super::Foundation::PWSTR, pcchfallbacklanguages: *mut u32, pattributes: *mut u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetUserDefaultGeoName(geoname: super::Foundation::PWSTR, geonamecount: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetUserDefaultLCID() -> u32;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetUserDefaultLangID() -> u16;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetUserDefaultLocaleName(lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetUserDefaultUILanguage() -> u16;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn GetUserGeoID(geoclass: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IdnToNameprepUnicode(dwflags: u32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32, lpnameprepcharstr: super::Foundation::PWSTR, cchnameprepchar: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: super::Foundation::PWSTR, cchstr: i32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsNormalizedString(normform: NORM_FORM, lpstring: super::Foundation::PWSTR, cwlength: i32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsValidLocaleName(lplocalename: super::Foundation::PWSTR) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsValidNLSVersion(function: u32, lplocalename: super::Foundation::PWSTR, lpversioninformation: *const NLSVERSIONINFOEX) -> u32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LCIDToLocaleName(locale: u32, lpname: super::Foundation::PWSTR, cchname: i32, dwflags: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: super::Foundation::PSTR, cchsrc: i32, lpdeststr: super::Foundation::PSTR, cchdest: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LCMapStringEx(lplocalename: super::Foundation::PWSTR, dwmapflags: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: super::Foundation::LPARAM) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LCMapStringW(locale: u32, dwmapflags: u32, lpsrcstr: super::Foundation::PWSTR, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn LocaleNameToLCID(lpname: super::Foundation::PWSTR, dwflags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MultiByteToWideChar(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: super::Foundation::PSTR, cbmultibyte: i32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NormalizeString(normform: NORM_FORM, lpsrcstring: super::Foundation::PWSTR, cwsrclength: i32, lpdststring: super::Foundation::PWSTR, cwdstlength: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn NotifyUILanguageChange(dwflags: u32, pcwstrnewlanguage: super::Foundation::PWSTR, pcwstrpreviouslanguage: super::Foundation::PWSTR, dwreserved: u32, pdwstatusrtrn: *mut u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ResolveLocaleName(lpnametoresolve: super::Foundation::PWSTR, lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn RestoreThreadPreferredUILanguages(snapshot: HSAVEDUILANGUAGES);
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PSTR) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PWSTR) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetLocaleInfoA(locale: u32, lctype: u32, lplcdata: super::Foundation::PSTR) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetLocaleInfoW(locale: u32, lctype: u32, lplcdata: super::Foundation::PWSTR) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetProcessPreferredUILanguages(dwflags: u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pulnumlanguages: *mut u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetThreadPreferredUILanguages(dwflags: u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pulnumlanguages: *mut u32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetThreadPreferredUILanguages2(flags: u32, languages: super::Foundation::PWSTR, numlanguagesset: *mut u32, snapshot: *mut HSAVEDUILANGUAGES) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn SetThreadUILanguage(langid: u16) -> u16;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetUserGeoName(geoname: super::Foundation::PWSTR) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VerifyScripts(dwflags: u32, lplocalescripts: super::Foundation::PWSTR, cchlocalescripts: i32, lptestscripts: super::Foundation::PWSTR, cchtestscripts: i32) -> super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn WideCharToMultiByte(codepage: u32, dwflags: u32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: i32, lpmultibytestr: super::Foundation::PSTR, cbmultibyte: i32, lpdefaultchar: super::Foundation::PSTR, lpuseddefaultchar: *mut i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrcatA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> super::Foundation::PSTR;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrcatW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> super::Foundation::PWSTR;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrcmpA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrcmpW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrcmpiA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrcmpiW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrcpyA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR) -> super::Foundation::PSTR;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrcpyW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR) -> super::Foundation::PWSTR;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrcpynA(lpstring1: super::Foundation::PSTR, lpstring2: super::Foundation::PSTR, imaxlength: i32) -> super::Foundation::PSTR;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrcpynW(lpstring1: super::Foundation::PWSTR, lpstring2: super::Foundation::PWSTR, imaxlength: i32) -> super::Foundation::PWSTR;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrlenA(lpstring: super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn lstrlenW(lpstring: super::Foundation::PWSTR) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "normaliz", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IdnToAscii(dwflags: u32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32, lpasciicharstr: super::Foundation::PWSTR, cchasciichar: i32) -> i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IdnToUnicode(dwflags: u32, lpasciicharstr: super::Foundation::PWSTR, cchasciichar: i32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "usp10", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: *mut super::Graphics::Gdi::ABC, pijustify: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ScriptBreak(pwcchars: super::Foundation::PWSTR, cchars: i32, psa: *const SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ScriptCPtoX(icp: i32, ftrailing: super::Foundation::BOOL, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptCacheGetHeight(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, tmheight: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptFreeCache(psc: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ScriptGetCMap(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcinchars: super::Foundation::PWSTR, cchars: i32, dwflags: u32, pwoutglyphs: *mut u16) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptGetFontAlternateGlyphs(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, cmaxalternates: i32, palternateglyphs: *mut u16, pcalternates: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptGetFontFeatureTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, cmaxtags: i32, pfeaturetags: *mut u32, pctags: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptGetFontLanguageTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, cmaxtags: i32, plangsystags: *mut u32, pctags: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptGetFontProperties(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, sfp: *mut SCRIPT_FONTPROPERTIES) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptGetFontScriptTags(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, cmaxtags: i32, pscripttags: *mut u32, pctags: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptGetGlyphABCWidth(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, wglyph: u16, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ScriptIsComplex(pwcinchars: super::Foundation::PWSTR, cinchars: i32, dwflags: SCRIPT_IS_COMPLEX_FLAGS) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ScriptItemize(pwcinchars: super::Foundation::PWSTR, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ScriptItemizeOpenType(pwcinchars: super::Foundation::PWSTR, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *mut i32, pilogicaltovisual: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptPlace(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ScriptPlaceOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: super::Foundation::PWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptPositionSingleGlyph(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptRecordDigitSubstitution(locale: u32, psds: *mut SCRIPT_DIGITSUBSTITUTE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ScriptShape(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcchars: super::Foundation::PWSTR, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ScriptShapeOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: super::Foundation::PWSTR, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptStringAnalyse(hdc: super::Graphics::Gdi::HDC, pstring: *const ::core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pidx: *const i32, ptabdef: *const SCRIPT_TABDEF, pbinclass: *const u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ScriptStringCPtoX(ssa: *const ::core::ffi::c_void, icp: i32, ftrailing: super::Foundation::BOOL, px: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptStringFree(pssa: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ScriptStringOut(ssa: *const ::core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: *const super::Foundation::RECT, iminsel: i32, imaxsel: i32, fdisabled: super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptStringValidate(ssa: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: *mut i32, pitrailing: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptString_pLogAttr(ssa: *const ::core::ffi::c_void) -> *mut SCRIPT_LOGATTR;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ScriptString_pSize(ssa: *const ::core::ffi::c_void) -> *mut super::Foundation::SIZE;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i32;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn ScriptSubstituteSingleGlyph(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, pwoutglyphid: *mut u16) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn ScriptTextOut(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: super::Foundation::PWSTR, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: *const i32, pgoffset: *const GOFFSET) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Globalization'*"]
+    pub fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ALL_SERVICES: u32 = 0u32;

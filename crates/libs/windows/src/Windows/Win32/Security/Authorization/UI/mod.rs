@@ -7,7 +7,8 @@ pub const CFSTR_ACLUI_SID_INFO_LIST: &'static str = "CFSTR_ACLUI_SID_INFO_LIST";
 pub unsafe fn CreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, ISecurityInformation>>(psi: Param0) -> super::super::super::UI::Controls::HPROPSHEETPAGE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "aclui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateSecurityPage(psi: ::windows::core::RawPtr) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
         }
@@ -73,7 +74,8 @@ impl ::core::default::Default for EFFPERM_RESULT_LIST {
 pub unsafe fn EditSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ISecurityInformation>>(hwndowner: Param0, psi: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "aclui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EditSecurity(hwndowner: super::super::super::Foundation::HWND, psi: ::windows::core::RawPtr) -> super::super::super::Foundation::BOOL;
         }
@@ -88,7 +90,8 @@ pub unsafe fn EditSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn EditSecurityAdvanced<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ISecurityInformation>>(hwndowner: Param0, psi: Param1, usipage: SI_PAGE_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "aclui", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: ::windows::core::RawPtr, usipage: SI_PAGE_TYPE) -> ::windows::core::HRESULT;
         }

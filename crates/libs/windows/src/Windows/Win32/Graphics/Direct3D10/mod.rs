@@ -5,7 +5,8 @@
 pub unsafe fn D3D10CompileEffectFromMemory<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Direct3D::ID3DInclude>>(pdata: *const ::core::ffi::c_void, datalength: usize, psrcfilename: Param2, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, hlslflags: u32, fxflags: u32, ppcompiledeffect: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrors: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10CompileEffectFromMemory(pdata: *const ::core::ffi::c_void, datalength: usize, psrcfilename: super::super::Foundation::PSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, hlslflags: u32, fxflags: u32, ppcompiledeffect: *mut ::windows::core::RawPtr, pperrors: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -20,7 +21,8 @@ pub unsafe fn D3D10CompileEffectFromMemory<'a, Param2: ::windows::core::IntoPara
 pub unsafe fn D3D10CompileShader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Direct3D::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(psrcdata: Param0, srcdatasize: usize, pfilename: Param2, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, pfunctionname: Param5, pprofile: Param6, flags: u32, ppshader: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10CompileShader(psrcdata: super::super::Foundation::PSTR, srcdatasize: usize, pfilename: super::super::Foundation::PSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pfunctionname: super::super::Foundation::PSTR, pprofile: super::super::Foundation::PSTR, flags: u32, ppshader: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -35,7 +37,8 @@ pub unsafe fn D3D10CompileShader<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn D3D10CreateBlob(numbytes: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10CreateBlob(numbytes: usize, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -51,7 +54,8 @@ pub unsafe fn D3D10CreateBlob(numbytes: usize) -> ::windows::core::Result<super:
 pub unsafe fn D3D10CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: D3D10_DRIVER_TYPE, software: Param2, flags: u32, sdkversion: u32) -> ::windows::core::Result<ID3D10Device> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10CreateDevice(padapter: ::windows::core::RawPtr, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, sdkversion: u32, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -67,7 +71,8 @@ pub unsafe fn D3D10CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn D3D10CreateDevice1<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: D3D10_DRIVER_TYPE, software: Param2, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32) -> ::windows::core::Result<ID3D10Device1> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10_1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10CreateDevice1(padapter: ::windows::core::RawPtr, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -83,7 +88,8 @@ pub unsafe fn D3D10CreateDevice1<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn D3D10CreateDeviceAndSwapChain<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: D3D10_DRIVER_TYPE, software: Param2, flags: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, ppdevice: *mut ::core::option::Option<ID3D10Device>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10CreateDeviceAndSwapChain(padapter: ::windows::core::RawPtr, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::core::RawPtr, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -98,7 +104,8 @@ pub unsafe fn D3D10CreateDeviceAndSwapChain<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn D3D10CreateDeviceAndSwapChain1<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: D3D10_DRIVER_TYPE, software: Param2, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, ppdevice: *mut ::core::option::Option<ID3D10Device1>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10_1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10CreateDeviceAndSwapChain1(padapter: ::windows::core::RawPtr, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::core::RawPtr, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -112,7 +119,8 @@ pub unsafe fn D3D10CreateDeviceAndSwapChain1<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn D3D10CreateEffectFromMemory<'a, Param3: ::windows::core::IntoParam<'a, ID3D10Device>, Param4: ::windows::core::IntoParam<'a, ID3D10EffectPool>>(pdata: *const ::core::ffi::c_void, datalength: usize, fxflags: u32, pdevice: Param3, peffectpool: Param4) -> ::windows::core::Result<ID3D10Effect> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10CreateEffectFromMemory(pdata: *const ::core::ffi::c_void, datalength: usize, fxflags: u32, pdevice: ::windows::core::RawPtr, peffectpool: ::windows::core::RawPtr, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -127,7 +135,8 @@ pub unsafe fn D3D10CreateEffectFromMemory<'a, Param3: ::windows::core::IntoParam
 pub unsafe fn D3D10CreateEffectPoolFromMemory<'a, Param3: ::windows::core::IntoParam<'a, ID3D10Device>>(pdata: *const ::core::ffi::c_void, datalength: usize, fxflags: u32, pdevice: Param3) -> ::windows::core::Result<ID3D10EffectPool> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10CreateEffectPoolFromMemory(pdata: *const ::core::ffi::c_void, datalength: usize, fxflags: u32, pdevice: ::windows::core::RawPtr, ppeffectpool: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -142,7 +151,8 @@ pub unsafe fn D3D10CreateEffectPoolFromMemory<'a, Param3: ::windows::core::IntoP
 pub unsafe fn D3D10CreateStateBlock<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Device>>(pdevice: Param0, pstateblockmask: *const D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<ID3D10StateBlock> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10CreateStateBlock(pdevice: ::windows::core::RawPtr, pstateblockmask: *const D3D10_STATE_BLOCK_MASK, ppstateblock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -158,7 +168,8 @@ pub unsafe fn D3D10CreateStateBlock<'a, Param0: ::windows::core::IntoParam<'a, I
 pub unsafe fn D3D10DisassembleEffect<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Effect>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(peffect: Param0, enablecolorcode: Param1) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10DisassembleEffect(peffect: ::windows::core::RawPtr, enablecolorcode: super::super::Foundation::BOOL, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -174,7 +185,8 @@ pub unsafe fn D3D10DisassembleEffect<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn D3D10DisassembleShader<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pshader: *const ::core::ffi::c_void, bytecodelength: usize, enablecolorcode: Param2, pcomments: Param3) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10DisassembleShader(pshader: *const ::core::ffi::c_void, bytecodelength: usize, enablecolorcode: super::super::Foundation::BOOL, pcomments: super::super::Foundation::PSTR, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -190,7 +202,8 @@ pub unsafe fn D3D10DisassembleShader<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn D3D10GetGeometryShaderProfile<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Device>>(pdevice: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10GetGeometryShaderProfile(pdevice: ::windows::core::RawPtr) -> super::super::Foundation::PSTR;
         }
@@ -205,7 +218,8 @@ pub unsafe fn D3D10GetGeometryShaderProfile<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -221,7 +235,8 @@ pub unsafe fn D3D10GetInputAndOutputSignatureBlob(pshaderbytecode: *const ::core
 pub unsafe fn D3D10GetInputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10GetInputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -237,7 +252,8 @@ pub unsafe fn D3D10GetInputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_
 pub unsafe fn D3D10GetOutputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10GetOutputSignatureBlob(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ppsignatureblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -253,7 +269,8 @@ pub unsafe fn D3D10GetOutputSignatureBlob(pshaderbytecode: *const ::core::ffi::c
 pub unsafe fn D3D10GetPixelShaderProfile<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Device>>(pdevice: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10GetPixelShaderProfile(pdevice: ::windows::core::RawPtr) -> super::super::Foundation::PSTR;
         }
@@ -268,7 +285,8 @@ pub unsafe fn D3D10GetPixelShaderProfile<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn D3D10GetShaderDebugInfo(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10GetShaderDebugInfo(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ppdebuginfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -284,7 +302,8 @@ pub unsafe fn D3D10GetShaderDebugInfo(pshaderbytecode: *const ::core::ffi::c_voi
 pub unsafe fn D3D10GetVertexShaderProfile<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Device>>(pdevice: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10GetVertexShaderProfile(pdevice: ::windows::core::RawPtr) -> super::super::Foundation::PSTR;
         }
@@ -299,7 +318,8 @@ pub unsafe fn D3D10GetVertexShaderProfile<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn D3D10PreprocessShader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Direct3D::ID3DInclude>>(psrcdata: Param0, srcdatasize: usize, pfilename: Param2, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, ppshadertext: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10PreprocessShader(psrcdata: super::super::Foundation::PSTR, srcdatasize: usize, pfilename: super::super::Foundation::PSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, ppshadertext: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -313,7 +333,8 @@ pub unsafe fn D3D10PreprocessShader<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn D3D10ReflectShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10ShaderReflection> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10ReflectShader(pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ppreflector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -328,7 +349,8 @@ pub unsafe fn D3D10ReflectShader(pshaderbytecode: *const ::core::ffi::c_void, by
 pub unsafe fn D3D10StateBlockMaskDifference(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10StateBlockMaskDifference(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::HRESULT;
         }
@@ -343,7 +365,8 @@ pub unsafe fn D3D10StateBlockMaskDifference(pa: *const D3D10_STATE_BLOCK_MASK, p
 pub unsafe fn D3D10StateBlockMaskDisableAll() -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10StateBlockMaskDisableAll(pmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::HRESULT;
         }
@@ -358,7 +381,8 @@ pub unsafe fn D3D10StateBlockMaskDisableAll() -> ::windows::core::Result<D3D10_S
 pub unsafe fn D3D10StateBlockMaskDisableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10StateBlockMaskDisableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::HRESULT;
         }
@@ -372,7 +396,8 @@ pub unsafe fn D3D10StateBlockMaskDisableCapture(pmask: *mut D3D10_STATE_BLOCK_MA
 pub unsafe fn D3D10StateBlockMaskEnableAll() -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10StateBlockMaskEnableAll(pmask: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::HRESULT;
         }
@@ -387,7 +412,8 @@ pub unsafe fn D3D10StateBlockMaskEnableAll() -> ::windows::core::Result<D3D10_ST
 pub unsafe fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, rangestart: u32, rangelength: u32) -> ::windows::core::HRESULT;
         }
@@ -402,7 +428,8 @@ pub unsafe fn D3D10StateBlockMaskEnableCapture(pmask: *mut D3D10_STATE_BLOCK_MAS
 pub unsafe fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, entry: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK, statetype: D3D10_DEVICE_STATE_TYPES, entry: u32) -> super::super::Foundation::BOOL;
         }
@@ -416,7 +443,8 @@ pub unsafe fn D3D10StateBlockMaskGetSetting(pmask: *const D3D10_STATE_BLOCK_MASK
 pub unsafe fn D3D10StateBlockMaskIntersect(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10StateBlockMaskIntersect(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::HRESULT;
         }
@@ -431,7 +459,8 @@ pub unsafe fn D3D10StateBlockMaskIntersect(pa: *const D3D10_STATE_BLOCK_MASK, pb
 pub unsafe fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d10", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *const D3D10_STATE_BLOCK_MASK, presult: *mut D3D10_STATE_BLOCK_MASK) -> ::windows::core::HRESULT;
         }

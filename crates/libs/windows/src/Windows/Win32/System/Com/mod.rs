@@ -1145,7 +1145,8 @@ impl ::core::default::Default for BYTE_SIZEDARR {
 pub unsafe fn BindMoniker<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>>(pmk: Param0, grfopt: u32, iidresult: *const ::windows::core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BindMoniker(pmk: ::windows::core::RawPtr, grfopt: u32, iidresult: *const ::windows::core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -1379,7 +1380,8 @@ impl ::core::ops::Not for CLSCTX {
 pub unsafe fn CLSIDFromProgID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszprogid: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CLSIDFromProgID(lpszprogid: super::super::Foundation::PWSTR, lpclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -1395,7 +1397,8 @@ pub unsafe fn CLSIDFromProgID<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn CLSIDFromProgIDEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszprogid: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CLSIDFromProgIDEx(lpszprogid: super::super::Foundation::PWSTR, lpclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -1411,7 +1414,8 @@ pub unsafe fn CLSIDFromProgIDEx<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn CLSIDFromString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsz: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CLSIDFromString(lpsz: super::super::Foundation::PWSTR, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2061,7 +2065,8 @@ impl ::core::default::Default for CY_0 {
 pub unsafe fn CoAddRefServerProcess() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoAddRefServerProcess() -> u32;
         }
@@ -2075,7 +2080,8 @@ pub unsafe fn CoAddRefServerProcess() -> u32 {
 pub unsafe fn CoAllowSetForegroundWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, lpvreserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoAllowSetForegroundWindow(punk: *mut ::core::ffi::c_void, lpvreserved: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2089,7 +2095,8 @@ pub unsafe fn CoAllowSetForegroundWindow<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn CoAllowUnmarshalerCLSID(clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoAllowUnmarshalerCLSID(clsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2103,7 +2110,8 @@ pub unsafe fn CoAllowUnmarshalerCLSID(clsid: *const ::windows::core::GUID) -> ::
 pub unsafe fn CoBuildVersion() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoBuildVersion() -> u32;
         }
@@ -2117,7 +2125,8 @@ pub unsafe fn CoBuildVersion() -> u32 {
 pub unsafe fn CoCancelCall(dwthreadid: u32, ultimeout: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoCancelCall(dwthreadid: u32, ultimeout: u32) -> ::windows::core::HRESULT;
         }
@@ -2131,7 +2140,8 @@ pub unsafe fn CoCancelCall(dwthreadid: u32, ultimeout: u32) -> ::windows::core::
 pub unsafe fn CoCopyProxy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pproxy: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoCopyProxy(pproxy: *mut ::core::ffi::c_void, ppcopy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2146,7 +2156,8 @@ pub unsafe fn CoCopyProxy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::
 pub unsafe fn CoCreateFreeThreadedMarshaler<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkouter: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoCreateFreeThreadedMarshaler(punkouter: *mut ::core::ffi::c_void, ppunkmarshal: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2161,7 +2172,8 @@ pub unsafe fn CoCreateFreeThreadedMarshaler<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn CoCreateGuid() -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoCreateGuid(pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2176,7 +2188,8 @@ pub unsafe fn CoCreateGuid() -> ::windows::core::Result<::windows::core::GUID> {
 pub unsafe fn CoCreateInstance<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, T: ::windows::core::Interface>(rclsid: *const ::windows::core::GUID, punkouter: Param1, dwclscontext: CLSCTX) -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoCreateInstance(rclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclscontext: CLSCTX, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2192,7 +2205,8 @@ pub unsafe fn CoCreateInstance<'a, Param1: ::windows::core::IntoParam<'a, ::wind
 pub unsafe fn CoCreateInstanceEx<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(clsid: *const ::windows::core::GUID, punkouter: Param1, dwclsctx: CLSCTX, pserverinfo: *const COSERVERINFO, dwcount: u32, presults: *mut MULTI_QI) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoCreateInstanceEx(clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: CLSCTX, pserverinfo: *const COSERVERINFO, dwcount: u32, presults: *mut MULTI_QI) -> ::windows::core::HRESULT;
         }
@@ -2206,7 +2220,8 @@ pub unsafe fn CoCreateInstanceEx<'a, Param1: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn CoCreateInstanceFromApp<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(clsid: *const ::windows::core::GUID, punkouter: Param1, dwclsctx: CLSCTX, reserved: *const ::core::ffi::c_void, dwcount: u32, presults: *mut MULTI_QI) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoCreateInstanceFromApp(clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: CLSCTX, reserved: *const ::core::ffi::c_void, dwcount: u32, presults: *mut MULTI_QI) -> ::windows::core::HRESULT;
         }
@@ -2220,7 +2235,8 @@ pub unsafe fn CoCreateInstanceFromApp<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn CoDecrementMTAUsage<'a, Param0: ::windows::core::IntoParam<'a, CO_MTA_USAGE_COOKIE>>(cookie: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoDecrementMTAUsage(cookie: CO_MTA_USAGE_COOKIE) -> ::windows::core::HRESULT;
         }
@@ -2234,7 +2250,8 @@ pub unsafe fn CoDecrementMTAUsage<'a, Param0: ::windows::core::IntoParam<'a, CO_
 pub unsafe fn CoDisableCallCancellation(preserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoDisableCallCancellation(preserved: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2248,7 +2265,8 @@ pub unsafe fn CoDisableCallCancellation(preserved: *const ::core::ffi::c_void) -
 pub unsafe fn CoDisconnectContext(dwtimeout: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoDisconnectContext(dwtimeout: u32) -> ::windows::core::HRESULT;
         }
@@ -2262,7 +2280,8 @@ pub unsafe fn CoDisconnectContext(dwtimeout: u32) -> ::windows::core::Result<()>
 pub unsafe fn CoDisconnectObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoDisconnectObject(punk: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
         }
@@ -2277,7 +2296,8 @@ pub unsafe fn CoDisconnectObject<'a, Param0: ::windows::core::IntoParam<'a, ::wi
 pub unsafe fn CoDosDateTimeToFileTime(ndosdate: u16, ndostime: u16, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoDosDateTimeToFileTime(ndosdate: u16, ndostime: u16, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
@@ -2291,7 +2311,8 @@ pub unsafe fn CoDosDateTimeToFileTime(ndosdate: u16, ndostime: u16, lpfiletime: 
 pub unsafe fn CoEnableCallCancellation(preserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoEnableCallCancellation(preserved: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2306,7 +2327,8 @@ pub unsafe fn CoEnableCallCancellation(preserved: *const ::core::ffi::c_void) ->
 pub unsafe fn CoFileTimeNow() -> ::windows::core::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoFileTimeNow(lpfiletime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
@@ -2322,7 +2344,8 @@ pub unsafe fn CoFileTimeNow() -> ::windows::core::Result<super::super::Foundatio
 pub unsafe fn CoFileTimeToDosDateTime(lpfiletime: *const super::super::Foundation::FILETIME, lpdosdate: *mut u16, lpdostime: *mut u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoFileTimeToDosDateTime(lpfiletime: *const super::super::Foundation::FILETIME, lpdosdate: *mut u16, lpdostime: *mut u16) -> super::super::Foundation::BOOL;
         }
@@ -2336,7 +2359,8 @@ pub unsafe fn CoFileTimeToDosDateTime(lpfiletime: *const super::super::Foundatio
 pub unsafe fn CoFreeAllLibraries() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoFreeAllLibraries();
         }
@@ -2351,7 +2375,8 @@ pub unsafe fn CoFreeAllLibraries() {
 pub unsafe fn CoFreeLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hinst: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoFreeLibrary(hinst: super::super::Foundation::HINSTANCE);
         }
@@ -2365,7 +2390,8 @@ pub unsafe fn CoFreeLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn CoFreeUnusedLibraries() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoFreeUnusedLibraries();
         }
@@ -2379,7 +2405,8 @@ pub unsafe fn CoFreeUnusedLibraries() {
 pub unsafe fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32);
         }
@@ -2393,7 +2420,8 @@ pub unsafe fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32) {
 pub unsafe fn CoGetApartmentType(papttype: *mut APTTYPE, paptqualifier: *mut APTTYPEQUALIFIER) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetApartmentType(papttype: *mut APTTYPE, paptqualifier: *mut APTTYPEQUALIFIER) -> ::windows::core::HRESULT;
         }
@@ -2407,7 +2435,8 @@ pub unsafe fn CoGetApartmentType(papttype: *mut APTTYPE, paptqualifier: *mut APT
 pub unsafe fn CoGetCallContext(riid: *const ::windows::core::GUID, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetCallContext(riid: *const ::windows::core::GUID, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2421,7 +2450,8 @@ pub unsafe fn CoGetCallContext(riid: *const ::windows::core::GUID, ppinterface: 
 pub unsafe fn CoGetCallerTID() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetCallerTID(lpdwtid: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2436,7 +2466,8 @@ pub unsafe fn CoGetCallerTID() -> ::windows::core::Result<u32> {
 pub unsafe fn CoGetCancelObject(dwthreadid: u32, iid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetCancelObject(dwthreadid: u32, iid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2450,7 +2481,8 @@ pub unsafe fn CoGetCancelObject(dwthreadid: u32, iid: *const ::windows::core::GU
 pub unsafe fn CoGetClassObject(rclsid: *const ::windows::core::GUID, dwclscontext: CLSCTX, pvreserved: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetClassObject(rclsid: *const ::windows::core::GUID, dwclscontext: CLSCTX, pvreserved: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2464,7 +2496,8 @@ pub unsafe fn CoGetClassObject(rclsid: *const ::windows::core::GUID, dwclscontex
 pub unsafe fn CoGetContextToken() -> ::windows::core::Result<usize> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetContextToken(ptoken: *mut usize) -> ::windows::core::HRESULT;
         }
@@ -2479,7 +2512,8 @@ pub unsafe fn CoGetContextToken() -> ::windows::core::Result<usize> {
 pub unsafe fn CoGetCurrentLogicalThreadId() -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetCurrentLogicalThreadId(pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2494,7 +2528,8 @@ pub unsafe fn CoGetCurrentLogicalThreadId() -> ::windows::core::Result<::windows
 pub unsafe fn CoGetCurrentProcess() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetCurrentProcess() -> u32;
         }
@@ -2508,7 +2543,8 @@ pub unsafe fn CoGetCurrentProcess() -> u32 {
 pub unsafe fn CoGetMalloc(dwmemcontext: u32) -> ::windows::core::Result<IMalloc> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetMalloc(dwmemcontext: u32, ppmalloc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2524,7 +2560,8 @@ pub unsafe fn CoGetMalloc(dwmemcontext: u32) -> ::windows::core::Result<IMalloc>
 pub unsafe fn CoGetObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszname: Param0, pbindoptions: *const BIND_OPTS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetObject(pszname: super::super::Foundation::PWSTR, pbindoptions: *const BIND_OPTS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2538,7 +2575,8 @@ pub unsafe fn CoGetObject<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn CoGetObjectContext(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetObjectContext(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2552,7 +2590,8 @@ pub unsafe fn CoGetObjectContext(riid: *const ::windows::core::GUID, ppv: *mut *
 pub unsafe fn CoGetPSClsid(riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetPSClsid(riid: *const ::windows::core::GUID, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2568,7 +2607,8 @@ pub unsafe fn CoGetPSClsid(riid: *const ::windows::core::GUID) -> ::windows::cor
 pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> ::windows::core::HRESULT;
         }
@@ -2582,7 +2622,8 @@ pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut *mut s
 pub unsafe fn CoGetTreatAsClass(clsidold: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetTreatAsClass(clsidold: *const ::windows::core::GUID, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2597,7 +2638,8 @@ pub unsafe fn CoGetTreatAsClass(clsidold: *const ::windows::core::GUID) -> ::win
 pub unsafe fn CoImpersonateClient() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoImpersonateClient() -> ::windows::core::HRESULT;
         }
@@ -2611,7 +2653,8 @@ pub unsafe fn CoImpersonateClient() -> ::windows::core::Result<()> {
 pub unsafe fn CoIncrementMTAUsage() -> ::windows::core::Result<CO_MTA_USAGE_COOKIE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoIncrementMTAUsage(pcookie: *mut CO_MTA_USAGE_COOKIE) -> ::windows::core::HRESULT;
         }
@@ -2626,7 +2669,8 @@ pub unsafe fn CoIncrementMTAUsage() -> ::windows::core::Result<CO_MTA_USAGE_COOK
 pub unsafe fn CoInitialize(pvreserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoInitialize(pvreserved: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2640,7 +2684,8 @@ pub unsafe fn CoInitialize(pvreserved: *const ::core::ffi::c_void) -> ::windows:
 pub unsafe fn CoInitializeEx(pvreserved: *const ::core::ffi::c_void, dwcoinit: COINIT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoInitializeEx(pvreserved: *const ::core::ffi::c_void, dwcoinit: COINIT) -> ::windows::core::HRESULT;
         }
@@ -2655,7 +2700,8 @@ pub unsafe fn CoInitializeEx(pvreserved: *const ::core::ffi::c_void, dwcoinit: C
 pub unsafe fn CoInitializeSecurity(psecdesc: *const super::super::Security::SECURITY_DESCRIPTOR, cauthsvc: i32, asauthsvc: *const SOLE_AUTHENTICATION_SERVICE, preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoInitializeSecurity(psecdesc: *const super::super::Security::SECURITY_DESCRIPTOR, cauthsvc: i32, asauthsvc: *const SOLE_AUTHENTICATION_SERVICE, preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2670,7 +2716,8 @@ pub unsafe fn CoInitializeSecurity(psecdesc: *const super::super::Security::SECU
 pub unsafe fn CoInstall<'a, Param0: ::windows::core::IntoParam<'a, IBindCtx>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pbc: Param0, dwflags: u32, pclassspec: *const uCLSSPEC, pquery: *const QUERYCONTEXT, pszcodebase: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoInstall(pbc: ::windows::core::RawPtr, dwflags: u32, pclassspec: *const uCLSSPEC, pquery: *const QUERYCONTEXT, pszcodebase: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -2685,7 +2732,8 @@ pub unsafe fn CoInstall<'a, Param0: ::windows::core::IntoParam<'a, IBindCtx>, Pa
 pub unsafe fn CoInvalidateRemoteMachineBindings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszmachinename: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoInvalidateRemoteMachineBindings(pszmachinename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -2700,7 +2748,8 @@ pub unsafe fn CoInvalidateRemoteMachineBindings<'a, Param0: ::windows::core::Int
 pub unsafe fn CoIsHandlerConnected<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoIsHandlerConnected(punk: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2715,7 +2764,8 @@ pub unsafe fn CoIsHandlerConnected<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub unsafe fn CoIsOle1Class(rclsid: *const ::windows::core::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoIsOle1Class(rclsid: *const ::windows::core::GUID) -> super::super::Foundation::BOOL;
         }
@@ -2730,7 +2780,8 @@ pub unsafe fn CoIsOle1Class(rclsid: *const ::windows::core::GUID) -> super::supe
 pub unsafe fn CoLoadLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszlibname: Param0, bautofree: Param1) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoLoadLibrary(lpszlibname: super::super::Foundation::PWSTR, bautofree: super::super::Foundation::BOOL) -> super::super::Foundation::HINSTANCE;
         }
@@ -2745,7 +2796,8 @@ pub unsafe fn CoLoadLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn CoLockObjectExternal<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(punk: Param0, flock: Param1, flastunlockreleases: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoLockObjectExternal(punk: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL, flastunlockreleases: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -2760,7 +2812,8 @@ pub unsafe fn CoLockObjectExternal<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub unsafe fn CoQueryAuthenticationServices(pcauthsvc: *mut u32, asauthsvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoQueryAuthenticationServices(pcauthsvc: *mut u32, asauthsvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> ::windows::core::HRESULT;
         }
@@ -2775,7 +2828,8 @@ pub unsafe fn CoQueryAuthenticationServices(pcauthsvc: *mut u32, asauthsvc: *mut
 pub unsafe fn CoQueryClientBlanket(pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut super::super::Foundation::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pprivs: *mut *mut ::core::ffi::c_void, pcapabilities: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoQueryClientBlanket(pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut super::super::Foundation::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pprivs: *mut *mut ::core::ffi::c_void, pcapabilities: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2790,7 +2844,8 @@ pub unsafe fn CoQueryClientBlanket(pauthnsvc: *mut u32, pauthzsvc: *mut u32, pse
 pub unsafe fn CoQueryProxyBlanket<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pproxy: Param0, pwauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut super::super::Foundation::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoQueryProxyBlanket(pproxy: *mut ::core::ffi::c_void, pwauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut super::super::Foundation::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2804,7 +2859,8 @@ pub unsafe fn CoQueryProxyBlanket<'a, Param0: ::windows::core::IntoParam<'a, ::w
 pub unsafe fn CoRegisterActivationFilter<'a, Param0: ::windows::core::IntoParam<'a, IActivationFilter>>(pactivationfilter: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRegisterActivationFilter(pactivationfilter: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2818,7 +2874,8 @@ pub unsafe fn CoRegisterActivationFilter<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn CoRegisterChannelHook<'a, Param1: ::windows::core::IntoParam<'a, IChannelHook>>(extensionuuid: *const ::windows::core::GUID, pchannelhook: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRegisterChannelHook(extensionuuid: *const ::windows::core::GUID, pchannelhook: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2832,7 +2889,8 @@ pub unsafe fn CoRegisterChannelHook<'a, Param1: ::windows::core::IntoParam<'a, I
 pub unsafe fn CoRegisterClassObject<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(rclsid: *const ::windows::core::GUID, punk: Param1, dwclscontext: CLSCTX, flags: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRegisterClassObject(rclsid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, dwclscontext: CLSCTX, flags: u32, lpdwregister: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -2848,7 +2906,8 @@ pub unsafe fn CoRegisterClassObject<'a, Param1: ::windows::core::IntoParam<'a, :
 pub unsafe fn CoRegisterDeviceCatalog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinstanceid: Param0) -> ::windows::core::Result<CO_DEVICE_CATALOG_COOKIE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRegisterDeviceCatalog(deviceinstanceid: super::super::Foundation::PWSTR, cookie: *mut CO_DEVICE_CATALOG_COOKIE) -> ::windows::core::HRESULT;
         }
@@ -2863,7 +2922,8 @@ pub unsafe fn CoRegisterDeviceCatalog<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn CoRegisterInitializeSpy<'a, Param0: ::windows::core::IntoParam<'a, IInitializeSpy>>(pspy: Param0) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRegisterInitializeSpy(pspy: ::windows::core::RawPtr, pulicookie: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -2878,7 +2938,8 @@ pub unsafe fn CoRegisterInitializeSpy<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn CoRegisterMallocSpy<'a, Param0: ::windows::core::IntoParam<'a, IMallocSpy>>(pmallocspy: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRegisterMallocSpy(pmallocspy: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2892,7 +2953,8 @@ pub unsafe fn CoRegisterMallocSpy<'a, Param0: ::windows::core::IntoParam<'a, IMa
 pub unsafe fn CoRegisterPSClsid(riid: *const ::windows::core::GUID, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRegisterPSClsid(riid: *const ::windows::core::GUID, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -2906,7 +2968,8 @@ pub unsafe fn CoRegisterPSClsid(riid: *const ::windows::core::GUID, rclsid: *con
 pub unsafe fn CoRegisterSurrogate<'a, Param0: ::windows::core::IntoParam<'a, ISurrogate>>(psurrogate: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRegisterSurrogate(psurrogate: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2920,7 +2983,8 @@ pub unsafe fn CoRegisterSurrogate<'a, Param0: ::windows::core::IntoParam<'a, ISu
 pub unsafe fn CoReleaseServerProcess() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoReleaseServerProcess() -> u32;
         }
@@ -2934,7 +2998,8 @@ pub unsafe fn CoReleaseServerProcess() -> u32 {
 pub unsafe fn CoResumeClassObjects() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoResumeClassObjects() -> ::windows::core::HRESULT;
         }
@@ -2948,7 +3013,8 @@ pub unsafe fn CoResumeClassObjects() -> ::windows::core::Result<()> {
 pub unsafe fn CoRevertToSelf() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRevertToSelf() -> ::windows::core::HRESULT;
         }
@@ -2962,7 +3028,8 @@ pub unsafe fn CoRevertToSelf() -> ::windows::core::Result<()> {
 pub unsafe fn CoRevokeClassObject(dwregister: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRevokeClassObject(dwregister: u32) -> ::windows::core::HRESULT;
         }
@@ -2976,7 +3043,8 @@ pub unsafe fn CoRevokeClassObject(dwregister: u32) -> ::windows::core::Result<()
 pub unsafe fn CoRevokeDeviceCatalog<'a, Param0: ::windows::core::IntoParam<'a, CO_DEVICE_CATALOG_COOKIE>>(cookie: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRevokeDeviceCatalog(cookie: CO_DEVICE_CATALOG_COOKIE) -> ::windows::core::HRESULT;
         }
@@ -2990,7 +3058,8 @@ pub unsafe fn CoRevokeDeviceCatalog<'a, Param0: ::windows::core::IntoParam<'a, C
 pub unsafe fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows::core::HRESULT;
         }
@@ -3004,7 +3073,8 @@ pub unsafe fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows::core::Result<(
 pub unsafe fn CoRevokeMallocSpy() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoRevokeMallocSpy() -> ::windows::core::HRESULT;
         }
@@ -3018,7 +3088,8 @@ pub unsafe fn CoRevokeMallocSpy() -> ::windows::core::Result<()> {
 pub unsafe fn CoSetCancelObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoSetCancelObject(punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -3033,7 +3104,8 @@ pub unsafe fn CoSetCancelObject<'a, Param0: ::windows::core::IntoParam<'a, ::win
 pub unsafe fn CoSetProxyBlanket<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pproxy: Param0, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: Param3, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoSetProxyBlanket(pproxy: *mut ::core::ffi::c_void, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: super::super::Foundation::PWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows::core::HRESULT;
         }
@@ -3047,7 +3119,8 @@ pub unsafe fn CoSetProxyBlanket<'a, Param0: ::windows::core::IntoParam<'a, ::win
 pub unsafe fn CoSuspendClassObjects() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoSuspendClassObjects() -> ::windows::core::HRESULT;
         }
@@ -3061,7 +3134,8 @@ pub unsafe fn CoSuspendClassObjects() -> ::windows::core::Result<()> {
 pub unsafe fn CoSwitchCallContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pnewobject: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoSwitchCallContext(pnewobject: *mut ::core::ffi::c_void, ppoldobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -3076,7 +3150,8 @@ pub unsafe fn CoSwitchCallContext<'a, Param0: ::windows::core::IntoParam<'a, ::w
 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void;
         }
@@ -3090,7 +3165,8 @@ pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void {
 pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoTaskMemFree(pv: *const ::core::ffi::c_void);
         }
@@ -3104,7 +3180,8 @@ pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
 pub unsafe fn CoTaskMemRealloc(pv: *const ::core::ffi::c_void, cb: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoTaskMemRealloc(pv: *const ::core::ffi::c_void, cb: usize) -> *mut ::core::ffi::c_void;
         }
@@ -3118,7 +3195,8 @@ pub unsafe fn CoTaskMemRealloc(pv: *const ::core::ffi::c_void, cb: usize) -> *mu
 pub unsafe fn CoTestCancel() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoTestCancel() -> ::windows::core::HRESULT;
         }
@@ -3132,7 +3210,8 @@ pub unsafe fn CoTestCancel() -> ::windows::core::Result<()> {
 pub unsafe fn CoTreatAsClass(clsidold: *const ::windows::core::GUID, clsidnew: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoTreatAsClass(clsidold: *const ::windows::core::GUID, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -3146,7 +3225,8 @@ pub unsafe fn CoTreatAsClass(clsidold: *const ::windows::core::GUID, clsidnew: *
 pub unsafe fn CoUninitialize() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoUninitialize();
         }
@@ -3161,7 +3241,8 @@ pub unsafe fn CoUninitialize() {
 pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, chandles: u32, phandles: *const super::super::Foundation::HANDLE) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, chandles: u32, phandles: *const super::super::Foundation::HANDLE, lpdwindex: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -3177,7 +3258,8 @@ pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, chandles: u
 pub unsafe fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, chandles: u32, phandles: *const super::super::Foundation::HANDLE) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, chandles: u32, phandles: *const super::super::Foundation::HANDLE, lpdwindex: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -3224,7 +3306,8 @@ impl ::core::default::Default for ComCallData {
 pub unsafe fn CreateAntiMoniker() -> ::windows::core::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateAntiMoniker(ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3239,7 +3322,8 @@ pub unsafe fn CreateAntiMoniker() -> ::windows::core::Result<IMoniker> {
 pub unsafe fn CreateBindCtx(reserved: u32) -> ::windows::core::Result<IBindCtx> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateBindCtx(reserved: u32, ppbc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3254,7 +3338,8 @@ pub unsafe fn CreateBindCtx(reserved: u32) -> ::windows::core::Result<IBindCtx> 
 pub unsafe fn CreateClassMoniker(rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateClassMoniker(rclsid: *const ::windows::core::GUID, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3269,7 +3354,8 @@ pub unsafe fn CreateClassMoniker(rclsid: *const ::windows::core::GUID) -> ::wind
 pub unsafe fn CreateDataAdviseHolder() -> ::windows::core::Result<IDataAdviseHolder> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateDataAdviseHolder(ppdaholder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3284,7 +3370,8 @@ pub unsafe fn CreateDataAdviseHolder() -> ::windows::core::Result<IDataAdviseHol
 pub unsafe fn CreateDataCache<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkouter: Param0, rclsid: *const ::windows::core::GUID, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateDataCache(punkouter: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -3299,7 +3386,8 @@ pub unsafe fn CreateDataCache<'a, Param0: ::windows::core::IntoParam<'a, ::windo
 pub unsafe fn CreateFileMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0) -> ::windows::core::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateFileMoniker(lpszpathname: super::super::Foundation::PWSTR, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3314,7 +3402,8 @@ pub unsafe fn CreateFileMoniker<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn CreateGenericComposite<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>, Param1: ::windows::core::IntoParam<'a, IMoniker>>(pmkfirst: Param0, pmkrest: Param1) -> ::windows::core::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateGenericComposite(pmkfirst: ::windows::core::RawPtr, pmkrest: ::windows::core::RawPtr, ppmkcomposite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3329,7 +3418,8 @@ pub unsafe fn CreateGenericComposite<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CreateIUriBuilder<'a, Param0: ::windows::core::IntoParam<'a, IUri>>(piuri: Param0, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<IUriBuilder> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "urlmon", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateIUriBuilder(piuri: ::windows::core::RawPtr, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3345,7 +3435,8 @@ pub unsafe fn CreateIUriBuilder<'a, Param0: ::windows::core::IntoParam<'a, IUri>
 pub unsafe fn CreateItemMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdelim: Param0, lpszitem: Param1) -> ::windows::core::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateItemMoniker(lpszdelim: super::super::Foundation::PWSTR, lpszitem: super::super::Foundation::PWSTR, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3360,7 +3451,8 @@ pub unsafe fn CreateItemMoniker<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn CreateObjrefMoniker<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateObjrefMoniker(punk: *mut ::core::ffi::c_void, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3375,7 +3467,8 @@ pub unsafe fn CreateObjrefMoniker<'a, Param0: ::windows::core::IntoParam<'a, ::w
 pub unsafe fn CreatePointerMoniker<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePointerMoniker(punk: *mut ::core::ffi::c_void, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3391,7 +3484,8 @@ pub unsafe fn CreatePointerMoniker<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub unsafe fn CreateStdProgressIndicator<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IBindStatusCallback>>(hwndparent: Param0, psztitle: Param1, pibsccaller: Param2) -> ::windows::core::Result<IBindStatusCallback> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateStdProgressIndicator(hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, pibsccaller: ::windows::core::RawPtr, ppibsc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3407,7 +3501,8 @@ pub unsafe fn CreateStdProgressIndicator<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn CreateUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzuri: Param0, dwflags: URI_CREATE_FLAGS, dwreserved: usize) -> ::windows::core::Result<IUri> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "urlmon", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateUri(pwzuri: super::super::Foundation::PWSTR, dwflags: URI_CREATE_FLAGS, dwreserved: usize, ppuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3423,7 +3518,8 @@ pub unsafe fn CreateUri<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn CreateUriFromMultiByteString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszansiinputuri: Param0, dwencodingflags: u32, dwcodepage: u32, dwcreateflags: u32, dwreserved: usize) -> ::windows::core::Result<IUri> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "urlmon", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateUriFromMultiByteString(pszansiinputuri: super::super::Foundation::PSTR, dwencodingflags: u32, dwcodepage: u32, dwcreateflags: u32, dwreserved: usize, ppuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3439,7 +3535,8 @@ pub unsafe fn CreateUriFromMultiByteString<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn CreateUriWithFragment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzuri: Param0, pwzfragment: Param1, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<IUri> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "urlmon", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateUriWithFragment(pwzuri: super::super::Foundation::PWSTR, pwzfragment: super::super::Foundation::PWSTR, dwflags: u32, dwreserved: usize, ppuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -3697,7 +3794,8 @@ impl ::core::default::Default for DWORD_BLOB {
 pub unsafe fn DcomChannelSetHResult(pvreserved: *const ::core::ffi::c_void, pulreserved: *const u32, appshr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DcomChannelSetHResult(pvreserved: *const ::core::ffi::c_void, pulreserved: *const u32, appshr: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
         }
@@ -4360,7 +4458,8 @@ impl ::core::fmt::Debug for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
 pub unsafe fn GetClassFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilename: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClassFile(szfilename: super::super::Foundation::PWSTR, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -4375,7 +4474,8 @@ pub unsafe fn GetClassFile<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInfo> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -4390,7 +4490,8 @@ pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInf
 pub unsafe fn GetRunningObjectTable(reserved: u32) -> ::windows::core::Result<IRunningObjectTable> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetRunningObjectTable(reserved: u32, pprot: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -7941,7 +8042,8 @@ pub struct IGlobalOptions_Vtbl {
 pub unsafe fn IIDFromString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsz: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IIDFromString(lpsz: super::super::Foundation::PWSTR, lpiid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -13581,7 +13683,8 @@ impl ::core::default::Default for MachineGlobalObjectTableRegistrationToken__ {
 pub unsafe fn MkParseDisplayName<'a, Param0: ::windows::core::IntoParam<'a, IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pbc: Param0, szusername: Param1, pcheaten: *mut u32, ppmk: *mut ::core::option::Option<IMoniker>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MkParseDisplayName(pbc: ::windows::core::RawPtr, szusername: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13595,7 +13698,8 @@ pub unsafe fn MkParseDisplayName<'a, Param0: ::windows::core::IntoParam<'a, IBin
 pub unsafe fn MonikerCommonPrefixWith<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>, Param1: ::windows::core::IntoParam<'a, IMoniker>>(pmkthis: Param0, pmkother: Param1) -> ::windows::core::Result<IMoniker> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MonikerCommonPrefixWith(pmkthis: ::windows::core::RawPtr, pmkother: ::windows::core::RawPtr, ppmkcommon: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -13611,7 +13715,8 @@ pub unsafe fn MonikerCommonPrefixWith<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MonikerRelativePathTo<'a, Param0: ::windows::core::IntoParam<'a, IMoniker>, Param1: ::windows::core::IntoParam<'a, IMoniker>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pmksrc: Param0, pmkdest: Param1, ppmkrelpath: *mut ::core::option::Option<IMoniker>, dwreserved: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MonikerRelativePathTo(pmksrc: ::windows::core::RawPtr, pmkdest: ::windows::core::RawPtr, ppmkrelpath: *mut ::windows::core::RawPtr, dwreserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -13684,7 +13789,8 @@ pub type PFNCONTEXTCALL = ::core::option::Option<unsafe extern "system" fn(ppara
 pub unsafe fn ProgIDFromCLSID(clsid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ProgIDFromCLSID(clsid: *const ::windows::core::GUID, lplpszprogid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -14487,7 +14593,8 @@ impl ::core::fmt::Debug for SYSKIND {
 pub unsafe fn SetErrorInfo<'a, Param1: ::windows::core::IntoParam<'a, IErrorInfo>>(dwreserved: u32, perrinfo: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "oleaut32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetErrorInfo(dwreserved: u32, perrinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -14570,7 +14677,8 @@ impl ::core::default::Default for StorageLayout {
 pub unsafe fn StringFromCLSID(rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StringFromCLSID(rclsid: *const ::windows::core::GUID, lplpsz: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -14586,7 +14694,8 @@ pub unsafe fn StringFromCLSID(rclsid: *const ::windows::core::GUID) -> ::windows
 pub unsafe fn StringFromGUID2(rguid: *const ::windows::core::GUID, lpsz: super::super::Foundation::PWSTR, cchmax: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StringFromGUID2(rguid: *const ::windows::core::GUID, lpsz: super::super::Foundation::PWSTR, cchmax: i32) -> i32;
         }
@@ -14601,7 +14710,8 @@ pub unsafe fn StringFromGUID2(rguid: *const ::windows::core::GUID, lpsz: super::
 pub unsafe fn StringFromIID(rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn StringFromIID(rclsid: *const ::windows::core::GUID, lplpsz: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }

@@ -1,5 +1,18 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-shcore-scaling-l1-1-1", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn GetDpiForMonitor(hmonitor: super::super::Graphics::Gdi::HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetProcessDpiAwareness(hprocess: super::super::Foundation::HANDLE, value: *mut PROCESS_DPI_AWARENESS) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_HiDpi'*"]
+    pub fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -21,9 +34,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetDpiAwarenessContextForProcess(hprocess: super::super::Foundation::HANDLE) -> DPI_AWARENESS_CONTEXT;
-    #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn GetDpiForMonitor(hmonitor: super::super::Graphics::Gdi::HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_HiDpi'*"]
     pub fn GetDpiForSystem() -> u32;
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
@@ -31,9 +41,6 @@ extern "system" {
     pub fn GetDpiForWindow(hwnd: super::super::Foundation::HWND) -> u32;
     #[doc = "*Required features: 'Win32_UI_HiDpi'*"]
     pub fn GetDpiFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> u32;
-    #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessDpiAwareness(hprocess: super::super::Foundation::HANDLE, value: *mut PROCESS_DPI_AWARENESS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSystemDpiForProcess(hprocess: super::super::Foundation::HANDLE) -> u32;
@@ -57,9 +64,6 @@ extern "system" {
     pub fn LogicalToPhysicalPointForPerMonitorDPI(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenThemeDataForDpi(hwnd: super::super::Foundation::HWND, pszclasslist: super::super::Foundation::PWSTR, dpi: u32) -> isize;
-    #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn PhysicalToLogicalPointForPerMonitorDPI(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -67,8 +71,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetDialogDpiChangeBehavior(hdlg: super::super::Foundation::HWND, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_HiDpi'*"]
-    pub fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetProcessDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> super::super::Foundation::BOOL;
@@ -79,6 +81,13 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_UI_HiDpi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OpenThemeDataForDpi(hwnd: super::super::Foundation::HWND, pszclasslist: super::super::Foundation::PWSTR, dpi: u32) -> isize;
 }
 #[doc = "*Required features: 'Win32_UI_HiDpi'*"]
 pub type DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = u32;

@@ -5,7 +5,8 @@
 pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsclient", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AcquireDeveloperLicense(hwndparent: super::super::Foundation::HWND, pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
@@ -21,7 +22,8 @@ pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn CheckDeveloperLicense() -> ::windows::core::Result<super::super::Foundation::FILETIME> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsclient", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CheckDeveloperLicense(pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
@@ -37,7 +39,8 @@ pub unsafe fn CheckDeveloperLicense() -> ::windows::core::Result<super::super::F
 pub unsafe fn RemoveDeveloperLicense<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsclient", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveDeveloperLicense(hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }

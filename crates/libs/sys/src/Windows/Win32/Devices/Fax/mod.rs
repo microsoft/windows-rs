@@ -1,9 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "fxsutility", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CanSendToFaxRecipient() -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SendToFaxRecipient(sndmode: SendToMode, lpfilename: super::super::Foundation::PWSTR) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "sti", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn StiCreateInstanceW(hinst: super::super::Foundation::HINSTANCE, dwver: u32, ppsti: *mut IStillImageW, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "winfax", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FaxAbort(faxhandle: super::super::Foundation::HANDLE, jobid: u32) -> super::super::Foundation::BOOL;
@@ -171,12 +186,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FaxUnregisterServiceProviderW(deviceprovider: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SendToFaxRecipient(sndmode: SendToMode, lpfilename: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn StiCreateInstanceW(hinst: super::super::Foundation::HINSTANCE, dwver: u32, ppsti: *mut IStillImageW, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const CF_MSFAXSRV_DEVICE_ID: &'static str = "FAXSRV_DeviceID";

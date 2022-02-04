@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn CloseTrace(tracehandle: u64) -> u32;
@@ -114,6 +115,31 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StopTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+    pub fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: *const EVENT_INSTANCE_INFO) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+    pub fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+    pub fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16, messagearglist: *const i8) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+    pub fn TraceQueryInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *mut ::core::ffi::c_void, informationlength: u32, returnlength: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+    pub fn TraceSetInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
+    pub fn UnregisterTraceGuids(registrationhandle: u64) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UpdateTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UpdateTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "tdh", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::core::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
@@ -176,27 +202,6 @@ extern "system" {
     pub fn TdhUnloadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhUnloadManifestFromMemory(pdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
-    pub fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER) -> u32;
-    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: *const EVENT_INSTANCE_INFO) -> u32;
-    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
-    pub fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16) -> u32;
-    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
-    pub fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16, messagearglist: *const i8) -> u32;
-    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
-    pub fn TraceQueryInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *mut ::core::ffi::c_void, informationlength: u32, returnlength: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
-    pub fn TraceSetInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
-    pub fn UnregisterTraceGuids(registrationhandle: u64) -> u32;
-    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
-    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]

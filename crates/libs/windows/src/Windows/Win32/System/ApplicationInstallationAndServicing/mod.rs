@@ -786,7 +786,8 @@ impl ::core::default::Default for ASSEMBLY_INFO {
 pub unsafe fn ActivateActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hactctx: Param0, lpcookie: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ActivateActCtx(hactctx: super::super::Foundation::HANDLE, lpcookie: *mut usize) -> super::super::Foundation::BOOL;
         }
@@ -801,7 +802,8 @@ pub unsafe fn ActivateActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn AddRefActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hactctx: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddRefActCtx(hactctx: super::super::Foundation::HANDLE);
         }
@@ -816,7 +818,8 @@ pub unsafe fn AddRefActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn ApplyDeltaA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(applyflags: i64, lpsourcename: Param1, lpdeltaname: Param2, lptargetname: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyDeltaA(applyflags: i64, lpsourcename: super::super::Foundation::PSTR, lpdeltaname: super::super::Foundation::PSTR, lptargetname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -831,7 +834,8 @@ pub unsafe fn ApplyDeltaA<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn ApplyDeltaB<'a, Param1: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param2: ::windows::core::IntoParam<'a, DELTA_INPUT>>(applyflags: i64, source: Param1, delta: Param2, lptarget: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyDeltaB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL;
         }
@@ -846,7 +850,8 @@ pub unsafe fn ApplyDeltaB<'a, Param1: ::windows::core::IntoParam<'a, DELTA_INPUT
 pub unsafe fn ApplyDeltaGetReverseB<'a, Param1: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param2: ::windows::core::IntoParam<'a, DELTA_INPUT>>(applyflags: i64, source: Param1, delta: Param2, lpreversefiletime: *const super::super::Foundation::FILETIME, lptarget: *mut DELTA_OUTPUT, lptargetreverse: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyDeltaGetReverseB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lpreversefiletime: *const super::super::Foundation::FILETIME, lptarget: *mut DELTA_OUTPUT, lptargetreverse: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL;
         }
@@ -861,7 +866,8 @@ pub unsafe fn ApplyDeltaGetReverseB<'a, Param1: ::windows::core::IntoParam<'a, D
 pub unsafe fn ApplyDeltaProvidedB<'a, Param1: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param2: ::windows::core::IntoParam<'a, DELTA_INPUT>>(applyflags: i64, source: Param1, delta: Param2, lptarget: *mut ::core::ffi::c_void, utargetsize: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyDeltaProvidedB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lptarget: *mut ::core::ffi::c_void, utargetsize: usize) -> super::super::Foundation::BOOL;
         }
@@ -876,7 +882,8 @@ pub unsafe fn ApplyDeltaProvidedB<'a, Param1: ::windows::core::IntoParam<'a, DEL
 pub unsafe fn ApplyDeltaW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(applyflags: i64, lpsourcename: Param1, lpdeltaname: Param2, lptargetname: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyDeltaW(applyflags: i64, lpsourcename: super::super::Foundation::PWSTR, lpdeltaname: super::super::Foundation::PWSTR, lptargetname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -891,7 +898,8 @@ pub unsafe fn ApplyDeltaW<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn ApplyPatchToFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyPatchToFileA(patchfilename: super::super::Foundation::PSTR, oldfilename: super::super::Foundation::PSTR, newfilename: super::super::Foundation::PSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -906,7 +914,8 @@ pub unsafe fn ApplyPatchToFileA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: *const u8, patchfilesize: u32, oldfilemapped: *const u8, oldfilesize: u32, newfilebuffer: *mut *mut u8, newfilebuffersize: u32, newfileactualsize: *mut u32, newfiletime: *mut super::super::Foundation::FILETIME, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyPatchToFileByBuffers(patchfilemapped: *const u8, patchfilesize: u32, oldfilemapped: *const u8, oldfilesize: u32, newfilebuffer: *mut *mut u8, newfilebuffersize: u32, newfileactualsize: *mut u32, newfiletime: *mut super::super::Foundation::FILETIME, applyoptionflags: u32, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -921,7 +930,8 @@ pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: *const u8, patchfilesiz
 pub unsafe fn ApplyPatchToFileByHandles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(patchfilehandle: Param0, oldfilehandle: Param1, newfilehandle: Param2, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyPatchToFileByHandles(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: super::super::Foundation::HANDLE, newfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -936,7 +946,8 @@ pub unsafe fn ApplyPatchToFileByHandles<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ApplyPatchToFileByHandlesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(patchfilehandle: Param0, oldfilehandle: Param1, newfilehandle: Param2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyPatchToFileByHandlesEx(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: super::super::Foundation::HANDLE, newfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -951,7 +962,8 @@ pub unsafe fn ApplyPatchToFileByHandlesEx<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ApplyPatchToFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyPatchToFileExA(patchfilename: super::super::Foundation::PSTR, oldfilename: super::super::Foundation::PSTR, newfilename: super::super::Foundation::PSTR, applyoptionflags: u32, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -966,7 +978,8 @@ pub unsafe fn ApplyPatchToFileExA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ApplyPatchToFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyPatchToFileExW(patchfilename: super::super::Foundation::PWSTR, oldfilename: super::super::Foundation::PWSTR, newfilename: super::super::Foundation::PWSTR, applyoptionflags: u32, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -981,7 +994,8 @@ pub unsafe fn ApplyPatchToFileExW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ApplyPatchToFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(patchfilename: Param0, oldfilename: Param1, newfilename: Param2, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyPatchToFileW(patchfilename: super::super::Foundation::PWSTR, oldfilename: super::super::Foundation::PWSTR, newfilename: super::super::Foundation::PWSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1057,7 +1071,8 @@ impl ::core::fmt::Debug for CREATE_ASM_NAME_OBJ_FLAGS {
 pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation::HANDLE;
         }
@@ -1072,7 +1087,8 @@ pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation
 pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation::HANDLE;
         }
@@ -1087,7 +1103,8 @@ pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation
 pub unsafe fn CreateDeltaA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: Param3, lptargetname: Param4, lpsourceoptionsname: Param5, lptargetoptionsname: Param6, globaloptions: Param7, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: Param10) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateDeltaA(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: super::super::Foundation::PSTR, lptargetname: super::super::Foundation::PSTR, lpsourceoptionsname: super::super::Foundation::PSTR, lptargetoptionsname: super::super::Foundation::PSTR, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -1102,7 +1119,8 @@ pub unsafe fn CreateDeltaA<'a, Param3: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn CreateDeltaB<'a, Param3: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param4: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param5: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param6: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>>(filetypeset: i64, setflags: i64, resetflags: i64, source: Param3, target: Param4, sourceoptions: Param5, targetoptions: Param6, globaloptions: Param7, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdelta: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateDeltaB(filetypeset: i64, setflags: i64, resetflags: i64, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdelta: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL;
         }
@@ -1117,7 +1135,8 @@ pub unsafe fn CreateDeltaB<'a, Param3: ::windows::core::IntoParam<'a, DELTA_INPU
 pub unsafe fn CreateDeltaW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, DELTA_INPUT>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: Param3, lptargetname: Param4, lpsourceoptionsname: Param5, lptargetoptionsname: Param6, globaloptions: Param7, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: Param10) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateDeltaW(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: super::super::Foundation::PWSTR, lptargetname: super::super::Foundation::PWSTR, lpsourceoptionsname: super::super::Foundation::PWSTR, lptargetoptionsname: super::super::Foundation::PWSTR, globaloptions: DELTA_INPUT, lptargetfiletime: *const super::super::Foundation::FILETIME, hashalgid: u32, lpdeltaname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -1132,7 +1151,8 @@ pub unsafe fn CreateDeltaW<'a, Param3: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn CreatePatchFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(oldfilename: Param0, newfilename: Param1, patchfilename: Param2, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatchc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePatchFileA(oldfilename: super::super::Foundation::PSTR, newfilename: super::super::Foundation::PSTR, patchfilename: super::super::Foundation::PSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL;
         }
@@ -1147,7 +1167,8 @@ pub unsafe fn CreatePatchFileA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CreatePatchFileByHandles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(oldfilehandle: Param0, newfilehandle: Param1, patchfilehandle: Param2, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatchc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePatchFileByHandles(oldfilehandle: super::super::Foundation::HANDLE, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL;
         }
@@ -1162,7 +1183,8 @@ pub unsafe fn CreatePatchFileByHandles<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn CreatePatchFileByHandlesEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_H, newfilehandle: Param2, patchfilehandle: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatchc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePatchFileByHandlesEx(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_H, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1177,7 +1199,8 @@ pub unsafe fn CreatePatchFileByHandlesEx<'a, Param2: ::windows::core::IntoParam<
 pub unsafe fn CreatePatchFileExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: Param2, patchfilename: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatchc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePatchFileExA(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_A, newfilename: super::super::Foundation::PSTR, patchfilename: super::super::Foundation::PSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1192,7 +1215,8 @@ pub unsafe fn CreatePatchFileExA<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CreatePatchFileExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: Param2, patchfilename: Param3, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatchc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePatchFileExW(oldfilecount: u32, oldfileinfoarray: *const PATCH_OLD_FILE_INFO_W, newfilename: super::super::Foundation::PWSTR, patchfilename: super::super::Foundation::PWSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, progresscallback: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1207,7 +1231,8 @@ pub unsafe fn CreatePatchFileExW<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CreatePatchFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(oldfilename: Param0, newfilename: Param1, patchfilename: Param2, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatchc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePatchFileW(oldfilename: super::super::Foundation::PWSTR, newfilename: super::super::Foundation::PWSTR, patchfilename: super::super::Foundation::PWSTR, optionflags: u32, optiondata: *const PATCH_OPTION_DATA) -> super::super::Foundation::BOOL;
         }
@@ -1403,7 +1428,8 @@ impl ::core::default::Default for DELTA_OUTPUT {
 pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::Foundation::BOOL;
         }
@@ -1418,7 +1444,8 @@ pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::F
 pub unsafe fn DeltaFree(lpmemory: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeltaFree(lpmemory: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -1433,7 +1460,8 @@ pub unsafe fn DeltaFree(lpmemory: *const ::core::ffi::c_void) -> super::super::F
 pub unsafe fn DeltaNormalizeProvidedB<'a, Param2: ::windows::core::IntoParam<'a, DELTA_INPUT>>(filetypeset: i64, normalizeflags: i64, normalizeoptions: Param2, lpsource: *mut ::core::ffi::c_void, usourcesize: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeltaNormalizeProvidedB(filetypeset: i64, normalizeflags: i64, normalizeoptions: DELTA_INPUT, lpsource: *mut ::core::ffi::c_void, usourcesize: usize) -> super::super::Foundation::BOOL;
         }
@@ -1810,7 +1838,8 @@ pub const ERROR_ROLLBACK_DISABLED: u32 = 1653u32;
 pub unsafe fn ExtractPatchHeaderToFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(patchfilename: Param0, patchheaderfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatchc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ExtractPatchHeaderToFileA(patchfilename: super::super::Foundation::PSTR, patchheaderfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -1825,7 +1854,8 @@ pub unsafe fn ExtractPatchHeaderToFileA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ExtractPatchHeaderToFileByHandles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(patchfilehandle: Param0, patchheaderfilehandle: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatchc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ExtractPatchHeaderToFileByHandles(patchfilehandle: super::super::Foundation::HANDLE, patchheaderfilehandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1840,7 +1870,8 @@ pub unsafe fn ExtractPatchHeaderToFileByHandles<'a, Param0: ::windows::core::Int
 pub unsafe fn ExtractPatchHeaderToFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(patchfilename: Param0, patchheaderfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatchc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ExtractPatchHeaderToFileW(patchfilename: super::super::Foundation::PWSTR, patchheaderfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -1900,7 +1931,8 @@ pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows::core::GUID = ::windo
 pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpguidtofind: *const ::windows::core::GUID, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpguidtofind: *const ::windows::core::GUID, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL;
         }
@@ -1915,7 +1947,8 @@ pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: *const ::wind
 pub unsafe fn FindActCtxSectionStringA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: Param3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindActCtxSectionStringA(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: super::super::Foundation::PSTR, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL;
         }
@@ -1930,7 +1963,8 @@ pub unsafe fn FindActCtxSectionStringA<'a, Param3: ::windows::core::IntoParam<'a
 pub unsafe fn FindActCtxSectionStringW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: Param3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FindActCtxSectionStringW(dwflags: u32, lpextensionguid: *const ::windows::core::GUID, ulsectionid: u32, lpstringtofind: super::super::Foundation::PWSTR, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation::BOOL;
         }
@@ -1945,7 +1979,8 @@ pub unsafe fn FindActCtxSectionStringW<'a, Param3: ::windows::core::IntoParam<'a
 pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1960,7 +1995,8 @@ pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE)
 pub unsafe fn GetDeltaInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpdeltaname: Param0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDeltaInfoA(lpdeltaname: super::super::Foundation::PSTR, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1975,7 +2011,8 @@ pub unsafe fn GetDeltaInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn GetDeltaInfoB<'a, Param0: ::windows::core::IntoParam<'a, DELTA_INPUT>>(delta: Param0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDeltaInfoB(delta: DELTA_INPUT, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL;
         }
@@ -1990,7 +2027,8 @@ pub unsafe fn GetDeltaInfoB<'a, Param0: ::windows::core::IntoParam<'a, DELTA_INP
 pub unsafe fn GetDeltaInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdeltaname: Param0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDeltaInfoW(lpdeltaname: super::super::Foundation::PWSTR, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL;
         }
@@ -2005,7 +2043,8 @@ pub unsafe fn GetDeltaInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn GetDeltaSignatureA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filetypeset: i64, hashalgid: u32, lpsourcename: Param2, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDeltaSignatureA(filetypeset: i64, hashalgid: u32, lpsourcename: super::super::Foundation::PSTR, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL;
         }
@@ -2020,7 +2059,8 @@ pub unsafe fn GetDeltaSignatureA<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetDeltaSignatureB<'a, Param2: ::windows::core::IntoParam<'a, DELTA_INPUT>>(filetypeset: i64, hashalgid: u32, source: Param2, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDeltaSignatureB(filetypeset: i64, hashalgid: u32, source: DELTA_INPUT, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL;
         }
@@ -2035,7 +2075,8 @@ pub unsafe fn GetDeltaSignatureB<'a, Param2: ::windows::core::IntoParam<'a, DELT
 pub unsafe fn GetDeltaSignatureW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filetypeset: i64, hashalgid: u32, lpsourcename: Param2, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msdelta", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDeltaSignatureW(filetypeset: i64, hashalgid: u32, lpsourcename: super::super::Foundation::PWSTR, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL;
         }
@@ -2050,7 +2091,8 @@ pub unsafe fn GetDeltaSignatureW<'a, Param2: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetFilePatchSignatureA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetFilePatchSignatureA(filename: super::super::Foundation::PSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -2065,7 +2107,8 @@ pub unsafe fn GetFilePatchSignatureA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesize: u32, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesize: u32, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -2080,7 +2123,8 @@ pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: *mut u8, filesiz
 pub unsafe fn GetFilePatchSignatureByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetFilePatchSignatureByHandle(filehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -2095,7 +2139,8 @@ pub unsafe fn GetFilePatchSignatureByHandle<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn GetFilePatchSignatureW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetFilePatchSignatureW(filename: super::super::Foundation::PWSTR, optionflags: u32, optiondata: *const ::core::ffi::c_void, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE, signaturebuffersize: u32, signaturebuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -8713,7 +8758,8 @@ pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
 pub unsafe fn MsiAdvertiseProductA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiAdvertiseProductA(szpackagepath: super::super::Foundation::PSTR, szscriptfilepath: super::super::Foundation::PSTR, sztransforms: super::super::Foundation::PSTR, lgidlanguage: u16) -> u32;
         }
@@ -8728,7 +8774,8 @@ pub unsafe fn MsiAdvertiseProductA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiAdvertiseProductExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiAdvertiseProductExA(szpackagepath: super::super::Foundation::PSTR, szscriptfilepath: super::super::Foundation::PSTR, sztransforms: super::super::Foundation::PSTR, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32;
         }
@@ -8743,7 +8790,8 @@ pub unsafe fn MsiAdvertiseProductExA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiAdvertiseProductExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiAdvertiseProductExW(szpackagepath: super::super::Foundation::PWSTR, szscriptfilepath: super::super::Foundation::PWSTR, sztransforms: super::super::Foundation::PWSTR, lgidlanguage: u16, dwplatform: u32, dwoptions: u32) -> u32;
         }
@@ -8758,7 +8806,8 @@ pub unsafe fn MsiAdvertiseProductExW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiAdvertiseProductW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0, szscriptfilepath: Param1, sztransforms: Param2, lgidlanguage: u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiAdvertiseProductW(szpackagepath: super::super::Foundation::PWSTR, szscriptfilepath: super::super::Foundation::PWSTR, sztransforms: super::super::Foundation::PWSTR, lgidlanguage: u16) -> u32;
         }
@@ -8773,7 +8822,8 @@ pub unsafe fn MsiAdvertiseProductW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szscriptfile: Param0, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiAdvertiseScriptA(szscriptfile: super::super::Foundation::PSTR, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: super::super::Foundation::BOOL) -> u32;
         }
@@ -8788,7 +8838,8 @@ pub unsafe fn MsiAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiAdvertiseScriptW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szscriptfile: Param0, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiAdvertiseScriptW(szscriptfile: super::super::Foundation::PWSTR, dwflags: u32, phregdata: *const super::Registry::HKEY, fremoveitems: super::super::Foundation::BOOL) -> u32;
         }
@@ -8803,7 +8854,8 @@ pub unsafe fn MsiAdvertiseScriptW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiApplyMultiplePatchesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatchpackages: Param0, szproductcode: Param1, szpropertieslist: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiApplyMultiplePatchesA(szpatchpackages: super::super::Foundation::PSTR, szproductcode: super::super::Foundation::PSTR, szpropertieslist: super::super::Foundation::PSTR) -> u32;
         }
@@ -8818,7 +8870,8 @@ pub unsafe fn MsiApplyMultiplePatchesA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MsiApplyMultiplePatchesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatchpackages: Param0, szproductcode: Param1, szpropertieslist: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiApplyMultiplePatchesW(szpatchpackages: super::super::Foundation::PWSTR, szproductcode: super::super::Foundation::PWSTR, szpropertieslist: super::super::Foundation::PWSTR) -> u32;
         }
@@ -8833,7 +8886,8 @@ pub unsafe fn MsiApplyMultiplePatchesW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MsiApplyPatchA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatchpackage: Param0, szinstallpackage: Param1, einstalltype: INSTALLTYPE, szcommandline: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiApplyPatchA(szpatchpackage: super::super::Foundation::PSTR, szinstallpackage: super::super::Foundation::PSTR, einstalltype: INSTALLTYPE, szcommandline: super::super::Foundation::PSTR) -> u32;
         }
@@ -8848,7 +8902,8 @@ pub unsafe fn MsiApplyPatchA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn MsiApplyPatchW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatchpackage: Param0, szinstallpackage: Param1, einstalltype: INSTALLTYPE, szcommandline: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiApplyPatchW(szpatchpackage: super::super::Foundation::PWSTR, szinstallpackage: super::super::Foundation::PWSTR, einstalltype: INSTALLTYPE, szcommandline: super::super::Foundation::PWSTR) -> u32;
         }
@@ -8863,7 +8918,8 @@ pub unsafe fn MsiApplyPatchW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn MsiBeginTransactionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szname: Param0, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiBeginTransactionA(szname: super::super::Foundation::PSTR, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -8878,7 +8934,8 @@ pub unsafe fn MsiBeginTransactionA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiBeginTransactionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szname: Param0, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiBeginTransactionW(szname: super::super::Foundation::PWSTR, dwtransactionattributes: u32, phtransactionhandle: *mut MSIHANDLE, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -8892,7 +8949,8 @@ pub unsafe fn MsiBeginTransactionW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiCloseAllHandles() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiCloseAllHandles() -> u32;
         }
@@ -8906,7 +8964,8 @@ pub unsafe fn MsiCloseAllHandles() -> u32 {
 pub unsafe fn MsiCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hany: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiCloseHandle(hany: MSIHANDLE) -> u32;
         }
@@ -8921,7 +8980,8 @@ pub unsafe fn MsiCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDL
 pub unsafe fn MsiCollectUserInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiCollectUserInfoA(szproduct: super::super::Foundation::PSTR) -> u32;
         }
@@ -8936,7 +8996,8 @@ pub unsafe fn MsiCollectUserInfoA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiCollectUserInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiCollectUserInfoW(szproduct: super::super::Foundation::PWSTR) -> u32;
         }
@@ -8951,7 +9012,8 @@ pub unsafe fn MsiCollectUserInfoW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiConfigureFeatureA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1, einstallstate: INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiConfigureFeatureA(szproduct: super::super::Foundation::PSTR, szfeature: super::super::Foundation::PSTR, einstallstate: INSTALLSTATE) -> u32;
         }
@@ -8966,7 +9028,8 @@ pub unsafe fn MsiConfigureFeatureA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiConfigureFeatureW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1, einstallstate: INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiConfigureFeatureW(szproduct: super::super::Foundation::PWSTR, szfeature: super::super::Foundation::PWSTR, einstallstate: INSTALLSTATE) -> u32;
         }
@@ -8981,7 +9044,8 @@ pub unsafe fn MsiConfigureFeatureW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiConfigureProductA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiConfigureProductA(szproduct: super::super::Foundation::PSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE) -> u32;
         }
@@ -8996,7 +9060,8 @@ pub unsafe fn MsiConfigureProductA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiConfigureProductExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE, szcommandline: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiConfigureProductExA(szproduct: super::super::Foundation::PSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE, szcommandline: super::super::Foundation::PSTR) -> u32;
         }
@@ -9011,7 +9076,8 @@ pub unsafe fn MsiConfigureProductExA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiConfigureProductExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE, szcommandline: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiConfigureProductExW(szproduct: super::super::Foundation::PWSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE, szcommandline: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9026,7 +9092,8 @@ pub unsafe fn MsiConfigureProductExW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiConfigureProductW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiConfigureProductW(szproduct: super::super::Foundation::PWSTR, iinstalllevel: INSTALLLEVEL, einstallstate: INSTALLSTATE) -> u32;
         }
@@ -9040,7 +9107,8 @@ pub unsafe fn MsiConfigureProductW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiCreateRecord(cparams: u32) -> MSIHANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiCreateRecord(cparams: u32) -> MSIHANDLE;
         }
@@ -9055,7 +9123,8 @@ pub unsafe fn MsiCreateRecord(cparams: u32) -> MSIHANDLE {
 pub unsafe fn MsiCreateTransformSummaryInfoA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ierrorconditions: MSITRANSFORM_ERROR, ivalidation: MSITRANSFORM_VALIDATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiCreateTransformSummaryInfoA(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: super::super::Foundation::PSTR, ierrorconditions: MSITRANSFORM_ERROR, ivalidation: MSITRANSFORM_VALIDATE) -> u32;
         }
@@ -9070,7 +9139,8 @@ pub unsafe fn MsiCreateTransformSummaryInfoA<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MsiCreateTransformSummaryInfoW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ierrorconditions: MSITRANSFORM_ERROR, ivalidation: MSITRANSFORM_VALIDATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiCreateTransformSummaryInfoW(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: super::super::Foundation::PWSTR, ierrorconditions: MSITRANSFORM_ERROR, ivalidation: MSITRANSFORM_VALIDATE) -> u32;
         }
@@ -9085,7 +9155,8 @@ pub unsafe fn MsiCreateTransformSummaryInfoW<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MsiDatabaseApplyTransformA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, sztransformfile: Param1, ierrorconditions: MSITRANSFORM_ERROR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseApplyTransformA(hdatabase: MSIHANDLE, sztransformfile: super::super::Foundation::PSTR, ierrorconditions: MSITRANSFORM_ERROR) -> u32;
         }
@@ -9100,7 +9171,8 @@ pub unsafe fn MsiDatabaseApplyTransformA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiDatabaseApplyTransformW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, sztransformfile: Param1, ierrorconditions: MSITRANSFORM_ERROR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseApplyTransformW(hdatabase: MSIHANDLE, sztransformfile: super::super::Foundation::PWSTR, ierrorconditions: MSITRANSFORM_ERROR) -> u32;
         }
@@ -9114,7 +9186,8 @@ pub unsafe fn MsiDatabaseApplyTransformW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiDatabaseCommit<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hdatabase: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseCommit(hdatabase: MSIHANDLE) -> u32;
         }
@@ -9129,7 +9202,8 @@ pub unsafe fn MsiDatabaseCommit<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiDatabaseExportA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, sztablename: Param1, szfolderpath: Param2, szfilename: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseExportA(hdatabase: MSIHANDLE, sztablename: super::super::Foundation::PSTR, szfolderpath: super::super::Foundation::PSTR, szfilename: super::super::Foundation::PSTR) -> u32;
         }
@@ -9144,7 +9218,8 @@ pub unsafe fn MsiDatabaseExportA<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiDatabaseExportW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, sztablename: Param1, szfolderpath: Param2, szfilename: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseExportW(hdatabase: MSIHANDLE, sztablename: super::super::Foundation::PWSTR, szfolderpath: super::super::Foundation::PWSTR, szfilename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9159,7 +9234,8 @@ pub unsafe fn MsiDatabaseExportW<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiDatabaseGenerateTransformA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ireserved1: i32, ireserved2: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseGenerateTransformA(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: super::super::Foundation::PSTR, ireserved1: i32, ireserved2: i32) -> u32;
         }
@@ -9174,7 +9250,8 @@ pub unsafe fn MsiDatabaseGenerateTransformA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MsiDatabaseGenerateTransformW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, hdatabasereference: Param1, sztransformfile: Param2, ireserved1: i32, ireserved2: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseGenerateTransformW(hdatabase: MSIHANDLE, hdatabasereference: MSIHANDLE, sztransformfile: super::super::Foundation::PWSTR, ireserved1: i32, ireserved2: i32) -> u32;
         }
@@ -9189,7 +9266,8 @@ pub unsafe fn MsiDatabaseGenerateTransformW<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MsiDatabaseGetPrimaryKeysA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, sztablename: Param1, phrecord: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseGetPrimaryKeysA(hdatabase: MSIHANDLE, sztablename: super::super::Foundation::PSTR, phrecord: *mut MSIHANDLE) -> u32;
         }
@@ -9204,7 +9282,8 @@ pub unsafe fn MsiDatabaseGetPrimaryKeysA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiDatabaseGetPrimaryKeysW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, sztablename: Param1, phrecord: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseGetPrimaryKeysW(hdatabase: MSIHANDLE, sztablename: super::super::Foundation::PWSTR, phrecord: *mut MSIHANDLE) -> u32;
         }
@@ -9219,7 +9298,8 @@ pub unsafe fn MsiDatabaseGetPrimaryKeysW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiDatabaseImportA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, szfolderpath: Param1, szfilename: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseImportA(hdatabase: MSIHANDLE, szfolderpath: super::super::Foundation::PSTR, szfilename: super::super::Foundation::PSTR) -> u32;
         }
@@ -9234,7 +9314,8 @@ pub unsafe fn MsiDatabaseImportA<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiDatabaseImportW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, szfolderpath: Param1, szfilename: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseImportW(hdatabase: MSIHANDLE, szfolderpath: super::super::Foundation::PWSTR, szfilename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9249,7 +9330,8 @@ pub unsafe fn MsiDatabaseImportW<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiDatabaseIsTablePersistentA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, sztablename: Param1) -> MSICONDITION {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseIsTablePersistentA(hdatabase: MSIHANDLE, sztablename: super::super::Foundation::PSTR) -> MSICONDITION;
         }
@@ -9264,7 +9346,8 @@ pub unsafe fn MsiDatabaseIsTablePersistentA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MsiDatabaseIsTablePersistentW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, sztablename: Param1) -> MSICONDITION {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseIsTablePersistentW(hdatabase: MSIHANDLE, sztablename: super::super::Foundation::PWSTR) -> MSICONDITION;
         }
@@ -9279,7 +9362,8 @@ pub unsafe fn MsiDatabaseIsTablePersistentW<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MsiDatabaseMergeA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, hdatabasemerge: Param1, sztablename: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseMergeA(hdatabase: MSIHANDLE, hdatabasemerge: MSIHANDLE, sztablename: super::super::Foundation::PSTR) -> u32;
         }
@@ -9294,7 +9378,8 @@ pub unsafe fn MsiDatabaseMergeA<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiDatabaseMergeW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, hdatabasemerge: Param1, sztablename: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseMergeW(hdatabase: MSIHANDLE, hdatabasemerge: MSIHANDLE, sztablename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9309,7 +9394,8 @@ pub unsafe fn MsiDatabaseMergeW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiDatabaseOpenViewA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, szquery: Param1, phview: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseOpenViewA(hdatabase: MSIHANDLE, szquery: super::super::Foundation::PSTR, phview: *mut MSIHANDLE) -> u32;
         }
@@ -9324,7 +9410,8 @@ pub unsafe fn MsiDatabaseOpenViewA<'a, Param0: ::windows::core::IntoParam<'a, MS
 pub unsafe fn MsiDatabaseOpenViewW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, szquery: Param1, phview: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDatabaseOpenViewW(hdatabase: MSIHANDLE, szquery: super::super::Foundation::PWSTR, phview: *mut MSIHANDLE) -> u32;
         }
@@ -9339,7 +9426,8 @@ pub unsafe fn MsiDatabaseOpenViewW<'a, Param0: ::windows::core::IntoParam<'a, MS
 pub unsafe fn MsiDetermineApplicablePatchesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductpackagepath: Param0, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDetermineApplicablePatchesA(szproductpackagepath: super::super::Foundation::PSTR, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32;
         }
@@ -9354,7 +9442,8 @@ pub unsafe fn MsiDetermineApplicablePatchesA<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MsiDetermineApplicablePatchesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductpackagepath: Param0, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDetermineApplicablePatchesW(szproductpackagepath: super::super::Foundation::PWSTR, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32;
         }
@@ -9369,7 +9458,8 @@ pub unsafe fn MsiDetermineApplicablePatchesW<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MsiDeterminePatchSequenceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDeterminePatchSequenceA(szproductcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOA) -> u32;
         }
@@ -9384,7 +9474,8 @@ pub unsafe fn MsiDeterminePatchSequenceA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiDeterminePatchSequenceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDeterminePatchSequenceW(szproductcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, cpatchinfo: u32, ppatchinfo: *mut MSIPATCHSEQUENCEINFOW) -> u32;
         }
@@ -9399,7 +9490,8 @@ pub unsafe fn MsiDeterminePatchSequenceW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiDoActionA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szaction: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDoActionA(hinstall: MSIHANDLE, szaction: super::super::Foundation::PSTR) -> u32;
         }
@@ -9414,7 +9506,8 @@ pub unsafe fn MsiDoActionA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
 pub unsafe fn MsiDoActionW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szaction: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiDoActionW(hinstall: MSIHANDLE, szaction: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9429,7 +9522,8 @@ pub unsafe fn MsiDoActionW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
 pub unsafe fn MsiEnableLogA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwlogmode: INSTALLOGMODE, szlogfile: Param1, dwlogattributes: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnableLogA(dwlogmode: INSTALLOGMODE, szlogfile: super::super::Foundation::PSTR, dwlogattributes: u32) -> u32;
         }
@@ -9444,7 +9538,8 @@ pub unsafe fn MsiEnableLogA<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn MsiEnableLogW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwlogmode: INSTALLOGMODE, szlogfile: Param1, dwlogattributes: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnableLogW(dwlogmode: INSTALLOGMODE, szlogfile: super::super::Foundation::PWSTR, dwlogattributes: u32) -> u32;
         }
@@ -9458,7 +9553,8 @@ pub unsafe fn MsiEnableLogW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn MsiEnableUIPreview<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hdatabase: Param0, phpreview: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnableUIPreview(hdatabase: MSIHANDLE, phpreview: *mut MSIHANDLE) -> u32;
         }
@@ -9472,7 +9568,8 @@ pub unsafe fn MsiEnableUIPreview<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE) -> u32;
         }
@@ -9487,7 +9584,8 @@ pub unsafe fn MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE) -> u32 
 pub unsafe fn MsiEnumClientsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomponent: Param0, iproductindex: u32, lpproductbuf: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumClientsA(szcomponent: super::super::Foundation::PSTR, iproductindex: u32, lpproductbuf: super::super::Foundation::PSTR) -> u32;
         }
@@ -9502,7 +9600,8 @@ pub unsafe fn MsiEnumClientsA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiEnumClientsExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomponent: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumClientsExA(szcomponent: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32;
         }
@@ -9517,7 +9616,8 @@ pub unsafe fn MsiEnumClientsExA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn MsiEnumClientsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomponent: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumClientsExW(szcomponent: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32;
         }
@@ -9532,7 +9632,8 @@ pub unsafe fn MsiEnumClientsExW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn MsiEnumClientsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomponent: Param0, iproductindex: u32, lpproductbuf: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumClientsW(szcomponent: super::super::Foundation::PWSTR, iproductindex: u32, lpproductbuf: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9547,7 +9648,8 @@ pub unsafe fn MsiEnumClientsW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiEnumComponentCostsA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szcomponent: Param1, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: super::super::Foundation::PSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumComponentCostsA(hinstall: MSIHANDLE, szcomponent: super::super::Foundation::PSTR, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: super::super::Foundation::PSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32;
         }
@@ -9562,7 +9664,8 @@ pub unsafe fn MsiEnumComponentCostsA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiEnumComponentCostsW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szcomponent: Param1, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: super::super::Foundation::PWSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumComponentCostsW(hinstall: MSIHANDLE, szcomponent: super::super::Foundation::PWSTR, dwindex: u32, istate: INSTALLSTATE, szdrivebuf: super::super::Foundation::PWSTR, pcchdrivebuf: *mut u32, picost: *mut i32, pitempcost: *mut i32) -> u32;
         }
@@ -9577,7 +9680,8 @@ pub unsafe fn MsiEnumComponentCostsW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiEnumComponentQualifiersA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomponent: Param0, iindex: u32, lpqualifierbuf: super::super::Foundation::PSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: super::super::Foundation::PSTR, pcchapplicationdatabuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumComponentQualifiersA(szcomponent: super::super::Foundation::PSTR, iindex: u32, lpqualifierbuf: super::super::Foundation::PSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: super::super::Foundation::PSTR, pcchapplicationdatabuf: *mut u32) -> u32;
         }
@@ -9592,7 +9696,8 @@ pub unsafe fn MsiEnumComponentQualifiersA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn MsiEnumComponentQualifiersW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomponent: Param0, iindex: u32, lpqualifierbuf: super::super::Foundation::PWSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: super::super::Foundation::PWSTR, pcchapplicationdatabuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumComponentQualifiersW(szcomponent: super::super::Foundation::PWSTR, iindex: u32, lpqualifierbuf: super::super::Foundation::PWSTR, pcchqualifierbuf: *mut u32, lpapplicationdatabuf: super::super::Foundation::PWSTR, pcchapplicationdatabuf: *mut u32) -> u32;
         }
@@ -9607,7 +9712,8 @@ pub unsafe fn MsiEnumComponentQualifiersW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn MsiEnumComponentsA(icomponentindex: u32, lpcomponentbuf: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumComponentsA(icomponentindex: u32, lpcomponentbuf: super::super::Foundation::PSTR) -> u32;
         }
@@ -9622,7 +9728,8 @@ pub unsafe fn MsiEnumComponentsA(icomponentindex: u32, lpcomponentbuf: super::su
 pub unsafe fn MsiEnumComponentsExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szusersid: Param0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumComponentsExA(szusersid: super::super::Foundation::PSTR, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32;
         }
@@ -9637,7 +9744,8 @@ pub unsafe fn MsiEnumComponentsExA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiEnumComponentsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szusersid: Param0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumComponentsExW(szusersid: super::super::Foundation::PWSTR, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32;
         }
@@ -9652,7 +9760,8 @@ pub unsafe fn MsiEnumComponentsExW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiEnumComponentsW(icomponentindex: u32, lpcomponentbuf: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumComponentsW(icomponentindex: u32, lpcomponentbuf: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9667,7 +9776,8 @@ pub unsafe fn MsiEnumComponentsW(icomponentindex: u32, lpcomponentbuf: super::su
 pub unsafe fn MsiEnumFeaturesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, ifeatureindex: u32, lpfeaturebuf: super::super::Foundation::PSTR, lpparentbuf: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumFeaturesA(szproduct: super::super::Foundation::PSTR, ifeatureindex: u32, lpfeaturebuf: super::super::Foundation::PSTR, lpparentbuf: super::super::Foundation::PSTR) -> u32;
         }
@@ -9682,7 +9792,8 @@ pub unsafe fn MsiEnumFeaturesA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn MsiEnumFeaturesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, ifeatureindex: u32, lpfeaturebuf: super::super::Foundation::PWSTR, lpparentbuf: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumFeaturesW(szproduct: super::super::Foundation::PWSTR, ifeatureindex: u32, lpfeaturebuf: super::super::Foundation::PWSTR, lpparentbuf: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9697,7 +9808,8 @@ pub unsafe fn MsiEnumFeaturesW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn MsiEnumPatchesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, ipatchindex: u32, lppatchbuf: super::super::Foundation::PSTR, lptransformsbuf: super::super::Foundation::PSTR, pcchtransformsbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumPatchesA(szproduct: super::super::Foundation::PSTR, ipatchindex: u32, lppatchbuf: super::super::Foundation::PSTR, lptransformsbuf: super::super::Foundation::PSTR, pcchtransformsbuf: *mut u32) -> u32;
         }
@@ -9712,7 +9824,8 @@ pub unsafe fn MsiEnumPatchesA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiEnumPatchesExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: super::super::Foundation::PSTR, sztargetproductcode: super::super::Foundation::PSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: super::super::Foundation::PSTR, pcchtargetusersid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumPatchesExA(szproductcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: super::super::Foundation::PSTR, sztargetproductcode: super::super::Foundation::PSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: super::super::Foundation::PSTR, pcchtargetusersid: *mut u32) -> u32;
         }
@@ -9727,7 +9840,8 @@ pub unsafe fn MsiEnumPatchesExA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn MsiEnumPatchesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: super::super::Foundation::PWSTR, sztargetproductcode: super::super::Foundation::PWSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: super::super::Foundation::PWSTR, pcchtargetusersid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumPatchesExW(szproductcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: super::super::Foundation::PWSTR, sztargetproductcode: super::super::Foundation::PWSTR, pdwtargetproductcontext: *mut MSIINSTALLCONTEXT, sztargetusersid: super::super::Foundation::PWSTR, pcchtargetusersid: *mut u32) -> u32;
         }
@@ -9742,7 +9856,8 @@ pub unsafe fn MsiEnumPatchesExW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn MsiEnumPatchesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, ipatchindex: u32, lppatchbuf: super::super::Foundation::PWSTR, lptransformsbuf: super::super::Foundation::PWSTR, pcchtransformsbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumPatchesW(szproduct: super::super::Foundation::PWSTR, ipatchindex: u32, lppatchbuf: super::super::Foundation::PWSTR, lptransformsbuf: super::super::Foundation::PWSTR, pcchtransformsbuf: *mut u32) -> u32;
         }
@@ -9757,7 +9872,8 @@ pub unsafe fn MsiEnumPatchesW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiEnumProductsA(iproductindex: u32, lpproductbuf: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumProductsA(iproductindex: u32, lpproductbuf: super::super::Foundation::PSTR) -> u32;
         }
@@ -9772,7 +9888,8 @@ pub unsafe fn MsiEnumProductsA(iproductindex: u32, lpproductbuf: super::super::F
 pub unsafe fn MsiEnumProductsExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwindex: u32, szinstalledproductcode: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumProductsExA(szproductcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: u32, dwindex: u32, szinstalledproductcode: super::super::Foundation::PSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PSTR, pcchsid: *mut u32) -> u32;
         }
@@ -9787,7 +9904,8 @@ pub unsafe fn MsiEnumProductsExA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiEnumProductsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: u32, dwindex: u32, szinstalledproductcode: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumProductsExW(szproductcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: u32, dwindex: u32, szinstalledproductcode: super::super::Foundation::PWSTR, pdwinstalledcontext: *mut MSIINSTALLCONTEXT, szsid: super::super::Foundation::PWSTR, pcchsid: *mut u32) -> u32;
         }
@@ -9802,7 +9920,8 @@ pub unsafe fn MsiEnumProductsExW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiEnumProductsW(iproductindex: u32, lpproductbuf: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumProductsW(iproductindex: u32, lpproductbuf: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9817,7 +9936,8 @@ pub unsafe fn MsiEnumProductsW(iproductindex: u32, lpproductbuf: super::super::F
 pub unsafe fn MsiEnumRelatedProductsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpupgradecode: Param0, dwreserved: u32, iproductindex: u32, lpproductbuf: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumRelatedProductsA(lpupgradecode: super::super::Foundation::PSTR, dwreserved: u32, iproductindex: u32, lpproductbuf: super::super::Foundation::PSTR) -> u32;
         }
@@ -9832,7 +9952,8 @@ pub unsafe fn MsiEnumRelatedProductsA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MsiEnumRelatedProductsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpupgradecode: Param0, dwreserved: u32, iproductindex: u32, lpproductbuf: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEnumRelatedProductsW(lpupgradecode: super::super::Foundation::PWSTR, dwreserved: u32, iproductindex: u32, lpproductbuf: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9847,7 +9968,8 @@ pub unsafe fn MsiEnumRelatedProductsW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MsiEvaluateConditionA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szcondition: Param1) -> MSICONDITION {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEvaluateConditionA(hinstall: MSIHANDLE, szcondition: super::super::Foundation::PSTR) -> MSICONDITION;
         }
@@ -9862,7 +9984,8 @@ pub unsafe fn MsiEvaluateConditionA<'a, Param0: ::windows::core::IntoParam<'a, M
 pub unsafe fn MsiEvaluateConditionW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szcondition: Param1) -> MSICONDITION {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiEvaluateConditionW(hinstall: MSIHANDLE, szcondition: super::super::Foundation::PWSTR) -> MSICONDITION;
         }
@@ -9877,7 +10000,8 @@ pub unsafe fn MsiEvaluateConditionW<'a, Param0: ::windows::core::IntoParam<'a, M
 pub unsafe fn MsiExtractPatchXMLDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatchpath: Param0, dwreserved: u32, szxmldata: super::super::Foundation::PSTR, pcchxmldata: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiExtractPatchXMLDataA(szpatchpath: super::super::Foundation::PSTR, dwreserved: u32, szxmldata: super::super::Foundation::PSTR, pcchxmldata: *mut u32) -> u32;
         }
@@ -9892,7 +10016,8 @@ pub unsafe fn MsiExtractPatchXMLDataA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MsiExtractPatchXMLDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatchpath: Param0, dwreserved: u32, szxmldata: super::super::Foundation::PWSTR, pcchxmldata: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiExtractPatchXMLDataW(szpatchpath: super::super::Foundation::PWSTR, dwreserved: u32, szxmldata: super::super::Foundation::PWSTR, pcchxmldata: *mut u32) -> u32;
         }
@@ -9907,7 +10032,8 @@ pub unsafe fn MsiExtractPatchXMLDataW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MsiFormatRecordA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0, hrecord: Param1, szresultbuf: super::super::Foundation::PSTR, pcchresultbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiFormatRecordA(hinstall: MSIHANDLE, hrecord: MSIHANDLE, szresultbuf: super::super::Foundation::PSTR, pcchresultbuf: *mut u32) -> u32;
         }
@@ -9922,7 +10048,8 @@ pub unsafe fn MsiFormatRecordA<'a, Param0: ::windows::core::IntoParam<'a, MSIHAN
 pub unsafe fn MsiFormatRecordW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0, hrecord: Param1, szresultbuf: super::super::Foundation::PWSTR, pcchresultbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiFormatRecordW(hinstall: MSIHANDLE, hrecord: MSIHANDLE, szresultbuf: super::super::Foundation::PWSTR, pcchresultbuf: *mut u32) -> u32;
         }
@@ -9936,7 +10063,8 @@ pub unsafe fn MsiFormatRecordW<'a, Param0: ::windows::core::IntoParam<'a, MSIHAN
 pub unsafe fn MsiGetActiveDatabase<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0) -> MSIHANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetActiveDatabase(hinstall: MSIHANDLE) -> MSIHANDLE;
         }
@@ -9951,7 +10079,8 @@ pub unsafe fn MsiGetActiveDatabase<'a, Param0: ::windows::core::IntoParam<'a, MS
 pub unsafe fn MsiGetComponentPathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szcomponent: Param1, lppathbuf: super::super::Foundation::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetComponentPathA(szproduct: super::super::Foundation::PSTR, szcomponent: super::super::Foundation::PSTR, lppathbuf: super::super::Foundation::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE;
         }
@@ -9966,7 +10095,8 @@ pub unsafe fn MsiGetComponentPathA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiGetComponentPathExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szcomponentcode: Param1, szusersid: Param2, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: super::super::Foundation::PSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetComponentPathExA(szproductcode: super::super::Foundation::PSTR, szcomponentcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: super::super::Foundation::PSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE;
         }
@@ -9981,7 +10111,8 @@ pub unsafe fn MsiGetComponentPathExA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiGetComponentPathExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szcomponentcode: Param1, szusersid: Param2, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: super::super::Foundation::PWSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetComponentPathExW(szproductcode: super::super::Foundation::PWSTR, szcomponentcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, lpoutpathbuffer: super::super::Foundation::PWSTR, pcchoutpathbuffer: *mut u32) -> INSTALLSTATE;
         }
@@ -9996,7 +10127,8 @@ pub unsafe fn MsiGetComponentPathExW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiGetComponentPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szcomponent: Param1, lppathbuf: super::super::Foundation::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetComponentPathW(szproduct: super::super::Foundation::PWSTR, szcomponent: super::super::Foundation::PWSTR, lppathbuf: super::super::Foundation::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE;
         }
@@ -10011,7 +10143,8 @@ pub unsafe fn MsiGetComponentPathW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiGetComponentStateA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szcomponent: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetComponentStateA(hinstall: MSIHANDLE, szcomponent: super::super::Foundation::PSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32;
         }
@@ -10026,7 +10159,8 @@ pub unsafe fn MsiGetComponentStateA<'a, Param0: ::windows::core::IntoParam<'a, M
 pub unsafe fn MsiGetComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szcomponent: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetComponentStateW(hinstall: MSIHANDLE, szcomponent: super::super::Foundation::PWSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32;
         }
@@ -10040,7 +10174,8 @@ pub unsafe fn MsiGetComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, M
 pub unsafe fn MsiGetDatabaseState<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hdatabase: Param0) -> MSIDBSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetDatabaseState(hdatabase: MSIHANDLE) -> MSIDBSTATE;
         }
@@ -10055,7 +10190,8 @@ pub unsafe fn MsiGetDatabaseState<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiGetFeatureCostA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfeature: Param1, icosttree: MSICOSTTREE, istate: INSTALLSTATE, picost: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFeatureCostA(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PSTR, icosttree: MSICOSTTREE, istate: INSTALLSTATE, picost: *mut i32) -> u32;
         }
@@ -10070,7 +10206,8 @@ pub unsafe fn MsiGetFeatureCostA<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiGetFeatureCostW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfeature: Param1, icosttree: MSICOSTTREE, istate: INSTALLSTATE, picost: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFeatureCostW(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PWSTR, icosttree: MSICOSTTREE, istate: INSTALLSTATE, picost: *mut i32) -> u32;
         }
@@ -10085,7 +10222,8 @@ pub unsafe fn MsiGetFeatureCostW<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiGetFeatureInfoA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hproduct: Param0, szfeature: Param1, lpattributes: *mut u32, lptitlebuf: super::super::Foundation::PSTR, pcchtitlebuf: *mut u32, lphelpbuf: super::super::Foundation::PSTR, pcchhelpbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFeatureInfoA(hproduct: MSIHANDLE, szfeature: super::super::Foundation::PSTR, lpattributes: *mut u32, lptitlebuf: super::super::Foundation::PSTR, pcchtitlebuf: *mut u32, lphelpbuf: super::super::Foundation::PSTR, pcchhelpbuf: *mut u32) -> u32;
         }
@@ -10100,7 +10238,8 @@ pub unsafe fn MsiGetFeatureInfoA<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiGetFeatureInfoW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hproduct: Param0, szfeature: Param1, lpattributes: *mut u32, lptitlebuf: super::super::Foundation::PWSTR, pcchtitlebuf: *mut u32, lphelpbuf: super::super::Foundation::PWSTR, pcchhelpbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFeatureInfoW(hproduct: MSIHANDLE, szfeature: super::super::Foundation::PWSTR, lpattributes: *mut u32, lptitlebuf: super::super::Foundation::PWSTR, pcchtitlebuf: *mut u32, lphelpbuf: super::super::Foundation::PWSTR, pcchhelpbuf: *mut u32) -> u32;
         }
@@ -10115,7 +10254,8 @@ pub unsafe fn MsiGetFeatureInfoW<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiGetFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfeature: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFeatureStateA(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32;
         }
@@ -10130,7 +10270,8 @@ pub unsafe fn MsiGetFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiGetFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfeature: Param1, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFeatureStateW(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PWSTR, piinstalled: *mut INSTALLSTATE, piaction: *mut INSTALLSTATE) -> u32;
         }
@@ -10145,7 +10286,8 @@ pub unsafe fn MsiGetFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiGetFeatureUsageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFeatureUsageA(szproduct: super::super::Foundation::PSTR, szfeature: super::super::Foundation::PSTR, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32;
         }
@@ -10160,7 +10302,8 @@ pub unsafe fn MsiGetFeatureUsageA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiGetFeatureUsageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFeatureUsageW(szproduct: super::super::Foundation::PWSTR, szfeature: super::super::Foundation::PWSTR, pdwusecount: *mut u32, pwdateused: *mut u16) -> u32;
         }
@@ -10175,7 +10318,8 @@ pub unsafe fn MsiGetFeatureUsageW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiGetFeatureValidStatesA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfeature: Param1, lpinstallstates: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFeatureValidStatesA(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PSTR, lpinstallstates: *mut u32) -> u32;
         }
@@ -10190,7 +10334,8 @@ pub unsafe fn MsiGetFeatureValidStatesA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MsiGetFeatureValidStatesW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfeature: Param1, lpinstallstates: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFeatureValidStatesW(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PWSTR, lpinstallstates: *mut u32) -> u32;
         }
@@ -10205,7 +10350,8 @@ pub unsafe fn MsiGetFeatureValidStatesW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MsiGetFileHashA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfilepath: Param0, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFileHashA(szfilepath: super::super::Foundation::PSTR, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32;
         }
@@ -10220,7 +10366,8 @@ pub unsafe fn MsiGetFileHashA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiGetFileHashW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilepath: Param0, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFileHashW(szfilepath: super::super::Foundation::PWSTR, dwoptions: u32, phash: *mut MSIFILEHASHINFO) -> u32;
         }
@@ -10235,7 +10382,8 @@ pub unsafe fn MsiGetFileHashW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiGetFileSignatureInformationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szsignedobjectpath: Param0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFileSignatureInformationA(szsignedobjectpath: super::super::Foundation::PSTR, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -10250,7 +10398,8 @@ pub unsafe fn MsiGetFileSignatureInformationA<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MsiGetFileSignatureInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szsignedobjectpath: Param0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFileSignatureInformationW(szsignedobjectpath: super::super::Foundation::PWSTR, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: *mut u8, pcbhashdata: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -10265,7 +10414,8 @@ pub unsafe fn MsiGetFileSignatureInformationW<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MsiGetFileVersionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfilepath: Param0, lpversionbuf: super::super::Foundation::PSTR, pcchversionbuf: *mut u32, lplangbuf: super::super::Foundation::PSTR, pcchlangbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFileVersionA(szfilepath: super::super::Foundation::PSTR, lpversionbuf: super::super::Foundation::PSTR, pcchversionbuf: *mut u32, lplangbuf: super::super::Foundation::PSTR, pcchlangbuf: *mut u32) -> u32;
         }
@@ -10280,7 +10430,8 @@ pub unsafe fn MsiGetFileVersionA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiGetFileVersionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilepath: Param0, lpversionbuf: super::super::Foundation::PWSTR, pcchversionbuf: *mut u32, lplangbuf: super::super::Foundation::PWSTR, pcchlangbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetFileVersionW(szfilepath: super::super::Foundation::PWSTR, lpversionbuf: super::super::Foundation::PWSTR, pcchversionbuf: *mut u32, lplangbuf: super::super::Foundation::PWSTR, pcchlangbuf: *mut u32) -> u32;
         }
@@ -10294,7 +10445,8 @@ pub unsafe fn MsiGetFileVersionW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiGetLanguage<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetLanguage(hinstall: MSIHANDLE) -> u16;
         }
@@ -10308,7 +10460,8 @@ pub unsafe fn MsiGetLanguage<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDL
 pub unsafe fn MsiGetLastErrorRecord() -> MSIHANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetLastErrorRecord() -> MSIHANDLE;
         }
@@ -10323,7 +10476,8 @@ pub unsafe fn MsiGetLastErrorRecord() -> MSIHANDLE {
 pub unsafe fn MsiGetMode<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0, erunmode: MSIRUNMODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetMode(hinstall: MSIHANDLE, erunmode: MSIRUNMODE) -> super::super::Foundation::BOOL;
         }
@@ -10338,7 +10492,8 @@ pub unsafe fn MsiGetMode<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(
 pub unsafe fn MsiGetPatchFileListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szpatchpackages: Param1, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetPatchFileListA(szproductcode: super::super::Foundation::PSTR, szpatchpackages: super::super::Foundation::PSTR, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32;
         }
@@ -10353,7 +10508,8 @@ pub unsafe fn MsiGetPatchFileListA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiGetPatchFileListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szpatchpackages: Param1, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetPatchFileListW(szproductcode: super::super::Foundation::PWSTR, szpatchpackages: super::super::Foundation::PWSTR, pcfiles: *mut u32, pphfilerecords: *mut *mut MSIHANDLE) -> u32;
         }
@@ -10368,7 +10524,8 @@ pub unsafe fn MsiGetPatchFileListW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiGetPatchInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatch: Param0, szattribute: Param1, lpvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetPatchInfoA(szpatch: super::super::Foundation::PSTR, szattribute: super::super::Foundation::PSTR, lpvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -10383,7 +10540,8 @@ pub unsafe fn MsiGetPatchInfoA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn MsiGetPatchInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatchcode: Param0, szproductcode: Param1, szusersid: Param2, dwcontext: MSIINSTALLCONTEXT, szproperty: Param4, lpvalue: super::super::Foundation::PSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetPatchInfoExA(szpatchcode: super::super::Foundation::PSTR, szproductcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: super::super::Foundation::PSTR, lpvalue: super::super::Foundation::PSTR, pcchvalue: *mut u32) -> u32;
         }
@@ -10398,7 +10556,8 @@ pub unsafe fn MsiGetPatchInfoExA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiGetPatchInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatchcode: Param0, szproductcode: Param1, szusersid: Param2, dwcontext: MSIINSTALLCONTEXT, szproperty: Param4, lpvalue: super::super::Foundation::PWSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetPatchInfoExW(szpatchcode: super::super::Foundation::PWSTR, szproductcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: super::super::Foundation::PWSTR, lpvalue: super::super::Foundation::PWSTR, pcchvalue: *mut u32) -> u32;
         }
@@ -10413,7 +10572,8 @@ pub unsafe fn MsiGetPatchInfoExW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiGetPatchInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatch: Param0, szattribute: Param1, lpvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetPatchInfoW(szpatch: super::super::Foundation::PWSTR, szattribute: super::super::Foundation::PWSTR, lpvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -10428,7 +10588,8 @@ pub unsafe fn MsiGetPatchInfoW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn MsiGetProductCodeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomponent: Param0, lpbuf39: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetProductCodeA(szcomponent: super::super::Foundation::PSTR, lpbuf39: super::super::Foundation::PSTR) -> u32;
         }
@@ -10443,7 +10604,8 @@ pub unsafe fn MsiGetProductCodeA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiGetProductCodeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomponent: Param0, lpbuf39: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetProductCodeW(szcomponent: super::super::Foundation::PWSTR, lpbuf39: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10458,7 +10620,8 @@ pub unsafe fn MsiGetProductCodeW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiGetProductInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szattribute: Param1, lpvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetProductInfoA(szproduct: super::super::Foundation::PSTR, szattribute: super::super::Foundation::PSTR, lpvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -10473,7 +10636,8 @@ pub unsafe fn MsiGetProductInfoA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiGetProductInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szproperty: Param3, szvalue: super::super::Foundation::PSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetProductInfoExA(szproductcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: super::super::Foundation::PSTR, szvalue: super::super::Foundation::PSTR, pcchvalue: *mut u32) -> u32;
         }
@@ -10488,7 +10652,8 @@ pub unsafe fn MsiGetProductInfoExA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiGetProductInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szproperty: Param3, szvalue: super::super::Foundation::PWSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetProductInfoExW(szproductcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, szproperty: super::super::Foundation::PWSTR, szvalue: super::super::Foundation::PWSTR, pcchvalue: *mut u32) -> u32;
         }
@@ -10503,7 +10668,8 @@ pub unsafe fn MsiGetProductInfoExW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiGetProductInfoFromScriptA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szscriptfile: Param0, lpproductbuf39: super::super::Foundation::PSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: super::super::Foundation::PSTR, pcchnamebuf: *mut u32, lppackagebuf: super::super::Foundation::PSTR, pcchpackagebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetProductInfoFromScriptA(szscriptfile: super::super::Foundation::PSTR, lpproductbuf39: super::super::Foundation::PSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: super::super::Foundation::PSTR, pcchnamebuf: *mut u32, lppackagebuf: super::super::Foundation::PSTR, pcchpackagebuf: *mut u32) -> u32;
         }
@@ -10518,7 +10684,8 @@ pub unsafe fn MsiGetProductInfoFromScriptA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MsiGetProductInfoFromScriptW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szscriptfile: Param0, lpproductbuf39: super::super::Foundation::PWSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: super::super::Foundation::PWSTR, pcchnamebuf: *mut u32, lppackagebuf: super::super::Foundation::PWSTR, pcchpackagebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetProductInfoFromScriptW(szscriptfile: super::super::Foundation::PWSTR, lpproductbuf39: super::super::Foundation::PWSTR, plgidlanguage: *mut u16, pdwversion: *mut u32, lpnamebuf: super::super::Foundation::PWSTR, pcchnamebuf: *mut u32, lppackagebuf: super::super::Foundation::PWSTR, pcchpackagebuf: *mut u32) -> u32;
         }
@@ -10533,7 +10700,8 @@ pub unsafe fn MsiGetProductInfoFromScriptW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MsiGetProductInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szattribute: Param1, lpvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetProductInfoW(szproduct: super::super::Foundation::PWSTR, szattribute: super::super::Foundation::PWSTR, lpvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -10548,7 +10716,8 @@ pub unsafe fn MsiGetProductInfoW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiGetProductPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hproduct: Param0, szproperty: Param1, lpvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetProductPropertyA(hproduct: MSIHANDLE, szproperty: super::super::Foundation::PSTR, lpvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -10563,7 +10732,8 @@ pub unsafe fn MsiGetProductPropertyA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiGetProductPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hproduct: Param0, szproperty: Param1, lpvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetProductPropertyW(hproduct: MSIHANDLE, szproperty: super::super::Foundation::PWSTR, lpvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -10578,7 +10748,8 @@ pub unsafe fn MsiGetProductPropertyW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiGetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szname: Param1, szvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetPropertyA(hinstall: MSIHANDLE, szname: super::super::Foundation::PSTR, szvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -10593,7 +10764,8 @@ pub unsafe fn MsiGetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHAND
 pub unsafe fn MsiGetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szname: Param1, szvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetPropertyW(hinstall: MSIHANDLE, szname: super::super::Foundation::PWSTR, szvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -10608,7 +10780,8 @@ pub unsafe fn MsiGetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHAND
 pub unsafe fn MsiGetShortcutTargetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szshortcutpath: Param0, szproductcode: super::super::Foundation::PSTR, szfeatureid: super::super::Foundation::PSTR, szcomponentcode: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetShortcutTargetA(szshortcutpath: super::super::Foundation::PSTR, szproductcode: super::super::Foundation::PSTR, szfeatureid: super::super::Foundation::PSTR, szcomponentcode: super::super::Foundation::PSTR) -> u32;
         }
@@ -10623,7 +10796,8 @@ pub unsafe fn MsiGetShortcutTargetA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiGetShortcutTargetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szshortcutpath: Param0, szproductcode: super::super::Foundation::PWSTR, szfeatureid: super::super::Foundation::PWSTR, szcomponentcode: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetShortcutTargetW(szshortcutpath: super::super::Foundation::PWSTR, szproductcode: super::super::Foundation::PWSTR, szfeatureid: super::super::Foundation::PWSTR, szcomponentcode: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10638,7 +10812,8 @@ pub unsafe fn MsiGetShortcutTargetW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiGetSourcePathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetSourcePathA(hinstall: MSIHANDLE, szfolder: super::super::Foundation::PSTR, szpathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -10653,7 +10828,8 @@ pub unsafe fn MsiGetSourcePathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiGetSourcePathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetSourcePathW(hinstall: MSIHANDLE, szfolder: super::super::Foundation::PWSTR, szpathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -10668,7 +10844,8 @@ pub unsafe fn MsiGetSourcePathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiGetSummaryInformationA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatabase: Param0, szdatabasepath: Param1, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetSummaryInformationA(hdatabase: MSIHANDLE, szdatabasepath: super::super::Foundation::PSTR, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32;
         }
@@ -10683,7 +10860,8 @@ pub unsafe fn MsiGetSummaryInformationA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MsiGetSummaryInformationW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatabase: Param0, szdatabasepath: Param1, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetSummaryInformationW(hdatabase: MSIHANDLE, szdatabasepath: super::super::Foundation::PWSTR, uiupdatecount: u32, phsummaryinfo: *mut MSIHANDLE) -> u32;
         }
@@ -10698,7 +10876,8 @@ pub unsafe fn MsiGetSummaryInformationW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MsiGetTargetPathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetTargetPathA(hinstall: MSIHANDLE, szfolder: super::super::Foundation::PSTR, szpathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -10713,7 +10892,8 @@ pub unsafe fn MsiGetTargetPathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiGetTargetPathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfolder: Param1, szpathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetTargetPathW(hinstall: MSIHANDLE, szfolder: super::super::Foundation::PWSTR, szpathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -10728,7 +10908,8 @@ pub unsafe fn MsiGetTargetPathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiGetUserInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, lpusernamebuf: super::super::Foundation::PSTR, pcchusernamebuf: *mut u32, lporgnamebuf: super::super::Foundation::PSTR, pcchorgnamebuf: *mut u32, lpserialbuf: super::super::Foundation::PSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetUserInfoA(szproduct: super::super::Foundation::PSTR, lpusernamebuf: super::super::Foundation::PSTR, pcchusernamebuf: *mut u32, lporgnamebuf: super::super::Foundation::PSTR, pcchorgnamebuf: *mut u32, lpserialbuf: super::super::Foundation::PSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE;
         }
@@ -10743,7 +10924,8 @@ pub unsafe fn MsiGetUserInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiGetUserInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, lpusernamebuf: super::super::Foundation::PWSTR, pcchusernamebuf: *mut u32, lporgnamebuf: super::super::Foundation::PWSTR, pcchorgnamebuf: *mut u32, lpserialbuf: super::super::Foundation::PWSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiGetUserInfoW(szproduct: super::super::Foundation::PWSTR, lpusernamebuf: super::super::Foundation::PWSTR, pcchusernamebuf: *mut u32, lporgnamebuf: super::super::Foundation::PWSTR, pcchorgnamebuf: *mut u32, lpserialbuf: super::super::Foundation::PWSTR, pcchserialbuf: *mut u32) -> USERINFOSTATE;
         }
@@ -10758,7 +10940,8 @@ pub unsafe fn MsiGetUserInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiInstallMissingComponentA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szcomponent: Param1, einstallstate: INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiInstallMissingComponentA(szproduct: super::super::Foundation::PSTR, szcomponent: super::super::Foundation::PSTR, einstallstate: INSTALLSTATE) -> u32;
         }
@@ -10773,7 +10956,8 @@ pub unsafe fn MsiInstallMissingComponentA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn MsiInstallMissingComponentW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szcomponent: Param1, einstallstate: INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiInstallMissingComponentW(szproduct: super::super::Foundation::PWSTR, szcomponent: super::super::Foundation::PWSTR, einstallstate: INSTALLSTATE) -> u32;
         }
@@ -10788,7 +10972,8 @@ pub unsafe fn MsiInstallMissingComponentW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn MsiInstallMissingFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfile: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiInstallMissingFileA(szproduct: super::super::Foundation::PSTR, szfile: super::super::Foundation::PSTR) -> u32;
         }
@@ -10803,7 +10988,8 @@ pub unsafe fn MsiInstallMissingFileA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiInstallMissingFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfile: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiInstallMissingFileW(szproduct: super::super::Foundation::PWSTR, szfile: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10818,7 +11004,8 @@ pub unsafe fn MsiInstallMissingFileW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiInstallProductA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0, szcommandline: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiInstallProductA(szpackagepath: super::super::Foundation::PSTR, szcommandline: super::super::Foundation::PSTR) -> u32;
         }
@@ -10833,7 +11020,8 @@ pub unsafe fn MsiInstallProductA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiInstallProductW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0, szcommandline: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiInstallProductW(szpackagepath: super::super::Foundation::PWSTR, szcommandline: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10848,7 +11036,8 @@ pub unsafe fn MsiInstallProductW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn MsiIsProductElevatedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, pfelevated: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiIsProductElevatedA(szproduct: super::super::Foundation::PSTR, pfelevated: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -10863,7 +11052,8 @@ pub unsafe fn MsiIsProductElevatedA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiIsProductElevatedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, pfelevated: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiIsProductElevatedW(szproduct: super::super::Foundation::PWSTR, pfelevated: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -10878,7 +11068,8 @@ pub unsafe fn MsiIsProductElevatedW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiJoinTransaction<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(htransactionhandle: Param0, dwtransactionattributes: u32, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiJoinTransaction(htransactionhandle: MSIHANDLE, dwtransactionattributes: u32, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -10893,7 +11084,8 @@ pub unsafe fn MsiJoinTransaction<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiLocateComponentA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomponent: Param0, lppathbuf: super::super::Foundation::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiLocateComponentA(szcomponent: super::super::Foundation::PSTR, lppathbuf: super::super::Foundation::PSTR, pcchbuf: *mut u32) -> INSTALLSTATE;
         }
@@ -10908,7 +11100,8 @@ pub unsafe fn MsiLocateComponentA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiLocateComponentW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomponent: Param0, lppathbuf: super::super::Foundation::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiLocateComponentW(szcomponent: super::super::Foundation::PWSTR, lppathbuf: super::super::Foundation::PWSTR, pcchbuf: *mut u32) -> INSTALLSTATE;
         }
@@ -10923,7 +11116,8 @@ pub unsafe fn MsiLocateComponentW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiNotifySidChangeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(poldsid: Param0, pnewsid: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiNotifySidChangeA(poldsid: super::super::Foundation::PSTR, pnewsid: super::super::Foundation::PSTR) -> u32;
         }
@@ -10938,7 +11132,8 @@ pub unsafe fn MsiNotifySidChangeA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiNotifySidChangeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(poldsid: Param0, pnewsid: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiNotifySidChangeW(poldsid: super::super::Foundation::PWSTR, pnewsid: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10953,7 +11148,8 @@ pub unsafe fn MsiNotifySidChangeW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiOpenDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatabasepath: Param0, szpersist: Param1, phdatabase: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiOpenDatabaseA(szdatabasepath: super::super::Foundation::PSTR, szpersist: super::super::Foundation::PSTR, phdatabase: *mut MSIHANDLE) -> u32;
         }
@@ -10968,7 +11164,8 @@ pub unsafe fn MsiOpenDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn MsiOpenDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatabasepath: Param0, szpersist: Param1, phdatabase: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiOpenDatabaseW(szdatabasepath: super::super::Foundation::PWSTR, szpersist: super::super::Foundation::PWSTR, phdatabase: *mut MSIHANDLE) -> u32;
         }
@@ -10983,7 +11180,8 @@ pub unsafe fn MsiOpenDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn MsiOpenPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiOpenPackageA(szpackagepath: super::super::Foundation::PSTR, hproduct: *mut MSIHANDLE) -> u32;
         }
@@ -10998,7 +11196,8 @@ pub unsafe fn MsiOpenPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiOpenPackageExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiOpenPackageExA(szpackagepath: super::super::Foundation::PSTR, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32;
         }
@@ -11013,7 +11212,8 @@ pub unsafe fn MsiOpenPackageExA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn MsiOpenPackageExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiOpenPackageExW(szpackagepath: super::super::Foundation::PWSTR, dwoptions: u32, hproduct: *mut MSIHANDLE) -> u32;
         }
@@ -11028,7 +11228,8 @@ pub unsafe fn MsiOpenPackageExW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn MsiOpenPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiOpenPackageW(szpackagepath: super::super::Foundation::PWSTR, hproduct: *mut MSIHANDLE) -> u32;
         }
@@ -11043,7 +11244,8 @@ pub unsafe fn MsiOpenPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiOpenProductA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiOpenProductA(szproduct: super::super::Foundation::PSTR, hproduct: *mut MSIHANDLE) -> u32;
         }
@@ -11058,7 +11260,8 @@ pub unsafe fn MsiOpenProductA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiOpenProductW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, hproduct: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiOpenProductW(szproduct: super::super::Foundation::PWSTR, hproduct: *mut MSIHANDLE) -> u32;
         }
@@ -11073,7 +11276,8 @@ pub unsafe fn MsiOpenProductW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn MsiPreviewBillboardA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hpreview: Param0, szcontrolname: Param1, szbillboard: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiPreviewBillboardA(hpreview: MSIHANDLE, szcontrolname: super::super::Foundation::PSTR, szbillboard: super::super::Foundation::PSTR) -> u32;
         }
@@ -11088,7 +11292,8 @@ pub unsafe fn MsiPreviewBillboardA<'a, Param0: ::windows::core::IntoParam<'a, MS
 pub unsafe fn MsiPreviewBillboardW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hpreview: Param0, szcontrolname: Param1, szbillboard: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiPreviewBillboardW(hpreview: MSIHANDLE, szcontrolname: super::super::Foundation::PWSTR, szbillboard: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11103,7 +11308,8 @@ pub unsafe fn MsiPreviewBillboardW<'a, Param0: ::windows::core::IntoParam<'a, MS
 pub unsafe fn MsiPreviewDialogA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hpreview: Param0, szdialogname: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiPreviewDialogA(hpreview: MSIHANDLE, szdialogname: super::super::Foundation::PSTR) -> u32;
         }
@@ -11118,7 +11324,8 @@ pub unsafe fn MsiPreviewDialogA<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiPreviewDialogW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hpreview: Param0, szdialogname: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiPreviewDialogW(hpreview: MSIHANDLE, szdialogname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11133,7 +11340,8 @@ pub unsafe fn MsiPreviewDialogW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiProcessAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szscriptfile: Param0, sziconfolder: Param1, hregdata: Param2, fshortcuts: Param3, fremoveitems: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProcessAdvertiseScriptA(szscriptfile: super::super::Foundation::PSTR, sziconfolder: super::super::Foundation::PSTR, hregdata: super::Registry::HKEY, fshortcuts: super::super::Foundation::BOOL, fremoveitems: super::super::Foundation::BOOL) -> u32;
         }
@@ -11148,7 +11356,8 @@ pub unsafe fn MsiProcessAdvertiseScriptA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiProcessAdvertiseScriptW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szscriptfile: Param0, sziconfolder: Param1, hregdata: Param2, fshortcuts: Param3, fremoveitems: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProcessAdvertiseScriptW(szscriptfile: super::super::Foundation::PWSTR, sziconfolder: super::super::Foundation::PWSTR, hregdata: super::Registry::HKEY, fshortcuts: super::super::Foundation::BOOL, fremoveitems: super::super::Foundation::BOOL) -> u32;
         }
@@ -11162,7 +11371,8 @@ pub unsafe fn MsiProcessAdvertiseScriptW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiProcessMessage<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0, emessagetype: INSTALLMESSAGE, hrecord: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProcessMessage(hinstall: MSIHANDLE, emessagetype: INSTALLMESSAGE, hrecord: MSIHANDLE) -> i32;
         }
@@ -11177,7 +11387,8 @@ pub unsafe fn MsiProcessMessage<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiProvideAssemblyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szassemblyname: Param0, szappcontext: Param1, dwinstallmode: INSTALLMODE, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProvideAssemblyA(szassemblyname: super::super::Foundation::PSTR, szappcontext: super::super::Foundation::PSTR, dwinstallmode: INSTALLMODE, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -11192,7 +11403,8 @@ pub unsafe fn MsiProvideAssemblyA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiProvideAssemblyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szassemblyname: Param0, szappcontext: Param1, dwinstallmode: INSTALLMODE, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProvideAssemblyW(szassemblyname: super::super::Foundation::PWSTR, szappcontext: super::super::Foundation::PWSTR, dwinstallmode: INSTALLMODE, dwassemblyinfo: MSIASSEMBLYINFO, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -11207,7 +11419,8 @@ pub unsafe fn MsiProvideAssemblyW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn MsiProvideComponentA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1, szcomponent: Param2, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProvideComponentA(szproduct: super::super::Foundation::PSTR, szfeature: super::super::Foundation::PSTR, szcomponent: super::super::Foundation::PSTR, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -11222,7 +11435,8 @@ pub unsafe fn MsiProvideComponentA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiProvideComponentW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1, szcomponent: Param2, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProvideComponentW(szproduct: super::super::Foundation::PWSTR, szfeature: super::super::Foundation::PWSTR, szcomponent: super::super::Foundation::PWSTR, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -11237,7 +11451,8 @@ pub unsafe fn MsiProvideComponentW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiProvideQualifiedComponentA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProvideQualifiedComponentA(szcategory: super::super::Foundation::PSTR, szqualifier: super::super::Foundation::PSTR, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -11252,7 +11467,8 @@ pub unsafe fn MsiProvideQualifiedComponentA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MsiProvideQualifiedComponentExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: INSTALLMODE, szproduct: Param3, dwunused1: u32, dwunused2: u32, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProvideQualifiedComponentExA(szcategory: super::super::Foundation::PSTR, szqualifier: super::super::Foundation::PSTR, dwinstallmode: INSTALLMODE, szproduct: super::super::Foundation::PSTR, dwunused1: u32, dwunused2: u32, lppathbuf: super::super::Foundation::PSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -11267,7 +11483,8 @@ pub unsafe fn MsiProvideQualifiedComponentExA<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MsiProvideQualifiedComponentExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: INSTALLMODE, szproduct: Param3, dwunused1: u32, dwunused2: u32, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProvideQualifiedComponentExW(szcategory: super::super::Foundation::PWSTR, szqualifier: super::super::Foundation::PWSTR, dwinstallmode: INSTALLMODE, szproduct: super::super::Foundation::PWSTR, dwunused1: u32, dwunused2: u32, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -11282,7 +11499,8 @@ pub unsafe fn MsiProvideQualifiedComponentExW<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MsiProvideQualifiedComponentW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcategory: Param0, szqualifier: Param1, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiProvideQualifiedComponentW(szcategory: super::super::Foundation::PWSTR, szqualifier: super::super::Foundation::PWSTR, dwinstallmode: INSTALLMODE, lppathbuf: super::super::Foundation::PWSTR, pcchpathbuf: *mut u32) -> u32;
         }
@@ -11297,7 +11515,8 @@ pub unsafe fn MsiProvideQualifiedComponentW<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MsiQueryComponentStateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiQueryComponentStateA(szproductcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: super::super::Foundation::PSTR, pdwstate: *mut INSTALLSTATE) -> u32;
         }
@@ -11312,7 +11531,8 @@ pub unsafe fn MsiQueryComponentStateA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MsiQueryComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiQueryComponentStateW(szproductcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, szcomponentcode: super::super::Foundation::PWSTR, pdwstate: *mut INSTALLSTATE) -> u32;
         }
@@ -11327,7 +11547,8 @@ pub unsafe fn MsiQueryComponentStateW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MsiQueryFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiQueryFeatureStateA(szproduct: super::super::Foundation::PSTR, szfeature: super::super::Foundation::PSTR) -> INSTALLSTATE;
         }
@@ -11342,7 +11563,8 @@ pub unsafe fn MsiQueryFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiQueryFeatureStateExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szfeature: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiQueryFeatureStateExA(szproductcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, szfeature: super::super::Foundation::PSTR, pdwstate: *mut INSTALLSTATE) -> u32;
         }
@@ -11357,7 +11579,8 @@ pub unsafe fn MsiQueryFeatureStateExA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MsiQueryFeatureStateExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, szfeature: Param3, pdwstate: *mut INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiQueryFeatureStateExW(szproductcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, szfeature: super::super::Foundation::PWSTR, pdwstate: *mut INSTALLSTATE) -> u32;
         }
@@ -11372,7 +11595,8 @@ pub unsafe fn MsiQueryFeatureStateExW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MsiQueryFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiQueryFeatureStateW(szproduct: super::super::Foundation::PWSTR, szfeature: super::super::Foundation::PWSTR) -> INSTALLSTATE;
         }
@@ -11387,7 +11611,8 @@ pub unsafe fn MsiQueryFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiQueryProductStateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiQueryProductStateA(szproduct: super::super::Foundation::PSTR) -> INSTALLSTATE;
         }
@@ -11402,7 +11627,8 @@ pub unsafe fn MsiQueryProductStateA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiQueryProductStateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiQueryProductStateW(szproduct: super::super::Foundation::PWSTR) -> INSTALLSTATE;
         }
@@ -11416,7 +11642,8 @@ pub unsafe fn MsiQueryProductStateW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiRecordClearData<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordClearData(hrecord: MSIHANDLE) -> u32;
         }
@@ -11430,7 +11657,8 @@ pub unsafe fn MsiRecordClearData<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiRecordDataSize<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordDataSize(hrecord: MSIHANDLE, ifield: u32) -> u32;
         }
@@ -11444,7 +11672,8 @@ pub unsafe fn MsiRecordDataSize<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiRecordGetFieldCount<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordGetFieldCount(hrecord: MSIHANDLE) -> u32;
         }
@@ -11458,7 +11687,8 @@ pub unsafe fn MsiRecordGetFieldCount<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiRecordGetInteger<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordGetInteger(hrecord: MSIHANDLE, ifield: u32) -> i32;
         }
@@ -11473,7 +11703,8 @@ pub unsafe fn MsiRecordGetInteger<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiRecordGetStringA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32, szvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordGetStringA(hrecord: MSIHANDLE, ifield: u32, szvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -11488,7 +11719,8 @@ pub unsafe fn MsiRecordGetStringA<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiRecordGetStringW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32, szvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordGetStringW(hrecord: MSIHANDLE, ifield: u32, szvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -11503,7 +11735,8 @@ pub unsafe fn MsiRecordGetStringW<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiRecordIsNull<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordIsNull(hrecord: MSIHANDLE, ifield: u32) -> super::super::Foundation::BOOL;
         }
@@ -11518,7 +11751,8 @@ pub unsafe fn MsiRecordIsNull<'a, Param0: ::windows::core::IntoParam<'a, MSIHAND
 pub unsafe fn MsiRecordReadStream<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32, szdatabuf: super::super::Foundation::PSTR, pcbdatabuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordReadStream(hrecord: MSIHANDLE, ifield: u32, szdatabuf: super::super::Foundation::PSTR, pcbdatabuf: *mut u32) -> u32;
         }
@@ -11532,7 +11766,8 @@ pub unsafe fn MsiRecordReadStream<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiRecordSetInteger<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hrecord: Param0, ifield: u32, ivalue: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordSetInteger(hrecord: MSIHANDLE, ifield: u32, ivalue: i32) -> u32;
         }
@@ -11547,7 +11782,8 @@ pub unsafe fn MsiRecordSetInteger<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiRecordSetStreamA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hrecord: Param0, ifield: u32, szfilepath: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordSetStreamA(hrecord: MSIHANDLE, ifield: u32, szfilepath: super::super::Foundation::PSTR) -> u32;
         }
@@ -11562,7 +11798,8 @@ pub unsafe fn MsiRecordSetStreamA<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiRecordSetStreamW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrecord: Param0, ifield: u32, szfilepath: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordSetStreamW(hrecord: MSIHANDLE, ifield: u32, szfilepath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11577,7 +11814,8 @@ pub unsafe fn MsiRecordSetStreamW<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiRecordSetStringA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hrecord: Param0, ifield: u32, szvalue: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordSetStringA(hrecord: MSIHANDLE, ifield: u32, szvalue: super::super::Foundation::PSTR) -> u32;
         }
@@ -11592,7 +11830,8 @@ pub unsafe fn MsiRecordSetStringA<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiRecordSetStringW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrecord: Param0, ifield: u32, szvalue: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRecordSetStringW(hrecord: MSIHANDLE, ifield: u32, szvalue: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11607,7 +11846,8 @@ pub unsafe fn MsiRecordSetStringW<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiReinstallFeatureA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1, dwreinstallmode: REINSTALLMODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiReinstallFeatureA(szproduct: super::super::Foundation::PSTR, szfeature: super::super::Foundation::PSTR, dwreinstallmode: REINSTALLMODE) -> u32;
         }
@@ -11622,7 +11862,8 @@ pub unsafe fn MsiReinstallFeatureA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiReinstallFeatureW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1, dwreinstallmode: REINSTALLMODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiReinstallFeatureW(szproduct: super::super::Foundation::PWSTR, szfeature: super::super::Foundation::PWSTR, dwreinstallmode: REINSTALLMODE) -> u32;
         }
@@ -11637,7 +11878,8 @@ pub unsafe fn MsiReinstallFeatureW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiReinstallProductA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szreinstallmode: REINSTALLMODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiReinstallProductA(szproduct: super::super::Foundation::PSTR, szreinstallmode: REINSTALLMODE) -> u32;
         }
@@ -11652,7 +11894,8 @@ pub unsafe fn MsiReinstallProductA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiReinstallProductW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szreinstallmode: REINSTALLMODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiReinstallProductW(szproduct: super::super::Foundation::PWSTR, szreinstallmode: REINSTALLMODE) -> u32;
         }
@@ -11667,7 +11910,8 @@ pub unsafe fn MsiReinstallProductW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn MsiRemovePatchesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpatchlist: Param0, szproductcode: Param1, euninstalltype: INSTALLTYPE, szpropertylist: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRemovePatchesA(szpatchlist: super::super::Foundation::PSTR, szproductcode: super::super::Foundation::PSTR, euninstalltype: INSTALLTYPE, szpropertylist: super::super::Foundation::PSTR) -> u32;
         }
@@ -11682,7 +11926,8 @@ pub unsafe fn MsiRemovePatchesA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn MsiRemovePatchesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpatchlist: Param0, szproductcode: Param1, euninstalltype: INSTALLTYPE, szpropertylist: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiRemovePatchesW(szpatchlist: super::super::Foundation::PWSTR, szproductcode: super::super::Foundation::PWSTR, euninstalltype: INSTALLTYPE, szpropertylist: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11697,7 +11942,8 @@ pub unsafe fn MsiRemovePatchesW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn MsiSequenceA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, sztable: Param1, isequencemode: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSequenceA(hinstall: MSIHANDLE, sztable: super::super::Foundation::PSTR, isequencemode: i32) -> u32;
         }
@@ -11712,7 +11958,8 @@ pub unsafe fn MsiSequenceA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
 pub unsafe fn MsiSequenceW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, sztable: Param1, isequencemode: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSequenceW(hinstall: MSIHANDLE, sztable: super::super::Foundation::PWSTR, isequencemode: i32) -> u32;
         }
@@ -11727,7 +11974,8 @@ pub unsafe fn MsiSequenceW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
 pub unsafe fn MsiSetComponentStateA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szcomponent: Param1, istate: INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetComponentStateA(hinstall: MSIHANDLE, szcomponent: super::super::Foundation::PSTR, istate: INSTALLSTATE) -> u32;
         }
@@ -11742,7 +11990,8 @@ pub unsafe fn MsiSetComponentStateA<'a, Param0: ::windows::core::IntoParam<'a, M
 pub unsafe fn MsiSetComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szcomponent: Param1, istate: INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetComponentStateW(hinstall: MSIHANDLE, szcomponent: super::super::Foundation::PWSTR, istate: INSTALLSTATE) -> u32;
         }
@@ -11757,7 +12006,8 @@ pub unsafe fn MsiSetComponentStateW<'a, Param0: ::windows::core::IntoParam<'a, M
 pub unsafe fn MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> INSTALLUI_HANDLERA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetExternalUIA(puihandler: ::windows::core::RawPtr, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> INSTALLUI_HANDLERA;
         }
@@ -11771,7 +12021,8 @@ pub unsafe fn MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter:
 pub unsafe fn MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void, ppuiprevhandler: PINSTALLUI_HANDLER_RECORD) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetExternalUIRecord(puihandler: ::windows::core::RawPtr, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void, ppuiprevhandler: ::windows::core::RawPtr) -> u32;
         }
@@ -11786,7 +12037,8 @@ pub unsafe fn MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwme
 pub unsafe fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> INSTALLUI_HANDLERW {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetExternalUIW(puihandler: ::windows::core::RawPtr, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> INSTALLUI_HANDLERW;
         }
@@ -11801,7 +12053,8 @@ pub unsafe fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter:
 pub unsafe fn MsiSetFeatureAttributesA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfeature: Param1, dwattributes: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetFeatureAttributesA(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PSTR, dwattributes: u32) -> u32;
         }
@@ -11816,7 +12069,8 @@ pub unsafe fn MsiSetFeatureAttributesA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MsiSetFeatureAttributesW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfeature: Param1, dwattributes: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetFeatureAttributesW(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PWSTR, dwattributes: u32) -> u32;
         }
@@ -11831,7 +12085,8 @@ pub unsafe fn MsiSetFeatureAttributesW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MsiSetFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfeature: Param1, istate: INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetFeatureStateA(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PSTR, istate: INSTALLSTATE) -> u32;
         }
@@ -11846,7 +12101,8 @@ pub unsafe fn MsiSetFeatureStateA<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiSetFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfeature: Param1, istate: INSTALLSTATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetFeatureStateW(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PWSTR, istate: INSTALLSTATE) -> u32;
         }
@@ -11860,7 +12116,8 @@ pub unsafe fn MsiSetFeatureStateW<'a, Param0: ::windows::core::IntoParam<'a, MSI
 pub unsafe fn MsiSetInstallLevel<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0, iinstalllevel: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetInstallLevel(hinstall: MSIHANDLE, iinstalllevel: i32) -> u32;
         }
@@ -11875,7 +12132,8 @@ pub unsafe fn MsiSetInstallLevel<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiSetInternalUI(dwuilevel: INSTALLUILEVEL, phwnd: *mut super::super::Foundation::HWND) -> INSTALLUILEVEL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetInternalUI(dwuilevel: INSTALLUILEVEL, phwnd: *mut super::super::Foundation::HWND) -> INSTALLUILEVEL;
         }
@@ -11890,7 +12148,8 @@ pub unsafe fn MsiSetInternalUI(dwuilevel: INSTALLUILEVEL, phwnd: *mut super::sup
 pub unsafe fn MsiSetMode<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hinstall: Param0, erunmode: MSIRUNMODE, fstate: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetMode(hinstall: MSIHANDLE, erunmode: MSIRUNMODE, fstate: super::super::Foundation::BOOL) -> u32;
         }
@@ -11905,7 +12164,8 @@ pub unsafe fn MsiSetMode<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, 
 pub unsafe fn MsiSetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szname: Param1, szvalue: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetPropertyA(hinstall: MSIHANDLE, szname: super::super::Foundation::PSTR, szvalue: super::super::Foundation::PSTR) -> u32;
         }
@@ -11920,7 +12180,8 @@ pub unsafe fn MsiSetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHAND
 pub unsafe fn MsiSetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szname: Param1, szvalue: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetPropertyW(hinstall: MSIHANDLE, szname: super::super::Foundation::PWSTR, szvalue: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11935,7 +12196,8 @@ pub unsafe fn MsiSetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHAND
 pub unsafe fn MsiSetTargetPathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstall: Param0, szfolder: Param1, szfolderpath: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetTargetPathA(hinstall: MSIHANDLE, szfolder: super::super::Foundation::PSTR, szfolderpath: super::super::Foundation::PSTR) -> u32;
         }
@@ -11950,7 +12212,8 @@ pub unsafe fn MsiSetTargetPathA<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiSetTargetPathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstall: Param0, szfolder: Param1, szfolderpath: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSetTargetPathW(hinstall: MSIHANDLE, szfolder: super::super::Foundation::PWSTR, szfolderpath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11965,7 +12228,8 @@ pub unsafe fn MsiSetTargetPathW<'a, Param0: ::windows::core::IntoParam<'a, MSIHA
 pub unsafe fn MsiSourceListAddMediaDiskA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32, szvolumelabel: Param5, szdiskprompt: Param6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListAddMediaDiskA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32, szvolumelabel: super::super::Foundation::PSTR, szdiskprompt: super::super::Foundation::PSTR) -> u32;
         }
@@ -11980,7 +12244,8 @@ pub unsafe fn MsiSourceListAddMediaDiskA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiSourceListAddMediaDiskW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32, szvolumelabel: Param5, szdiskprompt: Param6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListAddMediaDiskW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32, szvolumelabel: super::super::Foundation::PWSTR, szdiskprompt: super::super::Foundation::PWSTR) -> u32;
         }
@@ -11995,7 +12260,8 @@ pub unsafe fn MsiSourceListAddMediaDiskW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiSourceListAddSourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32, szsource: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListAddSourceA(szproduct: super::super::Foundation::PSTR, szusername: super::super::Foundation::PSTR, dwreserved: u32, szsource: super::super::Foundation::PSTR) -> u32;
         }
@@ -12010,7 +12276,8 @@ pub unsafe fn MsiSourceListAddSourceA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MsiSourceListAddSourceExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: Param4, dwindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListAddSourceExA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: super::super::Foundation::PSTR, dwindex: u32) -> u32;
         }
@@ -12025,7 +12292,8 @@ pub unsafe fn MsiSourceListAddSourceExA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MsiSourceListAddSourceExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: Param4, dwindex: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListAddSourceExW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: super::super::Foundation::PWSTR, dwindex: u32) -> u32;
         }
@@ -12040,7 +12308,8 @@ pub unsafe fn MsiSourceListAddSourceExW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MsiSourceListAddSourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32, szsource: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListAddSourceW(szproduct: super::super::Foundation::PWSTR, szusername: super::super::Foundation::PWSTR, dwreserved: u32, szsource: super::super::Foundation::PWSTR) -> u32;
         }
@@ -12055,7 +12324,8 @@ pub unsafe fn MsiSourceListAddSourceW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn MsiSourceListClearAllA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListClearAllA(szproduct: super::super::Foundation::PSTR, szusername: super::super::Foundation::PSTR, dwreserved: u32) -> u32;
         }
@@ -12070,7 +12340,8 @@ pub unsafe fn MsiSourceListClearAllA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiSourceListClearAllExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListClearAllExA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32;
         }
@@ -12085,7 +12356,8 @@ pub unsafe fn MsiSourceListClearAllExA<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MsiSourceListClearAllExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListClearAllExW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32;
         }
@@ -12100,7 +12372,8 @@ pub unsafe fn MsiSourceListClearAllExW<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn MsiSourceListClearAllW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListClearAllW(szproduct: super::super::Foundation::PWSTR, szusername: super::super::Foundation::PWSTR, dwreserved: u32) -> u32;
         }
@@ -12115,7 +12388,8 @@ pub unsafe fn MsiSourceListClearAllW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn MsiSourceListClearMediaDiskA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListClearMediaDiskA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32) -> u32;
         }
@@ -12130,7 +12404,8 @@ pub unsafe fn MsiSourceListClearMediaDiskA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MsiSourceListClearMediaDiskW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListClearMediaDiskW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwdiskid: u32) -> u32;
         }
@@ -12145,7 +12420,8 @@ pub unsafe fn MsiSourceListClearMediaDiskW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MsiSourceListClearSourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListClearSourceA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: super::super::Foundation::PSTR) -> u32;
         }
@@ -12160,7 +12436,8 @@ pub unsafe fn MsiSourceListClearSourceA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MsiSourceListClearSourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListClearSourceW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szsource: super::super::Foundation::PWSTR) -> u32;
         }
@@ -12175,7 +12452,8 @@ pub unsafe fn MsiSourceListClearSourceW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MsiSourceListEnumMediaDisksA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: super::super::Foundation::PSTR, pcchvolumelabel: *mut u32, szdiskprompt: super::super::Foundation::PSTR, pcchdiskprompt: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListEnumMediaDisksA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: super::super::Foundation::PSTR, pcchvolumelabel: *mut u32, szdiskprompt: super::super::Foundation::PSTR, pcchdiskprompt: *mut u32) -> u32;
         }
@@ -12190,7 +12468,8 @@ pub unsafe fn MsiSourceListEnumMediaDisksA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MsiSourceListEnumMediaDisksW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: super::super::Foundation::PWSTR, pcchvolumelabel: *mut u32, szdiskprompt: super::super::Foundation::PWSTR, pcchdiskprompt: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListEnumMediaDisksW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, pdwdiskid: *mut u32, szvolumelabel: super::super::Foundation::PWSTR, pcchvolumelabel: *mut u32, szdiskprompt: super::super::Foundation::PWSTR, pcchdiskprompt: *mut u32) -> u32;
         }
@@ -12205,7 +12484,8 @@ pub unsafe fn MsiSourceListEnumMediaDisksW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn MsiSourceListEnumSourcesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: super::super::Foundation::PSTR, pcchsource: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListEnumSourcesA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: super::super::Foundation::PSTR, pcchsource: *mut u32) -> u32;
         }
@@ -12220,7 +12500,8 @@ pub unsafe fn MsiSourceListEnumSourcesA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MsiSourceListEnumSourcesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: super::super::Foundation::PWSTR, pcchsource: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListEnumSourcesW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, dwindex: u32, szsource: super::super::Foundation::PWSTR, pcchsource: *mut u32) -> u32;
         }
@@ -12235,7 +12516,8 @@ pub unsafe fn MsiSourceListEnumSourcesW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn MsiSourceListForceResolutionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListForceResolutionA(szproduct: super::super::Foundation::PSTR, szusername: super::super::Foundation::PSTR, dwreserved: u32) -> u32;
         }
@@ -12250,7 +12532,8 @@ pub unsafe fn MsiSourceListForceResolutionA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MsiSourceListForceResolutionExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListForceResolutionExA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32;
         }
@@ -12265,7 +12548,8 @@ pub unsafe fn MsiSourceListForceResolutionExA<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MsiSourceListForceResolutionExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListForceResolutionExW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32) -> u32;
         }
@@ -12280,7 +12564,8 @@ pub unsafe fn MsiSourceListForceResolutionExW<'a, Param0: ::windows::core::IntoP
 pub unsafe fn MsiSourceListForceResolutionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szusername: Param1, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListForceResolutionW(szproduct: super::super::Foundation::PWSTR, szusername: super::super::Foundation::PWSTR, dwreserved: u32) -> u32;
         }
@@ -12295,7 +12580,8 @@ pub unsafe fn MsiSourceListForceResolutionW<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn MsiSourceListGetInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: Param4, szvalue: super::super::Foundation::PSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListGetInfoA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: super::super::Foundation::PSTR, szvalue: super::super::Foundation::PSTR, pcchvalue: *mut u32) -> u32;
         }
@@ -12310,7 +12596,8 @@ pub unsafe fn MsiSourceListGetInfoA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiSourceListGetInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: Param4, szvalue: super::super::Foundation::PWSTR, pcchvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListGetInfoW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: super::super::Foundation::PWSTR, szvalue: super::super::Foundation::PWSTR, pcchvalue: *mut u32) -> u32;
         }
@@ -12325,7 +12612,8 @@ pub unsafe fn MsiSourceListGetInfoW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiSourceListSetInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: Param4, szvalue: Param5) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListSetInfoA(szproductcodeorpatchcode: super::super::Foundation::PSTR, szusersid: super::super::Foundation::PSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: super::super::Foundation::PSTR, szvalue: super::super::Foundation::PSTR) -> u32;
         }
@@ -12340,7 +12628,8 @@ pub unsafe fn MsiSourceListSetInfoA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiSourceListSetInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproductcodeorpatchcode: Param0, szusersid: Param1, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: Param4, szvalue: Param5) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSourceListSetInfoW(szproductcodeorpatchcode: super::super::Foundation::PWSTR, szusersid: super::super::Foundation::PWSTR, dwcontext: MSIINSTALLCONTEXT, dwoptions: u32, szproperty: super::super::Foundation::PWSTR, szvalue: super::super::Foundation::PWSTR) -> u32;
         }
@@ -12355,7 +12644,8 @@ pub unsafe fn MsiSourceListSetInfoW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn MsiSummaryInfoGetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hsummaryinfo: Param0, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: *mut super::super::Foundation::FILETIME, szvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSummaryInfoGetPropertyA(hsummaryinfo: MSIHANDLE, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: *mut super::super::Foundation::FILETIME, szvaluebuf: super::super::Foundation::PSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -12369,7 +12659,8 @@ pub unsafe fn MsiSummaryInfoGetPropertyA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiSummaryInfoGetPropertyCount<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hsummaryinfo: Param0, puipropertycount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSummaryInfoGetPropertyCount(hsummaryinfo: MSIHANDLE, puipropertycount: *mut u32) -> u32;
         }
@@ -12384,7 +12675,8 @@ pub unsafe fn MsiSummaryInfoGetPropertyCount<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn MsiSummaryInfoGetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hsummaryinfo: Param0, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: *mut super::super::Foundation::FILETIME, szvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSummaryInfoGetPropertyW(hsummaryinfo: MSIHANDLE, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: *mut super::super::Foundation::FILETIME, szvaluebuf: super::super::Foundation::PWSTR, pcchvaluebuf: *mut u32) -> u32;
         }
@@ -12398,7 +12690,8 @@ pub unsafe fn MsiSummaryInfoGetPropertyW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiSummaryInfoPersist<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hsummaryinfo: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSummaryInfoPersist(hsummaryinfo: MSIHANDLE) -> u32;
         }
@@ -12413,7 +12706,8 @@ pub unsafe fn MsiSummaryInfoPersist<'a, Param0: ::windows::core::IntoParam<'a, M
 pub unsafe fn MsiSummaryInfoSetPropertyA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hsummaryinfo: Param0, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: Param5) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSummaryInfoSetPropertyA(hsummaryinfo: MSIHANDLE, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: super::super::Foundation::PSTR) -> u32;
         }
@@ -12428,7 +12722,8 @@ pub unsafe fn MsiSummaryInfoSetPropertyA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiSummaryInfoSetPropertyW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hsummaryinfo: Param0, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: Param5) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiSummaryInfoSetPropertyW(hsummaryinfo: MSIHANDLE, uiproperty: u32, uidatatype: u32, ivalue: i32, pftvalue: *mut super::super::Foundation::FILETIME, szvalue: super::super::Foundation::PWSTR) -> u32;
         }
@@ -12443,7 +12738,8 @@ pub unsafe fn MsiSummaryInfoSetPropertyW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn MsiUseFeatureA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiUseFeatureA(szproduct: super::super::Foundation::PSTR, szfeature: super::super::Foundation::PSTR) -> INSTALLSTATE;
         }
@@ -12458,7 +12754,8 @@ pub unsafe fn MsiUseFeatureA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn MsiUseFeatureExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szproduct: Param0, szfeature: Param1, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiUseFeatureExA(szproduct: super::super::Foundation::PSTR, szfeature: super::super::Foundation::PSTR, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE;
         }
@@ -12473,7 +12770,8 @@ pub unsafe fn MsiUseFeatureExA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn MsiUseFeatureExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiUseFeatureExW(szproduct: super::super::Foundation::PWSTR, szfeature: super::super::Foundation::PWSTR, dwinstallmode: u32, dwreserved: u32) -> INSTALLSTATE;
         }
@@ -12488,7 +12786,8 @@ pub unsafe fn MsiUseFeatureExW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn MsiUseFeatureW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szproduct: Param0, szfeature: Param1) -> INSTALLSTATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiUseFeatureW(szproduct: super::super::Foundation::PWSTR, szfeature: super::super::Foundation::PWSTR) -> INSTALLSTATE;
         }
@@ -12502,7 +12801,8 @@ pub unsafe fn MsiUseFeatureW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn MsiVerifyDiskSpace<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hinstall: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiVerifyDiskSpace(hinstall: MSIHANDLE) -> u32;
         }
@@ -12517,7 +12817,8 @@ pub unsafe fn MsiVerifyDiskSpace<'a, Param0: ::windows::core::IntoParam<'a, MSIH
 pub unsafe fn MsiVerifyPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szpackagepath: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiVerifyPackageA(szpackagepath: super::super::Foundation::PSTR) -> u32;
         }
@@ -12532,7 +12833,8 @@ pub unsafe fn MsiVerifyPackageA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn MsiVerifyPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szpackagepath: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiVerifyPackageW(szpackagepath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -12546,7 +12848,8 @@ pub unsafe fn MsiVerifyPackageW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn MsiViewClose<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiViewClose(hview: MSIHANDLE) -> u32;
         }
@@ -12560,7 +12863,8 @@ pub unsafe fn MsiViewClose<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
 pub unsafe fn MsiViewExecute<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param1: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, hrecord: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiViewExecute(hview: MSIHANDLE, hrecord: MSIHANDLE) -> u32;
         }
@@ -12574,7 +12878,8 @@ pub unsafe fn MsiViewExecute<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDL
 pub unsafe fn MsiViewFetch<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, phrecord: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiViewFetch(hview: MSIHANDLE, phrecord: *mut MSIHANDLE) -> u32;
         }
@@ -12588,7 +12893,8 @@ pub unsafe fn MsiViewFetch<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>
 pub unsafe fn MsiViewGetColumnInfo<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, ecolumninfo: MSICOLINFO, phrecord: *mut MSIHANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiViewGetColumnInfo(hview: MSIHANDLE, ecolumninfo: MSICOLINFO, phrecord: *mut MSIHANDLE) -> u32;
         }
@@ -12603,7 +12909,8 @@ pub unsafe fn MsiViewGetColumnInfo<'a, Param0: ::windows::core::IntoParam<'a, MS
 pub unsafe fn MsiViewGetErrorA<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, szcolumnnamebuffer: super::super::Foundation::PSTR, pcchbuf: *mut u32) -> MSIDBERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiViewGetErrorA(hview: MSIHANDLE, szcolumnnamebuffer: super::super::Foundation::PSTR, pcchbuf: *mut u32) -> MSIDBERROR;
         }
@@ -12618,7 +12925,8 @@ pub unsafe fn MsiViewGetErrorA<'a, Param0: ::windows::core::IntoParam<'a, MSIHAN
 pub unsafe fn MsiViewGetErrorW<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, szcolumnnamebuffer: super::super::Foundation::PWSTR, pcchbuf: *mut u32) -> MSIDBERROR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiViewGetErrorW(hview: MSIHANDLE, szcolumnnamebuffer: super::super::Foundation::PWSTR, pcchbuf: *mut u32) -> MSIDBERROR;
         }
@@ -12632,7 +12940,8 @@ pub unsafe fn MsiViewGetErrorW<'a, Param0: ::windows::core::IntoParam<'a, MSIHAN
 pub unsafe fn MsiViewModify<'a, Param0: ::windows::core::IntoParam<'a, MSIHANDLE>, Param2: ::windows::core::IntoParam<'a, MSIHANDLE>>(hview: Param0, emodifymode: MSIMODIFY, hrecord: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "msi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MsiViewModify(hview: MSIHANDLE, emodifymode: MSIMODIFY, hrecord: MSIHANDLE) -> u32;
         }
@@ -12648,7 +12957,8 @@ pub const MsmMerge: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0
 pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, newfilecoffbase: u32, newfilecofftime: u32, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NormalizeFileForPatchSignature(filebuffer: *mut ::core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: *const PATCH_OPTION_DATA, newfilecoffbase: u32, newfilecofftime: u32, ignorerangecount: u32, ignorerangearray: *const PATCH_IGNORE_RANGE, retainrangecount: u32, retainrangearray: *const PATCH_RETAIN_RANGE) -> i32;
         }
@@ -14444,7 +14754,8 @@ impl ::core::ops::Not for QUERYASMINFO_FLAGS {
 pub unsafe fn QueryActCtxSettingsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: u32, hactctx: Param1, settingsnamespace: Param2, settingname: Param3, pvbuffer: super::super::Foundation::PWSTR, dwbuffer: usize, pdwwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryActCtxSettingsW(dwflags: u32, hactctx: super::super::Foundation::HANDLE, settingsnamespace: super::super::Foundation::PWSTR, settingname: super::super::Foundation::PWSTR, pvbuffer: super::super::Foundation::PWSTR, dwbuffer: usize, pdwwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL;
         }
@@ -14459,7 +14770,8 @@ pub unsafe fn QueryActCtxSettingsW<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn QueryActCtxW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwflags: u32, hactctx: Param1, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryActCtxW(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL;
         }
@@ -14550,7 +14862,8 @@ impl ::core::fmt::Debug for RESULTTYPES {
 pub unsafe fn ReleaseActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hactctx: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReleaseActCtx(hactctx: super::super::Foundation::HANDLE);
         }
@@ -14681,7 +14994,8 @@ pub const STREAM_FORMAT_WIN32_MODULE: u32 = 2u32;
 pub unsafe fn SfcGetNextProtectedFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(rpchandle: Param0, protfiledata: *mut PROTECTED_FILE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "sfc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SfcGetNextProtectedFile(rpchandle: super::super::Foundation::HANDLE, protfiledata: *mut PROTECTED_FILE_DATA) -> super::super::Foundation::BOOL;
         }
@@ -14696,7 +15010,8 @@ pub unsafe fn SfcGetNextProtectedFile<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SfcIsFileProtected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(rpchandle: Param0, protfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "sfc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SfcIsFileProtected(rpchandle: super::super::Foundation::HANDLE, protfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -14711,7 +15026,8 @@ pub unsafe fn SfcIsFileProtected<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SfcIsKeyProtected<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(keyhandle: Param0, subkeyname: Param1, keysam: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "sfc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SfcIsKeyProtected(keyhandle: super::Registry::HKEY, subkeyname: super::super::Foundation::PWSTR, keysam: u32) -> super::super::Foundation::BOOL;
         }
@@ -14726,7 +15042,8 @@ pub unsafe fn SfcIsKeyProtected<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SfpVerifyFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilename: Param0, pszerror: Param1, dwerrsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "sfc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SfpVerifyFile(pszfilename: super::super::Foundation::PSTR, pszerror: super::super::Foundation::PSTR, dwerrsize: u32) -> super::super::Foundation::BOOL;
         }
@@ -14950,7 +15267,8 @@ pub const TXTLOG_WARNING: u32 = 2u32;
 pub unsafe fn TestApplyPatchToFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(patchfilename: Param0, oldfilename: Param1, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TestApplyPatchToFileA(patchfilename: super::super::Foundation::PSTR, oldfilename: super::super::Foundation::PSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -14965,7 +15283,8 @@ pub unsafe fn TestApplyPatchToFileA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: *const u8, patchfilesize: u32, oldfilebuffer: *const u8, oldfilesize: u32, newfilesize: *mut u32, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TestApplyPatchToFileByBuffers(patchfilebuffer: *const u8, patchfilesize: u32, oldfilebuffer: *const u8, oldfilesize: u32, newfilesize: *mut u32, applyoptionflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -14980,7 +15299,8 @@ pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: *const u8, patchfil
 pub unsafe fn TestApplyPatchToFileByHandles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(patchfilehandle: Param0, oldfilehandle: Param1, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TestApplyPatchToFileByHandles(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -14995,7 +15315,8 @@ pub unsafe fn TestApplyPatchToFileByHandles<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn TestApplyPatchToFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(patchfilename: Param0, oldfilename: Param1, applyoptionflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mspatcha", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TestApplyPatchToFileW(patchfilename: super::super::Foundation::PWSTR, oldfilename: super::super::Foundation::PWSTR, applyoptionflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -15079,7 +15400,8 @@ pub const WARN_SEQUENCE_DATA_SUPERSEDENCE_IGNORED: u32 = 3222294787u32;
 pub unsafe fn ZombifyActCtx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hactctx: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ZombifyActCtx(hactctx: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }

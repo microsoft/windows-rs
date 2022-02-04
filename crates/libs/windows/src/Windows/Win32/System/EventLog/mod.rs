@@ -5,7 +5,8 @@
 pub unsafe fn BackupEventLogA<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BackupEventLogA(heventlog: EventLogHandle, lpbackupfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -20,7 +21,8 @@ pub unsafe fn BackupEventLogA<'a, Param0: ::windows::core::IntoParam<'a, EventLo
 pub unsafe fn BackupEventLogW<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BackupEventLogW(heventlog: EventLogHandle, lpbackupfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -35,7 +37,8 @@ pub unsafe fn BackupEventLogW<'a, Param0: ::windows::core::IntoParam<'a, EventLo
 pub unsafe fn ClearEventLogA<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClearEventLogA(heventlog: EventLogHandle, lpbackupfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -50,7 +53,8 @@ pub unsafe fn ClearEventLogA<'a, Param0: ::windows::core::IntoParam<'a, EventLog
 pub unsafe fn ClearEventLogW<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(heventlog: Param0, lpbackupfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClearEventLogW(heventlog: EventLogHandle, lpbackupfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -65,7 +69,8 @@ pub unsafe fn ClearEventLogW<'a, Param0: ::windows::core::IntoParam<'a, EventLog
 pub unsafe fn CloseEventLog<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseEventLog(heventlog: EventLogHandle) -> super::super::Foundation::BOOL;
         }
@@ -80,7 +85,8 @@ pub unsafe fn CloseEventLog<'a, Param0: ::windows::core::IntoParam<'a, EventLogH
 pub unsafe fn DeregisterEventSource<'a, Param0: ::windows::core::IntoParam<'a, EventSourceHandle>>(heventlog: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeregisterEventSource(heventlog: EventSourceHandle) -> super::super::Foundation::BOOL;
         }
@@ -1353,7 +1359,8 @@ unsafe impl ::windows::core::Abi for EventSourceHandle {
 pub unsafe fn EvtArchiveExportedLog<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, logfilepath: Param1, locale: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtArchiveExportedLog(session: isize, logfilepath: super::super::Foundation::PWSTR, locale: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1368,7 +1375,8 @@ pub unsafe fn EvtArchiveExportedLog<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn EvtCancel(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtCancel(object: isize) -> super::super::Foundation::BOOL;
         }
@@ -1383,7 +1391,8 @@ pub unsafe fn EvtCancel(object: isize) -> super::super::Foundation::BOOL {
 pub unsafe fn EvtClearLog<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, channelpath: Param1, targetfilepath: Param2, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtClearLog(session: isize, channelpath: super::super::Foundation::PWSTR, targetfilepath: super::super::Foundation::PWSTR, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1398,7 +1407,8 @@ pub unsafe fn EvtClearLog<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn EvtClose(object: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtClose(object: isize) -> super::super::Foundation::BOOL;
         }
@@ -1413,7 +1423,8 @@ pub unsafe fn EvtClose(object: isize) -> super::super::Foundation::BOOL {
 pub unsafe fn EvtCreateBookmark<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(bookmarkxml: Param0) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtCreateBookmark(bookmarkxml: super::super::Foundation::PWSTR) -> isize;
         }
@@ -1428,7 +1439,8 @@ pub unsafe fn EvtCreateBookmark<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn EvtCreateRenderContext(valuepathscount: u32, valuepaths: *const super::super::Foundation::PWSTR, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtCreateRenderContext(valuepathscount: u32, valuepaths: *const super::super::Foundation::PWSTR, flags: u32) -> isize;
         }
@@ -1443,7 +1455,8 @@ pub unsafe fn EvtCreateRenderContext(valuepathscount: u32, valuepaths: *const su
 pub unsafe fn EvtExportLog<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, path: Param1, query: Param2, targetfilepath: Param3, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtExportLog(session: isize, path: super::super::Foundation::PWSTR, query: super::super::Foundation::PWSTR, targetfilepath: super::super::Foundation::PWSTR, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1458,7 +1471,8 @@ pub unsafe fn EvtExportLog<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid: u32, valuecount: u32, values: *const EVT_VARIANT, flags: u32, buffersize: u32, buffer: super::super::Foundation::PWSTR, bufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid: u32, valuecount: u32, values: *const EVT_VARIANT, flags: u32, buffersize: u32, buffer: super::super::Foundation::PWSTR, bufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1473,7 +1487,8 @@ pub unsafe fn EvtFormatMessage(publishermetadata: isize, event: isize, messageid
 pub unsafe fn EvtGetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtGetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1488,7 +1503,8 @@ pub unsafe fn EvtGetChannelConfigProperty(channelconfig: isize, propertyid: EVT_
 pub unsafe fn EvtGetEventInfo(event: isize, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtGetEventInfo(event: isize, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1503,7 +1519,8 @@ pub unsafe fn EvtGetEventInfo(event: isize, propertyid: EVT_EVENT_PROPERTY_ID, p
 pub unsafe fn EvtGetEventMetadataProperty(eventmetadata: isize, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: *mut EVT_VARIANT, eventmetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtGetEventMetadataProperty(eventmetadata: isize, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: *mut EVT_VARIANT, eventmetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1518,7 +1535,8 @@ pub unsafe fn EvtGetEventMetadataProperty(eventmetadata: isize, propertyid: EVT_
 pub unsafe fn EvtGetExtendedStatus(buffersize: u32, buffer: super::super::Foundation::PWSTR, bufferused: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtGetExtendedStatus(buffersize: u32, buffer: super::super::Foundation::PWSTR, bufferused: *mut u32) -> u32;
         }
@@ -1533,7 +1551,8 @@ pub unsafe fn EvtGetExtendedStatus(buffersize: u32, buffer: super::super::Founda
 pub unsafe fn EvtGetLogInfo(log: isize, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtGetLogInfo(log: isize, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1548,7 +1567,8 @@ pub unsafe fn EvtGetLogInfo(log: isize, propertyid: EVT_LOG_PROPERTY_ID, propert
 pub unsafe fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1563,7 +1583,8 @@ pub unsafe fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arr
 pub unsafe fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1578,7 +1599,8 @@ pub unsafe fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u3
 pub unsafe fn EvtGetPublisherMetadataProperty(publishermetadata: isize, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: *mut EVT_VARIANT, publishermetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtGetPublisherMetadataProperty(publishermetadata: isize, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: *mut EVT_VARIANT, publishermetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1593,7 +1615,8 @@ pub unsafe fn EvtGetPublisherMetadataProperty(publishermetadata: isize, property
 pub unsafe fn EvtGetQueryInfo(queryorsubscription: isize, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtGetQueryInfo(queryorsubscription: isize, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1608,7 +1631,8 @@ pub unsafe fn EvtGetQueryInfo(queryorsubscription: isize, propertyid: EVT_QUERY_
 pub unsafe fn EvtNext(resultset: isize, eventssize: u32, events: *mut isize, timeout: u32, flags: u32, returned: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtNext(resultset: isize, eventssize: u32, events: *mut isize, timeout: u32, flags: u32, returned: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1623,7 +1647,8 @@ pub unsafe fn EvtNext(resultset: isize, eventssize: u32, events: *mut isize, tim
 pub unsafe fn EvtNextChannelPath(channelenum: isize, channelpathbuffersize: u32, channelpathbuffer: super::super::Foundation::PWSTR, channelpathbufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtNextChannelPath(channelenum: isize, channelpathbuffersize: u32, channelpathbuffer: super::super::Foundation::PWSTR, channelpathbufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1637,7 +1662,8 @@ pub unsafe fn EvtNextChannelPath(channelenum: isize, channelpathbuffersize: u32,
 pub unsafe fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isize;
         }
@@ -1652,7 +1678,8 @@ pub unsafe fn EvtNextEventMetadata(eventmetadataenum: isize, flags: u32) -> isiz
 pub unsafe fn EvtNextPublisherId(publisherenum: isize, publisheridbuffersize: u32, publisheridbuffer: super::super::Foundation::PWSTR, publisheridbufferused: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtNextPublisherId(publisherenum: isize, publisheridbuffersize: u32, publisheridbuffer: super::super::Foundation::PWSTR, publisheridbufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1667,7 +1694,8 @@ pub unsafe fn EvtNextPublisherId(publisherenum: isize, publisheridbuffersize: u3
 pub unsafe fn EvtOpenChannelConfig<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, channelpath: Param1, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtOpenChannelConfig(session: isize, channelpath: super::super::Foundation::PWSTR, flags: u32) -> isize;
         }
@@ -1681,7 +1709,8 @@ pub unsafe fn EvtOpenChannelConfig<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize;
         }
@@ -1695,7 +1724,8 @@ pub unsafe fn EvtOpenChannelEnum(session: isize, flags: u32) -> isize {
 pub unsafe fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> isize;
         }
@@ -1710,7 +1740,8 @@ pub unsafe fn EvtOpenEventMetadataEnum(publishermetadata: isize, flags: u32) -> 
 pub unsafe fn EvtOpenLog<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, path: Param1, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtOpenLog(session: isize, path: super::super::Foundation::PWSTR, flags: u32) -> isize;
         }
@@ -1724,7 +1755,8 @@ pub unsafe fn EvtOpenLog<'a, Param1: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize;
         }
@@ -1739,7 +1771,8 @@ pub unsafe fn EvtOpenPublisherEnum(session: isize, flags: u32) -> isize {
 pub unsafe fn EvtOpenPublisherMetadata<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, publisherid: Param1, logfilepath: Param2, locale: u32, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtOpenPublisherMetadata(session: isize, publisherid: super::super::Foundation::PWSTR, logfilepath: super::super::Foundation::PWSTR, locale: u32, flags: u32) -> isize;
         }
@@ -1753,7 +1786,8 @@ pub unsafe fn EvtOpenPublisherMetadata<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> isize;
         }
@@ -1768,7 +1802,8 @@ pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::
 pub unsafe fn EvtQuery<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, path: Param1, query: Param2, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtQuery(session: isize, path: super::super::Foundation::PWSTR, query: super::super::Foundation::PWSTR, flags: u32) -> isize;
         }
@@ -1783,7 +1818,8 @@ pub unsafe fn EvtQuery<'a, Param1: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn EvtRender(context: isize, fragment: isize, flags: u32, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32, propertycount: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtRender(context: isize, fragment: isize, flags: u32, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32, propertycount: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1798,7 +1834,8 @@ pub unsafe fn EvtRender(context: isize, fragment: isize, flags: u32, buffersize:
 pub unsafe fn EvtSaveChannelConfig(channelconfig: isize, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtSaveChannelConfig(channelconfig: isize, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1813,7 +1850,8 @@ pub unsafe fn EvtSaveChannelConfig(channelconfig: isize, flags: u32) -> super::s
 pub unsafe fn EvtSeek(resultset: isize, position: i64, bookmark: isize, timeout: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtSeek(resultset: isize, position: i64, bookmark: isize, timeout: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -1828,7 +1866,8 @@ pub unsafe fn EvtSeek(resultset: isize, position: i64, bookmark: isize, timeout:
 pub unsafe fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> super::super::Foundation::BOOL;
         }
@@ -1843,7 +1882,8 @@ pub unsafe fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_
 pub unsafe fn EvtSubscribe<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: isize, signalevent: Param1, channelpath: Param2, query: Param3, bookmark: isize, context: *const ::core::ffi::c_void, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtSubscribe(session: isize, signalevent: super::super::Foundation::HANDLE, channelpath: super::super::Foundation::PWSTR, query: super::super::Foundation::PWSTR, bookmark: isize, context: *const ::core::ffi::c_void, callback: ::windows::core::RawPtr, flags: u32) -> isize;
         }
@@ -1858,7 +1898,8 @@ pub unsafe fn EvtSubscribe<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wevtapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::Foundation::BOOL;
         }
@@ -1873,7 +1914,8 @@ pub unsafe fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::
 pub unsafe fn GetEventLogInformation<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetEventLogInformation(heventlog: EventLogHandle, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1888,7 +1930,8 @@ pub unsafe fn GetEventLogInformation<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetNumberOfEventLogRecords<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0, numberofrecords: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNumberOfEventLogRecords(heventlog: EventLogHandle, numberofrecords: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1903,7 +1946,8 @@ pub unsafe fn GetNumberOfEventLogRecords<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetOldestEventLogRecord<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0, oldestrecord: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetOldestEventLogRecord(heventlog: EventLogHandle, oldestrecord: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -1918,7 +1962,8 @@ pub unsafe fn GetOldestEventLogRecord<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn NotifyChangeEventLog<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(heventlog: Param0, hevent: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn NotifyChangeEventLog(heventlog: EventLogHandle, hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -1933,7 +1978,8 @@ pub unsafe fn NotifyChangeEventLog<'a, Param0: ::windows::core::IntoParam<'a, Ev
 pub unsafe fn OpenBackupEventLogA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpuncservername: Param0, lpfilename: Param1) -> EventLogHandle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenBackupEventLogA(lpuncservername: super::super::Foundation::PSTR, lpfilename: super::super::Foundation::PSTR) -> EventLogHandle;
         }
@@ -1948,7 +1994,8 @@ pub unsafe fn OpenBackupEventLogA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn OpenBackupEventLogW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpuncservername: Param0, lpfilename: Param1) -> EventLogHandle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenBackupEventLogW(lpuncservername: super::super::Foundation::PWSTR, lpfilename: super::super::Foundation::PWSTR) -> EventLogHandle;
         }
@@ -1963,7 +2010,8 @@ pub unsafe fn OpenBackupEventLogW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn OpenEventLogA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventLogHandle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenEventLogA(lpuncservername: super::super::Foundation::PSTR, lpsourcename: super::super::Foundation::PSTR) -> EventLogHandle;
         }
@@ -1978,7 +2026,8 @@ pub unsafe fn OpenEventLogA<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn OpenEventLogW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventLogHandle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenEventLogW(lpuncservername: super::super::Foundation::PWSTR, lpsourcename: super::super::Foundation::PWSTR) -> EventLogHandle;
         }
@@ -2055,7 +2104,8 @@ impl ::core::fmt::Debug for REPORT_EVENT_TYPE {
 pub unsafe fn ReadEventLogA<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReadEventLogA(heventlog: EventLogHandle, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2070,7 +2120,8 @@ pub unsafe fn ReadEventLogA<'a, Param0: ::windows::core::IntoParam<'a, EventLogH
 pub unsafe fn ReadEventLogW<'a, Param0: ::windows::core::IntoParam<'a, EventLogHandle>>(heventlog: Param0, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReadEventLogW(heventlog: EventLogHandle, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2085,7 +2136,8 @@ pub unsafe fn ReadEventLogW<'a, Param0: ::windows::core::IntoParam<'a, EventLogH
 pub unsafe fn RegisterEventSourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventSourceHandle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterEventSourceA(lpuncservername: super::super::Foundation::PSTR, lpsourcename: super::super::Foundation::PSTR) -> EventSourceHandle;
         }
@@ -2100,7 +2152,8 @@ pub unsafe fn RegisterEventSourceA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn RegisterEventSourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpuncservername: Param0, lpsourcename: Param1) -> EventSourceHandle {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterEventSourceW(lpuncservername: super::super::Foundation::PWSTR, lpsourcename: super::super::Foundation::PWSTR) -> EventSourceHandle;
         }
@@ -2115,7 +2168,8 @@ pub unsafe fn RegisterEventSourceW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ReportEventA<'a, Param0: ::windows::core::IntoParam<'a, EventSourceHandle>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(heventlog: Param0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: Param4, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReportEventA(heventlog: EventSourceHandle, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2130,7 +2184,8 @@ pub unsafe fn ReportEventA<'a, Param0: ::windows::core::IntoParam<'a, EventSourc
 pub unsafe fn ReportEventW<'a, Param0: ::windows::core::IntoParam<'a, EventSourceHandle>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(heventlog: Param0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: Param4, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ReportEventW(heventlog: EventSourceHandle, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }

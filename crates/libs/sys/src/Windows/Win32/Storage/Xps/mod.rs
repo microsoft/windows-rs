@@ -1,17 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Storage_Xps_Printing")]
 pub mod Printing;
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn AbortDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DeviceCapabilitiesA(pdevice: super::super::Foundation::PSTR, pport: super::super::Foundation::PSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32;
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DeviceCapabilitiesW(pdevice: super::super::Foundation::PWSTR, pport: super::super::Foundation::PWSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn EndDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32;
@@ -26,9 +21,6 @@ extern "system" {
     pub fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: super::super::Foundation::PSTR, cjoutput: i32, lpoutdata: super::super::Foundation::PSTR) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn PrintWindow(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn SetAbortProc(hdc: super::super::Graphics::Gdi::HDC, proc: ABORTPROC) -> i32;
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -39,6 +31,23 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn StartPage(hdc: super::super::Graphics::Gdi::HDC) -> i32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn PrintWindow(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "winspool.drv", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn DeviceCapabilitiesA(pdevice: super::super::Foundation::PSTR, pport: super::super::Foundation::PSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32;
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn DeviceCapabilitiesW(pdevice: super::super::Foundation::PWSTR, pport: super::super::Foundation::PWSTR, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32;
 }
 #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

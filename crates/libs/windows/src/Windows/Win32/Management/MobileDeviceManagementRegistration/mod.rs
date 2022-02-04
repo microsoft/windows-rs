@@ -5,7 +5,8 @@
 pub unsafe fn ApplyLocalManagementSyncML<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(syncmlrequest: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmlocalmanagement", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ApplyLocalManagementSyncML(syncmlrequest: super::super::Foundation::PWSTR, syncmlresult: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -31,7 +32,8 @@ pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
 pub unsafe fn DiscoverManagementService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszupn: Param0) -> ::windows::core::Result<*mut MANAGEMENT_SERVICE_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiscoverManagementService(pszupn: super::super::Foundation::PWSTR, ppmgmtinfo: *mut *mut MANAGEMENT_SERVICE_INFO) -> ::windows::core::HRESULT;
         }
@@ -47,7 +49,8 @@ pub unsafe fn DiscoverManagementService<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DiscoverManagementServiceEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszupn: Param0, pszdiscoveryservicecandidate: Param1) -> ::windows::core::Result<*mut MANAGEMENT_SERVICE_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiscoverManagementServiceEx(pszupn: super::super::Foundation::PWSTR, pszdiscoveryservicecandidate: super::super::Foundation::PWSTR, ppmgmtinfo: *mut *mut MANAGEMENT_SERVICE_INFO) -> ::windows::core::HRESULT;
         }
@@ -63,7 +66,8 @@ pub unsafe fn DiscoverManagementServiceEx<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn GetDeviceManagementConfigInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(providerid: Param0, configstringbufferlength: *mut u32, configstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDeviceManagementConfigInfo(providerid: super::super::Foundation::PWSTR, configstringbufferlength: *mut u32, configstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -77,7 +81,8 @@ pub unsafe fn GetDeviceManagementConfigInfo<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -92,7 +97,8 @@ pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INF
 pub unsafe fn GetManagementAppHyperlink(cchhyperlink: u32, pszhyperlink: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetManagementAppHyperlink(cchhyperlink: u32, pszhyperlink: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -107,7 +113,8 @@ pub unsafe fn GetManagementAppHyperlink(cchhyperlink: u32, pszhyperlink: super::
 pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, cchupn: u32, pszupn: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut super::super::Foundation::BOOL, cchupn: u32, pszupn: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -122,7 +129,8 @@ pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagemen
 pub unsafe fn IsManagementRegistrationAllowed() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -138,7 +146,8 @@ pub unsafe fn IsManagementRegistrationAllowed() -> ::windows::core::Result<super
 pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsMdmUxWithoutAadAllowed(isenrollmentallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -383,7 +392,8 @@ impl ::core::fmt::Debug for REGISTRATION_INFORMATION_CLASS {
 pub unsafe fn RegisterDeviceWithLocalManagement() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmlocalmanagement", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterDeviceWithLocalManagement(alreadyregistered: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -399,7 +409,8 @@ pub unsafe fn RegisterDeviceWithLocalManagement() -> ::windows::core::Result<sup
 pub unsafe fn RegisterDeviceWithManagement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszupn: Param0, ppszmdmserviceuri: Param1, ppzsaccesstoken: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterDeviceWithManagement(pszupn: super::super::Foundation::PWSTR, ppszmdmserviceuri: super::super::Foundation::PWSTR, ppzsaccesstoken: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -414,7 +425,8 @@ pub unsafe fn RegisterDeviceWithManagement<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(usertoken: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterDeviceWithManagementUsingAADCredentials(usertoken: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -428,7 +440,8 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials<'a, Param0: ::wind
 pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> ::windows::core::HRESULT;
         }
@@ -443,7 +456,8 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> ::windo
 pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(mdmapplicationid: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -458,7 +472,8 @@ pub unsafe fn RegisterDeviceWithManagementUsingAADDeviceCredentials2<'a, Param0:
 pub unsafe fn SetDeviceManagementConfigInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(providerid: Param0, configstring: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetDeviceManagementConfigInfo(providerid: super::super::Foundation::PWSTR, configstring: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -473,7 +488,8 @@ pub unsafe fn SetDeviceManagementConfigInfo<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn SetManagedExternally<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ismanagedexternally: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetManagedExternally(ismanagedexternally: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -487,7 +503,8 @@ pub unsafe fn SetManagedExternally<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn UnregisterDeviceWithLocalManagement() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmlocalmanagement", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnregisterDeviceWithLocalManagement() -> ::windows::core::HRESULT;
         }
@@ -502,7 +519,8 @@ pub unsafe fn UnregisterDeviceWithLocalManagement() -> ::windows::core::Result<(
 pub unsafe fn UnregisterDeviceWithManagement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(enrollmentid: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mdmregistration", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UnregisterDeviceWithManagement(enrollmentid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }

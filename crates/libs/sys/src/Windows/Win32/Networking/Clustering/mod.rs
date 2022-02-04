@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn AddClusterGroupDependency(hdependentgroup: *const _HGROUP, hprovidergroup: *const _HGROUP) -> u32;
@@ -40,8 +41,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CloseCluster(hcluster: *const _HCLUSTER) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CloseClusterGroup(hgroup: *const _HGROUP) -> super::super::Foundation::BOOL;
@@ -65,30 +64,6 @@ extern "system" {
     pub fn CloseClusterResource(hresource: *const _HRESOURCE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusAddClusterHealthFault(hcluster: *const _HCLUSTER, failure: *const CLUSTER_HEALTH_FAULT, param2: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusGetClusterHealthFaults(hcluster: *const _HCLUSTER, objects: *mut CLUSTER_HEALTH_FAULT_ARRAY, flags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusRemoveClusterHealthFault(hcluster: *const _HCLUSTER, id: super::super::Foundation::PWSTR, flags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusWorkerCheckTerminate(lpworker: *mut CLUS_WORKER) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusWorkerCreate(lpworker: *mut CLUS_WORKER, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER);
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusWorkerTerminateEx(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusWorkersTerminate(clusworkers: *mut *mut CLUS_WORKER, clusworkerscount: usize, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn ClusterAddGroupToAffinityRule(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, hgroup: *const _HGROUP) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn ClusterAddGroupToGroupSet(hgroupset: *const _HGROUPSET, hgroup: *const _HGROUP) -> u32;
@@ -97,9 +72,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ClusterAffinityRuleControl(hcluster: *const _HCLUSTER, affinityrulename: super::super::Foundation::PWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusterClearBackupStateForSharedVolume(lpszvolumepathname: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn ClusterCloseEnum(henum: *const _HCLUSENUM) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -109,10 +81,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ClusterCreateAffinityRule(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn ClusterDecrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pcryptinput: *const u8, cbcryptinput: u32, ppcryptoutput: *mut *mut u8, pcbcryptoutput: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn ClusterEncrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pdata: *const u8, cbdata: u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ClusterEnum(henum: *const _HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
@@ -123,12 +91,6 @@ extern "system" {
     pub fn ClusterGetEnumCount(henum: *const _HCLUSENUM) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn ClusterGetEnumCountEx(hclusterenum: *const _HCLUSENUMEX) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: super::super::Foundation::PWSTR, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusterGetVolumePathName(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn ClusterGroupCloseEnum(hgroupenum: *const _HGROUPENUM) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -161,9 +123,6 @@ extern "system" {
     pub fn ClusterGroupSetGetEnumCount(hgroupsetenum: *mut _HGROUPSETENUM) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn ClusterGroupSetOpenEnum(hcluster: *mut _HCLUSTER) -> *mut _HGROUPSETENUM;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusterIsPathOnSharedVolume(lpszpathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -212,9 +171,6 @@ extern "system" {
     pub fn ClusterOpenEnum(hcluster: *const _HCLUSTER, dwtype: u32) -> *mut _HCLUSENUM;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn ClusterOpenEnumEx(hcluster: *const _HCLUSTER, dwtype: u32, poptions: *const ::core::ffi::c_void) -> *mut _HCLUSENUMEX;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClusterPrepareSharedVolumeForBackup(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, lpcchvolumepathname: *mut u32, lpszvolumename: super::super::Foundation::PWSTR, lpcchvolumename: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ClusterRegBatchAddCommand(hregbatch: *const _HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: super::super::Foundation::PWSTR, dwoptions: u32, lpdata: *const ::core::ffi::c_void, cbdata: u32) -> i32;
@@ -406,14 +362,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn FailClusterResource(hresource: *const _HRESOURCE) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn FreeClusterCrypt(pcryptinfo: *const ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn GetClusterFromGroup(hgroup: *const _HGROUP) -> *mut _HCLUSTER;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn GetClusterFromNetInterface(hnetinterface: *const _HNETINTERFACE) -> *mut _HCLUSTER;
@@ -494,12 +442,6 @@ extern "system" {
     pub fn GetNotifyEventHandle(hchange: *const _HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn IsFileOnClusterSharedVolume(lpszpathname: super::super::Foundation::PWSTR, pbfileisonsharedvolume: *mut super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn MoveClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32;
@@ -524,12 +466,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenCluster(lpszclustername: super::super::Foundation::PWSTR) -> *mut _HCLUSTER;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenClusterCryptProvider(lpszresource: super::super::Foundation::PWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenClusterCryptProviderEx(lpszresource: super::super::Foundation::PWSTR, lpszkeyname: super::super::Foundation::PWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER;
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenClusterEx(lpszclustername: super::super::Foundation::PWSTR, desiredaccess: u32, grantedaccess: *mut u32) -> *mut _HCLUSTER;
@@ -575,14 +511,6 @@ extern "system" {
     pub fn PauseClusterNodeEx(hnode: *const _HNODE, bdrainnode: super::super::Foundation::BOOL, dwpauseflags: u32, hnodedraintarget: *const _HNODE) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn QueryAppInstanceVersion(appinstanceid: *const ::windows_sys::core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterAppInstance(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const ::windows_sys::core::GUID, childreninheritappinstance: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn RegisterAppInstanceVersion(appinstanceid: *const ::windows_sys::core::GUID, instanceversionhigh: u64, instanceversionlow: u64) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterClusterNotify(hchange: *const _HCHANGE, dwfiltertype: u32, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -611,6 +539,132 @@ extern "system" {
     pub fn RemoveCrossClusterGroupSetDependency(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: super::super::Foundation::PWSTR, lpremotegroupsetname: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
     pub fn RemoveResourceFromClusterSharedVolumes(hresource: *const _HRESOURCE) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn RestartClusterResource(hresource: *const _HRESOURCE, dwflags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RestoreClusterDatabase(lpszpathname: super::super::Foundation::PWSTR, bforce: super::super::Foundation::BOOL, lpszquorumdriveletter: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn ResumeClusterNode(hnode: *const _HNODE) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn ResumeClusterNodeEx(hnode: *const _HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClusterGroupName(hgroup: *const _HGROUP, lpszgroupname: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn SetClusterGroupNodeList(hgroup: *const _HGROUP, nodecount: u32, nodelist: *const *const _HNODE) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClusterGroupSetDependencyExpression(hgroupset: *const _HGROUPSET, lpszdependencyexprssion: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClusterName(hcluster: *const _HCLUSTER, lpsznewclustername: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClusterNetworkName(hnetwork: *const _HNETWORK, lpszname: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn SetClusterNetworkPriorityOrder(hcluster: *const _HCLUSTER, networkcount: u32, networklist: *const *const _HNETWORK) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClusterQuorumResource(hresource: *const _HRESOURCE, lpszdevicename: super::super::Foundation::PWSTR, dwmaxquologsize: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClusterResourceDependencyExpression(hresource: *const _HRESOURCE, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClusterResourceName(hresource: *const _HRESOURCE, lpszresourcename: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetClusterServiceAccountPassword(lpszclustername: super::super::Foundation::PWSTR, lpsznewpassword: super::super::Foundation::PWSTR, dwflags: u32, lpreturnstatusbuffer: *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetGroupDependencyExpression(hgroup: *const _HGROUP, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "ntlanman", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn QueryAppInstanceVersion(appinstanceid: *const ::windows_sys::core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegisterAppInstance(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const ::windows_sys::core::GUID, childreninheritappinstance: super::super::Foundation::BOOL) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn RegisterAppInstanceVersion(appinstanceid: *const ::windows_sys::core::GUID, instanceversionhigh: u64, instanceversionlow: u64) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn ResetAllAppInstanceVersions() -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetAppInstanceCsvFlags(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusAddClusterHealthFault(hcluster: *const _HCLUSTER, failure: *const CLUSTER_HEALTH_FAULT, param2: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusGetClusterHealthFaults(hcluster: *const _HCLUSTER, objects: *mut CLUSTER_HEALTH_FAULT_ARRAY, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusRemoveClusterHealthFault(hcluster: *const _HCLUSTER, id: super::super::Foundation::PWSTR, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusWorkerCheckTerminate(lpworker: *mut CLUS_WORKER) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusWorkerCreate(lpworker: *mut CLUS_WORKER, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER);
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusWorkerTerminateEx(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusWorkersTerminate(clusworkers: *mut *mut CLUS_WORKER, clusworkerscount: usize, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusterClearBackupStateForSharedVolume(lpszvolumepathname: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn ClusterDecrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pcryptinput: *const u8, cbcryptinput: u32, ppcryptoutput: *mut *mut u8, pcbcryptoutput: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn ClusterEncrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pdata: *const u8, cbdata: u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: super::super::Foundation::PWSTR, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusterGetVolumePathName(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusterIsPathOnSharedVolume(lpszpathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ClusterPrepareSharedVolumeForBackup(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, lpcchvolumepathname: *mut u32, lpszvolumename: super::super::Foundation::PWSTR, lpcchvolumename: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+    pub fn FreeClusterCrypt(pcryptinfo: *const ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OpenClusterCryptProvider(lpszresource: super::super::Foundation::PWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER;
+    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn OpenClusterCryptProviderEx(lpszresource: super::super::Foundation::PWSTR, lpszkeyname: super::super::Foundation::PWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER;
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn ResUtilAddUnknownProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
@@ -883,51 +937,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn ResUtilsDeleteKeyTree(key: super::super::System::Registry::HKEY, keyname: super::super::Foundation::PWSTR, treatnokeyaserror: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn ResetAllAppInstanceVersions() -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn RestartClusterResource(hresource: *const _HRESOURCE, dwflags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RestoreClusterDatabase(lpszpathname: super::super::Foundation::PWSTR, bforce: super::super::Foundation::BOOL, lpszquorumdriveletter: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn ResumeClusterNode(hnode: *const _HNODE) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn ResumeClusterNodeEx(hnode: *const _HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetAppInstanceCsvFlags(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetClusterGroupName(hgroup: *const _HGROUP, lpszgroupname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn SetClusterGroupNodeList(hgroup: *const _HGROUP, nodecount: u32, nodelist: *const *const _HNODE) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetClusterGroupSetDependencyExpression(hgroupset: *const _HGROUPSET, lpszdependencyexprssion: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetClusterName(hcluster: *const _HCLUSTER, lpsznewclustername: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetClusterNetworkName(hnetwork: *const _HNETWORK, lpszname: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-    pub fn SetClusterNetworkPriorityOrder(hcluster: *const _HCLUSTER, networkcount: u32, networklist: *const *const _HNETWORK) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetClusterQuorumResource(hresource: *const _HRESOURCE, lpszdevicename: super::super::Foundation::PWSTR, dwmaxquologsize: u32) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetClusterResourceDependencyExpression(hresource: *const _HRESOURCE, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetClusterResourceName(hresource: *const _HRESOURCE, lpszresourcename: super::super::Foundation::PWSTR) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetClusterServiceAccountPassword(lpszclustername: super::super::Foundation::PWSTR, lpsznewpassword: super::super::Foundation::PWSTR, dwflags: u32, lpreturnstatusbuffer: *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetGroupDependencyExpression(hgroup: *const _HGROUP, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const BitLockerDecrypted: i32 = 4i32;

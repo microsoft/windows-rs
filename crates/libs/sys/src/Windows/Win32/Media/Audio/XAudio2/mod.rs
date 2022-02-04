@@ -1,5 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "hrtfapo", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
+    pub fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut IXAPO) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "xaudio2_8", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
     pub fn CreateAudioReverb(ppapo: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
@@ -7,8 +14,6 @@ extern "system" {
     pub fn CreateAudioVolumeMeter(ppapo: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
     pub fn CreateFX(clsid: *const ::windows_sys::core::GUID, peffect: *mut ::windows_sys::core::IUnknown, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-    pub fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut IXAPO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
     pub fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut IXAudio2, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows_sys::core::HRESULT;
 }

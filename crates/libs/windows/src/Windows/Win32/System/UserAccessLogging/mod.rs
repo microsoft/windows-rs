@@ -47,7 +47,8 @@ impl ::core::default::Default for UAL_DATA_BLOB {
 pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ualapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::core::HRESULT;
         }
@@ -62,7 +63,8 @@ pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::core::Resu
 pub unsafe fn UalRegisterProduct<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszproductname: Param0, wszrolename: Param1, wszguid: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ualapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UalRegisterProduct(wszproductname: super::super::Foundation::PWSTR, wszrolename: super::super::Foundation::PWSTR, wszguid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -77,7 +79,8 @@ pub unsafe fn UalRegisterProduct<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ualapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::core::HRESULT;
         }
@@ -92,7 +95,8 @@ pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()
 pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ualapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::core::HRESULT;
         }

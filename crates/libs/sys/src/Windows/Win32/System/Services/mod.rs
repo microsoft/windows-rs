@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -52,9 +53,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn EnumServicesStatusW(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: super::super::Foundation::PWSTR, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn GetServiceDisplayNameA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: super::super::Foundation::PSTR, lpdisplayname: super::super::Foundation::PSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
@@ -67,15 +65,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn GetServiceKeyNameW(hscmanager: super::super::Security::SC_HANDLE, lpdisplayname: super::super::Foundation::PWSTR, lpservicename: super::super::Foundation::PWSTR, lpcchbuffer: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Services', 'Win32_System_Registry'*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn GetServiceRegistryStateKey(servicestatushandle: SERVICE_STATUS_HANDLE, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32;
-    #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation', 'Win32_Security'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn GetSharedServiceDirectory(servicehandle: super::super::Security::SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: super::super::Foundation::PWSTR, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Services', 'Win32_Security', 'Win32_System_Registry'*"]
-    #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
-    pub fn GetSharedServiceRegistryStateKey(servicehandle: super::super::Security::SC_HANDLE, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32;
     #[doc = "*Required features: 'Win32_System_Services', 'Win32_Security'*"]
     #[cfg(feature = "Win32_Security")]
     pub fn LockServiceDatabase(hscmanager: super::super::Security::SC_HANDLE) -> *mut ::core::ffi::c_void;
@@ -169,6 +158,30 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn WaitServiceState(hservice: super::super::Security::SC_HANDLE, dwnotify: u32, dwtimeout: u32, hcancelevent: super::super::Foundation::HANDLE) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-service-core-l1-1-3", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Services', 'Win32_System_Registry'*"]
+    #[cfg(feature = "Win32_System_Registry")]
+    pub fn GetServiceRegistryStateKey(servicestatushandle: SERVICE_STATUS_HANDLE, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-service-core-l1-1-4", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: super::super::Foundation::PWSTR, cchpathbufferlength: u32, lpcchrequiredbufferlength: *mut u32) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-service-core-l1-1-5", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation', 'Win32_Security'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    pub fn GetSharedServiceDirectory(servicehandle: super::super::Security::SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: super::super::Foundation::PWSTR, pathbufferlength: u32, requiredbufferlength: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Services', 'Win32_Security', 'Win32_System_Registry'*"]
+    #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
+    pub fn GetSharedServiceRegistryStateKey(servicehandle: super::super::Security::SC_HANDLE, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32;
 }
 pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 762980374, data2: 3166, data3: 17916, data4: [156, 231, 87, 14, 94, 205, 233, 201] };
 pub const DOMAIN_JOIN_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 484575930, data2: 38993, data3: 17441, data4: [148, 48, 29, 222, 183, 102, 232, 9] };

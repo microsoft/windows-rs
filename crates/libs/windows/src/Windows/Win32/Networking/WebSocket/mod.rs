@@ -385,7 +385,8 @@ impl ::core::fmt::Debug for WEB_SOCKET_PROPERTY_TYPE {
 pub unsafe fn WebSocketAbortHandle<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketAbortHandle(hwebsocket: WEB_SOCKET_HANDLE);
         }
@@ -400,7 +401,8 @@ pub unsafe fn WebSocketAbortHandle<'a, Param0: ::windows::core::IntoParam<'a, WE
 pub unsafe fn WebSocketBeginClientHandshake<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, pszsubprotocols: *const super::super::Foundation::PSTR, ulsubprotocolcount: u32, pszextensions: *const super::super::Foundation::PSTR, ulextensioncount: u32, pinitialheaders: *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount: u32, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: *const super::super::Foundation::PSTR, ulsubprotocolcount: u32, pszextensions: *const super::super::Foundation::PSTR, ulextensioncount: u32, pinitialheaders: *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount: u32, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -415,7 +417,8 @@ pub unsafe fn WebSocketBeginClientHandshake<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn WebSocketBeginServerHandshake<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwebsocket: Param0, pszsubprotocolselected: Param1, pszextensionselected: *const super::super::Foundation::PSTR, ulextensionselectedcount: u32, prequestheaders: *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount: u32, presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketBeginServerHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocolselected: super::super::Foundation::PSTR, pszextensionselected: *const super::super::Foundation::PSTR, ulextensionselectedcount: u32, prequestheaders: *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount: u32, presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -429,7 +432,8 @@ pub unsafe fn WebSocketBeginServerHandshake<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn WebSocketCompleteAction<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, pvactioncontext: *const ::core::ffi::c_void, ulbytestransferred: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketCompleteAction(hwebsocket: WEB_SOCKET_HANDLE, pvactioncontext: *const ::core::ffi::c_void, ulbytestransferred: u32);
         }
@@ -443,7 +447,8 @@ pub unsafe fn WebSocketCompleteAction<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WebSocketCreateClientHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32) -> ::windows::core::Result<WEB_SOCKET_HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketCreateClientHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32, phwebsocket: *mut WEB_SOCKET_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -458,7 +463,8 @@ pub unsafe fn WebSocketCreateClientHandle(pproperties: *const WEB_SOCKET_PROPERT
 pub unsafe fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32) -> ::windows::core::Result<WEB_SOCKET_HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32, phwebsocket: *mut WEB_SOCKET_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -473,7 +479,8 @@ pub unsafe fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERT
 pub unsafe fn WebSocketDeleteHandle<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketDeleteHandle(hwebsocket: WEB_SOCKET_HANDLE);
         }
@@ -488,7 +495,8 @@ pub unsafe fn WebSocketDeleteHandle<'a, Param0: ::windows::core::IntoParam<'a, W
 pub unsafe fn WebSocketEndClientHandshake<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, presponseheaders: *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount: u32, pulselectedextensions: *mut u32, pulselectedextensioncount: *mut u32, pulselectedsubprotocol: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketEndClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, presponseheaders: *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount: u32, pulselectedextensions: *mut u32, pulselectedextensioncount: *mut u32, pulselectedsubprotocol: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -502,7 +510,8 @@ pub unsafe fn WebSocketEndClientHandshake<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WebSocketEndServerHandshake<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketEndServerHandshake(hwebsocket: WEB_SOCKET_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -516,7 +525,8 @@ pub unsafe fn WebSocketEndServerHandshake<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn WebSocketGetAction<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: *mut u32, paction: *mut WEB_SOCKET_ACTION, pbuffertype: *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketGetAction(hwebsocket: WEB_SOCKET_HANDLE, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: *mut u32, paction: *mut WEB_SOCKET_ACTION, pbuffertype: *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -530,7 +540,8 @@ pub unsafe fn WebSocketGetAction<'a, Param0: ::windows::core::IntoParam<'a, WEB_
 pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: *mut ::core::ffi::c_void, ulsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: *mut ::core::ffi::c_void, ulsize: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -544,7 +555,8 @@ pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalu
 pub unsafe fn WebSocketReceive<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, pbuffer: *const WEB_SOCKET_BUFFER, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketReceive(hwebsocket: WEB_SOCKET_HANDLE, pbuffer: *const WEB_SOCKET_BUFFER, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -558,7 +570,8 @@ pub unsafe fn WebSocketReceive<'a, Param0: ::windows::core::IntoParam<'a, WEB_SO
 pub unsafe fn WebSocketSend<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>>(hwebsocket: Param0, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *const WEB_SOCKET_BUFFER, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "websocket", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *const WEB_SOCKET_BUFFER, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

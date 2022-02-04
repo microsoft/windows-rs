@@ -2024,7 +2024,8 @@ impl ::core::default::Default for QOS {
 pub unsafe fn QOSAddSocketToFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::SOCKET>>(qoshandle: Param0, socket: Param1, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSAddSocketToFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -2039,7 +2040,8 @@ pub unsafe fn QOSAddSocketToFlow<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn QOSCancel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSCancel(qoshandle: super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
@@ -2054,7 +2056,8 @@ pub unsafe fn QOSCancel<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn QOSCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSCloseHandle(qoshandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2069,7 +2072,8 @@ pub unsafe fn QOSCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
@@ -2084,7 +2088,8 @@ pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super
 pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSEnumerateFlows(qoshandle: super::super::Foundation::HANDLE, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2099,7 +2104,8 @@ pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSNotifyFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
@@ -2114,7 +2120,8 @@ pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSQueryFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
@@ -2129,7 +2136,8 @@ pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn QOSRemoveSocketFromFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::SOCKET>>(qoshandle: Param0, socket: Param1, flowid: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSRemoveSocketFromFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, flowid: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -2148,7 +2156,8 @@ pub const QOSSP_ERR_BASE: u32 = 56000u32;
 pub unsafe fn QOSSetFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSSetFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
@@ -2163,7 +2172,8 @@ pub unsafe fn QOSSetFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn QOSStartTrackingClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSStartTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -2178,7 +2188,8 @@ pub unsafe fn QOSStartTrackingClient<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn QOSStopTrackingClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "qwave", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QOSStopTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -4522,7 +4533,8 @@ impl ::core::default::Default for TC_SUPPORTED_INFO_BUFFER {
 pub unsafe fn TcAddFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcAddFilter(flowhandle: super::super::Foundation::HANDLE, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4537,7 +4549,8 @@ pub unsafe fn TcAddFilter<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn TcAddFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, clflowctx: Param1, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcAddFlow(ifchandle: super::super::Foundation::HANDLE, clflowctx: super::super::Foundation::HANDLE, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4552,7 +4565,8 @@ pub unsafe fn TcAddFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn TcCloseInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcCloseInterface(ifchandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4567,7 +4581,8 @@ pub unsafe fn TcCloseInterface<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn TcDeleteFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filterhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcDeleteFilter(filterhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4582,7 +4597,8 @@ pub unsafe fn TcDeleteFilter<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn TcDeleteFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcDeleteFlow(flowhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4597,7 +4613,8 @@ pub unsafe fn TcDeleteFlow<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(clienthandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcDeregisterClient(clienthandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -4612,7 +4629,8 @@ pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcEnumerateFlows(ifchandle: super::super::Foundation::HANDLE, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32;
         }
@@ -4627,7 +4645,8 @@ pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn TcEnumerateInterfaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(clienthandle: Param0, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcEnumerateInterfaces(clienthandle: super::super::Foundation::HANDLE, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32;
         }
@@ -4642,7 +4661,8 @@ pub unsafe fn TcEnumerateInterfaces<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, strsize: u32, pflowname: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcGetFlowNameA(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: super::super::Foundation::PSTR) -> u32;
         }
@@ -4657,7 +4677,8 @@ pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, strsize: u32, pflowname: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcGetFlowNameW(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -4672,7 +4693,8 @@ pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn TcModifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericflow: *const TC_GEN_FLOW) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcModifyFlow(flowhandle: super::super::Foundation::HANDLE, pgenericflow: *const TC_GEN_FLOW) -> u32;
         }
@@ -4687,7 +4709,8 @@ pub unsafe fn TcModifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn TcOpenInterfaceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pinterfacename: Param0, clienthandle: Param1, clifcctx: Param2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcOpenInterfaceA(pinterfacename: super::super::Foundation::PSTR, clienthandle: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, pifchandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4702,7 +4725,8 @@ pub unsafe fn TcOpenInterfaceA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pinterfacename: Param0, clienthandle: Param1, clifcctx: Param2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcOpenInterfaceW(pinterfacename: super::super::Foundation::PWSTR, clienthandle: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, pifchandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4717,7 +4741,8 @@ pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcQueryFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
@@ -4732,7 +4757,8 @@ pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcQueryFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
@@ -4747,7 +4773,8 @@ pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn TcQueryInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(ifchandle: Param0, pguidparam: *const ::windows::core::GUID, notifychange: Param2, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::core::GUID, notifychange: super::super::Foundation::BOOLEAN, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
         }
@@ -4762,7 +4789,8 @@ pub unsafe fn TcQueryInterface<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn TcRegisterClient<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(tciversion: u32, clregctx: Param1, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcRegisterClient(tciversion: u32, clregctx: super::super::Foundation::HANDLE, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -4777,7 +4805,8 @@ pub unsafe fn TcRegisterClient<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn TcSetFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcSetFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
@@ -4792,7 +4821,8 @@ pub unsafe fn TcSetFlowA<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn TcSetFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcSetFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }
@@ -4807,7 +4837,8 @@ pub unsafe fn TcSetFlowW<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn TcSetInterface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "traffic", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
         }

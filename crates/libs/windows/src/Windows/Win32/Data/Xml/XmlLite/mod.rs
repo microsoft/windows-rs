@@ -5,7 +5,8 @@
 pub unsafe fn CreateXmlReader<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>>(riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, pmalloc: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xmllite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateXmlReader(riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, pmalloc: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -20,7 +21,8 @@ pub unsafe fn CreateXmlReader<'a, Param2: ::windows::core::IntoParam<'a, super::
 pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pinputstream: Param0, pmalloc: Param1, nencodingcodepage: u32, fencodinghint: Param3, pwszbaseuri: Param4) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xmllite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateXmlReaderInputWithEncodingCodePage(pinputstream: *mut ::core::ffi::c_void, pmalloc: ::windows::core::RawPtr, nencodingcodepage: u32, fencodinghint: super::super::super::Foundation::BOOL, pwszbaseuri: super::super::super::Foundation::PWSTR, ppinput: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -36,7 +38,8 @@ pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<'a, Param0: ::windows::co
 pub unsafe fn CreateXmlReaderInputWithEncodingName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pinputstream: Param0, pmalloc: Param1, pwszencodingname: Param2, fencodinghint: Param3, pwszbaseuri: Param4) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xmllite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateXmlReaderInputWithEncodingName(pinputstream: *mut ::core::ffi::c_void, pmalloc: ::windows::core::RawPtr, pwszencodingname: super::super::super::Foundation::PWSTR, fencodinghint: super::super::super::Foundation::BOOL, pwszbaseuri: super::super::super::Foundation::PWSTR, ppinput: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -52,7 +55,8 @@ pub unsafe fn CreateXmlReaderInputWithEncodingName<'a, Param0: ::windows::core::
 pub unsafe fn CreateXmlWriter<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>>(riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, pmalloc: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xmllite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateXmlWriter(riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, pmalloc: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -67,7 +71,8 @@ pub unsafe fn CreateXmlWriter<'a, Param2: ::windows::core::IntoParam<'a, super::
 pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>>(poutputstream: Param0, pmalloc: Param1, nencodingcodepage: u32) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xmllite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateXmlWriterOutputWithEncodingCodePage(poutputstream: *mut ::core::ffi::c_void, pmalloc: ::windows::core::RawPtr, nencodingcodepage: u32, ppoutput: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -83,7 +88,8 @@ pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<'a, Param0: ::windows::c
 pub unsafe fn CreateXmlWriterOutputWithEncodingName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(poutputstream: Param0, pmalloc: Param1, pwszencodingname: Param2) -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xmllite", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateXmlWriterOutputWithEncodingName(poutputstream: *mut ::core::ffi::c_void, pmalloc: ::windows::core::RawPtr, pwszencodingname: super::super::super::Foundation::PWSTR, ppoutput: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

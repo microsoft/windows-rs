@@ -277,7 +277,8 @@ impl ::core::fmt::Debug for CALLFRAME_WALK {
 pub unsafe fn CoGetInterceptor<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(iidintercepted: *const ::windows::core::GUID, punkouter: Param1, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetInterceptor(iidintercepted: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -291,7 +292,8 @@ pub unsafe fn CoGetInterceptor<'a, Param1: ::windows::core::IntoParam<'a, ::wind
 pub unsafe fn CoGetInterceptorFromTypeInfo<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::ITypeInfo>>(iidintercepted: *const ::windows::core::GUID, punkouter: Param1, typeinfo: Param2, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ole32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CoGetInterceptorFromTypeInfo(iidintercepted: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, typeinfo: ::windows::core::RawPtr, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

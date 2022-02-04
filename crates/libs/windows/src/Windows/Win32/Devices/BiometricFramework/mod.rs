@@ -5095,7 +5095,8 @@ pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
 pub unsafe fn WinBioAcquireFocus() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioAcquireFocus() -> ::windows::core::HRESULT;
         }
@@ -5109,7 +5110,8 @@ pub unsafe fn WinBioAcquireFocus() -> ::windows::core::Result<()> {
 pub unsafe fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -> ::windows::core::HRESULT;
         }
@@ -5123,7 +5125,8 @@ pub unsafe fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -
 pub unsafe fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> ::windows::core::HRESULT;
         }
@@ -5137,7 +5140,8 @@ pub unsafe fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> ::w
 pub unsafe fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32) -> ::windows::core::HRESULT;
         }
@@ -5151,7 +5155,8 @@ pub unsafe fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32)
 pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetypes: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetypes: u32) -> ::windows::core::HRESULT;
         }
@@ -5166,7 +5171,8 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
 pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Param1, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: *const ::core::ffi::c_void, asynchronousopen: Param5) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::core::RawPtr, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, frameworkhandle: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5182,7 +5188,8 @@ pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param11: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::core::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Param7, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: *const ::core::ffi::c_void, asynchronousopen: Param11) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::core::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::core::RawPtr, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, sessionhandle: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5197,7 +5204,8 @@ pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::core::IntoParam<'a, 
 pub unsafe fn WinBioCancel(sessionhandle: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioCancel(sessionhandle: u32) -> ::windows::core::HRESULT;
         }
@@ -5211,7 +5219,8 @@ pub unsafe fn WinBioCancel(sessionhandle: u32) -> ::windows::core::Result<()> {
 pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: *mut u32, sample: *mut *mut WINBIO_BIR, samplesize: *mut usize, rejectdetail: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: *mut u32, sample: *mut *mut WINBIO_BIR, samplesize: *mut usize, rejectdetail: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5225,7 +5234,8 @@ pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, un
 pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: ::windows::core::RawPtr, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5239,7 +5249,8 @@ pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, f
 pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::core::HRESULT;
         }
@@ -5253,7 +5264,8 @@ pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows::core::Res
 pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioCloseSession(sessionhandle: u32) -> ::windows::core::HRESULT;
         }
@@ -5267,7 +5279,8 @@ pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> ::windows::core::Result<
 pub unsafe fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5281,7 +5294,8 @@ pub unsafe fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINB
 pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5295,7 +5309,8 @@ pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, compo
 pub unsafe fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8) -> ::windows::core::HRESULT;
         }
@@ -5309,7 +5324,8 @@ pub unsafe fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *c
 pub unsafe fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) -> ::windows::core::HRESULT;
         }
@@ -5323,7 +5339,8 @@ pub unsafe fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) 
 pub unsafe fn WinBioEnrollCapture(sessionhandle: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioEnrollCapture(sessionhandle: u32, rejectdetail: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5338,7 +5355,8 @@ pub unsafe fn WinBioEnrollCapture(sessionhandle: u32) -> ::windows::core::Result
 pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: ::windows::core::RawPtr, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5352,7 +5370,8 @@ pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback
 pub unsafe fn WinBioEnrollCommit(sessionhandle: u32, identity: *mut WINBIO_IDENTITY, isnewtemplate: *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioEnrollCommit(sessionhandle: u32, identity: *mut WINBIO_IDENTITY, isnewtemplate: *mut u8) -> ::windows::core::HRESULT;
         }
@@ -5366,7 +5385,8 @@ pub unsafe fn WinBioEnrollCommit(sessionhandle: u32, identity: *mut WINBIO_IDENT
 pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::core::HRESULT;
         }
@@ -5380,7 +5400,8 @@ pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows::core::Result
 pub unsafe fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::windows::core::HRESULT;
         }
@@ -5394,7 +5415,8 @@ pub unsafe fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::wi
 pub unsafe fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut WINBIO_UNIT_SCHEMA, unitcount: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut WINBIO_UNIT_SCHEMA, unitcount: *mut usize) -> ::windows::core::HRESULT;
         }
@@ -5408,7 +5430,8 @@ pub unsafe fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut W
 pub unsafe fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WINBIO_STORAGE_SCHEMA, storagecount: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WINBIO_STORAGE_SCHEMA, storagecount: *mut usize) -> ::windows::core::HRESULT;
         }
@@ -5422,7 +5445,8 @@ pub unsafe fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WIN
 pub unsafe fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: *mut *mut u8, subfactorcount: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: *mut *mut u8, subfactorcount: *mut usize) -> ::windows::core::HRESULT;
         }
@@ -5436,7 +5460,8 @@ pub unsafe fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *
 pub unsafe fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut WINBIO_BSP_SCHEMA, bspcount: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut WINBIO_BSP_SCHEMA, bspcount: *mut usize) -> ::windows::core::HRESULT;
         }
@@ -5450,7 +5475,8 @@ pub unsafe fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut 
 pub unsafe fn WinBioFree(address: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioFree(address: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5464,7 +5490,8 @@ pub unsafe fn WinBioFree(address: *const ::core::ffi::c_void) -> ::windows::core
 pub unsafe fn WinBioGetCredentialState<'a, Param0: ::windows::core::IntoParam<'a, WINBIO_IDENTITY>>(identity: Param0, r#type: WINBIO_CREDENTIAL_TYPE) -> ::windows::core::Result<WINBIO_CREDENTIAL_STATE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE, credentialstate: *mut WINBIO_CREDENTIAL_STATE) -> ::windows::core::HRESULT;
         }
@@ -5479,7 +5506,8 @@ pub unsafe fn WinBioGetCredentialState<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
@@ -5493,7 +5521,8 @@ pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SE
 pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
@@ -5507,7 +5536,8 @@ pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTIN
 pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY, enrolledfactors: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5522,7 +5552,8 @@ pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY) -> 
 pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
@@ -5536,7 +5567,8 @@ pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_
 pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::core::ffi::c_void, propertybuffersize: *mut usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::core::ffi::c_void, propertybuffersize: *mut usize) -> ::windows::core::HRESULT;
         }
@@ -5550,7 +5582,8 @@ pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyi
 pub unsafe fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5564,7 +5597,8 @@ pub unsafe fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mu
 pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: ::windows::core::RawPtr, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5578,7 +5612,8 @@ pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: P
 pub unsafe fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows::core::HRESULT;
         }
@@ -5592,7 +5627,8 @@ pub unsafe fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows::
 pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::core::HRESULT;
         }
@@ -5606,7 +5642,8 @@ pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> ::windows::core::Result<()
 pub unsafe fn WinBioLocateSensor(sessionhandle: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioLocateSensor(sessionhandle: u32, unitid: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5621,7 +5658,8 @@ pub unsafe fn WinBioLocateSensor(sessionhandle: u32) -> ::windows::core::Result<
 pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: ::windows::core::RawPtr, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5635,7 +5673,8 @@ pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback:
 pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::core::HRESULT;
         }
@@ -5649,7 +5688,8 @@ pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows::core
 pub unsafe fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::core::HRESULT;
         }
@@ -5663,7 +5703,8 @@ pub unsafe fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows::core::
 pub unsafe fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::windows::core::HRESULT;
         }
@@ -5677,7 +5718,8 @@ pub unsafe fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::window
 pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::core::GUID, sessionhandle: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5692,7 +5734,8 @@ pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, 
 pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: PWINBIO_EVENT_CALLBACK, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: ::windows::core::RawPtr, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5706,7 +5749,8 @@ pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eve
 pub unsafe fn WinBioReleaseFocus() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioReleaseFocus() -> ::windows::core::HRESULT;
         }
@@ -5720,7 +5764,8 @@ pub unsafe fn WinBioReleaseFocus() -> ::windows::core::Result<()> {
 pub unsafe fn WinBioRemoveAllCredentials() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioRemoveAllCredentials() -> ::windows::core::HRESULT;
         }
@@ -5734,7 +5779,8 @@ pub unsafe fn WinBioRemoveAllCredentials() -> ::windows::core::Result<()> {
 pub unsafe fn WinBioRemoveAllDomainCredentials() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioRemoveAllDomainCredentials() -> ::windows::core::HRESULT;
         }
@@ -5748,7 +5794,8 @@ pub unsafe fn WinBioRemoveAllDomainCredentials() -> ::windows::core::Result<()> 
 pub unsafe fn WinBioRemoveCredential<'a, Param0: ::windows::core::IntoParam<'a, WINBIO_IDENTITY>>(identity: Param0, r#type: WINBIO_CREDENTIAL_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioRemoveCredential(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> ::windows::core::HRESULT;
         }
@@ -5762,7 +5809,8 @@ pub unsafe fn WinBioRemoveCredential<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: *const u8, credentialsize: usize, format: WINBIO_CREDENTIAL_FORMAT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: *const u8, credentialsize: usize, format: WINBIO_CREDENTIAL_FORMAT) -> ::windows::core::HRESULT;
         }
@@ -5776,7 +5824,8 @@ pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: *c
 pub unsafe fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *const ::core::ffi::c_void, propertybuffersize: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *const ::core::ffi::c_void, propertybuffersize: usize) -> ::windows::core::HRESULT;
         }
@@ -5790,7 +5839,8 @@ pub unsafe fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyi
 pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::core::HRESULT;
         }
@@ -5804,7 +5854,8 @@ pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> ::windows::co
 pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::core::HRESULT;
         }
@@ -5818,7 +5869,8 @@ pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows::cor
 pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, unitid: *mut u32, r#match: *mut u8, rejectdetail: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, unitid: *mut u32, r#match: *mut u8, rejectdetail: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -5833,7 +5885,8 @@ pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY,
 pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: PWINBIO_VERIFY_CALLBACK, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: ::windows::core::RawPtr, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5847,7 +5900,8 @@ pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINB
 pub unsafe fn WinBioWait(sessionhandle: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winbio", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinBioWait(sessionhandle: u32) -> ::windows::core::HRESULT;
         }

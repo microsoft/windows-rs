@@ -38,7 +38,8 @@ impl ::core::fmt::Debug for LicenseProtectionStatus {
 pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, validityindays: u32) -> ::windows::core::Result<LicenseProtectionStatus> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "licenseprotection", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterLicenseKeyWithExpiration(licensekey: super::super::Foundation::PWSTR, validityindays: u32, status: *mut LicenseProtectionStatus) -> ::windows::core::HRESULT;
         }
@@ -54,7 +55,8 @@ pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::core::Into
 pub unsafe fn ValidateLicenseKeyProtection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "licenseprotection", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ValidateLicenseKeyProtection(licensekey: super::super::Foundation::PWSTR, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::core::HRESULT;
         }

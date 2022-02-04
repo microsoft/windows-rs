@@ -1397,7 +1397,8 @@ impl ::core::default::Default for PRJ_VIRTUALIZATION_INSTANCE_INFO {
 pub unsafe fn PrjAllocateAlignedBuffer<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, size: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size: usize) -> *mut ::core::ffi::c_void;
         }
@@ -1411,7 +1412,8 @@ pub unsafe fn PrjAllocateAlignedBuffer<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn PrjClearNegativePathCache<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjClearNegativePathCache(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -1426,7 +1428,8 @@ pub unsafe fn PrjClearNegativePathCache<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn PrjCompleteCommand<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, commandid: i32, completionresult: ::windows::core::HRESULT, extendedparameters: *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjCompleteCommand(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid: i32, completionresult: ::windows::core::HRESULT, extendedparameters: *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows::core::HRESULT;
         }
@@ -1441,7 +1444,8 @@ pub unsafe fn PrjCompleteCommand<'a, Param0: ::windows::core::IntoParam<'a, PRJ_
 pub unsafe fn PrjDeleteFile<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, updateflags: PRJ_UPDATE_TYPES) -> ::windows::core::Result<PRJ_UPDATE_FAILURE_CAUSES> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjDeleteFile(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows::core::HRESULT;
         }
@@ -1457,7 +1461,8 @@ pub unsafe fn PrjDeleteFile<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMES
 pub unsafe fn PrjDoesNameContainWildCards<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjDoesNameContainWildCards(filename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOLEAN;
         }
@@ -1472,7 +1477,8 @@ pub unsafe fn PrjDoesNameContainWildCards<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn PrjFileNameCompare<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename1: Param0, filename2: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjFileNameCompare(filename1: super::super::Foundation::PWSTR, filename2: super::super::Foundation::PWSTR) -> i32;
         }
@@ -1487,7 +1493,8 @@ pub unsafe fn PrjFileNameCompare<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn PrjFileNameMatch<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filenametocheck: Param0, pattern: Param1) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjFileNameMatch(filenametocheck: super::super::Foundation::PWSTR, pattern: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOLEAN;
         }
@@ -1502,7 +1509,8 @@ pub unsafe fn PrjFileNameMatch<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn PrjFillDirEntryBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>>(filename: Param0, filebasicinfo: *const PRJ_FILE_BASIC_INFO, direntrybufferhandle: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjFillDirEntryBuffer(filename: super::super::Foundation::PWSTR, filebasicinfo: *const PRJ_FILE_BASIC_INFO, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows::core::HRESULT;
         }
@@ -1517,7 +1525,8 @@ pub unsafe fn PrjFillDirEntryBuffer<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PrjFillDirEntryBuffer2<'a, Param0: ::windows::core::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(direntrybufferhandle: Param0, filename: Param1, filebasicinfo: *const PRJ_FILE_BASIC_INFO, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjFillDirEntryBuffer2(direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE, filename: super::super::Foundation::PWSTR, filebasicinfo: *const PRJ_FILE_BASIC_INFO, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::core::HRESULT;
         }
@@ -1531,7 +1540,8 @@ pub unsafe fn PrjFillDirEntryBuffer2<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void);
         }
@@ -1546,7 +1556,8 @@ pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void) {
 pub unsafe fn PrjGetOnDiskFileState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationfilename: Param0) -> ::windows::core::Result<PRJ_FILE_STATE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjGetOnDiskFileState(destinationfilename: super::super::Foundation::PWSTR, filestate: *mut PRJ_FILE_STATE) -> ::windows::core::HRESULT;
         }
@@ -1561,7 +1572,8 @@ pub unsafe fn PrjGetOnDiskFileState<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PrjGetVirtualizationInstanceInfo<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) -> ::windows::core::Result<PRJ_VIRTUALIZATION_INSTANCE_INFO> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows::core::HRESULT;
         }
@@ -1577,7 +1589,8 @@ pub unsafe fn PrjGetVirtualizationInstanceInfo<'a, Param0: ::windows::core::Into
 pub unsafe fn PrjMarkDirectoryAsPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(rootpathname: Param0, targetpathname: Param1, versioninfo: *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjMarkDirectoryAsPlaceholder(rootpathname: super::super::Foundation::PWSTR, targetpathname: super::super::Foundation::PWSTR, versioninfo: *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -1592,7 +1605,8 @@ pub unsafe fn PrjMarkDirectoryAsPlaceholder<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualizationrootpath: Param0, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS) -> ::windows::core::Result<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjStartVirtualizing(virtualizationrootpath: super::super::Foundation::PWSTR, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows::core::HRESULT;
         }
@@ -1607,7 +1621,8 @@ pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn PrjStopVirtualizing<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjStopVirtualizing(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT);
         }
@@ -1622,7 +1637,8 @@ pub unsafe fn PrjStopVirtualizing<'a, Param0: ::windows::core::IntoParam<'a, PRJ
 pub unsafe fn PrjUpdateFileIfNeeded<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES) -> ::windows::core::Result<PRJ_UPDATE_FAILURE_CAUSES> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows::core::HRESULT;
         }
@@ -1637,7 +1653,8 @@ pub unsafe fn PrjUpdateFileIfNeeded<'a, Param0: ::windows::core::IntoParam<'a, P
 pub unsafe fn PrjWriteFileData<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>>(namespacevirtualizationcontext: Param0, datastreamid: *const ::windows::core::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjWriteFileData(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid: *const ::windows::core::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows::core::HRESULT;
         }
@@ -1652,7 +1669,8 @@ pub unsafe fn PrjWriteFileData<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NA
 pub unsafe fn PrjWritePlaceholderInfo<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjWritePlaceholderInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows::core::HRESULT;
         }
@@ -1667,7 +1685,8 @@ pub unsafe fn PrjWritePlaceholderInfo<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PrjWritePlaceholderInfo2<'a, Param0: ::windows::core::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "projectedfslib", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: super::super::Foundation::PWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::core::HRESULT;
         }

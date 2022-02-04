@@ -5,7 +5,8 @@
 pub unsafe fn BindIFilterFromStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pstg: Param0, punkouter: Param1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "query", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BindIFilterFromStorage(pstg: ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -20,7 +21,8 @@ pub unsafe fn BindIFilterFromStorage<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn BindIFilterFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pstm: Param0, punkouter: Param1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "query", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BindIFilterFromStream(pstm: ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -896,7 +898,8 @@ pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;
 pub unsafe fn LoadIFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pwcspath: Param0, punkouter: Param1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "query", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadIFilter(pwcspath: super::super::Foundation::PWSTR, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -911,7 +914,8 @@ pub unsafe fn LoadIFilter<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn LoadIFilterEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwcspath: Param0, dwflags: u32, riid: *const ::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "query", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

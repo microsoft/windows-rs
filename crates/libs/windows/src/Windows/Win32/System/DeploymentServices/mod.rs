@@ -5181,7 +5181,8 @@ pub const PXE_TRACE_WARNING: u32 = 262144u32;
 pub unsafe fn PxeAsyncRecvDone<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclientrequest: Param0, action: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeAsyncRecvDone(hclientrequest: super::super::Foundation::HANDLE, action: u32) -> u32;
         }
@@ -5195,7 +5196,8 @@ pub unsafe fn PxeAsyncRecvDone<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn PxeDhcpAppendOption(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpAppendOption(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: *const ::core::ffi::c_void) -> u32;
         }
@@ -5209,7 +5211,8 @@ pub unsafe fn PxeDhcpAppendOption(preplypacket: *mut ::core::ffi::c_void, umaxre
 pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, ubufferlen: u16, pbuffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, ubufferlen: u16, pbuffer: *const ::core::ffi::c_void) -> u32;
         }
@@ -5223,7 +5226,8 @@ pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::core::ffi::c_void, uma
 pub unsafe fn PxeDhcpGetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpGetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -5237,7 +5241,8 @@ pub unsafe fn PxeDhcpGetOptionValue(ppacket: *const ::core::ffi::c_void, upacket
 pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpGetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -5251,7 +5256,8 @@ pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: *const ::core::ffi::c_void, u
 pub unsafe fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpacketlen: u32, preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpacketlen: u32, preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32) -> u32;
         }
@@ -5266,7 +5272,8 @@ pub unsafe fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpa
 pub unsafe fn PxeDhcpIsValid<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpIsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -5280,7 +5287,8 @@ pub unsafe fn PxeDhcpIsValid<'a, Param2: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn PxeDhcpv6AppendOption(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpv6AppendOption(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const ::core::ffi::c_void) -> u32;
         }
@@ -5294,7 +5302,8 @@ pub unsafe fn PxeDhcpv6AppendOption(preply: *mut ::core::ffi::c_void, cbreply: u
 pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, cbbuffer: u16, pbuffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, cbbuffer: u16, pbuffer: *const ::core::ffi::c_void) -> u32;
         }
@@ -5308,7 +5317,8 @@ pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply
 pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pinnerpacket: *const u8, cbinnerpacket: u32, preplybuffer: *mut ::core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpv6CreateRelayRepl(prelaymessages: *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pinnerpacket: *const u8, cbinnerpacket: u32, preplybuffer: *mut ::core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32;
         }
@@ -5322,7 +5332,8 @@ pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: *const PXE_DHCPV6_NESTED_
 pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -5336,7 +5347,8 @@ pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upack
 pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
         }
@@ -5350,7 +5362,8 @@ pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::core::ffi::c_void,
 pub unsafe fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbrequest: u32, preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbrequest: u32, preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32) -> u32;
         }
@@ -5365,7 +5378,8 @@ pub unsafe fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbreques
 pub unsafe fn PxeDhcpv6IsValid<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpv6IsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -5379,7 +5393,8 @@ pub unsafe fn PxeDhcpv6IsValid<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32;
         }
@@ -5393,7 +5408,8 @@ pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_vo
 pub unsafe fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32) -> u32;
         }
@@ -5407,7 +5423,8 @@ pub unsafe fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void
 pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32, pubufferused: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32, pubufferused: *mut u32) -> u32;
         }
@@ -5422,7 +5439,8 @@ pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_vo
 pub unsafe fn PxePacketAllocate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, usize: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxePacketAllocate(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, usize: u32) -> *mut ::core::ffi::c_void;
         }
@@ -5437,7 +5455,8 @@ pub unsafe fn PxePacketAllocate<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn PxePacketFree<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, ppacket: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxePacketFree(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void) -> u32;
         }
@@ -5452,7 +5471,8 @@ pub unsafe fn PxePacketFree<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn PxeProviderEnumClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeProviderEnumClose(henum: super::super::Foundation::HANDLE) -> u32;
         }
@@ -5467,7 +5487,8 @@ pub unsafe fn PxeProviderEnumClose<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -5482,7 +5503,8 @@ pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE
 pub unsafe fn PxeProviderEnumNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, ppprovider: *mut *mut PXE_PROVIDER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeProviderEnumNext(henum: super::super::Foundation::HANDLE, ppprovider: *mut *mut PXE_PROVIDER) -> u32;
         }
@@ -5497,7 +5519,8 @@ pub unsafe fn PxeProviderEnumNext<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32;
         }
@@ -5512,7 +5535,8 @@ pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
 pub unsafe fn PxeProviderQueryIndex<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprovidername: Param0, puindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeProviderQueryIndex(pszprovidername: super::super::Foundation::PWSTR, puindex: *mut u32) -> u32;
         }
@@ -5527,7 +5551,8 @@ pub unsafe fn PxeProviderQueryIndex<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PxeProviderRegister<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pszprovidername: Param0, pszmodulepath: Param1, index: u32, biscritical: Param3, phproviderkey: *mut super::Registry::HKEY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeProviderRegister(pszprovidername: super::super::Foundation::PWSTR, pszmodulepath: super::super::Foundation::PWSTR, index: u32, biscritical: super::super::Foundation::BOOL, phproviderkey: *mut super::Registry::HKEY) -> u32;
         }
@@ -5542,7 +5567,8 @@ pub unsafe fn PxeProviderRegister<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn PxeProviderSetAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeProviderSetAttribute(hprovider: super::super::Foundation::HANDLE, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32;
         }
@@ -5557,7 +5583,8 @@ pub unsafe fn PxeProviderSetAttribute<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn PxeProviderUnRegister<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprovidername: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeProviderUnRegister(pszprovidername: super::super::Foundation::PWSTR) -> u32;
         }
@@ -5572,7 +5599,8 @@ pub unsafe fn PxeProviderUnRegister<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn PxeRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32;
         }
@@ -5587,7 +5615,8 @@ pub unsafe fn PxeRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn PxeSendReply<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclientrequest: Param0, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeSendReply(hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32;
         }
@@ -5602,7 +5631,8 @@ pub unsafe fn PxeSendReply<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn PxeTrace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: Param0, severity: u32, pszformat: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: super::super::Foundation::PWSTR) -> u32;
         }
@@ -5617,7 +5647,8 @@ pub unsafe fn PxeTrace<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 pub unsafe fn PxeTraceV<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: Param0, severity: u32, pszformat: Param2, params: *const i8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdspxe", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PxeTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: super::super::Foundation::PWSTR, params: *const i8) -> u32;
         }
@@ -6684,7 +6715,8 @@ impl ::core::default::Default for WDS_TRANSPORTPROVIDER_SETTINGS {
 pub unsafe fn WdsBpAddOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsbp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsBpAddOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32;
         }
@@ -6699,7 +6731,8 @@ pub unsafe fn WdsBpAddOption<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn WdsBpCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsbp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsBpCloseHandle(hhandle: super::super::Foundation::HANDLE) -> u32;
         }
@@ -6714,7 +6747,8 @@ pub unsafe fn WdsBpCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn WdsBpGetOptionBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsbp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsBpGetOptionBuffer(hhandle: super::super::Foundation::HANDLE, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
         }
@@ -6729,7 +6763,8 @@ pub unsafe fn WdsBpGetOptionBuffer<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsbp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -6744,7 +6779,8 @@ pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foun
 pub unsafe fn WdsBpParseInitialize(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsbp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsBpParseInitialize(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -6759,7 +6795,8 @@ pub unsafe fn WdsBpParseInitialize(ppacket: *const ::core::ffi::c_void, upacketl
 pub unsafe fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsbp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -6774,7 +6811,8 @@ pub unsafe fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacke
 pub unsafe fn WdsBpQueryOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsbp", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
         }
@@ -6789,7 +6827,8 @@ pub unsafe fn WdsBpQueryOption<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn WdsCliAuthorizeSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: *const WDS_CLI_CRED) -> ::windows::core::HRESULT;
         }
@@ -6804,7 +6843,8 @@ pub unsafe fn WdsCliAuthorizeSession<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WdsCliCancelTransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliCancelTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6819,7 +6859,8 @@ pub unsafe fn WdsCliCancelTransfer<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn WdsCliClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliClose(handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6834,7 +6875,8 @@ pub unsafe fn WdsCliClose<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn WdsCliCreateSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszserver: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliCreateSession(pwszserver: super::super::Foundation::PWSTR, pcred: *const WDS_CLI_CRED, phsession: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6850,7 +6892,8 @@ pub unsafe fn WdsCliCreateSession<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WdsCliFindFirstImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliFindFirstImage(hsession: super::super::Foundation::HANDLE, phfindhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6866,7 +6909,8 @@ pub unsafe fn WdsCliFindFirstImage<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn WdsCliFindNextImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliFindNextImage(handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -6885,7 +6929,8 @@ pub const WdsCliFlagEnumFilterVersion: i32 = 1i32;
 pub unsafe fn WdsCliFreeStringArray(ppwszarray: *mut super::super::Foundation::PWSTR, ulcount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliFreeStringArray(ppwszarray: *mut super::super::Foundation::PWSTR, ulcount: u32) -> ::windows::core::HRESULT;
         }
@@ -6900,7 +6945,8 @@ pub unsafe fn WdsCliFreeStringArray(ppwszarray: *mut super::super::Foundation::P
 pub unsafe fn WdsCliGetDriverQueryXml<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszwindirpath: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetDriverQueryXml(pwszwindirpath: super::super::Foundation::PWSTR, ppwszdriverquery: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -6916,7 +6962,8 @@ pub unsafe fn WdsCliGetDriverQueryXml<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WdsCliGetEnumerationFlags<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetEnumerationFlags(handle: super::super::Foundation::HANDLE, pdwflags: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6932,7 +6979,8 @@ pub unsafe fn WdsCliGetEnumerationFlags<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WdsCliGetImageArchitecture<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<CPU_ARCHITECTURE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageArchitecture(hifh: super::super::Foundation::HANDLE, pdwvalue: *mut CPU_ARCHITECTURE) -> ::windows::core::HRESULT;
         }
@@ -6948,7 +6996,8 @@ pub unsafe fn WdsCliGetImageArchitecture<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WdsCliGetImageDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageDescription(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -6964,7 +7013,8 @@ pub unsafe fn WdsCliGetImageDescription<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn WdsCliGetImageFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, pppwszfiles: *mut *mut super::super::Foundation::PWSTR, pdwcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageFiles(hifh: super::super::Foundation::HANDLE, pppwszfiles: *mut *mut super::super::Foundation::PWSTR, pdwcount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -6979,7 +7029,8 @@ pub unsafe fn WdsCliGetImageFiles<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WdsCliGetImageGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageGroup(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -6995,7 +7046,8 @@ pub unsafe fn WdsCliGetImageGroup<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WdsCliGetImageHalName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageHalName(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -7011,7 +7063,8 @@ pub unsafe fn WdsCliGetImageHalName<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WdsCliGetImageHandleFromFindHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(findhandle: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageHandleFromFindHandle(findhandle: super::super::Foundation::HANDLE, phimagehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7027,7 +7080,8 @@ pub unsafe fn WdsCliGetImageHandleFromFindHandle<'a, Param0: ::windows::core::In
 pub unsafe fn WdsCliGetImageHandleFromTransferHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageHandleFromTransferHandle(htransfer: super::super::Foundation::HANDLE, phimagehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7043,7 +7097,8 @@ pub unsafe fn WdsCliGetImageHandleFromTransferHandle<'a, Param0: ::windows::core
 pub unsafe fn WdsCliGetImageIndex<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageIndex(hifh: super::super::Foundation::HANDLE, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7059,7 +7114,8 @@ pub unsafe fn WdsCliGetImageIndex<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WdsCliGetImageLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageLanguage(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -7075,7 +7131,8 @@ pub unsafe fn WdsCliGetImageLanguage<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn WdsCliGetImageLanguages<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageLanguages(hifh: super::super::Foundation::HANDLE, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7090,7 +7147,8 @@ pub unsafe fn WdsCliGetImageLanguages<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WdsCliGetImageLastModifiedTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<*mut super::super::Foundation::SYSTEMTIME> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageLastModifiedTime(hifh: super::super::Foundation::HANDLE, ppsystimevalue: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT;
         }
@@ -7106,7 +7164,8 @@ pub unsafe fn WdsCliGetImageLastModifiedTime<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn WdsCliGetImageName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageName(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -7122,7 +7181,8 @@ pub unsafe fn WdsCliGetImageName<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WdsCliGetImageNamespace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageNamespace(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -7138,7 +7198,8 @@ pub unsafe fn WdsCliGetImageNamespace<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WdsCliGetImageParameter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageParameter(hifh: super::super::Foundation::HANDLE, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::HRESULT;
         }
@@ -7153,7 +7214,8 @@ pub unsafe fn WdsCliGetImageParameter<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WdsCliGetImagePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImagePath(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -7169,7 +7231,8 @@ pub unsafe fn WdsCliGetImagePath<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WdsCliGetImageSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageSize(hifh: super::super::Foundation::HANDLE, pullvalue: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -7185,7 +7248,8 @@ pub unsafe fn WdsCliGetImageSize<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WdsCliGetImageType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<WDS_CLI_IMAGE_TYPE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageType(hifh: super::super::Foundation::HANDLE, pimagetype: *mut WDS_CLI_IMAGE_TYPE) -> ::windows::core::HRESULT;
         }
@@ -7201,7 +7265,8 @@ pub unsafe fn WdsCliGetImageType<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WdsCliGetImageVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetImageVersion(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -7217,7 +7282,8 @@ pub unsafe fn WdsCliGetImageVersion<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WdsCliGetTransferSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliGetTransferSize(hifh: super::super::Foundation::HANDLE, pullvalue: *mut u64) -> ::windows::core::HRESULT;
         }
@@ -7233,7 +7299,8 @@ pub unsafe fn WdsCliGetTransferSize<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn WdsCliInitializeLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: Param0, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: Param2, pwszclientaddress: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliInitializeLog(hsession: super::super::Foundation::HANDLE, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: super::super::Foundation::PWSTR, pwszclientaddress: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -7248,7 +7315,8 @@ pub unsafe fn WdsCliInitializeLog<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WdsCliLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::HRESULT;
         }
@@ -7263,7 +7331,8 @@ pub unsafe fn WdsCliLog<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 pub unsafe fn WdsCliObtainDriverPackages<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(himage: Param0, ppwszservername: *mut super::super::Foundation::PWSTR, pppwszdriverpackages: *mut *mut super::super::Foundation::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliObtainDriverPackages(himage: super::super::Foundation::HANDLE, ppwszservername: *mut super::super::Foundation::PWSTR, pppwszdriverpackages: *mut *mut super::super::Foundation::PWSTR, pulcount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7278,7 +7347,8 @@ pub unsafe fn WdsCliObtainDriverPackages<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn WdsCliObtainDriverPackagesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: Param0, pwszmachineinfo: Param1, ppwszservername: *mut super::super::Foundation::PWSTR, pppwszdriverpackages: *mut *mut super::super::Foundation::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliObtainDriverPackagesEx(hsession: super::super::Foundation::HANDLE, pwszmachineinfo: super::super::Foundation::PWSTR, ppwszservername: *mut super::super::Foundation::PWSTR, pppwszdriverpackages: *mut *mut super::super::Foundation::PWSTR, pulcount: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -7293,7 +7363,8 @@ pub unsafe fn WdsCliObtainDriverPackagesEx<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WdsCliRegisterTrace(pfn: PFN_WdsCliTraceFunction) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliRegisterTrace(pfn: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -7307,7 +7378,8 @@ pub unsafe fn WdsCliRegisterTrace(pfn: PFN_WdsCliTraceFunction) -> ::windows::co
 pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32);
         }
@@ -7322,7 +7394,8 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
 pub unsafe fn WdsCliTransferFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszserver: Param0, pwsznamespace: Param1, pwszremotefilepath: Param2, pwszlocalfilepath: Param3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliTransferFile(pwszserver: super::super::Foundation::PWSTR, pwsznamespace: super::super::Foundation::PWSTR, pwszremotefilepath: super::super::Foundation::PWSTR, pwszlocalfilepath: super::super::Foundation::PWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: ::windows::core::RawPtr, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7338,7 +7411,8 @@ pub unsafe fn WdsCliTransferFile<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WdsCliTransferImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(himage: Param0, pwszlocalpath: Param1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliTransferImage(himage: super::super::Foundation::HANDLE, pwszlocalpath: super::super::Foundation::PWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: ::windows::core::RawPtr, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7354,7 +7428,8 @@ pub unsafe fn WdsCliTransferImage<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn WdsCliWaitForTransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsclientapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsCliWaitForTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
@@ -7370,7 +7445,8 @@ pub const WdsTransportClient: ::windows::core::GUID = ::windows::core::GUID::fro
 pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32;
         }
@@ -7385,7 +7461,8 @@ pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_voi
 pub unsafe fn WdsTransportClientCancelSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientCancelSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
         }
@@ -7400,7 +7477,8 @@ pub unsafe fn WdsTransportClientCancelSession<'a, Param0: ::windows::core::IntoP
 pub unsafe fn WdsTransportClientCancelSessionEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, dwerrorcode: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientCancelSessionEx(hsessionkey: super::super::Foundation::HANDLE, dwerrorcode: u32) -> u32;
         }
@@ -7415,7 +7493,8 @@ pub unsafe fn WdsTransportClientCancelSessionEx<'a, Param0: ::windows::core::Int
 pub unsafe fn WdsTransportClientCloseSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientCloseSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
         }
@@ -7430,7 +7509,8 @@ pub unsafe fn WdsTransportClientCloseSession<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn WdsTransportClientCompleteReceive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, ulsize: u32, pulloffset: *const u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientCompleteReceive(hsessionkey: super::super::Foundation::HANDLE, ulsize: u32, pulloffset: *const u64) -> u32;
         }
@@ -7444,7 +7524,8 @@ pub unsafe fn WdsTransportClientCompleteReceive<'a, Param0: ::windows::core::Int
 pub unsafe fn WdsTransportClientInitialize() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientInitialize() -> u32;
         }
@@ -7459,7 +7540,8 @@ pub unsafe fn WdsTransportClientInitialize() -> u32 {
 pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST, pcallerdata: *const ::core::ffi::c_void, hsessionkey: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST, pcallerdata: *const ::core::ffi::c_void, hsessionkey: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -7474,7 +7556,8 @@ pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TR
 pub unsafe fn WdsTransportClientQueryStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, pustatus: *mut u32, puerrorcode: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientQueryStatus(hsessionkey: super::super::Foundation::HANDLE, pustatus: *mut u32, puerrorcode: *mut u32) -> u32;
         }
@@ -7489,7 +7572,8 @@ pub unsafe fn WdsTransportClientQueryStatus<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn WdsTransportClientRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientRegisterCallback(hsessionkey: super::super::Foundation::HANDLE, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32;
         }
@@ -7503,7 +7587,8 @@ pub unsafe fn WdsTransportClientRegisterCallback<'a, Param0: ::windows::core::In
 pub unsafe fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32;
         }
@@ -7517,7 +7602,8 @@ pub unsafe fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::core::ffi::c_vo
 pub unsafe fn WdsTransportClientShutdown() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientShutdown() -> u32;
         }
@@ -7532,7 +7618,8 @@ pub unsafe fn WdsTransportClientShutdown() -> u32 {
 pub unsafe fn WdsTransportClientStartSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientStartSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
         }
@@ -7547,7 +7634,8 @@ pub unsafe fn WdsTransportClientStartSession<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn WdsTransportClientWaitForCompletion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, utimeout: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdstptc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportClientWaitForCompletion(hsessionkey: super::super::Foundation::HANDLE, utimeout: u32) -> u32;
         }
@@ -7576,7 +7664,8 @@ pub const WdsTransportServer: ::windows::core::GUID = ::windows::core::GUID::fro
 pub unsafe fn WdsTransportServerAllocateBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, ulbuffersize: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsmc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportServerAllocateBuffer(hprovider: super::super::Foundation::HANDLE, ulbuffersize: u32) -> *mut ::core::ffi::c_void;
         }
@@ -7591,7 +7680,8 @@ pub unsafe fn WdsTransportServerAllocateBuffer<'a, Param0: ::windows::core::Into
 pub unsafe fn WdsTransportServerCompleteRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsmc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportServerCompleteRead(hprovider: super::super::Foundation::HANDLE, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
         }
@@ -7606,7 +7696,8 @@ pub unsafe fn WdsTransportServerCompleteRead<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn WdsTransportServerFreeBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsmc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportServerFreeBuffer(hprovider: super::super::Foundation::HANDLE, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -7621,7 +7712,8 @@ pub unsafe fn WdsTransportServerFreeBuffer<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn WdsTransportServerRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsmc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportServerRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -7636,7 +7728,8 @@ pub unsafe fn WdsTransportServerRegisterCallback<'a, Param0: ::windows::core::In
 pub unsafe fn WdsTransportServerTrace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: Param0, severity: u32, pwszformat: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsmc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportServerTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -7651,7 +7744,8 @@ pub unsafe fn WdsTransportServerTrace<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WdsTransportServerTraceV<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hprovider: Param0, severity: u32, pwszformat: Param2, params: *const i8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wdsmc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WdsTransportServerTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: super::super::Foundation::PWSTR, params: *const i8) -> ::windows::core::HRESULT;
         }

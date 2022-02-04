@@ -4853,7 +4853,8 @@ impl ::core::fmt::Debug for WSManCallbackFlags {
 pub unsafe fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
@@ -4867,7 +4868,8 @@ pub unsafe fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r
 pub unsafe fn WSManCloseOperation(operationhandle: *mut WSMAN_OPERATION, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManCloseOperation(operationhandle: *mut WSMAN_OPERATION, flags: u32) -> u32;
         }
@@ -4881,7 +4883,8 @@ pub unsafe fn WSManCloseOperation(operationhandle: *mut WSMAN_OPERATION, flags: 
 pub unsafe fn WSManCloseSession(session: *mut WSMAN_SESSION, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManCloseSession(session: *mut WSMAN_SESSION, flags: u32) -> u32;
         }
@@ -4896,7 +4899,8 @@ pub unsafe fn WSManCloseSession(session: *mut WSMAN_SESSION, flags: u32) -> u32 
 pub unsafe fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
@@ -4911,7 +4915,8 @@ pub unsafe fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async
 pub unsafe fn WSManConnectShell<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: Param2, shellid: Param3, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManConnectShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
         }
@@ -4926,7 +4931,8 @@ pub unsafe fn WSManConnectShell<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn WSManConnectShellCommand<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(shell: *mut WSMAN_SHELL, flags: u32, commandid: Param2, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManConnectShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
         }
@@ -4941,7 +4947,8 @@ pub unsafe fn WSManConnectShellCommand<'a, Param2: ::windows::core::IntoParam<'a
 pub unsafe fn WSManCreateSession<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(apihandle: *const WSMAN_API, connection: Param1, flags: u32, serverauthenticationcredentials: *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo: *const WSMAN_PROXY_INFO, session: *mut *mut WSMAN_SESSION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManCreateSession(apihandle: *const WSMAN_API, connection: super::super::Foundation::PWSTR, flags: u32, serverauthenticationcredentials: *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo: *const WSMAN_PROXY_INFO, session: *mut *mut WSMAN_SESSION) -> u32;
         }
@@ -4956,7 +4963,8 @@ pub unsafe fn WSManCreateSession<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn WSManCreateShell<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: Param2, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManCreateShell(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
         }
@@ -4971,7 +4979,8 @@ pub unsafe fn WSManCreateShell<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn WSManCreateShellEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: Param2, shellid: Param3, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManCreateShellEx(session: *mut WSMAN_SESSION, flags: u32, resourceuri: super::super::Foundation::PWSTR, shellid: super::super::Foundation::PWSTR, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL);
         }
@@ -5016,7 +5025,8 @@ impl ::core::fmt::Debug for WSManDataType {
 pub unsafe fn WSManDeinitialize(apihandle: *mut WSMAN_API, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManDeinitialize(apihandle: *mut WSMAN_API, flags: u32) -> u32;
         }
@@ -5031,7 +5041,8 @@ pub unsafe fn WSManDeinitialize(apihandle: *mut WSMAN_API, flags: u32) -> u32 {
 pub unsafe fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const WSMAN_SHELL_ASYNC) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const WSMAN_SHELL_ASYNC);
         }
@@ -5087,7 +5098,8 @@ impl ::core::fmt::Debug for WSManEnumFlags {
 pub unsafe fn WSManGetErrorMessage<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(apihandle: *const WSMAN_API, flags: u32, languagecode: Param2, errorcode: u32, messagelength: u32, message: super::super::Foundation::PWSTR, messagelengthused: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManGetErrorMessage(apihandle: *const WSMAN_API, flags: u32, languagecode: super::super::Foundation::PWSTR, errorcode: u32, messagelength: u32, message: super::super::Foundation::PWSTR, messagelengthused: *mut u32) -> u32;
         }
@@ -5101,7 +5113,8 @@ pub unsafe fn WSManGetErrorMessage<'a, Param2: ::windows::core::IntoParam<'a, su
 pub unsafe fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option: WSManSessionOption, value: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option: WSManSessionOption, value: *mut u32) -> u32;
         }
@@ -5116,7 +5129,8 @@ pub unsafe fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option
 pub unsafe fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, option: WSManSessionOption, stringlength: u32, string: super::super::Foundation::PWSTR, stringlengthused: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, option: WSManSessionOption, stringlength: u32, string: super::super::Foundation::PWSTR, stringlengthused: *mut u32) -> u32;
         }
@@ -5130,7 +5144,8 @@ pub unsafe fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, optio
 pub unsafe fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32;
         }
@@ -5146,7 +5161,8 @@ pub const WSManInternal: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub unsafe fn WSManPluginAuthzOperationComplete<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, errorcode: u32, extendederrorinformation: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManPluginAuthzOperationComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, errorcode: u32, extendederrorinformation: super::super::Foundation::PWSTR) -> u32;
         }
@@ -5161,7 +5177,8 @@ pub unsafe fn WSManPluginAuthzOperationComplete<'a, Param4: ::windows::core::Int
 pub unsafe fn WSManPluginAuthzQueryQuotaComplete<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, quota: *const WSMAN_AUTHZ_QUOTA, errorcode: u32, extendederrorinformation: Param4) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManPluginAuthzQueryQuotaComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, quota: *const WSMAN_AUTHZ_QUOTA, errorcode: u32, extendederrorinformation: super::super::Foundation::PWSTR) -> u32;
         }
@@ -5176,7 +5193,8 @@ pub unsafe fn WSManPluginAuthzQueryQuotaComplete<'a, Param4: ::windows::core::In
 pub unsafe fn WSManPluginAuthzUserComplete<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, impersonationtoken: Param3, userisadministrator: Param4, errorcode: u32, extendederrorinformation: Param6) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManPluginAuthzUserComplete(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::core::ffi::c_void, impersonationtoken: super::super::Foundation::HANDLE, userisadministrator: super::super::Foundation::BOOL, errorcode: u32, extendederrorinformation: super::super::Foundation::PWSTR) -> u32;
         }
@@ -5191,7 +5209,8 @@ pub unsafe fn WSManPluginAuthzUserComplete<'a, Param3: ::windows::core::IntoPara
 pub unsafe fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_REQUEST) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_REQUEST) -> u32;
         }
@@ -5206,7 +5225,8 @@ pub unsafe fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_
 pub unsafe fn WSManPluginGetConfiguration(plugincontext: *const ::core::ffi::c_void, flags: u32, data: *mut WSMAN_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManPluginGetConfiguration(plugincontext: *const ::core::ffi::c_void, flags: u32, data: *mut WSMAN_DATA) -> u32;
         }
@@ -5221,7 +5241,8 @@ pub unsafe fn WSManPluginGetConfiguration(plugincontext: *const ::core::ffi::c_v
 pub unsafe fn WSManPluginGetOperationParameters(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, data: *mut WSMAN_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManPluginGetOperationParameters(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, data: *mut WSMAN_DATA) -> u32;
         }
@@ -5236,7 +5257,8 @@ pub unsafe fn WSManPluginGetOperationParameters(requestdetails: *const WSMAN_PLU
 pub unsafe fn WSManPluginOperationComplete<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, errorcode: u32, extendedinformation: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManPluginOperationComplete(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, errorcode: u32, extendedinformation: super::super::Foundation::PWSTR) -> u32;
         }
@@ -5251,7 +5273,8 @@ pub unsafe fn WSManPluginOperationComplete<'a, Param3: ::windows::core::IntoPara
 pub unsafe fn WSManPluginReceiveResult<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, stream: Param2, streamresult: *const WSMAN_DATA, commandstate: Param4, exitcode: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManPluginReceiveResult(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, stream: super::super::Foundation::PWSTR, streamresult: *const WSMAN_DATA, commandstate: super::super::Foundation::PWSTR, exitcode: u32) -> u32;
         }
@@ -5265,7 +5288,8 @@ pub unsafe fn WSManPluginReceiveResult<'a, Param2: ::windows::core::IntoParam<'a
 pub unsafe fn WSManPluginReportCompletion(plugincontext: *const ::core::ffi::c_void, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManPluginReportCompletion(plugincontext: *const ::core::ffi::c_void, flags: u32) -> u32;
         }
@@ -5280,7 +5304,8 @@ pub unsafe fn WSManPluginReportCompletion(plugincontext: *const ::core::ffi::c_v
 pub unsafe fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, context: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, context: *const ::core::ffi::c_void) -> u32;
         }
@@ -5386,7 +5411,8 @@ impl ::core::fmt::Debug for WSManProxyAuthenticationFlags {
 pub unsafe fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, desiredstreamset: *const WSMAN_STREAM_ID_SET, r#async: *const WSMAN_SHELL_ASYNC, receiveoperation: *mut *mut WSMAN_OPERATION) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, desiredstreamset: *const WSMAN_STREAM_ID_SET, r#async: *const WSMAN_SHELL_ASYNC, receiveoperation: *mut *mut WSMAN_OPERATION);
         }
@@ -5401,7 +5427,8 @@ pub unsafe fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const W
 pub unsafe fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
@@ -5416,7 +5443,8 @@ pub unsafe fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: 
 pub unsafe fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC);
         }
@@ -5431,7 +5459,8 @@ pub unsafe fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flag
 pub unsafe fn WSManRunShellCommand<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(shell: *mut WSMAN_SHELL, flags: u32, commandline: Param2, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManRunShellCommand(shell: *mut WSMAN_SHELL, flags: u32, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
         }
@@ -5446,7 +5475,8 @@ pub unsafe fn WSManRunShellCommand<'a, Param2: ::windows::core::IntoParam<'a, su
 pub unsafe fn WSManRunShellCommandEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(shell: *mut WSMAN_SHELL, flags: u32, commandid: Param2, commandline: Param3, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManRunShellCommandEx(shell: *mut WSMAN_SHELL, flags: u32, commandid: super::super::Foundation::PWSTR, commandline: super::super::Foundation::PWSTR, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND);
         }
@@ -5461,7 +5491,8 @@ pub unsafe fn WSManRunShellCommandEx<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn WSManSendShellInput<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: Param3, streamdata: *const WSMAN_DATA, endofstream: Param5, r#async: *const WSMAN_SHELL_ASYNC, sendoperation: *mut *mut WSMAN_OPERATION) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManSendShellInput(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: super::super::Foundation::PWSTR, streamdata: *const WSMAN_DATA, endofstream: super::super::Foundation::BOOL, r#async: *const WSMAN_SHELL_ASYNC, sendoperation: *mut *mut WSMAN_OPERATION);
         }
@@ -5602,7 +5633,8 @@ impl ::core::fmt::Debug for WSManSessionOption {
 pub unsafe fn WSManSetSessionOption(session: *const WSMAN_SESSION, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManSetSessionOption(session: *const WSMAN_SESSION, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32;
         }
@@ -5650,7 +5682,8 @@ impl ::core::fmt::Debug for WSManShellFlag {
 pub unsafe fn WSManSignalShell<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: Param3, r#async: *const WSMAN_SHELL_ASYNC, signaloperation: *mut *mut WSMAN_OPERATION) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wsmsvc", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WSManSignalShell(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: super::super::Foundation::PWSTR, r#async: *const WSMAN_SHELL_ASYNC, signaloperation: *mut *mut WSMAN_OPERATION);
         }

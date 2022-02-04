@@ -5,7 +5,8 @@
 pub unsafe fn AdjustWindowRectExForDpi<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: Param2, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AdjustWindowRectExForDpi(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: super::super::Foundation::BOOL, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> super::super::Foundation::BOOL;
         }
@@ -20,7 +21,8 @@ pub unsafe fn AdjustWindowRectExForDpi<'a, Param2: ::windows::core::IntoParam<'a
 pub unsafe fn AreDpiAwarenessContextsEqual<'a, Param0: ::windows::core::IntoParam<'a, DPI_AWARENESS_CONTEXT>, Param1: ::windows::core::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(dpicontexta: Param0, dpicontextb: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AreDpiAwarenessContextsEqual(dpicontexta: DPI_AWARENESS_CONTEXT, dpicontextb: DPI_AWARENESS_CONTEXT) -> super::super::Foundation::BOOL;
         }
@@ -255,7 +257,8 @@ impl ::core::fmt::Debug for DPI_HOSTING_BEHAVIOR {
 pub unsafe fn EnableNonClientDpiScaling<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnableNonClientDpiScaling(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -269,7 +272,8 @@ pub unsafe fn EnableNonClientDpiScaling<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn GetAwarenessFromDpiAwarenessContext<'a, Param0: ::windows::core::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(value: Param0) -> DPI_AWARENESS {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetAwarenessFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> DPI_AWARENESS;
         }
@@ -284,7 +288,8 @@ pub unsafe fn GetAwarenessFromDpiAwarenessContext<'a, Param0: ::windows::core::I
 pub unsafe fn GetDialogControlDpiChangeBehavior<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDialogControlDpiChangeBehavior(hwnd: super::super::Foundation::HWND) -> DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS;
         }
@@ -299,7 +304,8 @@ pub unsafe fn GetDialogControlDpiChangeBehavior<'a, Param0: ::windows::core::Int
 pub unsafe fn GetDialogDpiChangeBehavior<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0) -> DIALOG_DPI_CHANGE_BEHAVIORS {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDialogDpiChangeBehavior(hdlg: super::super::Foundation::HWND) -> DIALOG_DPI_CHANGE_BEHAVIORS;
         }
@@ -314,7 +320,8 @@ pub unsafe fn GetDialogDpiChangeBehavior<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn GetDpiAwarenessContextForProcess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDpiAwarenessContextForProcess(hprocess: super::super::Foundation::HANDLE) -> DPI_AWARENESS_CONTEXT;
         }
@@ -329,7 +336,8 @@ pub unsafe fn GetDpiAwarenessContextForProcess<'a, Param0: ::windows::core::Into
 pub unsafe fn GetDpiForMonitor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-shcore-scaling-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDpiForMonitor(hmonitor: super::super::Graphics::Gdi::HMONITOR, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -343,7 +351,8 @@ pub unsafe fn GetDpiForMonitor<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetDpiForSystem() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDpiForSystem() -> u32;
         }
@@ -358,7 +367,8 @@ pub unsafe fn GetDpiForSystem() -> u32 {
 pub unsafe fn GetDpiForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDpiForWindow(hwnd: super::super::Foundation::HWND) -> u32;
         }
@@ -372,7 +382,8 @@ pub unsafe fn GetDpiForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetDpiFromDpiAwarenessContext<'a, Param0: ::windows::core::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(value: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetDpiFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> u32;
         }
@@ -387,7 +398,8 @@ pub unsafe fn GetDpiFromDpiAwarenessContext<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn GetProcessDpiAwareness<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> ::windows::core::Result<PROCESS_DPI_AWARENESS> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-shcore-scaling-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetProcessDpiAwareness(hprocess: super::super::Foundation::HANDLE, value: *mut PROCESS_DPI_AWARENESS) -> ::windows::core::HRESULT;
         }
@@ -403,7 +415,8 @@ pub unsafe fn GetProcessDpiAwareness<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetSystemDpiForProcess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetSystemDpiForProcess(hprocess: super::super::Foundation::HANDLE) -> u32;
         }
@@ -417,7 +430,8 @@ pub unsafe fn GetSystemDpiForProcess<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32;
         }
@@ -431,7 +445,8 @@ pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32 {
 pub unsafe fn GetThreadDpiAwarenessContext() -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThreadDpiAwarenessContext() -> DPI_AWARENESS_CONTEXT;
         }
@@ -445,7 +460,8 @@ pub unsafe fn GetThreadDpiAwarenessContext() -> DPI_AWARENESS_CONTEXT {
 pub unsafe fn GetThreadDpiHostingBehavior() -> DPI_HOSTING_BEHAVIOR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThreadDpiHostingBehavior() -> DPI_HOSTING_BEHAVIOR;
         }
@@ -460,7 +476,8 @@ pub unsafe fn GetThreadDpiHostingBehavior() -> DPI_HOSTING_BEHAVIOR {
 pub unsafe fn GetWindowDpiAwarenessContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetWindowDpiAwarenessContext(hwnd: super::super::Foundation::HWND) -> DPI_AWARENESS_CONTEXT;
         }
@@ -475,7 +492,8 @@ pub unsafe fn GetWindowDpiAwarenessContext<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn GetWindowDpiHostingBehavior<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> DPI_HOSTING_BEHAVIOR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetWindowDpiHostingBehavior(hwnd: super::super::Foundation::HWND) -> DPI_HOSTING_BEHAVIOR;
         }
@@ -490,7 +508,8 @@ pub unsafe fn GetWindowDpiHostingBehavior<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn IsValidDpiAwarenessContext<'a, Param0: ::windows::core::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(value: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsValidDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> super::super::Foundation::BOOL;
         }
@@ -505,7 +524,8 @@ pub unsafe fn IsValidDpiAwarenessContext<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn LogicalToPhysicalPointForPerMonitorDPI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LogicalToPhysicalPointForPerMonitorDPI(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
         }
@@ -551,7 +571,8 @@ impl ::core::fmt::Debug for MONITOR_DPI_TYPE {
 pub unsafe fn OpenThemeDataForDpi<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszclasslist: Param1, dpi: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenThemeDataForDpi(hwnd: super::super::Foundation::HWND, pszclasslist: super::super::Foundation::PWSTR, dpi: u32) -> isize;
         }
@@ -595,7 +616,8 @@ impl ::core::fmt::Debug for PROCESS_DPI_AWARENESS {
 pub unsafe fn PhysicalToLogicalPointForPerMonitorDPI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PhysicalToLogicalPointForPerMonitorDPI(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
         }
@@ -610,7 +632,8 @@ pub unsafe fn PhysicalToLogicalPointForPerMonitorDPI<'a, Param0: ::windows::core
 pub unsafe fn SetDialogControlDpiChangeBehavior<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetDialogControlDpiChangeBehavior(hwnd: super::super::Foundation::HWND, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL;
         }
@@ -625,7 +648,8 @@ pub unsafe fn SetDialogControlDpiChangeBehavior<'a, Param0: ::windows::core::Int
 pub unsafe fn SetDialogDpiChangeBehavior<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetDialogDpiChangeBehavior(hdlg: super::super::Foundation::HWND, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS) -> super::super::Foundation::BOOL;
         }
@@ -639,7 +663,8 @@ pub unsafe fn SetDialogDpiChangeBehavior<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-shcore-scaling-l1-1-1", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows::core::HRESULT;
         }
@@ -654,7 +679,8 @@ pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows:
 pub unsafe fn SetProcessDpiAwarenessContext<'a, Param0: ::windows::core::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(value: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetProcessDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> super::super::Foundation::BOOL;
         }
@@ -668,7 +694,8 @@ pub unsafe fn SetProcessDpiAwarenessContext<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn SetThreadDpiAwarenessContext<'a, Param0: ::windows::core::IntoParam<'a, DPI_AWARENESS_CONTEXT>>(dpicontext: Param0) -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetThreadDpiAwarenessContext(dpicontext: DPI_AWARENESS_CONTEXT) -> DPI_AWARENESS_CONTEXT;
         }
@@ -682,7 +709,8 @@ pub unsafe fn SetThreadDpiAwarenessContext<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HOSTING_BEHAVIOR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HOSTING_BEHAVIOR;
         }
@@ -697,7 +725,8 @@ pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HO
 pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: *mut ::core::ffi::c_void, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL;
         }

@@ -265,7 +265,8 @@ impl ::core::default::Default for CABINET_INFO_W {
 pub unsafe fn CMP_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CMP_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32;
         }
@@ -292,7 +293,8 @@ pub const CM_ADD_RANGE_DONOTADDIFCONFLICT: u32 = 1u32;
 pub unsafe fn CM_Add_Empty_Log_Conf(plclogconf: *mut usize, dndevinst: u32, priority: super::super::Data::HtmlHelp::PRIORITY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Add_Empty_Log_Conf(plclogconf: *mut usize, dndevinst: u32, priority: super::super::Data::HtmlHelp::PRIORITY, ulflags: u32) -> CONFIGRET;
         }
@@ -307,7 +309,8 @@ pub unsafe fn CM_Add_Empty_Log_Conf(plclogconf: *mut usize, dndevinst: u32, prio
 pub unsafe fn CM_Add_Empty_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, priority: super::super::Data::HtmlHelp::PRIORITY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Add_Empty_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, priority: super::super::Data::HtmlHelp::PRIORITY, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -322,7 +325,8 @@ pub unsafe fn CM_Add_Empty_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, p
 pub unsafe fn CM_Add_IDA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, pszid: Param1, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Add_IDA(dndevinst: u32, pszid: super::super::Foundation::PSTR, ulflags: u32) -> CONFIGRET;
         }
@@ -337,7 +341,8 @@ pub unsafe fn CM_Add_IDA<'a, Param1: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn CM_Add_IDW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, pszid: Param1, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Add_IDW(dndevinst: u32, pszid: super::super::Foundation::PWSTR, ulflags: u32) -> CONFIGRET;
         }
@@ -352,7 +357,8 @@ pub unsafe fn CM_Add_IDW<'a, Param1: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn CM_Add_ID_ExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, pszid: Param1, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Add_ID_ExA(dndevinst: u32, pszid: super::super::Foundation::PSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -367,7 +373,8 @@ pub unsafe fn CM_Add_ID_ExA<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn CM_Add_ID_ExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, pszid: Param1, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Add_ID_ExW(dndevinst: u32, pszid: super::super::Foundation::PWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -381,7 +388,8 @@ pub unsafe fn CM_Add_ID_ExW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn CM_Add_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Add_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -395,7 +403,8 @@ pub unsafe fn CM_Add_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulf
 pub unsafe fn CM_Add_Res_Des(prdresdes: *mut usize, lclogconf: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Add_Res_Des(prdresdes: *mut usize, lclogconf: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -409,7 +418,8 @@ pub unsafe fn CM_Add_Res_Des(prdresdes: *mut usize, lclogconf: usize, resourceid
 pub unsafe fn CM_Add_Res_Des_Ex(prdresdes: *mut usize, lclogconf: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Add_Res_Des_Ex(prdresdes: *mut usize, lclogconf: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -492,7 +502,8 @@ pub const CM_CUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1u32;
 pub unsafe fn CM_Connect_MachineA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(uncservername: Param0, phmachine: *mut isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Connect_MachineA(uncservername: super::super::Foundation::PSTR, phmachine: *mut isize) -> CONFIGRET;
         }
@@ -507,7 +518,8 @@ pub unsafe fn CM_Connect_MachineA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CM_Connect_MachineW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, phmachine: *mut isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Connect_MachineW(uncservername: super::super::Foundation::PWSTR, phmachine: *mut isize) -> CONFIGRET;
         }
@@ -521,7 +533,8 @@ pub unsafe fn CM_Connect_MachineW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CM_Create_DevNodeA(pdndevinst: *mut u32, pdeviceid: *const i8, dnparent: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Create_DevNodeA(pdndevinst: *mut u32, pdeviceid: *const i8, dnparent: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -535,7 +548,8 @@ pub unsafe fn CM_Create_DevNodeA(pdndevinst: *mut u32, pdeviceid: *const i8, dnp
 pub unsafe fn CM_Create_DevNodeW(pdndevinst: *mut u32, pdeviceid: *const u16, dnparent: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Create_DevNodeW(pdndevinst: *mut u32, pdeviceid: *const u16, dnparent: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -549,7 +563,8 @@ pub unsafe fn CM_Create_DevNodeW(pdndevinst: *mut u32, pdeviceid: *const u16, dn
 pub unsafe fn CM_Create_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: *const i8, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Create_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: *const i8, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -563,7 +578,8 @@ pub unsafe fn CM_Create_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: *const i8, 
 pub unsafe fn CM_Create_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: *const u16, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Create_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: *const u16, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -577,7 +593,8 @@ pub unsafe fn CM_Create_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: *const u16,
 pub unsafe fn CM_Create_Range_List(prlh: *mut usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Create_Range_List(prlh: *mut usize, ulflags: u32) -> CONFIGRET;
         }
@@ -765,7 +782,8 @@ pub const CM_DRP_UPPERFILTERS: u32 = 18u32;
 pub unsafe fn CM_Delete_Class_Key(classguid: *const ::windows::core::GUID, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Delete_Class_Key(classguid: *const ::windows::core::GUID, ulflags: u32) -> CONFIGRET;
         }
@@ -779,7 +797,8 @@ pub unsafe fn CM_Delete_Class_Key(classguid: *const ::windows::core::GUID, ulfla
 pub unsafe fn CM_Delete_Class_Key_Ex(classguid: *const ::windows::core::GUID, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Delete_Class_Key_Ex(classguid: *const ::windows::core::GUID, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -793,7 +812,8 @@ pub unsafe fn CM_Delete_Class_Key_Ex(classguid: *const ::windows::core::GUID, ul
 pub unsafe fn CM_Delete_DevNode_Key(dndevnode: u32, ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Delete_DevNode_Key(dndevnode: u32, ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -807,7 +827,8 @@ pub unsafe fn CM_Delete_DevNode_Key(dndevnode: u32, ulhardwareprofile: u32, ulfl
 pub unsafe fn CM_Delete_DevNode_Key_Ex(dndevnode: u32, ulhardwareprofile: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Delete_DevNode_Key_Ex(dndevnode: u32, ulhardwareprofile: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -822,7 +843,8 @@ pub unsafe fn CM_Delete_DevNode_Key_Ex(dndevnode: u32, ulhardwareprofile: u32, u
 pub unsafe fn CM_Delete_Device_Interface_KeyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Delete_Device_Interface_KeyA(pszdeviceinterface: super::super::Foundation::PSTR, ulflags: u32) -> CONFIGRET;
         }
@@ -837,7 +859,8 @@ pub unsafe fn CM_Delete_Device_Interface_KeyA<'a, Param0: ::windows::core::IntoP
 pub unsafe fn CM_Delete_Device_Interface_KeyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Delete_Device_Interface_KeyW(pszdeviceinterface: super::super::Foundation::PWSTR, ulflags: u32) -> CONFIGRET;
         }
@@ -852,7 +875,8 @@ pub unsafe fn CM_Delete_Device_Interface_KeyW<'a, Param0: ::windows::core::IntoP
 pub unsafe fn CM_Delete_Device_Interface_Key_ExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Delete_Device_Interface_Key_ExA(pszdeviceinterface: super::super::Foundation::PSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -867,7 +891,8 @@ pub unsafe fn CM_Delete_Device_Interface_Key_ExA<'a, Param0: ::windows::core::In
 pub unsafe fn CM_Delete_Device_Interface_Key_ExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Delete_Device_Interface_Key_ExW(pszdeviceinterface: super::super::Foundation::PWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -881,7 +906,8 @@ pub unsafe fn CM_Delete_Device_Interface_Key_ExW<'a, Param0: ::windows::core::In
 pub unsafe fn CM_Delete_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Delete_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -896,7 +922,8 @@ pub unsafe fn CM_Delete_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, 
 pub unsafe fn CM_Detect_Resource_Conflict(dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Detect_Resource_Conflict(dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32) -> CONFIGRET;
         }
@@ -911,7 +938,8 @@ pub unsafe fn CM_Detect_Resource_Conflict(dndevinst: u32, resourceid: u32, resou
 pub unsafe fn CM_Detect_Resource_Conflict_Ex(dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Detect_Resource_Conflict_Ex(dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -925,7 +953,8 @@ pub unsafe fn CM_Detect_Resource_Conflict_Ex(dndevinst: u32, resourceid: u32, re
 pub unsafe fn CM_Disable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Disable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -939,7 +968,8 @@ pub unsafe fn CM_Disable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Disable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Disable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -953,7 +983,8 @@ pub unsafe fn CM_Disable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isiz
 pub unsafe fn CM_Disconnect_Machine(hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Disconnect_Machine(hmachine: isize) -> CONFIGRET;
         }
@@ -967,7 +998,8 @@ pub unsafe fn CM_Disconnect_Machine(hmachine: isize) -> CONFIGRET {
 pub unsafe fn CM_Dup_Range_List(rlhold: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Dup_Range_List(rlhold: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -987,7 +1019,8 @@ pub const CM_ENUMERATE_CLASSES_INTERFACE: u32 = 1u32;
 pub unsafe fn CM_Enable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Enable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1001,7 +1034,8 @@ pub unsafe fn CM_Enable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Enable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Enable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1015,7 +1049,8 @@ pub unsafe fn CM_Enable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize
 pub unsafe fn CM_Enumerate_Classes(ulclassindex: u32, classguid: *mut ::windows::core::GUID, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Enumerate_Classes(ulclassindex: u32, classguid: *mut ::windows::core::GUID, ulflags: u32) -> CONFIGRET;
         }
@@ -1029,7 +1064,8 @@ pub unsafe fn CM_Enumerate_Classes(ulclassindex: u32, classguid: *mut ::windows:
 pub unsafe fn CM_Enumerate_Classes_Ex(ulclassindex: u32, classguid: *mut ::windows::core::GUID, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Enumerate_Classes_Ex(ulclassindex: u32, classguid: *mut ::windows::core::GUID, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1044,7 +1080,8 @@ pub unsafe fn CM_Enumerate_Classes_Ex(ulclassindex: u32, classguid: *mut ::windo
 pub unsafe fn CM_Enumerate_EnumeratorsA(ulenumindex: u32, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Enumerate_EnumeratorsA(ulenumindex: u32, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1059,7 +1096,8 @@ pub unsafe fn CM_Enumerate_EnumeratorsA(ulenumindex: u32, buffer: super::super::
 pub unsafe fn CM_Enumerate_EnumeratorsW(ulenumindex: u32, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Enumerate_EnumeratorsW(ulenumindex: u32, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1074,7 +1112,8 @@ pub unsafe fn CM_Enumerate_EnumeratorsW(ulenumindex: u32, buffer: super::super::
 pub unsafe fn CM_Enumerate_Enumerators_ExA(ulenumindex: u32, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Enumerate_Enumerators_ExA(ulenumindex: u32, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1089,7 +1128,8 @@ pub unsafe fn CM_Enumerate_Enumerators_ExA(ulenumindex: u32, buffer: super::supe
 pub unsafe fn CM_Enumerate_Enumerators_ExW(ulenumindex: u32, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Enumerate_Enumerators_ExW(ulenumindex: u32, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1103,7 +1143,8 @@ pub unsafe fn CM_Enumerate_Enumerators_ExW(ulenumindex: u32, buffer: super::supe
 pub unsafe fn CM_Find_Range(pullstart: *mut u64, ullstart: u64, ullength: u32, ullalignment: u64, ullend: u64, rlh: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Find_Range(pullstart: *mut u64, ullstart: u64, ullength: u32, ullalignment: u64, ullend: u64, rlh: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -1117,7 +1158,8 @@ pub unsafe fn CM_Find_Range(pullstart: *mut u64, ullstart: u64, ullength: u32, u
 pub unsafe fn CM_First_Range(rlh: usize, pullstart: *mut u64, pullend: *mut u64, preelement: *mut usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_First_Range(rlh: usize, pullstart: *mut u64, pullend: *mut u64, preelement: *mut usize, ulflags: u32) -> CONFIGRET;
         }
@@ -1131,7 +1173,8 @@ pub unsafe fn CM_First_Range(rlh: usize, pullstart: *mut u64, pullend: *mut u64,
 pub unsafe fn CM_Free_Log_Conf(lclogconftobefreed: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Free_Log_Conf(lclogconftobefreed: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -1145,7 +1188,8 @@ pub unsafe fn CM_Free_Log_Conf(lclogconftobefreed: usize, ulflags: u32) -> CONFI
 pub unsafe fn CM_Free_Log_Conf_Ex(lclogconftobefreed: usize, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Free_Log_Conf_Ex(lclogconftobefreed: usize, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1159,7 +1203,8 @@ pub unsafe fn CM_Free_Log_Conf_Ex(lclogconftobefreed: usize, ulflags: u32, hmach
 pub unsafe fn CM_Free_Log_Conf_Handle(lclogconf: usize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Free_Log_Conf_Handle(lclogconf: usize) -> CONFIGRET;
         }
@@ -1173,7 +1218,8 @@ pub unsafe fn CM_Free_Log_Conf_Handle(lclogconf: usize) -> CONFIGRET {
 pub unsafe fn CM_Free_Range_List(rlh: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Free_Range_List(rlh: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -1187,7 +1233,8 @@ pub unsafe fn CM_Free_Range_List(rlh: usize, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Free_Res_Des(prdresdes: *mut usize, rdresdes: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Free_Res_Des(prdresdes: *mut usize, rdresdes: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -1201,7 +1248,8 @@ pub unsafe fn CM_Free_Res_Des(prdresdes: *mut usize, rdresdes: usize, ulflags: u
 pub unsafe fn CM_Free_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Free_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1215,7 +1263,8 @@ pub unsafe fn CM_Free_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, ulflags
 pub unsafe fn CM_Free_Res_Des_Handle(rdresdes: usize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Free_Res_Des_Handle(rdresdes: usize) -> CONFIGRET;
         }
@@ -1229,7 +1278,8 @@ pub unsafe fn CM_Free_Res_Des_Handle(rdresdes: usize) -> CONFIGRET {
 pub unsafe fn CM_Free_Resource_Conflict_Handle(clconflictlist: usize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Free_Resource_Conflict_Handle(clconflictlist: usize) -> CONFIGRET;
         }
@@ -1285,7 +1335,8 @@ pub const CM_GLOBAL_STATE_SHUTTING_DOWN: u32 = 8u32;
 pub unsafe fn CM_Get_Child(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Child(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1299,7 +1350,8 @@ pub unsafe fn CM_Get_Child(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -
 pub unsafe fn CM_Get_Child_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Child_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1314,7 +1366,8 @@ pub unsafe fn CM_Get_Child_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32
 pub unsafe fn CM_Get_Class_Key_NameA(classguid: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Key_NameA(classguid: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1329,7 +1382,8 @@ pub unsafe fn CM_Get_Class_Key_NameA(classguid: *const ::windows::core::GUID, ps
 pub unsafe fn CM_Get_Class_Key_NameW(classguid: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Key_NameW(classguid: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1344,7 +1398,8 @@ pub unsafe fn CM_Get_Class_Key_NameW(classguid: *const ::windows::core::GUID, ps
 pub unsafe fn CM_Get_Class_Key_Name_ExA(classguid: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Key_Name_ExA(classguid: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1359,7 +1414,8 @@ pub unsafe fn CM_Get_Class_Key_Name_ExA(classguid: *const ::windows::core::GUID,
 pub unsafe fn CM_Get_Class_Key_Name_ExW(classguid: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Key_Name_ExW(classguid: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1374,7 +1430,8 @@ pub unsafe fn CM_Get_Class_Key_Name_ExW(classguid: *const ::windows::core::GUID,
 pub unsafe fn CM_Get_Class_NameA(classguid: *const ::windows::core::GUID, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_NameA(classguid: *const ::windows::core::GUID, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1389,7 +1446,8 @@ pub unsafe fn CM_Get_Class_NameA(classguid: *const ::windows::core::GUID, buffer
 pub unsafe fn CM_Get_Class_NameW(classguid: *const ::windows::core::GUID, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_NameW(classguid: *const ::windows::core::GUID, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1404,7 +1462,8 @@ pub unsafe fn CM_Get_Class_NameW(classguid: *const ::windows::core::GUID, buffer
 pub unsafe fn CM_Get_Class_Name_ExA(classguid: *const ::windows::core::GUID, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Name_ExA(classguid: *const ::windows::core::GUID, buffer: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1419,7 +1478,8 @@ pub unsafe fn CM_Get_Class_Name_ExA(classguid: *const ::windows::core::GUID, buf
 pub unsafe fn CM_Get_Class_Name_ExW(classguid: *const ::windows::core::GUID, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Name_ExW(classguid: *const ::windows::core::GUID, buffer: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1434,7 +1494,8 @@ pub unsafe fn CM_Get_Class_Name_ExW(classguid: *const ::windows::core::GUID, buf
 pub unsafe fn CM_Get_Class_PropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_PropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1449,7 +1510,8 @@ pub unsafe fn CM_Get_Class_PropertyW(classguid: *const ::windows::core::GUID, pr
 pub unsafe fn CM_Get_Class_Property_ExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Property_ExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1464,7 +1526,8 @@ pub unsafe fn CM_Get_Class_Property_ExW(classguid: *const ::windows::core::GUID,
 pub unsafe fn CM_Get_Class_Property_Keys(classguid: *const ::windows::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Property_Keys(classguid: *const ::windows::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1479,7 +1542,8 @@ pub unsafe fn CM_Get_Class_Property_Keys(classguid: *const ::windows::core::GUID
 pub unsafe fn CM_Get_Class_Property_Keys_Ex(classguid: *const ::windows::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Property_Keys_Ex(classguid: *const ::windows::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1493,7 +1557,8 @@ pub unsafe fn CM_Get_Class_Property_Keys_Ex(classguid: *const ::windows::core::G
 pub unsafe fn CM_Get_Class_Registry_PropertyA(classguid: *const ::windows::core::GUID, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Registry_PropertyA(classguid: *const ::windows::core::GUID, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1507,7 +1572,8 @@ pub unsafe fn CM_Get_Class_Registry_PropertyA(classguid: *const ::windows::core:
 pub unsafe fn CM_Get_Class_Registry_PropertyW(classguid: *const ::windows::core::GUID, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Class_Registry_PropertyW(classguid: *const ::windows::core::GUID, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1521,7 +1587,8 @@ pub unsafe fn CM_Get_Class_Registry_PropertyW(classguid: *const ::windows::core:
 pub unsafe fn CM_Get_Depth(puldepth: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Depth(puldepth: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1535,7 +1602,8 @@ pub unsafe fn CM_Get_Depth(puldepth: *mut u32, dndevinst: u32, ulflags: u32) -> 
 pub unsafe fn CM_Get_Depth_Ex(puldepth: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Depth_Ex(puldepth: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1550,7 +1618,8 @@ pub unsafe fn CM_Get_Depth_Ex(puldepth: *mut u32, dndevinst: u32, ulflags: u32, 
 pub unsafe fn CM_Get_DevNode_Custom_PropertyA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, pszcustompropertyname: Param1, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Custom_PropertyA(dndevinst: u32, pszcustompropertyname: super::super::Foundation::PSTR, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1565,7 +1634,8 @@ pub unsafe fn CM_Get_DevNode_Custom_PropertyA<'a, Param1: ::windows::core::IntoP
 pub unsafe fn CM_Get_DevNode_Custom_PropertyW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, pszcustompropertyname: Param1, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Custom_PropertyW(dndevinst: u32, pszcustompropertyname: super::super::Foundation::PWSTR, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1580,7 +1650,8 @@ pub unsafe fn CM_Get_DevNode_Custom_PropertyW<'a, Param1: ::windows::core::IntoP
 pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, pszcustompropertyname: Param1, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Custom_Property_ExA(dndevinst: u32, pszcustompropertyname: super::super::Foundation::PSTR, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1595,7 +1666,8 @@ pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<'a, Param1: ::windows::core::In
 pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, pszcustompropertyname: Param1, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Custom_Property_ExW(dndevinst: u32, pszcustompropertyname: super::super::Foundation::PWSTR, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1610,7 +1682,8 @@ pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<'a, Param1: ::windows::core::In
 pub unsafe fn CM_Get_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1625,7 +1698,8 @@ pub unsafe fn CM_Get_DevNode_PropertyW(dndevinst: u32, propertykey: *const super
 pub unsafe fn CM_Get_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1640,7 +1714,8 @@ pub unsafe fn CM_Get_DevNode_Property_ExW(dndevinst: u32, propertykey: *const su
 pub unsafe fn CM_Get_DevNode_Property_Keys(dndevinst: u32, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Property_Keys(dndevinst: u32, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1655,7 +1730,8 @@ pub unsafe fn CM_Get_DevNode_Property_Keys(dndevinst: u32, propertykeyarray: *mu
 pub unsafe fn CM_Get_DevNode_Property_Keys_Ex(dndevinst: u32, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Property_Keys_Ex(dndevinst: u32, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1669,7 +1745,8 @@ pub unsafe fn CM_Get_DevNode_Property_Keys_Ex(dndevinst: u32, propertykeyarray: 
 pub unsafe fn CM_Get_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1683,7 +1760,8 @@ pub unsafe fn CM_Get_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32,
 pub unsafe fn CM_Get_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1697,7 +1775,8 @@ pub unsafe fn CM_Get_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32,
 pub unsafe fn CM_Get_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1711,7 +1790,8 @@ pub unsafe fn CM_Get_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u
 pub unsafe fn CM_Get_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1725,7 +1805,8 @@ pub unsafe fn CM_Get_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u
 pub unsafe fn CM_Get_DevNode_Status(pulstatus: *mut u32, pulproblemnumber: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Status(pulstatus: *mut u32, pulproblemnumber: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1739,7 +1820,8 @@ pub unsafe fn CM_Get_DevNode_Status(pulstatus: *mut u32, pulproblemnumber: *mut 
 pub unsafe fn CM_Get_DevNode_Status_Ex(pulstatus: *mut u32, pulproblemnumber: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_DevNode_Status_Ex(pulstatus: *mut u32, pulproblemnumber: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1754,7 +1836,8 @@ pub unsafe fn CM_Get_DevNode_Status_Ex(pulstatus: *mut u32, pulproblemnumber: *m
 pub unsafe fn CM_Get_Device_IDA(dndevinst: u32, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_IDA(dndevinst: u32, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1769,7 +1852,8 @@ pub unsafe fn CM_Get_Device_IDA(dndevinst: u32, buffer: super::super::Foundation
 pub unsafe fn CM_Get_Device_IDW(dndevinst: u32, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_IDW(dndevinst: u32, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1784,7 +1868,8 @@ pub unsafe fn CM_Get_Device_IDW(dndevinst: u32, buffer: super::super::Foundation
 pub unsafe fn CM_Get_Device_ID_ExA(dndevinst: u32, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_ExA(dndevinst: u32, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1799,7 +1884,8 @@ pub unsafe fn CM_Get_Device_ID_ExA(dndevinst: u32, buffer: super::super::Foundat
 pub unsafe fn CM_Get_Device_ID_ExW(dndevinst: u32, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_ExW(dndevinst: u32, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1814,7 +1900,8 @@ pub unsafe fn CM_Get_Device_ID_ExW(dndevinst: u32, buffer: super::super::Foundat
 pub unsafe fn CM_Get_Device_ID_ListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilter: Param0, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_ListA(pszfilter: super::super::Foundation::PSTR, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1829,7 +1916,8 @@ pub unsafe fn CM_Get_Device_ID_ListA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CM_Get_Device_ID_ListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilter: Param0, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_ListW(pszfilter: super::super::Foundation::PWSTR, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1844,7 +1932,8 @@ pub unsafe fn CM_Get_Device_ID_ListW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CM_Get_Device_ID_List_ExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilter: Param0, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_List_ExA(pszfilter: super::super::Foundation::PSTR, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1859,7 +1948,8 @@ pub unsafe fn CM_Get_Device_ID_List_ExA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn CM_Get_Device_ID_List_ExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilter: Param0, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_List_ExW(pszfilter: super::super::Foundation::PWSTR, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1874,7 +1964,8 @@ pub unsafe fn CM_Get_Device_ID_List_ExW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn CM_Get_Device_ID_List_SizeA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pullen: *mut u32, pszfilter: Param1, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_List_SizeA(pullen: *mut u32, pszfilter: super::super::Foundation::PSTR, ulflags: u32) -> CONFIGRET;
         }
@@ -1889,7 +1980,8 @@ pub unsafe fn CM_Get_Device_ID_List_SizeA<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn CM_Get_Device_ID_List_SizeW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pullen: *mut u32, pszfilter: Param1, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_List_SizeW(pullen: *mut u32, pszfilter: super::super::Foundation::PWSTR, ulflags: u32) -> CONFIGRET;
         }
@@ -1904,7 +1996,8 @@ pub unsafe fn CM_Get_Device_ID_List_SizeW<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn CM_Get_Device_ID_List_Size_ExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pullen: *mut u32, pszfilter: Param1, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_List_Size_ExA(pullen: *mut u32, pszfilter: super::super::Foundation::PSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1919,7 +2012,8 @@ pub unsafe fn CM_Get_Device_ID_List_Size_ExA<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn CM_Get_Device_ID_List_Size_ExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pullen: *mut u32, pszfilter: Param1, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_List_Size_ExW(pullen: *mut u32, pszfilter: super::super::Foundation::PWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1933,7 +2027,8 @@ pub unsafe fn CM_Get_Device_ID_List_Size_ExW<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn CM_Get_Device_ID_Size(pullen: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_Size(pullen: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1947,7 +2042,8 @@ pub unsafe fn CM_Get_Device_ID_Size(pullen: *mut u32, dndevinst: u32, ulflags: u
 pub unsafe fn CM_Get_Device_ID_Size_Ex(pullen: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_ID_Size_Ex(pullen: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -1962,7 +2058,8 @@ pub unsafe fn CM_Get_Device_ID_Size_Ex(pullen: *mut u32, dndevinst: u32, ulflags
 pub unsafe fn CM_Get_Device_Interface_AliasA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, aliasinterfaceguid: *const ::windows::core::GUID, pszaliasdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_AliasA(pszdeviceinterface: super::super::Foundation::PSTR, aliasinterfaceguid: *const ::windows::core::GUID, pszaliasdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1977,7 +2074,8 @@ pub unsafe fn CM_Get_Device_Interface_AliasA<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn CM_Get_Device_Interface_AliasW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, aliasinterfaceguid: *const ::windows::core::GUID, pszaliasdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_AliasW(pszdeviceinterface: super::super::Foundation::PWSTR, aliasinterfaceguid: *const ::windows::core::GUID, pszaliasdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -1992,7 +2090,8 @@ pub unsafe fn CM_Get_Device_Interface_AliasW<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn CM_Get_Device_Interface_Alias_ExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, aliasinterfaceguid: *const ::windows::core::GUID, pszaliasdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface: super::super::Foundation::PSTR, aliasinterfaceguid: *const ::windows::core::GUID, pszaliasdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2007,7 +2106,8 @@ pub unsafe fn CM_Get_Device_Interface_Alias_ExA<'a, Param0: ::windows::core::Int
 pub unsafe fn CM_Get_Device_Interface_Alias_ExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, aliasinterfaceguid: *const ::windows::core::GUID, pszaliasdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface: super::super::Foundation::PWSTR, aliasinterfaceguid: *const ::windows::core::GUID, pszaliasdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2022,7 +2122,8 @@ pub unsafe fn CM_Get_Device_Interface_Alias_ExW<'a, Param0: ::windows::core::Int
 pub unsafe fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2037,7 +2138,8 @@ pub unsafe fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const ::windows
 pub unsafe fn CM_Get_Device_Interface_ListW(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_ListW(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2052,7 +2154,8 @@ pub unsafe fn CM_Get_Device_Interface_ListW(interfaceclassguid: *const ::windows
 pub unsafe fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, buffer: super::super::Foundation::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2067,7 +2170,8 @@ pub unsafe fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: *const ::wind
 pub unsafe fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, buffer: super::super::Foundation::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2081,7 +2185,8 @@ pub unsafe fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: *const ::wind
 pub unsafe fn CM_Get_Device_Interface_List_SizeA(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_List_SizeA(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, ulflags: u32) -> CONFIGRET;
         }
@@ -2095,7 +2200,8 @@ pub unsafe fn CM_Get_Device_Interface_List_SizeA(pullen: *mut u32, interfaceclas
 pub unsafe fn CM_Get_Device_Interface_List_SizeW(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_List_SizeW(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, ulflags: u32) -> CONFIGRET;
         }
@@ -2109,7 +2215,8 @@ pub unsafe fn CM_Get_Device_Interface_List_SizeW(pullen: *mut u32, interfaceclas
 pub unsafe fn CM_Get_Device_Interface_List_Size_ExA(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_List_Size_ExA(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2123,7 +2230,8 @@ pub unsafe fn CM_Get_Device_Interface_List_Size_ExA(pullen: *mut u32, interfacec
 pub unsafe fn CM_Get_Device_Interface_List_Size_ExW(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_List_Size_ExW(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2138,7 +2246,8 @@ pub unsafe fn CM_Get_Device_Interface_List_Size_ExW(pullen: *mut u32, interfacec
 pub unsafe fn CM_Get_Device_Interface_PropertyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_PropertyW(pszdeviceinterface: super::super::Foundation::PWSTR, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2153,7 +2262,8 @@ pub unsafe fn CM_Get_Device_Interface_PropertyW<'a, Param0: ::windows::core::Int
 pub unsafe fn CM_Get_Device_Interface_Property_ExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_Property_ExW(pszdeviceinterface: super::super::Foundation::PWSTR, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2168,7 +2278,8 @@ pub unsafe fn CM_Get_Device_Interface_Property_ExW<'a, Param0: ::windows::core::
 pub unsafe fn CM_Get_Device_Interface_Property_KeysW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_Property_KeysW(pszdeviceinterface: super::super::Foundation::PWSTR, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2183,7 +2294,8 @@ pub unsafe fn CM_Get_Device_Interface_Property_KeysW<'a, Param0: ::windows::core
 pub unsafe fn CM_Get_Device_Interface_Property_Keys_ExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Device_Interface_Property_Keys_ExW(pszdeviceinterface: super::super::Foundation::PWSTR, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2197,7 +2309,8 @@ pub unsafe fn CM_Get_Device_Interface_Property_Keys_ExW<'a, Param0: ::windows::c
 pub unsafe fn CM_Get_First_Log_Conf(plclogconf: *mut usize, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_First_Log_Conf(plclogconf: *mut usize, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2211,7 +2324,8 @@ pub unsafe fn CM_Get_First_Log_Conf(plclogconf: *mut usize, dndevinst: u32, ulfl
 pub unsafe fn CM_Get_First_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_First_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2225,7 +2339,8 @@ pub unsafe fn CM_Get_First_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, u
 pub unsafe fn CM_Get_Global_State(pulstate: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Global_State(pulstate: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2239,7 +2354,8 @@ pub unsafe fn CM_Get_Global_State(pulstate: *mut u32, ulflags: u32) -> CONFIGRET
 pub unsafe fn CM_Get_Global_State_Ex(pulstate: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Global_State_Ex(pulstate: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2253,7 +2369,8 @@ pub unsafe fn CM_Get_Global_State_Ex(pulstate: *mut u32, ulflags: u32, hmachine:
 pub unsafe fn CM_Get_HW_Prof_FlagsA(pdeviceid: *const i8, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_HW_Prof_FlagsA(pdeviceid: *const i8, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2267,7 +2384,8 @@ pub unsafe fn CM_Get_HW_Prof_FlagsA(pdeviceid: *const i8, ulhardwareprofile: u32
 pub unsafe fn CM_Get_HW_Prof_FlagsW(pdeviceid: *const u16, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_HW_Prof_FlagsW(pdeviceid: *const u16, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2281,7 +2399,8 @@ pub unsafe fn CM_Get_HW_Prof_FlagsW(pdeviceid: *const u16, ulhardwareprofile: u3
 pub unsafe fn CM_Get_HW_Prof_Flags_ExA(pdeviceid: *const i8, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_HW_Prof_Flags_ExA(pdeviceid: *const i8, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2295,7 +2414,8 @@ pub unsafe fn CM_Get_HW_Prof_Flags_ExA(pdeviceid: *const i8, ulhardwareprofile: 
 pub unsafe fn CM_Get_HW_Prof_Flags_ExW(pdeviceid: *const u16, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_HW_Prof_Flags_ExW(pdeviceid: *const u16, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2310,7 +2430,8 @@ pub unsafe fn CM_Get_HW_Prof_Flags_ExW(pdeviceid: *const u16, ulhardwareprofile:
 pub unsafe fn CM_Get_Hardware_Profile_InfoA(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sA, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Hardware_Profile_InfoA(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sA, ulflags: u32) -> CONFIGRET;
         }
@@ -2324,7 +2445,8 @@ pub unsafe fn CM_Get_Hardware_Profile_InfoA(ulindex: u32, phwprofileinfo: *mut H
 pub unsafe fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sW, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sW, ulflags: u32) -> CONFIGRET;
         }
@@ -2339,7 +2461,8 @@ pub unsafe fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: *mut H
 pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sA, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Hardware_Profile_Info_ExA(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sA, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2353,7 +2476,8 @@ pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(ulindex: u32, phwprofileinfo: *mu
 pub unsafe fn CM_Get_Hardware_Profile_Info_ExW(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sW, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Hardware_Profile_Info_ExW(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sW, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2367,7 +2491,8 @@ pub unsafe fn CM_Get_Hardware_Profile_Info_ExW(ulindex: u32, phwprofileinfo: *mu
 pub unsafe fn CM_Get_Log_Conf_Priority(lclogconf: usize, ppriority: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Log_Conf_Priority(lclogconf: usize, ppriority: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2381,7 +2506,8 @@ pub unsafe fn CM_Get_Log_Conf_Priority(lclogconf: usize, ppriority: *mut u32, ul
 pub unsafe fn CM_Get_Log_Conf_Priority_Ex(lclogconf: usize, ppriority: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Log_Conf_Priority_Ex(lclogconf: usize, ppriority: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2395,7 +2521,8 @@ pub unsafe fn CM_Get_Log_Conf_Priority_Ex(lclogconf: usize, ppriority: *mut u32,
 pub unsafe fn CM_Get_Next_Log_Conf(plclogconf: *mut usize, lclogconf: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Next_Log_Conf(plclogconf: *mut usize, lclogconf: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -2409,7 +2536,8 @@ pub unsafe fn CM_Get_Next_Log_Conf(plclogconf: *mut usize, lclogconf: usize, ulf
 pub unsafe fn CM_Get_Next_Log_Conf_Ex(plclogconf: *mut usize, lclogconf: usize, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Next_Log_Conf_Ex(plclogconf: *mut usize, lclogconf: usize, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2423,7 +2551,8 @@ pub unsafe fn CM_Get_Next_Log_Conf_Ex(plclogconf: *mut usize, lclogconf: usize, 
 pub unsafe fn CM_Get_Next_Res_Des(prdresdes: *mut usize, rdresdes: usize, forresource: u32, presourceid: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Next_Res_Des(prdresdes: *mut usize, rdresdes: usize, forresource: u32, presourceid: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2437,7 +2566,8 @@ pub unsafe fn CM_Get_Next_Res_Des(prdresdes: *mut usize, rdresdes: usize, forres
 pub unsafe fn CM_Get_Next_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, forresource: u32, presourceid: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Next_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, forresource: u32, presourceid: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2451,7 +2581,8 @@ pub unsafe fn CM_Get_Next_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, for
 pub unsafe fn CM_Get_Parent(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Parent(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2465,7 +2596,8 @@ pub unsafe fn CM_Get_Parent(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) 
 pub unsafe fn CM_Get_Parent_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Parent_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2479,7 +2611,8 @@ pub unsafe fn CM_Get_Parent_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u3
 pub unsafe fn CM_Get_Res_Des_Data(rdresdes: usize, buffer: *mut ::core::ffi::c_void, bufferlen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Res_Des_Data(rdresdes: usize, buffer: *mut ::core::ffi::c_void, bufferlen: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2493,7 +2626,8 @@ pub unsafe fn CM_Get_Res_Des_Data(rdresdes: usize, buffer: *mut ::core::ffi::c_v
 pub unsafe fn CM_Get_Res_Des_Data_Ex(rdresdes: usize, buffer: *mut ::core::ffi::c_void, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Res_Des_Data_Ex(rdresdes: usize, buffer: *mut ::core::ffi::c_void, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2507,7 +2641,8 @@ pub unsafe fn CM_Get_Res_Des_Data_Ex(rdresdes: usize, buffer: *mut ::core::ffi::
 pub unsafe fn CM_Get_Res_Des_Data_Size(pulsize: *mut u32, rdresdes: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Res_Des_Data_Size(pulsize: *mut u32, rdresdes: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -2521,7 +2656,8 @@ pub unsafe fn CM_Get_Res_Des_Data_Size(pulsize: *mut u32, rdresdes: usize, ulfla
 pub unsafe fn CM_Get_Res_Des_Data_Size_Ex(pulsize: *mut u32, rdresdes: usize, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Res_Des_Data_Size_Ex(pulsize: *mut u32, rdresdes: usize, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2535,7 +2671,8 @@ pub unsafe fn CM_Get_Res_Des_Data_Size_Ex(pulsize: *mut u32, rdresdes: usize, ul
 pub unsafe fn CM_Get_Resource_Conflict_Count(clconflictlist: usize, pulcount: *mut u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Resource_Conflict_Count(clconflictlist: usize, pulcount: *mut u32) -> CONFIGRET;
         }
@@ -2550,7 +2687,8 @@ pub unsafe fn CM_Get_Resource_Conflict_Count(clconflictlist: usize, pulcount: *m
 pub unsafe fn CM_Get_Resource_Conflict_DetailsA(clconflictlist: usize, ulindex: u32, pconflictdetails: *mut CONFLICT_DETAILS_A) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Resource_Conflict_DetailsA(clconflictlist: usize, ulindex: u32, pconflictdetails: *mut CONFLICT_DETAILS_A) -> CONFIGRET;
         }
@@ -2564,7 +2702,8 @@ pub unsafe fn CM_Get_Resource_Conflict_DetailsA(clconflictlist: usize, ulindex: 
 pub unsafe fn CM_Get_Resource_Conflict_DetailsW(clconflictlist: usize, ulindex: u32, pconflictdetails: *mut CONFLICT_DETAILS_W) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Resource_Conflict_DetailsW(clconflictlist: usize, ulindex: u32, pconflictdetails: *mut CONFLICT_DETAILS_W) -> CONFIGRET;
         }
@@ -2578,7 +2717,8 @@ pub unsafe fn CM_Get_Resource_Conflict_DetailsW(clconflictlist: usize, ulindex: 
 pub unsafe fn CM_Get_Sibling(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Sibling(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2592,7 +2732,8 @@ pub unsafe fn CM_Get_Sibling(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32)
 pub unsafe fn CM_Get_Sibling_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Sibling_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2606,7 +2747,8 @@ pub unsafe fn CM_Get_Sibling_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u
 pub unsafe fn CM_Get_Version() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Version() -> u16;
         }
@@ -2620,7 +2762,8 @@ pub unsafe fn CM_Get_Version() -> u16 {
 pub unsafe fn CM_Get_Version_Ex(hmachine: isize) -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Get_Version_Ex(hmachine: isize) -> u16;
         }
@@ -2648,7 +2791,8 @@ pub const CM_INSTALL_STATE_NEEDS_REINSTALL: u32 = 1u32;
 pub unsafe fn CM_Intersect_Range_List(rlhold1: usize, rlhold2: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Intersect_Range_List(rlhold1: usize, rlhold2: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -2662,7 +2806,8 @@ pub unsafe fn CM_Intersect_Range_List(rlhold1: usize, rlhold2: usize, rlhnew: us
 pub unsafe fn CM_Invert_Range_List(rlhold: usize, rlhnew: usize, ullmaxvalue: u64, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Invert_Range_List(rlhold: usize, rlhnew: usize, ullmaxvalue: u64, ulflags: u32) -> CONFIGRET;
         }
@@ -2677,7 +2822,8 @@ pub unsafe fn CM_Invert_Range_List(rlhold: usize, rlhnew: usize, ullmaxvalue: u6
 pub unsafe fn CM_Is_Dock_Station_Present(pbpresent: *mut super::super::Foundation::BOOL) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Is_Dock_Station_Present(pbpresent: *mut super::super::Foundation::BOOL) -> CONFIGRET;
         }
@@ -2692,7 +2838,8 @@ pub unsafe fn CM_Is_Dock_Station_Present(pbpresent: *mut super::super::Foundatio
 pub unsafe fn CM_Is_Dock_Station_Present_Ex(pbpresent: *mut super::super::Foundation::BOOL, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Is_Dock_Station_Present_Ex(pbpresent: *mut super::super::Foundation::BOOL, hmachine: isize) -> CONFIGRET;
         }
@@ -2707,7 +2854,8 @@ pub unsafe fn CM_Is_Dock_Station_Present_Ex(pbpresent: *mut super::super::Founda
 pub unsafe fn CM_Is_Version_Available(wversion: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Is_Version_Available(wversion: u16) -> super::super::Foundation::BOOL;
         }
@@ -2722,7 +2870,8 @@ pub unsafe fn CM_Is_Version_Available(wversion: u16) -> super::super::Foundation
 pub unsafe fn CM_Is_Version_Available_Ex(wversion: u16, hmachine: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Is_Version_Available_Ex(wversion: u16, hmachine: isize) -> super::super::Foundation::BOOL;
         }
@@ -2756,7 +2905,8 @@ pub const CM_LOCATE_DEVNODE_PHANTOM: u32 = 1u32;
 pub unsafe fn CM_Locate_DevNodeA(pdndevinst: *mut u32, pdeviceid: *const i8, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Locate_DevNodeA(pdndevinst: *mut u32, pdeviceid: *const i8, ulflags: u32) -> CONFIGRET;
         }
@@ -2770,7 +2920,8 @@ pub unsafe fn CM_Locate_DevNodeA(pdndevinst: *mut u32, pdeviceid: *const i8, ulf
 pub unsafe fn CM_Locate_DevNodeW(pdndevinst: *mut u32, pdeviceid: *const u16, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Locate_DevNodeW(pdndevinst: *mut u32, pdeviceid: *const u16, ulflags: u32) -> CONFIGRET;
         }
@@ -2784,7 +2935,8 @@ pub unsafe fn CM_Locate_DevNodeW(pdndevinst: *mut u32, pdeviceid: *const u16, ul
 pub unsafe fn CM_Locate_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: *const i8, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Locate_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: *const i8, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2798,7 +2950,8 @@ pub unsafe fn CM_Locate_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: *const i8, 
 pub unsafe fn CM_Locate_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: *const u16, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Locate_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: *const u16, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2812,7 +2965,8 @@ pub unsafe fn CM_Locate_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: *const u16,
 pub unsafe fn CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: u32) -> u32;
         }
@@ -2826,7 +2980,8 @@ pub unsafe fn CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: u32) -> u3
 pub unsafe fn CM_Merge_Range_List(rlhold1: usize, rlhold2: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Merge_Range_List(rlhold1: usize, rlhold2: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -2840,7 +2995,8 @@ pub unsafe fn CM_Merge_Range_List(rlhold1: usize, rlhold2: usize, rlhnew: usize,
 pub unsafe fn CM_Modify_Res_Des(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Modify_Res_Des(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2854,7 +3010,8 @@ pub unsafe fn CM_Modify_Res_Des(prdresdes: *mut usize, rdresdes: usize, resource
 pub unsafe fn CM_Modify_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Modify_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -2868,7 +3025,8 @@ pub unsafe fn CM_Modify_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, resou
 pub unsafe fn CM_Move_DevNode(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Move_DevNode(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -2882,7 +3040,8 @@ pub unsafe fn CM_Move_DevNode(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32
 pub unsafe fn CM_Move_DevNode_Ex(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Move_DevNode_Ex(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3312,7 +3471,8 @@ impl ::core::fmt::Debug for CM_NOTIFY_FILTER_TYPE {
 pub unsafe fn CM_Next_Range(preelement: *mut usize, pullstart: *mut u64, pullend: *mut u64, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Next_Range(preelement: *mut usize, pullstart: *mut u64, pullend: *mut u64, ulflags: u32) -> CONFIGRET;
         }
@@ -3333,7 +3493,8 @@ pub const CM_OPEN_CLASS_KEY_INTERFACE: u32 = 1u32;
 pub unsafe fn CM_Open_Class_KeyA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::core::GUID, pszclassname: Param1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Open_Class_KeyA(classguid: *const ::windows::core::GUID, pszclassname: super::super::Foundation::PSTR, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET;
         }
@@ -3348,7 +3509,8 @@ pub unsafe fn CM_Open_Class_KeyA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CM_Open_Class_KeyW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, pszclassname: Param1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Open_Class_KeyW(classguid: *const ::windows::core::GUID, pszclassname: super::super::Foundation::PWSTR, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET;
         }
@@ -3363,7 +3525,8 @@ pub unsafe fn CM_Open_Class_KeyW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CM_Open_Class_Key_ExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::core::GUID, pszclassname: Param1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Open_Class_Key_ExA(classguid: *const ::windows::core::GUID, pszclassname: super::super::Foundation::PSTR, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3378,7 +3541,8 @@ pub unsafe fn CM_Open_Class_Key_ExA<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn CM_Open_Class_Key_ExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, pszclassname: Param1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Open_Class_Key_ExW(classguid: *const ::windows::core::GUID, pszclassname: super::super::Foundation::PWSTR, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3393,7 +3557,8 @@ pub unsafe fn CM_Open_Class_Key_ExW<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn CM_Open_DevNode_Key(dndevnode: u32, samdesired: u32, ulhardwareprofile: u32, disposition: u32, phkdevice: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Open_DevNode_Key(dndevnode: u32, samdesired: u32, ulhardwareprofile: u32, disposition: u32, phkdevice: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET;
         }
@@ -3408,7 +3573,8 @@ pub unsafe fn CM_Open_DevNode_Key(dndevnode: u32, samdesired: u32, ulhardwarepro
 pub unsafe fn CM_Open_DevNode_Key_Ex(dndevnode: u32, samdesired: u32, ulhardwareprofile: u32, disposition: u32, phkdevice: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Open_DevNode_Key_Ex(dndevnode: u32, samdesired: u32, ulhardwareprofile: u32, disposition: u32, phkdevice: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3423,7 +3589,8 @@ pub unsafe fn CM_Open_DevNode_Key_Ex(dndevnode: u32, samdesired: u32, ulhardware
 pub unsafe fn CM_Open_Device_Interface_KeyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Open_Device_Interface_KeyA(pszdeviceinterface: super::super::Foundation::PSTR, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET;
         }
@@ -3438,7 +3605,8 @@ pub unsafe fn CM_Open_Device_Interface_KeyA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn CM_Open_Device_Interface_KeyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Open_Device_Interface_KeyW(pszdeviceinterface: super::super::Foundation::PWSTR, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET;
         }
@@ -3453,7 +3621,8 @@ pub unsafe fn CM_Open_Device_Interface_KeyW<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn CM_Open_Device_Interface_Key_ExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Open_Device_Interface_Key_ExA(pszdeviceinterface: super::super::Foundation::PSTR, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3468,7 +3637,8 @@ pub unsafe fn CM_Open_Device_Interface_Key_ExA<'a, Param0: ::windows::core::Into
 pub unsafe fn CM_Open_Device_Interface_Key_ExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Open_Device_Interface_Key_ExW(pszdeviceinterface: super::super::Foundation::PWSTR, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3607,7 +3777,8 @@ pub const CM_QUERY_REMOVE_UI_OK: u32 = 0u32;
 pub unsafe fn CM_Query_And_Remove_SubTreeA(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_And_Remove_SubTreeA(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3622,7 +3793,8 @@ pub unsafe fn CM_Query_And_Remove_SubTreeA(dnancestor: u32, pvetotype: *mut PNP_
 pub unsafe fn CM_Query_And_Remove_SubTreeW(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_And_Remove_SubTreeW(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3637,7 +3809,8 @@ pub unsafe fn CM_Query_And_Remove_SubTreeW(dnancestor: u32, pvetotype: *mut PNP_
 pub unsafe fn CM_Query_And_Remove_SubTree_ExA(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_And_Remove_SubTree_ExA(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3652,7 +3825,8 @@ pub unsafe fn CM_Query_And_Remove_SubTree_ExA(dnancestor: u32, pvetotype: *mut P
 pub unsafe fn CM_Query_And_Remove_SubTree_ExW(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_And_Remove_SubTree_ExW(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3666,7 +3840,8 @@ pub unsafe fn CM_Query_And_Remove_SubTree_ExW(dnancestor: u32, pvetotype: *mut P
 pub unsafe fn CM_Query_Arbitrator_Free_Data(pdata: *mut ::core::ffi::c_void, datalen: u32, dndevinst: u32, resourceid: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_Arbitrator_Free_Data(pdata: *mut ::core::ffi::c_void, datalen: u32, dndevinst: u32, resourceid: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3680,7 +3855,8 @@ pub unsafe fn CM_Query_Arbitrator_Free_Data(pdata: *mut ::core::ffi::c_void, dat
 pub unsafe fn CM_Query_Arbitrator_Free_Data_Ex(pdata: *mut ::core::ffi::c_void, datalen: u32, dndevinst: u32, resourceid: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_Arbitrator_Free_Data_Ex(pdata: *mut ::core::ffi::c_void, datalen: u32, dndevinst: u32, resourceid: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3694,7 +3870,8 @@ pub unsafe fn CM_Query_Arbitrator_Free_Data_Ex(pdata: *mut ::core::ffi::c_void, 
 pub unsafe fn CM_Query_Arbitrator_Free_Size(pulsize: *mut u32, dndevinst: u32, resourceid: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_Arbitrator_Free_Size(pulsize: *mut u32, dndevinst: u32, resourceid: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3708,7 +3885,8 @@ pub unsafe fn CM_Query_Arbitrator_Free_Size(pulsize: *mut u32, dndevinst: u32, r
 pub unsafe fn CM_Query_Arbitrator_Free_Size_Ex(pulsize: *mut u32, dndevinst: u32, resourceid: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_Arbitrator_Free_Size_Ex(pulsize: *mut u32, dndevinst: u32, resourceid: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3722,7 +3900,8 @@ pub unsafe fn CM_Query_Arbitrator_Free_Size_Ex(pulsize: *mut u32, dndevinst: u32
 pub unsafe fn CM_Query_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3736,7 +3915,8 @@ pub unsafe fn CM_Query_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRE
 pub unsafe fn CM_Query_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3750,7 +3930,8 @@ pub unsafe fn CM_Query_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine
 pub unsafe fn CM_Query_Resource_Conflict_List(pclconflictlist: *mut usize, dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Query_Resource_Conflict_List(pclconflictlist: *mut usize, dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3816,7 +3997,8 @@ pub const CM_RESDES_WIDTH_DEFAULT: u32 = 0u32;
 pub unsafe fn CM_Reenumerate_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Reenumerate_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3830,7 +4012,8 @@ pub unsafe fn CM_Reenumerate_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET 
 pub unsafe fn CM_Reenumerate_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Reenumerate_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3844,7 +4027,8 @@ pub unsafe fn CM_Reenumerate_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: 
 pub unsafe fn CM_Register_Device_Driver(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Register_Device_Driver(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3858,7 +4042,8 @@ pub unsafe fn CM_Register_Device_Driver(dndevinst: u32, ulflags: u32) -> CONFIGR
 pub unsafe fn CM_Register_Device_Driver_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Register_Device_Driver_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3873,7 +4058,8 @@ pub unsafe fn CM_Register_Device_Driver_Ex(dndevinst: u32, ulflags: u32, hmachin
 pub unsafe fn CM_Register_Device_InterfaceA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, interfaceclassguid: *const ::windows::core::GUID, pszreference: Param2, pszdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Register_Device_InterfaceA(dndevinst: u32, interfaceclassguid: *const ::windows::core::GUID, pszreference: super::super::Foundation::PSTR, pszdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3888,7 +4074,8 @@ pub unsafe fn CM_Register_Device_InterfaceA<'a, Param2: ::windows::core::IntoPar
 pub unsafe fn CM_Register_Device_InterfaceW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, interfaceclassguid: *const ::windows::core::GUID, pszreference: Param2, pszdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Register_Device_InterfaceW(dndevinst: u32, interfaceclassguid: *const ::windows::core::GUID, pszreference: super::super::Foundation::PWSTR, pszdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3903,7 +4090,8 @@ pub unsafe fn CM_Register_Device_InterfaceW<'a, Param2: ::windows::core::IntoPar
 pub unsafe fn CM_Register_Device_Interface_ExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dndevinst: u32, interfaceclassguid: *const ::windows::core::GUID, pszreference: Param2, pszdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Register_Device_Interface_ExA(dndevinst: u32, interfaceclassguid: *const ::windows::core::GUID, pszreference: super::super::Foundation::PSTR, pszdeviceinterface: super::super::Foundation::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3918,7 +4106,8 @@ pub unsafe fn CM_Register_Device_Interface_ExA<'a, Param2: ::windows::core::Into
 pub unsafe fn CM_Register_Device_Interface_ExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dndevinst: u32, interfaceclassguid: *const ::windows::core::GUID, pszreference: Param2, pszdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Register_Device_Interface_ExW(dndevinst: u32, interfaceclassguid: *const ::windows::core::GUID, pszreference: super::super::Foundation::PWSTR, pszdeviceinterface: super::super::Foundation::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3933,7 +4122,8 @@ pub unsafe fn CM_Register_Device_Interface_ExW<'a, Param2: ::windows::core::Into
 pub unsafe fn CM_Register_Notification(pfilter: *const CM_NOTIFY_FILTER, pcontext: *const ::core::ffi::c_void, pcallback: PCM_NOTIFY_CALLBACK, pnotifycontext: *mut isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Register_Notification(pfilter: *const CM_NOTIFY_FILTER, pcontext: *const ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, pnotifycontext: *mut isize) -> CONFIGRET;
         }
@@ -3947,7 +4137,8 @@ pub unsafe fn CM_Register_Notification(pfilter: *const CM_NOTIFY_FILTER, pcontex
 pub unsafe fn CM_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3961,7 +4152,8 @@ pub unsafe fn CM_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -3976,7 +4168,8 @@ pub unsafe fn CM_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isiz
 pub unsafe fn CM_Request_Device_EjectA(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Request_Device_EjectA(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -3991,7 +4184,8 @@ pub unsafe fn CM_Request_Device_EjectA(dndevinst: u32, pvetotype: *mut PNP_VETO_
 pub unsafe fn CM_Request_Device_EjectW(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Request_Device_EjectW(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4006,7 +4200,8 @@ pub unsafe fn CM_Request_Device_EjectW(dndevinst: u32, pvetotype: *mut PNP_VETO_
 pub unsafe fn CM_Request_Device_Eject_ExA(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Request_Device_Eject_ExA(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4021,7 +4216,8 @@ pub unsafe fn CM_Request_Device_Eject_ExA(dndevinst: u32, pvetotype: *mut PNP_VE
 pub unsafe fn CM_Request_Device_Eject_ExW(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Request_Device_Eject_ExW(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: super::super::Foundation::PWSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4035,7 +4231,8 @@ pub unsafe fn CM_Request_Device_Eject_ExW(dndevinst: u32, pvetotype: *mut PNP_VE
 pub unsafe fn CM_Request_Eject_PC() -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Request_Eject_PC() -> CONFIGRET;
         }
@@ -4049,7 +4246,8 @@ pub unsafe fn CM_Request_Eject_PC() -> CONFIGRET {
 pub unsafe fn CM_Request_Eject_PC_Ex(hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Request_Eject_PC_Ex(hmachine: isize) -> CONFIGRET;
         }
@@ -4063,7 +4261,8 @@ pub unsafe fn CM_Request_Eject_PC_Ex(hmachine: isize) -> CONFIGRET {
 pub unsafe fn CM_Run_Detection(ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Run_Detection(ulflags: u32) -> CONFIGRET;
         }
@@ -4077,7 +4276,8 @@ pub unsafe fn CM_Run_Detection(ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Run_Detection_Ex(ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Run_Detection_Ex(ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4140,7 +4340,8 @@ pub const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1u32;
 pub unsafe fn CM_Set_Class_PropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_Class_PropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4155,7 +4356,8 @@ pub unsafe fn CM_Set_Class_PropertyW(classguid: *const ::windows::core::GUID, pr
 pub unsafe fn CM_Set_Class_Property_ExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_Class_Property_ExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4169,7 +4371,8 @@ pub unsafe fn CM_Set_Class_Property_ExW(classguid: *const ::windows::core::GUID,
 pub unsafe fn CM_Set_Class_Registry_PropertyA(classguid: *const ::windows::core::GUID, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_Class_Registry_PropertyA(classguid: *const ::windows::core::GUID, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4183,7 +4386,8 @@ pub unsafe fn CM_Set_Class_Registry_PropertyA(classguid: *const ::windows::core:
 pub unsafe fn CM_Set_Class_Registry_PropertyW(classguid: *const ::windows::core::GUID, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_Class_Registry_PropertyW(classguid: *const ::windows::core::GUID, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4197,7 +4401,8 @@ pub unsafe fn CM_Set_Class_Registry_PropertyW(classguid: *const ::windows::core:
 pub unsafe fn CM_Set_DevNode_Problem(dndevinst: u32, ulproblem: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_DevNode_Problem(dndevinst: u32, ulproblem: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4211,7 +4416,8 @@ pub unsafe fn CM_Set_DevNode_Problem(dndevinst: u32, ulproblem: u32, ulflags: u3
 pub unsafe fn CM_Set_DevNode_Problem_Ex(dndevinst: u32, ulproblem: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_DevNode_Problem_Ex(dndevinst: u32, ulproblem: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4226,7 +4432,8 @@ pub unsafe fn CM_Set_DevNode_Problem_Ex(dndevinst: u32, ulproblem: u32, ulflags:
 pub unsafe fn CM_Set_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4241,7 +4448,8 @@ pub unsafe fn CM_Set_DevNode_PropertyW(dndevinst: u32, propertykey: *const super
 pub unsafe fn CM_Set_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4255,7 +4463,8 @@ pub unsafe fn CM_Set_DevNode_Property_ExW(dndevinst: u32, propertykey: *const su
 pub unsafe fn CM_Set_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4269,7 +4478,8 @@ pub unsafe fn CM_Set_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32,
 pub unsafe fn CM_Set_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4283,7 +4493,8 @@ pub unsafe fn CM_Set_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32,
 pub unsafe fn CM_Set_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4297,7 +4508,8 @@ pub unsafe fn CM_Set_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u
 pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4312,7 +4524,8 @@ pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u
 pub unsafe fn CM_Set_Device_Interface_PropertyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_Device_Interface_PropertyW(pszdeviceinterface: super::super::Foundation::PWSTR, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4327,7 +4540,8 @@ pub unsafe fn CM_Set_Device_Interface_PropertyW<'a, Param0: ::windows::core::Int
 pub unsafe fn CM_Set_Device_Interface_Property_ExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_Device_Interface_Property_ExW(pszdeviceinterface: super::super::Foundation::PWSTR, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4341,7 +4555,8 @@ pub unsafe fn CM_Set_Device_Interface_Property_ExW<'a, Param0: ::windows::core::
 pub unsafe fn CM_Set_HW_Prof(ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_HW_Prof(ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4355,7 +4570,8 @@ pub unsafe fn CM_Set_HW_Prof(ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET 
 pub unsafe fn CM_Set_HW_Prof_Ex(ulhardwareprofile: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_HW_Prof_Ex(ulhardwareprofile: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4369,7 +4585,8 @@ pub unsafe fn CM_Set_HW_Prof_Ex(ulhardwareprofile: u32, ulflags: u32, hmachine: 
 pub unsafe fn CM_Set_HW_Prof_FlagsA(pdeviceid: *const i8, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_HW_Prof_FlagsA(pdeviceid: *const i8, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4383,7 +4600,8 @@ pub unsafe fn CM_Set_HW_Prof_FlagsA(pdeviceid: *const i8, ulconfig: u32, ulvalue
 pub unsafe fn CM_Set_HW_Prof_FlagsW(pdeviceid: *const u16, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_HW_Prof_FlagsW(pdeviceid: *const u16, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4397,7 +4615,8 @@ pub unsafe fn CM_Set_HW_Prof_FlagsW(pdeviceid: *const u16, ulconfig: u32, ulvalu
 pub unsafe fn CM_Set_HW_Prof_Flags_ExA(pdeviceid: *const i8, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_HW_Prof_Flags_ExA(pdeviceid: *const i8, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4411,7 +4630,8 @@ pub unsafe fn CM_Set_HW_Prof_Flags_ExA(pdeviceid: *const i8, ulconfig: u32, ulva
 pub unsafe fn CM_Set_HW_Prof_Flags_ExW(pdeviceid: *const u16, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Set_HW_Prof_Flags_ExW(pdeviceid: *const u16, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4425,7 +4645,8 @@ pub unsafe fn CM_Set_HW_Prof_Flags_ExW(pdeviceid: *const u16, ulconfig: u32, ulv
 pub unsafe fn CM_Setup_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Setup_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4439,7 +4660,8 @@ pub unsafe fn CM_Setup_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Setup_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Setup_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4453,7 +4675,8 @@ pub unsafe fn CM_Setup_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize)
 pub unsafe fn CM_Test_Range_Available(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Test_Range_Available(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulflags: u32) -> CONFIGRET;
         }
@@ -4467,7 +4690,8 @@ pub unsafe fn CM_Test_Range_Available(ullstartvalue: u64, ullendvalue: u64, rlh:
 pub unsafe fn CM_Uninstall_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Uninstall_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
         }
@@ -4481,7 +4705,8 @@ pub unsafe fn CM_Uninstall_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
 pub unsafe fn CM_Uninstall_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Uninstall_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4496,7 +4721,8 @@ pub unsafe fn CM_Uninstall_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: is
 pub unsafe fn CM_Unregister_Device_InterfaceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Unregister_Device_InterfaceA(pszdeviceinterface: super::super::Foundation::PSTR, ulflags: u32) -> CONFIGRET;
         }
@@ -4511,7 +4737,8 @@ pub unsafe fn CM_Unregister_Device_InterfaceA<'a, Param0: ::windows::core::IntoP
 pub unsafe fn CM_Unregister_Device_InterfaceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Unregister_Device_InterfaceW(pszdeviceinterface: super::super::Foundation::PWSTR, ulflags: u32) -> CONFIGRET;
         }
@@ -4526,7 +4753,8 @@ pub unsafe fn CM_Unregister_Device_InterfaceW<'a, Param0: ::windows::core::IntoP
 pub unsafe fn CM_Unregister_Device_Interface_ExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdeviceinterface: Param0, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Unregister_Device_Interface_ExA(pszdeviceinterface: super::super::Foundation::PSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4541,7 +4769,8 @@ pub unsafe fn CM_Unregister_Device_Interface_ExA<'a, Param0: ::windows::core::In
 pub unsafe fn CM_Unregister_Device_Interface_ExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdeviceinterface: Param0, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Unregister_Device_Interface_ExW(pszdeviceinterface: super::super::Foundation::PWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
@@ -4555,7 +4784,8 @@ pub unsafe fn CM_Unregister_Device_Interface_ExW<'a, Param0: ::windows::core::In
 pub unsafe fn CM_Unregister_Notification<'a, Param0: ::windows::core::IntoParam<'a, HCMNOTIFICATION>>(notifycontext: Param0) -> CONFIGRET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "cfgmgr32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CM_Unregister_Notification(notifycontext: HCMNOTIFICATION) -> CONFIGRET;
         }
@@ -5766,7 +5996,8 @@ impl ::core::default::Default for DevPrivate_Resource_s {
 pub unsafe fn DiInstallDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiInstallDevice(hwndparent: super::super::Foundation::HWND, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -5781,7 +6012,8 @@ pub unsafe fn DiInstallDevice<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DiInstallDriverA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, infpath: Param1, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiInstallDriverA(hwndparent: super::super::Foundation::HWND, infpath: super::super::Foundation::PSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -5796,7 +6028,8 @@ pub unsafe fn DiInstallDriverA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DiInstallDriverW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, infpath: Param1, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiInstallDriverW(hwndparent: super::super::Foundation::HWND, infpath: super::super::Foundation::PWSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -5811,7 +6044,8 @@ pub unsafe fn DiInstallDriverW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DiRollbackDriver<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, hwndparent: Param2, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiRollbackDriver(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, hwndparent: super::super::Foundation::HWND, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -5826,7 +6060,8 @@ pub unsafe fn DiRollbackDriver<'a, Param2: ::windows::core::IntoParam<'a, super:
 pub unsafe fn DiShowUpdateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiShowUpdateDevice(hwndparent: super::super::Foundation::HWND, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -5841,7 +6076,8 @@ pub unsafe fn DiShowUpdateDevice<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DiShowUpdateDriver<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, filepath: Param1, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiShowUpdateDriver(hwndparent: super::super::Foundation::HWND, filepath: super::super::Foundation::PWSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -5856,7 +6092,8 @@ pub unsafe fn DiShowUpdateDriver<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DiUninstallDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiUninstallDevice(hwndparent: super::super::Foundation::HWND, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -5871,7 +6108,8 @@ pub unsafe fn DiUninstallDevice<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn DiUninstallDriverA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, infpath: Param1, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiUninstallDriverA(hwndparent: super::super::Foundation::HWND, infpath: super::super::Foundation::PSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -5886,7 +6124,8 @@ pub unsafe fn DiUninstallDriverA<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn DiUninstallDriverW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, infpath: Param1, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DiUninstallDriverW(hwndparent: super::super::Foundation::HWND, infpath: super::super::Foundation::PWSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -7576,7 +7815,8 @@ impl ::core::default::Default for IRQ_RESOURCE_64 {
 pub unsafe fn InstallHinfSectionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(window: Param0, modulehandle: Param1, commandline: Param2, showcommand: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InstallHinfSectionA(window: super::super::Foundation::HWND, modulehandle: super::super::Foundation::HINSTANCE, commandline: super::super::Foundation::PSTR, showcommand: i32);
         }
@@ -7591,7 +7831,8 @@ pub unsafe fn InstallHinfSectionA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn InstallHinfSectionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(window: Param0, modulehandle: Param1, commandline: Param2, showcommand: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InstallHinfSectionW(window: super::super::Foundation::HWND, modulehandle: super::super::Foundation::HINSTANCE, commandline: super::super::Foundation::PWSTR, showcommand: i32);
         }
@@ -12970,7 +13211,8 @@ pub const SZ_KEY_UPGRADEONLY: &'static str = "UpgradeOnly";
 pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: Param3, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupAddInstallSectionToDiskSpaceListA(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PSTR, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -12985,7 +13227,8 @@ pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<'a, Param3: ::windows::core
 pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: Param3, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupAddInstallSectionToDiskSpaceListW(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PWSTR, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -13000,7 +13243,8 @@ pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<'a, Param3: ::windows::core
 pub unsafe fn SetupAddSectionToDiskSpaceListA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: Param3, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupAddSectionToDiskSpaceListA(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -13015,7 +13259,8 @@ pub unsafe fn SetupAddSectionToDiskSpaceListA<'a, Param3: ::windows::core::IntoP
 pub unsafe fn SetupAddSectionToDiskSpaceListW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: Param3, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupAddSectionToDiskSpaceListW(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PWSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -13030,7 +13275,8 @@ pub unsafe fn SetupAddSectionToDiskSpaceListW<'a, Param3: ::windows::core::IntoP
 pub unsafe fn SetupAddToDiskSpaceListA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::core::ffi::c_void, targetfilespec: Param1, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupAddToDiskSpaceListA(diskspace: *const ::core::ffi::c_void, targetfilespec: super::super::Foundation::PSTR, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -13045,7 +13291,8 @@ pub unsafe fn SetupAddToDiskSpaceListA<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn SetupAddToDiskSpaceListW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::core::ffi::c_void, targetfilespec: Param1, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupAddToDiskSpaceListW(diskspace: *const ::core::ffi::c_void, targetfilespec: super::super::Foundation::PWSTR, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -13060,7 +13307,8 @@ pub unsafe fn SetupAddToDiskSpaceListW<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn SetupAddToSourceListA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, source: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupAddToSourceListA(flags: u32, source: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -13075,7 +13323,8 @@ pub unsafe fn SetupAddToSourceListA<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetupAddToSourceListW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, source: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupAddToSourceListW(flags: u32, source: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -13090,7 +13339,8 @@ pub unsafe fn SetupAddToSourceListW<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetupAdjustDiskSpaceListA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::core::ffi::c_void, driveroot: Param1, amount: i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupAdjustDiskSpaceListA(diskspace: *const ::core::ffi::c_void, driveroot: super::super::Foundation::PSTR, amount: i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -13105,7 +13355,8 @@ pub unsafe fn SetupAdjustDiskSpaceListA<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn SetupAdjustDiskSpaceListW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::core::ffi::c_void, driveroot: Param1, amount: i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupAdjustDiskSpaceListW(diskspace: *const ::core::ffi::c_void, driveroot: super::super::Foundation::PWSTR, amount: i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -13120,7 +13371,8 @@ pub unsafe fn SetupAdjustDiskSpaceListW<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn SetupBackupErrorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, dialogtitle: Param1, sourcefile: Param2, targetfile: Param3, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupBackupErrorA(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PSTR, sourcefile: super::super::Foundation::PSTR, targetfile: super::super::Foundation::PSTR, win32errorcode: u32, style: u32) -> u32;
         }
@@ -13135,7 +13387,8 @@ pub unsafe fn SetupBackupErrorA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupBackupErrorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, dialogtitle: Param1, sourcefile: Param2, targetfile: Param3, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupBackupErrorW(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PWSTR, sourcefile: super::super::Foundation::PWSTR, targetfile: super::super::Foundation::PWSTR, win32errorcode: u32, style: u32) -> u32;
         }
@@ -13150,7 +13403,8 @@ pub unsafe fn SetupBackupErrorW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupCancelTemporarySourceList() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCancelTemporarySourceList() -> super::super::Foundation::BOOL;
         }
@@ -13165,7 +13419,8 @@ pub unsafe fn SetupCancelTemporarySourceList() -> super::super::Foundation::BOOL
 pub unsafe fn SetupCloseFileQueue(queuehandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCloseFileQueue(queuehandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13179,7 +13434,8 @@ pub unsafe fn SetupCloseFileQueue(queuehandle: *const ::core::ffi::c_void) -> su
 pub unsafe fn SetupCloseInfFile(infhandle: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCloseInfFile(infhandle: *const ::core::ffi::c_void);
         }
@@ -13193,7 +13449,8 @@ pub unsafe fn SetupCloseInfFile(infhandle: *const ::core::ffi::c_void) {
 pub unsafe fn SetupCloseLog() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCloseLog();
         }
@@ -13208,7 +13465,8 @@ pub unsafe fn SetupCloseLog() {
 pub unsafe fn SetupCommitFileQueueA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(owner: Param0, queuehandle: *const ::core::ffi::c_void, msghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCommitFileQueueA(owner: super::super::Foundation::HWND, queuehandle: *const ::core::ffi::c_void, msghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13223,7 +13481,8 @@ pub unsafe fn SetupCommitFileQueueA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetupCommitFileQueueW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(owner: Param0, queuehandle: *const ::core::ffi::c_void, msghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCommitFileQueueW(owner: super::super::Foundation::HWND, queuehandle: *const ::core::ffi::c_void, msghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13238,7 +13497,8 @@ pub unsafe fn SetupCommitFileQueueW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetupConfigureWmiFromInfSectionA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, sectionname: Param1, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupConfigureWmiFromInfSectionA(infhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PSTR, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -13253,7 +13513,8 @@ pub unsafe fn SetupConfigureWmiFromInfSectionA<'a, Param1: ::windows::core::Into
 pub unsafe fn SetupConfigureWmiFromInfSectionW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, sectionname: Param1, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupConfigureWmiFromInfSectionW(infhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PWSTR, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -13268,7 +13529,8 @@ pub unsafe fn SetupConfigureWmiFromInfSectionW<'a, Param1: ::windows::core::Into
 pub unsafe fn SetupCopyErrorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, dialogtitle: Param1, diskname: Param2, pathtosource: Param3, sourcefile: Param4, targetpathfile: Param5, win32errorcode: u32, style: u32, pathbuffer: super::super::Foundation::PSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCopyErrorA(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PSTR, diskname: super::super::Foundation::PSTR, pathtosource: super::super::Foundation::PSTR, sourcefile: super::super::Foundation::PSTR, targetpathfile: super::super::Foundation::PSTR, win32errorcode: u32, style: u32, pathbuffer: super::super::Foundation::PSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
         }
@@ -13283,7 +13545,8 @@ pub unsafe fn SetupCopyErrorA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SetupCopyErrorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, dialogtitle: Param1, diskname: Param2, pathtosource: Param3, sourcefile: Param4, targetpathfile: Param5, win32errorcode: u32, style: u32, pathbuffer: super::super::Foundation::PWSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCopyErrorW(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PWSTR, diskname: super::super::Foundation::PWSTR, pathtosource: super::super::Foundation::PWSTR, sourcefile: super::super::Foundation::PWSTR, targetpathfile: super::super::Foundation::PWSTR, win32errorcode: u32, style: u32, pathbuffer: super::super::Foundation::PWSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
         }
@@ -13298,7 +13561,8 @@ pub unsafe fn SetupCopyErrorW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SetupCopyOEMInfA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sourceinffilename: Param0, oemsourcemedialocation: Param1, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: super::super::Foundation::PSTR, destinationinffilenamesize: u32, requiredsize: *mut u32, destinationinffilenamecomponent: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCopyOEMInfA(sourceinffilename: super::super::Foundation::PSTR, oemsourcemedialocation: super::super::Foundation::PSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: super::super::Foundation::PSTR, destinationinffilenamesize: u32, requiredsize: *mut u32, destinationinffilenamecomponent: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -13313,7 +13577,8 @@ pub unsafe fn SetupCopyOEMInfA<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetupCopyOEMInfW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sourceinffilename: Param0, oemsourcemedialocation: Param1, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: super::super::Foundation::PWSTR, destinationinffilenamesize: u32, requiredsize: *mut u32, destinationinffilenamecomponent: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCopyOEMInfW(sourceinffilename: super::super::Foundation::PWSTR, oemsourcemedialocation: super::super::Foundation::PWSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: super::super::Foundation::PWSTR, destinationinffilenamesize: u32, requiredsize: *mut u32, destinationinffilenamecomponent: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -13327,7 +13592,8 @@ pub unsafe fn SetupCopyOEMInfW<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn SetupCreateDiskSpaceListA(reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCreateDiskSpaceListA(reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -13341,7 +13607,8 @@ pub unsafe fn SetupCreateDiskSpaceListA(reserved1: *mut ::core::ffi::c_void, res
 pub unsafe fn SetupCreateDiskSpaceListW(reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupCreateDiskSpaceListW(reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -13356,7 +13623,8 @@ pub unsafe fn SetupCreateDiskSpaceListW(reserved1: *mut ::core::ffi::c_void, res
 pub unsafe fn SetupDecompressOrCopyFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sourcefilename: Param0, targetfilename: Param1, compressiontype: *const u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDecompressOrCopyFileA(sourcefilename: super::super::Foundation::PSTR, targetfilename: super::super::Foundation::PSTR, compressiontype: *const u32) -> u32;
         }
@@ -13371,7 +13639,8 @@ pub unsafe fn SetupDecompressOrCopyFileA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetupDecompressOrCopyFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sourcefilename: Param0, targetfilename: Param1, compressiontype: *const u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDecompressOrCopyFileW(sourcefilename: super::super::Foundation::PWSTR, targetfilename: super::super::Foundation::PWSTR, compressiontype: *const u32) -> u32;
         }
@@ -13385,7 +13654,8 @@ pub unsafe fn SetupDecompressOrCopyFileW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetupDefaultQueueCallbackA(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDefaultQueueCallbackA(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32;
         }
@@ -13399,7 +13669,8 @@ pub unsafe fn SetupDefaultQueueCallbackA(context: *const ::core::ffi::c_void, no
 pub unsafe fn SetupDefaultQueueCallbackW(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDefaultQueueCallbackW(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32;
         }
@@ -13414,7 +13685,8 @@ pub unsafe fn SetupDefaultQueueCallbackW(context: *const ::core::ffi::c_void, no
 pub unsafe fn SetupDeleteErrorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, dialogtitle: Param1, file: Param2, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDeleteErrorA(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PSTR, file: super::super::Foundation::PSTR, win32errorcode: u32, style: u32) -> u32;
         }
@@ -13429,7 +13701,8 @@ pub unsafe fn SetupDeleteErrorA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupDeleteErrorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, dialogtitle: Param1, file: Param2, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDeleteErrorW(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PWSTR, file: super::super::Foundation::PWSTR, win32errorcode: u32, style: u32) -> u32;
         }
@@ -13444,7 +13717,8 @@ pub unsafe fn SetupDeleteErrorW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupDestroyDiskSpaceList(diskspace: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDestroyDiskSpaceList(diskspace: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13459,7 +13733,8 @@ pub unsafe fn SetupDestroyDiskSpaceList(diskspace: *mut ::core::ffi::c_void) -> 
 pub unsafe fn SetupDiAskForOEMDisk(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiAskForOEMDisk(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13474,7 +13749,8 @@ pub unsafe fn SetupDiAskForOEMDisk(deviceinfoset: *const ::core::ffi::c_void, de
 pub unsafe fn SetupDiBuildClassInfoList(flags: u32, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiBuildClassInfoList(flags: u32, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -13489,7 +13765,8 @@ pub unsafe fn SetupDiBuildClassInfoList(flags: u32, classguidlist: *mut ::window
 pub unsafe fn SetupDiBuildClassInfoListExA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiBuildClassInfoListExA(flags: u32, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13504,7 +13781,8 @@ pub unsafe fn SetupDiBuildClassInfoListExA<'a, Param4: ::windows::core::IntoPara
 pub unsafe fn SetupDiBuildClassInfoListExW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiBuildClassInfoListExW(flags: u32, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13519,7 +13797,8 @@ pub unsafe fn SetupDiBuildClassInfoListExW<'a, Param4: ::windows::core::IntoPara
 pub unsafe fn SetupDiBuildDriverInfoList(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, drivertype: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiBuildDriverInfoList(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, drivertype: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE) -> super::super::Foundation::BOOL;
         }
@@ -13534,7 +13813,8 @@ pub unsafe fn SetupDiBuildDriverInfoList(deviceinfoset: *const ::core::ffi::c_vo
 pub unsafe fn SetupDiCallClassInstaller(installfunction: u32, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCallClassInstaller(installfunction: u32, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13549,7 +13829,8 @@ pub unsafe fn SetupDiCallClassInstaller(installfunction: u32, deviceinfoset: *co
 pub unsafe fn SetupDiCancelDriverInfoSearch(deviceinfoset: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCancelDriverInfoSearch(deviceinfoset: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13564,7 +13845,8 @@ pub unsafe fn SetupDiCancelDriverInfoSearch(deviceinfoset: *const ::core::ffi::c
 pub unsafe fn SetupDiChangeState(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiChangeState(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13579,7 +13861,8 @@ pub unsafe fn SetupDiChangeState(deviceinfoset: *const ::core::ffi::c_void, devi
 pub unsafe fn SetupDiClassGuidsFromNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classname: Param0, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiClassGuidsFromNameA(classname: super::super::Foundation::PSTR, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -13594,7 +13877,8 @@ pub unsafe fn SetupDiClassGuidsFromNameA<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetupDiClassGuidsFromNameExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classname: Param0, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiClassGuidsFromNameExA(classname: super::super::Foundation::PSTR, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13609,7 +13893,8 @@ pub unsafe fn SetupDiClassGuidsFromNameExA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn SetupDiClassGuidsFromNameExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classname: Param0, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiClassGuidsFromNameExW(classname: super::super::Foundation::PWSTR, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13624,7 +13909,8 @@ pub unsafe fn SetupDiClassGuidsFromNameExW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn SetupDiClassGuidsFromNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classname: Param0, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiClassGuidsFromNameW(classname: super::super::Foundation::PWSTR, classguidlist: *mut ::windows::core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -13639,7 +13925,8 @@ pub unsafe fn SetupDiClassGuidsFromNameW<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetupDiClassNameFromGuidA(classguid: *const ::windows::core::GUID, classname: super::super::Foundation::PSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiClassNameFromGuidA(classguid: *const ::windows::core::GUID, classname: super::super::Foundation::PSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -13654,7 +13941,8 @@ pub unsafe fn SetupDiClassNameFromGuidA(classguid: *const ::windows::core::GUID,
 pub unsafe fn SetupDiClassNameFromGuidExA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::core::GUID, classname: super::super::Foundation::PSTR, classnamesize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiClassNameFromGuidExA(classguid: *const ::windows::core::GUID, classname: super::super::Foundation::PSTR, classnamesize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13669,7 +13957,8 @@ pub unsafe fn SetupDiClassNameFromGuidExA<'a, Param4: ::windows::core::IntoParam
 pub unsafe fn SetupDiClassNameFromGuidExW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, classname: super::super::Foundation::PWSTR, classnamesize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiClassNameFromGuidExW(classguid: *const ::windows::core::GUID, classname: super::super::Foundation::PWSTR, classnamesize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13684,7 +13973,8 @@ pub unsafe fn SetupDiClassNameFromGuidExW<'a, Param4: ::windows::core::IntoParam
 pub unsafe fn SetupDiClassNameFromGuidW(classguid: *const ::windows::core::GUID, classname: super::super::Foundation::PWSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiClassNameFromGuidW(classguid: *const ::windows::core::GUID, classname: super::super::Foundation::PWSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -13699,7 +13989,8 @@ pub unsafe fn SetupDiClassNameFromGuidW(classguid: *const ::windows::core::GUID,
 pub unsafe fn SetupDiCreateDevRegKeyA<'a, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: *const ::core::ffi::c_void, infsectionname: Param6) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDevRegKeyA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: *const ::core::ffi::c_void, infsectionname: super::super::Foundation::PSTR) -> super::super::System::Registry::HKEY;
         }
@@ -13714,7 +14005,8 @@ pub unsafe fn SetupDiCreateDevRegKeyA<'a, Param6: ::windows::core::IntoParam<'a,
 pub unsafe fn SetupDiCreateDevRegKeyW<'a, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: *const ::core::ffi::c_void, infsectionname: Param6) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDevRegKeyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: *const ::core::ffi::c_void, infsectionname: super::super::Foundation::PWSTR) -> super::super::System::Registry::HKEY;
         }
@@ -13729,7 +14021,8 @@ pub unsafe fn SetupDiCreateDevRegKeyW<'a, Param6: ::windows::core::IntoParam<'a,
 pub unsafe fn SetupDiCreateDeviceInfoA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(deviceinfoset: *const ::core::ffi::c_void, devicename: Param1, classguid: *const ::windows::core::GUID, devicedescription: Param3, hwndparent: Param4, creationflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDeviceInfoA(deviceinfoset: *const ::core::ffi::c_void, devicename: super::super::Foundation::PSTR, classguid: *const ::windows::core::GUID, devicedescription: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, creationflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13744,7 +14037,8 @@ pub unsafe fn SetupDiCreateDeviceInfoA<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn SetupDiCreateDeviceInfoList<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(classguid: *const ::windows::core::GUID, hwndparent: Param1) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDeviceInfoList(classguid: *const ::windows::core::GUID, hwndparent: super::super::Foundation::HWND) -> *mut ::core::ffi::c_void;
         }
@@ -13759,7 +14053,8 @@ pub unsafe fn SetupDiCreateDeviceInfoList<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn SetupDiCreateDeviceInfoListExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::core::GUID, hwndparent: Param1, machinename: Param2, reserved: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDeviceInfoListExA(classguid: *const ::windows::core::GUID, hwndparent: super::super::Foundation::HWND, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }
@@ -13774,7 +14069,8 @@ pub unsafe fn SetupDiCreateDeviceInfoListExA<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn SetupDiCreateDeviceInfoListExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, hwndparent: Param1, machinename: Param2, reserved: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDeviceInfoListExW(classguid: *const ::windows::core::GUID, hwndparent: super::super::Foundation::HWND, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }
@@ -13789,7 +14085,8 @@ pub unsafe fn SetupDiCreateDeviceInfoListExW<'a, Param1: ::windows::core::IntoPa
 pub unsafe fn SetupDiCreateDeviceInfoW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(deviceinfoset: *const ::core::ffi::c_void, devicename: Param1, classguid: *const ::windows::core::GUID, devicedescription: Param3, hwndparent: Param4, creationflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDeviceInfoW(deviceinfoset: *const ::core::ffi::c_void, devicename: super::super::Foundation::PWSTR, classguid: *const ::windows::core::GUID, devicedescription: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, creationflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13804,7 +14101,8 @@ pub unsafe fn SetupDiCreateDeviceInfoW<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn SetupDiCreateDeviceInterfaceA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows::core::GUID, referencestring: Param3, creationflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDeviceInterfaceA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows::core::GUID, referencestring: super::super::Foundation::PSTR, creationflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13819,7 +14117,8 @@ pub unsafe fn SetupDiCreateDeviceInterfaceA<'a, Param3: ::windows::core::IntoPar
 pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: *const ::core::ffi::c_void, infsectionname: Param5) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: *const ::core::ffi::c_void, infsectionname: super::super::Foundation::PSTR) -> super::super::System::Registry::HKEY;
         }
@@ -13834,7 +14133,8 @@ pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<'a, Param5: ::windows::core::I
 pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: *const ::core::ffi::c_void, infsectionname: Param5) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: *const ::core::ffi::c_void, infsectionname: super::super::Foundation::PWSTR) -> super::super::System::Registry::HKEY;
         }
@@ -13849,7 +14149,8 @@ pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<'a, Param5: ::windows::core::I
 pub unsafe fn SetupDiCreateDeviceInterfaceW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows::core::GUID, referencestring: Param3, creationflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiCreateDeviceInterfaceW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows::core::GUID, referencestring: super::super::Foundation::PWSTR, creationflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13864,7 +14165,8 @@ pub unsafe fn SetupDiCreateDeviceInterfaceW<'a, Param3: ::windows::core::IntoPar
 pub unsafe fn SetupDiDeleteDevRegKey(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiDeleteDevRegKey(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32) -> super::super::Foundation::BOOL;
         }
@@ -13879,7 +14181,8 @@ pub unsafe fn SetupDiDeleteDevRegKey(deviceinfoset: *const ::core::ffi::c_void, 
 pub unsafe fn SetupDiDeleteDeviceInfo(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiDeleteDeviceInfo(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13894,7 +14197,8 @@ pub unsafe fn SetupDiDeleteDeviceInfo(deviceinfoset: *const ::core::ffi::c_void,
 pub unsafe fn SetupDiDeleteDeviceInterfaceData(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiDeleteDeviceInterfaceData(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13909,7 +14213,8 @@ pub unsafe fn SetupDiDeleteDeviceInterfaceData(deviceinfoset: *const ::core::ffi
 pub unsafe fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32) -> super::super::Foundation::BOOL;
         }
@@ -13924,7 +14229,8 @@ pub unsafe fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: *const ::core::f
 pub unsafe fn SetupDiDestroyClassImageList(classimagelistdata: *const SP_CLASSIMAGELIST_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiDestroyClassImageList(classimagelistdata: *const SP_CLASSIMAGELIST_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13939,7 +14245,8 @@ pub unsafe fn SetupDiDestroyClassImageList(classimagelistdata: *const SP_CLASSIM
 pub unsafe fn SetupDiDestroyDeviceInfoList(deviceinfoset: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiDestroyDeviceInfoList(deviceinfoset: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -13954,7 +14261,8 @@ pub unsafe fn SetupDiDestroyDeviceInfoList(deviceinfoset: *const ::core::ffi::c_
 pub unsafe fn SetupDiDestroyDriverInfoList(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiDestroyDriverInfoList(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32) -> super::super::Foundation::BOOL;
         }
@@ -13969,7 +14277,8 @@ pub unsafe fn SetupDiDestroyDriverInfoList(deviceinfoset: *const ::core::ffi::c_
 pub unsafe fn SetupDiDrawMiniIcon<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::RECT>>(hdc: Param0, rc: Param1, miniiconindex: i32, flags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiDrawMiniIcon(hdc: super::super::Graphics::Gdi::HDC, rc: super::super::Foundation::RECT, miniiconindex: i32, flags: u32) -> i32;
         }
@@ -13984,7 +14293,8 @@ pub unsafe fn SetupDiDrawMiniIcon<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupDiEnumDeviceInfo(deviceinfoset: *const ::core::ffi::c_void, memberindex: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiEnumDeviceInfo(deviceinfoset: *const ::core::ffi::c_void, memberindex: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -13999,7 +14309,8 @@ pub unsafe fn SetupDiEnumDeviceInfo(deviceinfoset: *const ::core::ffi::c_void, m
 pub unsafe fn SetupDiEnumDeviceInterfaces(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows::core::GUID, memberindex: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiEnumDeviceInterfaces(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows::core::GUID, memberindex: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
         }
@@ -14014,7 +14325,8 @@ pub unsafe fn SetupDiEnumDeviceInterfaces(deviceinfoset: *const ::core::ffi::c_v
 pub unsafe fn SetupDiEnumDriverInfoA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiEnumDriverInfoA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL;
         }
@@ -14029,7 +14341,8 @@ pub unsafe fn SetupDiEnumDriverInfoA(deviceinfoset: *const ::core::ffi::c_void, 
 pub unsafe fn SetupDiEnumDriverInfoW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiEnumDriverInfoW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL;
         }
@@ -14044,7 +14357,8 @@ pub unsafe fn SetupDiEnumDriverInfoW(deviceinfoset: *const ::core::ffi::c_void, 
 pub unsafe fn SetupDiGetActualModelsSectionA(context: *const INFCONTEXT, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetActualModelsSectionA(context: *const INFCONTEXT, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14059,7 +14373,8 @@ pub unsafe fn SetupDiGetActualModelsSectionA(context: *const INFCONTEXT, alterna
 pub unsafe fn SetupDiGetActualModelsSectionW(context: *const INFCONTEXT, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetActualModelsSectionW(context: *const INFCONTEXT, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14074,7 +14389,8 @@ pub unsafe fn SetupDiGetActualModelsSectionW(context: *const INFCONTEXT, alterna
 pub unsafe fn SetupDiGetActualSectionToInstallA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, infsectionname: Param1, infsectionwithext: super::super::Foundation::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetActualSectionToInstallA(infhandle: *const ::core::ffi::c_void, infsectionname: super::super::Foundation::PSTR, infsectionwithext: super::super::Foundation::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -14089,7 +14405,8 @@ pub unsafe fn SetupDiGetActualSectionToInstallA<'a, Param1: ::windows::core::Int
 pub unsafe fn SetupDiGetActualSectionToInstallExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, infsectionname: Param1, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetActualSectionToInstallExA(infhandle: *const ::core::ffi::c_void, infsectionname: super::super::Foundation::PSTR, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14104,7 +14421,8 @@ pub unsafe fn SetupDiGetActualSectionToInstallExA<'a, Param1: ::windows::core::I
 pub unsafe fn SetupDiGetActualSectionToInstallExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, infsectionname: Param1, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetActualSectionToInstallExW(infhandle: *const ::core::ffi::c_void, infsectionname: super::super::Foundation::PWSTR, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14119,7 +14437,8 @@ pub unsafe fn SetupDiGetActualSectionToInstallExW<'a, Param1: ::windows::core::I
 pub unsafe fn SetupDiGetActualSectionToInstallW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, infsectionname: Param1, infsectionwithext: super::super::Foundation::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetActualSectionToInstallW(infhandle: *const ::core::ffi::c_void, infsectionname: super::super::Foundation::PWSTR, infsectionwithext: super::super::Foundation::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -14134,7 +14453,8 @@ pub unsafe fn SetupDiGetActualSectionToInstallW<'a, Param1: ::windows::core::Int
 pub unsafe fn SetupDiGetClassBitmapIndex(classguid: *const ::windows::core::GUID, miniiconindex: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassBitmapIndex(classguid: *const ::windows::core::GUID, miniiconindex: *mut i32) -> super::super::Foundation::BOOL;
         }
@@ -14149,7 +14469,8 @@ pub unsafe fn SetupDiGetClassBitmapIndex(classguid: *const ::windows::core::GUID
 pub unsafe fn SetupDiGetClassDescriptionA(classguid: *const ::windows::core::GUID, classdescription: super::super::Foundation::PSTR, classdescriptionsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassDescriptionA(classguid: *const ::windows::core::GUID, classdescription: super::super::Foundation::PSTR, classdescriptionsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14164,7 +14485,8 @@ pub unsafe fn SetupDiGetClassDescriptionA(classguid: *const ::windows::core::GUI
 pub unsafe fn SetupDiGetClassDescriptionExA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::core::GUID, classdescription: super::super::Foundation::PSTR, classdescriptionsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassDescriptionExA(classguid: *const ::windows::core::GUID, classdescription: super::super::Foundation::PSTR, classdescriptionsize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14179,7 +14501,8 @@ pub unsafe fn SetupDiGetClassDescriptionExA<'a, Param4: ::windows::core::IntoPar
 pub unsafe fn SetupDiGetClassDescriptionExW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, classdescription: super::super::Foundation::PWSTR, classdescriptionsize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassDescriptionExW(classguid: *const ::windows::core::GUID, classdescription: super::super::Foundation::PWSTR, classdescriptionsize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14194,7 +14517,8 @@ pub unsafe fn SetupDiGetClassDescriptionExW<'a, Param4: ::windows::core::IntoPar
 pub unsafe fn SetupDiGetClassDescriptionW(classguid: *const ::windows::core::GUID, classdescription: super::super::Foundation::PWSTR, classdescriptionsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassDescriptionW(classguid: *const ::windows::core::GUID, classdescription: super::super::Foundation::PWSTR, classdescriptionsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14209,7 +14533,8 @@ pub unsafe fn SetupDiGetClassDescriptionW(classguid: *const ::windows::core::GUI
 pub unsafe fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const super::super::UI::Controls::PROPSHEETHEADERA_V2, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const super::super::UI::Controls::PROPSHEETHEADERA_V2, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL;
         }
@@ -14224,7 +14549,8 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: *const ::core::ff
 pub unsafe fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const super::super::UI::Controls::PROPSHEETHEADERW_V2, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const super::super::UI::Controls::PROPSHEETHEADERW_V2, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL;
         }
@@ -14239,7 +14565,8 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: *const ::core::ff
 pub unsafe fn SetupDiGetClassDevsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(classguid: *const ::windows::core::GUID, enumerator: Param1, hwndparent: Param2, flags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassDevsA(classguid: *const ::windows::core::GUID, enumerator: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, flags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -14254,7 +14581,8 @@ pub unsafe fn SetupDiGetClassDevsA<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupDiGetClassDevsExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::core::GUID, enumerator: Param1, hwndparent: Param2, flags: u32, deviceinfoset: *const ::core::ffi::c_void, machinename: Param5, reserved: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassDevsExA(classguid: *const ::windows::core::GUID, enumerator: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, flags: u32, deviceinfoset: *const ::core::ffi::c_void, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }
@@ -14269,7 +14597,8 @@ pub unsafe fn SetupDiGetClassDevsExA<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupDiGetClassDevsExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, enumerator: Param1, hwndparent: Param2, flags: u32, deviceinfoset: *const ::core::ffi::c_void, machinename: Param5, reserved: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassDevsExW(classguid: *const ::windows::core::GUID, enumerator: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, flags: u32, deviceinfoset: *const ::core::ffi::c_void, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }
@@ -14284,7 +14613,8 @@ pub unsafe fn SetupDiGetClassDevsExW<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupDiGetClassDevsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(classguid: *const ::windows::core::GUID, enumerator: Param1, hwndparent: Param2, flags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassDevsW(classguid: *const ::windows::core::GUID, enumerator: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, flags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -14299,7 +14629,8 @@ pub unsafe fn SetupDiGetClassDevsW<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupDiGetClassImageIndex(classimagelistdata: *const SP_CLASSIMAGELIST_DATA, classguid: *const ::windows::core::GUID, imageindex: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassImageIndex(classimagelistdata: *const SP_CLASSIMAGELIST_DATA, classguid: *const ::windows::core::GUID, imageindex: *mut i32) -> super::super::Foundation::BOOL;
         }
@@ -14314,7 +14645,8 @@ pub unsafe fn SetupDiGetClassImageIndex(classimagelistdata: *const SP_CLASSIMAGE
 pub unsafe fn SetupDiGetClassImageList(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassImageList(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA) -> super::super::Foundation::BOOL;
         }
@@ -14329,7 +14661,8 @@ pub unsafe fn SetupDiGetClassImageList(classimagelistdata: *mut SP_CLASSIMAGELIS
 pub unsafe fn SetupDiGetClassImageListExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: Param1, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassImageListExA(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14344,7 +14677,8 @@ pub unsafe fn SetupDiGetClassImageListExA<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn SetupDiGetClassImageListExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: Param1, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassImageListExW(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14359,7 +14693,8 @@ pub unsafe fn SetupDiGetClassImageListExW<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn SetupDiGetClassInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *mut SP_CLASSINSTALL_HEADER, classinstallparamssize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *mut SP_CLASSINSTALL_HEADER, classinstallparamssize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14374,7 +14709,8 @@ pub unsafe fn SetupDiGetClassInstallParamsA(deviceinfoset: *const ::core::ffi::c
 pub unsafe fn SetupDiGetClassInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *mut SP_CLASSINSTALL_HEADER, classinstallparamssize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *mut SP_CLASSINSTALL_HEADER, classinstallparamssize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14389,7 +14725,8 @@ pub unsafe fn SetupDiGetClassInstallParamsW(deviceinfoset: *const ::core::ffi::c
 pub unsafe fn SetupDiGetClassPropertyExW<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32, machinename: Param7, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassPropertyExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14404,7 +14741,8 @@ pub unsafe fn SetupDiGetClassPropertyExW<'a, Param7: ::windows::core::IntoParam<
 pub unsafe fn SetupDiGetClassPropertyKeys(classguid: *const ::windows::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassPropertyKeys(classguid: *const ::windows::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -14419,7 +14757,8 @@ pub unsafe fn SetupDiGetClassPropertyKeys(classguid: *const ::windows::core::GUI
 pub unsafe fn SetupDiGetClassPropertyKeysExW<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32, machinename: Param5, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassPropertyKeysExW(classguid: *const ::windows::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14434,7 +14773,8 @@ pub unsafe fn SetupDiGetClassPropertyKeysExW<'a, Param5: ::windows::core::IntoPa
 pub unsafe fn SetupDiGetClassPropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassPropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -14449,7 +14789,8 @@ pub unsafe fn SetupDiGetClassPropertyW(classguid: *const ::windows::core::GUID, 
 pub unsafe fn SetupDiGetClassRegistryPropertyA<'a, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::core::GUID, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, machinename: Param6, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassRegistryPropertyA(classguid: *const ::windows::core::GUID, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14464,7 +14805,8 @@ pub unsafe fn SetupDiGetClassRegistryPropertyA<'a, Param6: ::windows::core::Into
 pub unsafe fn SetupDiGetClassRegistryPropertyW<'a, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, machinename: Param6, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetClassRegistryPropertyW(classguid: *const ::windows::core::GUID, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14479,7 +14821,8 @@ pub unsafe fn SetupDiGetClassRegistryPropertyW<'a, Param6: ::windows::core::Into
 pub unsafe fn SetupDiGetCustomDevicePropertyA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: Param2, flags: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetCustomDevicePropertyA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: super::super::Foundation::PSTR, flags: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14494,7 +14837,8 @@ pub unsafe fn SetupDiGetCustomDevicePropertyA<'a, Param2: ::windows::core::IntoP
 pub unsafe fn SetupDiGetCustomDevicePropertyW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: Param2, flags: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetCustomDevicePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: super::super::Foundation::PWSTR, flags: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14509,7 +14853,8 @@ pub unsafe fn SetupDiGetCustomDevicePropertyW<'a, Param2: ::windows::core::IntoP
 pub unsafe fn SetupDiGetDeviceInfoListClass(deviceinfoset: *const ::core::ffi::c_void, classguid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInfoListClass(deviceinfoset: *const ::core::ffi::c_void, classguid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL;
         }
@@ -14524,7 +14869,8 @@ pub unsafe fn SetupDiGetDeviceInfoListClass(deviceinfoset: *const ::core::ffi::c
 pub unsafe fn SetupDiGetDeviceInfoListDetailA(deviceinfoset: *const ::core::ffi::c_void, deviceinfosetdetaildata: *mut SP_DEVINFO_LIST_DETAIL_DATA_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInfoListDetailA(deviceinfoset: *const ::core::ffi::c_void, deviceinfosetdetaildata: *mut SP_DEVINFO_LIST_DETAIL_DATA_A) -> super::super::Foundation::BOOL;
         }
@@ -14539,7 +14885,8 @@ pub unsafe fn SetupDiGetDeviceInfoListDetailA(deviceinfoset: *const ::core::ffi:
 pub unsafe fn SetupDiGetDeviceInfoListDetailW(deviceinfoset: *const ::core::ffi::c_void, deviceinfosetdetaildata: *mut SP_DEVINFO_LIST_DETAIL_DATA_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInfoListDetailW(deviceinfoset: *const ::core::ffi::c_void, deviceinfosetdetaildata: *mut SP_DEVINFO_LIST_DETAIL_DATA_W) -> super::super::Foundation::BOOL;
         }
@@ -14554,7 +14901,8 @@ pub unsafe fn SetupDiGetDeviceInfoListDetailW(deviceinfoset: *const ::core::ffi:
 pub unsafe fn SetupDiGetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut SP_DEVINSTALL_PARAMS_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut SP_DEVINSTALL_PARAMS_A) -> super::super::Foundation::BOOL;
         }
@@ -14569,7 +14917,8 @@ pub unsafe fn SetupDiGetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::
 pub unsafe fn SetupDiGetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut SP_DEVINSTALL_PARAMS_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut SP_DEVINSTALL_PARAMS_W) -> super::super::Foundation::BOOL;
         }
@@ -14584,7 +14933,8 @@ pub unsafe fn SetupDiGetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::
 pub unsafe fn SetupDiGetDeviceInstanceIdA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: super::super::Foundation::PSTR, deviceinstanceidsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInstanceIdA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: super::super::Foundation::PSTR, deviceinstanceidsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14599,7 +14949,8 @@ pub unsafe fn SetupDiGetDeviceInstanceIdA(deviceinfoset: *const ::core::ffi::c_v
 pub unsafe fn SetupDiGetDeviceInstanceIdW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: super::super::Foundation::PWSTR, deviceinstanceidsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInstanceIdW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: super::super::Foundation::PWSTR, deviceinstanceidsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14614,7 +14965,8 @@ pub unsafe fn SetupDiGetDeviceInstanceIdW(deviceinfoset: *const ::core::ffi::c_v
 pub unsafe fn SetupDiGetDeviceInterfaceAlias(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, aliasinterfaceclassguid: *const ::windows::core::GUID, aliasdeviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInterfaceAlias(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, aliasinterfaceclassguid: *const ::windows::core::GUID, aliasdeviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
         }
@@ -14629,7 +14981,8 @@ pub unsafe fn SetupDiGetDeviceInterfaceAlias(deviceinfoset: *const ::core::ffi::
 pub unsafe fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A, deviceinterfacedetaildatasize: u32, requiredsize: *mut u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A, deviceinterfacedetaildatasize: u32, requiredsize: *mut u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -14644,7 +14997,8 @@ pub unsafe fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset: *const ::core::ffi
 pub unsafe fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W, deviceinterfacedetaildatasize: u32, requiredsize: *mut u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W, deviceinterfacedetaildatasize: u32, requiredsize: *mut u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -14659,7 +15013,8 @@ pub unsafe fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset: *const ::core::ffi
 pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -14674,7 +15029,8 @@ pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: *const ::core
 pub unsafe fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -14689,7 +15045,8 @@ pub unsafe fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: *const ::core::f
 pub unsafe fn SetupDiGetDevicePropertyKeys(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDevicePropertyKeys(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -14704,7 +15061,8 @@ pub unsafe fn SetupDiGetDevicePropertyKeys(deviceinfoset: *const ::core::ffi::c_
 pub unsafe fn SetupDiGetDevicePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDevicePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -14719,7 +15077,8 @@ pub unsafe fn SetupDiGetDevicePropertyW(deviceinfoset: *const ::core::ffi::c_voi
 pub unsafe fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14734,7 +15093,8 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: *const ::core::ff
 pub unsafe fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14749,7 +15109,8 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: *const ::core::ff
 pub unsafe fn SetupDiGetDriverInfoDetailA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinfodetaildata: *mut SP_DRVINFO_DETAIL_DATA_A, driverinfodetaildatasize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDriverInfoDetailA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinfodetaildata: *mut SP_DRVINFO_DETAIL_DATA_A, driverinfodetaildatasize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14764,7 +15125,8 @@ pub unsafe fn SetupDiGetDriverInfoDetailA(deviceinfoset: *const ::core::ffi::c_v
 pub unsafe fn SetupDiGetDriverInfoDetailW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinfodetaildata: *mut SP_DRVINFO_DETAIL_DATA_W, driverinfodetaildatasize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDriverInfoDetailW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinfodetaildata: *mut SP_DRVINFO_DETAIL_DATA_W, driverinfodetaildatasize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14779,7 +15141,8 @@ pub unsafe fn SetupDiGetDriverInfoDetailW(deviceinfoset: *const ::core::ffi::c_v
 pub unsafe fn SetupDiGetDriverInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinstallparams: *mut SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDriverInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinstallparams: *mut SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL;
         }
@@ -14794,7 +15157,8 @@ pub unsafe fn SetupDiGetDriverInstallParamsA(deviceinfoset: *const ::core::ffi::
 pub unsafe fn SetupDiGetDriverInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinstallparams: *mut SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetDriverInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinstallparams: *mut SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL;
         }
@@ -14809,7 +15173,8 @@ pub unsafe fn SetupDiGetDriverInstallParamsW(deviceinfoset: *const ::core::ffi::
 pub unsafe fn SetupDiGetHwProfileFriendlyNameA(hwprofile: u32, friendlyname: super::super::Foundation::PSTR, friendlynamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetHwProfileFriendlyNameA(hwprofile: u32, friendlyname: super::super::Foundation::PSTR, friendlynamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14824,7 +15189,8 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameA(hwprofile: u32, friendlyname: sup
 pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwprofile: u32, friendlyname: super::super::Foundation::PSTR, friendlynamesize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetHwProfileFriendlyNameExA(hwprofile: u32, friendlyname: super::super::Foundation::PSTR, friendlynamesize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14839,7 +15205,8 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<'a, Param4: ::windows::core::In
 pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwprofile: u32, friendlyname: super::super::Foundation::PWSTR, friendlynamesize: u32, requiredsize: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetHwProfileFriendlyNameExW(hwprofile: u32, friendlyname: super::super::Foundation::PWSTR, friendlynamesize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14854,7 +15221,8 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<'a, Param4: ::windows::core::In
 pub unsafe fn SetupDiGetHwProfileFriendlyNameW(hwprofile: u32, friendlyname: super::super::Foundation::PWSTR, friendlynamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetHwProfileFriendlyNameW(hwprofile: u32, friendlyname: super::super::Foundation::PWSTR, friendlynamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14869,7 +15237,8 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameW(hwprofile: u32, friendlyname: sup
 pub unsafe fn SetupDiGetHwProfileList(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetHwProfileList(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14884,7 +15253,8 @@ pub unsafe fn SetupDiGetHwProfileList(hwprofilelist: *mut u32, hwprofilelistsize
 pub unsafe fn SetupDiGetHwProfileListExA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetHwProfileListExA(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14899,7 +15269,8 @@ pub unsafe fn SetupDiGetHwProfileListExA<'a, Param4: ::windows::core::IntoParam<
 pub unsafe fn SetupDiGetHwProfileListExW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetHwProfileListExW(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -14914,7 +15285,8 @@ pub unsafe fn SetupDiGetHwProfileListExW<'a, Param4: ::windows::core::IntoParam<
 pub unsafe fn SetupDiGetINFClassA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infname: Param0, classguid: *mut ::windows::core::GUID, classname: super::super::Foundation::PSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetINFClassA(infname: super::super::Foundation::PSTR, classguid: *mut ::windows::core::GUID, classname: super::super::Foundation::PSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14929,7 +15301,8 @@ pub unsafe fn SetupDiGetINFClassA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupDiGetINFClassW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infname: Param0, classguid: *mut ::windows::core::GUID, classname: super::super::Foundation::PWSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetINFClassW(infname: super::super::Foundation::PWSTR, classguid: *mut ::windows::core::GUID, classname: super::super::Foundation::PWSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -14944,7 +15317,8 @@ pub unsafe fn SetupDiGetINFClassW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupDiGetSelectedDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetSelectedDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -14959,7 +15333,8 @@ pub unsafe fn SetupDiGetSelectedDevice(deviceinfoset: *const ::core::ffi::c_void
 pub unsafe fn SetupDiGetSelectedDriverA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetSelectedDriverA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL;
         }
@@ -14974,7 +15349,8 @@ pub unsafe fn SetupDiGetSelectedDriverA(deviceinfoset: *const ::core::ffi::c_voi
 pub unsafe fn SetupDiGetSelectedDriverW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetSelectedDriverW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL;
         }
@@ -14989,7 +15365,8 @@ pub unsafe fn SetupDiGetSelectedDriverW(deviceinfoset: *const ::core::ffi::c_voi
 pub unsafe fn SetupDiGetWizardPage(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, installwizarddata: *const SP_INSTALLWIZARD_DATA, pagetype: u32, flags: u32) -> super::super::UI::Controls::HPROPSHEETPAGE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiGetWizardPage(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, installwizarddata: *const SP_INSTALLWIZARD_DATA, pagetype: u32, flags: u32) -> super::super::UI::Controls::HPROPSHEETPAGE;
         }
@@ -15004,7 +15381,8 @@ pub unsafe fn SetupDiGetWizardPage(deviceinfoset: *const ::core::ffi::c_void, de
 pub unsafe fn SetupDiInstallClassA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, inffilename: Param1, flags: u32, filequeue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiInstallClassA(hwndparent: super::super::Foundation::HWND, inffilename: super::super::Foundation::PSTR, flags: u32, filequeue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -15019,7 +15397,8 @@ pub unsafe fn SetupDiInstallClassA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupDiInstallClassExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, inffilename: Param1, flags: u32, filequeue: *const ::core::ffi::c_void, interfaceclassguid: *const ::windows::core::GUID, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiInstallClassExA(hwndparent: super::super::Foundation::HWND, inffilename: super::super::Foundation::PSTR, flags: u32, filequeue: *const ::core::ffi::c_void, interfaceclassguid: *const ::windows::core::GUID, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -15034,7 +15413,8 @@ pub unsafe fn SetupDiInstallClassExA<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupDiInstallClassExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, inffilename: Param1, flags: u32, filequeue: *const ::core::ffi::c_void, interfaceclassguid: *const ::windows::core::GUID, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiInstallClassExW(hwndparent: super::super::Foundation::HWND, inffilename: super::super::Foundation::PWSTR, flags: u32, filequeue: *const ::core::ffi::c_void, interfaceclassguid: *const ::windows::core::GUID, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -15049,7 +15429,8 @@ pub unsafe fn SetupDiInstallClassExW<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupDiInstallClassW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, inffilename: Param1, flags: u32, filequeue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiInstallClassW(hwndparent: super::super::Foundation::HWND, inffilename: super::super::Foundation::PWSTR, flags: u32, filequeue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -15064,7 +15445,8 @@ pub unsafe fn SetupDiInstallClassW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupDiInstallDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiInstallDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15079,7 +15461,8 @@ pub unsafe fn SetupDiInstallDevice(deviceinfoset: *const ::core::ffi::c_void, de
 pub unsafe fn SetupDiInstallDeviceInterfaces(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiInstallDeviceInterfaces(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15094,7 +15477,8 @@ pub unsafe fn SetupDiInstallDeviceInterfaces(deviceinfoset: *const ::core::ffi::
 pub unsafe fn SetupDiInstallDriverFiles(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiInstallDriverFiles(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15109,7 +15493,8 @@ pub unsafe fn SetupDiInstallDriverFiles(deviceinfoset: *const ::core::ffi::c_voi
 pub unsafe fn SetupDiLoadClassIcon(classguid: *const ::windows::core::GUID, largeicon: *mut super::super::UI::WindowsAndMessaging::HICON, miniiconindex: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiLoadClassIcon(classguid: *const ::windows::core::GUID, largeicon: *mut super::super::UI::WindowsAndMessaging::HICON, miniiconindex: *mut i32) -> super::super::Foundation::BOOL;
         }
@@ -15124,7 +15509,8 @@ pub unsafe fn SetupDiLoadClassIcon(classguid: *const ::windows::core::GUID, larg
 pub unsafe fn SetupDiLoadDeviceIcon(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, cxicon: u32, cyicon: u32, flags: u32, hicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiLoadDeviceIcon(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, cxicon: u32, cyicon: u32, flags: u32, hicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> super::super::Foundation::BOOL;
         }
@@ -15139,7 +15525,8 @@ pub unsafe fn SetupDiLoadDeviceIcon(deviceinfoset: *const ::core::ffi::c_void, d
 pub unsafe fn SetupDiOpenClassRegKey(classguid: *const ::windows::core::GUID, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiOpenClassRegKey(classguid: *const ::windows::core::GUID, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
@@ -15154,7 +15541,8 @@ pub unsafe fn SetupDiOpenClassRegKey(classguid: *const ::windows::core::GUID, sa
 pub unsafe fn SetupDiOpenClassRegKeyExA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::core::GUID, samdesired: u32, flags: u32, machinename: Param3, reserved: *mut ::core::ffi::c_void) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiOpenClassRegKeyExA(classguid: *const ::windows::core::GUID, samdesired: u32, flags: u32, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::System::Registry::HKEY;
         }
@@ -15169,7 +15557,8 @@ pub unsafe fn SetupDiOpenClassRegKeyExA<'a, Param3: ::windows::core::IntoParam<'
 pub unsafe fn SetupDiOpenClassRegKeyExW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, samdesired: u32, flags: u32, machinename: Param3, reserved: *mut ::core::ffi::c_void) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiOpenClassRegKeyExW(classguid: *const ::windows::core::GUID, samdesired: u32, flags: u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::System::Registry::HKEY;
         }
@@ -15184,7 +15573,8 @@ pub unsafe fn SetupDiOpenClassRegKeyExW<'a, Param3: ::windows::core::IntoParam<'
 pub unsafe fn SetupDiOpenDevRegKey(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiOpenDevRegKey(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
@@ -15199,7 +15589,8 @@ pub unsafe fn SetupDiOpenDevRegKey(deviceinfoset: *const ::core::ffi::c_void, de
 pub unsafe fn SetupDiOpenDeviceInfoA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(deviceinfoset: *const ::core::ffi::c_void, deviceinstanceid: Param1, hwndparent: Param2, openflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiOpenDeviceInfoA(deviceinfoset: *const ::core::ffi::c_void, deviceinstanceid: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, openflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15214,7 +15605,8 @@ pub unsafe fn SetupDiOpenDeviceInfoA<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupDiOpenDeviceInfoW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(deviceinfoset: *const ::core::ffi::c_void, deviceinstanceid: Param1, hwndparent: Param2, openflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiOpenDeviceInfoW(deviceinfoset: *const ::core::ffi::c_void, deviceinstanceid: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, openflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15229,7 +15621,8 @@ pub unsafe fn SetupDiOpenDeviceInfoW<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupDiOpenDeviceInterfaceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(deviceinfoset: *const ::core::ffi::c_void, devicepath: Param1, openflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiOpenDeviceInterfaceA(deviceinfoset: *const ::core::ffi::c_void, devicepath: super::super::Foundation::PSTR, openflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15244,7 +15637,8 @@ pub unsafe fn SetupDiOpenDeviceInterfaceA<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
@@ -15259,7 +15653,8 @@ pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: *const ::core::ffi
 pub unsafe fn SetupDiOpenDeviceInterfaceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinfoset: *const ::core::ffi::c_void, devicepath: Param1, openflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiOpenDeviceInterfaceW(deviceinfoset: *const ::core::ffi::c_void, devicepath: super::super::Foundation::PWSTR, openflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15274,7 +15669,8 @@ pub unsafe fn SetupDiOpenDeviceInterfaceW<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn SetupDiRegisterCoDeviceInstallers(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiRegisterCoDeviceInstallers(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15289,7 +15685,8 @@ pub unsafe fn SetupDiRegisterCoDeviceInstallers(deviceinfoset: *const ::core::ff
 pub unsafe fn SetupDiRegisterDeviceInfo(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, flags: u32, compareproc: PSP_DETSIG_CMPPROC, comparecontext: *const ::core::ffi::c_void, dupdeviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiRegisterDeviceInfo(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, flags: u32, compareproc: ::windows::core::RawPtr, comparecontext: *const ::core::ffi::c_void, dupdeviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15304,7 +15701,8 @@ pub unsafe fn SetupDiRegisterDeviceInfo(deviceinfoset: *const ::core::ffi::c_voi
 pub unsafe fn SetupDiRemoveDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiRemoveDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15319,7 +15717,8 @@ pub unsafe fn SetupDiRemoveDevice(deviceinfoset: *const ::core::ffi::c_void, dev
 pub unsafe fn SetupDiRemoveDeviceInterface(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiRemoveDeviceInterface(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15334,7 +15733,8 @@ pub unsafe fn SetupDiRemoveDeviceInterface(deviceinfoset: *const ::core::ffi::c_
 pub unsafe fn SetupDiRestartDevices(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiRestartDevices(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15349,7 +15749,8 @@ pub unsafe fn SetupDiRestartDevices(deviceinfoset: *const ::core::ffi::c_void, d
 pub unsafe fn SetupDiSelectBestCompatDrv(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSelectBestCompatDrv(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15364,7 +15765,8 @@ pub unsafe fn SetupDiSelectBestCompatDrv(deviceinfoset: *const ::core::ffi::c_vo
 pub unsafe fn SetupDiSelectDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSelectDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15379,7 +15781,8 @@ pub unsafe fn SetupDiSelectDevice(deviceinfoset: *const ::core::ffi::c_void, dev
 pub unsafe fn SetupDiSelectOEMDrv<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSelectOEMDrv(hwndparent: super::super::Foundation::HWND, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15394,7 +15797,8 @@ pub unsafe fn SetupDiSelectOEMDrv<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupDiSetClassInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *const SP_CLASSINSTALL_HEADER, classinstallparamssize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetClassInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *const SP_CLASSINSTALL_HEADER, classinstallparamssize: u32) -> super::super::Foundation::BOOL;
         }
@@ -15409,7 +15813,8 @@ pub unsafe fn SetupDiSetClassInstallParamsA(deviceinfoset: *const ::core::ffi::c
 pub unsafe fn SetupDiSetClassInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *const SP_CLASSINSTALL_HEADER, classinstallparamssize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetClassInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *const SP_CLASSINSTALL_HEADER, classinstallparamssize: u32) -> super::super::Foundation::BOOL;
         }
@@ -15424,7 +15829,8 @@ pub unsafe fn SetupDiSetClassInstallParamsW(deviceinfoset: *const ::core::ffi::c
 pub unsafe fn SetupDiSetClassPropertyExW<'a, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32, machinename: Param6, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetClassPropertyExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -15439,7 +15845,8 @@ pub unsafe fn SetupDiSetClassPropertyExW<'a, Param6: ::windows::core::IntoParam<
 pub unsafe fn SetupDiSetClassPropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetClassPropertyW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -15454,7 +15861,8 @@ pub unsafe fn SetupDiSetClassPropertyW(classguid: *const ::windows::core::GUID, 
 pub unsafe fn SetupDiSetClassRegistryPropertyA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(classguid: *const ::windows::core::GUID, property: u32, propertybuffer: *const u8, propertybuffersize: u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetClassRegistryPropertyA(classguid: *const ::windows::core::GUID, property: u32, propertybuffer: *const u8, propertybuffersize: u32, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -15469,7 +15877,8 @@ pub unsafe fn SetupDiSetClassRegistryPropertyA<'a, Param4: ::windows::core::Into
 pub unsafe fn SetupDiSetClassRegistryPropertyW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(classguid: *const ::windows::core::GUID, property: u32, propertybuffer: *const u8, propertybuffersize: u32, machinename: Param4, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetClassRegistryPropertyW(classguid: *const ::windows::core::GUID, property: u32, propertybuffer: *const u8, propertybuffersize: u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -15484,7 +15893,8 @@ pub unsafe fn SetupDiSetClassRegistryPropertyW<'a, Param4: ::windows::core::Into
 pub unsafe fn SetupDiSetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const SP_DEVINSTALL_PARAMS_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const SP_DEVINSTALL_PARAMS_A) -> super::super::Foundation::BOOL;
         }
@@ -15499,7 +15909,8 @@ pub unsafe fn SetupDiSetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::
 pub unsafe fn SetupDiSetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const SP_DEVINSTALL_PARAMS_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const SP_DEVINSTALL_PARAMS_W) -> super::super::Foundation::BOOL;
         }
@@ -15514,7 +15925,8 @@ pub unsafe fn SetupDiSetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::
 pub unsafe fn SetupDiSetDeviceInterfaceDefault(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetDeviceInterfaceDefault(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -15529,7 +15941,8 @@ pub unsafe fn SetupDiSetDeviceInterfaceDefault(deviceinfoset: *const ::core::ffi
 pub unsafe fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -15544,7 +15957,8 @@ pub unsafe fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: *const ::core::f
 pub unsafe fn SetupDiSetDevicePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetDevicePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -15559,7 +15973,8 @@ pub unsafe fn SetupDiSetDevicePropertyW(deviceinfoset: *const ::core::ffi::c_voi
 pub unsafe fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, property: u32, propertybuffer: *const u8, propertybuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, property: u32, propertybuffer: *const u8, propertybuffersize: u32) -> super::super::Foundation::BOOL;
         }
@@ -15574,7 +15989,8 @@ pub unsafe fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset: *const ::core::ff
 pub unsafe fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, property: u32, propertybuffer: *const u8, propertybuffersize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, property: u32, propertybuffer: *const u8, propertybuffersize: u32) -> super::super::Foundation::BOOL;
         }
@@ -15589,7 +16005,8 @@ pub unsafe fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset: *const ::core::ff
 pub unsafe fn SetupDiSetDriverInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinstallparams: *const SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetDriverInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinstallparams: *const SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL;
         }
@@ -15604,7 +16021,8 @@ pub unsafe fn SetupDiSetDriverInstallParamsA(deviceinfoset: *const ::core::ffi::
 pub unsafe fn SetupDiSetDriverInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinstallparams: *const SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetDriverInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinstallparams: *const SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL;
         }
@@ -15619,7 +16037,8 @@ pub unsafe fn SetupDiSetDriverInstallParamsW(deviceinfoset: *const ::core::ffi::
 pub unsafe fn SetupDiSetSelectedDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetSelectedDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15634,7 +16053,8 @@ pub unsafe fn SetupDiSetSelectedDevice(deviceinfoset: *const ::core::ffi::c_void
 pub unsafe fn SetupDiSetSelectedDriverA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetSelectedDriverA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL;
         }
@@ -15649,7 +16069,8 @@ pub unsafe fn SetupDiSetSelectedDriverA(deviceinfoset: *const ::core::ffi::c_voi
 pub unsafe fn SetupDiSetSelectedDriverW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiSetSelectedDriverW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL;
         }
@@ -15664,7 +16085,8 @@ pub unsafe fn SetupDiSetSelectedDriverW(deviceinfoset: *const ::core::ffi::c_voi
 pub unsafe fn SetupDiUnremoveDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDiUnremoveDevice(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -15678,7 +16100,8 @@ pub unsafe fn SetupDiUnremoveDevice(deviceinfoset: *const ::core::ffi::c_void, d
 pub unsafe fn SetupDuplicateDiskSpaceListA(diskspace: *const ::core::ffi::c_void, reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDuplicateDiskSpaceListA(diskspace: *const ::core::ffi::c_void, reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -15692,7 +16115,8 @@ pub unsafe fn SetupDuplicateDiskSpaceListA(diskspace: *const ::core::ffi::c_void
 pub unsafe fn SetupDuplicateDiskSpaceListW(diskspace: *const ::core::ffi::c_void, reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupDuplicateDiskSpaceListW(diskspace: *const ::core::ffi::c_void, reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -15707,7 +16131,8 @@ pub unsafe fn SetupDuplicateDiskSpaceListW(diskspace: *const ::core::ffi::c_void
 pub unsafe fn SetupEnumInfSectionsA(infhandle: *const ::core::ffi::c_void, index: u32, buffer: super::super::Foundation::PSTR, size: u32, sizeneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupEnumInfSectionsA(infhandle: *const ::core::ffi::c_void, index: u32, buffer: super::super::Foundation::PSTR, size: u32, sizeneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -15722,7 +16147,8 @@ pub unsafe fn SetupEnumInfSectionsA(infhandle: *const ::core::ffi::c_void, index
 pub unsafe fn SetupEnumInfSectionsW(infhandle: *const ::core::ffi::c_void, index: u32, buffer: super::super::Foundation::PWSTR, size: u32, sizeneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupEnumInfSectionsW(infhandle: *const ::core::ffi::c_void, index: u32, buffer: super::super::Foundation::PWSTR, size: u32, sizeneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -15772,7 +16198,8 @@ impl ::core::fmt::Debug for SetupFileLogInfo {
 pub unsafe fn SetupFindFirstLineA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, section: Param1, key: Param2, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupFindFirstLineA(infhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PSTR, key: super::super::Foundation::PSTR, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
         }
@@ -15787,7 +16214,8 @@ pub unsafe fn SetupFindFirstLineA<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupFindFirstLineW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, section: Param1, key: Param2, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupFindFirstLineW(infhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PWSTR, key: super::super::Foundation::PWSTR, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
         }
@@ -15802,7 +16230,8 @@ pub unsafe fn SetupFindFirstLineW<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupFindNextLine(contextin: *const INFCONTEXT, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupFindNextLine(contextin: *const INFCONTEXT, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
         }
@@ -15817,7 +16246,8 @@ pub unsafe fn SetupFindNextLine(contextin: *const INFCONTEXT, contextout: *mut I
 pub unsafe fn SetupFindNextMatchLineA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(contextin: *const INFCONTEXT, key: Param1, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupFindNextMatchLineA(contextin: *const INFCONTEXT, key: super::super::Foundation::PSTR, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
         }
@@ -15832,7 +16262,8 @@ pub unsafe fn SetupFindNextMatchLineA<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn SetupFindNextMatchLineW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(contextin: *const INFCONTEXT, key: Param1, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupFindNextMatchLineW(contextin: *const INFCONTEXT, key: super::super::Foundation::PWSTR, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
         }
@@ -15847,7 +16278,8 @@ pub unsafe fn SetupFindNextMatchLineW<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn SetupFreeSourceListA(list: *mut *mut super::super::Foundation::PSTR, count: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupFreeSourceListA(list: *mut *mut super::super::Foundation::PSTR, count: u32) -> super::super::Foundation::BOOL;
         }
@@ -15862,7 +16294,8 @@ pub unsafe fn SetupFreeSourceListA(list: *mut *mut super::super::Foundation::PST
 pub unsafe fn SetupFreeSourceListW(list: *mut *mut super::super::Foundation::PWSTR, count: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupFreeSourceListW(list: *mut *mut super::super::Foundation::PWSTR, count: u32) -> super::super::Foundation::BOOL;
         }
@@ -15877,7 +16310,8 @@ pub unsafe fn SetupFreeSourceListW(list: *mut *mut super::super::Foundation::PWS
 pub unsafe fn SetupGetBackupInformationA(queuehandle: *const ::core::ffi::c_void, backupparams: *mut SP_BACKUP_QUEUE_PARAMS_V2_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetBackupInformationA(queuehandle: *const ::core::ffi::c_void, backupparams: *mut SP_BACKUP_QUEUE_PARAMS_V2_A) -> super::super::Foundation::BOOL;
         }
@@ -15892,7 +16326,8 @@ pub unsafe fn SetupGetBackupInformationA(queuehandle: *const ::core::ffi::c_void
 pub unsafe fn SetupGetBackupInformationW(queuehandle: *const ::core::ffi::c_void, backupparams: *mut SP_BACKUP_QUEUE_PARAMS_V2_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetBackupInformationW(queuehandle: *const ::core::ffi::c_void, backupparams: *mut SP_BACKUP_QUEUE_PARAMS_V2_W) -> super::super::Foundation::BOOL;
         }
@@ -15907,7 +16342,8 @@ pub unsafe fn SetupGetBackupInformationW(queuehandle: *const ::core::ffi::c_void
 pub unsafe fn SetupGetBinaryField(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: *mut u8, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetBinaryField(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: *mut u8, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -15921,7 +16357,8 @@ pub unsafe fn SetupGetBinaryField(context: *const INFCONTEXT, fieldindex: u32, r
 pub unsafe fn SetupGetFieldCount(context: *const INFCONTEXT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetFieldCount(context: *const INFCONTEXT) -> u32;
         }
@@ -15936,7 +16373,8 @@ pub unsafe fn SetupGetFieldCount(context: *const INFCONTEXT) -> u32 {
 pub unsafe fn SetupGetFileCompressionInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sourcefilename: Param0, actualsourcefilename: *mut super::super::Foundation::PSTR, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetFileCompressionInfoA(sourcefilename: super::super::Foundation::PSTR, actualsourcefilename: *mut super::super::Foundation::PSTR, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> u32;
         }
@@ -15951,7 +16389,8 @@ pub unsafe fn SetupGetFileCompressionInfoA<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn SetupGetFileCompressionInfoExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sourcefilename: Param0, actualsourcefilenamebuffer: Param1, actualsourcefilenamebufferlen: u32, requiredbufferlen: *mut u32, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetFileCompressionInfoExA(sourcefilename: super::super::Foundation::PSTR, actualsourcefilenamebuffer: super::super::Foundation::PSTR, actualsourcefilenamebufferlen: u32, requiredbufferlen: *mut u32, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -15966,7 +16405,8 @@ pub unsafe fn SetupGetFileCompressionInfoExA<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn SetupGetFileCompressionInfoExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sourcefilename: Param0, actualsourcefilenamebuffer: Param1, actualsourcefilenamebufferlen: u32, requiredbufferlen: *mut u32, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetFileCompressionInfoExW(sourcefilename: super::super::Foundation::PWSTR, actualsourcefilenamebuffer: super::super::Foundation::PWSTR, actualsourcefilenamebufferlen: u32, requiredbufferlen: *mut u32, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -15981,7 +16421,8 @@ pub unsafe fn SetupGetFileCompressionInfoExW<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn SetupGetFileCompressionInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sourcefilename: Param0, actualsourcefilename: *mut super::super::Foundation::PWSTR, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetFileCompressionInfoW(sourcefilename: super::super::Foundation::PWSTR, actualsourcefilename: *mut super::super::Foundation::PWSTR, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> u32;
         }
@@ -15996,7 +16437,8 @@ pub unsafe fn SetupGetFileCompressionInfoW<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn SetupGetFileQueueCount(filequeue: *const ::core::ffi::c_void, subqueuefileop: u32, numoperations: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetFileQueueCount(filequeue: *const ::core::ffi::c_void, subqueuefileop: u32, numoperations: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16011,7 +16453,8 @@ pub unsafe fn SetupGetFileQueueCount(filequeue: *const ::core::ffi::c_void, subq
 pub unsafe fn SetupGetFileQueueFlags(filequeue: *const ::core::ffi::c_void, flags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetFileQueueFlags(filequeue: *const ::core::ffi::c_void, flags: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16026,7 +16469,8 @@ pub unsafe fn SetupGetFileQueueFlags(filequeue: *const ::core::ffi::c_void, flag
 pub unsafe fn SetupGetInfDriverStoreLocationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, localename: Param2, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetInfDriverStoreLocationA(filename: super::super::Foundation::PSTR, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, localename: super::super::Foundation::PSTR, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16041,7 +16485,8 @@ pub unsafe fn SetupGetInfDriverStoreLocationA<'a, Param0: ::windows::core::IntoP
 pub unsafe fn SetupGetInfDriverStoreLocationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, localename: Param2, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetInfDriverStoreLocationW(filename: super::super::Foundation::PWSTR, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, localename: super::super::Foundation::PWSTR, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16056,7 +16501,8 @@ pub unsafe fn SetupGetInfDriverStoreLocationW<'a, Param0: ::windows::core::IntoP
 pub unsafe fn SetupGetInfFileListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(directorypath: Param0, infstyle: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetInfFileListA(directorypath: super::super::Foundation::PSTR, infstyle: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16071,7 +16517,8 @@ pub unsafe fn SetupGetInfFileListA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupGetInfFileListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(directorypath: Param0, infstyle: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetInfFileListW(directorypath: super::super::Foundation::PWSTR, infstyle: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16086,7 +16533,8 @@ pub unsafe fn SetupGetInfFileListW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupGetInfInformationA(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: *mut SP_INF_INFORMATION, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetInfInformationA(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: *mut SP_INF_INFORMATION, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16101,7 +16549,8 @@ pub unsafe fn SetupGetInfInformationA(infspec: *const ::core::ffi::c_void, searc
 pub unsafe fn SetupGetInfInformationW(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: *mut SP_INF_INFORMATION, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetInfInformationW(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: *mut SP_INF_INFORMATION, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16116,7 +16565,8 @@ pub unsafe fn SetupGetInfInformationW(infspec: *const ::core::ffi::c_void, searc
 pub unsafe fn SetupGetInfPublishedNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(driverstorelocation: Param0, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetInfPublishedNameA(driverstorelocation: super::super::Foundation::PSTR, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16131,7 +16581,8 @@ pub unsafe fn SetupGetInfPublishedNameA<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn SetupGetInfPublishedNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(driverstorelocation: Param0, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetInfPublishedNameW(driverstorelocation: super::super::Foundation::PWSTR, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16146,7 +16597,8 @@ pub unsafe fn SetupGetInfPublishedNameW<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn SetupGetIntField(context: *const INFCONTEXT, fieldindex: u32, integervalue: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetIntField(context: *const INFCONTEXT, fieldindex: u32, integervalue: *mut i32) -> super::super::Foundation::BOOL;
         }
@@ -16161,7 +16613,8 @@ pub unsafe fn SetupGetIntField(context: *const INFCONTEXT, fieldindex: u32, inte
 pub unsafe fn SetupGetLineByIndexA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, section: Param1, index: u32, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetLineByIndexA(infhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PSTR, index: u32, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
         }
@@ -16176,7 +16629,8 @@ pub unsafe fn SetupGetLineByIndexA<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupGetLineByIndexW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, section: Param1, index: u32, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetLineByIndexW(infhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PWSTR, index: u32, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
         }
@@ -16191,7 +16645,8 @@ pub unsafe fn SetupGetLineByIndexW<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupGetLineCountA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, section: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetLineCountA(infhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PSTR) -> i32;
         }
@@ -16206,7 +16661,8 @@ pub unsafe fn SetupGetLineCountA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SetupGetLineCountW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, section: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetLineCountW(infhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PWSTR) -> i32;
         }
@@ -16221,7 +16677,8 @@ pub unsafe fn SetupGetLineCountW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SetupGetLineTextA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(context: *const INFCONTEXT, infhandle: *const ::core::ffi::c_void, section: Param2, key: Param3, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetLineTextA(context: *const INFCONTEXT, infhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PSTR, key: super::super::Foundation::PSTR, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16236,7 +16693,8 @@ pub unsafe fn SetupGetLineTextA<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupGetLineTextW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(context: *const INFCONTEXT, infhandle: *const ::core::ffi::c_void, section: Param2, key: Param3, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetLineTextW(context: *const INFCONTEXT, infhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PWSTR, key: super::super::Foundation::PWSTR, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16251,7 +16709,8 @@ pub unsafe fn SetupGetLineTextW<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupGetMultiSzFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetMultiSzFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16266,7 +16725,8 @@ pub unsafe fn SetupGetMultiSzFieldA(context: *const INFCONTEXT, fieldindex: u32,
 pub unsafe fn SetupGetMultiSzFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetMultiSzFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16281,7 +16741,8 @@ pub unsafe fn SetupGetMultiSzFieldW(context: *const INFCONTEXT, fieldindex: u32,
 pub unsafe fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL;
         }
@@ -16296,7 +16757,8 @@ pub unsafe fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL {
 pub unsafe fn SetupGetSourceFileLocationA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: Param2, sourceid: *mut u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetSourceFileLocationA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: super::super::Foundation::PSTR, sourceid: *mut u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16311,7 +16773,8 @@ pub unsafe fn SetupGetSourceFileLocationA<'a, Param2: ::windows::core::IntoParam
 pub unsafe fn SetupGetSourceFileLocationW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: Param2, sourceid: *mut u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetSourceFileLocationW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: super::super::Foundation::PWSTR, sourceid: *mut u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16326,7 +16789,8 @@ pub unsafe fn SetupGetSourceFileLocationW<'a, Param2: ::windows::core::IntoParam
 pub unsafe fn SetupGetSourceFileSizeA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: Param2, section: Param3, filesize: *mut u32, roundingfactor: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetSourceFileSizeA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: super::super::Foundation::PSTR, section: super::super::Foundation::PSTR, filesize: *mut u32, roundingfactor: u32) -> super::super::Foundation::BOOL;
         }
@@ -16341,7 +16805,8 @@ pub unsafe fn SetupGetSourceFileSizeA<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn SetupGetSourceFileSizeW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: Param2, section: Param3, filesize: *mut u32, roundingfactor: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetSourceFileSizeW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: super::super::Foundation::PWSTR, section: super::super::Foundation::PWSTR, filesize: *mut u32, roundingfactor: u32) -> super::super::Foundation::BOOL;
         }
@@ -16356,7 +16821,8 @@ pub unsafe fn SetupGetSourceFileSizeW<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn SetupGetSourceInfoA(infhandle: *const ::core::ffi::c_void, sourceid: u32, infodesired: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetSourceInfoA(infhandle: *const ::core::ffi::c_void, sourceid: u32, infodesired: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16371,7 +16837,8 @@ pub unsafe fn SetupGetSourceInfoA(infhandle: *const ::core::ffi::c_void, sourcei
 pub unsafe fn SetupGetSourceInfoW(infhandle: *const ::core::ffi::c_void, sourceid: u32, infodesired: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetSourceInfoW(infhandle: *const ::core::ffi::c_void, sourceid: u32, infodesired: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16386,7 +16853,8 @@ pub unsafe fn SetupGetSourceInfoW(infhandle: *const ::core::ffi::c_void, sourcei
 pub unsafe fn SetupGetStringFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetStringFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16401,7 +16869,8 @@ pub unsafe fn SetupGetStringFieldA(context: *const INFCONTEXT, fieldindex: u32, 
 pub unsafe fn SetupGetStringFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetStringFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16416,7 +16885,8 @@ pub unsafe fn SetupGetStringFieldW(context: *const INFCONTEXT, fieldindex: u32, 
 pub unsafe fn SetupGetTargetPathA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, section: Param2, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetTargetPathA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, section: super::super::Foundation::PSTR, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16431,7 +16901,8 @@ pub unsafe fn SetupGetTargetPathA<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupGetTargetPathW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, section: Param2, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetTargetPathW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, section: super::super::Foundation::PWSTR, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16445,7 +16916,8 @@ pub unsafe fn SetupGetTargetPathW<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupGetThreadLogToken() -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupGetThreadLogToken() -> u64;
         }
@@ -16460,7 +16932,8 @@ pub unsafe fn SetupGetThreadLogToken() -> u64 {
 pub unsafe fn SetupInitDefaultQueueCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(ownerwindow: Param0) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInitDefaultQueueCallback(ownerwindow: super::super::Foundation::HWND) -> *mut ::core::ffi::c_void;
         }
@@ -16475,7 +16948,8 @@ pub unsafe fn SetupInitDefaultQueueCallback<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn SetupInitDefaultQueueCallbackEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(ownerwindow: Param0, alternateprogresswindow: Param1, progressmessage: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInitDefaultQueueCallbackEx(ownerwindow: super::super::Foundation::HWND, alternateprogresswindow: super::super::Foundation::HWND, progressmessage: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }
@@ -16490,7 +16964,8 @@ pub unsafe fn SetupInitDefaultQueueCallbackEx<'a, Param0: ::windows::core::IntoP
 pub unsafe fn SetupInitializeFileLogA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(logfilename: Param0, flags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInitializeFileLogA(logfilename: super::super::Foundation::PSTR, flags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -16505,7 +16980,8 @@ pub unsafe fn SetupInitializeFileLogA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SetupInitializeFileLogW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(logfilename: Param0, flags: u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInitializeFileLogW(logfilename: super::super::Foundation::PWSTR, flags: u32) -> *mut ::core::ffi::c_void;
         }
@@ -16520,7 +16996,8 @@ pub unsafe fn SetupInitializeFileLogW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SetupInstallFileA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: Param2, sourcepathroot: Param3, destinationname: Param4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallFileA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: super::super::Foundation::PSTR, sourcepathroot: super::super::Foundation::PSTR, destinationname: super::super::Foundation::PSTR, copystyle: SP_COPY_STYLE, copymsghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -16535,7 +17012,8 @@ pub unsafe fn SetupInstallFileA<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupInstallFileExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: Param2, sourcepathroot: Param3, destinationname: Param4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void, filewasinuse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallFileExA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: super::super::Foundation::PSTR, sourcepathroot: super::super::Foundation::PSTR, destinationname: super::super::Foundation::PSTR, copystyle: SP_COPY_STYLE, copymsghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, filewasinuse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -16550,7 +17028,8 @@ pub unsafe fn SetupInstallFileExA<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupInstallFileExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: Param2, sourcepathroot: Param3, destinationname: Param4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void, filewasinuse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallFileExW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: super::super::Foundation::PWSTR, sourcepathroot: super::super::Foundation::PWSTR, destinationname: super::super::Foundation::PWSTR, copystyle: SP_COPY_STYLE, copymsghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, filewasinuse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -16565,7 +17044,8 @@ pub unsafe fn SetupInstallFileExW<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupInstallFileW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: Param2, sourcepathroot: Param3, destinationname: Param4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallFileW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: super::super::Foundation::PWSTR, sourcepathroot: super::super::Foundation::PWSTR, destinationname: super::super::Foundation::PWSTR, copystyle: SP_COPY_STYLE, copymsghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -16580,7 +17060,8 @@ pub unsafe fn SetupInstallFileW<'a, Param2: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupInstallFilesFromInfSectionA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, filequeue: *const ::core::ffi::c_void, sectionname: Param3, sourcerootpath: Param4, copyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallFilesFromInfSectionA(infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, filequeue: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PSTR, sourcerootpath: super::super::Foundation::PSTR, copyflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -16595,7 +17076,8 @@ pub unsafe fn SetupInstallFilesFromInfSectionA<'a, Param3: ::windows::core::Into
 pub unsafe fn SetupInstallFilesFromInfSectionW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, filequeue: *const ::core::ffi::c_void, sectionname: Param3, sourcerootpath: Param4, copyflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallFilesFromInfSectionW(infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, filequeue: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PWSTR, sourcerootpath: super::super::Foundation::PWSTR, copyflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -16610,7 +17092,8 @@ pub unsafe fn SetupInstallFilesFromInfSectionW<'a, Param3: ::windows::core::Into
 pub unsafe fn SetupInstallFromInfSectionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(owner: Param0, infhandle: *const ::core::ffi::c_void, sectionname: Param2, flags: u32, relativekeyroot: Param4, sourcerootpath: Param5, copyflags: u32, msghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallFromInfSectionA(owner: super::super::Foundation::HWND, infhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PSTR, flags: u32, relativekeyroot: super::super::System::Registry::HKEY, sourcerootpath: super::super::Foundation::PSTR, copyflags: u32, msghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -16625,7 +17108,8 @@ pub unsafe fn SetupInstallFromInfSectionA<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn SetupInstallFromInfSectionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(owner: Param0, infhandle: *const ::core::ffi::c_void, sectionname: Param2, flags: u32, relativekeyroot: Param4, sourcerootpath: Param5, copyflags: u32, msghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallFromInfSectionW(owner: super::super::Foundation::HWND, infhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PWSTR, flags: u32, relativekeyroot: super::super::System::Registry::HKEY, sourcerootpath: super::super::Foundation::PWSTR, copyflags: u32, msghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
@@ -16640,7 +17124,8 @@ pub unsafe fn SetupInstallFromInfSectionW<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn SetupInstallServicesFromInfSectionA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, sectionname: Param1, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallServicesFromInfSectionA(infhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PSTR, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -16655,7 +17140,8 @@ pub unsafe fn SetupInstallServicesFromInfSectionA<'a, Param1: ::windows::core::I
 pub unsafe fn SetupInstallServicesFromInfSectionExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, sectionname: Param1, flags: u32, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallServicesFromInfSectionExA(infhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PSTR, flags: u32, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -16670,7 +17156,8 @@ pub unsafe fn SetupInstallServicesFromInfSectionExA<'a, Param1: ::windows::core:
 pub unsafe fn SetupInstallServicesFromInfSectionExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, sectionname: Param1, flags: u32, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallServicesFromInfSectionExW(infhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PWSTR, flags: u32, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -16685,7 +17172,8 @@ pub unsafe fn SetupInstallServicesFromInfSectionExW<'a, Param1: ::windows::core:
 pub unsafe fn SetupInstallServicesFromInfSectionW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, sectionname: Param1, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupInstallServicesFromInfSectionW(infhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PWSTR, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -16700,7 +17188,8 @@ pub unsafe fn SetupInstallServicesFromInfSectionW<'a, Param1: ::windows::core::I
 pub unsafe fn SetupIterateCabinetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cabinetfile: Param0, reserved: u32, msghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupIterateCabinetA(cabinetfile: super::super::Foundation::PSTR, reserved: u32, msghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -16715,7 +17204,8 @@ pub unsafe fn SetupIterateCabinetA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupIterateCabinetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(cabinetfile: Param0, reserved: u32, msghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupIterateCabinetW(cabinetfile: super::super::Foundation::PWSTR, reserved: u32, msghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -16730,7 +17220,8 @@ pub unsafe fn SetupIterateCabinetW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupLogErrorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(messagestring: Param0, severity: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupLogErrorA(messagestring: super::super::Foundation::PSTR, severity: u32) -> super::super::Foundation::BOOL;
         }
@@ -16745,7 +17236,8 @@ pub unsafe fn SetupLogErrorA<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SetupLogErrorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(messagestring: Param0, severity: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupLogErrorW(messagestring: super::super::Foundation::PWSTR, severity: u32) -> super::super::Foundation::BOOL;
         }
@@ -16760,7 +17252,8 @@ pub unsafe fn SetupLogErrorW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SetupLogFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(fileloghandle: *const ::core::ffi::c_void, logsectionname: Param1, sourcefilename: Param2, targetfilename: Param3, checksum: u32, disktagfile: Param5, diskdescription: Param6, otherinfo: Param7, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupLogFileA(fileloghandle: *const ::core::ffi::c_void, logsectionname: super::super::Foundation::PSTR, sourcefilename: super::super::Foundation::PSTR, targetfilename: super::super::Foundation::PSTR, checksum: u32, disktagfile: super::super::Foundation::PSTR, diskdescription: super::super::Foundation::PSTR, otherinfo: super::super::Foundation::PSTR, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -16775,7 +17268,8 @@ pub unsafe fn SetupLogFileA<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn SetupLogFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fileloghandle: *const ::core::ffi::c_void, logsectionname: Param1, sourcefilename: Param2, targetfilename: Param3, checksum: u32, disktagfile: Param5, diskdescription: Param6, otherinfo: Param7, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupLogFileW(fileloghandle: *const ::core::ffi::c_void, logsectionname: super::super::Foundation::PWSTR, sourcefilename: super::super::Foundation::PWSTR, targetfilename: super::super::Foundation::PWSTR, checksum: u32, disktagfile: super::super::Foundation::PWSTR, diskdescription: super::super::Foundation::PWSTR, otherinfo: super::super::Foundation::PWSTR, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -16790,7 +17284,8 @@ pub unsafe fn SetupLogFileW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn SetupOpenAppendInfFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, infhandle: *const ::core::ffi::c_void, errorline: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupOpenAppendInfFileA(filename: super::super::Foundation::PSTR, infhandle: *const ::core::ffi::c_void, errorline: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16805,7 +17300,8 @@ pub unsafe fn SetupOpenAppendInfFileA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SetupOpenAppendInfFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, infhandle: *const ::core::ffi::c_void, errorline: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupOpenAppendInfFileW(filename: super::super::Foundation::PWSTR, infhandle: *const ::core::ffi::c_void, errorline: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16819,7 +17315,8 @@ pub unsafe fn SetupOpenAppendInfFileW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn SetupOpenFileQueue() -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupOpenFileQueue() -> *mut ::core::ffi::c_void;
         }
@@ -16834,7 +17331,8 @@ pub unsafe fn SetupOpenFileQueue() -> *mut ::core::ffi::c_void {
 pub unsafe fn SetupOpenInfFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(filename: Param0, infclass: Param1, infstyle: u32, errorline: *mut u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupOpenInfFileA(filename: super::super::Foundation::PSTR, infclass: super::super::Foundation::PSTR, infstyle: u32, errorline: *mut u32) -> *mut ::core::ffi::c_void;
         }
@@ -16849,7 +17347,8 @@ pub unsafe fn SetupOpenInfFileA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupOpenInfFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, infclass: Param1, infstyle: u32, errorline: *mut u32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupOpenInfFileW(filename: super::super::Foundation::PWSTR, infclass: super::super::Foundation::PWSTR, infstyle: u32, errorline: *mut u32) -> *mut ::core::ffi::c_void;
         }
@@ -16864,7 +17363,8 @@ pub unsafe fn SetupOpenInfFileW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupOpenLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(erase: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupOpenLog(erase: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -16878,7 +17378,8 @@ pub unsafe fn SetupOpenLog<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn SetupOpenMasterInf() -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupOpenMasterInf() -> *mut ::core::ffi::c_void;
         }
@@ -16893,7 +17394,8 @@ pub unsafe fn SetupOpenMasterInf() -> *mut ::core::ffi::c_void {
 pub unsafe fn SetupPrepareQueueForRestoreA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::core::ffi::c_void, backuppath: Param1, restoreflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupPrepareQueueForRestoreA(queuehandle: *const ::core::ffi::c_void, backuppath: super::super::Foundation::PSTR, restoreflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -16908,7 +17410,8 @@ pub unsafe fn SetupPrepareQueueForRestoreA<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn SetupPrepareQueueForRestoreW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::core::ffi::c_void, backuppath: Param1, restoreflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupPrepareQueueForRestoreW(queuehandle: *const ::core::ffi::c_void, backuppath: super::super::Foundation::PWSTR, restoreflags: u32) -> super::super::Foundation::BOOL;
         }
@@ -16923,7 +17426,8 @@ pub unsafe fn SetupPrepareQueueForRestoreW<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn SetupPromptForDiskA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, dialogtitle: Param1, diskname: Param2, pathtosource: Param3, filesought: Param4, tagfile: Param5, diskpromptstyle: u32, pathbuffer: super::super::Foundation::PSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupPromptForDiskA(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PSTR, diskname: super::super::Foundation::PSTR, pathtosource: super::super::Foundation::PSTR, filesought: super::super::Foundation::PSTR, tagfile: super::super::Foundation::PSTR, diskpromptstyle: u32, pathbuffer: super::super::Foundation::PSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
         }
@@ -16938,7 +17442,8 @@ pub unsafe fn SetupPromptForDiskA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupPromptForDiskW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, dialogtitle: Param1, diskname: Param2, pathtosource: Param3, filesought: Param4, tagfile: Param5, diskpromptstyle: u32, pathbuffer: super::super::Foundation::PWSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupPromptForDiskW(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PWSTR, diskname: super::super::Foundation::PWSTR, pathtosource: super::super::Foundation::PWSTR, filesought: super::super::Foundation::PWSTR, tagfile: super::super::Foundation::PWSTR, diskpromptstyle: u32, pathbuffer: super::super::Foundation::PWSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
         }
@@ -16953,7 +17458,8 @@ pub unsafe fn SetupPromptForDiskW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupPromptReboot<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(filequeue: *const ::core::ffi::c_void, owner: Param1, scanonly: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupPromptReboot(filequeue: *const ::core::ffi::c_void, owner: super::super::Foundation::HWND, scanonly: super::super::Foundation::BOOL) -> i32;
         }
@@ -16968,7 +17474,8 @@ pub unsafe fn SetupPromptReboot<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupQueryDrivesInDiskSpaceListA(diskspace: *const ::core::ffi::c_void, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueryDrivesInDiskSpaceListA(diskspace: *const ::core::ffi::c_void, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16983,7 +17490,8 @@ pub unsafe fn SetupQueryDrivesInDiskSpaceListA(diskspace: *const ::core::ffi::c_
 pub unsafe fn SetupQueryDrivesInDiskSpaceListW(diskspace: *const ::core::ffi::c_void, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueryDrivesInDiskSpaceListW(diskspace: *const ::core::ffi::c_void, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -16998,7 +17506,8 @@ pub unsafe fn SetupQueryDrivesInDiskSpaceListW(diskspace: *const ::core::ffi::c_
 pub unsafe fn SetupQueryFileLogA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(fileloghandle: *const ::core::ffi::c_void, logsectionname: Param1, targetfilename: Param2, desiredinfo: SetupFileLogInfo, dataout: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueryFileLogA(fileloghandle: *const ::core::ffi::c_void, logsectionname: super::super::Foundation::PSTR, targetfilename: super::super::Foundation::PSTR, desiredinfo: SetupFileLogInfo, dataout: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -17013,7 +17522,8 @@ pub unsafe fn SetupQueryFileLogA<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SetupQueryFileLogW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fileloghandle: *const ::core::ffi::c_void, logsectionname: Param1, targetfilename: Param2, desiredinfo: SetupFileLogInfo, dataout: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueryFileLogW(fileloghandle: *const ::core::ffi::c_void, logsectionname: super::super::Foundation::PWSTR, targetfilename: super::super::Foundation::PWSTR, desiredinfo: SetupFileLogInfo, dataout: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -17028,7 +17538,8 @@ pub unsafe fn SetupQueryFileLogW<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SetupQueryInfFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueryInfFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -17043,7 +17554,8 @@ pub unsafe fn SetupQueryInfFileInformationA(infinformation: *const SP_INF_INFORM
 pub unsafe fn SetupQueryInfFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueryInfFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -17058,7 +17570,8 @@ pub unsafe fn SetupQueryInfFileInformationW(infinformation: *const SP_INF_INFORM
 pub unsafe fn SetupQueryInfOriginalFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueryInfOriginalFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_A) -> super::super::Foundation::BOOL;
         }
@@ -17073,7 +17586,8 @@ pub unsafe fn SetupQueryInfOriginalFileInformationA(infinformation: *const SP_IN
 pub unsafe fn SetupQueryInfOriginalFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueryInfOriginalFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_W) -> super::super::Foundation::BOOL;
         }
@@ -17088,7 +17602,8 @@ pub unsafe fn SetupQueryInfOriginalFileInformationW(infinformation: *const SP_IN
 pub unsafe fn SetupQueryInfVersionInformationA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: Param2, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueryInfVersionInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: super::super::Foundation::PSTR, returnbuffer: super::super::Foundation::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -17103,7 +17618,8 @@ pub unsafe fn SetupQueryInfVersionInformationA<'a, Param2: ::windows::core::Into
 pub unsafe fn SetupQueryInfVersionInformationW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: Param2, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueryInfVersionInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: super::super::Foundation::PWSTR, returnbuffer: super::super::Foundation::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -17118,7 +17634,8 @@ pub unsafe fn SetupQueryInfVersionInformationW<'a, Param2: ::windows::core::Into
 pub unsafe fn SetupQuerySourceListA(flags: u32, list: *mut *mut super::super::Foundation::PSTR, count: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQuerySourceListA(flags: u32, list: *mut *mut super::super::Foundation::PSTR, count: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -17133,7 +17650,8 @@ pub unsafe fn SetupQuerySourceListA(flags: u32, list: *mut *mut super::super::Fo
 pub unsafe fn SetupQuerySourceListW(flags: u32, list: *mut *mut super::super::Foundation::PWSTR, count: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQuerySourceListW(flags: u32, list: *mut *mut super::super::Foundation::PWSTR, count: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -17148,7 +17666,8 @@ pub unsafe fn SetupQuerySourceListW(flags: u32, list: *mut *mut super::super::Fo
 pub unsafe fn SetupQuerySpaceRequiredOnDriveA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::core::ffi::c_void, drivespec: Param1, spacerequired: *mut i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQuerySpaceRequiredOnDriveA(diskspace: *const ::core::ffi::c_void, drivespec: super::super::Foundation::PSTR, spacerequired: *mut i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -17163,7 +17682,8 @@ pub unsafe fn SetupQuerySpaceRequiredOnDriveA<'a, Param1: ::windows::core::IntoP
 pub unsafe fn SetupQuerySpaceRequiredOnDriveW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::core::ffi::c_void, drivespec: Param1, spacerequired: *mut i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQuerySpaceRequiredOnDriveW(diskspace: *const ::core::ffi::c_void, drivespec: super::super::Foundation::PWSTR, spacerequired: *mut i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -17178,7 +17698,8 @@ pub unsafe fn SetupQuerySpaceRequiredOnDriveW<'a, Param1: ::windows::core::IntoP
 pub unsafe fn SetupQueueCopyA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::core::ffi::c_void, sourcerootpath: Param1, sourcepath: Param2, sourcefilename: Param3, sourcedescription: Param4, sourcetagfile: Param5, targetdirectory: Param6, targetfilename: Param7, copystyle: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueCopyA(queuehandle: *const ::core::ffi::c_void, sourcerootpath: super::super::Foundation::PSTR, sourcepath: super::super::Foundation::PSTR, sourcefilename: super::super::Foundation::PSTR, sourcedescription: super::super::Foundation::PSTR, sourcetagfile: super::super::Foundation::PSTR, targetdirectory: super::super::Foundation::PSTR, targetfilename: super::super::Foundation::PSTR, copystyle: u32) -> super::super::Foundation::BOOL;
         }
@@ -17193,7 +17714,8 @@ pub unsafe fn SetupQueueCopyA<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SetupQueueCopyIndirectA(copyparams: *const SP_FILE_COPY_PARAMS_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueCopyIndirectA(copyparams: *const SP_FILE_COPY_PARAMS_A) -> super::super::Foundation::BOOL;
         }
@@ -17208,7 +17730,8 @@ pub unsafe fn SetupQueueCopyIndirectA(copyparams: *const SP_FILE_COPY_PARAMS_A) 
 pub unsafe fn SetupQueueCopyIndirectW(copyparams: *const SP_FILE_COPY_PARAMS_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueCopyIndirectW(copyparams: *const SP_FILE_COPY_PARAMS_W) -> super::super::Foundation::BOOL;
         }
@@ -17223,7 +17746,8 @@ pub unsafe fn SetupQueueCopyIndirectW(copyparams: *const SP_FILE_COPY_PARAMS_W) 
 pub unsafe fn SetupQueueCopySectionA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::core::ffi::c_void, sourcerootpath: Param1, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: Param4, copystyle: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueCopySectionA(queuehandle: *const ::core::ffi::c_void, sourcerootpath: super::super::Foundation::PSTR, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PSTR, copystyle: u32) -> super::super::Foundation::BOOL;
         }
@@ -17238,7 +17762,8 @@ pub unsafe fn SetupQueueCopySectionA<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupQueueCopySectionW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::core::ffi::c_void, sourcerootpath: Param1, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: Param4, copystyle: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueCopySectionW(queuehandle: *const ::core::ffi::c_void, sourcerootpath: super::super::Foundation::PWSTR, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PWSTR, copystyle: u32) -> super::super::Foundation::BOOL;
         }
@@ -17263,7 +17788,8 @@ pub unsafe fn SetupQueueCopyW<'a, Param1: ::windows::core::IntoParam<'a, super::
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueCopyW(queuehandle: *const ::core::ffi::c_void, sourcerootpath: super::super::Foundation::PWSTR, sourcepath: super::super::Foundation::PWSTR, sourcefilename: super::super::Foundation::PWSTR, sourcedescription: super::super::Foundation::PWSTR, sourcetagfile: super::super::Foundation::PWSTR, targetdirectory: super::super::Foundation::PWSTR, targetfilename: super::super::Foundation::PWSTR, copystyle: u32) -> super::super::Foundation::BOOL;
         }
@@ -17278,7 +17804,8 @@ pub unsafe fn SetupQueueCopyW<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn SetupQueueDefaultCopyA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, sourcerootpath: Param2, sourcefilename: Param3, targetfilename: Param4, copystyle: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueDefaultCopyA(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, sourcerootpath: super::super::Foundation::PSTR, sourcefilename: super::super::Foundation::PSTR, targetfilename: super::super::Foundation::PSTR, copystyle: u32) -> super::super::Foundation::BOOL;
         }
@@ -17293,7 +17820,8 @@ pub unsafe fn SetupQueueDefaultCopyA<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupQueueDefaultCopyW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, sourcerootpath: Param2, sourcefilename: Param3, targetfilename: Param4, copystyle: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueDefaultCopyW(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, sourcerootpath: super::super::Foundation::PWSTR, sourcefilename: super::super::Foundation::PWSTR, targetfilename: super::super::Foundation::PWSTR, copystyle: u32) -> super::super::Foundation::BOOL;
         }
@@ -17308,7 +17836,8 @@ pub unsafe fn SetupQueueDefaultCopyW<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupQueueDeleteA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::core::ffi::c_void, pathpart1: Param1, pathpart2: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueDeleteA(queuehandle: *const ::core::ffi::c_void, pathpart1: super::super::Foundation::PSTR, pathpart2: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -17323,7 +17852,8 @@ pub unsafe fn SetupQueueDeleteA<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupQueueDeleteSectionA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueDeleteSectionA(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -17338,7 +17868,8 @@ pub unsafe fn SetupQueueDeleteSectionA<'a, Param3: ::windows::core::IntoParam<'a
 pub unsafe fn SetupQueueDeleteSectionW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueDeleteSectionW(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -17353,7 +17884,8 @@ pub unsafe fn SetupQueueDeleteSectionW<'a, Param3: ::windows::core::IntoParam<'a
 pub unsafe fn SetupQueueDeleteW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::core::ffi::c_void, pathpart1: Param1, pathpart2: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueDeleteW(queuehandle: *const ::core::ffi::c_void, pathpart1: super::super::Foundation::PWSTR, pathpart2: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -17368,7 +17900,8 @@ pub unsafe fn SetupQueueDeleteW<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupQueueRenameA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::core::ffi::c_void, sourcepath: Param1, sourcefilename: Param2, targetpath: Param3, targetfilename: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueRenameA(queuehandle: *const ::core::ffi::c_void, sourcepath: super::super::Foundation::PSTR, sourcefilename: super::super::Foundation::PSTR, targetpath: super::super::Foundation::PSTR, targetfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -17383,7 +17916,8 @@ pub unsafe fn SetupQueueRenameA<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupQueueRenameSectionA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueRenameSectionA(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -17398,7 +17932,8 @@ pub unsafe fn SetupQueueRenameSectionA<'a, Param3: ::windows::core::IntoParam<'a
 pub unsafe fn SetupQueueRenameSectionW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueRenameSectionW(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -17413,7 +17948,8 @@ pub unsafe fn SetupQueueRenameSectionW<'a, Param3: ::windows::core::IntoParam<'a
 pub unsafe fn SetupQueueRenameW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::core::ffi::c_void, sourcepath: Param1, sourcefilename: Param2, targetpath: Param3, targetfilename: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupQueueRenameW(queuehandle: *const ::core::ffi::c_void, sourcepath: super::super::Foundation::PWSTR, sourcefilename: super::super::Foundation::PWSTR, targetpath: super::super::Foundation::PWSTR, targetfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -17428,7 +17964,8 @@ pub unsafe fn SetupQueueRenameW<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupRemoveFileLogEntryA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(fileloghandle: *const ::core::ffi::c_void, logsectionname: Param1, targetfilename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRemoveFileLogEntryA(fileloghandle: *const ::core::ffi::c_void, logsectionname: super::super::Foundation::PSTR, targetfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -17443,7 +17980,8 @@ pub unsafe fn SetupRemoveFileLogEntryA<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn SetupRemoveFileLogEntryW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fileloghandle: *const ::core::ffi::c_void, logsectionname: Param1, targetfilename: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRemoveFileLogEntryW(fileloghandle: *const ::core::ffi::c_void, logsectionname: super::super::Foundation::PWSTR, targetfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -17458,7 +17996,8 @@ pub unsafe fn SetupRemoveFileLogEntryW<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn SetupRemoveFromDiskSpaceListA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::core::ffi::c_void, targetfilespec: Param1, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRemoveFromDiskSpaceListA(diskspace: *const ::core::ffi::c_void, targetfilespec: super::super::Foundation::PSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -17473,7 +18012,8 @@ pub unsafe fn SetupRemoveFromDiskSpaceListA<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn SetupRemoveFromDiskSpaceListW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::core::ffi::c_void, targetfilespec: Param1, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRemoveFromDiskSpaceListW(diskspace: *const ::core::ffi::c_void, targetfilespec: super::super::Foundation::PWSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -17488,7 +18028,8 @@ pub unsafe fn SetupRemoveFromDiskSpaceListW<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn SetupRemoveFromSourceListA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, source: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRemoveFromSourceListA(flags: u32, source: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -17503,7 +18044,8 @@ pub unsafe fn SetupRemoveFromSourceListA<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn SetupRemoveFromSourceListW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, source: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRemoveFromSourceListW(flags: u32, source: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -17518,7 +18060,8 @@ pub unsafe fn SetupRemoveFromSourceListW<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: Param3, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRemoveInstallSectionFromDiskSpaceListA(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PSTR, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -17533,7 +18076,8 @@ pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<'a, Param3: ::windows:
 pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: Param3, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRemoveInstallSectionFromDiskSpaceListW(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PWSTR, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -17548,7 +18092,8 @@ pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<'a, Param3: ::windows:
 pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: Param3, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRemoveSectionFromDiskSpaceListA(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -17563,7 +18108,8 @@ pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<'a, Param3: ::windows::core::
 pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: Param3, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRemoveSectionFromDiskSpaceListW(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PWSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
         }
@@ -17578,7 +18124,8 @@ pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<'a, Param3: ::windows::core::
 pub unsafe fn SetupRenameErrorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, dialogtitle: Param1, sourcefile: Param2, targetfile: Param3, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRenameErrorA(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PSTR, sourcefile: super::super::Foundation::PSTR, targetfile: super::super::Foundation::PSTR, win32errorcode: u32, style: u32) -> u32;
         }
@@ -17593,7 +18140,8 @@ pub unsafe fn SetupRenameErrorA<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupRenameErrorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, dialogtitle: Param1, sourcefile: Param2, targetfile: Param3, win32errorcode: u32, style: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupRenameErrorW(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PWSTR, sourcefile: super::super::Foundation::PWSTR, targetfile: super::super::Foundation::PWSTR, win32errorcode: u32, style: u32) -> u32;
         }
@@ -17608,7 +18156,8 @@ pub unsafe fn SetupRenameErrorW<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupScanFileQueueA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(filequeue: *const ::core::ffi::c_void, flags: u32, window: Param2, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: *const ::core::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupScanFileQueueA(filequeue: *const ::core::ffi::c_void, flags: u32, window: super::super::Foundation::HWND, callbackroutine: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -17623,7 +18172,8 @@ pub unsafe fn SetupScanFileQueueA<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupScanFileQueueW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(filequeue: *const ::core::ffi::c_void, flags: u32, window: Param2, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: *const ::core::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupScanFileQueueW(filequeue: *const ::core::ffi::c_void, flags: u32, window: super::super::Foundation::HWND, callbackroutine: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -17638,7 +18188,8 @@ pub unsafe fn SetupScanFileQueueW<'a, Param2: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupSetDirectoryIdA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, id: u32, directory: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetDirectoryIdA(infhandle: *const ::core::ffi::c_void, id: u32, directory: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -17653,7 +18204,8 @@ pub unsafe fn SetupSetDirectoryIdA<'a, Param2: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupSetDirectoryIdExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, id: u32, directory: Param2, flags: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetDirectoryIdExA(infhandle: *const ::core::ffi::c_void, id: u32, directory: super::super::Foundation::PSTR, flags: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -17668,7 +18220,8 @@ pub unsafe fn SetupSetDirectoryIdExA<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupSetDirectoryIdExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, id: u32, directory: Param2, flags: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetDirectoryIdExW(infhandle: *const ::core::ffi::c_void, id: u32, directory: super::super::Foundation::PWSTR, flags: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -17683,7 +18236,8 @@ pub unsafe fn SetupSetDirectoryIdExW<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupSetDirectoryIdW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, id: u32, directory: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetDirectoryIdW(infhandle: *const ::core::ffi::c_void, id: u32, directory: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -17698,7 +18252,8 @@ pub unsafe fn SetupSetDirectoryIdW<'a, Param2: ::windows::core::IntoParam<'a, su
 pub unsafe fn SetupSetFileQueueAlternatePlatformA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::core::ffi::c_void, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetFileQueueAlternatePlatformA(queuehandle: *const ::core::ffi::c_void, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -17713,7 +18268,8 @@ pub unsafe fn SetupSetFileQueueAlternatePlatformA<'a, Param2: ::windows::core::I
 pub unsafe fn SetupSetFileQueueAlternatePlatformW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(queuehandle: *const ::core::ffi::c_void, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetFileQueueAlternatePlatformW(queuehandle: *const ::core::ffi::c_void, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -17728,7 +18284,8 @@ pub unsafe fn SetupSetFileQueueAlternatePlatformW<'a, Param2: ::windows::core::I
 pub unsafe fn SetupSetFileQueueFlags(filequeue: *const ::core::ffi::c_void, flagmask: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetFileQueueFlags(filequeue: *const ::core::ffi::c_void, flagmask: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
@@ -17743,7 +18300,8 @@ pub unsafe fn SetupSetFileQueueFlags(filequeue: *const ::core::ffi::c_void, flag
 pub unsafe fn SetupSetNonInteractiveMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(noninteractiveflag: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetNonInteractiveMode(noninteractiveflag: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -17758,7 +18316,8 @@ pub unsafe fn SetupSetNonInteractiveMode<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn SetupSetPlatformPathOverrideA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(r#override: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetPlatformPathOverrideA(r#override: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
@@ -17773,7 +18332,8 @@ pub unsafe fn SetupSetPlatformPathOverrideA<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn SetupSetPlatformPathOverrideW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(r#override: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetPlatformPathOverrideW(r#override: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -17788,7 +18348,8 @@ pub unsafe fn SetupSetPlatformPathOverrideW<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn SetupSetSourceListA(flags: u32, sourcelist: *const super::super::Foundation::PSTR, sourcecount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetSourceListA(flags: u32, sourcelist: *const super::super::Foundation::PSTR, sourcecount: u32) -> super::super::Foundation::BOOL;
         }
@@ -17803,7 +18364,8 @@ pub unsafe fn SetupSetSourceListA(flags: u32, sourcelist: *const super::super::F
 pub unsafe fn SetupSetSourceListW(flags: u32, sourcelist: *const super::super::Foundation::PWSTR, sourcecount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetSourceListW(flags: u32, sourcelist: *const super::super::Foundation::PWSTR, sourcecount: u32) -> super::super::Foundation::BOOL;
         }
@@ -17817,7 +18379,8 @@ pub unsafe fn SetupSetSourceListW(flags: u32, sourcelist: *const super::super::F
 pub unsafe fn SetupSetThreadLogToken(logtoken: u64) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupSetThreadLogToken(logtoken: u64);
         }
@@ -17831,7 +18394,8 @@ pub unsafe fn SetupSetThreadLogToken(logtoken: u64) {
 pub unsafe fn SetupTermDefaultQueueCallback(context: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupTermDefaultQueueCallback(context: *const ::core::ffi::c_void);
         }
@@ -17846,7 +18410,8 @@ pub unsafe fn SetupTermDefaultQueueCallback(context: *const ::core::ffi::c_void)
 pub unsafe fn SetupTerminateFileLog(fileloghandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupTerminateFileLog(fileloghandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -17861,7 +18426,8 @@ pub unsafe fn SetupTerminateFileLog(fileloghandle: *const ::core::ffi::c_void) -
 pub unsafe fn SetupUninstallNewlyCopiedInfs(filequeue: *const ::core::ffi::c_void, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupUninstallNewlyCopiedInfs(filequeue: *const ::core::ffi::c_void, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -17876,7 +18442,8 @@ pub unsafe fn SetupUninstallNewlyCopiedInfs(filequeue: *const ::core::ffi::c_voi
 pub unsafe fn SetupUninstallOEMInfA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(inffilename: Param0, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupUninstallOEMInfA(inffilename: super::super::Foundation::PSTR, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -17891,7 +18458,8 @@ pub unsafe fn SetupUninstallOEMInfA<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetupUninstallOEMInfW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(inffilename: Param0, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupUninstallOEMInfW(inffilename: super::super::Foundation::PWSTR, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -17906,7 +18474,8 @@ pub unsafe fn SetupUninstallOEMInfW<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetupVerifyInfFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infname: Param0, altplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsignerinfo: *mut SP_INF_SIGNER_INFO_V2_A) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupVerifyInfFileA(infname: super::super::Foundation::PSTR, altplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsignerinfo: *mut SP_INF_SIGNER_INFO_V2_A) -> super::super::Foundation::BOOL;
         }
@@ -17921,7 +18490,8 @@ pub unsafe fn SetupVerifyInfFileA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupVerifyInfFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infname: Param0, altplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsignerinfo: *mut SP_INF_SIGNER_INFO_V2_W) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupVerifyInfFileW(infname: super::super::Foundation::PWSTR, altplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsignerinfo: *mut SP_INF_SIGNER_INFO_V2_W) -> super::super::Foundation::BOOL;
         }
@@ -17936,7 +18506,8 @@ pub unsafe fn SetupVerifyInfFileW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetupWriteTextLog<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(logtoken: u64, category: u32, flags: u32, messagestr: Param3) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupWriteTextLog(logtoken: u64, category: u32, flags: u32, messagestr: super::super::Foundation::PSTR);
         }
@@ -17951,7 +18522,8 @@ pub unsafe fn SetupWriteTextLog<'a, Param3: ::windows::core::IntoParam<'a, super
 pub unsafe fn SetupWriteTextLogError<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(logtoken: u64, category: u32, logflags: u32, error: u32, messagestr: Param4) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupWriteTextLogError(logtoken: u64, category: u32, logflags: u32, error: u32, messagestr: super::super::Foundation::PSTR);
         }
@@ -17965,7 +18537,8 @@ pub unsafe fn SetupWriteTextLogError<'a, Param4: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *const ::core::ffi::c_void, context: *const INFCONTEXT) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "setupapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *const ::core::ffi::c_void, context: *const INFCONTEXT);
         }
@@ -17980,7 +18553,8 @@ pub unsafe fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *co
 pub unsafe fn UpdateDriverForPlugAndPlayDevicesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, hardwareid: Param1, fullinfpath: Param2, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UpdateDriverForPlugAndPlayDevicesA(hwndparent: super::super::Foundation::HWND, hardwareid: super::super::Foundation::PSTR, fullinfpath: super::super::Foundation::PSTR, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -17995,7 +18569,8 @@ pub unsafe fn UpdateDriverForPlugAndPlayDevicesA<'a, Param0: ::windows::core::In
 pub unsafe fn UpdateDriverForPlugAndPlayDevicesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, hardwareid: Param1, fullinfpath: Param2, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "newdev", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UpdateDriverForPlugAndPlayDevicesW(hwndparent: super::super::Foundation::HWND, hardwareid: super::super::Foundation::PWSTR, fullinfpath: super::super::Foundation::PWSTR, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }

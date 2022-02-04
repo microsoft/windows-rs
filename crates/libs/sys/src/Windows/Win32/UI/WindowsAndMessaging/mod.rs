@@ -1,5 +1,86 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mrmsupport", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CreateResourceIndexer(projectroot: super::super::Foundation::PWSTR, extensiondllpath: super::super::Foundation::PWSTR, ppresourceindexer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DestroyIndexedResults(resourceuri: super::super::Foundation::PWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void);
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IndexFilePath(resourceindexer: *const ::core::ffi::c_void, filepath: super::super::Foundation::PWSTR, ppresourceuri: *mut super::super::Foundation::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, outputxmlfile: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: *mut *mut u8, outputprisize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: u32, outputdirectory: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexer(packagefamilyname: super::super::Foundation::PWSTR, projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexerFromPreviousPriData(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, pridata: *const u8, prisize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexerFromPreviousPriFile(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, prifile: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexerFromPreviousSchemaData(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, schemaxmldata: *const u8, schemaxmlsize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, schemafile: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmCreateResourceIndexerWithFlags(packagefamilyname: super::super::Foundation::PWSTR, projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, flags: MrmIndexerFlags, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmDumpPriDataInMemory(inputpridata: *const u8, inputprisize: u32, schemapridata: *const u8, schemaprisize: u32, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmDumpPriFile(indexfilename: super::super::Foundation::PWSTR, schemaprifile: super::super::Foundation::PWSTR, dumptype: MrmDumpType, outputxmlfile: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmDumpPriFileInMemory(indexfilename: super::super::Foundation::PWSTR, schemaprifile: super::super::Foundation::PWSTR, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+    pub fn MrmFreeMemory(data: *const u8) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmGetPriFileContentChecksum(prifile: super::super::Foundation::PWSTR, checksum: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: super::super::Foundation::PWSTR, embeddeddata: *const u8, embeddeddatasize: u32, qualifiers: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: super::super::Foundation::PWSTR, filepath: super::super::Foundation::PWSTR, qualifiers: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: super::super::Foundation::PWSTR, resourcestring: super::super::Foundation::PWSTR, qualifiers: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: *mut *mut MrmResourceIndexerMessage, nummsgs: *mut u32) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -192,9 +273,6 @@ extern "system" {
     pub fn CreatePopupMenu() -> HMENU;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateResourceIndexer(projectroot: super::super::Foundation::PWSTR, extensiondllpath: super::super::Foundation::PWSTR, ppresourceindexer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -246,12 +324,7 @@ extern "system" {
     pub fn DestroyIcon(hicon: HICON) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DestroyIndexedResults(resourceuri: super::super::Foundation::PWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyMenu(hmenu: HMENU) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-    pub fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void);
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
@@ -611,9 +684,6 @@ extern "system" {
     pub fn InSendMessageEx(lpreserved: *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IndexFilePath(resourceindexer: *const ::core::ffi::c_void, filepath: super::super::Foundation::PWSTR, ppresourceuri: *mut super::super::Foundation::PWSTR, pqualifiercount: *mut u32, ppqualifiers: *mut *mut IndexedResourceQualifier) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn InheritWindowMonitor(hwnd: super::super::Foundation::HWND, hwndinherit: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -784,71 +854,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MoveWindow(hwnd: super::super::Foundation::HWND, x: i32, y: i32, nwidth: i32, nheight: i32, brepaint: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, outputxmlfile: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-    pub fn MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: *mut *mut u8, outputprisize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: u32, outputdirectory: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexer(packagefamilyname: super::super::Foundation::PWSTR, projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexerFromPreviousPriData(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, pridata: *const u8, prisize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexerFromPreviousPriFile(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, prifile: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexerFromPreviousSchemaData(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, schemaxmldata: *const u8, schemaxmlsize: u32, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, schemafile: super::super::Foundation::PWSTR, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmCreateResourceIndexerWithFlags(packagefamilyname: super::super::Foundation::PWSTR, projectroot: super::super::Foundation::PWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: super::super::Foundation::PWSTR, flags: MrmIndexerFlags, indexer: *mut MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-    pub fn MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-    pub fn MrmDumpPriDataInMemory(inputpridata: *const u8, inputprisize: u32, schemapridata: *const u8, schemaprisize: u32, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmDumpPriFile(indexfilename: super::super::Foundation::PWSTR, schemaprifile: super::super::Foundation::PWSTR, dumptype: MrmDumpType, outputxmlfile: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmDumpPriFileInMemory(indexfilename: super::super::Foundation::PWSTR, schemaprifile: super::super::Foundation::PWSTR, dumptype: MrmDumpType, outputxmldata: *mut *mut u8, outputxmlsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-    pub fn MrmFreeMemory(data: *const u8) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmGetPriFileContentChecksum(prifile: super::super::Foundation::PWSTR, checksum: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: super::super::Foundation::PWSTR, embeddeddata: *const u8, embeddeddatasize: u32, qualifiers: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: super::super::Foundation::PWSTR, filepath: super::super::Foundation::PWSTR, qualifiers: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: super::super::Foundation::PWSTR, resourcestring: super::super::Foundation::PWSTR, qualifiers: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: *mut *mut MrmResourceIndexerMessage, nummsgs: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MsgWaitForMultipleObjects(ncount: u32, phandles: *const super::super::Foundation::HANDLE, fwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS) -> u32;

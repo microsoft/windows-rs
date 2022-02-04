@@ -6,7 +6,8 @@ pub const AudioVolumeMeter: ::windows::core::GUID = ::windows::core::GUID::from_
 pub unsafe fn CreateAudioReverb() -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xaudio2_8", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateAudioReverb(ppapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -21,7 +22,8 @@ pub unsafe fn CreateAudioReverb() -> ::windows::core::Result<::windows::core::IU
 pub unsafe fn CreateAudioVolumeMeter() -> ::windows::core::Result<::windows::core::IUnknown> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xaudio2_8", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateAudioVolumeMeter(ppapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -36,7 +38,8 @@ pub unsafe fn CreateAudioVolumeMeter() -> ::windows::core::Result<::windows::cor
 pub unsafe fn CreateFX(clsid: *const ::windows::core::GUID, peffect: *mut ::core::option::Option<::windows::core::IUnknown>, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xaudio2_8", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateFX(clsid: *const ::windows::core::GUID, peffect: *mut *mut ::core::ffi::c_void, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows::core::HRESULT;
         }
@@ -50,7 +53,8 @@ pub unsafe fn CreateFX(clsid: *const ::windows::core::GUID, peffect: *mut ::core
 pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> ::windows::core::Result<IXAPO> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "hrtfapo", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2647,7 +2651,8 @@ pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;
 pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut ::core::option::Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xaudio2_8", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut ::windows::core::RawPtr, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::HRESULT;
         }

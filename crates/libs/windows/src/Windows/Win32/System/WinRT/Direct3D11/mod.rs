@@ -5,7 +5,8 @@
 pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>(dxgidevice: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d11", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateDirect3D11DeviceFromDXGIDevice(dxgidevice: ::windows::core::RawPtr, graphicsdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -21,7 +22,8 @@ pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, Param0: ::windows::core::
 pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGISurface>>(dgxisurface: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "d3d11", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateDirect3D11SurfaceFromDXGISurface(dgxisurface: ::windows::core::RawPtr, graphicssurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }

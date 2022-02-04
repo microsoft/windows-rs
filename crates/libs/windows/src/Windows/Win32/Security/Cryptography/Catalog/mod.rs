@@ -376,7 +376,8 @@ impl ::core::fmt::Debug for CRYPTCAT_VERSION {
 pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *const ::windows::core::GUID, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *const ::windows::core::GUID, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -391,7 +392,8 @@ pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: *
 pub unsafe fn CryptCATAdminAcquireContext2<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(phcatadmin: *mut isize, pgsubsystem: *const ::windows::core::GUID, pwszhashalgorithm: Param2, pstronghashpolicy: *const super::CERT_STRONG_SIGN_PARA, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminAcquireContext2(phcatadmin: *mut isize, pgsubsystem: *const ::windows::core::GUID, pwszhashalgorithm: super::super::super::Foundation::PWSTR, pstronghashpolicy: *const super::CERT_STRONG_SIGN_PARA, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -406,7 +408,8 @@ pub unsafe fn CryptCATAdminAcquireContext2<'a, Param2: ::windows::core::IntoPara
 pub unsafe fn CryptCATAdminAddCatalog<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatadmin: isize, pwszcatalogfile: Param1, pwszselectbasename: Param2, dwflags: u32) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminAddCatalog(hcatadmin: isize, pwszcatalogfile: super::super::super::Foundation::PWSTR, pwszselectbasename: super::super::super::Foundation::PWSTR, dwflags: u32) -> isize;
         }
@@ -421,7 +424,8 @@ pub unsafe fn CryptCATAdminAddCatalog<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn CryptCATAdminCalcHashFromFileHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hfile: Param0, pcbhash: *mut u32, pbhash: *mut u8, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminCalcHashFromFileHandle(hfile: super::super::super::Foundation::HANDLE, pcbhash: *mut u32, pbhash: *mut u8, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -436,7 +440,8 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle<'a, Param0: ::windows::core::I
 pub unsafe fn CryptCATAdminCalcHashFromFileHandle2<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatadmin: isize, hfile: Param1, pcbhash: *mut u32, pbhash: *mut u8, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminCalcHashFromFileHandle2(hcatadmin: isize, hfile: super::super::super::Foundation::HANDLE, pcbhash: *mut u32, pbhash: *mut u8, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -450,7 +455,8 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle2<'a, Param1: ::windows::core::
 pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const u8, cbhash: u32, dwflags: u32, phprevcatinfo: *mut isize) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const u8, cbhash: u32, dwflags: u32, phprevcatinfo: *mut isize) -> isize;
         }
@@ -465,7 +471,8 @@ pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: *const 
 pub unsafe fn CryptCATAdminPauseServiceForBackup<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(dwflags: u32, fresume: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminPauseServiceForBackup(dwflags: u32, fresume: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
@@ -480,7 +487,8 @@ pub unsafe fn CryptCATAdminPauseServiceForBackup<'a, Param1: ::windows::core::In
 pub unsafe fn CryptCATAdminReleaseCatalogContext(hcatadmin: isize, hcatinfo: isize, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminReleaseCatalogContext(hcatadmin: isize, hcatinfo: isize, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -495,7 +503,8 @@ pub unsafe fn CryptCATAdminReleaseCatalogContext(hcatadmin: isize, hcatinfo: isi
 pub unsafe fn CryptCATAdminReleaseContext(hcatadmin: isize, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminReleaseContext(hcatadmin: isize, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -510,7 +519,8 @@ pub unsafe fn CryptCATAdminReleaseContext(hcatadmin: isize, dwflags: u32) -> sup
 pub unsafe fn CryptCATAdminRemoveCatalog<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatadmin: isize, pwszcatalogfile: Param1, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminRemoveCatalog(hcatadmin: isize, pwszcatalogfile: super::super::super::Foundation::PWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -525,7 +535,8 @@ pub unsafe fn CryptCATAdminRemoveCatalog<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn CryptCATAdminResolveCatalogPath<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatadmin: isize, pwszcatalogfile: Param1, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAdminResolveCatalogPath(hcatadmin: isize, pwszcatalogfile: super::super::super::Foundation::PWSTR, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -540,7 +551,8 @@ pub unsafe fn CryptCATAdminResolveCatalogPath<'a, Param1: ::windows::core::IntoP
 pub unsafe fn CryptCATAllocSortedMemberInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pwszreferencetag: Param1) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATAllocSortedMemberInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszreferencetag: super::super::super::Foundation::PWSTR) -> *mut CRYPTCATMEMBER;
         }
@@ -555,7 +567,8 @@ pub unsafe fn CryptCATAllocSortedMemberInfo<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::Foundation::BOOL;
         }
@@ -570,7 +583,8 @@ pub unsafe fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::F
 pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::windows::core::RawPtr) -> *mut CRYPTCATATTRIBUTE;
         }
@@ -585,7 +599,8 @@ pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CR
 pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: ::windows::core::RawPtr) -> *mut CRYPTCATATTRIBUTE;
         }
@@ -600,7 +615,8 @@ pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *m
 pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: ::windows::core::RawPtr) -> *mut CRYPTCATMEMBER;
         }
@@ -615,7 +631,8 @@ pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut C
 pub unsafe fn CryptCATCDFOpen<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszfilepath: Param0, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATCDF {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATCDFOpen(pwszfilepath: super::super::super::Foundation::PWSTR, pfnparseerror: ::windows::core::RawPtr) -> *mut CRYPTCATCDF;
         }
@@ -630,7 +647,8 @@ pub unsafe fn CryptCATCDFOpen<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn CryptCATCatalogInfoFromContext(hcatinfo: isize, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATCatalogInfoFromContext(hcatinfo: isize, pscatinfo: *mut CATALOG_INFO, dwflags: u32) -> super::super::super::Foundation::BOOL;
         }
@@ -645,7 +663,8 @@ pub unsafe fn CryptCATCatalogInfoFromContext(hcatinfo: isize, pscatinfo: *mut CA
 pub unsafe fn CryptCATClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATClose(hcatalog: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::BOOL;
         }
@@ -660,7 +679,8 @@ pub unsafe fn CryptCATClose<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn CryptCATEnumerateAttr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0, pcatmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATEnumerateAttr(hcatalog: super::super::super::Foundation::HANDLE, pcatmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE;
         }
@@ -675,7 +695,8 @@ pub unsafe fn CryptCATEnumerateAttr<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn CryptCATEnumerateCatAttr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0, pprevattr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATEnumerateCatAttr(hcatalog: super::super::super::Foundation::HANDLE, pprevattr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE;
         }
@@ -690,7 +711,8 @@ pub unsafe fn CryptCATEnumerateCatAttr<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn CryptCATEnumerateMember<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0, pprevmember: *mut CRYPTCATMEMBER) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATEnumerateMember(hcatalog: super::super::super::Foundation::HANDLE, pprevmember: *mut CRYPTCATMEMBER) -> *mut CRYPTCATMEMBER;
         }
@@ -705,7 +727,8 @@ pub unsafe fn CryptCATEnumerateMember<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn CryptCATFreeSortedMemberInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0, pcatmember: *mut CRYPTCATMEMBER) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATFreeSortedMemberInfo(hcatalog: super::super::super::Foundation::HANDLE, pcatmember: *mut CRYPTCATMEMBER);
         }
@@ -720,7 +743,8 @@ pub unsafe fn CryptCATFreeSortedMemberInfo<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn CryptCATGetAttrInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: Param2) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATGetAttrInfo(hcatalog: super::super::super::Foundation::HANDLE, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: super::super::super::Foundation::PWSTR) -> *mut CRYPTCATATTRIBUTE;
         }
@@ -735,7 +759,8 @@ pub unsafe fn CryptCATGetAttrInfo<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CryptCATGetCatAttrInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pwszreferencetag: Param1) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATGetCatAttrInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszreferencetag: super::super::super::Foundation::PWSTR) -> *mut CRYPTCATATTRIBUTE;
         }
@@ -750,7 +775,8 @@ pub unsafe fn CryptCATGetCatAttrInfo<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CryptCATGetMemberInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pwszreferencetag: Param1) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATGetMemberInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszreferencetag: super::super::super::Foundation::PWSTR) -> *mut CRYPTCATMEMBER;
         }
@@ -765,7 +791,8 @@ pub unsafe fn CryptCATGetMemberInfo<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn CryptCATHandleFromStore(pcatstore: *mut CRYPTCATSTORE) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATHandleFromStore(pcatstore: *mut CRYPTCATSTORE) -> super::super::super::Foundation::HANDLE;
         }
@@ -780,7 +807,8 @@ pub unsafe fn CryptCATHandleFromStore(pcatstore: *mut CRYPTCATSTORE) -> super::s
 pub unsafe fn CryptCATOpen<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszfilename: Param0, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: usize, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: u32) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATOpen(pwszfilename: super::super::super::Foundation::PWSTR, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: usize, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: u32) -> super::super::super::Foundation::HANDLE;
         }
@@ -795,7 +823,8 @@ pub unsafe fn CryptCATOpen<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn CryptCATPersistStore<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATPersistStore(hcatalog: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::BOOL;
         }
@@ -810,7 +839,8 @@ pub unsafe fn CryptCATPersistStore<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn CryptCATPutAttrInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: Param2, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATPutAttrInfo(hcatalog: super::super::super::Foundation::HANDLE, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: super::super::super::Foundation::PWSTR, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE;
         }
@@ -825,7 +855,8 @@ pub unsafe fn CryptCATPutAttrInfo<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CryptCATPutCatAttrInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pwszreferencetag: Param1, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATPutCatAttrInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszreferencetag: super::super::super::Foundation::PWSTR, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE;
         }
@@ -840,7 +871,8 @@ pub unsafe fn CryptCATPutCatAttrInfo<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn CryptCATPutMemberInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcatalog: Param0, pwszfilename: Param1, pwszreferencetag: Param2, pgsubjecttype: *mut ::windows::core::GUID, dwcertversion: u32, cbsipindirectdata: u32, pbsipindirectdata: *mut u8) -> *mut CRYPTCATMEMBER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATPutMemberInfo(hcatalog: super::super::super::Foundation::HANDLE, pwszfilename: super::super::super::Foundation::PWSTR, pwszreferencetag: super::super::super::Foundation::PWSTR, pgsubjecttype: *mut ::windows::core::GUID, dwcertversion: u32, cbsipindirectdata: u32, pbsipindirectdata: *mut u8) -> *mut CRYPTCATMEMBER;
         }
@@ -855,7 +887,8 @@ pub unsafe fn CryptCATPutMemberInfo<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn CryptCATStoreFromHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hcatalog: Param0) -> *mut CRYPTCATSTORE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CryptCATStoreFromHandle(hcatalog: super::super::super::Foundation::HANDLE) -> *mut CRYPTCATSTORE;
         }
@@ -870,7 +903,8 @@ pub unsafe fn CryptCATStoreFromHandle<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn IsCatalogFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hfile: Param0, pwszfilename: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "wintrust", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsCatalogFile(hfile: super::super::super::Foundation::HANDLE, pwszfilename: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
         }

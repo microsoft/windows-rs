@@ -979,7 +979,8 @@ pub struct IXamlDiagnostics_Vtbl {
 pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.ui.xaml", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitializeXamlDiagnostic(endpointname: super::super::super::Foundation::PWSTR, pid: u32, wszdllxamldiagnostics: super::super::super::Foundation::PWSTR, wsztapdllname: super::super::super::Foundation::PWSTR, tapclsid: ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
@@ -994,7 +995,8 @@ pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4, wszinitializationdata: Param5) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.ui.xaml", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitializeXamlDiagnosticsEx(endpointname: super::super::super::Foundation::PWSTR, pid: u32, wszdllxamldiagnostics: super::super::super::Foundation::PWSTR, wsztapdllname: super::super::super::Foundation::PWSTR, tapclsid: ::windows::core::GUID, wszinitializationdata: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }

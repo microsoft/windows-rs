@@ -1,5 +1,132 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rpcns4", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn I_RpcNsGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATUS);
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn I_RpcNsSendReceive(message: *mut RPC_MESSAGE, handle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn I_RpcReBindBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingExportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingExportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingExportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingExportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows_sys::core::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows_sys::core::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingImportDone(importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingImportNext(importcontext: *mut ::core::ffi::c_void, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows_sys::core::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows_sys::core::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingLookupDone(lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingLookupNext(lookupcontext: *mut ::core::ffi::c_void, bindingvec: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingSelect(bindingvec: *mut RPC_BINDING_VECTOR, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingUnexportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingUnexportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsEntryExpandNameA(entrynamesyntax: u32, entryname: *const u8, expandedname: *mut *mut u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsEntryExpandNameW(entrynamesyntax: u32, entryname: *const u16, expandedname: *mut *mut u16) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsEntryObjectInqBeginA(entrynamesyntax: u32, entryname: *const u8, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsEntryObjectInqBeginW(entrynamesyntax: u32, entryname: *const u16, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::core::ffi::c_void, objuuid: *mut ::windows_sys::core::GUID) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupDeleteA(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupDeleteW(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u16) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupMbrAddA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupMbrAddW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupMbrInqBeginA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupMbrInqBeginW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupMbrInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupMbrInqNextA(inquirycontext: *mut ::core::ffi::c_void, membername: *mut *mut u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupMbrInqNextW(inquirycontext: *mut ::core::ffi::c_void, membername: *mut *mut u16) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupMbrRemoveA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsGroupMbrRemoveW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax: u32, entryname: *const u8, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax: u32, entryname: *const u16, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtHandleSetExpAge(nshandle: *mut ::core::ffi::c_void, expirationage: u32) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtInqExpAge(expirationage: *mut u32) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u16) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileEltAddA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8, priority: u32, annotation: *const u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileEltAddW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16, priority: u32, annotation: *const u16) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileEltInqBeginA(profilenamesyntax: u32, profilename: *const u8, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u8, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileEltInqBeginW(profilenamesyntax: u32, profilename: *const u16, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u16, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileEltInqNextA(inquirycontext: *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, membername: *mut *mut u8, priority: *mut u32, annotation: *mut *mut u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileEltInqNextW(inquirycontext: *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, membername: *mut *mut u16, priority: *mut u32, annotation: *mut *mut u16) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileEltRemoveA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
+    #[doc = "*Required features: 'Win32_System_Rpc'*"]
+    pub fn RpcNsProfileEltRemoveW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rpcrt4", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;
@@ -87,21 +214,13 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn I_RpcNsBindingSetEntryNameW(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn I_RpcNsGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn I_RpcNsRaiseException(message: *mut RPC_MESSAGE, status: RPC_STATUS);
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn I_RpcNsSendReceive(message: *mut RPC_MESSAGE, handle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn I_RpcOpenClientProcess(binding: *const ::core::ffi::c_void, desiredaccess: u32, clientprocess: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn I_RpcPauseExecution(milliseconds: u32);
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn I_RpcReBindBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
@@ -833,8 +952,6 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RpcGetAuthorizationContextForClient(clientbinding: *const ::core::ffi::c_void, impersonateonreturn: super::super::Foundation::BOOL, reserved1: *const ::core::ffi::c_void, pexpirationtime: *const i64, reserved2: super::super::Foundation::LUID, reserved3: u32, reserved4: *const ::core::ffi::c_void, pauthzclientcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn RpcIfInqId(rpcifhandle: *const ::core::ffi::c_void, rpcifid: *mut RPC_IF_ID) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn RpcImpersonateClient(bindinghandle: *const ::core::ffi::c_void) -> RPC_STATUS;
@@ -891,121 +1008,9 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn RpcNetworkIsProtseqValidW(protseq: *const u16) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingExportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingExportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingExportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingExportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows_sys::core::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows_sys::core::GUID, importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingImportDone(importcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingImportNext(importcontext: *mut ::core::ffi::c_void, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn RpcNsBindingInqEntryNameA(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *mut *mut u8) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn RpcNsBindingInqEntryNameW(binding: *const ::core::ffi::c_void, entrynamesyntax: u32, entryname: *mut *mut u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows_sys::core::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objuuid: *const ::windows_sys::core::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingLookupDone(lookupcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingLookupNext(lookupcontext: *mut ::core::ffi::c_void, bindingvec: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingSelect(bindingvec: *mut RPC_BINDING_VECTOR, binding: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingUnexportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingUnexportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::core::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsEntryExpandNameA(entrynamesyntax: u32, entryname: *const u8, expandedname: *mut *mut u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsEntryExpandNameW(entrynamesyntax: u32, entryname: *const u16, expandedname: *mut *mut u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsEntryObjectInqBeginA(entrynamesyntax: u32, entryname: *const u8, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsEntryObjectInqBeginW(entrynamesyntax: u32, entryname: *const u16, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::core::ffi::c_void, objuuid: *mut ::windows_sys::core::GUID) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupDeleteA(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupDeleteW(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupMbrAddA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupMbrAddW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupMbrInqBeginA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupMbrInqBeginW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupMbrInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupMbrInqNextA(inquirycontext: *mut ::core::ffi::c_void, membername: *mut *mut u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupMbrInqNextW(inquirycontext: *mut ::core::ffi::c_void, membername: *mut *mut u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupMbrRemoveA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsGroupMbrRemoveW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax: u32, entryname: *const u8, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax: u32, entryname: *const u16, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtHandleSetExpAge(nshandle: *mut ::core::ffi::c_void, expirationage: u32) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtInqExpAge(expirationage: *mut u32) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileEltAddA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8, priority: u32, annotation: *const u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileEltAddW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16, priority: u32, annotation: *const u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileEltInqBeginA(profilenamesyntax: u32, profilename: *const u8, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u8, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileEltInqBeginW(profilenamesyntax: u32, profilename: *const u16, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u16, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileEltInqNextA(inquirycontext: *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, membername: *mut *mut u8, priority: *mut u32, annotation: *mut *mut u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileEltInqNextW(inquirycontext: *const ::core::ffi::c_void, ifid: *mut RPC_IF_ID, membername: *mut *mut u16, priority: *mut u32, annotation: *mut *mut u16) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileEltRemoveA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
-    #[doc = "*Required features: 'Win32_System_Rpc'*"]
-    pub fn RpcNsProfileEltRemoveW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]
     pub fn RpcObjectInqType(objuuid: *const ::windows_sys::core::GUID, typeuuid: *mut ::windows_sys::core::GUID) -> RPC_STATUS;
     #[doc = "*Required features: 'Win32_System_Rpc'*"]

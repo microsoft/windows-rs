@@ -393,7 +393,8 @@ impl ::core::fmt::Debug for XINPUT_VIRTUAL_KEY {
 pub unsafe fn XInputEnable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(enable: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xinputuap", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XInputEnable(enable: super::super::super::Foundation::BOOL);
         }
@@ -408,7 +409,8 @@ pub unsafe fn XInputEnable<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::super::super::Foundation::PWSTR, prendercount: *mut u32, pcapturedeviceid: super::super::super::Foundation::PWSTR, pcapturecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xinputuap", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::super::super::Foundation::PWSTR, prendercount: *mut u32, pcapturedeviceid: super::super::super::Foundation::PWSTR, pcapturecount: *mut u32) -> u32;
         }
@@ -422,7 +424,8 @@ pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::
 pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xinputuap", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
         }
@@ -436,7 +439,8 @@ pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatter
 pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xinputuap", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32;
         }
@@ -450,7 +454,8 @@ pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilitie
 pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xinputuap", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32;
         }
@@ -464,7 +469,8 @@ pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: 
 pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xinputuap", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
         }
@@ -478,7 +484,8 @@ pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32
 pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "xinputuap", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
         }

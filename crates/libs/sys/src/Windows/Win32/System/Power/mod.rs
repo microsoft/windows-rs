@@ -1,5 +1,36 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetDevicePowerState(hdevice: super::super::Foundation::HANDLE, pfon: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation', 'Win32_System_Threading'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
+    pub fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> super::super::Foundation::HANDLE;
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SetSystemPowerState(fsuspend: super::super::Foundation::BOOL, fforce: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Power'*"]
+    pub fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "powrprof", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_Power'*"]
     pub fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32;
@@ -32,16 +63,10 @@ extern "system" {
     pub fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetDevicePowerState(hdevice: super::super::Foundation::HANDLE, pfon: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
@@ -54,20 +79,11 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Power'*"]
     pub fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_System_Registry'*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub fn PowerCreatePossibleSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows_sys::core::GUID, powersettingguid: *const ::windows_sys::core::GUID, possiblesettingindex: u32) -> u32;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation', 'Win32_System_Threading'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-    pub fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_System_Registry'*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub fn PowerCreateSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows_sys::core::GUID, powersettingguid: *const ::windows_sys::core::GUID) -> u32;
@@ -168,9 +184,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_System_Registry'*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub fn PowerSetActiveScheme(userrootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Power'*"]
     pub fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows_sys::core::GUID) -> u32;
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_System_Registry'*"]
@@ -240,30 +253,10 @@ extern "system" {
     pub fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const ::windows_sys::core::GUID, flags: u32) -> HPOWERNOTIFY;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: u32) -> HPOWERNOTIFY;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_POWER_POLICY, ppowerpolicy: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSuspendState(bhibernate: super::super::Foundation::BOOLEAN, bforce: super::super::Foundation::BOOLEAN, bwakeupeventsdisabled: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSystemPowerState(fsuspend: super::super::Foundation::BOOL, fforce: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Power'*"]
-    pub fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UnregisterPowerSettingNotification(handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ValidatePowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
@@ -276,6 +269,22 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WritePwrScheme(puiid: *const u32, lpszschemename: super::super::Foundation::PWSTR, lpszdescription: super::super::Foundation::PWSTR, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const ::windows_sys::core::GUID, flags: u32) -> HPOWERNOTIFY;
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: u32) -> HPOWERNOTIFY;
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnregisterPowerSettingNotification(handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]

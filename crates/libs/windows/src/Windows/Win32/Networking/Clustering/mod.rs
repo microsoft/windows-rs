@@ -4,7 +4,8 @@
 pub unsafe fn AddClusterGroupDependency(hdependentgroup: *const _HGROUP, hprovidergroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddClusterGroupDependency(hdependentgroup: *const _HGROUP, hprovidergroup: *const _HGROUP) -> u32;
         }
@@ -18,7 +19,8 @@ pub unsafe fn AddClusterGroupDependency(hdependentgroup: *const _HGROUP, hprovid
 pub unsafe fn AddClusterGroupSetDependency(hdependentgroupset: *const _HGROUPSET, hprovidergroupset: *const _HGROUPSET) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddClusterGroupSetDependency(hdependentgroupset: *const _HGROUPSET, hprovidergroupset: *const _HGROUPSET) -> u32;
         }
@@ -32,7 +34,8 @@ pub unsafe fn AddClusterGroupSetDependency(hdependentgroupset: *const _HGROUPSET
 pub unsafe fn AddClusterGroupToGroupSetDependency(hdependentgroup: *const _HGROUP, hprovidergroupset: *const _HGROUPSET) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddClusterGroupToGroupSetDependency(hdependentgroup: *const _HGROUP, hprovidergroupset: *const _HGROUPSET) -> u32;
         }
@@ -47,7 +50,8 @@ pub unsafe fn AddClusterGroupToGroupSetDependency(hdependentgroup: *const _HGROU
 pub unsafe fn AddClusterNode<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddClusterNode(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, pfnprogresscallback: ::windows::core::RawPtr, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE;
         }
@@ -62,7 +66,8 @@ pub unsafe fn AddClusterNode<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn AddClusterNodeEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, dwflags: u32, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddClusterNodeEx(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, dwflags: u32, pfnprogresscallback: ::windows::core::RawPtr, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HNODE;
         }
@@ -76,7 +81,8 @@ pub unsafe fn AddClusterNodeEx<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn AddClusterResourceDependency(hresource: *const _HRESOURCE, hdependson: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddClusterResourceDependency(hresource: *const _HRESOURCE, hdependson: *const _HRESOURCE) -> u32;
         }
@@ -90,7 +96,8 @@ pub unsafe fn AddClusterResourceDependency(hresource: *const _HRESOURCE, hdepend
 pub unsafe fn AddClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const _HNODE) -> u32;
         }
@@ -105,7 +112,8 @@ pub unsafe fn AddClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const
 pub unsafe fn AddClusterStorageNode<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void, lpszclusterstoragenodedescription: Param4, lpszclusterstoragenodelocation: Param5) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddClusterStorageNode(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, pfnprogresscallback: ::windows::core::RawPtr, pvcallbackarg: *const ::core::ffi::c_void, lpszclusterstoragenodedescription: super::super::Foundation::PWSTR, lpszclusterstoragenodelocation: super::super::Foundation::PWSTR) -> u32;
         }
@@ -120,7 +128,8 @@ pub unsafe fn AddClusterStorageNode<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn AddCrossClusterGroupSetDependency<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: Param1, lpremotegroupsetname: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddCrossClusterGroupSetDependency(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: super::super::Foundation::PWSTR, lpremotegroupsetname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -134,7 +143,8 @@ pub unsafe fn AddCrossClusterGroupSetDependency<'a, Param1: ::windows::core::Int
 pub unsafe fn AddResourceToClusterSharedVolumes(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn AddResourceToClusterSharedVolumes(hresource: *const _HRESOURCE) -> u32;
         }
@@ -149,7 +159,8 @@ pub unsafe fn AddResourceToClusterSharedVolumes(hresource: *const _HRESOURCE) ->
 pub unsafe fn BackupClusterDatabase<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszpathname: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BackupClusterDatabase(hcluster: *const _HCLUSTER, lpszpathname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -8679,7 +8690,8 @@ pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
 pub unsafe fn CanResourceBeDependent(hresource: *const _HRESOURCE, hresourcedependent: *const _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CanResourceBeDependent(hresource: *const _HRESOURCE, hresourcedependent: *const _HRESOURCE) -> super::super::Foundation::BOOL;
         }
@@ -8693,7 +8705,8 @@ pub unsafe fn CanResourceBeDependent(hresource: *const _HRESOURCE, hresourcedepe
 pub unsafe fn CancelClusterGroupOperation(hgroup: *const _HGROUP, dwcancelflags_reserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CancelClusterGroupOperation(hgroup: *const _HGROUP, dwcancelflags_reserved: u32) -> u32;
         }
@@ -8707,7 +8720,8 @@ pub unsafe fn CancelClusterGroupOperation(hgroup: *const _HGROUP, dwcancelflags_
 pub unsafe fn ChangeClusterResourceGroup(hresource: *const _HRESOURCE, hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChangeClusterResourceGroup(hresource: *const _HRESOURCE, hgroup: *const _HGROUP) -> u32;
         }
@@ -8721,7 +8735,8 @@ pub unsafe fn ChangeClusterResourceGroup(hresource: *const _HRESOURCE, hgroup: *
 pub unsafe fn ChangeClusterResourceGroupEx(hresource: *const _HRESOURCE, hgroup: *const _HGROUP, flags: u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChangeClusterResourceGroupEx(hresource: *const _HRESOURCE, hgroup: *const _HGROUP, flags: u64) -> u32;
         }
@@ -8736,7 +8751,8 @@ pub unsafe fn ChangeClusterResourceGroupEx(hresource: *const _HRESOURCE, hgroup:
 pub unsafe fn CloseCluster(hcluster: *const _HCLUSTER) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseCluster(hcluster: *const _HCLUSTER) -> super::super::Foundation::BOOL;
         }
@@ -8750,7 +8766,8 @@ pub unsafe fn CloseCluster(hcluster: *const _HCLUSTER) -> super::super::Foundati
 pub unsafe fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER) -> u32;
         }
@@ -8765,7 +8782,8 @@ pub unsafe fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPR
 pub unsafe fn CloseClusterGroup(hgroup: *const _HGROUP) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseClusterGroup(hgroup: *const _HGROUP) -> super::super::Foundation::BOOL;
         }
@@ -8780,7 +8798,8 @@ pub unsafe fn CloseClusterGroup(hgroup: *const _HGROUP) -> super::super::Foundat
 pub unsafe fn CloseClusterGroupSet(hgroupset: *const _HGROUPSET) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseClusterGroupSet(hgroupset: *const _HGROUPSET) -> super::super::Foundation::BOOL;
         }
@@ -8795,7 +8814,8 @@ pub unsafe fn CloseClusterGroupSet(hgroupset: *const _HGROUPSET) -> super::super
 pub unsafe fn CloseClusterNetInterface(hnetinterface: *const _HNETINTERFACE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseClusterNetInterface(hnetinterface: *const _HNETINTERFACE) -> super::super::Foundation::BOOL;
         }
@@ -8810,7 +8830,8 @@ pub unsafe fn CloseClusterNetInterface(hnetinterface: *const _HNETINTERFACE) -> 
 pub unsafe fn CloseClusterNetwork(hnetwork: *const _HNETWORK) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseClusterNetwork(hnetwork: *const _HNETWORK) -> super::super::Foundation::BOOL;
         }
@@ -8825,7 +8846,8 @@ pub unsafe fn CloseClusterNetwork(hnetwork: *const _HNETWORK) -> super::super::F
 pub unsafe fn CloseClusterNode(hnode: *const _HNODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseClusterNode(hnode: *const _HNODE) -> super::super::Foundation::BOOL;
         }
@@ -8840,7 +8862,8 @@ pub unsafe fn CloseClusterNode(hnode: *const _HNODE) -> super::super::Foundation
 pub unsafe fn CloseClusterNotifyPort(hchange: *const _HCHANGE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseClusterNotifyPort(hchange: *const _HCHANGE) -> super::super::Foundation::BOOL;
         }
@@ -8855,7 +8878,8 @@ pub unsafe fn CloseClusterNotifyPort(hchange: *const _HCHANGE) -> super::super::
 pub unsafe fn CloseClusterResource(hresource: *const _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseClusterResource(hresource: *const _HRESOURCE) -> super::super::Foundation::BOOL;
         }
@@ -8870,7 +8894,8 @@ pub unsafe fn CloseClusterResource(hresource: *const _HRESOURCE) -> super::super
 pub unsafe fn ClusAddClusterHealthFault(hcluster: *const _HCLUSTER, failure: *const CLUSTER_HEALTH_FAULT, param2: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusAddClusterHealthFault(hcluster: *const _HCLUSTER, failure: *const CLUSTER_HEALTH_FAULT, param2: u32) -> u32;
         }
@@ -8889,7 +8914,8 @@ pub const ClusDisks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub unsafe fn ClusGetClusterHealthFaults(hcluster: *const _HCLUSTER, objects: *mut CLUSTER_HEALTH_FAULT_ARRAY, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusGetClusterHealthFaults(hcluster: *const _HCLUSTER, objects: *mut CLUSTER_HEALTH_FAULT_ARRAY, flags: u32) -> u32;
         }
@@ -8922,7 +8948,8 @@ pub const ClusRegistryKeys: ::windows::core::GUID = ::windows::core::GUID::from_
 pub unsafe fn ClusRemoveClusterHealthFault<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, id: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusRemoveClusterHealthFault(hcluster: *const _HCLUSTER, id: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
@@ -8952,7 +8979,8 @@ pub const ClusVersion: ::windows::core::GUID = ::windows::core::GUID::from_u128(
 pub unsafe fn ClusWorkerCheckTerminate(lpworker: *mut CLUS_WORKER) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusWorkerCheckTerminate(lpworker: *mut CLUS_WORKER) -> super::super::Foundation::BOOL;
         }
@@ -8967,7 +8995,8 @@ pub unsafe fn ClusWorkerCheckTerminate(lpworker: *mut CLUS_WORKER) -> super::sup
 pub unsafe fn ClusWorkerCreate(lpworker: *mut CLUS_WORKER, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusWorkerCreate(lpworker: *mut CLUS_WORKER, lpstartaddress: ::windows::core::RawPtr, lpparameter: *mut ::core::ffi::c_void) -> u32;
         }
@@ -8982,7 +9011,8 @@ pub unsafe fn ClusWorkerCreate(lpworker: *mut CLUS_WORKER, lpstartaddress: PWORK
 pub unsafe fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER);
         }
@@ -8997,7 +9027,8 @@ pub unsafe fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER) {
 pub unsafe fn ClusWorkerTerminateEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusWorkerTerminateEx(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
         }
@@ -9012,7 +9043,8 @@ pub unsafe fn ClusWorkerTerminateEx<'a, Param2: ::windows::core::IntoParam<'a, s
 pub unsafe fn ClusWorkersTerminate<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(clusworkers: *mut *mut CLUS_WORKER, clusworkerscount: usize, timeoutinmilliseconds: u32, waitonly: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusWorkersTerminate(clusworkers: *mut *mut CLUS_WORKER, clusworkerscount: usize, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
         }
@@ -9028,7 +9060,8 @@ pub const Cluster: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2
 pub unsafe fn ClusterAddGroupToAffinityRule<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, rulename: Param1, hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterAddGroupToAffinityRule(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, hgroup: *const _HGROUP) -> u32;
         }
@@ -9042,7 +9075,8 @@ pub unsafe fn ClusterAddGroupToAffinityRule<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn ClusterAddGroupToGroupSet(hgroupset: *const _HGROUPSET, hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterAddGroupToGroupSet(hgroupset: *const _HGROUPSET, hgroup: *const _HGROUP) -> u32;
         }
@@ -9056,7 +9090,8 @@ pub unsafe fn ClusterAddGroupToGroupSet(hgroupset: *const _HGROUPSET, hgroup: *c
 pub unsafe fn ClusterAddGroupToGroupSetWithDomains(hgroupset: *const _HGROUPSET, hgroup: *const _HGROUP, faultdomain: u32, updatedomain: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterAddGroupToGroupSetWithDomains(hgroupset: *const _HGROUPSET, hgroup: *const _HGROUP, faultdomain: u32, updatedomain: u32) -> u32;
         }
@@ -9071,7 +9106,8 @@ pub unsafe fn ClusterAddGroupToGroupSetWithDomains(hgroupset: *const _HGROUPSET,
 pub unsafe fn ClusterAffinityRuleControl<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, affinityrulename: Param1, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterAffinityRuleControl(hcluster: *const _HCLUSTER, affinityrulename: super::super::Foundation::PWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -9086,7 +9122,8 @@ pub unsafe fn ClusterAffinityRuleControl<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn ClusterClearBackupStateForSharedVolume<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumepathname: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterClearBackupStateForSharedVolume(lpszvolumepathname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9100,7 +9137,8 @@ pub unsafe fn ClusterClearBackupStateForSharedVolume<'a, Param0: ::windows::core
 pub unsafe fn ClusterCloseEnum(henum: *const _HCLUSENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterCloseEnum(henum: *const _HCLUSENUM) -> u32;
         }
@@ -9114,7 +9152,8 @@ pub unsafe fn ClusterCloseEnum(henum: *const _HCLUSENUM) -> u32 {
 pub unsafe fn ClusterCloseEnumEx(hclusterenum: *const _HCLUSENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterCloseEnumEx(hclusterenum: *const _HCLUSENUMEX) -> u32;
         }
@@ -9128,7 +9167,8 @@ pub unsafe fn ClusterCloseEnumEx(hclusterenum: *const _HCLUSENUMEX) -> u32 {
 pub unsafe fn ClusterControl(hcluster: *const _HCLUSTER, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterControl(hcluster: *const _HCLUSTER, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -9143,7 +9183,8 @@ pub unsafe fn ClusterControl(hcluster: *const _HCLUSTER, hhostnode: *const _HNOD
 pub unsafe fn ClusterCreateAffinityRule<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, rulename: Param1, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterCreateAffinityRule(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32;
         }
@@ -9157,7 +9198,8 @@ pub unsafe fn ClusterCreateAffinityRule<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn ClusterDecrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pcryptinput: *const u8, cbcryptinput: u32, ppcryptoutput: *mut *mut u8, pcbcryptoutput: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterDecrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pcryptinput: *const u8, cbcryptinput: u32, ppcryptoutput: *mut *mut u8, pcbcryptoutput: *mut u32) -> u32;
         }
@@ -9171,7 +9213,8 @@ pub unsafe fn ClusterDecrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pcr
 pub unsafe fn ClusterEncrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pdata: *const u8, cbdata: u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterEncrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pdata: *const u8, cbdata: u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> u32;
         }
@@ -9186,7 +9229,8 @@ pub unsafe fn ClusterEncrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pda
 pub unsafe fn ClusterEnum(henum: *const _HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterEnum(henum: *const _HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
         }
@@ -9201,7 +9245,8 @@ pub unsafe fn ClusterEnum(henum: *const _HCLUSENUM, dwindex: u32, lpdwtype: *mut
 pub unsafe fn ClusterEnumEx(hclusterenum: *const _HCLUSENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterEnumEx(hclusterenum: *const _HCLUSENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32;
         }
@@ -9215,7 +9260,8 @@ pub unsafe fn ClusterEnumEx(hclusterenum: *const _HCLUSENUMEX, dwindex: u32, pit
 pub unsafe fn ClusterGetEnumCount(henum: *const _HCLUSENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGetEnumCount(henum: *const _HCLUSENUM) -> u32;
         }
@@ -9229,7 +9275,8 @@ pub unsafe fn ClusterGetEnumCount(henum: *const _HCLUSENUM) -> u32 {
 pub unsafe fn ClusterGetEnumCountEx(hclusterenum: *const _HCLUSENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGetEnumCountEx(hclusterenum: *const _HCLUSENUMEX) -> u32;
         }
@@ -9244,7 +9291,8 @@ pub unsafe fn ClusterGetEnumCountEx(hclusterenum: *const _HCLUSENUMEX) -> u32 {
 pub unsafe fn ClusterGetVolumeNameForVolumeMountPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: super::super::Foundation::PWSTR, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
         }
@@ -9259,7 +9307,8 @@ pub unsafe fn ClusterGetVolumeNameForVolumeMountPoint<'a, Param0: ::windows::cor
 pub unsafe fn ClusterGetVolumePathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszfilename: Param0, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGetVolumePathName(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
         }
@@ -9273,7 +9322,8 @@ pub unsafe fn ClusterGetVolumePathName<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ClusterGroupCloseEnum(hgroupenum: *const _HGROUPENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupCloseEnum(hgroupenum: *const _HGROUPENUM) -> u32;
         }
@@ -9287,7 +9337,8 @@ pub unsafe fn ClusterGroupCloseEnum(hgroupenum: *const _HGROUPENUM) -> u32 {
 pub unsafe fn ClusterGroupCloseEnumEx(hgroupenumex: *const _HGROUPENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupCloseEnumEx(hgroupenumex: *const _HGROUPENUMEX) -> u32;
         }
@@ -9301,7 +9352,8 @@ pub unsafe fn ClusterGroupCloseEnumEx(hgroupenumex: *const _HGROUPENUMEX) -> u32
 pub unsafe fn ClusterGroupControl(hgroup: *const _HGROUP, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupControl(hgroup: *const _HGROUP, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -9316,7 +9368,8 @@ pub unsafe fn ClusterGroupControl(hgroup: *const _HGROUP, hhostnode: *const _HNO
 pub unsafe fn ClusterGroupEnum(hgroupenum: *const _HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupEnum(hgroupenum: *const _HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
         }
@@ -9331,7 +9384,8 @@ pub unsafe fn ClusterGroupEnum(hgroupenum: *const _HGROUPENUM, dwindex: u32, lpd
 pub unsafe fn ClusterGroupEnumEx(hgroupenumex: *const _HGROUPENUMEX, dwindex: u32, pitem: *mut CLUSTER_GROUP_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupEnumEx(hgroupenumex: *const _HGROUPENUMEX, dwindex: u32, pitem: *mut CLUSTER_GROUP_ENUM_ITEM, cbitem: *mut u32) -> u32;
         }
@@ -9345,7 +9399,8 @@ pub unsafe fn ClusterGroupEnumEx(hgroupenumex: *const _HGROUPENUMEX, dwindex: u3
 pub unsafe fn ClusterGroupGetEnumCount(hgroupenum: *const _HGROUPENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupGetEnumCount(hgroupenum: *const _HGROUPENUM) -> u32;
         }
@@ -9359,7 +9414,8 @@ pub unsafe fn ClusterGroupGetEnumCount(hgroupenum: *const _HGROUPENUM) -> u32 {
 pub unsafe fn ClusterGroupGetEnumCountEx(hgroupenumex: *const _HGROUPENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupGetEnumCountEx(hgroupenumex: *const _HGROUPENUMEX) -> u32;
         }
@@ -9373,7 +9429,8 @@ pub unsafe fn ClusterGroupGetEnumCountEx(hgroupenumex: *const _HGROUPENUMEX) -> 
 pub unsafe fn ClusterGroupOpenEnum(hgroup: *const _HGROUP, dwtype: u32) -> *mut _HGROUPENUM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupOpenEnum(hgroup: *const _HGROUP, dwtype: u32) -> *mut _HGROUPENUM;
         }
@@ -9388,7 +9445,8 @@ pub unsafe fn ClusterGroupOpenEnum(hgroup: *const _HGROUP, dwtype: u32) -> *mut 
 pub unsafe fn ClusterGroupOpenEnumEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszproperties: Param1, cbproperties: u32, lpszroproperties: Param3, cbroproperties: u32, dwflags: u32) -> *mut _HGROUPENUMEX {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupOpenEnumEx(hcluster: *const _HCLUSTER, lpszproperties: super::super::Foundation::PWSTR, cbproperties: u32, lpszroproperties: super::super::Foundation::PWSTR, cbroproperties: u32, dwflags: u32) -> *mut _HGROUPENUMEX;
         }
@@ -9402,7 +9460,8 @@ pub unsafe fn ClusterGroupOpenEnumEx<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn ClusterGroupSetCloseEnum(hgroupsetenum: *mut _HGROUPSETENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupSetCloseEnum(hgroupsetenum: *mut _HGROUPSETENUM) -> u32;
         }
@@ -9416,7 +9475,8 @@ pub unsafe fn ClusterGroupSetCloseEnum(hgroupsetenum: *mut _HGROUPSETENUM) -> u3
 pub unsafe fn ClusterGroupSetControl(hgroupset: *const _HGROUPSET, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupSetControl(hgroupset: *const _HGROUPSET, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -9431,7 +9491,8 @@ pub unsafe fn ClusterGroupSetControl(hgroupset: *const _HGROUPSET, hhostnode: *c
 pub unsafe fn ClusterGroupSetEnum(hgroupsetenum: *const _HGROUPSETENUM, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupSetEnum(hgroupsetenum: *const _HGROUPSETENUM, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
         }
@@ -9445,7 +9506,8 @@ pub unsafe fn ClusterGroupSetEnum(hgroupsetenum: *const _HGROUPSETENUM, dwindex:
 pub unsafe fn ClusterGroupSetGetEnumCount(hgroupsetenum: *mut _HGROUPSETENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupSetGetEnumCount(hgroupsetenum: *mut _HGROUPSETENUM) -> u32;
         }
@@ -9459,7 +9521,8 @@ pub unsafe fn ClusterGroupSetGetEnumCount(hgroupsetenum: *mut _HGROUPSETENUM) ->
 pub unsafe fn ClusterGroupSetOpenEnum(hcluster: *mut _HCLUSTER) -> *mut _HGROUPSETENUM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterGroupSetOpenEnum(hcluster: *mut _HCLUSTER) -> *mut _HGROUPSETENUM;
         }
@@ -9474,7 +9537,8 @@ pub unsafe fn ClusterGroupSetOpenEnum(hcluster: *mut _HCLUSTER) -> *mut _HGROUPS
 pub unsafe fn ClusterIsPathOnSharedVolume<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterIsPathOnSharedVolume(lpszpathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -9489,7 +9553,8 @@ pub const ClusterNames: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub unsafe fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM) -> u32;
         }
@@ -9503,7 +9568,8 @@ pub unsafe fn ClusterNetInterfaceCloseEnum(hnetinterfaceenum: *const _HNETINTERF
 pub unsafe fn ClusterNetInterfaceControl(hnetinterface: *const _HNETINTERFACE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNetInterfaceControl(hnetinterface: *const _HNETINTERFACE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -9518,7 +9584,8 @@ pub unsafe fn ClusterNetInterfaceControl(hnetinterface: *const _HNETINTERFACE, h
 pub unsafe fn ClusterNetInterfaceEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNetInterfaceEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
         }
@@ -9533,7 +9600,8 @@ pub unsafe fn ClusterNetInterfaceEnum(hnetinterfaceenum: *const _HNETINTERFACEEN
 pub unsafe fn ClusterNetInterfaceOpenEnum<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, lpsznetworkname: Param2) -> *mut _HNETINTERFACEENUM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNetInterfaceOpenEnum(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, lpsznetworkname: super::super::Foundation::PWSTR) -> *mut _HNETINTERFACEENUM;
         }
@@ -9547,7 +9615,8 @@ pub unsafe fn ClusterNetInterfaceOpenEnum<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn ClusterNetworkCloseEnum(hnetworkenum: *const _HNETWORKENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNetworkCloseEnum(hnetworkenum: *const _HNETWORKENUM) -> u32;
         }
@@ -9561,7 +9630,8 @@ pub unsafe fn ClusterNetworkCloseEnum(hnetworkenum: *const _HNETWORKENUM) -> u32
 pub unsafe fn ClusterNetworkControl(hnetwork: *const _HNETWORK, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNetworkControl(hnetwork: *const _HNETWORK, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -9576,7 +9646,8 @@ pub unsafe fn ClusterNetworkControl(hnetwork: *const _HNETWORK, hhostnode: *cons
 pub unsafe fn ClusterNetworkEnum(hnetworkenum: *const _HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNetworkEnum(hnetworkenum: *const _HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
         }
@@ -9590,7 +9661,8 @@ pub unsafe fn ClusterNetworkEnum(hnetworkenum: *const _HNETWORKENUM, dwindex: u3
 pub unsafe fn ClusterNetworkGetEnumCount(hnetworkenum: *const _HNETWORKENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNetworkGetEnumCount(hnetworkenum: *const _HNETWORKENUM) -> u32;
         }
@@ -9604,7 +9676,8 @@ pub unsafe fn ClusterNetworkGetEnumCount(hnetworkenum: *const _HNETWORKENUM) -> 
 pub unsafe fn ClusterNetworkOpenEnum(hnetwork: *const _HNETWORK, dwtype: u32) -> *mut _HNETWORKENUM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNetworkOpenEnum(hnetwork: *const _HNETWORK, dwtype: u32) -> *mut _HNETWORKENUM;
         }
@@ -9618,7 +9691,8 @@ pub unsafe fn ClusterNetworkOpenEnum(hnetwork: *const _HNETWORK, dwtype: u32) ->
 pub unsafe fn ClusterNodeCloseEnum(hnodeenum: *const _HNODEENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNodeCloseEnum(hnodeenum: *const _HNODEENUM) -> u32;
         }
@@ -9632,7 +9706,8 @@ pub unsafe fn ClusterNodeCloseEnum(hnodeenum: *const _HNODEENUM) -> u32 {
 pub unsafe fn ClusterNodeCloseEnumEx(hnodeenum: *const _HNODEENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNodeCloseEnumEx(hnodeenum: *const _HNODEENUMEX) -> u32;
         }
@@ -9646,7 +9721,8 @@ pub unsafe fn ClusterNodeCloseEnumEx(hnodeenum: *const _HNODEENUMEX) -> u32 {
 pub unsafe fn ClusterNodeControl(hnode: *const _HNODE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNodeControl(hnode: *const _HNODE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -9661,7 +9737,8 @@ pub unsafe fn ClusterNodeControl(hnode: *const _HNODE, hhostnode: *const _HNODE,
 pub unsafe fn ClusterNodeEnum(hnodeenum: *const _HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNodeEnum(hnodeenum: *const _HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
         }
@@ -9676,7 +9753,8 @@ pub unsafe fn ClusterNodeEnum(hnodeenum: *const _HNODEENUM, dwindex: u32, lpdwty
 pub unsafe fn ClusterNodeEnumEx(hnodeenum: *const _HNODEENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNodeEnumEx(hnodeenum: *const _HNODEENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32;
         }
@@ -9690,7 +9768,8 @@ pub unsafe fn ClusterNodeEnumEx(hnodeenum: *const _HNODEENUMEX, dwindex: u32, pi
 pub unsafe fn ClusterNodeGetEnumCount(hnodeenum: *const _HNODEENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNodeGetEnumCount(hnodeenum: *const _HNODEENUM) -> u32;
         }
@@ -9704,7 +9783,8 @@ pub unsafe fn ClusterNodeGetEnumCount(hnodeenum: *const _HNODEENUM) -> u32 {
 pub unsafe fn ClusterNodeGetEnumCountEx(hnodeenum: *const _HNODEENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNodeGetEnumCountEx(hnodeenum: *const _HNODEENUMEX) -> u32;
         }
@@ -9718,7 +9798,8 @@ pub unsafe fn ClusterNodeGetEnumCountEx(hnodeenum: *const _HNODEENUMEX) -> u32 {
 pub unsafe fn ClusterNodeOpenEnum(hnode: *const _HNODE, dwtype: u32) -> *mut _HNODEENUM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNodeOpenEnum(hnode: *const _HNODE, dwtype: u32) -> *mut _HNODEENUM;
         }
@@ -9732,7 +9813,8 @@ pub unsafe fn ClusterNodeOpenEnum(hnode: *const _HNODE, dwtype: u32) -> *mut _HN
 pub unsafe fn ClusterNodeOpenEnumEx(hnode: *const _HNODE, dwtype: u32, poptions: *const ::core::ffi::c_void) -> *mut _HNODEENUMEX {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNodeOpenEnumEx(hnode: *const _HNODE, dwtype: u32, poptions: *const ::core::ffi::c_void) -> *mut _HNODEENUMEX;
         }
@@ -9747,7 +9829,8 @@ pub unsafe fn ClusterNodeOpenEnumEx(hnode: *const _HNODE, dwtype: u32, poptions:
 pub unsafe fn ClusterNodeReplacement<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodenamecurrent: Param1, lpsznodenamenew: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterNodeReplacement(hcluster: *const _HCLUSTER, lpsznodenamecurrent: super::super::Foundation::PWSTR, lpsznodenamenew: super::super::Foundation::PWSTR) -> u32;
         }
@@ -9761,7 +9844,8 @@ pub unsafe fn ClusterNodeReplacement<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn ClusterOpenEnum(hcluster: *const _HCLUSTER, dwtype: u32) -> *mut _HCLUSENUM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterOpenEnum(hcluster: *const _HCLUSTER, dwtype: u32) -> *mut _HCLUSENUM;
         }
@@ -9775,7 +9859,8 @@ pub unsafe fn ClusterOpenEnum(hcluster: *const _HCLUSTER, dwtype: u32) -> *mut _
 pub unsafe fn ClusterOpenEnumEx(hcluster: *const _HCLUSTER, dwtype: u32, poptions: *const ::core::ffi::c_void) -> *mut _HCLUSENUMEX {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterOpenEnumEx(hcluster: *const _HCLUSTER, dwtype: u32, poptions: *const ::core::ffi::c_void) -> *mut _HCLUSENUMEX;
         }
@@ -9790,7 +9875,8 @@ pub unsafe fn ClusterOpenEnumEx(hcluster: *const _HCLUSTER, dwtype: u32, poption
 pub unsafe fn ClusterPrepareSharedVolumeForBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszfilename: Param0, lpszvolumepathname: super::super::Foundation::PWSTR, lpcchvolumepathname: *mut u32, lpszvolumename: super::super::Foundation::PWSTR, lpcchvolumename: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterPrepareSharedVolumeForBackup(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, lpcchvolumepathname: *mut u32, lpszvolumename: super::super::Foundation::PWSTR, lpcchvolumename: *mut u32) -> u32;
         }
@@ -9805,7 +9891,8 @@ pub unsafe fn ClusterPrepareSharedVolumeForBackup<'a, Param0: ::windows::core::I
 pub unsafe fn ClusterRegBatchAddCommand<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hregbatch: *const _HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: Param2, dwoptions: u32, lpdata: *const ::core::ffi::c_void, cbdata: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegBatchAddCommand(hregbatch: *const _HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: super::super::Foundation::PWSTR, dwoptions: u32, lpdata: *const ::core::ffi::c_void, cbdata: u32) -> i32;
         }
@@ -9819,7 +9906,8 @@ pub unsafe fn ClusterRegBatchAddCommand<'a, Param2: ::windows::core::IntoParam<'
 pub unsafe fn ClusterRegBatchCloseNotification(hbatchnotification: *const _HREGBATCHNOTIFICATION) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegBatchCloseNotification(hbatchnotification: *const _HREGBATCHNOTIFICATION) -> i32;
         }
@@ -9834,7 +9922,8 @@ pub unsafe fn ClusterRegBatchCloseNotification(hbatchnotification: *const _HREGB
 pub unsafe fn ClusterRegBatchReadCommand(hbatchnotification: *const _HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegBatchReadCommand(hbatchnotification: *const _HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> i32;
         }
@@ -9849,7 +9938,8 @@ pub unsafe fn ClusterRegBatchReadCommand(hbatchnotification: *const _HREGBATCHNO
 pub unsafe fn ClusterRegCloseBatch<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hregbatch: *const _HREGBATCH, bcommit: Param1, failedcommandnumber: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCloseBatch(hregbatch: *const _HREGBATCH, bcommit: super::super::Foundation::BOOL, failedcommandnumber: *mut i32) -> i32;
         }
@@ -9863,7 +9953,8 @@ pub unsafe fn ClusterRegCloseBatch<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn ClusterRegCloseBatchEx(hregbatch: *const _HREGBATCH, flags: u32, failedcommandnumber: *mut i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCloseBatchEx(hregbatch: *const _HREGBATCH, flags: u32, failedcommandnumber: *mut i32) -> i32;
         }
@@ -9877,7 +9968,8 @@ pub unsafe fn ClusterRegCloseBatchEx(hregbatch: *const _HREGBATCH, flags: u32, f
 pub unsafe fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport: *const _HREGBATCHPORT) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport: *const _HREGBATCHPORT) -> i32;
         }
@@ -9892,7 +9984,8 @@ pub unsafe fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport: *const _HREGBATCH
 pub unsafe fn ClusterRegCloseKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCloseKey(hkey: super::super::System::Registry::HKEY) -> i32;
         }
@@ -9906,7 +9999,8 @@ pub unsafe fn ClusterRegCloseKey<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ClusterRegCloseReadBatch(hregreadbatch: *const _HREGREADBATCH, phregreadbatchreply: *mut *mut _HREGREADBATCHREPLY) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCloseReadBatch(hregreadbatch: *const _HREGREADBATCH, phregreadbatchreply: *mut *mut _HREGREADBATCHREPLY) -> i32;
         }
@@ -9920,7 +10014,8 @@ pub unsafe fn ClusterRegCloseReadBatch(hregreadbatch: *const _HREGREADBATCH, phr
 pub unsafe fn ClusterRegCloseReadBatchEx(hregreadbatch: *const _HREGREADBATCH, flags: u32, phregreadbatchreply: *mut *mut _HREGREADBATCHREPLY) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCloseReadBatchEx(hregreadbatch: *const _HREGREADBATCH, flags: u32, phregreadbatchreply: *mut *mut _HREGREADBATCHREPLY) -> i32;
         }
@@ -9934,7 +10029,8 @@ pub unsafe fn ClusterRegCloseReadBatchEx(hregreadbatch: *const _HREGREADBATCH, f
 pub unsafe fn ClusterRegCloseReadBatchReply(hregreadbatchreply: *const _HREGREADBATCHREPLY) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCloseReadBatchReply(hregreadbatchreply: *const _HREGREADBATCHREPLY) -> i32;
         }
@@ -9949,7 +10045,8 @@ pub unsafe fn ClusterRegCloseReadBatchReply(hregreadbatchreply: *const _HREGREAD
 pub unsafe fn ClusterRegCreateBatch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, phregbatch: *mut *mut _HREGBATCH) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCreateBatch(hkey: super::super::System::Registry::HKEY, phregbatch: *mut *mut _HREGBATCH) -> i32;
         }
@@ -9964,7 +10061,8 @@ pub unsafe fn ClusterRegCreateBatch<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ClusterRegCreateBatchNotifyPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, phbatchnotifyport: *mut *mut _HREGBATCHPORT) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCreateBatchNotifyPort(hkey: super::super::System::Registry::HKEY, phbatchnotifyport: *mut *mut _HREGBATCHPORT) -> i32;
         }
@@ -9979,7 +10077,8 @@ pub unsafe fn ClusterRegCreateBatchNotifyPort<'a, Param0: ::windows::core::IntoP
 pub unsafe fn ClusterRegCreateKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszsubkey: Param1, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCreateKey(hkey: super::super::System::Registry::HKEY, lpszsubkey: super::super::Foundation::PWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32) -> i32;
         }
@@ -9994,7 +10093,8 @@ pub unsafe fn ClusterRegCreateKey<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ClusterRegCreateReadBatch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, phregreadbatch: *mut *mut _HREGREADBATCH) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegCreateReadBatch(hkey: super::super::System::Registry::HKEY, phregreadbatch: *mut *mut _HREGREADBATCH) -> i32;
         }
@@ -10009,7 +10109,8 @@ pub unsafe fn ClusterRegCreateReadBatch<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ClusterRegDeleteKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszsubkey: Param1) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegDeleteKey(hkey: super::super::System::Registry::HKEY, lpszsubkey: super::super::Foundation::PWSTR) -> i32;
         }
@@ -10024,7 +10125,8 @@ pub unsafe fn ClusterRegDeleteKey<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ClusterRegDeleteValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszvaluename: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegDeleteValue(hkey: super::super::System::Registry::HKEY, lpszvaluename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10039,7 +10141,8 @@ pub unsafe fn ClusterRegDeleteValue<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ClusterRegEnumKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegEnumKey(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32;
         }
@@ -10054,7 +10157,8 @@ pub unsafe fn ClusterRegEnumKey<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ClusterRegEnumValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, dwindex: u32, lpszvaluename: super::super::Foundation::PWSTR, lpcchvaluename: *mut u32, lpdwtype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegEnumValue(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszvaluename: super::super::Foundation::PWSTR, lpcchvaluename: *mut u32, lpdwtype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> u32;
         }
@@ -10068,7 +10172,8 @@ pub unsafe fn ClusterRegEnumValue<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ClusterRegGetBatchNotification(hbatchnotify: *const _HREGBATCHPORT, phbatchnotification: *mut *mut _HREGBATCHNOTIFICATION) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegGetBatchNotification(hbatchnotify: *const _HREGBATCHPORT, phbatchnotification: *mut *mut _HREGBATCHNOTIFICATION) -> i32;
         }
@@ -10083,7 +10188,8 @@ pub unsafe fn ClusterRegGetBatchNotification(hbatchnotify: *const _HREGBATCHPORT
 pub unsafe fn ClusterRegGetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, requestedinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegGetKeySecurity(hkey: super::super::System::Registry::HKEY, requestedinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32;
         }
@@ -10098,7 +10204,8 @@ pub unsafe fn ClusterRegGetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ClusterRegOpenKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszsubkey: Param1, samdesired: u32, phkresult: *mut super::super::System::Registry::HKEY) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegOpenKey(hkey: super::super::System::Registry::HKEY, lpszsubkey: super::super::Foundation::PWSTR, samdesired: u32, phkresult: *mut super::super::System::Registry::HKEY) -> i32;
         }
@@ -10113,7 +10220,8 @@ pub unsafe fn ClusterRegOpenKey<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ClusterRegQueryInfoKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, lpcsubkeys: *const u32, lpcchmaxsubkeylen: *const u32, lpcvalues: *const u32, lpcchmaxvaluenamelen: *const u32, lpcbmaxvaluelen: *const u32, lpcbsecuritydescriptor: *const u32, lpftlastwritetime: *const super::super::Foundation::FILETIME) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegQueryInfoKey(hkey: super::super::System::Registry::HKEY, lpcsubkeys: *const u32, lpcchmaxsubkeylen: *const u32, lpcvalues: *const u32, lpcchmaxvaluenamelen: *const u32, lpcbmaxvaluelen: *const u32, lpcbsecuritydescriptor: *const u32, lpftlastwritetime: *const super::super::Foundation::FILETIME) -> i32;
         }
@@ -10128,7 +10236,8 @@ pub unsafe fn ClusterRegQueryInfoKey<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ClusterRegQueryValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszvaluename: Param1, lpdwvaluetype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegQueryValue(hkey: super::super::System::Registry::HKEY, lpszvaluename: super::super::Foundation::PWSTR, lpdwvaluetype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> i32;
         }
@@ -10143,7 +10252,8 @@ pub unsafe fn ClusterRegQueryValue<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ClusterRegReadBatchAddCommand<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hregreadbatch: *const _HREGREADBATCH, wzsubkeyname: Param1, wzvaluename: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegReadBatchAddCommand(hregreadbatch: *const _HREGREADBATCH, wzsubkeyname: super::super::Foundation::PWSTR, wzvaluename: super::super::Foundation::PWSTR) -> i32;
         }
@@ -10158,7 +10268,8 @@ pub unsafe fn ClusterRegReadBatchAddCommand<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: *const _HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: *const _HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32;
         }
@@ -10173,7 +10284,8 @@ pub unsafe fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: *const _HR
 pub unsafe fn ClusterRegSetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegSetKeySecurity(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> i32;
         }
@@ -10188,7 +10300,8 @@ pub unsafe fn ClusterRegSetKeySecurity<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ClusterRegSetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszvaluename: Param1, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegSetValue(hkey: super::super::System::Registry::HKEY, lpszvaluename: super::super::Foundation::PWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32;
         }
@@ -10202,7 +10315,8 @@ pub unsafe fn ClusterRegSetValue<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ClusterRegSyncDatabase(hcluster: *const _HCLUSTER, flags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRegSyncDatabase(hcluster: *const _HCLUSTER, flags: u32) -> i32;
         }
@@ -10217,7 +10331,8 @@ pub unsafe fn ClusterRegSyncDatabase(hcluster: *const _HCLUSTER, flags: u32) -> 
 pub unsafe fn ClusterRemoveAffinityRule<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, rulename: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRemoveAffinityRule(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10232,7 +10347,8 @@ pub unsafe fn ClusterRemoveAffinityRule<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn ClusterRemoveGroupFromAffinityRule<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, rulename: Param1, hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRemoveGroupFromAffinityRule(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, hgroup: *const _HGROUP) -> u32;
         }
@@ -10246,7 +10362,8 @@ pub unsafe fn ClusterRemoveGroupFromAffinityRule<'a, Param1: ::windows::core::In
 pub unsafe fn ClusterRemoveGroupFromGroupSet(hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterRemoveGroupFromGroupSet(hgroup: *const _HGROUP) -> u32;
         }
@@ -10260,7 +10377,8 @@ pub unsafe fn ClusterRemoveGroupFromGroupSet(hgroup: *const _HGROUP) -> u32 {
 pub unsafe fn ClusterResourceCloseEnum(hresenum: *const _HRESENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceCloseEnum(hresenum: *const _HRESENUM) -> u32;
         }
@@ -10274,7 +10392,8 @@ pub unsafe fn ClusterResourceCloseEnum(hresenum: *const _HRESENUM) -> u32 {
 pub unsafe fn ClusterResourceCloseEnumEx(hresourceenumex: *const _HRESENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceCloseEnumEx(hresourceenumex: *const _HRESENUMEX) -> u32;
         }
@@ -10288,7 +10407,8 @@ pub unsafe fn ClusterResourceCloseEnumEx(hresourceenumex: *const _HRESENUMEX) ->
 pub unsafe fn ClusterResourceControl(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceControl(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -10302,7 +10422,8 @@ pub unsafe fn ClusterResourceControl(hresource: *const _HRESOURCE, hhostnode: *c
 pub unsafe fn ClusterResourceControlAsUser(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceControlAsUser(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -10317,7 +10438,8 @@ pub unsafe fn ClusterResourceControlAsUser(hresource: *const _HRESOURCE, hhostno
 pub unsafe fn ClusterResourceEnum(hresenum: *const _HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceEnum(hresenum: *const _HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
         }
@@ -10332,7 +10454,8 @@ pub unsafe fn ClusterResourceEnum(hresenum: *const _HRESENUM, dwindex: u32, lpdw
 pub unsafe fn ClusterResourceEnumEx(hresourceenumex: *const _HRESENUMEX, dwindex: u32, pitem: *mut CLUSTER_RESOURCE_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceEnumEx(hresourceenumex: *const _HRESENUMEX, dwindex: u32, pitem: *mut CLUSTER_RESOURCE_ENUM_ITEM, cbitem: *mut u32) -> u32;
         }
@@ -10346,7 +10469,8 @@ pub unsafe fn ClusterResourceEnumEx(hresourceenumex: *const _HRESENUMEX, dwindex
 pub unsafe fn ClusterResourceGetEnumCount(hresenum: *const _HRESENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceGetEnumCount(hresenum: *const _HRESENUM) -> u32;
         }
@@ -10360,7 +10484,8 @@ pub unsafe fn ClusterResourceGetEnumCount(hresenum: *const _HRESENUM) -> u32 {
 pub unsafe fn ClusterResourceGetEnumCountEx(hresourceenumex: *const _HRESENUMEX) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceGetEnumCountEx(hresourceenumex: *const _HRESENUMEX) -> u32;
         }
@@ -10374,7 +10499,8 @@ pub unsafe fn ClusterResourceGetEnumCountEx(hresourceenumex: *const _HRESENUMEX)
 pub unsafe fn ClusterResourceOpenEnum(hresource: *const _HRESOURCE, dwtype: u32) -> *mut _HRESENUM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceOpenEnum(hresource: *const _HRESOURCE, dwtype: u32) -> *mut _HRESENUM;
         }
@@ -10389,7 +10515,8 @@ pub unsafe fn ClusterResourceOpenEnum(hresource: *const _HRESOURCE, dwtype: u32)
 pub unsafe fn ClusterResourceOpenEnumEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszproperties: Param1, cbproperties: u32, lpszroproperties: Param3, cbroproperties: u32, dwflags: u32) -> *mut _HRESENUMEX {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceOpenEnumEx(hcluster: *const _HCLUSTER, lpszproperties: super::super::Foundation::PWSTR, cbproperties: u32, lpszroproperties: super::super::Foundation::PWSTR, cbroproperties: u32, dwflags: u32) -> *mut _HRESENUMEX;
         }
@@ -10403,7 +10530,8 @@ pub unsafe fn ClusterResourceOpenEnumEx<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn ClusterResourceTypeCloseEnum(hrestypeenum: *const _HRESTYPEENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceTypeCloseEnum(hrestypeenum: *const _HRESTYPEENUM) -> u32;
         }
@@ -10418,7 +10546,8 @@ pub unsafe fn ClusterResourceTypeCloseEnum(hrestypeenum: *const _HRESTYPEENUM) -
 pub unsafe fn ClusterResourceTypeControl<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcetypename: Param1, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceTypeControl(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -10433,7 +10562,8 @@ pub unsafe fn ClusterResourceTypeControl<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn ClusterResourceTypeControlAsUser<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcetypename: Param1, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceTypeControlAsUser(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
         }
@@ -10448,7 +10578,8 @@ pub unsafe fn ClusterResourceTypeControlAsUser<'a, Param1: ::windows::core::Into
 pub unsafe fn ClusterResourceTypeEnum(hrestypeenum: *const _HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceTypeEnum(hrestypeenum: *const _HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
         }
@@ -10462,7 +10593,8 @@ pub unsafe fn ClusterResourceTypeEnum(hrestypeenum: *const _HRESTYPEENUM, dwinde
 pub unsafe fn ClusterResourceTypeGetEnumCount(hrestypeenum: *const _HRESTYPEENUM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceTypeGetEnumCount(hrestypeenum: *const _HRESTYPEENUM) -> u32;
         }
@@ -10477,7 +10609,8 @@ pub unsafe fn ClusterResourceTypeGetEnumCount(hrestypeenum: *const _HRESTYPEENUM
 pub unsafe fn ClusterResourceTypeOpenEnum<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcetypename: Param1, dwtype: u32) -> *mut _HRESTYPEENUM {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterResourceTypeOpenEnum(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR, dwtype: u32) -> *mut _HRESTYPEENUM;
         }
@@ -10492,7 +10625,8 @@ pub unsafe fn ClusterResourceTypeOpenEnum<'a, Param1: ::windows::core::IntoParam
 pub unsafe fn ClusterSetAccountAccess<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, szaccountsid: Param1, dwaccess: u32, dwcontroltype: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterSetAccountAccess(hcluster: *const _HCLUSTER, szaccountsid: super::super::Foundation::PWSTR, dwaccess: u32, dwcontroltype: u32) -> u32;
         }
@@ -10507,7 +10641,8 @@ pub unsafe fn ClusterSetAccountAccess<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn ClusterSharedVolumeSetSnapshotState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(guidsnapshotset: Param0, lpszvolumename: Param1, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterSharedVolumeSetSnapshotState(guidsnapshotset: ::windows::core::GUID, lpszvolumename: super::super::Foundation::PWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32;
         }
@@ -10522,7 +10657,8 @@ pub unsafe fn ClusterSharedVolumeSetSnapshotState<'a, Param0: ::windows::core::I
 pub unsafe fn ClusterUpgradeFunctionalLevel<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *const _HCLUSTER, perform: Param1, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ClusterUpgradeFunctionalLevel(hcluster: *const _HCLUSTER, perform: super::super::Foundation::BOOL, pfnprogresscallback: ::windows::core::RawPtr, pvcallbackarg: *const ::core::ffi::c_void) -> u32;
         }
@@ -10537,7 +10673,8 @@ pub unsafe fn ClusterUpgradeFunctionalLevel<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: ::windows::core::RawPtr, pvcallbackarg: *const ::core::ffi::c_void) -> *mut _HCLUSTER;
         }
@@ -10552,7 +10689,8 @@ pub unsafe fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogressca
 pub unsafe fn CreateClusterAvailabilitySet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpavailabilitysetname: Param1, pavailabilitysetconfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> *mut _HGROUPSET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateClusterAvailabilitySet(hcluster: *const _HCLUSTER, lpavailabilitysetname: super::super::Foundation::PWSTR, pavailabilitysetconfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> *mut _HGROUPSET;
         }
@@ -10567,7 +10705,8 @@ pub unsafe fn CreateClusterAvailabilitySet<'a, Param1: ::windows::core::IntoPara
 pub unsafe fn CreateClusterGroup<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszgroupname: Param1) -> *mut _HGROUP {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateClusterGroup(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR) -> *mut _HGROUP;
         }
@@ -10582,7 +10721,8 @@ pub unsafe fn CreateClusterGroup<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CreateClusterGroupEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszgroupname: Param1, pgroupinfo: *const CLUSTER_CREATE_GROUP_INFO) -> *mut _HGROUP {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateClusterGroupEx(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR, pgroupinfo: *const CLUSTER_CREATE_GROUP_INFO) -> *mut _HGROUP;
         }
@@ -10597,7 +10737,8 @@ pub unsafe fn CreateClusterGroupEx<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn CreateClusterGroupSet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, groupsetname: Param1) -> *mut _HGROUPSET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateClusterGroupSet(hcluster: *const _HCLUSTER, groupsetname: super::super::Foundation::PWSTR) -> *mut _HGROUPSET;
         }
@@ -10612,7 +10753,8 @@ pub unsafe fn CreateClusterGroupSet<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn CreateClusterNameAccount(hcluster: *const _HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateClusterNameAccount(hcluster: *const _HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: ::windows::core::RawPtr, pvcallbackarg: *const ::core::ffi::c_void) -> u32;
         }
@@ -10626,7 +10768,8 @@ pub unsafe fn CreateClusterNameAccount(hcluster: *const _HCLUSTER, pconfig: *con
 pub unsafe fn CreateClusterNotifyPort(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, dwfilter: u32, dwnotifykey: usize) -> *mut _HCHANGE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateClusterNotifyPort(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, dwfilter: u32, dwnotifykey: usize) -> *mut _HCHANGE;
         }
@@ -10640,7 +10783,8 @@ pub unsafe fn CreateClusterNotifyPort(hchange: *const _HCHANGE, hcluster: *const
 pub unsafe fn CreateClusterNotifyPortV2(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, filters: *const NOTIFY_FILTER_AND_TYPE, dwfiltercount: u32, dwnotifykey: usize) -> *mut _HCHANGE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateClusterNotifyPortV2(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, filters: *const NOTIFY_FILTER_AND_TYPE, dwfiltercount: u32, dwnotifykey: usize) -> *mut _HCHANGE;
         }
@@ -10655,7 +10799,8 @@ pub unsafe fn CreateClusterNotifyPortV2(hchange: *const _HCHANGE, hcluster: *con
 pub unsafe fn CreateClusterResource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const _HGROUP, lpszresourcename: Param1, lpszresourcetype: Param2, dwflags: u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateClusterResource(hgroup: *const _HGROUP, lpszresourcename: super::super::Foundation::PWSTR, lpszresourcetype: super::super::Foundation::PWSTR, dwflags: u32) -> *mut _HRESOURCE;
         }
@@ -10670,7 +10815,8 @@ pub unsafe fn CreateClusterResource<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn CreateClusterResourceType<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcetypename: Param1, lpszdisplayname: Param2, lpszresourcetypedll: Param3, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateClusterResourceType(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR, lpszdisplayname: super::super::Foundation::PWSTR, lpszresourcetypedll: super::super::Foundation::PWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32) -> u32;
         }
@@ -10686,7 +10832,8 @@ pub const DNS_LENGTH: u32 = 64u32;
 pub unsafe fn DeleteClusterGroup(hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteClusterGroup(hgroup: *const _HGROUP) -> u32;
         }
@@ -10700,7 +10847,8 @@ pub unsafe fn DeleteClusterGroup(hgroup: *const _HGROUP) -> u32 {
 pub unsafe fn DeleteClusterGroupSet(hgroupset: *const _HGROUPSET) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteClusterGroupSet(hgroupset: *const _HGROUPSET) -> u32;
         }
@@ -10714,7 +10862,8 @@ pub unsafe fn DeleteClusterGroupSet(hgroupset: *const _HGROUPSET) -> u32 {
 pub unsafe fn DeleteClusterResource(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteClusterResource(hresource: *const _HRESOURCE) -> u32;
         }
@@ -10729,7 +10878,8 @@ pub unsafe fn DeleteClusterResource(hresource: *const _HRESOURCE) -> u32 {
 pub unsafe fn DeleteClusterResourceType<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcetypename: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeleteClusterResourceType(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -10744,7 +10894,8 @@ pub unsafe fn DeleteClusterResourceType<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn DestroyCluster<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *const _HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: *const ::core::ffi::c_void, fdeletevirtualcomputerobjects: Param3) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DestroyCluster(hcluster: *const _HCLUSTER, pfnprogresscallback: ::windows::core::RawPtr, pvcallbackarg: *const ::core::ffi::c_void, fdeletevirtualcomputerobjects: super::super::Foundation::BOOL) -> u32;
         }
@@ -10758,7 +10909,8 @@ pub unsafe fn DestroyCluster<'a, Param3: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DestroyClusterGroup(hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DestroyClusterGroup(hgroup: *const _HGROUP) -> u32;
         }
@@ -10772,7 +10924,8 @@ pub unsafe fn DestroyClusterGroup(hgroup: *const _HGROUP) -> u32 {
 pub unsafe fn DetermineCNOResTypeFromCluster(hcluster: *const _HCLUSTER, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DetermineCNOResTypeFromCluster(hcluster: *const _HCLUSTER, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32;
         }
@@ -10787,7 +10940,8 @@ pub unsafe fn DetermineCNOResTypeFromCluster(hcluster: *const _HCLUSTER, pcnores
 pub unsafe fn DetermineCNOResTypeFromNodelist(cnodes: u32, ppsznodenames: *const super::super::Foundation::PWSTR, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DetermineCNOResTypeFromNodelist(cnodes: u32, ppsznodenames: *const super::super::Foundation::PWSTR, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32;
         }
@@ -10801,7 +10955,8 @@ pub unsafe fn DetermineCNOResTypeFromNodelist(cnodes: u32, ppsznodenames: *const
 pub unsafe fn DetermineClusterCloudTypeFromCluster(hcluster: *const _HCLUSTER, pcloudtype: *mut CLUSTER_CLOUD_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DetermineClusterCloudTypeFromCluster(hcluster: *const _HCLUSTER, pcloudtype: *mut CLUSTER_CLOUD_TYPE) -> u32;
         }
@@ -10816,7 +10971,8 @@ pub unsafe fn DetermineClusterCloudTypeFromCluster(hcluster: *const _HCLUSTER, p
 pub unsafe fn DetermineClusterCloudTypeFromNodelist(cnodes: u32, ppsznodenames: *const super::super::Foundation::PWSTR, pcloudtype: *mut CLUSTER_CLOUD_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DetermineClusterCloudTypeFromNodelist(cnodes: u32, ppsznodenames: *const super::super::Foundation::PWSTR, pcloudtype: *mut CLUSTER_CLOUD_TYPE) -> u32;
         }
@@ -10833,7 +10989,8 @@ pub const ENABLE_CLUSTER_SHARED_VOLUMES: &'static str = "EnableSharedVolumes";
 pub unsafe fn EvictClusterNode(hnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvictClusterNode(hnode: *const _HNODE) -> u32;
         }
@@ -10847,7 +11004,8 @@ pub unsafe fn EvictClusterNode(hnode: *const _HNODE) -> u32 {
 pub unsafe fn EvictClusterNodeEx(hnode: *const _HNODE, dwtimeout: u32, phrcleanupstatus: *mut ::windows::core::HRESULT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvictClusterNodeEx(hnode: *const _HNODE, dwtimeout: u32, phrcleanupstatus: *mut ::windows::core::HRESULT) -> u32;
         }
@@ -10985,7 +11143,8 @@ impl ::core::default::Default for FILESHARE_CHANGE_LIST {
 pub unsafe fn FailClusterResource(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FailClusterResource(hresource: *const _HRESOURCE) -> u32;
         }
@@ -10999,7 +11158,8 @@ pub unsafe fn FailClusterResource(hresource: *const _HRESOURCE) -> u32 {
 pub unsafe fn FreeClusterCrypt(pcryptinfo: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeClusterCrypt(pcryptinfo: *const ::core::ffi::c_void) -> u32;
         }
@@ -11014,7 +11174,8 @@ pub unsafe fn FreeClusterCrypt(pcryptinfo: *const ::core::ffi::c_void) -> u32 {
 pub unsafe fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
         }
@@ -11029,7 +11190,8 @@ pub unsafe fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAU
 pub unsafe fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
         }
@@ -11181,7 +11343,8 @@ pub const GUID_PRESENT: u32 = 1u32;
 pub unsafe fn GetClusterFromGroup(hgroup: *const _HGROUP) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterFromGroup(hgroup: *const _HGROUP) -> *mut _HCLUSTER;
         }
@@ -11195,7 +11358,8 @@ pub unsafe fn GetClusterFromGroup(hgroup: *const _HGROUP) -> *mut _HCLUSTER {
 pub unsafe fn GetClusterFromNetInterface(hnetinterface: *const _HNETINTERFACE) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterFromNetInterface(hnetinterface: *const _HNETINTERFACE) -> *mut _HCLUSTER;
         }
@@ -11209,7 +11373,8 @@ pub unsafe fn GetClusterFromNetInterface(hnetinterface: *const _HNETINTERFACE) -
 pub unsafe fn GetClusterFromNetwork(hnetwork: *const _HNETWORK) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterFromNetwork(hnetwork: *const _HNETWORK) -> *mut _HCLUSTER;
         }
@@ -11223,7 +11388,8 @@ pub unsafe fn GetClusterFromNetwork(hnetwork: *const _HNETWORK) -> *mut _HCLUSTE
 pub unsafe fn GetClusterFromNode(hnode: *const _HNODE) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterFromNode(hnode: *const _HNODE) -> *mut _HCLUSTER;
         }
@@ -11237,7 +11403,8 @@ pub unsafe fn GetClusterFromNode(hnode: *const _HNODE) -> *mut _HCLUSTER {
 pub unsafe fn GetClusterFromResource(hresource: *const _HRESOURCE) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterFromResource(hresource: *const _HRESOURCE) -> *mut _HCLUSTER;
         }
@@ -11252,7 +11419,8 @@ pub unsafe fn GetClusterFromResource(hresource: *const _HRESOURCE) -> *mut _HCLU
 pub unsafe fn GetClusterGroupKey(hgroup: *const _HGROUP, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterGroupKey(hgroup: *const _HGROUP, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
@@ -11267,7 +11435,8 @@ pub unsafe fn GetClusterGroupKey(hgroup: *const _HGROUP, samdesired: u32) -> sup
 pub unsafe fn GetClusterGroupState(hgroup: *const _HGROUP, lpsznodename: super::super::Foundation::PWSTR, lpcchnodename: *mut u32) -> CLUSTER_GROUP_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterGroupState(hgroup: *const _HGROUP, lpsznodename: super::super::Foundation::PWSTR, lpcchnodename: *mut u32) -> CLUSTER_GROUP_STATE;
         }
@@ -11282,7 +11451,8 @@ pub unsafe fn GetClusterGroupState(hgroup: *const _HGROUP, lpsznodename: super::
 pub unsafe fn GetClusterInformation(hcluster: *const _HCLUSTER, lpszclustername: super::super::Foundation::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: *mut CLUSTERVERSIONINFO) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterInformation(hcluster: *const _HCLUSTER, lpszclustername: super::super::Foundation::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: *mut CLUSTERVERSIONINFO) -> u32;
         }
@@ -11297,7 +11467,8 @@ pub unsafe fn GetClusterInformation(hcluster: *const _HCLUSTER, lpszclustername:
 pub unsafe fn GetClusterKey(hcluster: *const _HCLUSTER, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterKey(hcluster: *const _HCLUSTER, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
@@ -11312,7 +11483,8 @@ pub unsafe fn GetClusterKey(hcluster: *const _HCLUSTER, samdesired: u32) -> supe
 pub unsafe fn GetClusterNetInterface<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, lpsznetworkname: Param2, lpszinterfacename: super::super::Foundation::PWSTR, lpcchinterfacename: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNetInterface(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, lpsznetworkname: super::super::Foundation::PWSTR, lpszinterfacename: super::super::Foundation::PWSTR, lpcchinterfacename: *mut u32) -> u32;
         }
@@ -11327,7 +11499,8 @@ pub unsafe fn GetClusterNetInterface<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetClusterNetInterfaceKey(hnetinterface: *const _HNETINTERFACE, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNetInterfaceKey(hnetinterface: *const _HNETINTERFACE, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
@@ -11341,7 +11514,8 @@ pub unsafe fn GetClusterNetInterfaceKey(hnetinterface: *const _HNETINTERFACE, sa
 pub unsafe fn GetClusterNetInterfaceState(hnetinterface: *const _HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNetInterfaceState(hnetinterface: *const _HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE;
         }
@@ -11356,7 +11530,8 @@ pub unsafe fn GetClusterNetInterfaceState(hnetinterface: *const _HNETINTERFACE) 
 pub unsafe fn GetClusterNetworkId(hnetwork: *const _HNETWORK, lpsznetworkid: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNetworkId(hnetwork: *const _HNETWORK, lpsznetworkid: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
         }
@@ -11371,7 +11546,8 @@ pub unsafe fn GetClusterNetworkId(hnetwork: *const _HNETWORK, lpsznetworkid: sup
 pub unsafe fn GetClusterNetworkKey(hnetwork: *const _HNETWORK, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNetworkKey(hnetwork: *const _HNETWORK, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
@@ -11385,7 +11561,8 @@ pub unsafe fn GetClusterNetworkKey(hnetwork: *const _HNETWORK, samdesired: u32) 
 pub unsafe fn GetClusterNetworkState(hnetwork: *const _HNETWORK) -> CLUSTER_NETWORK_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNetworkState(hnetwork: *const _HNETWORK) -> CLUSTER_NETWORK_STATE;
         }
@@ -11400,7 +11577,8 @@ pub unsafe fn GetClusterNetworkState(hnetwork: *const _HNETWORK) -> CLUSTER_NETW
 pub unsafe fn GetClusterNodeId(hnode: *const _HNODE, lpsznodeid: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNodeId(hnode: *const _HNODE, lpsznodeid: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
         }
@@ -11415,7 +11593,8 @@ pub unsafe fn GetClusterNodeId(hnode: *const _HNODE, lpsznodeid: super::super::F
 pub unsafe fn GetClusterNodeKey(hnode: *const _HNODE, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNodeKey(hnode: *const _HNODE, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
@@ -11429,7 +11608,8 @@ pub unsafe fn GetClusterNodeKey(hnode: *const _HNODE, samdesired: u32) -> super:
 pub unsafe fn GetClusterNodeState(hnode: *const _HNODE) -> CLUSTER_NODE_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNodeState(hnode: *const _HNODE) -> CLUSTER_NODE_STATE;
         }
@@ -11444,7 +11624,8 @@ pub unsafe fn GetClusterNodeState(hnode: *const _HNODE) -> CLUSTER_NODE_STATE {
 pub unsafe fn GetClusterNotify(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNotify(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32;
         }
@@ -11459,7 +11640,8 @@ pub unsafe fn GetClusterNotify(hchange: *const _HCHANGE, lpdwnotifykey: *mut usi
 pub unsafe fn GetClusterNotifyV2(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpbbuffersize: *mut u32, lpszobjectid: super::super::Foundation::PWSTR, lpcchobjectid: *mut u32, lpszparentid: super::super::Foundation::PWSTR, lpcchparentid: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpsztype: super::super::Foundation::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterNotifyV2(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpbbuffersize: *mut u32, lpszobjectid: super::super::Foundation::PWSTR, lpcchobjectid: *mut u32, lpszparentid: super::super::Foundation::PWSTR, lpcchparentid: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpsztype: super::super::Foundation::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32;
         }
@@ -11489,7 +11671,8 @@ pub unsafe fn GetClusterNotifyV2(hchange: *const _HCHANGE, lpdwnotifykey: *mut u
 pub unsafe fn GetClusterQuorumResource(hcluster: *const _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: super::super::Foundation::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterQuorumResource(hcluster: *const _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: super::super::Foundation::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32;
         }
@@ -11504,7 +11687,8 @@ pub unsafe fn GetClusterQuorumResource(hcluster: *const _HCLUSTER, lpszresourcen
 pub unsafe fn GetClusterResourceDependencyExpression(hresource: *const _HRESOURCE, lpszdependencyexpression: super::super::Foundation::PWSTR, lpcchdependencyexpression: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterResourceDependencyExpression(hresource: *const _HRESOURCE, lpszdependencyexpression: super::super::Foundation::PWSTR, lpcchdependencyexpression: *mut u32) -> u32;
         }
@@ -11519,7 +11703,8 @@ pub unsafe fn GetClusterResourceDependencyExpression(hresource: *const _HRESOURC
 pub unsafe fn GetClusterResourceKey(hresource: *const _HRESOURCE, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterResourceKey(hresource: *const _HRESOURCE, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
@@ -11534,7 +11719,8 @@ pub unsafe fn GetClusterResourceKey(hresource: *const _HRESOURCE, samdesired: u3
 pub unsafe fn GetClusterResourceNetworkName(hresource: *const _HRESOURCE, lpbuffer: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterResourceNetworkName(hresource: *const _HRESOURCE, lpbuffer: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
         }
@@ -11549,7 +11735,8 @@ pub unsafe fn GetClusterResourceNetworkName(hresource: *const _HRESOURCE, lpbuff
 pub unsafe fn GetClusterResourceState(hresource: *const _HRESOURCE, lpsznodename: super::super::Foundation::PWSTR, lpcchnodename: *mut u32, lpszgroupname: super::super::Foundation::PWSTR, lpcchgroupname: *mut u32) -> CLUSTER_RESOURCE_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterResourceState(hresource: *const _HRESOURCE, lpsznodename: super::super::Foundation::PWSTR, lpcchnodename: *mut u32, lpszgroupname: super::super::Foundation::PWSTR, lpcchgroupname: *mut u32) -> CLUSTER_RESOURCE_STATE;
         }
@@ -11564,7 +11751,8 @@ pub unsafe fn GetClusterResourceState(hresource: *const _HRESOURCE, lpsznodename
 pub unsafe fn GetClusterResourceTypeKey<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsztypename: Param1, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetClusterResourceTypeKey(hcluster: *const _HCLUSTER, lpsztypename: super::super::Foundation::PWSTR, samdesired: u32) -> super::super::System::Registry::HKEY;
         }
@@ -11579,7 +11767,8 @@ pub unsafe fn GetClusterResourceTypeKey<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn GetNodeCloudTypeDW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppsznodename: Param0, nodecloudtype: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNodeCloudTypeDW(ppsznodename: super::super::Foundation::PWSTR, nodecloudtype: *mut u32) -> u32;
         }
@@ -11594,7 +11783,8 @@ pub unsafe fn GetNodeCloudTypeDW<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetNodeClusterState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsznodename: Param0, pdwclusterstate: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNodeClusterState(lpsznodename: super::super::Foundation::PWSTR, pdwclusterstate: *mut u32) -> u32;
         }
@@ -11609,7 +11799,8 @@ pub unsafe fn GetNodeClusterState<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn GetNotifyEventHandle(hchange: *const _HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetNotifyEventHandle(hchange: *const _HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32;
         }
@@ -19518,7 +19709,8 @@ pub struct IWEInvokeCommand_Vtbl {
 pub unsafe fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
         }
@@ -19533,7 +19725,8 @@ pub unsafe fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEAL
 pub unsafe fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
         }
@@ -19548,7 +19741,8 @@ pub unsafe fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CL
 pub unsafe fn IsFileOnClusterSharedVolume<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0, pbfileisonsharedvolume: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsFileOnClusterSharedVolume(lpszpathname: super::super::Foundation::PWSTR, pbfileisonsharedvolume: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -19693,7 +19887,8 @@ impl ::core::default::Default for MONITOR_STATE {
 pub unsafe fn MoveClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MoveClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32;
         }
@@ -19707,7 +19902,8 @@ pub unsafe fn MoveClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const 
 pub unsafe fn MoveClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE, dwmoveflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MoveClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE, dwmoveflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32;
         }
@@ -19845,7 +20041,8 @@ impl ::core::default::Default for NodeUtilizationInfoElement {
 pub unsafe fn OfflineClusterGroup(hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OfflineClusterGroup(hgroup: *const _HGROUP) -> u32;
         }
@@ -19859,7 +20056,8 @@ pub unsafe fn OfflineClusterGroup(hgroup: *const _HGROUP) -> u32 {
 pub unsafe fn OfflineClusterGroupEx(hgroup: *const _HGROUP, dwofflineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OfflineClusterGroupEx(hgroup: *const _HGROUP, dwofflineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32;
         }
@@ -19873,7 +20071,8 @@ pub unsafe fn OfflineClusterGroupEx(hgroup: *const _HGROUP, dwofflineflags: u32,
 pub unsafe fn OfflineClusterResource(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OfflineClusterResource(hresource: *const _HRESOURCE) -> u32;
         }
@@ -19887,7 +20086,8 @@ pub unsafe fn OfflineClusterResource(hresource: *const _HRESOURCE) -> u32 {
 pub unsafe fn OfflineClusterResourceEx(hresource: *const _HRESOURCE, dwofflineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OfflineClusterResourceEx(hresource: *const _HRESOURCE, dwofflineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32;
         }
@@ -19901,7 +20101,8 @@ pub unsafe fn OfflineClusterResourceEx(hresource: *const _HRESOURCE, dwofflinefl
 pub unsafe fn OnlineClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OnlineClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32;
         }
@@ -19915,7 +20116,8 @@ pub unsafe fn OnlineClusterGroup(hgroup: *const _HGROUP, hdestinationnode: *cons
 pub unsafe fn OnlineClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE, dwonlineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OnlineClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE, dwonlineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32;
         }
@@ -19929,7 +20131,8 @@ pub unsafe fn OnlineClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *co
 pub unsafe fn OnlineClusterResource(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OnlineClusterResource(hresource: *const _HRESOURCE) -> u32;
         }
@@ -19943,7 +20146,8 @@ pub unsafe fn OnlineClusterResource(hresource: *const _HRESOURCE) -> u32 {
 pub unsafe fn OnlineClusterResourceEx(hresource: *const _HRESOURCE, dwonlineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OnlineClusterResourceEx(hresource: *const _HRESOURCE, dwonlineflags: u32, lpinbuffer: *const u8, cbinbuffersize: u32) -> u32;
         }
@@ -19958,7 +20162,8 @@ pub unsafe fn OnlineClusterResourceEx(hresource: *const _HRESOURCE, dwonlineflag
 pub unsafe fn OpenCluster<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszclustername: Param0) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenCluster(lpszclustername: super::super::Foundation::PWSTR) -> *mut _HCLUSTER;
         }
@@ -19973,7 +20178,8 @@ pub unsafe fn OpenCluster<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn OpenClusterCryptProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszresource: Param0, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterCryptProvider(lpszresource: super::super::Foundation::PWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER;
         }
@@ -19988,7 +20194,8 @@ pub unsafe fn OpenClusterCryptProvider<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn OpenClusterCryptProviderEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszresource: Param0, lpszkeyname: Param1, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterCryptProviderEx(lpszresource: super::super::Foundation::PWSTR, lpszkeyname: super::super::Foundation::PWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER;
         }
@@ -20003,7 +20210,8 @@ pub unsafe fn OpenClusterCryptProviderEx<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn OpenClusterEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszclustername: Param0, desiredaccess: u32, grantedaccess: *mut u32) -> *mut _HCLUSTER {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterEx(lpszclustername: super::super::Foundation::PWSTR, desiredaccess: u32, grantedaccess: *mut u32) -> *mut _HCLUSTER;
         }
@@ -20018,7 +20226,8 @@ pub unsafe fn OpenClusterEx<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn OpenClusterGroup<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszgroupname: Param1) -> *mut _HGROUP {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterGroup(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR) -> *mut _HGROUP;
         }
@@ -20033,7 +20242,8 @@ pub unsafe fn OpenClusterGroup<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn OpenClusterGroupEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszgroupname: Param1, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HGROUP {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterGroupEx(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HGROUP;
         }
@@ -20048,7 +20258,8 @@ pub unsafe fn OpenClusterGroupEx<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn OpenClusterGroupSet<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszgroupsetname: Param1) -> *mut _HGROUPSET {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterGroupSet(hcluster: *const _HCLUSTER, lpszgroupsetname: super::super::Foundation::PWSTR) -> *mut _HGROUPSET;
         }
@@ -20063,7 +20274,8 @@ pub unsafe fn OpenClusterGroupSet<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn OpenClusterNetInterface<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszinterfacename: Param1) -> *mut _HNETINTERFACE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterNetInterface(hcluster: *const _HCLUSTER, lpszinterfacename: super::super::Foundation::PWSTR) -> *mut _HNETINTERFACE;
         }
@@ -20078,7 +20290,8 @@ pub unsafe fn OpenClusterNetInterface<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn OpenClusterNetInterfaceEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszinterfacename: Param1, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNETINTERFACE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterNetInterfaceEx(hcluster: *const _HCLUSTER, lpszinterfacename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNETINTERFACE;
         }
@@ -20093,7 +20306,8 @@ pub unsafe fn OpenClusterNetInterfaceEx<'a, Param1: ::windows::core::IntoParam<'
 pub unsafe fn OpenClusterNetwork<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznetworkname: Param1) -> *mut _HNETWORK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterNetwork(hcluster: *const _HCLUSTER, lpsznetworkname: super::super::Foundation::PWSTR) -> *mut _HNETWORK;
         }
@@ -20108,7 +20322,8 @@ pub unsafe fn OpenClusterNetwork<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn OpenClusterNetworkEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznetworkname: Param1, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNETWORK {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterNetworkEx(hcluster: *const _HCLUSTER, lpsznetworkname: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNETWORK;
         }
@@ -20123,7 +20338,8 @@ pub unsafe fn OpenClusterNetworkEx<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn OpenClusterNode<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1) -> *mut _HNODE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterNode(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR) -> *mut _HNODE;
         }
@@ -20137,7 +20353,8 @@ pub unsafe fn OpenClusterNode<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn OpenClusterNodeById(hcluster: *const _HCLUSTER, nodeid: u32) -> *mut _HNODE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterNodeById(hcluster: *const _HCLUSTER, nodeid: u32) -> *mut _HNODE;
         }
@@ -20152,7 +20369,8 @@ pub unsafe fn OpenClusterNodeById(hcluster: *const _HCLUSTER, nodeid: u32) -> *m
 pub unsafe fn OpenClusterNodeEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNODE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterNodeEx(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNODE;
         }
@@ -20167,7 +20385,8 @@ pub unsafe fn OpenClusterNodeEx<'a, Param1: ::windows::core::IntoParam<'a, super
 pub unsafe fn OpenClusterResource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcename: Param1) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterResource(hcluster: *const _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR) -> *mut _HRESOURCE;
         }
@@ -20182,7 +20401,8 @@ pub unsafe fn OpenClusterResource<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn OpenClusterResourceEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcename: Param1, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenClusterResourceEx(hcluster: *const _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HRESOURCE;
         }
@@ -21194,7 +21414,8 @@ pub type PWORKER_START_ROUTINE = ::core::option::Option<unsafe extern "system" f
 pub unsafe fn PauseClusterNode(hnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PauseClusterNode(hnode: *const _HNODE) -> u32;
         }
@@ -21209,7 +21430,8 @@ pub unsafe fn PauseClusterNode(hnode: *const _HNODE) -> u32 {
 pub unsafe fn PauseClusterNodeEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hnode: *const _HNODE, bdrainnode: Param1, dwpauseflags: u32, hnodedraintarget: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PauseClusterNodeEx(hnode: *const _HNODE, bdrainnode: super::super::Foundation::BOOL, dwpauseflags: u32, hnodedraintarget: *const _HNODE) -> u32;
         }
@@ -21280,7 +21502,8 @@ impl ::core::default::Default for PaxosTagCStruct {
 pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const ::windows::core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntlanman", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn QueryAppInstanceVersion(appinstanceid: *const ::windows::core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32;
         }
@@ -21815,7 +22038,8 @@ pub const RedirectedIOReasonUserRequest: u64 = 1u64;
 pub unsafe fn RegisterAppInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(processhandle: Param0, appinstanceid: *const ::windows::core::GUID, childreninheritappinstance: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntlanman", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterAppInstance(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const ::windows::core::GUID, childreninheritappinstance: super::super::Foundation::BOOL) -> u32;
         }
@@ -21829,7 +22053,8 @@ pub unsafe fn RegisterAppInstance<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn RegisterAppInstanceVersion(appinstanceid: *const ::windows::core::GUID, instanceversionhigh: u64, instanceversionlow: u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntlanman", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterAppInstanceVersion(appinstanceid: *const ::windows::core::GUID, instanceversionhigh: u64, instanceversionlow: u64) -> u32;
         }
@@ -21844,7 +22069,8 @@ pub unsafe fn RegisterAppInstanceVersion(appinstanceid: *const ::windows::core::
 pub unsafe fn RegisterClusterNotify<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hchange: *const _HCHANGE, dwfiltertype: u32, hobject: Param2, dwnotifykey: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterClusterNotify(hchange: *const _HCHANGE, dwfiltertype: u32, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32;
         }
@@ -21859,7 +22085,8 @@ pub unsafe fn RegisterClusterNotify<'a, Param2: ::windows::core::IntoParam<'a, s
 pub unsafe fn RegisterClusterNotifyV2<'a, Param1: ::windows::core::IntoParam<'a, NOTIFY_FILTER_AND_TYPE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hchange: *const _HCHANGE, filter: Param1, hobject: Param2, dwnotifykey: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterClusterNotifyV2(hchange: *const _HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32;
         }
@@ -21874,7 +22101,8 @@ pub unsafe fn RegisterClusterNotifyV2<'a, Param1: ::windows::core::IntoParam<'a,
 pub unsafe fn RegisterClusterResourceTypeNotifyV2<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, flags: i64, restypename: Param3, dwnotifykey: usize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterClusterResourceTypeNotifyV2(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, flags: i64, restypename: super::super::Foundation::PWSTR, dwnotifykey: usize) -> u32;
         }
@@ -21888,7 +22116,8 @@ pub unsafe fn RegisterClusterResourceTypeNotifyV2<'a, Param3: ::windows::core::I
 pub unsafe fn RemoveClusterGroupDependency(hgroup: *const _HGROUP, hdependson: *const _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveClusterGroupDependency(hgroup: *const _HGROUP, hdependson: *const _HGROUP) -> u32;
         }
@@ -21902,7 +22131,8 @@ pub unsafe fn RemoveClusterGroupDependency(hgroup: *const _HGROUP, hdependson: *
 pub unsafe fn RemoveClusterGroupSetDependency(hgroupset: *const _HGROUPSET, hdependson: *const _HGROUPSET) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveClusterGroupSetDependency(hgroupset: *const _HGROUPSET, hdependson: *const _HGROUPSET) -> u32;
         }
@@ -21916,7 +22146,8 @@ pub unsafe fn RemoveClusterGroupSetDependency(hgroupset: *const _HGROUPSET, hdep
 pub unsafe fn RemoveClusterGroupToGroupSetDependency(hgroup: *const _HGROUP, hdependson: *const _HGROUPSET) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveClusterGroupToGroupSetDependency(hgroup: *const _HGROUP, hdependson: *const _HGROUPSET) -> u32;
         }
@@ -21931,7 +22162,8 @@ pub unsafe fn RemoveClusterGroupToGroupSetDependency(hgroup: *const _HGROUP, hde
 pub unsafe fn RemoveClusterNameAccount<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *const _HCLUSTER, bdeletecomputerobjects: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveClusterNameAccount(hcluster: *const _HCLUSTER, bdeletecomputerobjects: super::super::Foundation::BOOL) -> u32;
         }
@@ -21945,7 +22177,8 @@ pub unsafe fn RemoveClusterNameAccount<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn RemoveClusterResourceDependency(hresource: *const _HRESOURCE, hdependson: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveClusterResourceDependency(hresource: *const _HRESOURCE, hdependson: *const _HRESOURCE) -> u32;
         }
@@ -21959,7 +22192,8 @@ pub unsafe fn RemoveClusterResourceDependency(hresource: *const _HRESOURCE, hdep
 pub unsafe fn RemoveClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const _HNODE) -> u32;
         }
@@ -21974,7 +22208,8 @@ pub unsafe fn RemoveClusterResourceNode(hresource: *const _HRESOURCE, hnode: *co
 pub unsafe fn RemoveClusterStorageNode<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszclusterstorageenclosurename: Param1, dwtimeout: u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveClusterStorageNode(hcluster: *const _HCLUSTER, lpszclusterstorageenclosurename: super::super::Foundation::PWSTR, dwtimeout: u32, dwflags: u32) -> u32;
         }
@@ -21989,7 +22224,8 @@ pub unsafe fn RemoveClusterStorageNode<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn RemoveCrossClusterGroupSetDependency<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: Param1, lpremotegroupsetname: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveCrossClusterGroupSetDependency(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: super::super::Foundation::PWSTR, lpremotegroupsetname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -22003,7 +22239,8 @@ pub unsafe fn RemoveCrossClusterGroupSetDependency<'a, Param1: ::windows::core::
 pub unsafe fn RemoveResourceFromClusterSharedVolumes(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RemoveResourceFromClusterSharedVolumes(hresource: *const _HRESOURCE) -> u32;
         }
@@ -22018,7 +22255,8 @@ pub unsafe fn RemoveResourceFromClusterSharedVolumes(hresource: *const _HRESOURC
 pub unsafe fn ResUtilAddUnknownProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilAddUnknownProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
         }
@@ -22033,7 +22271,8 @@ pub unsafe fn ResUtilAddUnknownProperties<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ResUtilCreateDirectoryTree<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilCreateDirectoryTree(pszpath: super::super::Foundation::PWSTR) -> u32;
         }
@@ -22047,7 +22286,8 @@ pub unsafe fn ResUtilCreateDirectoryTree<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn ResUtilDupGroup(group: *mut _HGROUP, copy: *mut *mut _HGROUP) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilDupGroup(group: *mut _HGROUP, copy: *mut *mut _HGROUP) -> u32;
         }
@@ -22062,7 +22302,8 @@ pub unsafe fn ResUtilDupGroup(group: *mut _HGROUP, copy: *mut *mut _HGROUP) -> u
 pub unsafe fn ResUtilDupParameterBlock(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilDupParameterBlock(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) -> u32;
         }
@@ -22076,7 +22317,8 @@ pub unsafe fn ResUtilDupParameterBlock(poutparams: *mut u8, pinparams: *const u8
 pub unsafe fn ResUtilDupResource(group: *mut _HRESOURCE, copy: *mut *mut _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilDupResource(group: *mut _HRESOURCE, copy: *mut *mut _HRESOURCE) -> u32;
         }
@@ -22091,7 +22333,8 @@ pub unsafe fn ResUtilDupResource(group: *mut _HRESOURCE, copy: *mut *mut _HRESOU
 pub unsafe fn ResUtilDupString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszinstring: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilDupString(pszinstring: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
@@ -22105,7 +22348,8 @@ pub unsafe fn ResUtilDupString<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ResUtilEnumGroups(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP, prescallback: LPGROUP_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilEnumGroups(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP, prescallback: ::windows::core::RawPtr, pparameter: *mut ::core::ffi::c_void) -> u32;
         }
@@ -22119,7 +22363,8 @@ pub unsafe fn ResUtilEnumGroups(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP, p
 pub unsafe fn ResUtilEnumGroupsEx(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP, grouptype: CLUSGROUP_TYPE, prescallback: LPGROUP_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilEnumGroupsEx(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP, grouptype: CLUSGROUP_TYPE, prescallback: ::windows::core::RawPtr, pparameter: *mut ::core::ffi::c_void) -> u32;
         }
@@ -22134,7 +22379,8 @@ pub unsafe fn ResUtilEnumGroupsEx(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP,
 pub unsafe fn ResUtilEnumPrivateProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, pszoutproperties: super::super::Foundation::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilEnumPrivateProperties(hkeyclusterkey: super::super::System::Registry::HKEY, pszoutproperties: super::super::Foundation::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
         }
@@ -22149,7 +22395,8 @@ pub unsafe fn ResUtilEnumPrivateProperties<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn ResUtilEnumProperties(ppropertytable: *const RESUTIL_PROPERTY_ITEM, pszoutproperties: super::super::Foundation::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilEnumProperties(ppropertytable: *const RESUTIL_PROPERTY_ITEM, pszoutproperties: super::super::Foundation::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
         }
@@ -22164,7 +22411,8 @@ pub unsafe fn ResUtilEnumProperties(ppropertytable: *const RESUTIL_PROPERTY_ITEM
 pub unsafe fn ResUtilEnumResources<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hself: *mut _HRESOURCE, lpszrestypename: Param1, prescallback: LPRESOURCE_CALLBACK, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilEnumResources(hself: *mut _HRESOURCE, lpszrestypename: super::super::Foundation::PWSTR, prescallback: ::windows::core::RawPtr, pparameter: *mut ::core::ffi::c_void) -> u32;
         }
@@ -22179,7 +22427,8 @@ pub unsafe fn ResUtilEnumResources<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn ResUtilEnumResourcesEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: Param2, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilEnumResourcesEx(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: super::super::Foundation::PWSTR, prescallback: ::windows::core::RawPtr, pparameter: *mut ::core::ffi::c_void) -> u32;
         }
@@ -22194,7 +22443,8 @@ pub unsafe fn ResUtilEnumResourcesEx<'a, Param2: ::windows::core::IntoParam<'a, 
 pub unsafe fn ResUtilEnumResourcesEx2<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: Param2, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void, dwdesiredaccess: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilEnumResourcesEx2(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: super::super::Foundation::PWSTR, prescallback: ::windows::core::RawPtr, pparameter: *mut ::core::ffi::c_void, dwdesiredaccess: u32) -> u32;
         }
@@ -22209,7 +22459,8 @@ pub unsafe fn ResUtilEnumResourcesEx2<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn ResUtilExpandEnvironmentStrings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszsrc: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilExpandEnvironmentStrings(pszsrc: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
@@ -22224,7 +22475,8 @@ pub unsafe fn ResUtilExpandEnvironmentStrings<'a, Param0: ::windows::core::IntoP
 pub unsafe fn ResUtilFindBinaryProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pbpropertyvalue: *mut *mut u8, pcbpropertyvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFindBinaryProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pbpropertyvalue: *mut *mut u8, pcbpropertyvaluesize: *mut u32) -> u32;
         }
@@ -22239,7 +22491,8 @@ pub unsafe fn ResUtilFindBinaryProperty<'a, Param2: ::windows::core::IntoParam<'
 pub unsafe fn ResUtilFindDependentDiskResourceDriveLetter(hcluster: *const _HCLUSTER, hresource: *const _HRESOURCE, pszdriveletter: super::super::Foundation::PWSTR, pcchdriveletter: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFindDependentDiskResourceDriveLetter(hcluster: *const _HCLUSTER, hresource: *const _HRESOURCE, pszdriveletter: super::super::Foundation::PWSTR, pcchdriveletter: *mut u32) -> u32;
         }
@@ -22254,7 +22507,8 @@ pub unsafe fn ResUtilFindDependentDiskResourceDriveLetter(hcluster: *const _HCLU
 pub unsafe fn ResUtilFindDwordProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pdwpropertyvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFindDwordProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pdwpropertyvalue: *mut u32) -> u32;
         }
@@ -22269,7 +22523,8 @@ pub unsafe fn ResUtilFindDwordProperty<'a, Param2: ::windows::core::IntoParam<'a
 pub unsafe fn ResUtilFindExpandSzProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFindExpandSzProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -22284,7 +22539,8 @@ pub unsafe fn ResUtilFindExpandSzProperty<'a, Param2: ::windows::core::IntoParam
 pub unsafe fn ResUtilFindExpandedSzProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFindExpandedSzProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -22299,7 +22555,8 @@ pub unsafe fn ResUtilFindExpandedSzProperty<'a, Param2: ::windows::core::IntoPar
 pub unsafe fn ResUtilFindFileTimeProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFindFileTimeProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32;
         }
@@ -22314,7 +22571,8 @@ pub unsafe fn ResUtilFindFileTimeProperty<'a, Param2: ::windows::core::IntoParam
 pub unsafe fn ResUtilFindLongProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, plpropertyvalue: *mut i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFindLongProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, plpropertyvalue: *mut i32) -> u32;
         }
@@ -22329,7 +22587,8 @@ pub unsafe fn ResUtilFindLongProperty<'a, Param2: ::windows::core::IntoParam<'a,
 pub unsafe fn ResUtilFindMultiSzProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pszpropertyvalue: *mut super::super::Foundation::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFindMultiSzProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32;
         }
@@ -22344,7 +22603,8 @@ pub unsafe fn ResUtilFindMultiSzProperty<'a, Param2: ::windows::core::IntoParam<
 pub unsafe fn ResUtilFindSzProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFindSzProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -22359,7 +22619,8 @@ pub unsafe fn ResUtilFindSzProperty<'a, Param2: ::windows::core::IntoParam<'a, s
 pub unsafe fn ResUtilFindULargeIntegerProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, plpropertyvalue: *mut u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFindULargeIntegerProperty(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, plpropertyvalue: *mut u64) -> u32;
         }
@@ -22373,7 +22634,8 @@ pub unsafe fn ResUtilFindULargeIntegerProperty<'a, Param2: ::windows::core::Into
 pub unsafe fn ResUtilFreeEnvironment(lpenvironment: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFreeEnvironment(lpenvironment: *mut ::core::ffi::c_void) -> u32;
         }
@@ -22388,7 +22650,8 @@ pub unsafe fn ResUtilFreeEnvironment(lpenvironment: *mut ::core::ffi::c_void) ->
 pub unsafe fn ResUtilFreeParameterBlock(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilFreeParameterBlock(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM);
         }
@@ -22403,7 +22666,8 @@ pub unsafe fn ResUtilFreeParameterBlock(poutparams: *mut u8, pinparams: *const u
 pub unsafe fn ResUtilGetAllProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetAllProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
         }
@@ -22417,7 +22681,8 @@ pub unsafe fn ResUtilGetAllProperties<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ResUtilGetBinaryProperty(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: *const u8, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetBinaryProperty(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: *const u8, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
         }
@@ -22432,7 +22697,8 @@ pub unsafe fn ResUtilGetBinaryProperty(ppboutvalue: *mut *mut u8, pcboutvaluesiz
 pub unsafe fn ResUtilGetBinaryValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetBinaryValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32;
         }
@@ -22446,7 +22712,8 @@ pub unsafe fn ResUtilGetBinaryValue<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ResUtilGetClusterGroupType(hgroup: *mut _HGROUP, grouptype: *mut CLUSGROUP_TYPE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetClusterGroupType(hgroup: *mut _HGROUP, grouptype: *mut CLUSGROUP_TYPE) -> u32;
         }
@@ -22460,7 +22727,8 @@ pub unsafe fn ResUtilGetClusterGroupType(hgroup: *mut _HGROUP, grouptype: *mut C
 pub unsafe fn ResUtilGetClusterId(hcluster: *mut _HCLUSTER, guid: *mut ::windows::core::GUID) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetClusterId(hcluster: *mut _HCLUSTER, guid: *mut ::windows::core::GUID) -> u32;
         }
@@ -22474,7 +22742,8 @@ pub unsafe fn ResUtilGetClusterId(hcluster: *mut _HCLUSTER, guid: *mut ::windows
 pub unsafe fn ResUtilGetClusterRoleState(hcluster: *const _HCLUSTER, eclusterrole: CLUSTER_ROLE) -> CLUSTER_ROLE_STATE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetClusterRoleState(hcluster: *const _HCLUSTER, eclusterrole: CLUSTER_ROLE) -> CLUSTER_ROLE_STATE;
         }
@@ -22488,7 +22757,8 @@ pub unsafe fn ResUtilGetClusterRoleState(hcluster: *const _HCLUSTER, eclusterrol
 pub unsafe fn ResUtilGetCoreClusterResources(hcluster: *const _HCLUSTER, phclusternameresource: *mut *mut _HRESOURCE, phclusteripaddressresource: *mut *mut _HRESOURCE, phclusterquorumresource: *mut *mut _HRESOURCE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetCoreClusterResources(hcluster: *const _HCLUSTER, phclusternameresource: *mut *mut _HRESOURCE, phclusteripaddressresource: *mut *mut _HRESOURCE, phclusterquorumresource: *mut *mut _HRESOURCE) -> u32;
         }
@@ -22502,7 +22772,8 @@ pub unsafe fn ResUtilGetCoreClusterResources(hcluster: *const _HCLUSTER, phclust
 pub unsafe fn ResUtilGetCoreClusterResourcesEx(hclusterin: *const _HCLUSTER, phclusternameresourceout: *mut *mut _HRESOURCE, phclusterquorumresourceout: *mut *mut _HRESOURCE, dwdesiredaccess: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetCoreClusterResourcesEx(hclusterin: *const _HCLUSTER, phclusternameresourceout: *mut *mut _HRESOURCE, phclusterquorumresourceout: *mut *mut _HRESOURCE, dwdesiredaccess: u32) -> u32;
         }
@@ -22516,7 +22787,8 @@ pub unsafe fn ResUtilGetCoreClusterResourcesEx(hclusterin: *const _HCLUSTER, phc
 pub unsafe fn ResUtilGetCoreGroup(hcluster: *mut _HCLUSTER) -> *mut _HGROUP {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetCoreGroup(hcluster: *mut _HCLUSTER) -> *mut _HGROUP;
         }
@@ -22530,7 +22802,8 @@ pub unsafe fn ResUtilGetCoreGroup(hcluster: *mut _HCLUSTER) -> *mut _HGROUP {
 pub unsafe fn ResUtilGetDwordProperty(pdwoutvalue: *mut u32, pvaluestruct: *const CLUSPROP_DWORD, dwoldvalue: u32, dwminimum: u32, dwmaximum: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetDwordProperty(pdwoutvalue: *mut u32, pvaluestruct: *const CLUSPROP_DWORD, dwoldvalue: u32, dwminimum: u32, dwmaximum: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
         }
@@ -22545,7 +22818,8 @@ pub unsafe fn ResUtilGetDwordProperty(pdwoutvalue: *mut u32, pvaluestruct: *cons
 pub unsafe fn ResUtilGetDwordValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, pdwoutvalue: *mut u32, dwdefaultvalue: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetDwordValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, pdwoutvalue: *mut u32, dwdefaultvalue: u32) -> u32;
         }
@@ -22559,7 +22833,8 @@ pub unsafe fn ResUtilGetDwordValue<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ResUtilGetEnvironmentWithNetName(hresource: *const _HRESOURCE) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetEnvironmentWithNetName(hresource: *const _HRESOURCE) -> *mut ::core::ffi::c_void;
         }
@@ -22574,7 +22849,8 @@ pub unsafe fn ResUtilGetEnvironmentWithNetName(hresource: *const _HRESOURCE) -> 
 pub unsafe fn ResUtilGetFileTimeProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(pftoutvalue: *mut super::super::Foundation::FILETIME, pvaluestruct: *const CLUSPROP_FILETIME, ftoldvalue: Param2, ftminimum: Param3, ftmaximum: Param4, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetFileTimeProperty(pftoutvalue: *mut super::super::Foundation::FILETIME, pvaluestruct: *const CLUSPROP_FILETIME, ftoldvalue: super::super::Foundation::FILETIME, ftminimum: super::super::Foundation::FILETIME, ftmaximum: super::super::Foundation::FILETIME, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
         }
@@ -22588,7 +22864,8 @@ pub unsafe fn ResUtilGetFileTimeProperty<'a, Param2: ::windows::core::IntoParam<
 pub unsafe fn ResUtilGetLongProperty(ploutvalue: *mut i32, pvaluestruct: *const CLUSPROP_LONG, loldvalue: i32, lminimum: i32, lmaximum: i32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetLongProperty(ploutvalue: *mut i32, pvaluestruct: *const CLUSPROP_LONG, loldvalue: i32, lminimum: i32, lmaximum: i32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
         }
@@ -22603,7 +22880,8 @@ pub unsafe fn ResUtilGetLongProperty(ploutvalue: *mut i32, pvaluestruct: *const 
 pub unsafe fn ResUtilGetMultiSzProperty<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppszoutvalue: *mut super::super::Foundation::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: Param3, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetMultiSzProperty(ppszoutvalue: *mut super::super::Foundation::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: super::super::Foundation::PWSTR, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
         }
@@ -22618,7 +22896,8 @@ pub unsafe fn ResUtilGetMultiSzProperty<'a, Param3: ::windows::core::IntoParam<'
 pub unsafe fn ResUtilGetPrivateProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetPrivateProperties(hkeyclusterkey: super::super::System::Registry::HKEY, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
         }
@@ -22633,7 +22912,8 @@ pub unsafe fn ResUtilGetPrivateProperties<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ResUtilGetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
         }
@@ -22648,7 +22928,8 @@ pub unsafe fn ResUtilGetProperties<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ResUtilGetPropertiesToParameterBlock<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: Param3, psznameofpropinerror: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetPropertiesToParameterBlock(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: super::super::Foundation::BOOL, psznameofpropinerror: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -22663,7 +22944,8 @@ pub unsafe fn ResUtilGetPropertiesToParameterBlock<'a, Param0: ::windows::core::
 pub unsafe fn ResUtilGetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, poutpropertyitem: *mut *mut ::core::ffi::c_void, pcboutpropertyitemsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetProperty(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, poutpropertyitem: *mut *mut ::core::ffi::c_void, pcboutpropertyitemsize: *mut u32) -> u32;
         }
@@ -22678,7 +22960,8 @@ pub unsafe fn ResUtilGetProperty<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ResUtilGetPropertyFormats(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut ::core::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetPropertyFormats(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut ::core::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
         }
@@ -22693,7 +22976,8 @@ pub unsafe fn ResUtilGetPropertyFormats(ppropertytable: *const RESUTIL_PROPERTY_
 pub unsafe fn ResUtilGetPropertySize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize: *mut u32, pnpropertycount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetPropertySize(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize: *mut u32, pnpropertycount: *mut u32) -> u32;
         }
@@ -22708,7 +22992,8 @@ pub unsafe fn ResUtilGetPropertySize<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ResUtilGetQwordValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, pqwoutvalue: *mut u64, qwdefaultvalue: u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetQwordValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, pqwoutvalue: *mut u64, qwdefaultvalue: u64) -> u32;
         }
@@ -22723,7 +23008,8 @@ pub unsafe fn ResUtilGetQwordValue<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ResUtilGetResourceDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hself: Param0, lpszresourcetype: Param1) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetResourceDependency(hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR) -> *mut _HRESOURCE;
         }
@@ -22738,7 +23024,8 @@ pub unsafe fn ResUtilGetResourceDependency<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn ResUtilGetResourceDependencyByClass<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *mut _HCLUSTER, hself: Param1, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: Param3) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetResourceDependencyByClass(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: super::super::Foundation::BOOL) -> *mut _HRESOURCE;
         }
@@ -22753,7 +23040,8 @@ pub unsafe fn ResUtilGetResourceDependencyByClass<'a, Param1: ::windows::core::I
 pub unsafe fn ResUtilGetResourceDependencyByClassEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *mut _HCLUSTER, hself: Param1, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: Param3, dwdesiredaccess: u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetResourceDependencyByClassEx(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> *mut _HRESOURCE;
         }
@@ -22768,7 +23056,8 @@ pub unsafe fn ResUtilGetResourceDependencyByClassEx<'a, Param1: ::windows::core:
 pub unsafe fn ResUtilGetResourceDependencyByName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *mut _HCLUSTER, hself: Param1, lpszresourcetype: Param2, brecurse: Param3) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetResourceDependencyByName(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR, brecurse: super::super::Foundation::BOOL) -> *mut _HRESOURCE;
         }
@@ -22783,7 +23072,8 @@ pub unsafe fn ResUtilGetResourceDependencyByName<'a, Param1: ::windows::core::In
 pub unsafe fn ResUtilGetResourceDependencyByNameEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *mut _HCLUSTER, hself: Param1, lpszresourcetype: Param2, brecurse: Param3, dwdesiredaccess: u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetResourceDependencyByNameEx(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR, brecurse: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> *mut _HRESOURCE;
         }
@@ -22798,7 +23088,8 @@ pub unsafe fn ResUtilGetResourceDependencyByNameEx<'a, Param1: ::windows::core::
 pub unsafe fn ResUtilGetResourceDependencyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hself: Param0, lpszresourcetype: Param1, dwdesiredaccess: u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetResourceDependencyEx(hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> *mut _HRESOURCE;
         }
@@ -22813,7 +23104,8 @@ pub unsafe fn ResUtilGetResourceDependencyEx<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn ResUtilGetResourceDependentIPAddressProps(hresource: *const _HRESOURCE, pszaddress: super::super::Foundation::PWSTR, pcchaddress: *mut u32, pszsubnetmask: super::super::Foundation::PWSTR, pcchsubnetmask: *mut u32, psznetwork: super::super::Foundation::PWSTR, pcchnetwork: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetResourceDependentIPAddressProps(hresource: *const _HRESOURCE, pszaddress: super::super::Foundation::PWSTR, pcchaddress: *mut u32, pszsubnetmask: super::super::Foundation::PWSTR, pcchsubnetmask: *mut u32, psznetwork: super::super::Foundation::PWSTR, pcchnetwork: *mut u32) -> u32;
         }
@@ -22828,7 +23120,8 @@ pub unsafe fn ResUtilGetResourceDependentIPAddressProps(hresource: *const _HRESO
 pub unsafe fn ResUtilGetResourceName(hresource: *const _HRESOURCE, pszresourcename: super::super::Foundation::PWSTR, pcchresourcenameinout: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetResourceName(hresource: *const _HRESOURCE, pszresourcename: super::super::Foundation::PWSTR, pcchresourcenameinout: *mut u32) -> u32;
         }
@@ -22843,7 +23136,8 @@ pub unsafe fn ResUtilGetResourceName(hresource: *const _HRESOURCE, pszresourcena
 pub unsafe fn ResUtilGetResourceNameDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszresourcename: Param0, lpszresourcetype: Param1) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetResourceNameDependency(lpszresourcename: super::super::Foundation::PWSTR, lpszresourcetype: super::super::Foundation::PWSTR) -> *mut _HRESOURCE;
         }
@@ -22858,7 +23152,8 @@ pub unsafe fn ResUtilGetResourceNameDependency<'a, Param0: ::windows::core::Into
 pub unsafe fn ResUtilGetResourceNameDependencyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszresourcename: Param0, lpszresourcetype: Param1, dwdesiredaccess: u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetResourceNameDependencyEx(lpszresourcename: super::super::Foundation::PWSTR, lpszresourcetype: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> *mut _HRESOURCE;
         }
@@ -22873,7 +23168,8 @@ pub unsafe fn ResUtilGetResourceNameDependencyEx<'a, Param0: ::windows::core::In
 pub unsafe fn ResUtilGetSzProperty<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppszoutvalue: *mut super::super::Foundation::PWSTR, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: Param2, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetSzProperty(ppszoutvalue: *mut super::super::Foundation::PWSTR, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: super::super::Foundation::PWSTR, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
         }
@@ -22888,7 +23184,8 @@ pub unsafe fn ResUtilGetSzProperty<'a, Param2: ::windows::core::IntoParam<'a, su
 pub unsafe fn ResUtilGetSzValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGetSzValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
         }
@@ -22903,7 +23200,8 @@ pub unsafe fn ResUtilGetSzValue<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ResUtilGroupsEqual(hself: *mut _HGROUP, hgroup: *mut _HGROUP, pequal: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilGroupsEqual(hself: *mut _HGROUP, hgroup: *mut _HGROUP, pequal: *mut super::super::Foundation::BOOL) -> u32;
         }
@@ -22918,7 +23216,8 @@ pub unsafe fn ResUtilGroupsEqual(hself: *mut _HGROUP, hgroup: *mut _HGROUP, pequ
 pub unsafe fn ResUtilIsPathValid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilIsPathValid(pszpath: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -22933,7 +23232,8 @@ pub unsafe fn ResUtilIsPathValid<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ResUtilIsResourceClassEqual(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilIsResourceClassEqual(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
         }
@@ -22948,7 +23248,8 @@ pub unsafe fn ResUtilIsResourceClassEqual(prci: *mut CLUS_RESOURCE_CLASS_INFO, h
 pub unsafe fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
         }
@@ -22962,7 +23263,8 @@ pub unsafe fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, righ
 pub unsafe fn ResUtilNodeEnum(hcluster: *mut _HCLUSTER, pnodecallback: LPNODE_CALLBACK, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilNodeEnum(hcluster: *mut _HCLUSTER, pnodecallback: ::windows::core::RawPtr, pparameter: *mut ::core::ffi::c_void) -> u32;
         }
@@ -22977,7 +23279,8 @@ pub unsafe fn ResUtilNodeEnum(hcluster: *mut _HCLUSTER, pnodecallback: LPNODE_CA
 pub unsafe fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
         }
@@ -22992,7 +23295,8 @@ pub unsafe fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const P
 pub unsafe fn ResUtilPropertyListFromParameterBlock(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, pcboutpropertylistsize: *mut u32, pinparams: *const u8, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilPropertyListFromParameterBlock(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, pcboutpropertylistsize: *mut u32, pinparams: *const u8, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
         }
@@ -23007,7 +23311,8 @@ pub unsafe fn ResUtilPropertyListFromParameterBlock(ppropertytable: *const RESUT
 pub unsafe fn ResUtilRemoveResourceServiceEnvironment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilRemoveResourceServiceEnvironment(pszservicename: super::super::Foundation::PWSTR, pfnlogevent: ::windows::core::RawPtr, hresourcehandle: isize) -> u32;
         }
@@ -23021,7 +23326,8 @@ pub unsafe fn ResUtilRemoveResourceServiceEnvironment<'a, Param0: ::windows::cor
 pub unsafe fn ResUtilResourceDepEnum(hself: *mut _HRESOURCE, enumtype: u32, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilResourceDepEnum(hself: *mut _HRESOURCE, enumtype: u32, prescallback: ::windows::core::RawPtr, pparameter: *mut ::core::ffi::c_void) -> u32;
         }
@@ -23036,7 +23342,8 @@ pub unsafe fn ResUtilResourceDepEnum(hself: *mut _HRESOURCE, enumtype: u32, pres
 pub unsafe fn ResUtilResourceTypesEqual<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszresourcetypename: Param0, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilResourceTypesEqual(lpszresourcetypename: super::super::Foundation::PWSTR, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
         }
@@ -23051,7 +23358,8 @@ pub unsafe fn ResUtilResourceTypesEqual<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ResUtilResourcesEqual(hself: *mut _HRESOURCE, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilResourcesEqual(hself: *mut _HRESOURCE, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
         }
@@ -23066,7 +23374,8 @@ pub unsafe fn ResUtilResourcesEqual(hself: *mut _HRESOURCE, hresource: *mut _HRE
 pub unsafe fn ResUtilSetBinaryValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, pbnewvalue: *const u8, cbnewvaluesize: u32, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetBinaryValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, pbnewvalue: *const u8, cbnewvaluesize: u32, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32;
         }
@@ -23081,7 +23390,8 @@ pub unsafe fn ResUtilSetBinaryValue<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ResUtilSetDwordValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, dwnewvalue: u32, pdwoutvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetDwordValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, dwnewvalue: u32, pdwoutvalue: *mut u32) -> u32;
         }
@@ -23096,7 +23406,8 @@ pub unsafe fn ResUtilSetDwordValue<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ResUtilSetExpandSzValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, psznewvalue: Param2, ppszoutstring: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetExpandSzValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, psznewvalue: super::super::Foundation::PWSTR, ppszoutstring: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -23111,7 +23422,8 @@ pub unsafe fn ResUtilSetExpandSzValue<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ResUtilSetMultiSzValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, psznewvalue: Param2, cbnewvaluesize: u32, ppszoutvalue: *mut super::super::Foundation::PWSTR, pcboutvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetMultiSzValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, psznewvalue: super::super::Foundation::PWSTR, cbnewvaluesize: u32, ppszoutvalue: *mut super::super::Foundation::PWSTR, pcboutvaluesize: *mut u32) -> u32;
         }
@@ -23126,7 +23438,8 @@ pub unsafe fn ResUtilSetMultiSzValue<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ResUtilSetPrivatePropertyList<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetPrivatePropertyList(hkeyclusterkey: super::super::System::Registry::HKEY, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32;
         }
@@ -23141,7 +23454,8 @@ pub unsafe fn ResUtilSetPrivatePropertyList<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn ResUtilSetPropertyParameterBlock<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetPropertyParameterBlock(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
         }
@@ -23156,7 +23470,8 @@ pub unsafe fn ResUtilSetPropertyParameterBlock<'a, Param0: ::windows::core::Into
 pub unsafe fn ResUtilSetPropertyParameterBlockEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: Param6, poutparams: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetPropertyParameterBlockEx(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32;
         }
@@ -23171,7 +23486,8 @@ pub unsafe fn ResUtilSetPropertyParameterBlockEx<'a, Param0: ::windows::core::In
 pub unsafe fn ResUtilSetPropertyTable<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: Param3, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetPropertyTable(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
         }
@@ -23186,7 +23502,8 @@ pub unsafe fn ResUtilSetPropertyTable<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ResUtilSetPropertyTableEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: Param3, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: Param6, poutparams: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetPropertyTableEx(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32;
         }
@@ -23201,7 +23518,8 @@ pub unsafe fn ResUtilSetPropertyTableEx<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ResUtilSetQwordValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, qwnewvalue: u64, pqwoutvalue: *mut u64) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetQwordValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, qwnewvalue: u64, pqwoutvalue: *mut u64) -> u32;
         }
@@ -23216,7 +23534,8 @@ pub unsafe fn ResUtilSetQwordValue<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ResUtilSetResourceServiceEnvironment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0, hresource: *mut _HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetResourceServiceEnvironment(pszservicename: super::super::Foundation::PWSTR, hresource: *mut _HRESOURCE, pfnlogevent: ::windows::core::RawPtr, hresourcehandle: isize) -> u32;
         }
@@ -23231,7 +23550,8 @@ pub unsafe fn ResUtilSetResourceServiceEnvironment<'a, Param0: ::windows::core::
 pub unsafe fn ResUtilSetResourceServiceStartParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(pszservicename: Param0, schscmhandle: Param1, phservice: *mut isize, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetResourceServiceStartParameters(pszservicename: super::super::Foundation::PWSTR, schscmhandle: super::super::Security::SC_HANDLE, phservice: *mut isize, pfnlogevent: ::windows::core::RawPtr, hresourcehandle: isize) -> u32;
         }
@@ -23246,7 +23566,8 @@ pub unsafe fn ResUtilSetResourceServiceStartParameters<'a, Param0: ::windows::co
 pub unsafe fn ResUtilSetResourceServiceStartParametersEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(pszservicename: Param0, schscmhandle: Param1, phservice: *mut isize, dwdesiredaccess: u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetResourceServiceStartParametersEx(pszservicename: super::super::Foundation::PWSTR, schscmhandle: super::super::Security::SC_HANDLE, phservice: *mut isize, dwdesiredaccess: u32, pfnlogevent: ::windows::core::RawPtr, hresourcehandle: isize) -> u32;
         }
@@ -23261,7 +23582,8 @@ pub unsafe fn ResUtilSetResourceServiceStartParametersEx<'a, Param0: ::windows::
 pub unsafe fn ResUtilSetSzValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, psznewvalue: Param2, ppszoutstring: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetSzValue(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, psznewvalue: super::super::Foundation::PWSTR, ppszoutstring: *mut super::super::Foundation::PWSTR) -> u32;
         }
@@ -23276,7 +23598,8 @@ pub unsafe fn ResUtilSetSzValue<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ResUtilSetUnknownProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetUnknownProperties(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32;
         }
@@ -23291,7 +23614,8 @@ pub unsafe fn ResUtilSetUnknownProperties<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ResUtilSetValueEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, valuename: Param1, valuetype: u32, valuedata: *const u8, valuesize: u32, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilSetValueEx(hkeyclusterkey: super::super::System::Registry::HKEY, valuename: super::super::Foundation::PWSTR, valuetype: u32, valuedata: *const u8, valuesize: u32, flags: u32) -> u32;
         }
@@ -23306,7 +23630,8 @@ pub unsafe fn ResUtilSetValueEx<'a, Param0: ::windows::core::IntoParam<'a, super
 pub unsafe fn ResUtilStartResourceService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0, phservicehandle: *mut isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilStartResourceService(pszservicename: super::super::Foundation::PWSTR, phservicehandle: *mut isize) -> u32;
         }
@@ -23321,7 +23646,8 @@ pub unsafe fn ResUtilStartResourceService<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn ResUtilStopResourceService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilStopResourceService(pszservicename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -23336,7 +23662,8 @@ pub unsafe fn ResUtilStopResourceService<'a, Param0: ::windows::core::IntoParam<
 pub unsafe fn ResUtilStopService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservicehandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilStopService(hservicehandle: super::super::Security::SC_HANDLE) -> u32;
         }
@@ -23351,7 +23678,8 @@ pub unsafe fn ResUtilStopService<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ResUtilTerminateServiceProcessFromResDll<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwservicepid: u32, boffline: Param1, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilTerminateServiceProcessFromResDll(dwservicepid: u32, boffline: super::super::Foundation::BOOL, pdwresourcestate: *mut u32, pfnlogevent: ::windows::core::RawPtr, hresourcehandle: isize) -> u32;
         }
@@ -23365,7 +23693,8 @@ pub unsafe fn ResUtilTerminateServiceProcessFromResDll<'a, Param1: ::windows::co
 pub unsafe fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32;
         }
@@ -23380,7 +23709,8 @@ pub unsafe fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const ::core::f
 pub unsafe fn ResUtilVerifyPropertyTable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: Param2, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilVerifyPropertyTable(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
         }
@@ -23395,7 +23725,8 @@ pub unsafe fn ResUtilVerifyPropertyTable<'a, Param2: ::windows::core::IntoParam<
 pub unsafe fn ResUtilVerifyResourceService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilVerifyResourceService(pszservicename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -23410,7 +23741,8 @@ pub unsafe fn ResUtilVerifyResourceService<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn ResUtilVerifyService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservicehandle: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilVerifyService(hservicehandle: super::super::Security::SC_HANDLE) -> u32;
         }
@@ -23424,7 +23756,8 @@ pub unsafe fn ResUtilVerifyService<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u32) -> u32;
         }
@@ -23439,7 +23772,8 @@ pub unsafe fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u
 pub unsafe fn ResUtilsDeleteKeyTree<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(key: Param0, keyname: Param1, treatnokeyaserror: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "resutils", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResUtilsDeleteKeyTree(key: super::super::System::Registry::HKEY, keyname: super::super::Foundation::PWSTR, treatnokeyaserror: super::super::Foundation::BOOL) -> u32;
         }
@@ -23453,7 +23787,8 @@ pub unsafe fn ResUtilsDeleteKeyTree<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn ResetAllAppInstanceVersions() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntlanman", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResetAllAppInstanceVersions() -> u32;
         }
@@ -23498,7 +23833,8 @@ impl ::core::default::Default for ResourceUtilizationInfoElement {
 pub unsafe fn RestartClusterResource(hresource: *const _HRESOURCE, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RestartClusterResource(hresource: *const _HRESOURCE, dwflags: u32) -> u32;
         }
@@ -23513,7 +23849,8 @@ pub unsafe fn RestartClusterResource(hresource: *const _HRESOURCE, dwflags: u32)
 pub unsafe fn RestoreClusterDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0, bforce: Param1, lpszquorumdriveletter: Param2) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RestoreClusterDatabase(lpszpathname: super::super::Foundation::PWSTR, bforce: super::super::Foundation::BOOL, lpszquorumdriveletter: super::super::Foundation::PWSTR) -> u32;
         }
@@ -23527,7 +23864,8 @@ pub unsafe fn RestoreClusterDatabase<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ResumeClusterNode(hnode: *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResumeClusterNode(hnode: *const _HNODE) -> u32;
         }
@@ -23541,7 +23879,8 @@ pub unsafe fn ResumeClusterNode(hnode: *const _HNODE) -> u32 {
 pub unsafe fn ResumeClusterNodeEx(hnode: *const _HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ResumeClusterNodeEx(hnode: *const _HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32;
         }
@@ -24053,7 +24392,8 @@ pub const STARTUP_ROUTINE: &'static str = "Startup";
 pub unsafe fn SetAppInstanceCsvFlags<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(processhandle: Param0, mask: u32, flags: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "ntlanman", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetAppInstanceCsvFlags(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32;
         }
@@ -24068,7 +24408,8 @@ pub unsafe fn SetAppInstanceCsvFlags<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetClusterGroupName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const _HGROUP, lpszgroupname: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetClusterGroupName(hgroup: *const _HGROUP, lpszgroupname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -24082,7 +24423,8 @@ pub unsafe fn SetClusterGroupName<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn SetClusterGroupNodeList(hgroup: *const _HGROUP, nodecount: u32, nodelist: *const *const _HNODE) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetClusterGroupNodeList(hgroup: *const _HGROUP, nodecount: u32, nodelist: *const *const _HNODE) -> u32;
         }
@@ -24097,7 +24439,8 @@ pub unsafe fn SetClusterGroupNodeList(hgroup: *const _HGROUP, nodecount: u32, no
 pub unsafe fn SetClusterGroupSetDependencyExpression<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroupset: *const _HGROUPSET, lpszdependencyexprssion: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetClusterGroupSetDependencyExpression(hgroupset: *const _HGROUPSET, lpszdependencyexprssion: super::super::Foundation::PWSTR) -> u32;
         }
@@ -24112,7 +24455,8 @@ pub unsafe fn SetClusterGroupSetDependencyExpression<'a, Param1: ::windows::core
 pub unsafe fn SetClusterName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznewclustername: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetClusterName(hcluster: *const _HCLUSTER, lpsznewclustername: super::super::Foundation::PWSTR) -> u32;
         }
@@ -24127,7 +24471,8 @@ pub unsafe fn SetClusterName<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SetClusterNetworkName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hnetwork: *const _HNETWORK, lpszname: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetClusterNetworkName(hnetwork: *const _HNETWORK, lpszname: super::super::Foundation::PWSTR) -> u32;
         }
@@ -24141,7 +24486,8 @@ pub unsafe fn SetClusterNetworkName<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn SetClusterNetworkPriorityOrder(hcluster: *const _HCLUSTER, networkcount: u32, networklist: *const *const _HNETWORK) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetClusterNetworkPriorityOrder(hcluster: *const _HCLUSTER, networkcount: u32, networklist: *const *const _HNETWORK) -> u32;
         }
@@ -24156,7 +24502,8 @@ pub unsafe fn SetClusterNetworkPriorityOrder(hcluster: *const _HCLUSTER, network
 pub unsafe fn SetClusterQuorumResource<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hresource: *const _HRESOURCE, lpszdevicename: Param1, dwmaxquologsize: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetClusterQuorumResource(hresource: *const _HRESOURCE, lpszdevicename: super::super::Foundation::PWSTR, dwmaxquologsize: u32) -> u32;
         }
@@ -24171,7 +24518,8 @@ pub unsafe fn SetClusterQuorumResource<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn SetClusterResourceDependencyExpression<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hresource: *const _HRESOURCE, lpszdependencyexpression: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetClusterResourceDependencyExpression(hresource: *const _HRESOURCE, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
         }
@@ -24186,7 +24534,8 @@ pub unsafe fn SetClusterResourceDependencyExpression<'a, Param1: ::windows::core
 pub unsafe fn SetClusterResourceName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hresource: *const _HRESOURCE, lpszresourcename: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetClusterResourceName(hresource: *const _HRESOURCE, lpszresourcename: super::super::Foundation::PWSTR) -> u32;
         }
@@ -24201,7 +24550,8 @@ pub unsafe fn SetClusterResourceName<'a, Param1: ::windows::core::IntoParam<'a, 
 pub unsafe fn SetClusterServiceAccountPassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszclustername: Param0, lpsznewpassword: Param1, dwflags: u32, lpreturnstatusbuffer: *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetClusterServiceAccountPassword(lpszclustername: super::super::Foundation::PWSTR, lpsznewpassword: super::super::Foundation::PWSTR, dwflags: u32, lpreturnstatusbuffer: *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: *mut u32) -> u32;
         }
@@ -24216,7 +24566,8 @@ pub unsafe fn SetClusterServiceAccountPassword<'a, Param0: ::windows::core::Into
 pub unsafe fn SetGroupDependencyExpression<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const _HGROUP, lpszdependencyexpression: Param1) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "clusapi", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetGroupDependencyExpression(hgroup: *const _HGROUP, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
         }

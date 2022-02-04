@@ -158,7 +158,8 @@ impl ::core::default::Default for ADRPARM {
 pub unsafe fn BuildDisplayTable<'a, Param3: ::windows::core::IntoParam<'a, super::Com::IMalloc>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: Param3, hinstance: Param4, cpages: u32, lppage: *mut DTPAGE, ulflags: u32, lpptable: *mut ::core::option::Option<IMAPITable>, lpptbldata: *mut ::core::option::Option<ITableData>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BuildDisplayTable(lpallocatebuffer: ::windows::core::RawPtr, lpallocatemore: ::windows::core::RawPtr, lpfreebuffer: ::windows::core::RawPtr, lpmalloc: ::windows::core::RawPtr, hinstance: super::super::Foundation::HINSTANCE, cpages: u32, lppage: *mut DTPAGE, ulflags: u32, lpptable: *mut ::windows::core::RawPtr, lpptbldata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -175,7 +176,8 @@ pub type CALLERRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcall
 pub unsafe fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: ::windows::core::RawPtr, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16);
         }
@@ -189,7 +191,8 @@ pub unsafe fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: PFNIDLE
 pub unsafe fn CreateIProp(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, lpppropdata: *mut ::core::option::Option<IPropData>) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateIProp(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: ::windows::core::RawPtr, lpallocatemore: ::windows::core::RawPtr, lpfreebuffer: ::windows::core::RawPtr, lpvreserved: *mut ::core::ffi::c_void, lpppropdata: *mut ::windows::core::RawPtr) -> i32;
         }
@@ -203,7 +206,8 @@ pub unsafe fn CreateIProp(lpinterface: *mut ::windows::core::GUID, lpallocatebuf
 pub unsafe fn CreateTable(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut ::core::option::Option<ITableData>) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateTable(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: ::windows::core::RawPtr, lpallocatemore: ::windows::core::RawPtr, lpfreebuffer: ::windows::core::RawPtr, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut ::windows::core::RawPtr) -> i32;
         }
@@ -726,7 +730,8 @@ impl ::core::default::Default for DTPAGE_0 {
 pub unsafe fn DeinitMapiUtil() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeinitMapiUtil();
         }
@@ -740,7 +745,8 @@ pub unsafe fn DeinitMapiUtil() {
 pub unsafe fn DeregisterIdleRoutine(ftg: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DeregisterIdleRoutine(ftg: *mut ::core::ffi::c_void);
         }
@@ -1020,7 +1026,8 @@ pub const E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE: ::windows::core::HRESULT = ::
 pub unsafe fn EnableIdleRoutine<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ftg: *mut ::core::ffi::c_void, fenable: Param1) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnableIdleRoutine(ftg: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL);
         }
@@ -1037,7 +1044,8 @@ pub const FACILITY_IMAPI2: u32 = 170u32;
 pub unsafe fn FEqualNames(lpname1: *mut MAPINAMEID, lpname2: *mut MAPINAMEID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FEqualNames(lpname1: *mut MAPINAMEID, lpname2: *mut MAPINAMEID) -> super::super::Foundation::BOOL;
         }
@@ -1150,7 +1158,8 @@ pub type FNIDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut 
 pub unsafe fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lpspropvalue2: *mut SPropValue) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lpspropvalue2: *mut SPropValue) -> super::super::Foundation::BOOL;
         }
@@ -1165,7 +1174,8 @@ pub unsafe fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lps
 pub unsafe fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, ulfuzzylevel: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, ulfuzzylevel: u32) -> super::super::Foundation::BOOL;
         }
@@ -1180,7 +1190,8 @@ pub unsafe fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesr
 pub unsafe fn FPropExists<'a, Param0: ::windows::core::IntoParam<'a, IMAPIProp>>(lpmapiprop: Param0, ulproptag: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FPropExists(lpmapiprop: ::windows::core::RawPtr, ulproptag: u32) -> super::super::Foundation::BOOL;
         }
@@ -1195,7 +1206,8 @@ pub unsafe fn FPropExists<'a, Param0: ::windows::core::IntoParam<'a, IMAPIProp>>
 pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreePadrlist(lpadrlist: *mut ADRLIST);
         }
@@ -1210,7 +1222,8 @@ pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
 pub unsafe fn FreeProws(lprows: *mut SRowSet) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FreeProws(lprows: *mut SRowSet);
         }
@@ -1225,7 +1238,8 @@ pub unsafe fn FreeProws(lprows: *mut SRowSet) {
 pub unsafe fn FtAddFt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(ftaddend1: Param0, ftaddend2: Param1) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FtAddFt(ftaddend1: super::super::Foundation::FILETIME, ftaddend2: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME;
         }
@@ -1240,7 +1254,8 @@ pub unsafe fn FtAddFt<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn FtMulDw<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(ftmultiplier: u32, ftmultiplicand: Param1) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FtMulDw(ftmultiplier: u32, ftmultiplicand: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME;
         }
@@ -1255,7 +1270,8 @@ pub unsafe fn FtMulDw<'a, Param1: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn FtMulDwDw(ftmultiplicand: u32, ftmultiplier: u32) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FtMulDwDw(ftmultiplicand: u32, ftmultiplier: u32) -> super::super::Foundation::FILETIME;
         }
@@ -1270,7 +1286,8 @@ pub unsafe fn FtMulDwDw(ftmultiplicand: u32, ftmultiplier: u32) -> super::super:
 pub unsafe fn FtNegFt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(ft: Param0) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FtNegFt(ft: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME;
         }
@@ -1285,7 +1302,8 @@ pub unsafe fn FtNegFt<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn FtSubFt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(ftminuend: Param0, ftsubtrahend: Param1) -> super::super::Foundation::FILETIME {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FtSubFt(ftminuend: super::super::Foundation::FILETIME, ftsubtrahend: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME;
         }
@@ -1300,7 +1318,8 @@ pub unsafe fn FtSubFt<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
 pub unsafe fn FtgRegisterIdleRoutine(lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FtgRegisterIdleRoutine(lpfnidle: ::windows::core::RawPtr, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16) -> *mut ::core::ffi::c_void;
         }
@@ -1343,7 +1362,8 @@ impl ::core::fmt::Debug for Gender {
 pub unsafe fn HrAddColumns<'a, Param0: ::windows::core::IntoParam<'a, IMAPITable>>(lptbl: Param0, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HrAddColumns(lptbl: ::windows::core::RawPtr, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: ::windows::core::RawPtr, lpfreebuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1357,7 +1377,8 @@ pub unsafe fn HrAddColumns<'a, Param0: ::windows::core::IntoParam<'a, IMAPITable
 pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::core::IntoParam<'a, IMAPITable>>(lptbl: Param0, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, lpfnfiltercolumns: isize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HrAddColumnsEx(lptbl: ::windows::core::RawPtr, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: ::windows::core::RawPtr, lpfreebuffer: ::windows::core::RawPtr, lpfnfiltercolumns: isize) -> ::windows::core::HRESULT;
         }
@@ -1372,7 +1393,8 @@ pub unsafe fn HrAddColumnsEx<'a, Param0: ::windows::core::IntoParam<'a, IMAPITab
 pub unsafe fn HrAllocAdviseSink(lpfncallback: LPNOTIFCALLBACK, lpvcontext: *mut ::core::ffi::c_void, lppadvisesink: *mut ::core::option::Option<IMAPIAdviseSink>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HrAllocAdviseSink(lpfncallback: ::windows::core::RawPtr, lpvcontext: *mut ::core::ffi::c_void, lppadvisesink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1386,7 +1408,8 @@ pub unsafe fn HrAllocAdviseSink(lpfncallback: LPNOTIFCALLBACK, lpvcontext: *mut 
 pub unsafe fn HrDispatchNotifications(ulflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HrDispatchNotifications(ulflags: u32) -> ::windows::core::HRESULT;
         }
@@ -1401,7 +1424,8 @@ pub unsafe fn HrDispatchNotifications(ulflags: u32) -> ::windows::core::Result<(
 pub unsafe fn HrGetOneProp<'a, Param0: ::windows::core::IntoParam<'a, IMAPIProp>>(lpmapiprop: Param0, ulproptag: u32, lppprop: *mut *mut SPropValue) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HrGetOneProp(lpmapiprop: ::windows::core::RawPtr, ulproptag: u32, lppprop: *mut *mut SPropValue) -> ::windows::core::HRESULT;
         }
@@ -1416,7 +1440,8 @@ pub unsafe fn HrGetOneProp<'a, Param0: ::windows::core::IntoParam<'a, IMAPIProp>
 pub unsafe fn HrIStorageFromStream<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(lpunkin: Param0, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lppstorageout: *mut ::core::option::Option<super::Com::StructuredStorage::IStorage>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HrIStorageFromStream(lpunkin: *mut ::core::ffi::c_void, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lppstorageout: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -1431,7 +1456,8 @@ pub unsafe fn HrIStorageFromStream<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub unsafe fn HrQueryAllRows<'a, Param0: ::windows::core::IntoParam<'a, IMAPITable>>(lptable: Param0, lpproptags: *mut SPropTagArray, lprestriction: *mut SRestriction, lpsortorderset: *mut SSortOrderSet, crowsmax: i32, lpprows: *mut *mut SRowSet) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HrQueryAllRows(lptable: ::windows::core::RawPtr, lpproptags: *mut SPropTagArray, lprestriction: *mut SRestriction, lpsortorderset: *mut SSortOrderSet, crowsmax: i32, lpprows: *mut *mut SRowSet) -> ::windows::core::HRESULT;
         }
@@ -1446,7 +1472,8 @@ pub unsafe fn HrQueryAllRows<'a, Param0: ::windows::core::IntoParam<'a, IMAPITab
 pub unsafe fn HrSetOneProp<'a, Param0: ::windows::core::IntoParam<'a, IMAPIProp>>(lpmapiprop: Param0, lpprop: *mut SPropValue) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HrSetOneProp(lpmapiprop: ::windows::core::RawPtr, lpprop: *mut SPropValue) -> ::windows::core::HRESULT;
         }
@@ -1460,7 +1487,8 @@ pub unsafe fn HrSetOneProp<'a, Param0: ::windows::core::IntoParam<'a, IMAPIProp>
 pub unsafe fn HrThisThreadAdviseSink<'a, Param0: ::windows::core::IntoParam<'a, IMAPIAdviseSink>>(lpadvisesink: Param0) -> ::windows::core::Result<IMAPIAdviseSink> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HrThisThreadAdviseSink(lpadvisesink: ::windows::core::RawPtr, lppadvisesink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -4718,7 +4746,8 @@ pub type LPWABOPENEX = ::core::option::Option<unsafe extern "system" fn(lppadrbo
 pub unsafe fn LPropCompareProp(lpspropvaluea: *mut SPropValue, lpspropvalueb: *mut SPropValue) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LPropCompareProp(lpspropvaluea: *mut SPropValue, lpspropvalueb: *mut SPropValue) -> i32;
         }
@@ -4733,7 +4762,8 @@ pub unsafe fn LPropCompareProp(lpspropvaluea: *mut SPropValue, lpspropvalueb: *m
 pub unsafe fn LpValFindProp(ulproptag: u32, cvalues: u32, lpproparray: *mut SPropValue) -> *mut SPropValue {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LpValFindProp(ulproptag: u32, cvalues: u32, lpproparray: *mut SPropValue) -> *mut SPropValue;
         }
@@ -4747,7 +4777,8 @@ pub unsafe fn LpValFindProp(ulproptag: u32, cvalues: u32, lpproparray: *mut SPro
 pub unsafe fn MAPIDeinitIdle() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MAPIDeinitIdle();
         }
@@ -4796,7 +4827,8 @@ impl ::core::default::Default for MAPIERROR {
 pub unsafe fn MAPIGetDefaultMalloc() -> ::core::option::Option<super::Com::IMalloc> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MAPIGetDefaultMalloc() -> ::core::option::Option<super::Com::IMalloc>;
         }
@@ -4810,7 +4842,8 @@ pub unsafe fn MAPIGetDefaultMalloc() -> ::core::option::Option<super::Com::IMall
 pub unsafe fn MAPIInitIdle(lpvreserved: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MAPIInitIdle(lpvreserved: *mut ::core::ffi::c_void) -> i32;
         }
@@ -5174,7 +5207,8 @@ pub const OPENSTREAMONFILE: &'static str = "OpenStreamOnFile";
 pub unsafe fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8) -> ::windows::core::Result<super::Com::IStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenStreamOnFile(lpallocatebuffer: ::windows::core::RawPtr, lpfreebuffer: ::windows::core::RawPtr, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -5207,7 +5241,8 @@ pub const PROP_ID_SECURE_MIN: u32 = 26608u32;
 pub unsafe fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulproptag: u32) -> *mut SPropValue {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulproptag: u32) -> *mut SPropValue;
         }
@@ -5222,7 +5257,8 @@ pub unsafe fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulpropta
 pub unsafe fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, lpfallocmore: LPALLOCATEMORE, lpvobject: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, lpfallocmore: ::windows::core::RawPtr, lpvobject: *mut ::core::ffi::c_void) -> i32;
         }
@@ -5237,7 +5273,8 @@ pub unsafe fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *
 pub unsafe fn RTFSync<'a, Param0: ::windows::core::IntoParam<'a, IMessage>>(lpmessage: Param0, ulflags: u32, lpfmessageupdated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RTFSync(lpmessage: ::windows::core::RawPtr, ulflags: u32, lpfmessageupdated: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -6494,7 +6531,8 @@ pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::c
 pub unsafe fn ScCopyNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScCopyNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32;
         }
@@ -6509,7 +6547,8 @@ pub unsafe fn ScCopyNotifications(cnotification: i32, lpnotifications: *mut NOTI
 pub unsafe fn ScCopyProps(cvalues: i32, lpproparray: *mut SPropValue, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScCopyProps(cvalues: i32, lpproparray: *mut SPropValue, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32;
         }
@@ -6524,7 +6563,8 @@ pub unsafe fn ScCopyProps(cvalues: i32, lpproparray: *mut SPropValue, lpvdst: *m
 pub unsafe fn ScCountNotifications(cnotifications: i32, lpnotifications: *mut NOTIFICATION, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScCountNotifications(cnotifications: i32, lpnotifications: *mut NOTIFICATION, lpcb: *mut u32) -> i32;
         }
@@ -6539,7 +6579,8 @@ pub unsafe fn ScCountNotifications(cnotifications: i32, lpnotifications: *mut NO
 pub unsafe fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32;
         }
@@ -6553,7 +6594,8 @@ pub unsafe fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mu
 pub unsafe fn ScCreateConversationIndex(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScCreateConversationIndex(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32;
         }
@@ -6568,7 +6610,8 @@ pub unsafe fn ScCreateConversationIndex(cbparent: u32, lpbparent: *mut u8, lpcbc
 pub unsafe fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: LPALLOCATEBUFFER, lppproparray: *mut *mut SPropValue) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: ::windows::core::RawPtr, lppproparray: *mut *mut SPropValue) -> i32;
         }
@@ -6582,7 +6625,8 @@ pub unsafe fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocat
 pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScInitMapiUtil(ulflags: u32) -> i32;
         }
@@ -6597,7 +6641,8 @@ pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
 pub unsafe fn ScLocalPathFromUNC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszunc: Param0, lpszlocal: Param1, cchlocal: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScLocalPathFromUNC(lpszunc: super::super::Foundation::PSTR, lpszlocal: super::super::Foundation::PSTR, cchlocal: u32) -> i32;
         }
@@ -6612,7 +6657,8 @@ pub unsafe fn ScLocalPathFromUNC<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn ScRelocNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScRelocNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32;
         }
@@ -6627,7 +6673,8 @@ pub unsafe fn ScRelocNotifications(cnotification: i32, lpnotifications: *mut NOT
 pub unsafe fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32;
         }
@@ -6642,7 +6689,8 @@ pub unsafe fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseol
 pub unsafe fn ScUNCFromLocalPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszlocal: Param0, lpszunc: Param1, cchunc: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ScUNCFromLocalPath(lpszlocal: super::super::Foundation::PSTR, lpszunc: super::super::Foundation::PSTR, cchunc: u32) -> i32;
         }
@@ -6656,7 +6704,8 @@ pub unsafe fn ScUNCFromLocalPath<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8;
         }
@@ -6670,7 +6719,8 @@ pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
 pub unsafe fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8;
         }
@@ -6684,7 +6734,8 @@ pub unsafe fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
 pub unsafe fn SzFindSz(lpsz: *mut i8, lpszkey: *mut i8) -> *mut i8 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SzFindSz(lpsz: *mut i8, lpszkey: *mut i8) -> *mut i8;
         }
@@ -6755,7 +6806,8 @@ pub const TAD_ALL_ROWS: u32 = 1u32;
 pub unsafe fn UFromSz(lpsz: *mut i8) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UFromSz(lpsz: *mut i8) -> u32;
         }
@@ -6773,7 +6825,8 @@ pub const UI_SERVICE: u32 = 2u32;
 pub unsafe fn UlAddRef(lpunk: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UlAddRef(lpunk: *mut ::core::ffi::c_void) -> u32;
         }
@@ -6788,7 +6841,8 @@ pub unsafe fn UlAddRef(lpunk: *mut ::core::ffi::c_void) -> u32 {
 pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32;
         }
@@ -6802,7 +6856,8 @@ pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
 pub unsafe fn UlRelease(lpunk: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UlRelease(lpunk: *mut ::core::ffi::c_void) -> u32;
         }
@@ -6983,7 +7038,8 @@ pub const WAB_VCARD_STREAM: u32 = 1u32;
 pub unsafe fn WrapCompressedRTFStream<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>>(lpcompressedrtfstream: Param0, ulflags: u32) -> ::windows::core::Result<super::Com::IStream> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WrapCompressedRTFStream(lpcompressedrtfstream: ::windows::core::RawPtr, ulflags: u32, lpuncompressedrtfstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -6998,7 +7054,8 @@ pub unsafe fn WrapCompressedRTFStream<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry: u32, lporigentry: *const ENTRYID, lpcbwrappedentry: *mut u32, lppwrappedentry: *mut *mut ENTRYID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry: u32, lporigentry: *const ENTRYID, lpcbwrappedentry: *mut u32, lppwrappedentry: *mut *mut ENTRYID) -> ::windows::core::HRESULT;
         }

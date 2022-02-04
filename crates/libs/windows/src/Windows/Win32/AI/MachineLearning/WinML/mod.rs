@@ -1313,7 +1313,8 @@ pub struct IWinMLRuntimeFactory_Vtbl {
 pub unsafe fn MLCreateOperatorRegistry() -> ::windows::core::Result<IMLOperatorRegistry> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "windows.ai.machinelearning", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MLCreateOperatorRegistry(registry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -2757,7 +2758,8 @@ impl ::core::default::Default for WINML_VARIABLE_DESC_0 {
 pub unsafe fn WinMLCreateRuntime() -> ::windows::core::Result<IWinMLRuntime> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "winml", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn WinMLCreateRuntime(runtime: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }

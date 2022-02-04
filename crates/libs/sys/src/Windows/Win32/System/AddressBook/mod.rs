@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "mapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -9,8 +10,6 @@ extern "system" {
     pub fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16);
     #[doc = "*Required features: 'Win32_System_AddressBook'*"]
     pub fn CreateIProp(lpinterface: *mut ::windows_sys::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, lpppropdata: *mut IPropData) -> i32;
-    #[doc = "*Required features: 'Win32_System_AddressBook'*"]
-    pub fn CreateTable(lpinterface: *mut ::windows_sys::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut ITableData) -> i32;
     #[doc = "*Required features: 'Win32_System_AddressBook'*"]
     pub fn DeinitMapiUtil();
     #[doc = "*Required features: 'Win32_System_AddressBook'*"]
@@ -153,6 +152,12 @@ extern "system" {
     pub fn WrapCompressedRTFStream(lpcompressedrtfstream: super::Com::IStream, ulflags: u32, lpuncompressedrtfstream: *mut super::Com::IStream) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_AddressBook'*"]
     pub fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry: u32, lporigentry: *const ENTRYID, lpcbwrappedentry: *mut u32, lppwrappedentry: *mut *mut ENTRYID) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "rtm", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_AddressBook'*"]
+    pub fn CreateTable(lpinterface: *mut ::windows_sys::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut ITableData) -> i32;
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation', 'Win32_System_Com'*"]

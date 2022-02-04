@@ -482,7 +482,8 @@ impl ::core::default::Default for BUTTON_SPLITINFO {
 pub unsafe fn BeginBufferedAnimation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hwnd: Param0, hdctarget: Param1, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: *const BP_PAINTPARAMS, panimationparams: *const BP_ANIMATIONPARAMS, phdcfrom: *mut super::super::Graphics::Gdi::HDC, phdcto: *mut super::super::Graphics::Gdi::HDC) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BeginBufferedAnimation(hwnd: super::super::Foundation::HWND, hdctarget: super::super::Graphics::Gdi::HDC, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: *const BP_PAINTPARAMS, panimationparams: *const BP_ANIMATIONPARAMS, phdcfrom: *mut super::super::Graphics::Gdi::HDC, phdcto: *mut super::super::Graphics::Gdi::HDC) -> isize;
         }
@@ -497,7 +498,8 @@ pub unsafe fn BeginBufferedAnimation<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn BeginBufferedPaint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdctarget: Param0, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: *const BP_PAINTPARAMS, phdc: *mut super::super::Graphics::Gdi::HDC) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BeginBufferedPaint(hdctarget: super::super::Graphics::Gdi::HDC, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: *const BP_PAINTPARAMS, phdc: *mut super::super::Graphics::Gdi::HDC) -> isize;
         }
@@ -512,7 +514,8 @@ pub unsafe fn BeginBufferedPaint<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn BeginPanningFeedback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BeginPanningFeedback(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -527,7 +530,8 @@ pub unsafe fn BeginPanningFeedback<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn BufferedPaintClear(hbufferedpaint: isize, prc: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BufferedPaintClear(hbufferedpaint: isize, prc: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -541,7 +545,8 @@ pub unsafe fn BufferedPaintClear(hbufferedpaint: isize, prc: *const super::super
 pub unsafe fn BufferedPaintInit() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BufferedPaintInit() -> ::windows::core::HRESULT;
         }
@@ -556,7 +561,8 @@ pub unsafe fn BufferedPaintInit() -> ::windows::core::Result<()> {
 pub unsafe fn BufferedPaintRenderAnimation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hwnd: Param0, hdctarget: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BufferedPaintRenderAnimation(hwnd: super::super::Foundation::HWND, hdctarget: super::super::Graphics::Gdi::HDC) -> super::super::Foundation::BOOL;
         }
@@ -571,7 +577,8 @@ pub unsafe fn BufferedPaintRenderAnimation<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn BufferedPaintSetAlpha(hbufferedpaint: isize, prc: *const super::super::Foundation::RECT, alpha: u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BufferedPaintSetAlpha(hbufferedpaint: isize, prc: *const super::super::Foundation::RECT, alpha: u8) -> ::windows::core::HRESULT;
         }
@@ -586,7 +593,8 @@ pub unsafe fn BufferedPaintSetAlpha(hbufferedpaint: isize, prc: *const super::su
 pub unsafe fn BufferedPaintStopAllAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BufferedPaintStopAllAnimations(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -600,7 +608,8 @@ pub unsafe fn BufferedPaintStopAllAnimations<'a, Param0: ::windows::core::IntoPa
 pub unsafe fn BufferedPaintUnInit() -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn BufferedPaintUnInit() -> ::windows::core::HRESULT;
         }
@@ -1516,7 +1525,8 @@ impl ::core::fmt::Debug for CONTENTALIGNMENT {
 pub unsafe fn CheckDlgButton<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, nidbutton: i32, ucheck: DLG_BUTTON_CHECK_STATE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CheckDlgButton(hdlg: super::super::Foundation::HWND, nidbutton: i32, ucheck: DLG_BUTTON_CHECK_STATE) -> super::super::Foundation::BOOL;
         }
@@ -1531,7 +1541,8 @@ pub unsafe fn CheckDlgButton<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn CheckRadioButton<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, nidfirstbutton: i32, nidlastbutton: i32, nidcheckbutton: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CheckRadioButton(hdlg: super::super::Foundation::HWND, nidfirstbutton: i32, nidlastbutton: i32, nidcheckbutton: i32) -> super::super::Foundation::BOOL;
         }
@@ -1545,7 +1556,8 @@ pub unsafe fn CheckRadioButton<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn CloseThemeData(htheme: isize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CloseThemeData(htheme: isize) -> ::windows::core::HRESULT;
         }
@@ -1560,7 +1572,8 @@ pub unsafe fn CloseThemeData(htheme: isize) -> ::windows::core::Result<()> {
 pub unsafe fn CreateMappedBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hinstance: Param0, idbitmap: isize, wflags: u32, lpcolormap: *const COLORMAP, inummaps: i32) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateMappedBitmap(hinstance: super::super::Foundation::HINSTANCE, idbitmap: isize, wflags: u32, lpcolormap: *const COLORMAP, inummaps: i32) -> super::super::Graphics::Gdi::HBITMAP;
         }
@@ -1575,7 +1588,8 @@ pub unsafe fn CreateMappedBitmap<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn CreatePropertySheetPageA(constpropsheetpagepointer: *mut PROPSHEETPAGEA) -> HPROPSHEETPAGE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePropertySheetPageA(constpropsheetpagepointer: *mut PROPSHEETPAGEA) -> HPROPSHEETPAGE;
         }
@@ -1590,7 +1604,8 @@ pub unsafe fn CreatePropertySheetPageA(constpropsheetpagepointer: *mut PROPSHEET
 pub unsafe fn CreatePropertySheetPageW(constpropsheetpagepointer: *mut PROPSHEETPAGEW) -> HPROPSHEETPAGE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreatePropertySheetPageW(constpropsheetpagepointer: *mut PROPSHEETPAGEW) -> HPROPSHEETPAGE;
         }
@@ -1605,7 +1620,8 @@ pub unsafe fn CreatePropertySheetPageW(constpropsheetpagepointer: *mut PROPSHEET
 pub unsafe fn CreateStatusWindowA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(style: i32, lpsztext: Param1, hwndparent: Param2, wid: u32) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateStatusWindowA(style: i32, lpsztext: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, wid: u32) -> super::super::Foundation::HWND;
         }
@@ -1620,7 +1636,8 @@ pub unsafe fn CreateStatusWindowA<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CreateStatusWindowW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(style: i32, lpsztext: Param1, hwndparent: Param2, wid: u32) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateStatusWindowW(style: i32, lpsztext: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, wid: u32) -> super::super::Foundation::HWND;
         }
@@ -1635,7 +1652,8 @@ pub unsafe fn CreateStatusWindowW<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, maxcount: u32, mode: POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, maxcount: u32, mode: POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE;
         }
@@ -1650,7 +1668,8 @@ pub unsafe fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessagi
 pub unsafe fn CreateToolbarEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hwnd: Param0, ws: u32, wid: u32, nbitmaps: i32, hbminst: Param4, wbmid: usize, lpbuttons: *mut TBBUTTON, inumbuttons: i32, dxbutton: i32, dybutton: i32, dxbitmap: i32, dybitmap: i32, ustructsize: u32) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateToolbarEx(hwnd: super::super::Foundation::HWND, ws: u32, wid: u32, nbitmaps: i32, hbminst: super::super::Foundation::HINSTANCE, wbmid: usize, lpbuttons: *mut TBBUTTON, inumbuttons: i32, dxbutton: i32, dybutton: i32, dxbitmap: i32, dybitmap: i32, ustructsize: u32) -> super::super::Foundation::HWND;
         }
@@ -1665,7 +1684,8 @@ pub unsafe fn CreateToolbarEx<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn CreateUpDownControl<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: Param5, nid: i32, hinst: Param7, hbuddy: Param8, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn CreateUpDownControl(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: super::super::Foundation::HWND, nid: i32, hinst: super::super::Foundation::HINSTANCE, hbuddy: super::super::Foundation::HWND, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND;
         }
@@ -1958,7 +1978,8 @@ pub const DPA_APPEND: u32 = 2147483647u32;
 pub unsafe fn DPA_Clone<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param1: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0, hdpanew: Param1) -> HDPA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_Clone(hdpa: HDPA, hdpanew: HDPA) -> HDPA;
         }
@@ -1972,7 +1993,8 @@ pub unsafe fn DPA_Clone<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param1
 pub unsafe fn DPA_Create(citemgrow: i32) -> HDPA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_Create(citemgrow: i32) -> HDPA;
         }
@@ -1987,7 +2009,8 @@ pub unsafe fn DPA_Create(citemgrow: i32) -> HDPA {
 pub unsafe fn DPA_CreateEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(cpgrow: i32, hheap: Param1) -> HDPA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_CreateEx(cpgrow: i32, hheap: super::super::Foundation::HANDLE) -> HDPA;
         }
@@ -2002,7 +2025,8 @@ pub unsafe fn DPA_CreateEx<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn DPA_DeleteAllPtrs<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_DeleteAllPtrs(hdpa: HDPA) -> super::super::Foundation::BOOL;
         }
@@ -2016,7 +2040,8 @@ pub unsafe fn DPA_DeleteAllPtrs<'a, Param0: ::windows::core::IntoParam<'a, HDPA>
 pub unsafe fn DPA_DeletePtr<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0, i: i32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_DeletePtr(hdpa: HDPA, i: i32) -> *mut ::core::ffi::c_void;
         }
@@ -2031,7 +2056,8 @@ pub unsafe fn DPA_DeletePtr<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hd
 pub unsafe fn DPA_Destroy<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_Destroy(hdpa: HDPA) -> super::super::Foundation::BOOL;
         }
@@ -2045,7 +2071,8 @@ pub unsafe fn DPA_Destroy<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa
 pub unsafe fn DPA_DestroyCallback<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0, pfncb: PFNDAENUMCALLBACK, pdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_DestroyCallback(hdpa: HDPA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
         }
@@ -2061,7 +2088,8 @@ pub const DPA_ERR: i32 = -1i32;
 pub unsafe fn DPA_EnumCallback<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0, pfncb: PFNDAENUMCALLBACK, pdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_EnumCallback(hdpa: HDPA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
         }
@@ -2075,7 +2103,8 @@ pub unsafe fn DPA_EnumCallback<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>
 pub unsafe fn DPA_GetPtr<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0, i: isize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_GetPtr(hdpa: HDPA, i: isize) -> *mut ::core::ffi::c_void;
         }
@@ -2089,7 +2118,8 @@ pub unsafe fn DPA_GetPtr<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa:
 pub unsafe fn DPA_GetPtrIndex<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0, p: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_GetPtrIndex(hdpa: HDPA, p: *const ::core::ffi::c_void) -> i32;
         }
@@ -2103,7 +2133,8 @@ pub unsafe fn DPA_GetPtrIndex<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(
 pub unsafe fn DPA_GetSize<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_GetSize(hdpa: HDPA) -> u64;
         }
@@ -2118,7 +2149,8 @@ pub unsafe fn DPA_GetSize<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa
 pub unsafe fn DPA_Grow<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(pdpa: Param0, cp: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_Grow(pdpa: HDPA, cp: i32) -> super::super::Foundation::BOOL;
         }
@@ -2132,7 +2164,8 @@ pub unsafe fn DPA_Grow<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(pdpa: P
 pub unsafe fn DPA_InsertPtr<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0, i: i32, p: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_InsertPtr(hdpa: HDPA, i: i32, p: *const ::core::ffi::c_void) -> i32;
         }
@@ -2147,7 +2180,8 @@ pub unsafe fn DPA_InsertPtr<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hd
 pub unsafe fn DPA_LoadStream<'a, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(phdpa: *mut HDPA, pfn: PFNDPASTREAM, pstream: Param2, pvinstdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_LoadStream(phdpa: *mut HDPA, pfn: ::windows::core::RawPtr, pstream: ::windows::core::RawPtr, pvinstdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2162,7 +2196,8 @@ pub unsafe fn DPA_LoadStream<'a, Param2: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DPA_Merge<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param1: ::windows::core::IntoParam<'a, HDPA>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdpadest: Param0, hdpasrc: Param1, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: u32, pfncompare: ::windows::core::RawPtr, pfnmerge: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
@@ -2177,7 +2212,8 @@ pub unsafe fn DPA_Merge<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param1
 pub unsafe fn DPA_SaveStream<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(hdpa: Param0, pfn: PFNDPASTREAM, pstream: Param2, pvinstdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_SaveStream(hdpa: HDPA, pfn: ::windows::core::RawPtr, pstream: ::windows::core::RawPtr, pvinstdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -2192,7 +2228,8 @@ pub unsafe fn DPA_SaveStream<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, P
 pub unsafe fn DPA_Search<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdpa: Param0, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: PFNDACOMPARE, lparam: Param4, options: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_Search(hdpa: HDPA, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM, options: u32) -> i32;
         }
@@ -2207,7 +2244,8 @@ pub unsafe fn DPA_Search<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param
 pub unsafe fn DPA_SetPtr<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa: Param0, i: i32, p: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_SetPtr(hdpa: HDPA, i: i32, p: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2222,7 +2260,8 @@ pub unsafe fn DPA_SetPtr<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>(hdpa:
 pub unsafe fn DPA_Sort<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdpa: Param0, pfncompare: PFNDACOMPARE, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DPA_Sort(hdpa: HDPA, pfncompare: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
@@ -2451,7 +2490,8 @@ pub const DSA_APPEND: u32 = 2147483647u32;
 pub unsafe fn DSA_Clone<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0) -> HDSA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_Clone(hdsa: HDSA) -> HDSA;
         }
@@ -2465,7 +2505,8 @@ pub unsafe fn DSA_Clone<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: 
 pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA;
         }
@@ -2480,7 +2521,8 @@ pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA {
 pub unsafe fn DSA_DeleteAllItems<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_DeleteAllItems(hdsa: HDSA) -> super::super::Foundation::BOOL;
         }
@@ -2495,7 +2537,8 @@ pub unsafe fn DSA_DeleteAllItems<'a, Param0: ::windows::core::IntoParam<'a, HDSA
 pub unsafe fn DSA_DeleteItem<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0, i: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_DeleteItem(hdsa: HDSA, i: i32) -> super::super::Foundation::BOOL;
         }
@@ -2510,7 +2553,8 @@ pub unsafe fn DSA_DeleteItem<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(h
 pub unsafe fn DSA_Destroy<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_Destroy(hdsa: HDSA) -> super::super::Foundation::BOOL;
         }
@@ -2524,7 +2568,8 @@ pub unsafe fn DSA_Destroy<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa
 pub unsafe fn DSA_DestroyCallback<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0, pfncb: PFNDAENUMCALLBACK, pdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_DestroyCallback(hdsa: HDSA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
         }
@@ -2540,7 +2585,8 @@ pub const DSA_ERR: i32 = -1i32;
 pub unsafe fn DSA_EnumCallback<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0, pfncb: PFNDAENUMCALLBACK, pdata: *const ::core::ffi::c_void) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_EnumCallback(hdsa: HDSA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
         }
@@ -2555,7 +2601,8 @@ pub unsafe fn DSA_EnumCallback<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>
 pub unsafe fn DSA_GetItem<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0, i: i32, pitem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_GetItem(hdsa: HDSA, i: i32, pitem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2569,7 +2616,8 @@ pub unsafe fn DSA_GetItem<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa
 pub unsafe fn DSA_GetItemPtr<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0, i: i32) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_GetItemPtr(hdsa: HDSA, i: i32) -> *mut ::core::ffi::c_void;
         }
@@ -2583,7 +2631,8 @@ pub unsafe fn DSA_GetItemPtr<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(h
 pub unsafe fn DSA_GetSize<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0) -> u64 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_GetSize(hdsa: HDSA) -> u64;
         }
@@ -2597,7 +2646,8 @@ pub unsafe fn DSA_GetSize<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa
 pub unsafe fn DSA_InsertItem<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0, i: i32, pitem: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_InsertItem(hdsa: HDSA, i: i32, pitem: *const ::core::ffi::c_void) -> i32;
         }
@@ -2612,7 +2662,8 @@ pub unsafe fn DSA_InsertItem<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(h
 pub unsafe fn DSA_SetItem<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa: Param0, i: i32, pitem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_SetItem(hdsa: HDSA, i: i32, pitem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -2627,7 +2678,8 @@ pub unsafe fn DSA_SetItem<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>(hdsa
 pub unsafe fn DSA_Sort<'a, Param0: ::windows::core::IntoParam<'a, HDSA>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(pdsa: Param0, pfncompare: PFNDACOMPARE, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DSA_Sort(pdsa: HDSA, pfncompare: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
@@ -2823,7 +2875,8 @@ pub const DTT_GRAYED: u32 = 1u32;
 pub unsafe fn DestroyPropertySheetPage<'a, Param0: ::windows::core::IntoParam<'a, HPROPSHEETPAGE>>(param0: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DestroyPropertySheetPage(param0: HPROPSHEETPAGE) -> super::super::Foundation::BOOL;
         }
@@ -2837,7 +2890,8 @@ pub unsafe fn DestroyPropertySheetPage<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn DestroySyntheticPointerDevice<'a, Param0: ::windows::core::IntoParam<'a, HSYNTHETICPOINTERDEVICE>>(device: Param0) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DestroySyntheticPointerDevice(device: HSYNTHETICPOINTERDEVICE);
         }
@@ -2852,7 +2906,8 @@ pub unsafe fn DestroySyntheticPointerDevice<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn DlgDirListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdlg: Param0, lppathspec: Param1, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DlgDirListA(hdlg: super::super::Foundation::HWND, lppathspec: super::super::Foundation::PSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
         }
@@ -2867,7 +2922,8 @@ pub unsafe fn DlgDirListA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn DlgDirListComboBoxA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdlg: Param0, lppathspec: Param1, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DlgDirListComboBoxA(hdlg: super::super::Foundation::HWND, lppathspec: super::super::Foundation::PSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
         }
@@ -2882,7 +2938,8 @@ pub unsafe fn DlgDirListComboBoxA<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DlgDirListComboBoxW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdlg: Param0, lppathspec: Param1, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DlgDirListComboBoxW(hdlg: super::super::Foundation::HWND, lppathspec: super::super::Foundation::PWSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
         }
@@ -2897,7 +2954,8 @@ pub unsafe fn DlgDirListComboBoxW<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DlgDirListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdlg: Param0, lppathspec: Param1, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DlgDirListW(hdlg: super::super::Foundation::HWND, lppathspec: super::super::Foundation::PWSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
         }
@@ -2912,7 +2970,8 @@ pub unsafe fn DlgDirListW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 pub unsafe fn DlgDirSelectComboBoxExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnddlg: Param0, lpstring: super::super::Foundation::PSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DlgDirSelectComboBoxExA(hwnddlg: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL;
         }
@@ -2927,7 +2986,8 @@ pub unsafe fn DlgDirSelectComboBoxExA<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DlgDirSelectComboBoxExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnddlg: Param0, lpstring: super::super::Foundation::PWSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DlgDirSelectComboBoxExW(hwnddlg: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL;
         }
@@ -2942,7 +3002,8 @@ pub unsafe fn DlgDirSelectComboBoxExW<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn DlgDirSelectExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnddlg: Param0, lpstring: super::super::Foundation::PSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DlgDirSelectExA(hwnddlg: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL;
         }
@@ -2957,7 +3018,8 @@ pub unsafe fn DlgDirSelectExA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DlgDirSelectExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnddlg: Param0, lpstring: super::super::Foundation::PWSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DlgDirSelectExW(hwnddlg: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL;
         }
@@ -2972,7 +3034,8 @@ pub unsafe fn DlgDirSelectExW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DrawInsert<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(handparent: Param0, hlb: Param1, nitem: i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawInsert(handparent: super::super::Foundation::HWND, hlb: super::super::Foundation::HWND, nitem: i32);
         }
@@ -2987,7 +3050,8 @@ pub unsafe fn DrawInsert<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn DrawShadowText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, psztext: Param1, cch: u32, prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: u32, crshadow: u32, ixoffset: i32, iyoffset: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawShadowText(hdc: super::super::Graphics::Gdi::HDC, psztext: super::super::Foundation::PWSTR, cch: u32, prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: u32, crshadow: u32, ixoffset: i32, iyoffset: i32) -> i32;
         }
@@ -3002,7 +3066,8 @@ pub unsafe fn DrawShadowText<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn DrawStatusTextA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lprc: *mut super::super::Foundation::RECT, psztext: Param2, uflags: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawStatusTextA(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: super::super::Foundation::PSTR, uflags: u32);
         }
@@ -3017,7 +3082,8 @@ pub unsafe fn DrawStatusTextA<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DrawStatusTextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lprc: *mut super::super::Foundation::RECT, psztext: Param2, uflags: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawStatusTextW(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: super::super::Foundation::PWSTR, uflags: u32);
         }
@@ -3032,7 +3098,8 @@ pub unsafe fn DrawStatusTextW<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn DrawThemeBackground<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pcliprect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawThemeBackground(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pcliprect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -3047,7 +3114,8 @@ pub unsafe fn DrawThemeBackground<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn DrawThemeBackgroundEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, poptions: *const DTBGOPTS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawThemeBackgroundEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, poptions: *const DTBGOPTS) -> ::windows::core::HRESULT;
         }
@@ -3062,7 +3130,8 @@ pub unsafe fn DrawThemeBackgroundEx<'a, Param1: ::windows::core::IntoParam<'a, s
 pub unsafe fn DrawThemeEdge<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: u32, uflags: u32) -> ::windows::core::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawThemeEdge(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: u32, uflags: u32, pcontentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -3078,7 +3147,8 @@ pub unsafe fn DrawThemeEdge<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DrawThemeIcon<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, HIMAGELIST>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: Param5, iimageindex: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawThemeIcon(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: HIMAGELIST, iimageindex: i32) -> ::windows::core::HRESULT;
         }
@@ -3093,7 +3163,8 @@ pub unsafe fn DrawThemeIcon<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DrawThemeParentBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hwnd: Param0, hdc: Param1, prc: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawThemeParentBackground(hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -3108,7 +3179,8 @@ pub unsafe fn DrawThemeParentBackground<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn DrawThemeParentBackgroundEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hwnd: Param0, hdc: Param1, dwflags: DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawThemeParentBackgroundEx(hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, dwflags: DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -3123,7 +3195,8 @@ pub unsafe fn DrawThemeParentBackgroundEx<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn DrawThemeText<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, psztext: Param4, cchtext: i32, dwtextflags: u32, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawThemeText(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: super::super::Foundation::PWSTR, cchtext: i32, dwtextflags: u32, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -3138,7 +3211,8 @@ pub unsafe fn DrawThemeText<'a, Param1: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn DrawThemeTextEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, psztext: Param4, cchtext: i32, dwtextflags: u32, prect: *mut super::super::Foundation::RECT, poptions: *const DTTOPTS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn DrawThemeTextEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: super::super::Foundation::PWSTR, cchtext: i32, dwtextflags: u32, prect: *mut super::super::Foundation::RECT, poptions: *const DTTOPTS) -> ::windows::core::HRESULT;
         }
@@ -3499,7 +3573,8 @@ pub const ETDT_USETABTEXTURE: u32 = 4u32;
 pub unsafe fn EnableScrollBar<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, wsbflags: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, warrows: ENABLE_SCROLL_BAR_ARROWS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnableScrollBar(hwnd: super::super::Foundation::HWND, wsbflags: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, warrows: ENABLE_SCROLL_BAR_ARROWS) -> super::super::Foundation::BOOL;
         }
@@ -3514,7 +3589,8 @@ pub unsafe fn EnableScrollBar<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn EnableThemeDialogTexture<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnableThemeDialogTexture(hwnd: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::HRESULT;
         }
@@ -3529,7 +3605,8 @@ pub unsafe fn EnableThemeDialogTexture<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn EnableTheming<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fenable: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EnableTheming(fenable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -3544,7 +3621,8 @@ pub unsafe fn EnableTheming<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn EndBufferedAnimation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hbpanimation: isize, fupdatetarget: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EndBufferedAnimation(hbpanimation: isize, fupdatetarget: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -3559,7 +3637,8 @@ pub unsafe fn EndBufferedAnimation<'a, Param1: ::windows::core::IntoParam<'a, su
 pub unsafe fn EndBufferedPaint<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hbufferedpaint: isize, fupdatetarget: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EndBufferedPaint(hbufferedpaint: isize, fupdatetarget: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -3574,7 +3653,8 @@ pub unsafe fn EndBufferedPaint<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn EndPanningFeedback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, fanimateback: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EndPanningFeedback(hwnd: super::super::Foundation::HWND, fanimateback: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -3589,7 +3669,8 @@ pub unsafe fn EndPanningFeedback<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn EvaluateProximityToPolygon(numvertices: u32, controlpolygon: *const super::super::Foundation::POINT, phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvaluateProximityToPolygon(numvertices: u32, controlpolygon: *const super::super::Foundation::POINT, phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::BOOL;
         }
@@ -3604,7 +3685,8 @@ pub unsafe fn EvaluateProximityToPolygon(numvertices: u32, controlpolygon: *cons
 pub unsafe fn EvaluateProximityToRect(controlboundingbox: *const super::super::Foundation::RECT, phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn EvaluateProximityToRect(controlboundingbox: *const super::super::Foundation::RECT, phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::BOOL;
         }
@@ -3715,7 +3797,8 @@ pub const FSB_REGULAR_MODE: u32 = 0u32;
 pub unsafe fn FlatSB_EnableScrollBar<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0, param1: i32, param2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlatSB_EnableScrollBar(param0: super::super::Foundation::HWND, param1: i32, param2: u32) -> super::super::Foundation::BOOL;
         }
@@ -3730,7 +3813,8 @@ pub unsafe fn FlatSB_EnableScrollBar<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn FlatSB_GetScrollInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut super::WindowsAndMessaging::SCROLLINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlatSB_GetScrollInfo(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut super::WindowsAndMessaging::SCROLLINFO) -> super::super::Foundation::BOOL;
         }
@@ -3745,7 +3829,8 @@ pub unsafe fn FlatSB_GetScrollInfo<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FlatSB_GetScrollPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlatSB_GetScrollPos(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS) -> i32;
         }
@@ -3760,7 +3845,8 @@ pub unsafe fn FlatSB_GetScrollPos<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn FlatSB_GetScrollProp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0, propindex: WSB_PROP, param2: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlatSB_GetScrollProp(param0: super::super::Foundation::HWND, propindex: WSB_PROP, param2: *mut i32) -> super::super::Foundation::BOOL;
         }
@@ -3775,7 +3861,8 @@ pub unsafe fn FlatSB_GetScrollProp<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FlatSB_GetScrollRange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut i32, param3: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlatSB_GetScrollRange(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut i32, param3: *mut i32) -> super::super::Foundation::BOOL;
         }
@@ -3790,7 +3877,8 @@ pub unsafe fn FlatSB_GetScrollRange<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn FlatSB_SetScrollInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlatSB_SetScrollInfo(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: super::super::Foundation::BOOL) -> i32;
         }
@@ -3805,7 +3893,8 @@ pub unsafe fn FlatSB_SetScrollInfo<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FlatSB_SetScrollPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlatSB_SetScrollPos(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: super::super::Foundation::BOOL) -> i32;
         }
@@ -3820,7 +3909,8 @@ pub unsafe fn FlatSB_SetScrollPos<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn FlatSB_SetScrollProp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, index: WSB_PROP, newvalue: isize, param3: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlatSB_SetScrollProp(param0: super::super::Foundation::HWND, index: WSB_PROP, newvalue: isize, param3: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -3835,7 +3925,8 @@ pub unsafe fn FlatSB_SetScrollProp<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn FlatSB_SetScrollRange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: Param4) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlatSB_SetScrollRange(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: super::super::Foundation::BOOL) -> i32;
         }
@@ -3850,7 +3941,8 @@ pub unsafe fn FlatSB_SetScrollRange<'a, Param0: ::windows::core::IntoParam<'a, s
 pub unsafe fn FlatSB_ShowScrollBar<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn FlatSB_ShowScrollBar(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -4071,7 +4163,8 @@ impl ::core::fmt::Debug for GRIDCELLUPPERSTATES {
 pub unsafe fn GetBufferedPaintBits(hbufferedpaint: isize, ppbbuffer: *mut *mut super::super::Graphics::Gdi::RGBQUAD, pcxrow: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetBufferedPaintBits(hbufferedpaint: isize, ppbbuffer: *mut *mut super::super::Graphics::Gdi::RGBQUAD, pcxrow: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -4086,7 +4179,8 @@ pub unsafe fn GetBufferedPaintBits(hbufferedpaint: isize, ppbbuffer: *mut *mut s
 pub unsafe fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC;
         }
@@ -4101,7 +4195,8 @@ pub unsafe fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphic
 pub unsafe fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC;
         }
@@ -4116,7 +4211,8 @@ pub unsafe fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::G
 pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: isize) -> ::windows::core::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetBufferedPaintTargetRect(hbufferedpaint: isize, prc: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -4132,7 +4228,8 @@ pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: isize) -> ::windows::co
 pub unsafe fn GetComboBoxInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndcombo: Param0, pcbi: *mut COMBOBOXINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetComboBoxInfo(hwndcombo: super::super::Foundation::HWND, pcbi: *mut COMBOBOXINFO) -> super::super::Foundation::BOOL;
         }
@@ -4147,7 +4244,8 @@ pub unsafe fn GetComboBoxInfo<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetCurrentThemeName(pszthemefilename: super::super::Foundation::PWSTR, cchmaxnamechars: i32, pszcolorbuff: super::super::Foundation::PWSTR, cchmaxcolorchars: i32, pszsizebuff: super::super::Foundation::PWSTR, cchmaxsizechars: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetCurrentThemeName(pszthemefilename: super::super::Foundation::PWSTR, cchmaxnamechars: i32, pszcolorbuff: super::super::Foundation::PWSTR, cchmaxcolorchars: i32, pszsizebuff: super::super::Foundation::PWSTR, cchmaxsizechars: i32) -> ::windows::core::HRESULT;
         }
@@ -4162,7 +4260,8 @@ pub unsafe fn GetCurrentThemeName(pszthemefilename: super::super::Foundation::PW
 pub unsafe fn GetEffectiveClientRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lprc: *mut super::super::Foundation::RECT, lpinfo: *const i32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetEffectiveClientRect(hwnd: super::super::Foundation::HWND, lprc: *mut super::super::Foundation::RECT, lpinfo: *const i32);
         }
@@ -4177,7 +4276,8 @@ pub unsafe fn GetEffectiveClientRect<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn GetListBoxInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetListBoxInfo(hwnd: super::super::Foundation::HWND) -> u32;
         }
@@ -4191,7 +4291,8 @@ pub unsafe fn GetListBoxInfo<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GetMUILanguage() -> u16 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetMUILanguage() -> u16;
         }
@@ -4205,7 +4306,8 @@ pub unsafe fn GetMUILanguage() -> u16 {
 pub unsafe fn GetThemeAnimationProperty(htheme: isize, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: *mut ::core::ffi::c_void, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeAnimationProperty(htheme: isize, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: *mut ::core::ffi::c_void, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4219,7 +4321,8 @@ pub unsafe fn GetThemeAnimationProperty(htheme: isize, istoryboardid: i32, itarg
 pub unsafe fn GetThemeAnimationTransform(htheme: isize, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: *mut TA_TRANSFORM, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeAnimationTransform(htheme: isize, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: *mut TA_TRANSFORM, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4233,7 +4336,8 @@ pub unsafe fn GetThemeAnimationTransform(htheme: isize, istoryboardid: i32, itar
 pub unsafe fn GetThemeAppProperties() -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeAppProperties() -> u32;
         }
@@ -4248,7 +4352,8 @@ pub unsafe fn GetThemeAppProperties() -> u32 {
 pub unsafe fn GetThemeBackgroundContentRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, pboundingrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeBackgroundContentRect(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pboundingrect: *const super::super::Foundation::RECT, pcontentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -4264,7 +4369,8 @@ pub unsafe fn GetThemeBackgroundContentRect<'a, Param1: ::windows::core::IntoPar
 pub unsafe fn GetThemeBackgroundExtent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, pcontentrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeBackgroundExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pcontentrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -4280,7 +4386,8 @@ pub unsafe fn GetThemeBackgroundExtent<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn GetThemeBackgroundRegion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Graphics::Gdi::HRGN> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeBackgroundRegion(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pregion: *mut super::super::Graphics::Gdi::HRGN) -> ::windows::core::HRESULT;
         }
@@ -4296,7 +4403,8 @@ pub unsafe fn GetThemeBackgroundRegion<'a, Param1: ::windows::core::IntoParam<'a
 pub unsafe fn GetThemeBitmap(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, dwflags: GET_THEME_BITMAP_FLAGS) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeBitmap(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, dwflags: GET_THEME_BITMAP_FLAGS, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT;
         }
@@ -4312,7 +4420,8 @@ pub unsafe fn GetThemeBitmap(htheme: isize, ipartid: i32, istateid: i32, ipropid
 pub unsafe fn GetThemeBool(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeBool(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pfval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -4327,7 +4436,8 @@ pub unsafe fn GetThemeBool(htheme: isize, ipartid: i32, istateid: i32, ipropid: 
 pub unsafe fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pcolor: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4343,7 +4453,8 @@ pub unsafe fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid:
 pub unsafe fn GetThemeDocumentationProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszthemename: Param0, pszpropertyname: Param1, pszvaluebuff: super::super::Foundation::PWSTR, cchmaxvalchars: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeDocumentationProperty(pszthemename: super::super::Foundation::PWSTR, pszpropertyname: super::super::Foundation::PWSTR, pszvaluebuff: super::super::Foundation::PWSTR, cchmaxvalchars: i32) -> ::windows::core::HRESULT;
         }
@@ -4357,7 +4468,8 @@ pub unsafe fn GetThemeDocumentationProperty<'a, Param0: ::windows::core::IntoPar
 pub unsafe fn GetThemeEnumValue(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeEnumValue(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -4373,7 +4485,8 @@ pub unsafe fn GetThemeEnumValue(htheme: isize, ipartid: i32, istateid: i32, ipro
 pub unsafe fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: super::super::Foundation::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: super::super::Foundation::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::HRESULT;
         }
@@ -4388,7 +4501,8 @@ pub unsafe fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, iprop
 pub unsafe fn GetThemeFont<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<super::super::Graphics::Gdi::LOGFONTW> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeFont(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: i32, pfont: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT;
         }
@@ -4403,7 +4517,8 @@ pub unsafe fn GetThemeFont<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn GetThemeInt(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeInt(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -4418,7 +4533,8 @@ pub unsafe fn GetThemeInt(htheme: isize, ipartid: i32, istateid: i32, ipropid: i
 pub unsafe fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<INTLIST> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pintlist: *mut INTLIST) -> ::windows::core::HRESULT;
         }
@@ -4434,7 +4550,8 @@ pub unsafe fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropi
 pub unsafe fn GetThemeMargins<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, ipropid: i32, prc: *const super::super::Foundation::RECT) -> ::windows::core::Result<MARGINS> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeMargins(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: i32, prc: *const super::super::Foundation::RECT, pmargins: *mut MARGINS) -> ::windows::core::HRESULT;
         }
@@ -4450,7 +4567,8 @@ pub unsafe fn GetThemeMargins<'a, Param1: ::windows::core::IntoParam<'a, super::
 pub unsafe fn GetThemeMetric<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeMetric(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pival: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -4466,7 +4584,8 @@ pub unsafe fn GetThemeMetric<'a, Param1: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GetThemePartSize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, prc: *const super::super::Foundation::RECT, esize: THEMESIZE) -> ::windows::core::Result<super::super::Foundation::SIZE> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemePartSize(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prc: *const super::super::Foundation::RECT, esize: THEMESIZE, psz: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT;
         }
@@ -4482,7 +4601,8 @@ pub unsafe fn GetThemePartSize<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn GetThemePosition(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<super::super::Foundation::POINT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemePosition(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, ppoint: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT;
         }
@@ -4497,7 +4617,8 @@ pub unsafe fn GetThemePosition(htheme: isize, ipartid: i32, istateid: i32, iprop
 pub unsafe fn GetThemePropertyOrigin(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<PROPERTYORIGIN> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemePropertyOrigin(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, porigin: *mut PROPERTYORIGIN) -> ::windows::core::HRESULT;
         }
@@ -4513,7 +4634,8 @@ pub unsafe fn GetThemePropertyOrigin(htheme: isize, ipartid: i32, istateid: i32,
 pub unsafe fn GetThemeRect(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeRect(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, prect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -4529,7 +4651,8 @@ pub unsafe fn GetThemeRect(htheme: isize, ipartid: i32, istateid: i32, ipropid: 
 pub unsafe fn GetThemeStream<'a, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, ppvstream: *mut *mut ::core::ffi::c_void, pcbstream: *mut u32, hinst: Param6) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeStream(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, ppvstream: *mut *mut ::core::ffi::c_void, pcbstream: *mut u32, hinst: super::super::Foundation::HINSTANCE) -> ::windows::core::HRESULT;
         }
@@ -4544,7 +4667,8 @@ pub unsafe fn GetThemeStream<'a, Param6: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: super::super::Foundation::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: super::super::Foundation::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::HRESULT;
         }
@@ -4559,7 +4683,8 @@ pub unsafe fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid
 pub unsafe fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foundation::BOOL;
         }
@@ -4573,7 +4698,8 @@ pub unsafe fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foun
 pub unsafe fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32;
         }
@@ -4588,7 +4714,8 @@ pub unsafe fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32 {
 pub unsafe fn GetThemeSysColorBrush(htheme: isize, icolorid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Graphics::Gdi::HBRUSH {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeSysColorBrush(htheme: isize, icolorid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Graphics::Gdi::HBRUSH;
         }
@@ -4603,7 +4730,8 @@ pub unsafe fn GetThemeSysColorBrush(htheme: isize, icolorid: THEME_PROPERTY_SYMB
 pub unsafe fn GetThemeSysFont(htheme: isize, ifontid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<super::super::Graphics::Gdi::LOGFONTW> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeSysFont(htheme: isize, ifontid: THEME_PROPERTY_SYMBOL_ID, plf: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT;
         }
@@ -4618,7 +4746,8 @@ pub unsafe fn GetThemeSysFont(htheme: isize, ifontid: THEME_PROPERTY_SYMBOL_ID) 
 pub unsafe fn GetThemeSysInt(htheme: isize, iintid: i32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeSysInt(htheme: isize, iintid: i32, pivalue: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -4633,7 +4762,8 @@ pub unsafe fn GetThemeSysInt(htheme: isize, iintid: i32) -> ::windows::core::Res
 pub unsafe fn GetThemeSysSize(htheme: isize, isizeid: i32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeSysSize(htheme: isize, isizeid: i32) -> i32;
         }
@@ -4648,7 +4778,8 @@ pub unsafe fn GetThemeSysSize(htheme: isize, isizeid: i32) -> i32 {
 pub unsafe fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: super::super::Foundation::PWSTR, cchmaxstringchars: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: super::super::Foundation::PWSTR, cchmaxstringchars: i32) -> ::windows::core::HRESULT;
         }
@@ -4663,7 +4794,8 @@ pub unsafe fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_
 pub unsafe fn GetThemeTextExtent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, psztext: Param4, cchcharcount: i32, dwtextflags: u32, pboundingrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeTextExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: super::super::Foundation::PWSTR, cchcharcount: i32, dwtextflags: u32, pboundingrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
         }
@@ -4679,7 +4811,8 @@ pub unsafe fn GetThemeTextExtent<'a, Param1: ::windows::core::IntoParam<'a, supe
 pub unsafe fn GetThemeTextMetrics<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32) -> ::windows::core::Result<super::super::Graphics::Gdi::TEXTMETRICW> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeTextMetrics(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows::core::HRESULT;
         }
@@ -4694,7 +4827,8 @@ pub unsafe fn GetThemeTextMetrics<'a, Param1: ::windows::core::IntoParam<'a, sup
 pub unsafe fn GetThemeTimingFunction(htheme: isize, itimingfunctionid: i32, ptimingfunction: *mut TA_TIMINGFUNCTION, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeTimingFunction(htheme: isize, itimingfunctionid: i32, ptimingfunction: *mut TA_TIMINGFUNCTION, cbsize: u32, pcbsizeout: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4708,7 +4842,8 @@ pub unsafe fn GetThemeTimingFunction(htheme: isize, itimingfunctionid: i32, ptim
 pub unsafe fn GetThemeTransitionDuration(htheme: isize, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetThemeTransitionDuration(htheme: isize, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32, pdwduration: *mut u32) -> ::windows::core::HRESULT;
         }
@@ -4724,7 +4859,8 @@ pub unsafe fn GetThemeTransitionDuration(htheme: isize, ipartid: i32, istateidfr
 pub unsafe fn GetWindowFeedbackSetting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, feedback: FEEDBACK_TYPE, dwflags: u32, psize: *mut u32, config: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetWindowFeedbackSetting(hwnd: super::super::Foundation::HWND, feedback: FEEDBACK_TYPE, dwflags: u32, psize: *mut u32, config: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -4739,7 +4875,8 @@ pub unsafe fn GetWindowFeedbackSetting<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn GetWindowTheme<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn GetWindowTheme(hwnd: super::super::Foundation::HWND) -> isize;
         }
@@ -5401,7 +5538,8 @@ unsafe impl ::windows::core::Abi for HIMAGELIST {
 pub unsafe fn HIMAGELIST_QueryInterface<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HIMAGELIST_QueryInterface(himl: HIMAGELIST, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -5611,7 +5749,8 @@ impl ::core::fmt::Debug for HYPERLINKSTATES {
 pub unsafe fn HitTestThemeBackground<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param6: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HRGN>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(htheme: isize, hdc: Param1, ipartid: i32, istateid: i32, dwoptions: u32, prect: *const super::super::Foundation::RECT, hrgn: Param6, pttest: Param7) -> ::windows::core::Result<u16> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn HitTestThemeBackground(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, dwoptions: u32, prect: *const super::super::Foundation::RECT, hrgn: super::super::Graphics::Gdi::HRGN, pttest: super::super::Foundation::POINT, pwhittestcode: *mut u16) -> ::windows::core::HRESULT;
         }
@@ -6856,7 +6995,8 @@ pub const ImageList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub unsafe fn ImageList_Add<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(himl: Param0, hbmimage: Param1, hbmmask: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Add(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> i32;
         }
@@ -6871,7 +7011,8 @@ pub unsafe fn ImageList_Add<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIS
 pub unsafe fn ImageList_AddMasked<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(himl: Param0, hbmimage: Param1, crmask: u32) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_AddMasked(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: u32) -> i32;
         }
@@ -6886,7 +7027,8 @@ pub unsafe fn ImageList_AddMasked<'a, Param0: ::windows::core::IntoParam<'a, HIM
 pub unsafe fn ImageList_BeginDrag<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himltrack: Param0, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_BeginDrag(himltrack: HIMAGELIST, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL;
         }
@@ -6900,7 +7042,8 @@ pub unsafe fn ImageList_BeginDrag<'a, Param0: ::windows::core::IntoParam<'a, HIM
 pub unsafe fn ImageList_CoCreateInstance<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(rclsid: *const ::windows::core::GUID, punkouter: Param1, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_CoCreateInstance(rclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -6915,7 +7058,8 @@ pub unsafe fn ImageList_CoCreateInstance<'a, Param1: ::windows::core::IntoParam<
 pub unsafe fn ImageList_Copy<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>, Param2: ::windows::core::IntoParam<'a, HIMAGELIST>>(himldst: Param0, idst: i32, himlsrc: Param2, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Copy(himldst: HIMAGELIST, idst: i32, himlsrc: HIMAGELIST, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL;
         }
@@ -6929,7 +7073,8 @@ pub unsafe fn ImageList_Copy<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELI
 pub unsafe fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> HIMAGELIST;
         }
@@ -6944,7 +7089,8 @@ pub unsafe fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS
 pub unsafe fn ImageList_Destroy<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Destroy(himl: HIMAGELIST) -> super::super::Foundation::BOOL;
         }
@@ -6959,7 +7105,8 @@ pub unsafe fn ImageList_Destroy<'a, Param0: ::windows::core::IntoParam<'a, HIMAG
 pub unsafe fn ImageList_DragEnter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndlock: Param0, x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_DragEnter(hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
@@ -6974,7 +7121,8 @@ pub unsafe fn ImageList_DragEnter<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ImageList_DragLeave<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndlock: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_DragLeave(hwndlock: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -6989,7 +7137,8 @@ pub unsafe fn ImageList_DragLeave<'a, Param0: ::windows::core::IntoParam<'a, sup
 pub unsafe fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BOOL;
         }
@@ -7004,7 +7153,8 @@ pub unsafe fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BO
 pub unsafe fn ImageList_DragShowNolock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fshow: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_DragShowNolock(fshow: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -7019,7 +7169,8 @@ pub unsafe fn ImageList_DragShowNolock<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn ImageList_Draw<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(himl: Param0, i: i32, hdcdst: Param2, x: i32, y: i32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Draw(himl: HIMAGELIST, i: i32, hdcdst: super::super::Graphics::Gdi::HDC, x: i32, y: i32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL;
         }
@@ -7034,7 +7185,8 @@ pub unsafe fn ImageList_Draw<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELI
 pub unsafe fn ImageList_DrawEx<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(himl: Param0, i: i32, hdcdst: Param2, x: i32, y: i32, dx: i32, dy: i32, rgbbk: u32, rgbfg: u32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_DrawEx(himl: HIMAGELIST, i: i32, hdcdst: super::super::Graphics::Gdi::HDC, x: i32, y: i32, dx: i32, dy: i32, rgbbk: u32, rgbfg: u32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL;
         }
@@ -7049,7 +7201,8 @@ pub unsafe fn ImageList_DrawEx<'a, Param0: ::windows::core::IntoParam<'a, HIMAGE
 pub unsafe fn ImageList_DrawIndirect(pimldp: *const IMAGELISTDRAWPARAMS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_DrawIndirect(pimldp: *const IMAGELISTDRAWPARAMS) -> super::super::Foundation::BOOL;
         }
@@ -7063,7 +7216,8 @@ pub unsafe fn ImageList_DrawIndirect(pimldp: *const IMAGELISTDRAWPARAMS) -> supe
 pub unsafe fn ImageList_Duplicate<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Duplicate(himl: HIMAGELIST) -> HIMAGELIST;
         }
@@ -7077,7 +7231,8 @@ pub unsafe fn ImageList_Duplicate<'a, Param0: ::windows::core::IntoParam<'a, HIM
 pub unsafe fn ImageList_EndDrag() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_EndDrag();
         }
@@ -7091,7 +7246,8 @@ pub unsafe fn ImageList_EndDrag() {
 pub unsafe fn ImageList_GetBkColor<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_GetBkColor(himl: HIMAGELIST) -> u32;
         }
@@ -7106,7 +7262,8 @@ pub unsafe fn ImageList_GetBkColor<'a, Param0: ::windows::core::IntoParam<'a, HI
 pub unsafe fn ImageList_GetDragImage(ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_GetDragImage(ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT) -> HIMAGELIST;
         }
@@ -7121,7 +7278,8 @@ pub unsafe fn ImageList_GetDragImage(ppt: *mut super::super::Foundation::POINT, 
 pub unsafe fn ImageList_GetIcon<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0, i: i32, flags: u32) -> super::WindowsAndMessaging::HICON {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_GetIcon(himl: HIMAGELIST, i: i32, flags: u32) -> super::WindowsAndMessaging::HICON;
         }
@@ -7136,7 +7294,8 @@ pub unsafe fn ImageList_GetIcon<'a, Param0: ::windows::core::IntoParam<'a, HIMAG
 pub unsafe fn ImageList_GetIconSize<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0, cx: *mut i32, cy: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_GetIconSize(himl: HIMAGELIST, cx: *mut i32, cy: *mut i32) -> super::super::Foundation::BOOL;
         }
@@ -7150,7 +7309,8 @@ pub unsafe fn ImageList_GetIconSize<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn ImageList_GetImageCount<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_GetImageCount(himl: HIMAGELIST) -> i32;
         }
@@ -7165,7 +7325,8 @@ pub unsafe fn ImageList_GetImageCount<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ImageList_GetImageInfo<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0, i: i32, pimageinfo: *mut IMAGEINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_GetImageInfo(himl: HIMAGELIST, i: i32, pimageinfo: *mut IMAGEINFO) -> super::super::Foundation::BOOL;
         }
@@ -7180,7 +7341,8 @@ pub unsafe fn ImageList_GetImageInfo<'a, Param0: ::windows::core::IntoParam<'a, 
 pub unsafe fn ImageList_LoadImageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hi: Param0, lpbmp: Param1, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_LoadImageA(hi: super::super::Foundation::HINSTANCE, lpbmp: super::super::Foundation::PSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
         }
@@ -7195,7 +7357,8 @@ pub unsafe fn ImageList_LoadImageA<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ImageList_LoadImageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hi: Param0, lpbmp: Param1, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_LoadImageW(hi: super::super::Foundation::HINSTANCE, lpbmp: super::super::Foundation::PWSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
         }
@@ -7209,7 +7372,8 @@ pub unsafe fn ImageList_LoadImageW<'a, Param0: ::windows::core::IntoParam<'a, su
 pub unsafe fn ImageList_Merge<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>, Param2: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl1: Param0, i1: i32, himl2: Param2, i2: i32, dx: i32, dy: i32) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Merge(himl1: HIMAGELIST, i1: i32, himl2: HIMAGELIST, i2: i32, dx: i32, dy: i32) -> HIMAGELIST;
         }
@@ -7224,7 +7388,8 @@ pub unsafe fn ImageList_Merge<'a, Param0: ::windows::core::IntoParam<'a, HIMAGEL
 pub unsafe fn ImageList_Read<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(pstm: Param0) -> HIMAGELIST {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Read(pstm: ::windows::core::RawPtr) -> HIMAGELIST;
         }
@@ -7239,7 +7404,8 @@ pub unsafe fn ImageList_Read<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn ImageList_ReadEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(dwflags: u32, pstm: Param1, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_ReadEx(dwflags: u32, pstm: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
@@ -7254,7 +7420,8 @@ pub unsafe fn ImageList_ReadEx<'a, Param1: ::windows::core::IntoParam<'a, super:
 pub unsafe fn ImageList_Remove<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0, i: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Remove(himl: HIMAGELIST, i: i32) -> super::super::Foundation::BOOL;
         }
@@ -7269,7 +7436,8 @@ pub unsafe fn ImageList_Remove<'a, Param0: ::windows::core::IntoParam<'a, HIMAGE
 pub unsafe fn ImageList_Replace<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>, Param3: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(himl: Param0, i: i32, hbmimage: Param2, hbmmask: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Replace(himl: HIMAGELIST, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> super::super::Foundation::BOOL;
         }
@@ -7284,7 +7452,8 @@ pub unsafe fn ImageList_Replace<'a, Param0: ::windows::core::IntoParam<'a, HIMAG
 pub unsafe fn ImageList_ReplaceIcon<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>, Param2: ::windows::core::IntoParam<'a, super::WindowsAndMessaging::HICON>>(himl: Param0, i: i32, hicon: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_ReplaceIcon(himl: HIMAGELIST, i: i32, hicon: super::WindowsAndMessaging::HICON) -> i32;
         }
@@ -7298,7 +7467,8 @@ pub unsafe fn ImageList_ReplaceIcon<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn ImageList_SetBkColor<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0, clrbk: u32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_SetBkColor(himl: HIMAGELIST, clrbk: u32) -> u32;
         }
@@ -7313,7 +7483,8 @@ pub unsafe fn ImageList_SetBkColor<'a, Param0: ::windows::core::IntoParam<'a, HI
 pub unsafe fn ImageList_SetDragCursorImage<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himldrag: Param0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_SetDragCursorImage(himldrag: HIMAGELIST, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL;
         }
@@ -7328,7 +7499,8 @@ pub unsafe fn ImageList_SetDragCursorImage<'a, Param0: ::windows::core::IntoPara
 pub unsafe fn ImageList_SetIconSize<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0, cx: i32, cy: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_SetIconSize(himl: HIMAGELIST, cx: i32, cy: i32) -> super::super::Foundation::BOOL;
         }
@@ -7343,7 +7515,8 @@ pub unsafe fn ImageList_SetIconSize<'a, Param0: ::windows::core::IntoParam<'a, H
 pub unsafe fn ImageList_SetImageCount<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0, unewcount: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_SetImageCount(himl: HIMAGELIST, unewcount: u32) -> super::super::Foundation::BOOL;
         }
@@ -7358,7 +7531,8 @@ pub unsafe fn ImageList_SetImageCount<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ImageList_SetOverlayImage<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>>(himl: Param0, iimage: i32, ioverlay: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_SetOverlayImage(himl: HIMAGELIST, iimage: i32, ioverlay: i32) -> super::super::Foundation::BOOL;
         }
@@ -7373,7 +7547,8 @@ pub unsafe fn ImageList_SetOverlayImage<'a, Param0: ::windows::core::IntoParam<'
 pub unsafe fn ImageList_Write<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(himl: Param0, pstm: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_Write(himl: HIMAGELIST, pstm: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
         }
@@ -7388,7 +7563,8 @@ pub unsafe fn ImageList_Write<'a, Param0: ::windows::core::IntoParam<'a, HIMAGEL
 pub unsafe fn ImageList_WriteEx<'a, Param0: ::windows::core::IntoParam<'a, HIMAGELIST>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(himl: Param0, dwflags: u32, pstm: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ImageList_WriteEx(himl: HIMAGELIST, dwflags: u32, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
@@ -7402,7 +7578,8 @@ pub unsafe fn ImageList_WriteEx<'a, Param0: ::windows::core::IntoParam<'a, HIMAG
 pub unsafe fn InitCommonControls() {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitCommonControls();
         }
@@ -7417,7 +7594,8 @@ pub unsafe fn InitCommonControls() {
 pub unsafe fn InitCommonControlsEx(picce: *const INITCOMMONCONTROLSEX) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitCommonControlsEx(picce: *const INITCOMMONCONTROLSEX) -> super::super::Foundation::BOOL;
         }
@@ -7431,7 +7609,8 @@ pub unsafe fn InitCommonControlsEx(picce: *const INITCOMMONCONTROLSEX) -> super:
 pub unsafe fn InitMUILanguage(uilang: u16) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitMUILanguage(uilang: u16);
         }
@@ -7446,7 +7625,8 @@ pub unsafe fn InitMUILanguage(uilang: u16) {
 pub unsafe fn InitializeFlatSB<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn InitializeFlatSB(param0: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -7461,7 +7641,8 @@ pub unsafe fn InitializeFlatSB<'a, Param0: ::windows::core::IntoParam<'a, super:
 pub unsafe fn IsAppThemed() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsAppThemed() -> super::super::Foundation::BOOL;
         }
@@ -7476,7 +7657,8 @@ pub unsafe fn IsAppThemed() -> super::super::Foundation::BOOL {
 pub unsafe fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL;
         }
@@ -7491,7 +7673,8 @@ pub unsafe fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL {
 pub unsafe fn IsCompositionActive() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsCompositionActive() -> super::super::Foundation::BOOL;
         }
@@ -7506,7 +7689,8 @@ pub unsafe fn IsCompositionActive() -> super::super::Foundation::BOOL {
 pub unsafe fn IsDlgButtonChecked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hdlg: Param0, nidbutton: i32) -> u32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsDlgButtonChecked(hdlg: super::super::Foundation::HWND, nidbutton: i32) -> u32;
         }
@@ -7521,7 +7705,8 @@ pub unsafe fn IsDlgButtonChecked<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn IsThemeActive() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsThemeActive() -> super::super::Foundation::BOOL;
         }
@@ -7536,7 +7721,8 @@ pub unsafe fn IsThemeActive() -> super::super::Foundation::BOOL {
 pub unsafe fn IsThemeBackgroundPartiallyTransparent(htheme: isize, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsThemeBackgroundPartiallyTransparent(htheme: isize, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL;
         }
@@ -7551,7 +7737,8 @@ pub unsafe fn IsThemeBackgroundPartiallyTransparent(htheme: isize, ipartid: i32,
 pub unsafe fn IsThemeDialogTextureEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsThemeDialogTextureEnabled(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -7566,7 +7753,8 @@ pub unsafe fn IsThemeDialogTextureEnabled<'a, Param0: ::windows::core::IntoParam
 pub unsafe fn IsThemePartDefined(htheme: isize, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn IsThemePartDefined(htheme: isize, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL;
         }
@@ -7581,7 +7769,8 @@ pub unsafe fn IsThemePartDefined(htheme: isize, ipartid: i32, istateid: i32) -> 
 pub unsafe fn LBItemFromPt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hlb: Param0, pt: Param1, bautoscroll: Param2) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LBItemFromPt(hlb: super::super::Foundation::HWND, pt: super::super::Foundation::POINT, bautoscroll: super::super::Foundation::BOOL) -> i32;
         }
@@ -9750,7 +9939,8 @@ pub const LWS_USEVISUALSTYLE: u32 = 8u32;
 pub unsafe fn LoadIconMetric<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinst: Param0, pszname: Param1, lims: _LI_METRIC) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadIconMetric(hinst: super::super::Foundation::HINSTANCE, pszname: super::super::Foundation::PWSTR, lims: _LI_METRIC, phico: *mut super::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT;
         }
@@ -9766,7 +9956,8 @@ pub unsafe fn LoadIconMetric<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn LoadIconWithScaleDown<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinst: Param0, pszname: Param1, cx: i32, cy: i32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn LoadIconWithScaleDown(hinst: super::super::Foundation::HINSTANCE, pszname: super::super::Foundation::PWSTR, cx: i32, cy: i32, phico: *mut super::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT;
         }
@@ -10415,7 +10606,8 @@ pub const MULTIFILEOPENORD: u32 = 1537u32;
 pub unsafe fn MakeDragList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hlb: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MakeDragList(hlb: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
@@ -10430,7 +10622,8 @@ pub unsafe fn MakeDragList<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn MenuHelp<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::WindowsAndMessaging::HMENU>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(umsg: u32, wparam: Param1, lparam: Param2, hmainmenu: Param3, hinst: Param4, hwndstatus: Param5, lpwids: *const u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn MenuHelp(umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, hmainmenu: super::WindowsAndMessaging::HMENU, hinst: super::super::Foundation::HINSTANCE, hwndstatus: super::super::Foundation::HWND, lpwids: *const u32);
         }
@@ -14822,7 +15015,8 @@ impl ::core::ops::Not for OPEN_THEME_DATA_FLAGS {
 pub unsafe fn OpenThemeData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszclasslist: Param1) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenThemeData(hwnd: super::super::Foundation::HWND, pszclasslist: super::super::Foundation::PWSTR) -> isize;
         }
@@ -14837,7 +15031,8 @@ pub unsafe fn OpenThemeData<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn OpenThemeDataEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszclasslist: Param1, dwflags: OPEN_THEME_DATA_FLAGS) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn OpenThemeDataEx(hwnd: super::super::Foundation::HWND, pszclasslist: super::super::Foundation::PWSTR, dwflags: OPEN_THEME_DATA_FLAGS) -> isize;
         }
@@ -17301,7 +17496,8 @@ pub const PSWIZB_SHOW: u32 = 0u32;
 pub unsafe fn PackTouchHitTestingProximityEvaluation(phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PackTouchHitTestingProximityEvaluation(phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::LRESULT;
         }
@@ -17316,7 +17512,8 @@ pub unsafe fn PackTouchHitTestingProximityEvaluation(phittestinginput: *const TO
 pub unsafe fn PropertySheetA(param0: *mut PROPSHEETHEADERA_V2) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropertySheetA(param0: *mut PROPSHEETHEADERA_V2) -> isize;
         }
@@ -17331,7 +17528,8 @@ pub unsafe fn PropertySheetA(param0: *mut PROPSHEETHEADERA_V2) -> isize {
 pub unsafe fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize;
         }
@@ -17776,7 +17974,8 @@ pub const RUNDLGORD: u32 = 1545u32;
 pub unsafe fn RegisterPointerDeviceNotifications<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(window: Param0, notifyrange: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterPointerDeviceNotifications(window: super::super::Foundation::HWND, notifyrange: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -17791,7 +17990,8 @@ pub unsafe fn RegisterPointerDeviceNotifications<'a, Param0: ::windows::core::In
 pub unsafe fn RegisterTouchHitTestingWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, value: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn RegisterTouchHitTestingWindow(hwnd: super::super::Foundation::HWND, value: u32) -> super::super::Foundation::BOOL;
         }
@@ -18066,7 +18266,8 @@ pub const SZ_THDOCPROP_TOOLTIP: &'static str = "ToolTip";
 pub unsafe fn SetScrollInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetScrollInfo(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: super::super::Foundation::BOOL) -> i32;
         }
@@ -18081,7 +18282,8 @@ pub unsafe fn SetScrollInfo<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn SetScrollPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: Param3) -> i32 {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetScrollPos(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: super::super::Foundation::BOOL) -> i32;
         }
@@ -18096,7 +18298,8 @@ pub unsafe fn SetScrollPos<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 pub unsafe fn SetScrollRange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetScrollRange(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -18110,7 +18313,8 @@ pub unsafe fn SetScrollRange<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SetThemeAppProperties(dwflags: u32) {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetThemeAppProperties(dwflags: u32);
         }
@@ -18125,7 +18329,8 @@ pub unsafe fn SetThemeAppProperties(dwflags: u32) {
 pub unsafe fn SetWindowFeedbackSetting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, feedback: FEEDBACK_TYPE, dwflags: u32, size: u32, configuration: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetWindowFeedbackSetting(hwnd: super::super::Foundation::HWND, feedback: FEEDBACK_TYPE, dwflags: u32, size: u32, configuration: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
@@ -18140,7 +18345,8 @@ pub unsafe fn SetWindowFeedbackSetting<'a, Param0: ::windows::core::IntoParam<'a
 pub unsafe fn SetWindowTheme<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszsubappname: Param1, pszsubidlist: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetWindowTheme(hwnd: super::super::Foundation::HWND, pszsubappname: super::super::Foundation::PWSTR, pszsubidlist: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
@@ -18155,7 +18361,8 @@ pub unsafe fn SetWindowTheme<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub unsafe fn SetWindowThemeAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn SetWindowThemeAttribute(hwnd: super::super::Foundation::HWND, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
         }
@@ -18170,7 +18377,8 @@ pub unsafe fn SetWindowThemeAttribute<'a, Param0: ::windows::core::IntoParam<'a,
 pub unsafe fn ShowHideMenuCtl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, uflags: usize, lpinfo: *const i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowHideMenuCtl(hwnd: super::super::Foundation::HWND, uflags: usize, lpinfo: *const i32) -> super::super::Foundation::BOOL;
         }
@@ -18185,7 +18393,8 @@ pub unsafe fn ShowHideMenuCtl<'a, Param0: ::windows::core::IntoParam<'a, super::
 pub unsafe fn ShowScrollBar<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn ShowScrollBar(hwnd: super::super::Foundation::HWND, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
@@ -18200,7 +18409,8 @@ pub unsafe fn ShowScrollBar<'a, Param0: ::windows::core::IntoParam<'a, super::su
 pub unsafe fn Str_SetPtrW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(ppsz: *mut super::super::Foundation::PWSTR, psz: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn Str_SetPtrW(ppsz: *mut super::super::Foundation::PWSTR, psz: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
@@ -22654,7 +22864,8 @@ pub const TV_FIRST: u32 = 4352u32;
 pub unsafe fn TaskDialog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndowner: Param0, hinstance: Param1, pszwindowtitle: Param2, pszmaininstruction: Param3, pszcontent: Param4, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: Param6) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TaskDialog(hwndowner: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszwindowtitle: super::super::Foundation::PWSTR, pszmaininstruction: super::super::Foundation::PWSTR, pszcontent: super::super::Foundation::PWSTR, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: super::super::Foundation::PWSTR, pnbutton: *mut i32) -> ::windows::core::HRESULT;
         }
@@ -22670,7 +22881,8 @@ pub unsafe fn TaskDialog<'a, Param0: ::windows::core::IntoParam<'a, super::super
 pub unsafe fn TaskDialogIndirect(ptaskconfig: *const TASKDIALOGCONFIG, pnbutton: *mut i32, pnradiobutton: *mut i32, pfverificationflagchecked: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn TaskDialogIndirect(ptaskconfig: *const TASKDIALOGCONFIG, pnbutton: *mut i32, pnradiobutton: *mut i32, pfverificationflagchecked: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
@@ -22813,7 +23025,8 @@ impl ::core::default::Default for USAGE_PROPERTIES {
 pub unsafe fn UninitializeFlatSB<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "comctl32", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UninitializeFlatSB(param0: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
         }
@@ -22828,7 +23041,8 @@ pub unsafe fn UninitializeFlatSB<'a, Param0: ::windows::core::IntoParam<'a, supe
 pub unsafe fn UpdatePanningFeedback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
-        #[link(name = "windows")]
+        #[cfg_attr(feature = "use_raw_dylib", link(name = "uxtheme", kind = "raw-dylib"))]
+        #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
         extern "system" {
             fn UpdatePanningFeedback(hwnd: super::super::Foundation::HWND, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }

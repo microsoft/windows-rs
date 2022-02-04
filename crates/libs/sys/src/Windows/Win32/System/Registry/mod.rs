@@ -1,9 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "advapi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
-    #[doc = "*Required features: 'Win32_System_Registry', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetRegistryValueWithFallbackW(hkeyprimary: HKEY, pwszprimarysubkey: super::super::Foundation::PWSTR, hkeyfallback: HKEY, pwszfallbacksubkey: super::super::Foundation::PWSTR, pwszvalue: super::super::Foundation::PWSTR, dwflags: u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, cbdatain: u32, pcbdataout: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_System_Registry', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegCloseKey(hkey: HKEY) -> super::super::Foundation::WIN32_ERROR;
@@ -250,6 +248,13 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_Registry', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegUnLoadKeyW(hkey: HKEY, lpsubkey: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "api-ms-win-core-state-helpers-l1-1-0", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_Registry', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetRegistryValueWithFallbackW(hkeyprimary: HKEY, pwszprimarysubkey: super::super::Foundation::PWSTR, hkeyfallback: HKEY, pwszfallbacksubkey: super::super::Foundation::PWSTR, pwszvalue: super::super::Foundation::PWSTR, dwflags: u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, cbdatain: u32, pcbdataout: *mut u32) -> super::super::Foundation::WIN32_ERROR;
 }
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const AGP_FLAG_NO_1X_RATE: i32 = 1i32;

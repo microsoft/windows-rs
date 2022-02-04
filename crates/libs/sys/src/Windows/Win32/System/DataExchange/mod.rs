@@ -1,5 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "gdi32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "kernel32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7,6 +15,53 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn DeleteAtom(natom: u16) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn FindAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GlobalAddAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GlobalAddAtomExA(lpstring: super::super::Foundation::PSTR, flags: u32) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GlobalAddAtomExW(lpstring: super::super::Foundation::PWSTR, flags: u32) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GlobalAddAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
+    pub fn GlobalDeleteAtom(natom: u16) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GlobalFindAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GlobalFindAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn GlobalGetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
+    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "user32", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
@@ -102,8 +157,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-    pub fn DeleteAtom(natom: u16) -> u16;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EmptyClipboard() -> super::super::Foundation::BOOL;
@@ -111,19 +164,7 @@ extern "system" {
     pub fn EnumClipboardFormats(format: u32) -> u32;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn FindAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn FreeDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE;
@@ -151,36 +192,7 @@ extern "system" {
     pub fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomExA(lpstring: super::super::Foundation::PSTR, flags: u32) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomExW(lpstring: super::super::Foundation::PWSTR, flags: u32) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalAddAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-    pub fn GlobalDeleteAtom(natom: u16) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalFindAtomA(lpstring: super::super::Foundation::PSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalFindAtomW(lpstring: super::super::Foundation::PWSTR) -> u16;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalGetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn ImpersonateDdeClientWindow(hwndclient: super::super::Foundation::HWND, hwndserver: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL;
@@ -208,9 +220,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetClipboardViewer(hwndnewviewer: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
-    #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
     #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL;

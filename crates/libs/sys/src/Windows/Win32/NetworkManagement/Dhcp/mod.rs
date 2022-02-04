@@ -1,5 +1,50 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dhcpcsvc", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
+    pub fn DhcpCApiCleanup();
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
+    pub fn DhcpCApiInitialize(version: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
+    pub fn DhcpDeRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpGetOriginalSubnetMask(sadaptername: super::super::Foundation::PWSTR, dwsubnetmask: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPCAPI_CLASSID, params: DHCPCAPI_PARAMS_ARRAY, handle: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
+    pub fn DhcpRemoveDNSRegistrations() -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPCAPI_CLASSID, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32, requestidstr: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DhcpUndoRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, requestidstr: super::super::Foundation::PWSTR) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dhcpcsvc6", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
+    pub fn Dhcpv6CApiCleanup();
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
+    pub fn Dhcpv6CApiInitialize(version: *mut u32);
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Dhcpv6ReleasePrefix(adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPV6CAPI_CLASSID, leaseinfo: *mut DHCPV6PrefixLeaseInformation) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Dhcpv6RenewPrefix(adaptername: super::super::Foundation::PWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32, bvalidateprefix: u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Dhcpv6RequestParams(forcenewinform: super::super::Foundation::BOOL, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPV6CAPI_CLASSID, recdparams: DHCPV6CAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn Dhcpv6RequestPrefix(adaptername: super::super::Foundation::PWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32) -> u32;
+}
+#[cfg_attr(feature = "use_raw_dylib", link(name = "dhcpsapi", kind = "raw-dylib"))]
+#[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -28,10 +73,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DhcpAuditLogSetParams(serveripaddress: super::super::Foundation::PWSTR, flags: u32, auditlogdir: super::super::Foundation::PWSTR, diskcheckinterval: u32, maxlogfilessize: u32, minspaceondisk: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
-    pub fn DhcpCApiCleanup();
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
-    pub fn DhcpCApiInitialize(version: *mut u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DhcpCreateClass(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32;
@@ -65,8 +106,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DhcpCreateSubnetVQ(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
-    pub fn DhcpDeRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DhcpDeleteClass(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classname: super::super::Foundation::PWSTR) -> u32;
@@ -226,9 +265,6 @@ extern "system" {
     pub fn DhcpGetOptionValueV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpGetOriginalSubnetMask(sadaptername: super::super::Foundation::PWSTR, dwsubnetmask: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn DhcpGetServerBindingInfo(serveripaddress: super::super::Foundation::PWSTR, flags: u32, bindelementsinfo: *mut *mut DHCP_BIND_ELEMENT_ARRAY) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -315,11 +351,6 @@ extern "system" {
     pub fn DhcpModifyClassV6(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPCAPI_CLASSID, params: DHCPCAPI_PARAMS_ARRAY, handle: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
-    pub fn DhcpRemoveDNSRegistrations() -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub fn DhcpRemoveOption(serveripaddress: super::super::Foundation::PWSTR, optionid: u32) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -348,9 +379,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DhcpRemoveSubnetElementV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, removeelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6, forceflag: DHCP_FORCE_FLAG) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPCAPI_CLASSID, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32, requestidstr: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
     pub fn DhcpRpcFreeMemory(bufferpointer: *mut ::core::ffi::c_void);
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
@@ -469,9 +497,6 @@ extern "system" {
     pub fn DhcpSetSuperScopeV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, superscopename: super::super::Foundation::PWSTR, changeexisting: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
     pub fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpUndoRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, requestidstr: super::super::Foundation::PWSTR) -> u32;
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DhcpV4AddPolicyRange(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, range: *const DHCP_IP_RANGE) -> u32;
@@ -604,22 +629,6 @@ extern "system" {
     #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DhcpV6SetStatelessStoreParams(serveripaddress: super::super::Foundation::PWSTR, fserverlevel: super::super::Foundation::BOOL, subnetaddress: DHCP_IPV6_ADDRESS, fieldmodified: u32, params: *const DHCPV6_STATELESS_PARAMS) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
-    pub fn Dhcpv6CApiCleanup();
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
-    pub fn Dhcpv6CApiInitialize(version: *mut u32);
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn Dhcpv6ReleasePrefix(adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPV6CAPI_CLASSID, leaseinfo: *mut DHCPV6PrefixLeaseInformation) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn Dhcpv6RenewPrefix(adaptername: super::super::Foundation::PWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32, bvalidateprefix: u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn Dhcpv6RequestParams(forcenewinform: super::super::Foundation::BOOL, reserved: *mut ::core::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPV6CAPI_CLASSID, recdparams: DHCPV6CAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32) -> u32;
-    #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn Dhcpv6RequestPrefix(adaptername: super::super::Foundation::PWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32) -> u32;
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ADDRESS_TYPE_IANA: u32 = 0u32;
