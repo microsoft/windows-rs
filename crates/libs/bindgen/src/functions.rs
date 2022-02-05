@@ -1,5 +1,5 @@
-use std::collections::BTreeMap;
 use super::*;
+use std::collections::BTreeMap;
 
 pub fn gen_sys_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
     if gen.sys {
@@ -16,15 +16,13 @@ pub fn gen_sys_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
         // Because tokens_by_library is a BTreeMap, we're guaranteed to visit entries
         // in ascending order by key.
         for (library, lib_tokens) in tokens_by_library {
-            tokens.combine(
-                &quote! {
-                    #[cfg_attr(feature = "use_raw_dylib", link(name = #library, kind = "raw-dylib"))]
-                    #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
-                    extern "system" {
-                        #lib_tokens
-                    }
+            tokens.combine(&quote! {
+                #[cfg_attr(feature = "use_raw_dylib", link(name = #library, kind = "raw-dylib"))]
+                #[cfg_attr(not(feature = "use_raw_dylib"), link(name = "windows"))]
+                extern "system" {
+                    #lib_tokens
                 }
-            );
+            });
         }
         tokens
     } else {
@@ -50,9 +48,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
 fn gen_function_if(tokens_by_library: &mut BTreeMap<String, TokenStream>, entry: &[ElementType], gen: &Gen) {
     for def in entry {
         if let ElementType::MethodDef(def) = def {
-            tokens_by_library.entry(def.impl_map().expect("Function").scope().name().to_lowercase())
-                .or_default()
-                .combine(&gen_sys_function(def, gen));
+            tokens_by_library.entry(def.impl_map().expect("Function").scope().name().to_lowercase()).or_default().combine(&gen_sys_function(def, gen));
         }
     }
 }
