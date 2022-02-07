@@ -35,6 +35,7 @@ readme = "../../../.github/readme.md"
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
+targets = []
 all-features = true
 
 [target.i686-pc-windows-msvc.dependencies]
