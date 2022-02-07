@@ -1,5 +1,5 @@
 pub trait IChatItem_Impl: Sized {
-    fn ItemKind(&mut self) -> ::windows::core::Result<ChatItemKind>;
+    fn ItemKind(&self) -> ::windows::core::Result<ChatItemKind>;
 }
 impl ::windows::core::RuntimeName for IChatItem {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatItem";

@@ -1,5 +1,5 @@
 pub trait IComponentConnector_Impl: Sized {
-    fn Connect(&mut self, connectionid: i32, target: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn Connect(&self, connectionid: i32, target: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IComponentConnector {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IComponentConnector";
@@ -18,7 +18,7 @@ impl IComponentConnector_Vtbl {
     }
 }
 pub trait IComponentConnector2_Impl: Sized {
-    fn GetBindingConnector(&mut self, connectionid: i32, target: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<IComponentConnector>;
+    fn GetBindingConnector(&self, connectionid: i32, target: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<IComponentConnector>;
 }
 impl ::windows::core::RuntimeName for IComponentConnector2 {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IComponentConnector2";
@@ -47,8 +47,8 @@ impl IComponentConnector2_Vtbl {
     }
 }
 pub trait IDataTemplateComponent_Impl: Sized {
-    fn Recycle(&mut self) -> ::windows::core::Result<()>;
-    fn ProcessBindings(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, itemindex: i32, phase: i32, nextphase: &mut i32) -> ::windows::core::Result<()>;
+    fn Recycle(&self) -> ::windows::core::Result<()>;
+    fn ProcessBindings(&self, item: &::core::option::Option<::windows::core::IInspectable>, itemindex: i32, phase: i32, nextphase: &mut i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IDataTemplateComponent {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IDataTemplateComponent";
@@ -76,7 +76,7 @@ impl IDataTemplateComponent_Vtbl {
     }
 }
 pub trait IMarkupExtensionOverrides_Impl: Sized {
-    fn ProvideValue(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn ProvideValue(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 impl ::windows::core::RuntimeName for IMarkupExtensionOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IMarkupExtensionOverrides";
@@ -105,7 +105,7 @@ impl IMarkupExtensionOverrides_Vtbl {
     }
 }
 pub trait IXamlBindScopeDiagnostics_Impl: Sized {
-    fn Disable(&mut self, linenumber: i32, columnnumber: i32) -> ::windows::core::Result<()>;
+    fn Disable(&self, linenumber: i32, columnnumber: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IXamlBindScopeDiagnostics {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlBindScopeDiagnostics";
@@ -124,14 +124,14 @@ impl IXamlBindScopeDiagnostics_Vtbl {
     }
 }
 pub trait IXamlMember_Impl: Sized {
-    fn IsAttachable(&mut self) -> ::windows::core::Result<bool>;
-    fn IsDependencyProperty(&mut self) -> ::windows::core::Result<bool>;
-    fn IsReadOnly(&mut self) -> ::windows::core::Result<bool>;
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TargetType(&mut self) -> ::windows::core::Result<IXamlType>;
-    fn Type(&mut self) -> ::windows::core::Result<IXamlType>;
-    fn GetValue(&mut self, instance: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetValue(&mut self, instance: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn IsAttachable(&self) -> ::windows::core::Result<bool>;
+    fn IsDependencyProperty(&self) -> ::windows::core::Result<bool>;
+    fn IsReadOnly(&self) -> ::windows::core::Result<bool>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TargetType(&self) -> ::windows::core::Result<IXamlType>;
+    fn Type(&self) -> ::windows::core::Result<IXamlType>;
+    fn GetValue(&self, instance: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetValue(&self, instance: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IXamlMember {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.IXamlMember";
@@ -245,9 +245,9 @@ impl IXamlMember_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 pub trait IXamlMetadataProvider_Impl: Sized {
-    fn GetXamlType(&mut self, r#type: &super::Interop::TypeName) -> ::windows::core::Result<IXamlType>;
-    fn GetXamlTypeByFullName(&mut self, fullname: &::windows::core::HSTRING) -> ::windows::core::Result<IXamlType>;
-    fn GetXmlnsDefinitions(&mut self) -> ::windows::core::Result<::windows::core::Array<XmlnsDefinition>>;
+    fn GetXamlType(&self, r#type: &super::Interop::TypeName) -> ::windows::core::Result<IXamlType>;
+    fn GetXamlTypeByFullName(&self, fullname: &::windows::core::HSTRING) -> ::windows::core::Result<IXamlType>;
+    fn GetXmlnsDefinitions(&self) -> ::windows::core::Result<::windows::core::Array<XmlnsDefinition>>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ::windows::core::RuntimeName for IXamlMetadataProvider {
@@ -306,24 +306,24 @@ impl IXamlMetadataProvider_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 pub trait IXamlType_Impl: Sized {
-    fn BaseType(&mut self) -> ::windows::core::Result<IXamlType>;
-    fn ContentProperty(&mut self) -> ::windows::core::Result<IXamlMember>;
-    fn FullName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsArray(&mut self) -> ::windows::core::Result<bool>;
-    fn IsCollection(&mut self) -> ::windows::core::Result<bool>;
-    fn IsConstructible(&mut self) -> ::windows::core::Result<bool>;
-    fn IsDictionary(&mut self) -> ::windows::core::Result<bool>;
-    fn IsMarkupExtension(&mut self) -> ::windows::core::Result<bool>;
-    fn IsBindable(&mut self) -> ::windows::core::Result<bool>;
-    fn ItemType(&mut self) -> ::windows::core::Result<IXamlType>;
-    fn KeyType(&mut self) -> ::windows::core::Result<IXamlType>;
-    fn UnderlyingType(&mut self) -> ::windows::core::Result<super::Interop::TypeName>;
-    fn ActivateInstance(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn CreateFromString(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetMember(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<IXamlMember>;
-    fn AddToVector(&mut self, instance: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn AddToMap(&mut self, instance: &::core::option::Option<::windows::core::IInspectable>, key: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn RunInitializer(&mut self) -> ::windows::core::Result<()>;
+    fn BaseType(&self) -> ::windows::core::Result<IXamlType>;
+    fn ContentProperty(&self) -> ::windows::core::Result<IXamlMember>;
+    fn FullName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsArray(&self) -> ::windows::core::Result<bool>;
+    fn IsCollection(&self) -> ::windows::core::Result<bool>;
+    fn IsConstructible(&self) -> ::windows::core::Result<bool>;
+    fn IsDictionary(&self) -> ::windows::core::Result<bool>;
+    fn IsMarkupExtension(&self) -> ::windows::core::Result<bool>;
+    fn IsBindable(&self) -> ::windows::core::Result<bool>;
+    fn ItemType(&self) -> ::windows::core::Result<IXamlType>;
+    fn KeyType(&self) -> ::windows::core::Result<IXamlType>;
+    fn UnderlyingType(&self) -> ::windows::core::Result<super::Interop::TypeName>;
+    fn ActivateInstance(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CreateFromString(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetMember(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<IXamlMember>;
+    fn AddToVector(&self, instance: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn AddToMap(&self, instance: &::core::option::Option<::windows::core::IInspectable>, key: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn RunInitializer(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ::windows::core::RuntimeName for IXamlType {
@@ -555,7 +555,7 @@ impl IXamlType_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 pub trait IXamlType2_Impl: Sized + IXamlType_Impl {
-    fn BoxedType(&mut self) -> ::windows::core::Result<IXamlType>;
+    fn BoxedType(&self) -> ::windows::core::Result<IXamlType>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ::windows::core::RuntimeName for IXamlType2 {

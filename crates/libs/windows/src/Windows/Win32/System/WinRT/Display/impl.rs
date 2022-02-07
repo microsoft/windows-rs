@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub trait IDisplayDeviceInterop_Impl: Sized {
-    fn CreateSharedHandle(&mut self, pobject: &::core::option::Option<::windows::core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
-    fn OpenSharedHandle(&mut self, nthandle: super::super::super::Foundation::HANDLE, riid: &::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateSharedHandle(&self, pobject: &::core::option::Option<::windows::core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
+    fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: &::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IDisplayDeviceInterop_Vtbl {
@@ -34,8 +34,8 @@ impl IDisplayDeviceInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDisplayPathInterop_Impl: Sized {
-    fn CreateSourcePresentationHandle(&mut self) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
-    fn GetSourceId(&mut self) -> ::windows::core::Result<u32>;
+    fn CreateSourcePresentationHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
+    fn GetSourceId(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDisplayPathInterop_Vtbl {

@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IIsolatedEnvironmentInterop_Impl: Sized {
-    fn GetHostHwndInterop(&mut self, containerhwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
+    fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IIsolatedEnvironmentInterop_Vtbl {

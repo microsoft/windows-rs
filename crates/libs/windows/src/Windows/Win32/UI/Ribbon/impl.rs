@@ -1,7 +1,7 @@
 pub trait IUIApplication_Impl: Sized {
-    fn OnViewChanged(&mut self, viewid: u32, typeid: UI_VIEWTYPE, view: &::core::option::Option<::windows::core::IUnknown>, verb: UI_VIEWVERB, ureasoncode: i32) -> ::windows::core::Result<()>;
-    fn OnCreateUICommand(&mut self, commandid: u32, typeid: UI_COMMANDTYPE) -> ::windows::core::Result<IUICommandHandler>;
-    fn OnDestroyUICommand(&mut self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: &::core::option::Option<IUICommandHandler>) -> ::windows::core::Result<()>;
+    fn OnViewChanged(&self, viewid: u32, typeid: UI_VIEWTYPE, view: &::core::option::Option<::windows::core::IUnknown>, verb: UI_VIEWVERB, ureasoncode: i32) -> ::windows::core::Result<()>;
+    fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> ::windows::core::Result<IUICommandHandler>;
+    fn OnDestroyUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: &::core::option::Option<IUICommandHandler>) -> ::windows::core::Result<()>;
 }
 impl IUIApplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIApplication_Impl, const OFFSET: isize>() -> IUIApplication_Vtbl {
@@ -38,13 +38,13 @@ impl IUIApplication_Vtbl {
     }
 }
 pub trait IUICollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetItem(&mut self, index: u32) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&mut self, item: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Insert(&mut self, index: u32, item: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn Replace(&mut self, indexreplaced: u32, itemreplacewith: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetItem(&self, index: u32) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Add(&self, item: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Insert(&self, index: u32, item: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn Replace(&self, indexreplaced: u32, itemreplacewith: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
 }
 impl IUICollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUICollection_Impl, const OFFSET: isize>() -> IUICollection_Vtbl {
@@ -111,7 +111,7 @@ impl IUICollection_Vtbl {
     }
 }
 pub trait IUICollectionChangedEvent_Impl: Sized {
-    fn OnChanged(&mut self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: &::core::option::Option<::windows::core::IUnknown>, newindex: u32, newitem: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnChanged(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: &::core::option::Option<::windows::core::IUnknown>, newindex: u32, newitem: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IUICollectionChangedEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUICollectionChangedEvent_Impl, const OFFSET: isize>() -> IUICollectionChangedEvent_Vtbl {
@@ -128,8 +128,8 @@ impl IUICollectionChangedEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IUICommandHandler_Impl: Sized {
-    fn Execute(&mut self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: &::core::option::Option<IUISimplePropertySet>) -> ::windows::core::Result<()>;
-    fn UpdateProperty(&mut self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn Execute(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: &::core::option::Option<IUISimplePropertySet>) -> ::windows::core::Result<()>;
+    fn UpdateProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IUICommandHandler_Vtbl {
@@ -161,7 +161,7 @@ impl IUICommandHandler_Vtbl {
     }
 }
 pub trait IUIContextualUI_Impl: Sized {
-    fn ShowAtLocation(&mut self, x: i32, y: i32) -> ::windows::core::Result<()>;
+    fn ShowAtLocation(&self, x: i32, y: i32) -> ::windows::core::Result<()>;
 }
 impl IUIContextualUI_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIContextualUI_Impl, const OFFSET: isize>() -> IUIContextualUI_Vtbl {
@@ -178,7 +178,7 @@ impl IUIContextualUI_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIEventLogger_Impl: Sized {
-    fn OnUIEvent(&mut self, peventparams: *const UI_EVENTPARAMS);
+    fn OnUIEvent(&self, peventparams: *const UI_EVENTPARAMS);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUIEventLogger_Vtbl {
@@ -195,7 +195,7 @@ impl IUIEventLogger_Vtbl {
     }
 }
 pub trait IUIEventingManager_Impl: Sized {
-    fn SetEventLogger(&mut self, eventlogger: &::core::option::Option<IUIEventLogger>) -> ::windows::core::Result<()>;
+    fn SetEventLogger(&self, eventlogger: &::core::option::Option<IUIEventLogger>) -> ::windows::core::Result<()>;
 }
 impl IUIEventingManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIEventingManager_Impl, const OFFSET: isize>() -> IUIEventingManager_Vtbl {
@@ -212,15 +212,15 @@ impl IUIEventingManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IUIFramework_Impl: Sized {
-    fn Initialize(&mut self, framewnd: super::super::Foundation::HWND, application: &::core::option::Option<IUIApplication>) -> ::windows::core::Result<()>;
-    fn Destroy(&mut self) -> ::windows::core::Result<()>;
-    fn LoadUI(&mut self, instance: super::super::Foundation::HINSTANCE, resourcename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetView(&mut self, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetUICommandProperty(&mut self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetUICommandProperty(&mut self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn InvalidateUICommand(&mut self, commandid: u32, flags: UI_INVALIDATIONS, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
-    fn FlushPendingInvalidations(&mut self) -> ::windows::core::Result<()>;
-    fn SetModes(&mut self, imodes: i32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, framewnd: super::super::Foundation::HWND, application: &::core::option::Option<IUIApplication>) -> ::windows::core::Result<()>;
+    fn Destroy(&self) -> ::windows::core::Result<()>;
+    fn LoadUI(&self, instance: super::super::Foundation::HINSTANCE, resourcename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetView(&self, viewid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetUICommandProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetUICommandProperty(&self, commandid: u32, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn FlushPendingInvalidations(&self) -> ::windows::core::Result<()>;
+    fn SetModes(&self, imodes: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IUIFramework_Vtbl {
@@ -295,7 +295,7 @@ impl IUIFramework_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IUIImage_Impl: Sized {
-    fn GetBitmap(&mut self) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP>;
+    fn GetBitmap(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IUIImage_Vtbl {
@@ -319,7 +319,7 @@ impl IUIImage_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IUIImageFromBitmap_Impl: Sized {
-    fn CreateImage(&mut self, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP) -> ::windows::core::Result<IUIImage>;
+    fn CreateImage(&self, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP) -> ::windows::core::Result<IUIImage>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IUIImageFromBitmap_Vtbl {
@@ -343,9 +343,9 @@ impl IUIImageFromBitmap_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIRibbon_Impl: Sized {
-    fn GetHeight(&mut self) -> ::windows::core::Result<u32>;
-    fn LoadSettingsFromStream(&mut self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn SaveSettingsToStream(&mut self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn GetHeight(&self) -> ::windows::core::Result<u32>;
+    fn LoadSettingsFromStream(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SaveSettingsToStream(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIRibbon_Vtbl {
@@ -384,7 +384,7 @@ impl IUIRibbon_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IUISimplePropertySet_Impl: Sized {
-    fn GetValue(&mut self, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetValue(&self, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IUISimplePropertySet_Vtbl {

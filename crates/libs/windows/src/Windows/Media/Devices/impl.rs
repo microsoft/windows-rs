@@ -1,6 +1,6 @@
 pub trait IDefaultAudioDeviceChangedEventArgs_Impl: Sized {
-    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Role(&mut self) -> ::windows::core::Result<AudioDeviceRole>;
+    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Role(&self) -> ::windows::core::Result<AudioDeviceRole>;
 }
 impl ::windows::core::RuntimeName for IDefaultAudioDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs";
@@ -43,9 +43,9 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
 pub trait IMediaDeviceController_Impl: Sized {
-    fn GetAvailableMediaStreamProperties(&mut self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
-    fn GetMediaStreamProperties(&mut self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties>;
-    fn SetMediaStreamPropertiesAsync(&mut self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
+    fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties>;
+    fn SetMediaStreamPropertiesAsync(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IMediaDeviceController {

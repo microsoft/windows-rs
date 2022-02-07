@@ -1,8 +1,8 @@
 pub trait ID3D10Asynchronous_Impl: Sized + ID3D10DeviceChild_Impl {
-    fn Begin(&mut self);
-    fn End(&mut self);
-    fn GetData(&mut self, pdata: *mut ::core::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows::core::Result<()>;
-    fn GetDataSize(&mut self) -> u32;
+    fn Begin(&self);
+    fn End(&self);
+    fn GetData(&self, pdata: *mut ::core::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows::core::Result<()>;
+    fn GetDataSize(&self) -> u32;
 }
 impl ID3D10Asynchronous_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Asynchronous_Impl, const OFFSET: isize>() -> ID3D10Asynchronous_Vtbl {
@@ -40,7 +40,7 @@ impl ID3D10Asynchronous_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10BlendState_Impl: Sized + ID3D10DeviceChild_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D10_BLEND_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D10_BLEND_DESC);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10BlendState_Vtbl {
@@ -58,7 +58,7 @@ impl ID3D10BlendState_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10BlendState1_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10BlendState_Impl {
-    fn GetDesc1(&mut self, pdesc: *mut D3D10_BLEND_DESC1);
+    fn GetDesc1(&self, pdesc: *mut D3D10_BLEND_DESC1);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10BlendState1_Vtbl {
@@ -75,9 +75,9 @@ impl ID3D10BlendState1_Vtbl {
     }
 }
 pub trait ID3D10Buffer_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_Impl {
-    fn Map(&mut self, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Unmap(&mut self);
-    fn GetDesc(&mut self, pdesc: *mut D3D10_BUFFER_DESC);
+    fn Map(&self, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Unmap(&self);
+    fn GetDesc(&self, pdesc: *mut D3D10_BUFFER_DESC);
 }
 impl ID3D10Buffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Buffer_Impl, const OFFSET: isize>() -> ID3D10Buffer_Vtbl {
@@ -108,7 +108,7 @@ impl ID3D10Buffer_Vtbl {
     }
 }
 pub trait ID3D10Counter_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D10_COUNTER_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D10_COUNTER_DESC);
 }
 impl ID3D10Counter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Counter_Impl, const OFFSET: isize>() -> ID3D10Counter_Vtbl {
@@ -125,13 +125,13 @@ impl ID3D10Counter_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub trait ID3D10Debug_Impl: Sized {
-    fn SetFeatureMask(&mut self, mask: u32) -> ::windows::core::Result<()>;
-    fn GetFeatureMask(&mut self) -> u32;
-    fn SetPresentPerRenderOpDelay(&mut self, milliseconds: u32) -> ::windows::core::Result<()>;
-    fn GetPresentPerRenderOpDelay(&mut self) -> u32;
-    fn SetSwapChain(&mut self, pswapchain: &::core::option::Option<super::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
-    fn GetSwapChain(&mut self) -> ::windows::core::Result<super::Dxgi::IDXGISwapChain>;
-    fn Validate(&mut self) -> ::windows::core::Result<()>;
+    fn SetFeatureMask(&self, mask: u32) -> ::windows::core::Result<()>;
+    fn GetFeatureMask(&self) -> u32;
+    fn SetPresentPerRenderOpDelay(&self, milliseconds: u32) -> ::windows::core::Result<()>;
+    fn GetPresentPerRenderOpDelay(&self) -> u32;
+    fn SetSwapChain(&self, pswapchain: &::core::option::Option<super::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
+    fn GetSwapChain(&self) -> ::windows::core::Result<super::Dxgi::IDXGISwapChain>;
+    fn Validate(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ID3D10Debug_Vtbl {
@@ -194,7 +194,7 @@ impl ID3D10Debug_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10DepthStencilState_Impl: Sized + ID3D10DeviceChild_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D10_DEPTH_STENCIL_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D10_DEPTH_STENCIL_DESC);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10DepthStencilState_Vtbl {
@@ -212,7 +212,7 @@ impl ID3D10DepthStencilState_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D10DepthStencilView_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10View_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D10_DEPTH_STENCIL_VIEW_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D10_DEPTH_STENCIL_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D10DepthStencilView_Vtbl {
@@ -230,101 +230,101 @@ impl ID3D10DepthStencilView_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10Device_Impl: Sized {
-    fn VSSetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D10Buffer>);
-    fn PSSetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D10ShaderResourceView>);
-    fn PSSetShader(&mut self, ppixelshader: &::core::option::Option<ID3D10PixelShader>);
-    fn PSSetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D10SamplerState>);
-    fn VSSetShader(&mut self, pvertexshader: &::core::option::Option<ID3D10VertexShader>);
-    fn DrawIndexed(&mut self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32);
-    fn Draw(&mut self, vertexcount: u32, startvertexlocation: u32);
-    fn PSSetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D10Buffer>);
-    fn IASetInputLayout(&mut self, pinputlayout: &::core::option::Option<ID3D10InputLayout>);
-    fn IASetVertexBuffers(&mut self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D10Buffer>, pstrides: *const u32, poffsets: *const u32);
-    fn IASetIndexBuffer(&mut self, pindexbuffer: &::core::option::Option<ID3D10Buffer>, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32);
-    fn DrawIndexedInstanced(&mut self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32);
-    fn DrawInstanced(&mut self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32);
-    fn GSSetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D10Buffer>);
-    fn GSSetShader(&mut self, pshader: &::core::option::Option<ID3D10GeometryShader>);
-    fn IASetPrimitiveTopology(&mut self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
-    fn VSSetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D10ShaderResourceView>);
-    fn VSSetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D10SamplerState>);
-    fn SetPredication(&mut self, ppredicate: &::core::option::Option<ID3D10Predicate>, predicatevalue: super::super::Foundation::BOOL);
-    fn GSSetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D10ShaderResourceView>);
-    fn GSSetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D10SamplerState>);
-    fn OMSetRenderTargets(&mut self, numviews: u32, pprendertargetviews: *const ::core::option::Option<ID3D10RenderTargetView>, pdepthstencilview: &::core::option::Option<ID3D10DepthStencilView>);
-    fn OMSetBlendState(&mut self, pblendstate: &::core::option::Option<ID3D10BlendState>, blendfactor: *const f32, samplemask: u32);
-    fn OMSetDepthStencilState(&mut self, pdepthstencilstate: &::core::option::Option<ID3D10DepthStencilState>, stencilref: u32);
-    fn SOSetTargets(&mut self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D10Buffer>, poffsets: *const u32);
-    fn DrawAuto(&mut self);
-    fn RSSetState(&mut self, prasterizerstate: &::core::option::Option<ID3D10RasterizerState>);
-    fn RSSetViewports(&mut self, numviewports: u32, pviewports: *const D3D10_VIEWPORT);
-    fn RSSetScissorRects(&mut self, numrects: u32, prects: *const super::super::Foundation::RECT);
-    fn CopySubresourceRegion(&mut self, pdstresource: &::core::option::Option<ID3D10Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: &::core::option::Option<ID3D10Resource>, srcsubresource: u32, psrcbox: *const D3D10_BOX);
-    fn CopyResource(&mut self, pdstresource: &::core::option::Option<ID3D10Resource>, psrcresource: &::core::option::Option<ID3D10Resource>);
-    fn UpdateSubresource(&mut self, pdstresource: &::core::option::Option<ID3D10Resource>, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
-    fn ClearRenderTargetView(&mut self, prendertargetview: &::core::option::Option<ID3D10RenderTargetView>, colorrgba: *const f32);
-    fn ClearDepthStencilView(&mut self, pdepthstencilview: &::core::option::Option<ID3D10DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
-    fn GenerateMips(&mut self, pshaderresourceview: &::core::option::Option<ID3D10ShaderResourceView>);
-    fn ResolveSubresource(&mut self, pdstresource: &::core::option::Option<ID3D10Resource>, dstsubresource: u32, psrcresource: &::core::option::Option<ID3D10Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
-    fn VSGetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D10Buffer>);
-    fn PSGetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D10ShaderResourceView>);
-    fn PSGetShader(&mut self, pppixelshader: *mut ::core::option::Option<ID3D10PixelShader>);
-    fn PSGetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D10SamplerState>);
-    fn VSGetShader(&mut self, ppvertexshader: *mut ::core::option::Option<ID3D10VertexShader>);
-    fn PSGetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D10Buffer>);
-    fn IAGetInputLayout(&mut self, ppinputlayout: *mut ::core::option::Option<ID3D10InputLayout>);
-    fn IAGetVertexBuffers(&mut self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D10Buffer>, pstrides: *mut u32, poffsets: *mut u32);
-    fn IAGetIndexBuffer(&mut self, pindexbuffer: *mut ::core::option::Option<ID3D10Buffer>, format: *mut super::Dxgi::Common::DXGI_FORMAT, offset: *mut u32);
-    fn GSGetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D10Buffer>);
-    fn GSGetShader(&mut self, ppgeometryshader: *mut ::core::option::Option<ID3D10GeometryShader>);
-    fn IAGetPrimitiveTopology(&mut self, ptopology: *mut super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
-    fn VSGetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D10ShaderResourceView>);
-    fn VSGetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D10SamplerState>);
-    fn GetPredication(&mut self, pppredicate: *mut ::core::option::Option<ID3D10Predicate>, ppredicatevalue: *mut super::super::Foundation::BOOL);
-    fn GSGetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D10ShaderResourceView>);
-    fn GSGetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D10SamplerState>);
-    fn OMGetRenderTargets(&mut self, numviews: u32, pprendertargetviews: *mut ::core::option::Option<ID3D10RenderTargetView>, ppdepthstencilview: *mut ::core::option::Option<ID3D10DepthStencilView>);
-    fn OMGetBlendState(&mut self, ppblendstate: *mut ::core::option::Option<ID3D10BlendState>, blendfactor: *mut f32, psamplemask: *mut u32);
-    fn OMGetDepthStencilState(&mut self, ppdepthstencilstate: *mut ::core::option::Option<ID3D10DepthStencilState>, pstencilref: *mut u32);
-    fn SOGetTargets(&mut self, numbuffers: u32, ppsotargets: *mut ::core::option::Option<ID3D10Buffer>, poffsets: *mut u32);
-    fn RSGetState(&mut self, pprasterizerstate: *mut ::core::option::Option<ID3D10RasterizerState>);
-    fn RSGetViewports(&mut self, numviewports: *mut u32, pviewports: *mut D3D10_VIEWPORT);
-    fn RSGetScissorRects(&mut self, numrects: *mut u32, prects: *mut super::super::Foundation::RECT);
-    fn GetDeviceRemovedReason(&mut self) -> ::windows::core::Result<()>;
-    fn SetExceptionMode(&mut self, raiseflags: u32) -> ::windows::core::Result<()>;
-    fn GetExceptionMode(&mut self) -> u32;
-    fn GetPrivateData(&mut self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateData(&mut self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&mut self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn ClearState(&mut self);
-    fn Flush(&mut self);
-    fn CreateBuffer(&mut self, pdesc: *const D3D10_BUFFER_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Buffer>;
-    fn CreateTexture1D(&mut self, pdesc: *const D3D10_TEXTURE1D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Texture1D>;
-    fn CreateTexture2D(&mut self, pdesc: *const D3D10_TEXTURE2D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Texture2D>;
-    fn CreateTexture3D(&mut self, pdesc: *const D3D10_TEXTURE3D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Texture3D>;
-    fn CreateShaderResourceView(&mut self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC) -> ::windows::core::Result<ID3D10ShaderResourceView>;
-    fn CreateRenderTargetView(&mut self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC) -> ::windows::core::Result<ID3D10RenderTargetView>;
-    fn CreateDepthStencilView(&mut self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC) -> ::windows::core::Result<ID3D10DepthStencilView>;
-    fn CreateInputLayout(&mut self, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10InputLayout>;
-    fn CreateVertexShader(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10VertexShader>;
-    fn CreateGeometryShader(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10GeometryShader>;
-    fn CreateGeometryShaderWithStreamOutput(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, psodeclaration: *const D3D10_SO_DECLARATION_ENTRY, numentries: u32, outputstreamstride: u32) -> ::windows::core::Result<ID3D10GeometryShader>;
-    fn CreatePixelShader(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10PixelShader>;
-    fn CreateBlendState(&mut self, pblendstatedesc: *const D3D10_BLEND_DESC) -> ::windows::core::Result<ID3D10BlendState>;
-    fn CreateDepthStencilState(&mut self, pdepthstencildesc: *const D3D10_DEPTH_STENCIL_DESC) -> ::windows::core::Result<ID3D10DepthStencilState>;
-    fn CreateRasterizerState(&mut self, prasterizerdesc: *const D3D10_RASTERIZER_DESC) -> ::windows::core::Result<ID3D10RasterizerState>;
-    fn CreateSamplerState(&mut self, psamplerdesc: *const D3D10_SAMPLER_DESC) -> ::windows::core::Result<ID3D10SamplerState>;
-    fn CreateQuery(&mut self, pquerydesc: *const D3D10_QUERY_DESC) -> ::windows::core::Result<ID3D10Query>;
-    fn CreatePredicate(&mut self, ppredicatedesc: *const D3D10_QUERY_DESC) -> ::windows::core::Result<ID3D10Predicate>;
-    fn CreateCounter(&mut self, pcounterdesc: *const D3D10_COUNTER_DESC) -> ::windows::core::Result<ID3D10Counter>;
-    fn CheckFormatSupport(&mut self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32>;
-    fn CheckMultisampleQualityLevels(&mut self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32>;
-    fn CheckCounterInfo(&mut self, pcounterinfo: *mut D3D10_COUNTER_INFO);
-    fn CheckCounter(&mut self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: super::super::Foundation::PSTR, pnamelength: *mut u32, szunits: super::super::Foundation::PSTR, punitslength: *mut u32, szdescription: super::super::Foundation::PSTR, pdescriptionlength: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCreationFlags(&mut self) -> u32;
-    fn OpenSharedResource(&mut self, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetTextFilterSize(&mut self, width: u32, height: u32);
-    fn GetTextFilterSize(&mut self, pwidth: *mut u32, pheight: *mut u32);
+    fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D10Buffer>);
+    fn PSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D10ShaderResourceView>);
+    fn PSSetShader(&self, ppixelshader: &::core::option::Option<ID3D10PixelShader>);
+    fn PSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D10SamplerState>);
+    fn VSSetShader(&self, pvertexshader: &::core::option::Option<ID3D10VertexShader>);
+    fn DrawIndexed(&self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32);
+    fn Draw(&self, vertexcount: u32, startvertexlocation: u32);
+    fn PSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D10Buffer>);
+    fn IASetInputLayout(&self, pinputlayout: &::core::option::Option<ID3D10InputLayout>);
+    fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D10Buffer>, pstrides: *const u32, poffsets: *const u32);
+    fn IASetIndexBuffer(&self, pindexbuffer: &::core::option::Option<ID3D10Buffer>, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32);
+    fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32);
+    fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32);
+    fn GSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D10Buffer>);
+    fn GSSetShader(&self, pshader: &::core::option::Option<ID3D10GeometryShader>);
+    fn IASetPrimitiveTopology(&self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
+    fn VSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D10ShaderResourceView>);
+    fn VSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D10SamplerState>);
+    fn SetPredication(&self, ppredicate: &::core::option::Option<ID3D10Predicate>, predicatevalue: super::super::Foundation::BOOL);
+    fn GSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D10ShaderResourceView>);
+    fn GSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D10SamplerState>);
+    fn OMSetRenderTargets(&self, numviews: u32, pprendertargetviews: *const ::core::option::Option<ID3D10RenderTargetView>, pdepthstencilview: &::core::option::Option<ID3D10DepthStencilView>);
+    fn OMSetBlendState(&self, pblendstate: &::core::option::Option<ID3D10BlendState>, blendfactor: *const f32, samplemask: u32);
+    fn OMSetDepthStencilState(&self, pdepthstencilstate: &::core::option::Option<ID3D10DepthStencilState>, stencilref: u32);
+    fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D10Buffer>, poffsets: *const u32);
+    fn DrawAuto(&self);
+    fn RSSetState(&self, prasterizerstate: &::core::option::Option<ID3D10RasterizerState>);
+    fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D10_VIEWPORT);
+    fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT);
+    fn CopySubresourceRegion(&self, pdstresource: &::core::option::Option<ID3D10Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: &::core::option::Option<ID3D10Resource>, srcsubresource: u32, psrcbox: *const D3D10_BOX);
+    fn CopyResource(&self, pdstresource: &::core::option::Option<ID3D10Resource>, psrcresource: &::core::option::Option<ID3D10Resource>);
+    fn UpdateSubresource(&self, pdstresource: &::core::option::Option<ID3D10Resource>, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
+    fn ClearRenderTargetView(&self, prendertargetview: &::core::option::Option<ID3D10RenderTargetView>, colorrgba: *const f32);
+    fn ClearDepthStencilView(&self, pdepthstencilview: &::core::option::Option<ID3D10DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
+    fn GenerateMips(&self, pshaderresourceview: &::core::option::Option<ID3D10ShaderResourceView>);
+    fn ResolveSubresource(&self, pdstresource: &::core::option::Option<ID3D10Resource>, dstsubresource: u32, psrcresource: &::core::option::Option<ID3D10Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
+    fn VSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D10Buffer>);
+    fn PSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D10ShaderResourceView>);
+    fn PSGetShader(&self, pppixelshader: *mut ::core::option::Option<ID3D10PixelShader>);
+    fn PSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D10SamplerState>);
+    fn VSGetShader(&self, ppvertexshader: *mut ::core::option::Option<ID3D10VertexShader>);
+    fn PSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D10Buffer>);
+    fn IAGetInputLayout(&self, ppinputlayout: *mut ::core::option::Option<ID3D10InputLayout>);
+    fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D10Buffer>, pstrides: *mut u32, poffsets: *mut u32);
+    fn IAGetIndexBuffer(&self, pindexbuffer: *mut ::core::option::Option<ID3D10Buffer>, format: *mut super::Dxgi::Common::DXGI_FORMAT, offset: *mut u32);
+    fn GSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D10Buffer>);
+    fn GSGetShader(&self, ppgeometryshader: *mut ::core::option::Option<ID3D10GeometryShader>);
+    fn IAGetPrimitiveTopology(&self, ptopology: *mut super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
+    fn VSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D10ShaderResourceView>);
+    fn VSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D10SamplerState>);
+    fn GetPredication(&self, pppredicate: *mut ::core::option::Option<ID3D10Predicate>, ppredicatevalue: *mut super::super::Foundation::BOOL);
+    fn GSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D10ShaderResourceView>);
+    fn GSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D10SamplerState>);
+    fn OMGetRenderTargets(&self, numviews: u32, pprendertargetviews: *mut ::core::option::Option<ID3D10RenderTargetView>, ppdepthstencilview: *mut ::core::option::Option<ID3D10DepthStencilView>);
+    fn OMGetBlendState(&self, ppblendstate: *mut ::core::option::Option<ID3D10BlendState>, blendfactor: *mut f32, psamplemask: *mut u32);
+    fn OMGetDepthStencilState(&self, ppdepthstencilstate: *mut ::core::option::Option<ID3D10DepthStencilState>, pstencilref: *mut u32);
+    fn SOGetTargets(&self, numbuffers: u32, ppsotargets: *mut ::core::option::Option<ID3D10Buffer>, poffsets: *mut u32);
+    fn RSGetState(&self, pprasterizerstate: *mut ::core::option::Option<ID3D10RasterizerState>);
+    fn RSGetViewports(&self, numviewports: *mut u32, pviewports: *mut D3D10_VIEWPORT);
+    fn RSGetScissorRects(&self, numrects: *mut u32, prects: *mut super::super::Foundation::RECT);
+    fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()>;
+    fn SetExceptionMode(&self, raiseflags: u32) -> ::windows::core::Result<()>;
+    fn GetExceptionMode(&self) -> u32;
+    fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ClearState(&self);
+    fn Flush(&self);
+    fn CreateBuffer(&self, pdesc: *const D3D10_BUFFER_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Buffer>;
+    fn CreateTexture1D(&self, pdesc: *const D3D10_TEXTURE1D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Texture1D>;
+    fn CreateTexture2D(&self, pdesc: *const D3D10_TEXTURE2D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Texture2D>;
+    fn CreateTexture3D(&self, pdesc: *const D3D10_TEXTURE3D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Texture3D>;
+    fn CreateShaderResourceView(&self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC) -> ::windows::core::Result<ID3D10ShaderResourceView>;
+    fn CreateRenderTargetView(&self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC) -> ::windows::core::Result<ID3D10RenderTargetView>;
+    fn CreateDepthStencilView(&self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC) -> ::windows::core::Result<ID3D10DepthStencilView>;
+    fn CreateInputLayout(&self, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10InputLayout>;
+    fn CreateVertexShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10VertexShader>;
+    fn CreateGeometryShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10GeometryShader>;
+    fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, psodeclaration: *const D3D10_SO_DECLARATION_ENTRY, numentries: u32, outputstreamstride: u32) -> ::windows::core::Result<ID3D10GeometryShader>;
+    fn CreatePixelShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D10PixelShader>;
+    fn CreateBlendState(&self, pblendstatedesc: *const D3D10_BLEND_DESC) -> ::windows::core::Result<ID3D10BlendState>;
+    fn CreateDepthStencilState(&self, pdepthstencildesc: *const D3D10_DEPTH_STENCIL_DESC) -> ::windows::core::Result<ID3D10DepthStencilState>;
+    fn CreateRasterizerState(&self, prasterizerdesc: *const D3D10_RASTERIZER_DESC) -> ::windows::core::Result<ID3D10RasterizerState>;
+    fn CreateSamplerState(&self, psamplerdesc: *const D3D10_SAMPLER_DESC) -> ::windows::core::Result<ID3D10SamplerState>;
+    fn CreateQuery(&self, pquerydesc: *const D3D10_QUERY_DESC) -> ::windows::core::Result<ID3D10Query>;
+    fn CreatePredicate(&self, ppredicatedesc: *const D3D10_QUERY_DESC) -> ::windows::core::Result<ID3D10Predicate>;
+    fn CreateCounter(&self, pcounterdesc: *const D3D10_COUNTER_DESC) -> ::windows::core::Result<ID3D10Counter>;
+    fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32>;
+    fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32>;
+    fn CheckCounterInfo(&self, pcounterinfo: *mut D3D10_COUNTER_INFO);
+    fn CheckCounter(&self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: super::super::Foundation::PSTR, pnamelength: *mut u32, szunits: super::super::Foundation::PSTR, punitslength: *mut u32, szdescription: super::super::Foundation::PSTR, pdescriptionlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCreationFlags(&self) -> u32;
+    fn OpenSharedResource(&self, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetTextFilterSize(&self, width: u32, height: u32);
+    fn GetTextFilterSize(&self, pwidth: *mut u32, pheight: *mut u32);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D10Device_Vtbl {
@@ -1035,9 +1035,9 @@ impl ID3D10Device_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10Device1_Impl: Sized + ID3D10Device_Impl {
-    fn CreateShaderResourceView1(&mut self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D10ShaderResourceView1>;
-    fn CreateBlendState1(&mut self, pblendstatedesc: *const D3D10_BLEND_DESC1) -> ::windows::core::Result<ID3D10BlendState1>;
-    fn GetFeatureLevel(&mut self) -> D3D10_FEATURE_LEVEL1;
+    fn CreateShaderResourceView1(&self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D10ShaderResourceView1>;
+    fn CreateBlendState1(&self, pblendstatedesc: *const D3D10_BLEND_DESC1) -> ::windows::core::Result<ID3D10BlendState1>;
+    fn GetFeatureLevel(&self) -> D3D10_FEATURE_LEVEL1;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D10Device1_Vtbl {
@@ -1081,10 +1081,10 @@ impl ID3D10Device1_Vtbl {
     }
 }
 pub trait ID3D10DeviceChild_Impl: Sized {
-    fn GetDevice(&mut self, ppdevice: *mut ::core::option::Option<ID3D10Device>);
-    fn GetPrivateData(&mut self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateData(&mut self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&mut self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D10Device>);
+    fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ID3D10DeviceChild_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10DeviceChild_Impl, const OFFSET: isize>() -> ID3D10DeviceChild_Vtbl {
@@ -1122,19 +1122,19 @@ impl ID3D10DeviceChild_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10Effect_Impl: Sized {
-    fn IsValid(&mut self) -> super::super::Foundation::BOOL;
-    fn IsPool(&mut self) -> super::super::Foundation::BOOL;
-    fn GetDevice(&mut self) -> ::windows::core::Result<ID3D10Device>;
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D10_EFFECT_DESC>;
-    fn GetConstantBufferByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
-    fn GetConstantBufferByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
-    fn GetVariableByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetVariableByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetVariableBySemantic(&mut self, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetTechniqueByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10EffectTechnique>;
-    fn GetTechniqueByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectTechnique>;
-    fn Optimize(&mut self) -> ::windows::core::Result<()>;
-    fn IsOptimized(&mut self) -> super::super::Foundation::BOOL;
+    fn IsValid(&self) -> super::super::Foundation::BOOL;
+    fn IsPool(&self) -> super::super::Foundation::BOOL;
+    fn GetDevice(&self) -> ::windows::core::Result<ID3D10Device>;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D10_EFFECT_DESC>;
+    fn GetConstantBufferByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
+    fn GetConstantBufferByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
+    fn GetVariableByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetVariableByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetVariableBySemantic(&self, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetTechniqueByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectTechnique>;
+    fn GetTechniqueByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectTechnique>;
+    fn Optimize(&self) -> ::windows::core::Result<()>;
+    fn IsOptimized(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10Effect_Vtbl {
@@ -1239,8 +1239,8 @@ impl ID3D10Effect_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectBlendVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn GetBlendState(&mut self, index: u32) -> ::windows::core::Result<ID3D10BlendState>;
-    fn GetBackingStore(&mut self, index: u32, pblenddesc: *mut D3D10_BLEND_DESC) -> ::windows::core::Result<()>;
+    fn GetBlendState(&self, index: u32) -> ::windows::core::Result<ID3D10BlendState>;
+    fn GetBackingStore(&self, index: u32, pblenddesc: *mut D3D10_BLEND_DESC) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectBlendVariable_Vtbl {
@@ -1273,10 +1273,10 @@ impl ID3D10EffectBlendVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectConstantBuffer_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetConstantBuffer(&mut self, pconstantbuffer: &::core::option::Option<ID3D10Buffer>) -> ::windows::core::Result<()>;
-    fn GetConstantBuffer(&mut self) -> ::windows::core::Result<ID3D10Buffer>;
-    fn SetTextureBuffer(&mut self, ptexturebuffer: &::core::option::Option<ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
-    fn GetTextureBuffer(&mut self) -> ::windows::core::Result<ID3D10ShaderResourceView>;
+    fn SetConstantBuffer(&self, pconstantbuffer: &::core::option::Option<ID3D10Buffer>) -> ::windows::core::Result<()>;
+    fn GetConstantBuffer(&self) -> ::windows::core::Result<ID3D10Buffer>;
+    fn SetTextureBuffer(&self, ptexturebuffer: &::core::option::Option<ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
+    fn GetTextureBuffer(&self) -> ::windows::core::Result<ID3D10ShaderResourceView>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectConstantBuffer_Vtbl {
@@ -1327,8 +1327,8 @@ impl ID3D10EffectConstantBuffer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectDepthStencilVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn GetDepthStencilState(&mut self, index: u32) -> ::windows::core::Result<ID3D10DepthStencilState>;
-    fn GetBackingStore(&mut self, index: u32) -> ::windows::core::Result<D3D10_DEPTH_STENCIL_DESC>;
+    fn GetDepthStencilState(&self, index: u32) -> ::windows::core::Result<ID3D10DepthStencilState>;
+    fn GetBackingStore(&self, index: u32) -> ::windows::core::Result<D3D10_DEPTH_STENCIL_DESC>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectDepthStencilVariable_Vtbl {
@@ -1367,10 +1367,10 @@ impl ID3D10EffectDepthStencilVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectDepthStencilViewVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetDepthStencil(&mut self, presource: &::core::option::Option<ID3D10DepthStencilView>) -> ::windows::core::Result<()>;
-    fn GetDepthStencil(&mut self) -> ::windows::core::Result<ID3D10DepthStencilView>;
-    fn SetDepthStencilArray(&mut self, ppresources: *const ::core::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetDepthStencilArray(&mut self, ppresources: *mut ::core::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetDepthStencil(&self, presource: &::core::option::Option<ID3D10DepthStencilView>) -> ::windows::core::Result<()>;
+    fn GetDepthStencil(&self) -> ::windows::core::Result<ID3D10DepthStencilView>;
+    fn SetDepthStencilArray(&self, ppresources: *const ::core::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetDepthStencilArray(&self, ppresources: *mut ::core::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectDepthStencilViewVariable_Vtbl {
@@ -1415,14 +1415,14 @@ impl ID3D10EffectDepthStencilViewVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectMatrixVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetMatrix(&mut self, pdata: *mut f32) -> ::windows::core::Result<()>;
-    fn GetMatrix(&mut self, pdata: *mut f32) -> ::windows::core::Result<()>;
-    fn SetMatrixArray(&mut self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetMatrixArray(&mut self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn SetMatrixTranspose(&mut self, pdata: *mut f32) -> ::windows::core::Result<()>;
-    fn GetMatrixTranspose(&mut self, pdata: *mut f32) -> ::windows::core::Result<()>;
-    fn SetMatrixTransposeArray(&mut self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetMatrixTransposeArray(&mut self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetMatrix(&self, pdata: *mut f32) -> ::windows::core::Result<()>;
+    fn GetMatrix(&self, pdata: *mut f32) -> ::windows::core::Result<()>;
+    fn SetMatrixArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetMatrixArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetMatrixTranspose(&self, pdata: *mut f32) -> ::windows::core::Result<()>;
+    fn GetMatrixTranspose(&self, pdata: *mut f32) -> ::windows::core::Result<()>;
+    fn SetMatrixTransposeArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetMatrixTransposeArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectMatrixVariable_Vtbl {
@@ -1485,15 +1485,15 @@ impl ID3D10EffectMatrixVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectPass_Impl: Sized {
-    fn IsValid(&mut self) -> super::super::Foundation::BOOL;
-    fn GetDesc(&mut self, pdesc: *mut D3D10_PASS_DESC) -> ::windows::core::Result<()>;
-    fn GetVertexShaderDesc(&mut self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()>;
-    fn GetGeometryShaderDesc(&mut self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()>;
-    fn GetPixelShaderDesc(&mut self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()>;
-    fn GetAnnotationByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetAnnotationByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn Apply(&mut self, flags: u32) -> ::windows::core::Result<()>;
-    fn ComputeStateBlockMask(&mut self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK>;
+    fn IsValid(&self) -> super::super::Foundation::BOOL;
+    fn GetDesc(&self, pdesc: *mut D3D10_PASS_DESC) -> ::windows::core::Result<()>;
+    fn GetVertexShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()>;
+    fn GetGeometryShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()>;
+    fn GetPixelShaderDesc(&self, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::Result<()>;
+    fn GetAnnotationByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetAnnotationByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn Apply(&self, flags: u32) -> ::windows::core::Result<()>;
+    fn ComputeStateBlockMask(&self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectPass_Vtbl {
@@ -1566,7 +1566,7 @@ impl ID3D10EffectPass_Vtbl {
     }
 }
 pub trait ID3D10EffectPool_Impl: Sized {
-    fn AsEffect(&mut self) -> ::core::option::Option<ID3D10Effect>;
+    fn AsEffect(&self) -> ::core::option::Option<ID3D10Effect>;
 }
 impl ID3D10EffectPool_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectPool_Impl, const OFFSET: isize>() -> ID3D10EffectPool_Vtbl {
@@ -1583,8 +1583,8 @@ impl ID3D10EffectPool_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectRasterizerVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn GetRasterizerState(&mut self, index: u32) -> ::windows::core::Result<ID3D10RasterizerState>;
-    fn GetBackingStore(&mut self, index: u32) -> ::windows::core::Result<D3D10_RASTERIZER_DESC>;
+    fn GetRasterizerState(&self, index: u32) -> ::windows::core::Result<ID3D10RasterizerState>;
+    fn GetBackingStore(&self, index: u32) -> ::windows::core::Result<D3D10_RASTERIZER_DESC>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectRasterizerVariable_Vtbl {
@@ -1623,10 +1623,10 @@ impl ID3D10EffectRasterizerVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectRenderTargetViewVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetRenderTarget(&mut self, presource: &::core::option::Option<ID3D10RenderTargetView>) -> ::windows::core::Result<()>;
-    fn GetRenderTarget(&mut self) -> ::windows::core::Result<ID3D10RenderTargetView>;
-    fn SetRenderTargetArray(&mut self, ppresources: *const ::core::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetRenderTargetArray(&mut self, ppresources: *mut ::core::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetRenderTarget(&self, presource: &::core::option::Option<ID3D10RenderTargetView>) -> ::windows::core::Result<()>;
+    fn GetRenderTarget(&self) -> ::windows::core::Result<ID3D10RenderTargetView>;
+    fn SetRenderTargetArray(&self, ppresources: *const ::core::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetRenderTargetArray(&self, ppresources: *mut ::core::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectRenderTargetViewVariable_Vtbl {
@@ -1671,8 +1671,8 @@ impl ID3D10EffectRenderTargetViewVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectSamplerVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn GetSampler(&mut self, index: u32) -> ::windows::core::Result<ID3D10SamplerState>;
-    fn GetBackingStore(&mut self, index: u32) -> ::windows::core::Result<D3D10_SAMPLER_DESC>;
+    fn GetSampler(&self, index: u32) -> ::windows::core::Result<ID3D10SamplerState>;
+    fn GetBackingStore(&self, index: u32) -> ::windows::core::Result<D3D10_SAMPLER_DESC>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectSamplerVariable_Vtbl {
@@ -1711,18 +1711,18 @@ impl ID3D10EffectSamplerVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectScalarVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetFloat(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn GetFloat(&mut self) -> ::windows::core::Result<f32>;
-    fn SetFloatArray(&mut self, pdata: *const f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetFloatArray(&mut self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn SetInt(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetInt(&mut self) -> ::windows::core::Result<i32>;
-    fn SetIntArray(&mut self, pdata: *const i32, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetIntArray(&mut self, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn SetBool(&mut self, value: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetBool(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetBoolArray(&mut self, pdata: *const super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetBoolArray(&mut self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetFloat(&self, value: f32) -> ::windows::core::Result<()>;
+    fn GetFloat(&self) -> ::windows::core::Result<f32>;
+    fn SetFloatArray(&self, pdata: *const f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetFloatArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetInt(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetInt(&self) -> ::windows::core::Result<i32>;
+    fn SetIntArray(&self, pdata: *const i32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetIntArray(&self, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetBool(&self, value: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetBool(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetBoolArray(&self, pdata: *const super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetBoolArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectScalarVariable_Vtbl {
@@ -1827,10 +1827,10 @@ impl ID3D10EffectScalarVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectShaderResourceVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetResource(&mut self, presource: &::core::option::Option<ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
-    fn GetResource(&mut self) -> ::windows::core::Result<ID3D10ShaderResourceView>;
-    fn SetResourceArray(&mut self, ppresources: *const ::core::option::Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetResourceArray(&mut self, ppresources: *mut ::core::option::Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetResource(&self, presource: &::core::option::Option<ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
+    fn GetResource(&self) -> ::windows::core::Result<ID3D10ShaderResourceView>;
+    fn SetResourceArray(&self, ppresources: *const ::core::option::Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetResourceArray(&self, ppresources: *mut ::core::option::Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectShaderResourceVariable_Vtbl {
@@ -1875,12 +1875,12 @@ impl ID3D10EffectShaderResourceVariable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D10EffectShaderVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn GetShaderDesc(&mut self, shaderindex: u32) -> ::windows::core::Result<D3D10_EFFECT_SHADER_DESC>;
-    fn GetVertexShader(&mut self, shaderindex: u32) -> ::windows::core::Result<ID3D10VertexShader>;
-    fn GetGeometryShader(&mut self, shaderindex: u32) -> ::windows::core::Result<ID3D10GeometryShader>;
-    fn GetPixelShader(&mut self, shaderindex: u32) -> ::windows::core::Result<ID3D10PixelShader>;
-    fn GetInputSignatureElementDesc(&mut self, shaderindex: u32, element: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
-    fn GetOutputSignatureElementDesc(&mut self, shaderindex: u32, element: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
+    fn GetShaderDesc(&self, shaderindex: u32) -> ::windows::core::Result<D3D10_EFFECT_SHADER_DESC>;
+    fn GetVertexShader(&self, shaderindex: u32) -> ::windows::core::Result<ID3D10VertexShader>;
+    fn GetGeometryShader(&self, shaderindex: u32) -> ::windows::core::Result<ID3D10GeometryShader>;
+    fn GetPixelShader(&self, shaderindex: u32) -> ::windows::core::Result<ID3D10PixelShader>;
+    fn GetInputSignatureElementDesc(&self, shaderindex: u32, element: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
+    fn GetOutputSignatureElementDesc(&self, shaderindex: u32, element: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10EffectShaderVariable_Vtbl {
@@ -1967,8 +1967,8 @@ impl ID3D10EffectShaderVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectStringVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn GetString(&mut self) -> ::windows::core::Result<super::super::Foundation::PSTR>;
-    fn GetStringArray(&mut self, ppstrings: *mut super::super::Foundation::PSTR, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetString(&self) -> ::windows::core::Result<super::super::Foundation::PSTR>;
+    fn GetStringArray(&self, ppstrings: *mut super::super::Foundation::PSTR, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectStringVariable_Vtbl {
@@ -2001,13 +2001,13 @@ impl ID3D10EffectStringVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectTechnique_Impl: Sized {
-    fn IsValid(&mut self) -> super::super::Foundation::BOOL;
-    fn GetDesc(&mut self, pdesc: *mut D3D10_TECHNIQUE_DESC) -> ::windows::core::Result<()>;
-    fn GetAnnotationByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetAnnotationByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetPassByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10EffectPass>;
-    fn GetPassByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectPass>;
-    fn ComputeStateBlockMask(&mut self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK>;
+    fn IsValid(&self) -> super::super::Foundation::BOOL;
+    fn GetDesc(&self, pdesc: *mut D3D10_TECHNIQUE_DESC) -> ::windows::core::Result<()>;
+    fn GetAnnotationByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetAnnotationByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetPassByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectPass>;
+    fn GetPassByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectPass>;
+    fn ComputeStateBlockMask(&self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectTechnique_Vtbl {
@@ -2069,13 +2069,13 @@ impl ID3D10EffectTechnique_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D10EffectType_Impl: Sized {
-    fn IsValid(&mut self) -> super::super::Foundation::BOOL;
-    fn GetDesc(&mut self, pdesc: *mut D3D10_EFFECT_TYPE_DESC) -> ::windows::core::Result<()>;
-    fn GetMemberTypeByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10EffectType>;
-    fn GetMemberTypeByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectType>;
-    fn GetMemberTypeBySemantic(&mut self, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectType>;
-    fn GetMemberName(&mut self, index: u32) -> super::super::Foundation::PSTR;
-    fn GetMemberSemantic(&mut self, index: u32) -> super::super::Foundation::PSTR;
+    fn IsValid(&self) -> super::super::Foundation::BOOL;
+    fn GetDesc(&self, pdesc: *mut D3D10_EFFECT_TYPE_DESC) -> ::windows::core::Result<()>;
+    fn GetMemberTypeByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectType>;
+    fn GetMemberTypeByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectType>;
+    fn GetMemberTypeBySemantic(&self, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectType>;
+    fn GetMemberName(&self, index: u32) -> super::super::Foundation::PSTR;
+    fn GetMemberSemantic(&self, index: u32) -> super::super::Foundation::PSTR;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10EffectType_Vtbl {
@@ -2131,31 +2131,31 @@ impl ID3D10EffectType_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectVariable_Impl: Sized {
-    fn IsValid(&mut self) -> super::super::Foundation::BOOL;
-    fn GetType(&mut self) -> ::core::option::Option<ID3D10EffectType>;
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D10_EFFECT_VARIABLE_DESC>;
-    fn GetAnnotationByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetAnnotationByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetMemberByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetMemberByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetMemberBySemantic(&mut self, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetElement(&mut self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
-    fn GetParentConstantBuffer(&mut self) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
-    fn AsScalar(&mut self) -> ::core::option::Option<ID3D10EffectScalarVariable>;
-    fn AsVector(&mut self) -> ::core::option::Option<ID3D10EffectVectorVariable>;
-    fn AsMatrix(&mut self) -> ::core::option::Option<ID3D10EffectMatrixVariable>;
-    fn AsString(&mut self) -> ::core::option::Option<ID3D10EffectStringVariable>;
-    fn AsShaderResource(&mut self) -> ::core::option::Option<ID3D10EffectShaderResourceVariable>;
-    fn AsRenderTargetView(&mut self) -> ::core::option::Option<ID3D10EffectRenderTargetViewVariable>;
-    fn AsDepthStencilView(&mut self) -> ::core::option::Option<ID3D10EffectDepthStencilViewVariable>;
-    fn AsConstantBuffer(&mut self) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
-    fn AsShader(&mut self) -> ::core::option::Option<ID3D10EffectShaderVariable>;
-    fn AsBlend(&mut self) -> ::core::option::Option<ID3D10EffectBlendVariable>;
-    fn AsDepthStencil(&mut self) -> ::core::option::Option<ID3D10EffectDepthStencilVariable>;
-    fn AsRasterizer(&mut self) -> ::core::option::Option<ID3D10EffectRasterizerVariable>;
-    fn AsSampler(&mut self) -> ::core::option::Option<ID3D10EffectSamplerVariable>;
-    fn SetRawValue(&mut self, pdata: *const ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::Result<()>;
-    fn GetRawValue(&mut self, pdata: *mut ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::Result<()>;
+    fn IsValid(&self) -> super::super::Foundation::BOOL;
+    fn GetType(&self) -> ::core::option::Option<ID3D10EffectType>;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D10_EFFECT_VARIABLE_DESC>;
+    fn GetAnnotationByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetAnnotationByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetMemberByIndex(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetMemberByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetMemberBySemantic(&self, semantic: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetElement(&self, index: u32) -> ::core::option::Option<ID3D10EffectVariable>;
+    fn GetParentConstantBuffer(&self) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
+    fn AsScalar(&self) -> ::core::option::Option<ID3D10EffectScalarVariable>;
+    fn AsVector(&self) -> ::core::option::Option<ID3D10EffectVectorVariable>;
+    fn AsMatrix(&self) -> ::core::option::Option<ID3D10EffectMatrixVariable>;
+    fn AsString(&self) -> ::core::option::Option<ID3D10EffectStringVariable>;
+    fn AsShaderResource(&self) -> ::core::option::Option<ID3D10EffectShaderResourceVariable>;
+    fn AsRenderTargetView(&self) -> ::core::option::Option<ID3D10EffectRenderTargetViewVariable>;
+    fn AsDepthStencilView(&self) -> ::core::option::Option<ID3D10EffectDepthStencilViewVariable>;
+    fn AsConstantBuffer(&self) -> ::core::option::Option<ID3D10EffectConstantBuffer>;
+    fn AsShader(&self) -> ::core::option::Option<ID3D10EffectShaderVariable>;
+    fn AsBlend(&self) -> ::core::option::Option<ID3D10EffectBlendVariable>;
+    fn AsDepthStencil(&self) -> ::core::option::Option<ID3D10EffectDepthStencilVariable>;
+    fn AsRasterizer(&self) -> ::core::option::Option<ID3D10EffectRasterizerVariable>;
+    fn AsSampler(&self) -> ::core::option::Option<ID3D10EffectSamplerVariable>;
+    fn SetRawValue(&self, pdata: *const ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::Result<()>;
+    fn GetRawValue(&self, pdata: *mut ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectVariable_Vtbl {
@@ -2325,18 +2325,18 @@ impl ID3D10EffectVariable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectVectorVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetBoolVector(&mut self, pdata: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetIntVector(&mut self, pdata: *mut i32) -> ::windows::core::Result<()>;
-    fn SetFloatVector(&mut self, pdata: *mut f32) -> ::windows::core::Result<()>;
-    fn GetBoolVector(&mut self, pdata: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetIntVector(&mut self, pdata: *mut i32) -> ::windows::core::Result<()>;
-    fn GetFloatVector(&mut self, pdata: *mut f32) -> ::windows::core::Result<()>;
-    fn SetBoolVectorArray(&mut self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn SetIntVectorArray(&mut self, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn SetFloatVectorArray(&mut self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetBoolVectorArray(&mut self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetIntVectorArray(&mut self, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::Result<()>;
-    fn GetFloatVectorArray(&mut self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetBoolVector(&self, pdata: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetIntVector(&self, pdata: *mut i32) -> ::windows::core::Result<()>;
+    fn SetFloatVector(&self, pdata: *mut f32) -> ::windows::core::Result<()>;
+    fn GetBoolVector(&self, pdata: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetIntVector(&self, pdata: *mut i32) -> ::windows::core::Result<()>;
+    fn GetFloatVector(&self, pdata: *mut f32) -> ::windows::core::Result<()>;
+    fn SetBoolVectorArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetIntVectorArray(&self, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn SetFloatVectorArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetBoolVectorArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetIntVectorArray(&self, pdata: *mut i32, offset: u32, count: u32) -> ::windows::core::Result<()>;
+    fn GetFloatVectorArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectVectorVariable_Vtbl {
@@ -2432,41 +2432,41 @@ impl ID3D10GeometryShader_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10InfoQueue_Impl: Sized {
-    fn SetMessageCountLimit(&mut self, messagecountlimit: u64) -> ::windows::core::Result<()>;
-    fn ClearStoredMessages(&mut self);
-    fn GetMessage(&mut self, messageindex: u64, pmessage: *mut D3D10_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::Result<()>;
-    fn GetNumMessagesAllowedByStorageFilter(&mut self) -> u64;
-    fn GetNumMessagesDeniedByStorageFilter(&mut self) -> u64;
-    fn GetNumStoredMessages(&mut self) -> u64;
-    fn GetNumStoredMessagesAllowedByRetrievalFilter(&mut self) -> u64;
-    fn GetNumMessagesDiscardedByMessageCountLimit(&mut self) -> u64;
-    fn GetMessageCountLimit(&mut self) -> u64;
-    fn AddStorageFilterEntries(&mut self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn GetStorageFilter(&mut self, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
-    fn ClearStorageFilter(&mut self);
-    fn PushEmptyStorageFilter(&mut self) -> ::windows::core::Result<()>;
-    fn PushCopyOfStorageFilter(&mut self) -> ::windows::core::Result<()>;
-    fn PushStorageFilter(&mut self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn PopStorageFilter(&mut self);
-    fn GetStorageFilterStackSize(&mut self) -> u32;
-    fn AddRetrievalFilterEntries(&mut self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn GetRetrievalFilter(&mut self, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
-    fn ClearRetrievalFilter(&mut self);
-    fn PushEmptyRetrievalFilter(&mut self) -> ::windows::core::Result<()>;
-    fn PushCopyOfRetrievalFilter(&mut self) -> ::windows::core::Result<()>;
-    fn PushRetrievalFilter(&mut self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn PopRetrievalFilter(&mut self);
-    fn GetRetrievalFilterStackSize(&mut self) -> u32;
-    fn AddMessage(&mut self, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn AddApplicationMessage(&mut self, severity: D3D10_MESSAGE_SEVERITY, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn SetBreakOnCategory(&mut self, category: D3D10_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetBreakOnSeverity(&mut self, severity: D3D10_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetBreakOnID(&mut self, id: D3D10_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetBreakOnCategory(&mut self, category: D3D10_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnSeverity(&mut self, severity: D3D10_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnID(&mut self, id: D3D10_MESSAGE_ID) -> super::super::Foundation::BOOL;
-    fn SetMuteDebugOutput(&mut self, bmute: super::super::Foundation::BOOL);
-    fn GetMuteDebugOutput(&mut self) -> super::super::Foundation::BOOL;
+    fn SetMessageCountLimit(&self, messagecountlimit: u64) -> ::windows::core::Result<()>;
+    fn ClearStoredMessages(&self);
+    fn GetMessage(&self, messageindex: u64, pmessage: *mut D3D10_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::Result<()>;
+    fn GetNumMessagesAllowedByStorageFilter(&self) -> u64;
+    fn GetNumMessagesDeniedByStorageFilter(&self) -> u64;
+    fn GetNumStoredMessages(&self) -> u64;
+    fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64;
+    fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64;
+    fn GetMessageCountLimit(&self) -> u64;
+    fn AddStorageFilterEntries(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn GetStorageFilter(&self, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
+    fn ClearStorageFilter(&self);
+    fn PushEmptyStorageFilter(&self) -> ::windows::core::Result<()>;
+    fn PushCopyOfStorageFilter(&self) -> ::windows::core::Result<()>;
+    fn PushStorageFilter(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn PopStorageFilter(&self);
+    fn GetStorageFilterStackSize(&self) -> u32;
+    fn AddRetrievalFilterEntries(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn GetRetrievalFilter(&self, pfilter: *mut D3D10_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
+    fn ClearRetrievalFilter(&self);
+    fn PushEmptyRetrievalFilter(&self) -> ::windows::core::Result<()>;
+    fn PushCopyOfRetrievalFilter(&self) -> ::windows::core::Result<()>;
+    fn PushRetrievalFilter(&self, pfilter: *const D3D10_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn PopRetrievalFilter(&self);
+    fn GetRetrievalFilterStackSize(&self) -> u32;
+    fn AddMessage(&self, category: D3D10_MESSAGE_CATEGORY, severity: D3D10_MESSAGE_SEVERITY, id: D3D10_MESSAGE_ID, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn AddApplicationMessage(&self, severity: D3D10_MESSAGE_SEVERITY, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn SetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetBreakOnID(&self, id: D3D10_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetBreakOnCategory(&self, category: D3D10_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL;
+    fn GetBreakOnSeverity(&self, severity: D3D10_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL;
+    fn GetBreakOnID(&self, id: D3D10_MESSAGE_ID) -> super::super::Foundation::BOOL;
+    fn SetMuteDebugOutput(&self, bmute: super::super::Foundation::BOOL);
+    fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10InfoQueue_Vtbl {
@@ -2700,10 +2700,10 @@ impl ID3D10InputLayout_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10Multithread_Impl: Sized {
-    fn Enter(&mut self);
-    fn Leave(&mut self);
-    fn SetMultithreadProtected(&mut self, bmtprotect: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    fn GetMultithreadProtected(&mut self) -> super::super::Foundation::BOOL;
+    fn Enter(&self);
+    fn Leave(&self);
+    fn SetMultithreadProtected(&self, bmtprotect: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10Multithread_Vtbl {
@@ -2759,7 +2759,7 @@ impl ID3D10Predicate_Vtbl {
     }
 }
 pub trait ID3D10Query_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D10_QUERY_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D10_QUERY_DESC);
 }
 impl ID3D10Query_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Query_Impl, const OFFSET: isize>() -> ID3D10Query_Vtbl {
@@ -2776,7 +2776,7 @@ impl ID3D10Query_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10RasterizerState_Impl: Sized + ID3D10DeviceChild_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D10_RASTERIZER_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D10_RASTERIZER_DESC);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10RasterizerState_Vtbl {
@@ -2794,7 +2794,7 @@ impl ID3D10RasterizerState_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D10RenderTargetView_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10View_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D10_RENDER_TARGET_VIEW_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D10_RENDER_TARGET_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D10RenderTargetView_Vtbl {
@@ -2811,9 +2811,9 @@ impl ID3D10RenderTargetView_Vtbl {
     }
 }
 pub trait ID3D10Resource_Impl: Sized + ID3D10DeviceChild_Impl {
-    fn GetType(&mut self, rtype: *mut D3D10_RESOURCE_DIMENSION);
-    fn SetEvictionPriority(&mut self, evictionpriority: u32);
-    fn GetEvictionPriority(&mut self) -> u32;
+    fn GetType(&self, rtype: *mut D3D10_RESOURCE_DIMENSION);
+    fn SetEvictionPriority(&self, evictionpriority: u32);
+    fn GetEvictionPriority(&self) -> u32;
 }
 impl ID3D10Resource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Resource_Impl, const OFFSET: isize>() -> ID3D10Resource_Vtbl {
@@ -2844,7 +2844,7 @@ impl ID3D10Resource_Vtbl {
     }
 }
 pub trait ID3D10SamplerState_Impl: Sized + ID3D10DeviceChild_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D10_SAMPLER_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D10_SAMPLER_DESC);
 }
 impl ID3D10SamplerState_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10SamplerState_Impl, const OFFSET: isize>() -> ID3D10SamplerState_Vtbl {
@@ -2861,12 +2861,12 @@ impl ID3D10SamplerState_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D10ShaderReflection_Impl: Sized {
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D10_SHADER_DESC>;
-    fn GetConstantBufferByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
-    fn GetConstantBufferByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
-    fn GetResourceBindingDesc(&mut self, resourceindex: u32) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>;
-    fn GetInputParameterDesc(&mut self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
-    fn GetOutputParameterDesc(&mut self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_DESC>;
+    fn GetConstantBufferByIndex(&self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
+    fn GetConstantBufferByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
+    fn GetResourceBindingDesc(&self, resourceindex: u32) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>;
+    fn GetInputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
+    fn GetOutputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10ShaderReflection_Vtbl {
@@ -2941,21 +2941,21 @@ impl ID3D10ShaderReflection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D10ShaderReflection1_Impl: Sized {
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D10_SHADER_DESC>;
-    fn GetConstantBufferByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
-    fn GetConstantBufferByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
-    fn GetResourceBindingDesc(&mut self, resourceindex: u32) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>;
-    fn GetInputParameterDesc(&mut self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
-    fn GetOutputParameterDesc(&mut self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
-    fn GetVariableByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
-    fn GetResourceBindingDescByName(&mut self, name: super::super::Foundation::PSTR) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>;
-    fn GetMovInstructionCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetMovcInstructionCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetConversionInstructionCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetBitwiseInstructionCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetGSInputPrimitive(&mut self) -> ::windows::core::Result<super::Direct3D::D3D_PRIMITIVE>;
-    fn IsLevel9Shader(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsSampleFrequencyShader(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_DESC>;
+    fn GetConstantBufferByIndex(&self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
+    fn GetConstantBufferByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionConstantBuffer>;
+    fn GetResourceBindingDesc(&self, resourceindex: u32) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>;
+    fn GetInputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
+    fn GetOutputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
+    fn GetVariableByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
+    fn GetResourceBindingDescByName(&self, name: super::super::Foundation::PSTR) -> ::windows::core::Result<D3D10_SHADER_INPUT_BIND_DESC>;
+    fn GetMovInstructionCount(&self) -> ::windows::core::Result<u32>;
+    fn GetMovcInstructionCount(&self) -> ::windows::core::Result<u32>;
+    fn GetConversionInstructionCount(&self) -> ::windows::core::Result<u32>;
+    fn GetBitwiseInstructionCount(&self) -> ::windows::core::Result<u32>;
+    fn GetGSInputPrimitive(&self) -> ::windows::core::Result<super::Direct3D::D3D_PRIMITIVE>;
+    fn IsLevel9Shader(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsSampleFrequencyShader(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10ShaderReflection1_Vtbl {
@@ -3132,9 +3132,9 @@ impl ID3D10ShaderReflection1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D10ShaderReflectionConstantBuffer_Impl: Sized {
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D10_SHADER_BUFFER_DESC>;
-    fn GetVariableByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
-    fn GetVariableByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_BUFFER_DESC>;
+    fn GetVariableByIndex(&self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
+    fn GetVariableByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
@@ -3172,10 +3172,10 @@ impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D10ShaderReflectionType_Impl: Sized {
-    fn GetDesc(&mut self, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> ::windows::core::Result<()>;
-    fn GetMemberTypeByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionType>;
-    fn GetMemberTypeByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionType>;
-    fn GetMemberTypeName(&mut self, index: u32) -> super::super::Foundation::PSTR;
+    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> ::windows::core::Result<()>;
+    fn GetMemberTypeByIndex(&self, index: u32) -> ::core::option::Option<ID3D10ShaderReflectionType>;
+    fn GetMemberTypeByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D10ShaderReflectionType>;
+    fn GetMemberTypeName(&self, index: u32) -> super::super::Foundation::PSTR;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10ShaderReflectionType_Vtbl {
@@ -3213,8 +3213,8 @@ impl ID3D10ShaderReflectionType_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10ShaderReflectionVariable_Impl: Sized {
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D10_SHADER_VARIABLE_DESC>;
-    fn GetType(&mut self) -> ::core::option::Option<ID3D10ShaderReflectionType>;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_VARIABLE_DESC>;
+    fn GetType(&self) -> ::core::option::Option<ID3D10ShaderReflectionType>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10ShaderReflectionVariable_Vtbl {
@@ -3243,7 +3243,7 @@ impl ID3D10ShaderReflectionVariable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10ShaderResourceView_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10View_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D10ShaderResourceView_Vtbl {
@@ -3261,7 +3261,7 @@ impl ID3D10ShaderResourceView_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10ShaderResourceView1_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10View_Impl + ID3D10ShaderResourceView_Impl {
-    fn GetDesc1(&mut self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC1);
+    fn GetDesc1(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC1);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D10ShaderResourceView1_Vtbl {
@@ -3278,10 +3278,10 @@ impl ID3D10ShaderResourceView1_Vtbl {
     }
 }
 pub trait ID3D10StateBlock_Impl: Sized {
-    fn Capture(&mut self) -> ::windows::core::Result<()>;
-    fn Apply(&mut self) -> ::windows::core::Result<()>;
-    fn ReleaseAllDeviceObjects(&mut self) -> ::windows::core::Result<()>;
-    fn GetDevice(&mut self) -> ::windows::core::Result<ID3D10Device>;
+    fn Capture(&self) -> ::windows::core::Result<()>;
+    fn Apply(&self) -> ::windows::core::Result<()>;
+    fn ReleaseAllDeviceObjects(&self) -> ::windows::core::Result<()>;
+    fn GetDevice(&self) -> ::windows::core::Result<ID3D10Device>;
 }
 impl ID3D10StateBlock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10StateBlock_Impl, const OFFSET: isize>() -> ID3D10StateBlock_Vtbl {
@@ -3325,8 +3325,8 @@ impl ID3D10StateBlock_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10SwitchToRef_Impl: Sized {
-    fn SetUseRef(&mut self, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    fn GetUseRef(&mut self) -> super::super::Foundation::BOOL;
+    fn SetUseRef(&self, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    fn GetUseRef(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10SwitchToRef_Vtbl {
@@ -3353,9 +3353,9 @@ impl ID3D10SwitchToRef_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D10Texture1D_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_Impl {
-    fn Map(&mut self, subresource: u32, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Unmap(&mut self, subresource: u32);
-    fn GetDesc(&mut self, pdesc: *mut D3D10_TEXTURE1D_DESC);
+    fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Unmap(&self, subresource: u32);
+    fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE1D_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D10Texture1D_Vtbl {
@@ -3388,9 +3388,9 @@ impl ID3D10Texture1D_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D10Texture2D_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_Impl {
-    fn Map(&mut self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows::core::Result<D3D10_MAPPED_TEXTURE2D>;
-    fn Unmap(&mut self, subresource: u32);
-    fn GetDesc(&mut self, pdesc: *mut D3D10_TEXTURE2D_DESC);
+    fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows::core::Result<D3D10_MAPPED_TEXTURE2D>;
+    fn Unmap(&self, subresource: u32);
+    fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE2D_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D10Texture2D_Vtbl {
@@ -3429,9 +3429,9 @@ impl ID3D10Texture2D_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D10Texture3D_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_Impl {
-    fn Map(&mut self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows::core::Result<D3D10_MAPPED_TEXTURE3D>;
-    fn Unmap(&mut self, subresource: u32);
-    fn GetDesc(&mut self, pdesc: *mut D3D10_TEXTURE3D_DESC);
+    fn Map(&self, subresource: u32, maptype: D3D10_MAP, mapflags: u32) -> ::windows::core::Result<D3D10_MAPPED_TEXTURE3D>;
+    fn Unmap(&self, subresource: u32);
+    fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE3D_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D10Texture3D_Vtbl {
@@ -3478,7 +3478,7 @@ impl ID3D10VertexShader_Vtbl {
     }
 }
 pub trait ID3D10View_Impl: Sized + ID3D10DeviceChild_Impl {
-    fn GetResource(&mut self, ppresource: *mut ::core::option::Option<ID3D10Resource>);
+    fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D10Resource>);
 }
 impl ID3D10View_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10View_Impl, const OFFSET: isize>() -> ID3D10View_Vtbl {

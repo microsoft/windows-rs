@@ -11,7 +11,7 @@ impl IBackgroundCondition_Vtbl {
     }
 }
 pub trait IBackgroundTask_Impl: Sized {
-    fn Run(&mut self, taskinstance: &::core::option::Option<IBackgroundTaskInstance>) -> ::windows::core::Result<()>;
+    fn Run(&self, taskinstance: &::core::option::Option<IBackgroundTaskInstance>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IBackgroundTask {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTask";
@@ -31,15 +31,15 @@ impl IBackgroundTask_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskInstance_Impl: Sized {
-    fn InstanceId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Task(&mut self) -> ::windows::core::Result<BackgroundTaskRegistration>;
-    fn Progress(&mut self) -> ::windows::core::Result<u32>;
-    fn SetProgress(&mut self, value: u32) -> ::windows::core::Result<()>;
-    fn TriggerDetails(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn Canceled(&mut self, cancelhandler: &::core::option::Option<BackgroundTaskCanceledEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCanceled(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SuspendedCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetDeferral(&mut self) -> ::windows::core::Result<BackgroundTaskDeferral>;
+    fn InstanceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Task(&self) -> ::windows::core::Result<BackgroundTaskRegistration>;
+    fn Progress(&self) -> ::windows::core::Result<u32>;
+    fn SetProgress(&self, value: u32) -> ::windows::core::Result<()>;
+    fn TriggerDetails(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Canceled(&self, cancelhandler: &::core::option::Option<BackgroundTaskCanceledEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCanceled(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SuspendedCount(&self) -> ::windows::core::Result<u32>;
+    fn GetDeferral(&self) -> ::windows::core::Result<BackgroundTaskDeferral>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskInstance {
@@ -161,7 +161,7 @@ impl IBackgroundTaskInstance_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskInstance2_Impl: Sized + IBackgroundTaskInstance_Impl {
-    fn GetThrottleCount(&mut self, counter: BackgroundTaskThrottleCounter) -> ::windows::core::Result<u32>;
+    fn GetThrottleCount(&self, counter: BackgroundTaskThrottleCounter) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskInstance2 {
@@ -193,7 +193,7 @@ impl IBackgroundTaskInstance2_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "System"))]
 pub trait IBackgroundTaskInstance4_Impl: Sized + IBackgroundTaskInstance_Impl {
-    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
+    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "System"))]
 impl ::windows::core::RuntimeName for IBackgroundTaskInstance4 {
@@ -222,13 +222,13 @@ impl IBackgroundTaskInstance4_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration_Impl: Sized {
-    fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Progress(&mut self, handler: &::core::option::Option<BackgroundTaskProgressEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveProgress(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Completed(&mut self, handler: &::core::option::Option<BackgroundTaskCompletedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCompleted(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Unregister(&mut self, canceltask: bool) -> ::windows::core::Result<()>;
+    fn TaskId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Progress(&self, handler: &::core::option::Option<BackgroundTaskProgressEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveProgress(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Completed(&self, handler: &::core::option::Option<BackgroundTaskCompletedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCompleted(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Unregister(&self, canceltask: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistration {
@@ -317,7 +317,7 @@ impl IBackgroundTaskRegistration_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration2_Impl: Sized + IBackgroundTaskRegistration_Impl {
-    fn Trigger(&mut self) -> ::windows::core::Result<IBackgroundTrigger>;
+    fn Trigger(&self) -> ::windows::core::Result<IBackgroundTrigger>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistration2 {
@@ -346,7 +346,7 @@ impl IBackgroundTaskRegistration2_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration3_Impl: Sized + IBackgroundTaskRegistration_Impl {
-    fn TaskGroup(&mut self) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
+    fn TaskGroup(&self) -> ::windows::core::Result<BackgroundTaskRegistrationGroup>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBackgroundTaskRegistration3 {

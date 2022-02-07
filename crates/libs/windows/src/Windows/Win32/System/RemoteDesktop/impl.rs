@@ -1,35 +1,35 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsTSUserEx_Impl: Sized + super::Com::IDispatch_Impl {
-    fn TerminalServicesProfilePath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTerminalServicesProfilePath(&mut self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TerminalServicesHomeDirectory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTerminalServicesHomeDirectory(&mut self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TerminalServicesHomeDrive(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTerminalServicesHomeDrive(&mut self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AllowLogon(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAllowLogon(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn EnableRemoteControl(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEnableRemoteControl(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn MaxDisconnectionTime(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxDisconnectionTime(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn MaxConnectionTime(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxConnectionTime(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn MaxIdleTime(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxIdleTime(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn ReconnectionAction(&mut self) -> ::windows::core::Result<i32>;
-    fn SetReconnectionAction(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn BrokenConnectionAction(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBrokenConnectionAction(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn ConnectClientDrivesAtLogon(&mut self) -> ::windows::core::Result<i32>;
-    fn SetConnectClientDrivesAtLogon(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn ConnectClientPrintersAtLogon(&mut self) -> ::windows::core::Result<i32>;
-    fn SetConnectClientPrintersAtLogon(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn DefaultToMainPrinter(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDefaultToMainPrinter(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn TerminalServicesWorkDirectory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTerminalServicesWorkDirectory(&mut self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TerminalServicesInitialProgram(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTerminalServicesInitialProgram(&mut self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TerminalServicesProfilePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTerminalServicesProfilePath(&self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TerminalServicesHomeDirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTerminalServicesHomeDirectory(&self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TerminalServicesHomeDrive(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTerminalServicesHomeDrive(&self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AllowLogon(&self) -> ::windows::core::Result<i32>;
+    fn SetAllowLogon(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn EnableRemoteControl(&self) -> ::windows::core::Result<i32>;
+    fn SetEnableRemoteControl(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn MaxDisconnectionTime(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxDisconnectionTime(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn MaxConnectionTime(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxConnectionTime(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn MaxIdleTime(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxIdleTime(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn ReconnectionAction(&self) -> ::windows::core::Result<i32>;
+    fn SetReconnectionAction(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn BrokenConnectionAction(&self) -> ::windows::core::Result<i32>;
+    fn SetBrokenConnectionAction(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn ConnectClientDrivesAtLogon(&self) -> ::windows::core::Result<i32>;
+    fn SetConnectClientDrivesAtLogon(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn ConnectClientPrintersAtLogon(&self) -> ::windows::core::Result<i32>;
+    fn SetConnectClientPrintersAtLogon(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn DefaultToMainPrinter(&self) -> ::windows::core::Result<i32>;
+    fn SetDefaultToMainPrinter(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn TerminalServicesWorkDirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTerminalServicesWorkDirectory(&self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TerminalServicesInitialProgram(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTerminalServicesInitialProgram(&self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsTSUserEx_Vtbl {
@@ -314,10 +314,10 @@ impl IADsTSUserEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioDeviceEndpoint_Impl: Sized {
-    fn SetBuffer(&mut self, maxperiod: i64, u32latencycoefficient: u32) -> ::windows::core::Result<()>;
-    fn GetRTCaps(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetEventDrivenCapable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn WriteExclusiveModeParametersToSharedMemory(&mut self, htargetprocess: usize, hnsperiod: i64, hnsbufferduration: i64, u32latencycoefficient: u32, pu32sharedmemorysize: *mut u32, phsharedmemory: *mut usize) -> ::windows::core::Result<()>;
+    fn SetBuffer(&self, maxperiod: i64, u32latencycoefficient: u32) -> ::windows::core::Result<()>;
+    fn GetRTCaps(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetEventDrivenCapable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn WriteExclusiveModeParametersToSharedMemory(&self, htargetprocess: usize, hnsperiod: i64, hnsbufferduration: i64, u32latencycoefficient: u32, pu32sharedmemorysize: *mut u32, phsharedmemory: *mut usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioDeviceEndpoint_Vtbl {
@@ -368,11 +368,11 @@ impl IAudioDeviceEndpoint_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
 pub trait IAudioEndpoint_Impl: Sized {
-    fn GetFrameFormat(&mut self) -> ::windows::core::Result<*mut super::super::Media::Audio::WAVEFORMATEX>;
-    fn GetFramesPerPacket(&mut self) -> ::windows::core::Result<u32>;
-    fn GetLatency(&mut self) -> ::windows::core::Result<i64>;
-    fn SetStreamFlags(&mut self, streamflags: u32) -> ::windows::core::Result<()>;
-    fn SetEventHandle(&mut self, eventhandle: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn GetFrameFormat(&self) -> ::windows::core::Result<*mut super::super::Media::Audio::WAVEFORMATEX>;
+    fn GetFramesPerPacket(&self) -> ::windows::core::Result<u32>;
+    fn GetLatency(&self) -> ::windows::core::Result<i64>;
+    fn SetStreamFlags(&self, streamflags: u32) -> ::windows::core::Result<()>;
+    fn SetEventHandle(&self, eventhandle: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
 impl IAudioEndpoint_Vtbl {
@@ -434,9 +434,9 @@ impl IAudioEndpoint_Vtbl {
     }
 }
 pub trait IAudioEndpointControl_Impl: Sized {
-    fn Start(&mut self) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Start(&self) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
 }
 impl IAudioEndpointControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointControl_Impl, const OFFSET: isize>() -> IAudioEndpointControl_Vtbl {
@@ -467,10 +467,10 @@ impl IAudioEndpointControl_Vtbl {
     }
 }
 pub trait IAudioEndpointRT_Impl: Sized {
-    fn GetCurrentPadding(&mut self, ppadding: *mut i64, paecurrentposition: *mut AE_CURRENT_POSITION);
-    fn ProcessingComplete(&mut self);
-    fn SetPinInactive(&mut self) -> ::windows::core::Result<()>;
-    fn SetPinActive(&mut self) -> ::windows::core::Result<()>;
+    fn GetCurrentPadding(&self, ppadding: *mut i64, paecurrentposition: *mut AE_CURRENT_POSITION);
+    fn ProcessingComplete(&self);
+    fn SetPinInactive(&self) -> ::windows::core::Result<()>;
+    fn SetPinActive(&self) -> ::windows::core::Result<()>;
 }
 impl IAudioEndpointRT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointRT_Impl, const OFFSET: isize>() -> IAudioEndpointRT_Vtbl {
@@ -508,9 +508,9 @@ impl IAudioEndpointRT_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 pub trait IAudioInputEndpointRT_Impl: Sized {
-    fn GetInputDataPointer(&mut self, pconnectionproperty: *mut super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY, paetimestamp: *mut AE_CURRENT_POSITION);
-    fn ReleaseInputDataPointer(&mut self, u32framecount: u32, pdatapointer: usize);
-    fn PulseEndpoint(&mut self);
+    fn GetInputDataPointer(&self, pconnectionproperty: *mut super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY, paetimestamp: *mut AE_CURRENT_POSITION);
+    fn ReleaseInputDataPointer(&self, u32framecount: u32, pdatapointer: usize);
+    fn PulseEndpoint(&self);
 }
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 impl IAudioInputEndpointRT_Vtbl {
@@ -543,9 +543,9 @@ impl IAudioInputEndpointRT_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 pub trait IAudioOutputEndpointRT_Impl: Sized {
-    fn GetOutputDataPointer(&mut self, u32framecount: u32, paetimestamp: *const AE_CURRENT_POSITION) -> usize;
-    fn ReleaseOutputDataPointer(&mut self, pconnectionproperty: *const super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY);
-    fn PulseEndpoint(&mut self);
+    fn GetOutputDataPointer(&self, u32framecount: u32, paetimestamp: *const AE_CURRENT_POSITION) -> usize;
+    fn ReleaseOutputDataPointer(&self, pconnectionproperty: *const super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY);
+    fn PulseEndpoint(&self);
 }
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 impl IAudioOutputEndpointRT_Vtbl {
@@ -578,16 +578,16 @@ impl IAudioOutputEndpointRT_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRemoteDesktopClient_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Connect(&mut self) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self) -> ::windows::core::Result<()>;
-    fn Reconnect(&mut self, width: u32, height: u32) -> ::windows::core::Result<()>;
-    fn Settings(&mut self) -> ::windows::core::Result<IRemoteDesktopClientSettings>;
-    fn Actions(&mut self) -> ::windows::core::Result<IRemoteDesktopClientActions>;
-    fn TouchPointer(&mut self) -> ::windows::core::Result<IRemoteDesktopClientTouchPointer>;
-    fn DeleteSavedCredentials(&mut self, servername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn UpdateSessionDisplaySettings(&mut self, width: u32, height: u32) -> ::windows::core::Result<()>;
-    fn attachEvent(&mut self, eventname: &super::super::Foundation::BSTR, callback: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn detachEvent(&mut self, eventname: &super::super::Foundation::BSTR, callback: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Connect(&self) -> ::windows::core::Result<()>;
+    fn Disconnect(&self) -> ::windows::core::Result<()>;
+    fn Reconnect(&self, width: u32, height: u32) -> ::windows::core::Result<()>;
+    fn Settings(&self) -> ::windows::core::Result<IRemoteDesktopClientSettings>;
+    fn Actions(&self) -> ::windows::core::Result<IRemoteDesktopClientActions>;
+    fn TouchPointer(&self) -> ::windows::core::Result<IRemoteDesktopClientTouchPointer>;
+    fn DeleteSavedCredentials(&self, servername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn UpdateSessionDisplaySettings(&self, width: u32, height: u32) -> ::windows::core::Result<()>;
+    fn attachEvent(&self, eventname: &super::super::Foundation::BSTR, callback: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn detachEvent(&self, eventname: &super::super::Foundation::BSTR, callback: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteDesktopClient_Vtbl {
@@ -680,10 +680,10 @@ impl IRemoteDesktopClient_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRemoteDesktopClientActions_Impl: Sized + super::Com::IDispatch_Impl {
-    fn SuspendScreenUpdates(&mut self) -> ::windows::core::Result<()>;
-    fn ResumeScreenUpdates(&mut self) -> ::windows::core::Result<()>;
-    fn ExecuteRemoteAction(&mut self, remoteaction: RemoteActionType) -> ::windows::core::Result<()>;
-    fn GetSnapshot(&mut self, snapshotencoding: SnapshotEncodingType, snapshotformat: SnapshotFormatType, snapshotwidth: u32, snapshotheight: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SuspendScreenUpdates(&self) -> ::windows::core::Result<()>;
+    fn ResumeScreenUpdates(&self) -> ::windows::core::Result<()>;
+    fn ExecuteRemoteAction(&self, remoteaction: RemoteActionType) -> ::windows::core::Result<()>;
+    fn GetSnapshot(&self, snapshotencoding: SnapshotEncodingType, snapshotformat: SnapshotFormatType, snapshotwidth: u32, snapshotheight: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteDesktopClientActions_Vtbl {
@@ -728,10 +728,10 @@ impl IRemoteDesktopClientActions_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRemoteDesktopClientSettings_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ApplySettings(&mut self, rdpfilecontents: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RetrieveSettings(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetRdpProperty(&mut self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetRdpProperty(&mut self, propertyname: &super::super::Foundation::BSTR, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ApplySettings(&self, rdpfilecontents: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RetrieveSettings(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetRdpProperty(&self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetRdpProperty(&self, propertyname: &super::super::Foundation::BSTR, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteDesktopClientSettings_Vtbl {
@@ -782,12 +782,12 @@ impl IRemoteDesktopClientSettings_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRemoteDesktopClientTouchPointer_Impl: Sized + super::Com::IDispatch_Impl {
-    fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
-    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
-    fn SetEventsEnabled(&mut self, eventsenabled: i16) -> ::windows::core::Result<()>;
-    fn EventsEnabled(&mut self) -> ::windows::core::Result<i16>;
-    fn SetPointerSpeed(&mut self, pointerspeed: u32) -> ::windows::core::Result<()>;
-    fn PointerSpeed(&mut self) -> ::windows::core::Result<u32>;
+    fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()>;
+    fn Enabled(&self) -> ::windows::core::Result<i16>;
+    fn SetEventsEnabled(&self, eventsenabled: i16) -> ::windows::core::Result<()>;
+    fn EventsEnabled(&self) -> ::windows::core::Result<i16>;
+    fn SetPointerSpeed(&self, pointerspeed: u32) -> ::windows::core::Result<()>;
+    fn PointerSpeed(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteDesktopClientTouchPointer_Vtbl {
@@ -855,7 +855,7 @@ impl IRemoteDesktopClientTouchPointer_Vtbl {
     }
 }
 pub trait IRemoteSystemAdditionalInfoProvider_Impl: Sized {
-    fn GetAdditionalInfo(&mut self, deduplicationid: *mut ::windows::core::HSTRING, riid: *const ::windows::core::GUID, mapview: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetAdditionalInfo(&self, deduplicationid: *mut ::windows::core::HSTRING, riid: *const ::windows::core::GUID, mapview: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IRemoteSystemAdditionalInfoProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAdditionalInfoProvider_Impl, const OFFSET: isize>() -> IRemoteSystemAdditionalInfoProvider_Vtbl {
@@ -872,7 +872,7 @@ impl IRemoteSystemAdditionalInfoProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITSGAccountingEngine_Impl: Sized {
-    fn DoAccounting(&mut self, accountingdatatype: AAAccountingDataType, accountingdata: &AAAccountingData) -> ::windows::core::Result<()>;
+    fn DoAccounting(&self, accountingdatatype: AAAccountingDataType, accountingdata: &AAAccountingData) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITSGAccountingEngine_Vtbl {
@@ -890,10 +890,10 @@ impl ITSGAccountingEngine_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITSGAuthenticateUserSink_Impl: Sized {
-    fn OnUserAuthenticated(&mut self, username: &super::super::Foundation::BSTR, userdomain: &super::super::Foundation::BSTR, context: usize, usertoken: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
-    fn OnUserAuthenticationFailed(&mut self, context: usize, genericerrorcode: ::windows::core::HRESULT, specificerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn ReauthenticateUser(&mut self, context: usize) -> ::windows::core::Result<()>;
-    fn DisconnectUser(&mut self, context: usize) -> ::windows::core::Result<()>;
+    fn OnUserAuthenticated(&self, username: &super::super::Foundation::BSTR, userdomain: &super::super::Foundation::BSTR, context: usize, usertoken: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
+    fn OnUserAuthenticationFailed(&self, context: usize, genericerrorcode: ::windows::core::HRESULT, specificerrorcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn ReauthenticateUser(&self, context: usize) -> ::windows::core::Result<()>;
+    fn DisconnectUser(&self, context: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITSGAuthenticateUserSink_Vtbl {
@@ -931,8 +931,8 @@ impl ITSGAuthenticateUserSink_Vtbl {
     }
 }
 pub trait ITSGAuthenticationEngine_Impl: Sized {
-    fn AuthenticateUser(&mut self, mainsessionid: &::windows::core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: &::core::option::Option<ITSGAuthenticateUserSink>) -> ::windows::core::Result<()>;
-    fn CancelAuthentication(&mut self, mainsessionid: &::windows::core::GUID, context: usize) -> ::windows::core::Result<()>;
+    fn AuthenticateUser(&self, mainsessionid: &::windows::core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: &::core::option::Option<ITSGAuthenticateUserSink>) -> ::windows::core::Result<()>;
+    fn CancelAuthentication(&self, mainsessionid: &::windows::core::GUID, context: usize) -> ::windows::core::Result<()>;
 }
 impl ITSGAuthenticationEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAuthenticationEngine_Impl, const OFFSET: isize>() -> ITSGAuthenticationEngine_Vtbl {
@@ -957,7 +957,7 @@ impl ITSGAuthenticationEngine_Vtbl {
     }
 }
 pub trait ITSGAuthorizeConnectionSink_Impl: Sized {
-    fn OnConnectionAuthorized(&mut self, hrin: ::windows::core::HRESULT, mainsessionid: &::windows::core::GUID, cbsohresponse: u32, pbsohresponse: *const u8, idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows::core::Result<()>;
+    fn OnConnectionAuthorized(&self, hrin: ::windows::core::HRESULT, mainsessionid: &::windows::core::GUID, cbsohresponse: u32, pbsohresponse: *const u8, idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows::core::Result<()>;
 }
 impl ITSGAuthorizeConnectionSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAuthorizeConnectionSink_Impl, const OFFSET: isize>() -> ITSGAuthorizeConnectionSink_Vtbl {
@@ -974,7 +974,7 @@ impl ITSGAuthorizeConnectionSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITSGAuthorizeResourceSink_Impl: Sized {
-    fn OnChannelAuthorized(&mut self, hrin: ::windows::core::HRESULT, mainsessionid: &::windows::core::GUID, subsessionid: i32, allowedresourcenames: *const super::super::Foundation::BSTR, numallowedresourcenames: u32, failedresourcenames: *const super::super::Foundation::BSTR, numfailedresourcenames: u32) -> ::windows::core::Result<()>;
+    fn OnChannelAuthorized(&self, hrin: ::windows::core::HRESULT, mainsessionid: &::windows::core::GUID, subsessionid: i32, allowedresourcenames: *const super::super::Foundation::BSTR, numallowedresourcenames: u32, failedresourcenames: *const super::super::Foundation::BSTR, numfailedresourcenames: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITSGAuthorizeResourceSink_Vtbl {
@@ -992,10 +992,10 @@ impl ITSGAuthorizeResourceSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITSGPolicyEngine_Impl: Sized {
-    fn AuthorizeConnection(&mut self, mainsessionid: &::windows::core::GUID, username: &super::super::Foundation::BSTR, authtype: AAAuthSchemes, clientmachineip: &super::super::Foundation::BSTR, clientmachinename: &super::super::Foundation::BSTR, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: &::core::option::Option<ITSGAuthorizeConnectionSink>) -> ::windows::core::Result<()>;
-    fn AuthorizeResource(&mut self, mainsessionid: &::windows::core::GUID, subsessionid: i32, username: &super::super::Foundation::BSTR, resourcenames: *const super::super::Foundation::BSTR, numresources: u32, alternateresourcenames: *const super::super::Foundation::BSTR, numalternateresourcename: u32, portnumber: u32, operation: &super::super::Foundation::BSTR, cookie: *const u8, numbytesincookie: u32, psink: &::core::option::Option<ITSGAuthorizeResourceSink>) -> ::windows::core::Result<()>;
-    fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn IsQuarantineEnabled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn AuthorizeConnection(&self, mainsessionid: &::windows::core::GUID, username: &super::super::Foundation::BSTR, authtype: AAAuthSchemes, clientmachineip: &super::super::Foundation::BSTR, clientmachinename: &super::super::Foundation::BSTR, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: &::core::option::Option<ITSGAuthorizeConnectionSink>) -> ::windows::core::Result<()>;
+    fn AuthorizeResource(&self, mainsessionid: &::windows::core::GUID, subsessionid: i32, username: &super::super::Foundation::BSTR, resourcenames: *const super::super::Foundation::BSTR, numresources: u32, alternateresourcenames: *const super::super::Foundation::BSTR, numalternateresourcename: u32, portnumber: u32, operation: &super::super::Foundation::BSTR, cookie: *const u8, numbytesincookie: u32, psink: &::core::option::Option<ITSGAuthorizeResourceSink>) -> ::windows::core::Result<()>;
+    fn Refresh(&self) -> ::windows::core::Result<()>;
+    fn IsQuarantineEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITSGPolicyEngine_Vtbl {
@@ -1056,8 +1056,8 @@ impl ITSGPolicyEngine_Vtbl {
     }
 }
 pub trait ITsSbBaseNotifySink_Impl: Sized {
-    fn OnError(&mut self, hrerror: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn OnReportStatus(&mut self, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::core::Result<()>;
+    fn OnError(&self, hrerror: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnReportStatus(&self, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::core::Result<()>;
 }
 impl ITsSbBaseNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbBaseNotifySink_Impl, const OFFSET: isize>() -> ITsSbBaseNotifySink_Vtbl {
@@ -1083,21 +1083,21 @@ impl ITsSbBaseNotifySink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbClientConnection_Impl: Sized {
-    fn UserName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Domain(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn InitialProgram(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn LoadBalanceResult(&mut self) -> ::windows::core::Result<ITsSbLoadBalanceResult>;
-    fn FarmName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn PutContext(&mut self, contextid: &super::super::Foundation::BSTR, context: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn GetContext(&mut self, contextid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn Environment(&mut self) -> ::windows::core::Result<ITsSbEnvironment>;
-    fn ConnectionError(&mut self) -> ::windows::core::Result<()>;
-    fn SamUserAccount(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ClientConnectionPropertySet(&mut self) -> ::windows::core::Result<ITsSbClientConnectionPropertySet>;
-    fn IsFirstAssignment(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn RdFarmType(&mut self) -> ::windows::core::Result<RD_FARM_TYPE>;
-    fn UserSidString(&mut self) -> ::windows::core::Result<*mut i8>;
-    fn GetDisconnectedSession(&mut self) -> ::windows::core::Result<ITsSbSession>;
+    fn UserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Domain(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InitialProgram(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn LoadBalanceResult(&self) -> ::windows::core::Result<ITsSbLoadBalanceResult>;
+    fn FarmName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PutContext(&self, contextid: &super::super::Foundation::BSTR, context: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn GetContext(&self, contextid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Environment(&self) -> ::windows::core::Result<ITsSbEnvironment>;
+    fn ConnectionError(&self) -> ::windows::core::Result<()>;
+    fn SamUserAccount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ClientConnectionPropertySet(&self) -> ::windows::core::Result<ITsSbClientConnectionPropertySet>;
+    fn IsFirstAssignment(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn RdFarmType(&self) -> ::windows::core::Result<RD_FARM_TYPE>;
+    fn UserSidString(&self) -> ::windows::core::Result<*mut i8>;
+    fn GetDisconnectedSession(&self) -> ::windows::core::Result<ITsSbSession>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbClientConnection_Vtbl {
@@ -1297,10 +1297,10 @@ impl ITsSbClientConnectionPropertySet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbEnvironment_Impl: Sized {
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ServerWeight(&mut self) -> ::windows::core::Result<u32>;
-    fn EnvironmentPropertySet(&mut self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet>;
-    fn SetEnvironmentPropertySet(&mut self, pval: &::core::option::Option<ITsSbEnvironmentPropertySet>) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ServerWeight(&self) -> ::windows::core::Result<u32>;
+    fn EnvironmentPropertySet(&self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet>;
+    fn SetEnvironmentPropertySet(&self, pval: &::core::option::Option<ITsSbEnvironmentPropertySet>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbEnvironment_Vtbl {
@@ -1368,9 +1368,9 @@ impl ITsSbEnvironmentPropertySet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbFilterPluginStore_Impl: Sized {
-    fn SaveProperties(&mut self, ppropertyset: &::core::option::Option<ITsSbPropertySet>) -> ::windows::core::Result<()>;
-    fn EnumerateProperties(&mut self) -> ::windows::core::Result<ITsSbPropertySet>;
-    fn DeleteProperties(&mut self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SaveProperties(&self, ppropertyset: &::core::option::Option<ITsSbPropertySet>) -> ::windows::core::Result<()>;
+    fn EnumerateProperties(&self) -> ::windows::core::Result<ITsSbPropertySet>;
+    fn DeleteProperties(&self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbFilterPluginStore_Vtbl {
@@ -1409,8 +1409,8 @@ impl ITsSbFilterPluginStore_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITsSbGenericNotifySink_Impl: Sized {
-    fn OnCompleted(&mut self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn GetWaitTimeout(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn OnCompleted(&self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn GetWaitTimeout(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbGenericNotifySink_Vtbl {
@@ -1443,13 +1443,13 @@ impl ITsSbGenericNotifySink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITsSbGlobalStore_Impl: Sized {
-    fn QueryTarget(&mut self, providername: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, farmname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
-    fn QuerySessionBySessionId(&mut self, providername: &super::super::Foundation::BSTR, dwsessionid: u32, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbSession>;
-    fn EnumerateFarms(&mut self, providername: &super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn EnumerateTargets(&mut self, providername: &super::super::Foundation::BSTR, farmname: &super::super::Foundation::BSTR, envname: &super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
-    fn EnumerateEnvironmentsByProvider(&mut self, providername: &super::super::Foundation::BSTR, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
-    fn EnumerateSessions(&mut self, providername: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, userdomain: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn GetFarmProperty(&mut self, farmname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pvarvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn QueryTarget(&self, providername: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, farmname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
+    fn QuerySessionBySessionId(&self, providername: &super::super::Foundation::BSTR, dwsessionid: u32, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbSession>;
+    fn EnumerateFarms(&self, providername: &super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn EnumerateTargets(&self, providername: &super::super::Foundation::BSTR, farmname: &super::super::Foundation::BSTR, envname: &super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn EnumerateEnvironmentsByProvider(&self, providername: &super::super::Foundation::BSTR, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
+    fn EnumerateSessions(&self, providername: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, userdomain: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn GetFarmProperty(&self, farmname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pvarvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITsSbGlobalStore_Vtbl {
@@ -1518,7 +1518,7 @@ impl ITsSbGlobalStore_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITsSbLoadBalanceResult_Impl: Sized {
-    fn TargetName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn TargetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbLoadBalanceResult_Vtbl {
@@ -1542,7 +1542,7 @@ impl ITsSbLoadBalanceResult_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbLoadBalancing_Impl: Sized + ITsSbPlugin_Impl {
-    fn GetMostSuitableTarget(&mut self, pconnection: &::core::option::Option<ITsSbClientConnection>, plbsink: &::core::option::Option<ITsSbLoadBalancingNotifySink>) -> ::windows::core::Result<()>;
+    fn GetMostSuitableTarget(&self, pconnection: &::core::option::Option<ITsSbClientConnection>, plbsink: &::core::option::Option<ITsSbLoadBalancingNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbLoadBalancing_Vtbl {
@@ -1560,7 +1560,7 @@ impl ITsSbLoadBalancing_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITsSbLoadBalancingNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnGetMostSuitableTarget(&mut self, plbresult: &::core::option::Option<ITsSbLoadBalanceResult>, fisnewconnection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnGetMostSuitableTarget(&self, plbresult: &::core::option::Option<ITsSbLoadBalanceResult>, fisnewconnection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbLoadBalancingNotifySink_Vtbl {
@@ -1578,7 +1578,7 @@ impl ITsSbLoadBalancingNotifySink_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbOrchestration_Impl: Sized + ITsSbPlugin_Impl {
-    fn PrepareTargetForConnect(&mut self, pconnection: &::core::option::Option<ITsSbClientConnection>, porchestrationnotifysink: &::core::option::Option<ITsSbOrchestrationNotifySink>) -> ::windows::core::Result<()>;
+    fn PrepareTargetForConnect(&self, pconnection: &::core::option::Option<ITsSbClientConnection>, porchestrationnotifysink: &::core::option::Option<ITsSbOrchestrationNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbOrchestration_Vtbl {
@@ -1595,7 +1595,7 @@ impl ITsSbOrchestration_Vtbl {
     }
 }
 pub trait ITsSbOrchestrationNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnReadyToConnect(&mut self, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn OnReadyToConnect(&self, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
 }
 impl ITsSbOrchestrationNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbOrchestrationNotifySink_Impl, const OFFSET: isize>() -> ITsSbOrchestrationNotifySink_Vtbl {
@@ -1612,7 +1612,7 @@ impl ITsSbOrchestrationNotifySink_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlacement_Impl: Sized + ITsSbPlugin_Impl {
-    fn QueryEnvironmentForTarget(&mut self, pconnection: &::core::option::Option<ITsSbClientConnection>, pplacementsink: &::core::option::Option<ITsSbPlacementNotifySink>) -> ::windows::core::Result<()>;
+    fn QueryEnvironmentForTarget(&self, pconnection: &::core::option::Option<ITsSbClientConnection>, pplacementsink: &::core::option::Option<ITsSbPlacementNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPlacement_Vtbl {
@@ -1629,7 +1629,7 @@ impl ITsSbPlacement_Vtbl {
     }
 }
 pub trait ITsSbPlacementNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnQueryEnvironmentCompleted(&mut self, penvironment: &::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
+    fn OnQueryEnvironmentCompleted(&self, penvironment: &::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
 }
 impl ITsSbPlacementNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPlacementNotifySink_Impl, const OFFSET: isize>() -> ITsSbPlacementNotifySink_Vtbl {
@@ -1649,8 +1649,8 @@ impl ITsSbPlacementNotifySink_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlugin_Impl: Sized {
-    fn Initialize(&mut self, pprovider: &::core::option::Option<ITsSbProvider>, pnotifysink: &::core::option::Option<ITsSbPluginNotifySink>, ppropertyset: &::core::option::Option<ITsSbPluginPropertySet>) -> ::windows::core::Result<()>;
-    fn Terminate(&mut self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pprovider: &::core::option::Option<ITsSbProvider>, pnotifysink: &::core::option::Option<ITsSbPluginNotifySink>, ppropertyset: &::core::option::Option<ITsSbPluginPropertySet>) -> ::windows::core::Result<()>;
+    fn Terminate(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPlugin_Vtbl {
@@ -1676,8 +1676,8 @@ impl ITsSbPlugin_Vtbl {
     }
 }
 pub trait ITsSbPluginNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnInitialized(&mut self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn OnTerminated(&mut self) -> ::windows::core::Result<()>;
+    fn OnInitialized(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnTerminated(&self) -> ::windows::core::Result<()>;
 }
 impl ITsSbPluginNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPluginNotifySink_Impl, const OFFSET: isize>() -> ITsSbPluginNotifySink_Vtbl {
@@ -1725,18 +1725,18 @@ impl ITsSbPropertySet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbProvider_Impl: Sized {
-    fn CreateTargetObject(&mut self, targetname: &super::super::Foundation::BSTR, environmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
-    fn CreateLoadBalanceResultObject(&mut self, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbLoadBalanceResult>;
-    fn CreateSessionObject(&mut self, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, domain: &super::super::Foundation::BSTR, sessionid: u32) -> ::windows::core::Result<ITsSbSession>;
-    fn CreatePluginPropertySet(&mut self) -> ::windows::core::Result<ITsSbPluginPropertySet>;
-    fn CreateTargetPropertySetObject(&mut self) -> ::windows::core::Result<ITsSbTargetPropertySet>;
-    fn CreateEnvironmentObject(&mut self, name: &super::super::Foundation::BSTR, serverweight: u32) -> ::windows::core::Result<ITsSbEnvironment>;
-    fn GetResourcePluginStore(&mut self) -> ::windows::core::Result<ITsSbResourcePluginStore>;
-    fn GetFilterPluginStore(&mut self) -> ::windows::core::Result<ITsSbFilterPluginStore>;
-    fn RegisterForNotification(&mut self, notificationtype: u32, resourcetomonitor: &super::super::Foundation::BSTR, ppluginnotification: &::core::option::Option<ITsSbResourceNotification>) -> ::windows::core::Result<()>;
-    fn UnRegisterForNotification(&mut self, notificationtype: u32, resourcetomonitor: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetInstanceOfGlobalStore(&mut self) -> ::windows::core::Result<ITsSbGlobalStore>;
-    fn CreateEnvironmentPropertySetObject(&mut self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet>;
+    fn CreateTargetObject(&self, targetname: &super::super::Foundation::BSTR, environmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
+    fn CreateLoadBalanceResultObject(&self, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbLoadBalanceResult>;
+    fn CreateSessionObject(&self, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, domain: &super::super::Foundation::BSTR, sessionid: u32) -> ::windows::core::Result<ITsSbSession>;
+    fn CreatePluginPropertySet(&self) -> ::windows::core::Result<ITsSbPluginPropertySet>;
+    fn CreateTargetPropertySetObject(&self) -> ::windows::core::Result<ITsSbTargetPropertySet>;
+    fn CreateEnvironmentObject(&self, name: &super::super::Foundation::BSTR, serverweight: u32) -> ::windows::core::Result<ITsSbEnvironment>;
+    fn GetResourcePluginStore(&self) -> ::windows::core::Result<ITsSbResourcePluginStore>;
+    fn GetFilterPluginStore(&self) -> ::windows::core::Result<ITsSbFilterPluginStore>;
+    fn RegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &super::super::Foundation::BSTR, ppluginnotification: &::core::option::Option<ITsSbResourceNotification>) -> ::windows::core::Result<()>;
+    fn UnRegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetInstanceOfGlobalStore(&self) -> ::windows::core::Result<ITsSbGlobalStore>;
+    fn CreateEnvironmentPropertySetObject(&self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbProvider_Vtbl {
@@ -1883,10 +1883,10 @@ impl ITsSbProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbProvisioning_Impl: Sized + ITsSbPlugin_Impl {
-    fn CreateVirtualMachines(&mut self, jobxmlstring: &super::super::Foundation::BSTR, jobguid: &super::super::Foundation::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
-    fn PatchVirtualMachines(&mut self, jobxmlstring: &super::super::Foundation::BSTR, jobguid: &super::super::Foundation::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>, pvmpatchinfo: *const VM_PATCH_INFO) -> ::windows::core::Result<()>;
-    fn DeleteVirtualMachines(&mut self, jobxmlstring: &super::super::Foundation::BSTR, jobguid: &super::super::Foundation::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
-    fn CancelJob(&mut self, jobguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CreateVirtualMachines(&self, jobxmlstring: &super::super::Foundation::BSTR, jobguid: &super::super::Foundation::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
+    fn PatchVirtualMachines(&self, jobxmlstring: &super::super::Foundation::BSTR, jobguid: &super::super::Foundation::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>, pvmpatchinfo: *const VM_PATCH_INFO) -> ::windows::core::Result<()>;
+    fn DeleteVirtualMachines(&self, jobxmlstring: &super::super::Foundation::BSTR, jobguid: &super::super::Foundation::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
+    fn CancelJob(&self, jobguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbProvisioning_Vtbl {
@@ -1925,12 +1925,12 @@ impl ITsSbProvisioning_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITsSbProvisioningPluginNotifySink_Impl: Sized {
-    fn OnJobCreated(&mut self, pvmnotifyinfo: *const VM_NOTIFY_INFO) -> ::windows::core::Result<()>;
-    fn OnVirtualMachineStatusChanged(&mut self, pvmnotifyentry: *const VM_NOTIFY_ENTRY, vmnotifystatus: VM_NOTIFY_STATUS, errorcode: ::windows::core::HRESULT, errordescr: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnJobCompleted(&mut self, resultcode: ::windows::core::HRESULT, resultdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnJobCancelled(&mut self) -> ::windows::core::Result<()>;
-    fn LockVirtualMachine(&mut self, pvmnotifyentry: *const VM_NOTIFY_ENTRY) -> ::windows::core::Result<()>;
-    fn OnVirtualMachineHostStatusChanged(&mut self, vmhost: &super::super::Foundation::BSTR, vmhostnotifystatus: VM_HOST_NOTIFY_STATUS, errorcode: ::windows::core::HRESULT, errordescr: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnJobCreated(&self, pvmnotifyinfo: *const VM_NOTIFY_INFO) -> ::windows::core::Result<()>;
+    fn OnVirtualMachineStatusChanged(&self, pvmnotifyentry: *const VM_NOTIFY_ENTRY, vmnotifystatus: VM_NOTIFY_STATUS, errorcode: ::windows::core::HRESULT, errordescr: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnJobCompleted(&self, resultcode: ::windows::core::HRESULT, resultdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnJobCancelled(&self) -> ::windows::core::Result<()>;
+    fn LockVirtualMachine(&self, pvmnotifyentry: *const VM_NOTIFY_ENTRY) -> ::windows::core::Result<()>;
+    fn OnVirtualMachineHostStatusChanged(&self, vmhost: &super::super::Foundation::BSTR, vmhostnotifystatus: VM_HOST_NOTIFY_STATUS, errorcode: ::windows::core::HRESULT, errordescr: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbProvisioningPluginNotifySink_Vtbl {
@@ -1980,9 +1980,9 @@ impl ITsSbProvisioningPluginNotifySink_Vtbl {
     }
 }
 pub trait ITsSbResourceNotification_Impl: Sized {
-    fn NotifySessionChange(&mut self, changetype: TSSESSION_STATE, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn NotifyTargetChange(&mut self, targetchangetype: u32, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
-    fn NotifyClientConnectionStateChange(&mut self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: &::core::option::Option<ITsSbClientConnection>) -> ::windows::core::Result<()>;
+    fn NotifySessionChange(&self, changetype: TSSESSION_STATE, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn NotifyTargetChange(&self, targetchangetype: u32, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn NotifyClientConnectionStateChange(&self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: &::core::option::Option<ITsSbClientConnection>) -> ::windows::core::Result<()>;
 }
 impl ITsSbResourceNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbResourceNotification_Impl, const OFFSET: isize>() -> ITsSbResourceNotification_Vtbl {
@@ -2014,9 +2014,9 @@ impl ITsSbResourceNotification_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITsSbResourceNotificationEx_Impl: Sized {
-    fn NotifySessionChangeEx(&mut self, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, domain: &super::super::Foundation::BSTR, sessionid: u32, sessionstate: TSSESSION_STATE) -> ::windows::core::Result<()>;
-    fn NotifyTargetChangeEx(&mut self, targetname: &super::super::Foundation::BSTR, targetchangetype: u32) -> ::windows::core::Result<()>;
-    fn NotifyClientConnectionStateChangeEx(&mut self, username: &super::super::Foundation::BSTR, domain: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, connectionchangetype: CONNECTION_CHANGE_NOTIFICATION) -> ::windows::core::Result<()>;
+    fn NotifySessionChangeEx(&self, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, domain: &super::super::Foundation::BSTR, sessionid: u32, sessionstate: TSSESSION_STATE) -> ::windows::core::Result<()>;
+    fn NotifyTargetChangeEx(&self, targetname: &super::super::Foundation::BSTR, targetchangetype: u32) -> ::windows::core::Result<()>;
+    fn NotifyClientConnectionStateChangeEx(&self, username: &super::super::Foundation::BSTR, domain: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, connectionchangetype: CONNECTION_CHANGE_NOTIFICATION) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbResourceNotificationEx_Vtbl {
@@ -2060,34 +2060,34 @@ impl ITsSbResourcePlugin_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITsSbResourcePluginStore_Impl: Sized {
-    fn QueryTarget(&mut self, targetname: &super::super::Foundation::BSTR, farmname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
-    fn QuerySessionBySessionId(&mut self, dwsessionid: u32, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbSession>;
-    fn AddTargetToStore(&mut self, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
-    fn AddSessionToStore(&mut self, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn AddEnvironmentToStore(&mut self, penvironment: &::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
-    fn RemoveEnvironmentFromStore(&mut self, environmentname: &super::super::Foundation::BSTR, bignoreowner: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn EnumerateFarms(&mut self, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn QueryEnvironment(&mut self, environmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbEnvironment>;
-    fn EnumerateEnvironments(&mut self, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
-    fn SaveTarget(&mut self, ptarget: &::core::option::Option<ITsSbTarget>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveEnvironment(&mut self, penvironment: &::core::option::Option<ITsSbEnvironment>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveSession(&mut self, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn SetTargetProperty(&mut self, targetname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetEnvironmentProperty(&mut self, environmentname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetTargetState(&mut self, targetname: &super::super::Foundation::BSTR, newstate: TARGET_STATE) -> ::windows::core::Result<TARGET_STATE>;
-    fn SetSessionState(&mut self, sbsession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn EnumerateTargets(&mut self, farmname: &super::super::Foundation::BSTR, envname: &super::super::Foundation::BSTR, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: &super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
-    fn EnumerateSessions(&mut self, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, userdomain: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn GetFarmProperty(&mut self, farmname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pvarvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteTarget(&mut self, targetname: &super::super::Foundation::BSTR, hostname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetTargetPropertyWithVersionCheck(&mut self, ptarget: &::core::option::Option<ITsSbTarget>, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetEnvironmentPropertyWithVersionCheck(&mut self, penvironment: &::core::option::Option<ITsSbEnvironment>, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AcquireTargetLock(&mut self, targetname: &super::super::Foundation::BSTR, dwtimeout: u32) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn ReleaseTargetLock(&mut self, pcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn TestAndSetServerState(&mut self, poolname: &super::super::Foundation::BSTR, serverfqdn: &super::super::Foundation::BSTR, newstate: TARGET_STATE, teststate: TARGET_STATE) -> ::windows::core::Result<TARGET_STATE>;
-    fn SetServerWaitingToStart(&mut self, poolname: &super::super::Foundation::BSTR, servername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetServerState(&mut self, poolname: &super::super::Foundation::BSTR, serverfqdn: &super::super::Foundation::BSTR) -> ::windows::core::Result<TARGET_STATE>;
-    fn SetServerDrainMode(&mut self, serverfqdn: &super::super::Foundation::BSTR, drainmode: u32) -> ::windows::core::Result<()>;
+    fn QueryTarget(&self, targetname: &super::super::Foundation::BSTR, farmname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbTarget>;
+    fn QuerySessionBySessionId(&self, dwsessionid: u32, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbSession>;
+    fn AddTargetToStore(&self, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn AddSessionToStore(&self, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn AddEnvironmentToStore(&self, penvironment: &::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
+    fn RemoveEnvironmentFromStore(&self, environmentname: &super::super::Foundation::BSTR, bignoreowner: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn EnumerateFarms(&self, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn QueryEnvironment(&self, environmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITsSbEnvironment>;
+    fn EnumerateEnvironments(&self, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
+    fn SaveTarget(&self, ptarget: &::core::option::Option<ITsSbTarget>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveEnvironment(&self, penvironment: &::core::option::Option<ITsSbEnvironment>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveSession(&self, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn SetTargetProperty(&self, targetname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetEnvironmentProperty(&self, environmentname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetTargetState(&self, targetname: &super::super::Foundation::BSTR, newstate: TARGET_STATE) -> ::windows::core::Result<TARGET_STATE>;
+    fn SetSessionState(&self, sbsession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn EnumerateTargets(&self, farmname: &super::super::Foundation::BSTR, envname: &super::super::Foundation::BSTR, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: &super::super::Foundation::BSTR, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn EnumerateSessions(&self, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, userdomain: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn GetFarmProperty(&self, farmname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pvarvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteTarget(&self, targetname: &super::super::Foundation::BSTR, hostname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetTargetPropertyWithVersionCheck(&self, ptarget: &::core::option::Option<ITsSbTarget>, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetEnvironmentPropertyWithVersionCheck(&self, penvironment: &::core::option::Option<ITsSbEnvironment>, propertyname: &super::super::Foundation::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AcquireTargetLock(&self, targetname: &super::super::Foundation::BSTR, dwtimeout: u32) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn ReleaseTargetLock(&self, pcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn TestAndSetServerState(&self, poolname: &super::super::Foundation::BSTR, serverfqdn: &super::super::Foundation::BSTR, newstate: TARGET_STATE, teststate: TARGET_STATE) -> ::windows::core::Result<TARGET_STATE>;
+    fn SetServerWaitingToStart(&self, poolname: &super::super::Foundation::BSTR, servername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetServerState(&self, poolname: &super::super::Foundation::BSTR, serverfqdn: &super::super::Foundation::BSTR) -> ::windows::core::Result<TARGET_STATE>;
+    fn SetServerDrainMode(&self, serverfqdn: &super::super::Foundation::BSTR, drainmode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITsSbResourcePluginStore_Vtbl {
@@ -2311,8 +2311,8 @@ impl ITsSbResourcePluginStore_Vtbl {
     }
 }
 pub trait ITsSbServiceNotification_Impl: Sized {
-    fn NotifyServiceFailure(&mut self) -> ::windows::core::Result<()>;
-    fn NotifyServiceSuccess(&mut self) -> ::windows::core::Result<()>;
+    fn NotifyServiceFailure(&self) -> ::windows::core::Result<()>;
+    fn NotifyServiceSuccess(&self) -> ::windows::core::Result<()>;
 }
 impl ITsSbServiceNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbServiceNotification_Impl, const OFFSET: isize>() -> ITsSbServiceNotification_Vtbl {
@@ -2338,23 +2338,23 @@ impl ITsSbServiceNotification_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITsSbSession_Impl: Sized {
-    fn SessionId(&mut self) -> ::windows::core::Result<u32>;
-    fn TargetName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTargetName(&mut self, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Username(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Domain(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn State(&mut self) -> ::windows::core::Result<TSSESSION_STATE>;
-    fn SetState(&mut self, state: TSSESSION_STATE) -> ::windows::core::Result<()>;
-    fn CreateTime(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn SetCreateTime(&mut self, time: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn DisconnectTime(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn SetDisconnectTime(&mut self, time: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn InitialProgram(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetInitialProgram(&mut self, application: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ClientDisplay(&mut self) -> ::windows::core::Result<CLIENT_DISPLAY>;
-    fn SetClientDisplay(&mut self, pclientdisplay: &CLIENT_DISPLAY) -> ::windows::core::Result<()>;
-    fn ProtocolType(&mut self) -> ::windows::core::Result<u32>;
-    fn SetProtocolType(&mut self, val: u32) -> ::windows::core::Result<()>;
+    fn SessionId(&self) -> ::windows::core::Result<u32>;
+    fn TargetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTargetName(&self, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Username(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Domain(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn State(&self) -> ::windows::core::Result<TSSESSION_STATE>;
+    fn SetState(&self, state: TSSESSION_STATE) -> ::windows::core::Result<()>;
+    fn CreateTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn SetCreateTime(&self, time: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn DisconnectTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn SetDisconnectTime(&self, time: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn InitialProgram(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetInitialProgram(&self, application: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ClientDisplay(&self) -> ::windows::core::Result<CLIENT_DISPLAY>;
+    fn SetClientDisplay(&self, pclientdisplay: &CLIENT_DISPLAY) -> ::windows::core::Result<()>;
+    fn ProtocolType(&self) -> ::windows::core::Result<u32>;
+    fn SetProtocolType(&self, val: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbSession_Vtbl {
@@ -2531,25 +2531,25 @@ impl ITsSbSession_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbTarget_Impl: Sized {
-    fn TargetName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTargetName(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FarmName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFarmName(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TargetFQDN(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTargetFQDN(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TargetNetbios(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTargetNetbios(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IpAddresses(&mut self, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::Result<()>;
-    fn SetIpAddresses(&mut self, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::core::Result<()>;
-    fn TargetState(&mut self) -> ::windows::core::Result<TARGET_STATE>;
-    fn SetTargetState(&mut self, state: TARGET_STATE) -> ::windows::core::Result<()>;
-    fn TargetPropertySet(&mut self) -> ::windows::core::Result<ITsSbTargetPropertySet>;
-    fn SetTargetPropertySet(&mut self, pval: &::core::option::Option<ITsSbTargetPropertySet>) -> ::windows::core::Result<()>;
-    fn EnvironmentName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEnvironmentName(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NumSessions(&mut self) -> ::windows::core::Result<u32>;
-    fn NumPendingConnections(&mut self) -> ::windows::core::Result<u32>;
-    fn TargetLoad(&mut self) -> ::windows::core::Result<u32>;
+    fn TargetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTargetName(&self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FarmName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFarmName(&self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TargetFQDN(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTargetFQDN(&self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TargetNetbios(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTargetNetbios(&self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IpAddresses(&self, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::Result<()>;
+    fn SetIpAddresses(&self, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::core::Result<()>;
+    fn TargetState(&self) -> ::windows::core::Result<TARGET_STATE>;
+    fn SetTargetState(&self, state: TARGET_STATE) -> ::windows::core::Result<()>;
+    fn TargetPropertySet(&self) -> ::windows::core::Result<ITsSbTargetPropertySet>;
+    fn SetTargetPropertySet(&self, pval: &::core::option::Option<ITsSbTargetPropertySet>) -> ::windows::core::Result<()>;
+    fn EnvironmentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetEnvironmentName(&self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NumSessions(&self) -> ::windows::core::Result<u32>;
+    fn NumPendingConnections(&self) -> ::windows::core::Result<u32>;
+    fn TargetLoad(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbTarget_Vtbl {
@@ -2749,15 +2749,15 @@ impl ITsSbTargetPropertySet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITsSbTaskInfo_Impl: Sized {
-    fn TargetId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn EndTime(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn Deadline(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn Identifier(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Label(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Context(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn Plugin(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Status(&mut self) -> ::windows::core::Result<RDV_TASK_STATUS>;
+    fn TargetId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn Identifier(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Context(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn Plugin(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Status(&self) -> ::windows::core::Result<RDV_TASK_STATUS>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITsSbTaskInfo_Vtbl {
@@ -2880,8 +2880,8 @@ impl ITsSbTaskInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ITsSbTaskPlugin_Impl: Sized + ITsSbPlugin_Impl {
-    fn InitializeTaskPlugin(&mut self, pitssbtaskpluginnotifysink: &::core::option::Option<ITsSbTaskPluginNotifySink>) -> ::windows::core::Result<()>;
-    fn SetTaskQueue(&mut self, pszhostname: &super::super::Foundation::BSTR, sbtaskinfosize: u32, pitssbtaskinfo: *const ::core::option::Option<ITsSbTaskInfo>) -> ::windows::core::Result<()>;
+    fn InitializeTaskPlugin(&self, pitssbtaskpluginnotifysink: &::core::option::Option<ITsSbTaskPluginNotifySink>) -> ::windows::core::Result<()>;
+    fn SetTaskQueue(&self, pszhostname: &super::super::Foundation::BSTR, sbtaskinfosize: u32, pitssbtaskinfo: *const ::core::option::Option<ITsSbTaskInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbTaskPlugin_Vtbl {
@@ -2908,10 +2908,10 @@ impl ITsSbTaskPlugin_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITsSbTaskPluginNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnSetTaskTime(&mut self, sztargetname: &super::super::Foundation::BSTR, taskstarttime: &super::super::Foundation::FILETIME, taskendtime: &super::super::Foundation::FILETIME, taskdeadline: &super::super::Foundation::FILETIME, sztasklabel: &super::super::Foundation::BSTR, sztaskidentifier: &super::super::Foundation::BSTR, sztaskplugin: &super::super::Foundation::BSTR, dwtaskstatus: u32, sacontext: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn OnDeleteTaskTime(&mut self, sztargetname: &super::super::Foundation::BSTR, sztaskidentifier: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnUpdateTaskStatus(&mut self, sztargetname: &super::super::Foundation::BSTR, taskidentifier: &super::super::Foundation::BSTR, taskstatus: RDV_TASK_STATUS) -> ::windows::core::Result<()>;
-    fn OnReportTasks(&mut self, szhostname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnSetTaskTime(&self, sztargetname: &super::super::Foundation::BSTR, taskstarttime: &super::super::Foundation::FILETIME, taskendtime: &super::super::Foundation::FILETIME, taskdeadline: &super::super::Foundation::FILETIME, sztasklabel: &super::super::Foundation::BSTR, sztaskidentifier: &super::super::Foundation::BSTR, sztaskplugin: &super::super::Foundation::BSTR, dwtaskstatus: u32, sacontext: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn OnDeleteTaskTime(&self, sztargetname: &super::super::Foundation::BSTR, sztaskidentifier: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnUpdateTaskStatus(&self, sztargetname: &super::super::Foundation::BSTR, taskidentifier: &super::super::Foundation::BSTR, taskstatus: RDV_TASK_STATUS) -> ::windows::core::Result<()>;
+    fn OnReportTasks(&self, szhostname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITsSbTaskPluginNotifySink_Vtbl {
@@ -2949,7 +2949,7 @@ impl ITsSbTaskPluginNotifySink_Vtbl {
     }
 }
 pub trait IWRdsEnhancedFastReconnectArbitrator_Impl: Sized {
-    fn GetSessionForEnhancedFastReconnect(&mut self, psessionidarray: *const i32, dwsessioncount: u32) -> ::windows::core::Result<i32>;
+    fn GetSessionForEnhancedFastReconnect(&self, psessionidarray: *const i32, dwsessioncount: u32) -> ::windows::core::Result<i32>;
 }
 impl IWRdsEnhancedFastReconnectArbitrator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsEnhancedFastReconnectArbitrator_Impl, const OFFSET: isize>() -> IWRdsEnhancedFastReconnectArbitrator_Vtbl {
@@ -2974,9 +2974,9 @@ impl IWRdsEnhancedFastReconnectArbitrator_Vtbl {
     }
 }
 pub trait IWRdsGraphicsChannel_Impl: Sized {
-    fn Write(&mut self, cbsize: u32, pbuffer: *const u8, pcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn Open(&mut self, pchannelevents: &::core::option::Option<IWRdsGraphicsChannelEvents>, popencontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Write(&self, cbsize: u32, pbuffer: *const u8, pcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn Open(&self, pchannelevents: &::core::option::Option<IWRdsGraphicsChannelEvents>, popencontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IWRdsGraphicsChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsGraphicsChannel_Impl, const OFFSET: isize>() -> IWRdsGraphicsChannel_Vtbl {
@@ -3008,11 +3008,11 @@ impl IWRdsGraphicsChannel_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsGraphicsChannelEvents_Impl: Sized {
-    fn OnDataReceived(&mut self, cbsize: u32, pbuffer: *const u8) -> ::windows::core::Result<()>;
-    fn OnClose(&mut self) -> ::windows::core::Result<()>;
-    fn OnChannelOpened(&mut self, openresult: ::windows::core::HRESULT, popencontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn OnDataSent(&mut self, pwritecontext: &::core::option::Option<::windows::core::IUnknown>, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> ::windows::core::Result<()>;
-    fn OnMetricsUpdate(&mut self, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> ::windows::core::Result<()>;
+    fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> ::windows::core::Result<()>;
+    fn OnClose(&self) -> ::windows::core::Result<()>;
+    fn OnChannelOpened(&self, openresult: ::windows::core::HRESULT, popencontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnDataSent(&self, pwritecontext: &::core::option::Option<::windows::core::IUnknown>, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> ::windows::core::Result<()>;
+    fn OnMetricsUpdate(&self, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsGraphicsChannelEvents_Vtbl {
@@ -3056,7 +3056,7 @@ impl IWRdsGraphicsChannelEvents_Vtbl {
     }
 }
 pub trait IWRdsGraphicsChannelManager_Impl: Sized {
-    fn CreateChannel(&mut self, pszchannelname: *const u8, channeltype: WRdsGraphicsChannelType) -> ::windows::core::Result<IWRdsGraphicsChannel>;
+    fn CreateChannel(&self, pszchannelname: *const u8, channeltype: WRdsGraphicsChannelType) -> ::windows::core::Result<IWRdsGraphicsChannel>;
 }
 impl IWRdsGraphicsChannelManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsGraphicsChannelManager_Impl, const OFFSET: isize>() -> IWRdsGraphicsChannelManager_Vtbl {
@@ -3079,30 +3079,30 @@ impl IWRdsGraphicsChannelManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolConnection_Impl: Sized {
-    fn GetLogonErrorRedirector(&mut self) -> ::windows::core::Result<IWRdsProtocolLogonErrorRedirector>;
-    fn AcceptConnection(&mut self) -> ::windows::core::Result<()>;
-    fn GetClientData(&mut self) -> ::windows::core::Result<WTS_CLIENT_DATA>;
-    fn GetClientMonitorData(&mut self, pnummonitors: *mut u32, pprimarymonitor: *mut u32) -> ::windows::core::Result<()>;
-    fn GetUserCredentials(&mut self) -> ::windows::core::Result<WTS_USER_CREDENTIAL>;
-    fn GetLicenseConnection(&mut self) -> ::windows::core::Result<IWRdsProtocolLicenseConnection>;
-    fn AuthenticateClientToSession(&mut self) -> ::windows::core::Result<WTS_SESSION_ID>;
-    fn NotifySessionId(&mut self, sessionid: *const WTS_SESSION_ID, sessionhandle: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
-    fn GetInputHandles(&mut self, pkeyboardhandle: *mut super::super::Foundation::HANDLE_PTR, pmousehandle: *mut super::super::Foundation::HANDLE_PTR, pbeephandle: *mut super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
-    fn GetVideoHandle(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE_PTR>;
-    fn ConnectNotify(&mut self, sessionid: u32) -> ::windows::core::Result<()>;
-    fn IsUserAllowedToLogon(&mut self, sessionid: u32, usertoken: super::super::Foundation::HANDLE_PTR, pdomainname: super::super::Foundation::PWSTR, pusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SessionArbitrationEnumeration(&mut self, husertoken: super::super::Foundation::HANDLE_PTR, bsinglesessionperuserenabled: super::super::Foundation::BOOL, psessionidarray: *mut u32, pdwsessionidentifiercount: *mut u32) -> ::windows::core::Result<()>;
-    fn LogonNotify(&mut self, hclienttoken: super::super::Foundation::HANDLE_PTR, wszusername: super::super::Foundation::PWSTR, wszdomainname: super::super::Foundation::PWSTR, sessionid: *const WTS_SESSION_ID, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<()>;
-    fn PreDisconnect(&mut self, disconnectreason: u32) -> ::windows::core::Result<()>;
-    fn DisconnectNotify(&mut self) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn GetProtocolStatus(&mut self) -> ::windows::core::Result<WTS_PROTOCOL_STATUS>;
-    fn GetLastInputTime(&mut self) -> ::windows::core::Result<u64>;
-    fn SetErrorInfo(&mut self, ulerror: u32) -> ::windows::core::Result<()>;
-    fn CreateVirtualChannel(&mut self, szendpointname: super::super::Foundation::PSTR, bstatic: super::super::Foundation::BOOL, requestedpriority: u32) -> ::windows::core::Result<usize>;
-    fn QueryProperty(&mut self, querytype: &::windows::core::GUID, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
-    fn GetShadowConnection(&mut self) -> ::windows::core::Result<IWRdsProtocolShadowConnection>;
-    fn NotifyCommandProcessCreated(&mut self, sessionid: u32) -> ::windows::core::Result<()>;
+    fn GetLogonErrorRedirector(&self) -> ::windows::core::Result<IWRdsProtocolLogonErrorRedirector>;
+    fn AcceptConnection(&self) -> ::windows::core::Result<()>;
+    fn GetClientData(&self) -> ::windows::core::Result<WTS_CLIENT_DATA>;
+    fn GetClientMonitorData(&self, pnummonitors: *mut u32, pprimarymonitor: *mut u32) -> ::windows::core::Result<()>;
+    fn GetUserCredentials(&self) -> ::windows::core::Result<WTS_USER_CREDENTIAL>;
+    fn GetLicenseConnection(&self) -> ::windows::core::Result<IWRdsProtocolLicenseConnection>;
+    fn AuthenticateClientToSession(&self) -> ::windows::core::Result<WTS_SESSION_ID>;
+    fn NotifySessionId(&self, sessionid: *const WTS_SESSION_ID, sessionhandle: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
+    fn GetInputHandles(&self, pkeyboardhandle: *mut super::super::Foundation::HANDLE_PTR, pmousehandle: *mut super::super::Foundation::HANDLE_PTR, pbeephandle: *mut super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
+    fn GetVideoHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE_PTR>;
+    fn ConnectNotify(&self, sessionid: u32) -> ::windows::core::Result<()>;
+    fn IsUserAllowedToLogon(&self, sessionid: u32, usertoken: super::super::Foundation::HANDLE_PTR, pdomainname: super::super::Foundation::PWSTR, pusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SessionArbitrationEnumeration(&self, husertoken: super::super::Foundation::HANDLE_PTR, bsinglesessionperuserenabled: super::super::Foundation::BOOL, psessionidarray: *mut u32, pdwsessionidentifiercount: *mut u32) -> ::windows::core::Result<()>;
+    fn LogonNotify(&self, hclienttoken: super::super::Foundation::HANDLE_PTR, wszusername: super::super::Foundation::PWSTR, wszdomainname: super::super::Foundation::PWSTR, sessionid: *const WTS_SESSION_ID, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<()>;
+    fn PreDisconnect(&self, disconnectreason: u32) -> ::windows::core::Result<()>;
+    fn DisconnectNotify(&self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn GetProtocolStatus(&self) -> ::windows::core::Result<WTS_PROTOCOL_STATUS>;
+    fn GetLastInputTime(&self) -> ::windows::core::Result<u64>;
+    fn SetErrorInfo(&self, ulerror: u32) -> ::windows::core::Result<()>;
+    fn CreateVirtualChannel(&self, szendpointname: super::super::Foundation::PSTR, bstatic: super::super::Foundation::BOOL, requestedpriority: u32) -> ::windows::core::Result<usize>;
+    fn QueryProperty(&self, querytype: &::windows::core::GUID, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
+    fn GetShadowConnection(&self) -> ::windows::core::Result<IWRdsProtocolShadowConnection>;
+    fn NotifyCommandProcessCreated(&self, sessionid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolConnection_Vtbl {
@@ -3320,11 +3320,11 @@ impl IWRdsProtocolConnection_Vtbl {
     }
 }
 pub trait IWRdsProtocolConnectionCallback_Impl: Sized {
-    fn OnReady(&mut self) -> ::windows::core::Result<()>;
-    fn BrokenConnection(&mut self, reason: u32, source: u32) -> ::windows::core::Result<()>;
-    fn StopScreenUpdates(&mut self) -> ::windows::core::Result<()>;
-    fn RedrawWindow(&mut self, rect: *const WTS_SMALL_RECT) -> ::windows::core::Result<()>;
-    fn GetConnectionId(&mut self) -> ::windows::core::Result<u32>;
+    fn OnReady(&self) -> ::windows::core::Result<()>;
+    fn BrokenConnection(&self, reason: u32, source: u32) -> ::windows::core::Result<()>;
+    fn StopScreenUpdates(&self) -> ::windows::core::Result<()>;
+    fn RedrawWindow(&self, rect: *const WTS_SMALL_RECT) -> ::windows::core::Result<()>;
+    fn GetConnectionId(&self) -> ::windows::core::Result<u32>;
 }
 impl IWRdsProtocolConnectionCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolConnectionCallback_Impl, const OFFSET: isize>() -> IWRdsProtocolConnectionCallback_Vtbl {
@@ -3374,8 +3374,8 @@ impl IWRdsProtocolConnectionCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolConnectionSettings_Impl: Sized {
-    fn SetConnectionSetting(&mut self, propertyid: &::windows::core::GUID, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
-    fn GetConnectionSetting(&mut self, propertyid: &::windows::core::GUID) -> ::windows::core::Result<WTS_PROPERTY_VALUE>;
+    fn SetConnectionSetting(&self, propertyid: &::windows::core::GUID, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
+    fn GetConnectionSetting(&self, propertyid: &::windows::core::GUID) -> ::windows::core::Result<WTS_PROPERTY_VALUE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolConnectionSettings_Vtbl {
@@ -3408,10 +3408,10 @@ impl IWRdsProtocolConnectionSettings_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolLicenseConnection_Impl: Sized {
-    fn RequestLicensingCapabilities(&mut self, pplicensecapabilities: *mut WTS_LICENSE_CAPABILITIES, pcblicensecapabilities: *mut u32) -> ::windows::core::Result<()>;
-    fn SendClientLicense(&mut self, pclientlicense: *const u8, cbclientlicense: u32) -> ::windows::core::Result<()>;
-    fn RequestClientLicense(&mut self, reserve1: *const u8, reserve2: u32, ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows::core::Result<()>;
-    fn ProtocolComplete(&mut self, ulcomplete: u32) -> ::windows::core::Result<()>;
+    fn RequestLicensingCapabilities(&self, pplicensecapabilities: *mut WTS_LICENSE_CAPABILITIES, pcblicensecapabilities: *mut u32) -> ::windows::core::Result<()>;
+    fn SendClientLicense(&self, pclientlicense: *const u8, cbclientlicense: u32) -> ::windows::core::Result<()>;
+    fn RequestClientLicense(&self, reserve1: *const u8, reserve2: u32, ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows::core::Result<()>;
+    fn ProtocolComplete(&self, ulcomplete: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolLicenseConnection_Vtbl {
@@ -3449,9 +3449,9 @@ impl IWRdsProtocolLicenseConnection_Vtbl {
     }
 }
 pub trait IWRdsProtocolListener_Impl: Sized {
-    fn GetSettings(&mut self, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL) -> ::windows::core::Result<WRDS_LISTENER_SETTINGS>;
-    fn StartListen(&mut self, pcallback: &::core::option::Option<IWRdsProtocolListenerCallback>) -> ::windows::core::Result<()>;
-    fn StopListen(&mut self) -> ::windows::core::Result<()>;
+    fn GetSettings(&self, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL) -> ::windows::core::Result<WRDS_LISTENER_SETTINGS>;
+    fn StartListen(&self, pcallback: &::core::option::Option<IWRdsProtocolListenerCallback>) -> ::windows::core::Result<()>;
+    fn StopListen(&self) -> ::windows::core::Result<()>;
 }
 impl IWRdsProtocolListener_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolListener_Impl, const OFFSET: isize>() -> IWRdsProtocolListener_Vtbl {
@@ -3489,7 +3489,7 @@ impl IWRdsProtocolListener_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolListenerCallback_Impl: Sized {
-    fn OnConnected(&mut self, pconnection: &::core::option::Option<IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<IWRdsProtocolConnectionCallback>;
+    fn OnConnected(&self, pconnection: &::core::option::Option<IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<IWRdsProtocolConnectionCallback>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolListenerCallback_Vtbl {
@@ -3513,10 +3513,10 @@ impl IWRdsProtocolListenerCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolLogonErrorRedirector_Impl: Sized {
-    fn OnBeginPainting(&mut self) -> ::windows::core::Result<()>;
-    fn RedirectStatus(&mut self, pszmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
-    fn RedirectMessage(&mut self, pszcaption: super::super::Foundation::PWSTR, pszmessage: super::super::Foundation::PWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
-    fn RedirectLogonError(&mut self, ntsstatus: i32, ntssubstatus: i32, pszcaption: super::super::Foundation::PWSTR, pszmessage: super::super::Foundation::PWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
+    fn OnBeginPainting(&self) -> ::windows::core::Result<()>;
+    fn RedirectStatus(&self, pszmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
+    fn RedirectMessage(&self, pszcaption: super::super::Foundation::PWSTR, pszmessage: super::super::Foundation::PWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
+    fn RedirectLogonError(&self, ntsstatus: i32, ntssubstatus: i32, pszcaption: super::super::Foundation::PWSTR, pszmessage: super::super::Foundation::PWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolLogonErrorRedirector_Vtbl {
@@ -3573,14 +3573,14 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolManager_Impl: Sized {
-    fn Initialize(&mut self, piwrdssettings: &::core::option::Option<IWRdsProtocolSettings>, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::Result<()>;
-    fn CreateListener(&mut self, wszlistenername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWRdsProtocolListener>;
-    fn NotifyServiceStateChange(&mut self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::core::Result<()>;
-    fn NotifySessionOfServiceStart(&mut self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
-    fn NotifySessionOfServiceStop(&mut self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
-    fn NotifySessionStateChange(&mut self, sessionid: *const WTS_SESSION_ID, eventid: u32) -> ::windows::core::Result<()>;
-    fn NotifySettingsChange(&mut self, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::Result<()>;
-    fn Uninitialize(&mut self) -> ::windows::core::Result<()>;
+    fn Initialize(&self, piwrdssettings: &::core::option::Option<IWRdsProtocolSettings>, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::Result<()>;
+    fn CreateListener(&self, wszlistenername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWRdsProtocolListener>;
+    fn NotifyServiceStateChange(&self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::core::Result<()>;
+    fn NotifySessionOfServiceStart(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
+    fn NotifySessionOfServiceStop(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
+    fn NotifySessionStateChange(&self, sessionid: *const WTS_SESSION_ID, eventid: u32) -> ::windows::core::Result<()>;
+    fn NotifySettingsChange(&self, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::Result<()>;
+    fn Uninitialize(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolManager_Vtbl {
@@ -3649,8 +3649,8 @@ impl IWRdsProtocolManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolSettings_Impl: Sized {
-    fn GetSettings(&mut self, wrdssettingtype: WRDS_SETTING_TYPE, wrdssettinglevel: WRDS_SETTING_LEVEL) -> ::windows::core::Result<WRDS_SETTINGS>;
-    fn MergeSettings(&mut self, pwrdssettings: *const WRDS_SETTINGS, wrdsconnectionsettinglevel: WRDS_CONNECTION_SETTING_LEVEL, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<()>;
+    fn GetSettings(&self, wrdssettingtype: WRDS_SETTING_TYPE, wrdssettinglevel: WRDS_SETTING_LEVEL) -> ::windows::core::Result<WRDS_SETTINGS>;
+    fn MergeSettings(&self, pwrdssettings: *const WRDS_SETTINGS, wrdsconnectionsettinglevel: WRDS_CONNECTION_SETTING_LEVEL, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolSettings_Vtbl {
@@ -3683,8 +3683,8 @@ impl IWRdsProtocolSettings_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolShadowCallback_Impl: Sized {
-    fn StopShadow(&mut self) -> ::windows::core::Result<()>;
-    fn InvokeTargetShadow(&mut self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn StopShadow(&self) -> ::windows::core::Result<()>;
+    fn InvokeTargetShadow(&self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolShadowCallback_Vtbl {
@@ -3713,9 +3713,9 @@ impl IWRdsProtocolShadowCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolShadowConnection_Impl: Sized {
-    fn Start(&mut self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: &::core::option::Option<IWRdsProtocolShadowCallback>) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
-    fn DoTarget(&mut self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Start(&self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: &::core::option::Option<IWRdsProtocolShadowCallback>) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn DoTarget(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolShadowConnection_Vtbl {
@@ -3748,10 +3748,10 @@ impl IWRdsProtocolShadowConnection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsWddmIddProps_Impl: Sized {
-    fn GetHardwareId(&mut self, pdisplaydriverhardwareid: super::super::Foundation::PWSTR, count: u32) -> ::windows::core::Result<()>;
-    fn OnDriverLoad(&mut self, sessionid: u32, driverhandle: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
-    fn OnDriverUnload(&mut self, sessionid: u32) -> ::windows::core::Result<()>;
-    fn EnableWddmIdd(&mut self, enabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetHardwareId(&self, pdisplaydriverhardwareid: super::super::Foundation::PWSTR, count: u32) -> ::windows::core::Result<()>;
+    fn OnDriverLoad(&self, sessionid: u32, driverhandle: super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
+    fn OnDriverUnload(&self, sessionid: u32) -> ::windows::core::Result<()>;
+    fn EnableWddmIdd(&self, enabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsWddmIddProps_Vtbl {
@@ -3789,7 +3789,7 @@ impl IWRdsWddmIddProps_Vtbl {
     }
 }
 pub trait IWTSBitmapRenderService_Impl: Sized {
-    fn GetMappedRenderer(&mut self, mappingid: u64, pmappedrenderercallback: &::core::option::Option<IWTSBitmapRendererCallback>) -> ::windows::core::Result<IWTSBitmapRenderer>;
+    fn GetMappedRenderer(&self, mappingid: u64, pmappedrenderercallback: &::core::option::Option<IWTSBitmapRendererCallback>) -> ::windows::core::Result<IWTSBitmapRenderer>;
 }
 impl IWTSBitmapRenderService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSBitmapRenderService_Impl, const OFFSET: isize>() -> IWTSBitmapRenderService_Vtbl {
@@ -3811,9 +3811,9 @@ impl IWTSBitmapRenderService_Vtbl {
     }
 }
 pub trait IWTSBitmapRenderer_Impl: Sized {
-    fn Render(&mut self, imageformat: &::windows::core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> ::windows::core::Result<()>;
-    fn GetRendererStatistics(&mut self) -> ::windows::core::Result<BITMAP_RENDERER_STATISTICS>;
-    fn RemoveMapping(&mut self) -> ::windows::core::Result<()>;
+    fn Render(&self, imageformat: &::windows::core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> ::windows::core::Result<()>;
+    fn GetRendererStatistics(&self) -> ::windows::core::Result<BITMAP_RENDERER_STATISTICS>;
+    fn RemoveMapping(&self) -> ::windows::core::Result<()>;
 }
 impl IWTSBitmapRenderer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSBitmapRenderer_Impl, const OFFSET: isize>() -> IWTSBitmapRenderer_Vtbl {
@@ -3851,7 +3851,7 @@ impl IWTSBitmapRenderer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSBitmapRendererCallback_Impl: Sized {
-    fn OnTargetSizeChanged(&mut self, rcnewsize: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn OnTargetSizeChanged(&self, rcnewsize: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSBitmapRendererCallback_Vtbl {
@@ -3869,7 +3869,7 @@ impl IWTSBitmapRendererCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWTSListener_Impl: Sized {
-    fn GetConfiguration(&mut self) -> ::windows::core::Result<super::Com::StructuredStorage::IPropertyBag>;
+    fn GetConfiguration(&self) -> ::windows::core::Result<super::Com::StructuredStorage::IPropertyBag>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IWTSListener_Vtbl {
@@ -3893,7 +3893,7 @@ impl IWTSListener_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSListenerCallback_Impl: Sized {
-    fn OnNewChannelConnection(&mut self, pchannel: &::core::option::Option<IWTSVirtualChannel>, data: &super::super::Foundation::BSTR, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut ::core::option::Option<IWTSVirtualChannelCallback>) -> ::windows::core::Result<()>;
+    fn OnNewChannelConnection(&self, pchannel: &::core::option::Option<IWTSVirtualChannel>, data: &super::super::Foundation::BSTR, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut ::core::option::Option<IWTSVirtualChannelCallback>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSListenerCallback_Vtbl {
@@ -3910,10 +3910,10 @@ impl IWTSListenerCallback_Vtbl {
     }
 }
 pub trait IWTSPlugin_Impl: Sized {
-    fn Initialize(&mut self, pchannelmgr: &::core::option::Option<IWTSVirtualChannelManager>) -> ::windows::core::Result<()>;
-    fn Connected(&mut self) -> ::windows::core::Result<()>;
-    fn Disconnected(&mut self, dwdisconnectcode: u32) -> ::windows::core::Result<()>;
-    fn Terminated(&mut self) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pchannelmgr: &::core::option::Option<IWTSVirtualChannelManager>) -> ::windows::core::Result<()>;
+    fn Connected(&self) -> ::windows::core::Result<()>;
+    fn Disconnected(&self, dwdisconnectcode: u32) -> ::windows::core::Result<()>;
+    fn Terminated(&self) -> ::windows::core::Result<()>;
 }
 impl IWTSPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSPlugin_Impl, const OFFSET: isize>() -> IWTSPlugin_Vtbl {
@@ -3950,7 +3950,7 @@ impl IWTSPlugin_Vtbl {
     }
 }
 pub trait IWTSPluginServiceProvider_Impl: Sized {
-    fn GetService(&mut self, serviceid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetService(&self, serviceid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl IWTSPluginServiceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSPluginServiceProvider_Impl, const OFFSET: isize>() -> IWTSPluginServiceProvider_Vtbl {
@@ -3973,29 +3973,29 @@ impl IWTSPluginServiceProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSProtocolConnection_Impl: Sized {
-    fn GetLogonErrorRedirector(&mut self) -> ::windows::core::Result<IWTSProtocolLogonErrorRedirector>;
-    fn SendPolicyData(&mut self, ppolicydata: *const WTS_POLICY_DATA) -> ::windows::core::Result<()>;
-    fn AcceptConnection(&mut self) -> ::windows::core::Result<()>;
-    fn GetClientData(&mut self) -> ::windows::core::Result<WTS_CLIENT_DATA>;
-    fn GetUserCredentials(&mut self) -> ::windows::core::Result<WTS_USER_CREDENTIAL>;
-    fn GetLicenseConnection(&mut self) -> ::windows::core::Result<IWTSProtocolLicenseConnection>;
-    fn AuthenticateClientToSession(&mut self) -> ::windows::core::Result<WTS_SESSION_ID>;
-    fn NotifySessionId(&mut self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
-    fn GetProtocolHandles(&mut self, pkeyboardhandle: *mut super::super::Foundation::HANDLE_PTR, pmousehandle: *mut super::super::Foundation::HANDLE_PTR, pbeephandle: *mut super::super::Foundation::HANDLE_PTR, pvideohandle: *mut super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
-    fn ConnectNotify(&mut self, sessionid: u32) -> ::windows::core::Result<()>;
-    fn IsUserAllowedToLogon(&mut self, sessionid: u32, usertoken: super::super::Foundation::HANDLE_PTR, pdomainname: super::super::Foundation::PWSTR, pusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SessionArbitrationEnumeration(&mut self, husertoken: super::super::Foundation::HANDLE_PTR, bsinglesessionperuserenabled: super::super::Foundation::BOOL, psessionidarray: *mut u32, pdwsessionidentifiercount: *mut u32) -> ::windows::core::Result<()>;
-    fn LogonNotify(&mut self, hclienttoken: super::super::Foundation::HANDLE_PTR, wszusername: super::super::Foundation::PWSTR, wszdomainname: super::super::Foundation::PWSTR, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
-    fn GetUserData(&mut self, ppolicydata: *const WTS_POLICY_DATA, pclientdata: *mut WTS_USER_DATA) -> ::windows::core::Result<()>;
-    fn DisconnectNotify(&mut self) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn GetProtocolStatus(&mut self) -> ::windows::core::Result<WTS_PROTOCOL_STATUS>;
-    fn GetLastInputTime(&mut self) -> ::windows::core::Result<u64>;
-    fn SetErrorInfo(&mut self, ulerror: u32) -> ::windows::core::Result<()>;
-    fn SendBeep(&mut self, frequency: u32, duration: u32) -> ::windows::core::Result<()>;
-    fn CreateVirtualChannel(&mut self, szendpointname: super::super::Foundation::PSTR, bstatic: super::super::Foundation::BOOL, requestedpriority: u32) -> ::windows::core::Result<usize>;
-    fn QueryProperty(&mut self, querytype: &::windows::core::GUID, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
-    fn GetShadowConnection(&mut self) -> ::windows::core::Result<IWTSProtocolShadowConnection>;
+    fn GetLogonErrorRedirector(&self) -> ::windows::core::Result<IWTSProtocolLogonErrorRedirector>;
+    fn SendPolicyData(&self, ppolicydata: *const WTS_POLICY_DATA) -> ::windows::core::Result<()>;
+    fn AcceptConnection(&self) -> ::windows::core::Result<()>;
+    fn GetClientData(&self) -> ::windows::core::Result<WTS_CLIENT_DATA>;
+    fn GetUserCredentials(&self) -> ::windows::core::Result<WTS_USER_CREDENTIAL>;
+    fn GetLicenseConnection(&self) -> ::windows::core::Result<IWTSProtocolLicenseConnection>;
+    fn AuthenticateClientToSession(&self) -> ::windows::core::Result<WTS_SESSION_ID>;
+    fn NotifySessionId(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
+    fn GetProtocolHandles(&self, pkeyboardhandle: *mut super::super::Foundation::HANDLE_PTR, pmousehandle: *mut super::super::Foundation::HANDLE_PTR, pbeephandle: *mut super::super::Foundation::HANDLE_PTR, pvideohandle: *mut super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
+    fn ConnectNotify(&self, sessionid: u32) -> ::windows::core::Result<()>;
+    fn IsUserAllowedToLogon(&self, sessionid: u32, usertoken: super::super::Foundation::HANDLE_PTR, pdomainname: super::super::Foundation::PWSTR, pusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SessionArbitrationEnumeration(&self, husertoken: super::super::Foundation::HANDLE_PTR, bsinglesessionperuserenabled: super::super::Foundation::BOOL, psessionidarray: *mut u32, pdwsessionidentifiercount: *mut u32) -> ::windows::core::Result<()>;
+    fn LogonNotify(&self, hclienttoken: super::super::Foundation::HANDLE_PTR, wszusername: super::super::Foundation::PWSTR, wszdomainname: super::super::Foundation::PWSTR, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
+    fn GetUserData(&self, ppolicydata: *const WTS_POLICY_DATA, pclientdata: *mut WTS_USER_DATA) -> ::windows::core::Result<()>;
+    fn DisconnectNotify(&self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn GetProtocolStatus(&self) -> ::windows::core::Result<WTS_PROTOCOL_STATUS>;
+    fn GetLastInputTime(&self) -> ::windows::core::Result<u64>;
+    fn SetErrorInfo(&self, ulerror: u32) -> ::windows::core::Result<()>;
+    fn SendBeep(&self, frequency: u32, duration: u32) -> ::windows::core::Result<()>;
+    fn CreateVirtualChannel(&self, szendpointname: super::super::Foundation::PSTR, bstatic: super::super::Foundation::BOOL, requestedpriority: u32) -> ::windows::core::Result<usize>;
+    fn QueryProperty(&self, querytype: &::windows::core::GUID, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
+    fn GetShadowConnection(&self) -> ::windows::core::Result<IWTSProtocolShadowConnection>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSProtocolConnection_Vtbl {
@@ -4201,11 +4201,11 @@ impl IWTSProtocolConnection_Vtbl {
     }
 }
 pub trait IWTSProtocolConnectionCallback_Impl: Sized {
-    fn OnReady(&mut self) -> ::windows::core::Result<()>;
-    fn BrokenConnection(&mut self, reason: u32, source: u32) -> ::windows::core::Result<()>;
-    fn StopScreenUpdates(&mut self) -> ::windows::core::Result<()>;
-    fn RedrawWindow(&mut self, rect: *const WTS_SMALL_RECT) -> ::windows::core::Result<()>;
-    fn DisplayIOCtl(&mut self, displayioctl: *const WTS_DISPLAY_IOCTL) -> ::windows::core::Result<()>;
+    fn OnReady(&self) -> ::windows::core::Result<()>;
+    fn BrokenConnection(&self, reason: u32, source: u32) -> ::windows::core::Result<()>;
+    fn StopScreenUpdates(&self) -> ::windows::core::Result<()>;
+    fn RedrawWindow(&self, rect: *const WTS_SMALL_RECT) -> ::windows::core::Result<()>;
+    fn DisplayIOCtl(&self, displayioctl: *const WTS_DISPLAY_IOCTL) -> ::windows::core::Result<()>;
 }
 impl IWTSProtocolConnectionCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolConnectionCallback_Impl, const OFFSET: isize>() -> IWTSProtocolConnectionCallback_Vtbl {
@@ -4249,10 +4249,10 @@ impl IWTSProtocolConnectionCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSProtocolLicenseConnection_Impl: Sized {
-    fn RequestLicensingCapabilities(&mut self, pplicensecapabilities: *mut WTS_LICENSE_CAPABILITIES, pcblicensecapabilities: *mut u32) -> ::windows::core::Result<()>;
-    fn SendClientLicense(&mut self, pclientlicense: *const u8, cbclientlicense: u32) -> ::windows::core::Result<()>;
-    fn RequestClientLicense(&mut self, reserve1: *const u8, reserve2: u32, ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows::core::Result<()>;
-    fn ProtocolComplete(&mut self, ulcomplete: u32) -> ::windows::core::Result<()>;
+    fn RequestLicensingCapabilities(&self, pplicensecapabilities: *mut WTS_LICENSE_CAPABILITIES, pcblicensecapabilities: *mut u32) -> ::windows::core::Result<()>;
+    fn SendClientLicense(&self, pclientlicense: *const u8, cbclientlicense: u32) -> ::windows::core::Result<()>;
+    fn RequestClientLicense(&self, reserve1: *const u8, reserve2: u32, ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows::core::Result<()>;
+    fn ProtocolComplete(&self, ulcomplete: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSProtocolLicenseConnection_Vtbl {
@@ -4290,8 +4290,8 @@ impl IWTSProtocolLicenseConnection_Vtbl {
     }
 }
 pub trait IWTSProtocolListener_Impl: Sized {
-    fn StartListen(&mut self, pcallback: &::core::option::Option<IWTSProtocolListenerCallback>) -> ::windows::core::Result<()>;
-    fn StopListen(&mut self) -> ::windows::core::Result<()>;
+    fn StartListen(&self, pcallback: &::core::option::Option<IWTSProtocolListenerCallback>) -> ::windows::core::Result<()>;
+    fn StopListen(&self) -> ::windows::core::Result<()>;
 }
 impl IWTSProtocolListener_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolListener_Impl, const OFFSET: isize>() -> IWTSProtocolListener_Vtbl {
@@ -4316,7 +4316,7 @@ impl IWTSProtocolListener_Vtbl {
     }
 }
 pub trait IWTSProtocolListenerCallback_Impl: Sized {
-    fn OnConnected(&mut self, pconnection: &::core::option::Option<IWTSProtocolConnection>) -> ::windows::core::Result<IWTSProtocolConnectionCallback>;
+    fn OnConnected(&self, pconnection: &::core::option::Option<IWTSProtocolConnection>) -> ::windows::core::Result<IWTSProtocolConnectionCallback>;
 }
 impl IWTSProtocolListenerCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolListenerCallback_Impl, const OFFSET: isize>() -> IWTSProtocolListenerCallback_Vtbl {
@@ -4339,10 +4339,10 @@ impl IWTSProtocolListenerCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSProtocolLogonErrorRedirector_Impl: Sized {
-    fn OnBeginPainting(&mut self) -> ::windows::core::Result<()>;
-    fn RedirectStatus(&mut self, pszmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
-    fn RedirectMessage(&mut self, pszcaption: super::super::Foundation::PWSTR, pszmessage: super::super::Foundation::PWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
-    fn RedirectLogonError(&mut self, ntsstatus: i32, ntssubstatus: i32, pszcaption: super::super::Foundation::PWSTR, pszmessage: super::super::Foundation::PWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
+    fn OnBeginPainting(&self) -> ::windows::core::Result<()>;
+    fn RedirectStatus(&self, pszmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
+    fn RedirectMessage(&self, pszcaption: super::super::Foundation::PWSTR, pszmessage: super::super::Foundation::PWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
+    fn RedirectLogonError(&self, ntsstatus: i32, ntssubstatus: i32, pszcaption: super::super::Foundation::PWSTR, pszmessage: super::super::Foundation::PWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSProtocolLogonErrorRedirector_Vtbl {
@@ -4399,11 +4399,11 @@ impl IWTSProtocolLogonErrorRedirector_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSProtocolManager_Impl: Sized {
-    fn CreateListener(&mut self, wszlistenername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWTSProtocolListener>;
-    fn NotifyServiceStateChange(&mut self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::core::Result<()>;
-    fn NotifySessionOfServiceStart(&mut self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
-    fn NotifySessionOfServiceStop(&mut self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
-    fn NotifySessionStateChange(&mut self, sessionid: *const WTS_SESSION_ID, eventid: u32) -> ::windows::core::Result<()>;
+    fn CreateListener(&self, wszlistenername: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWTSProtocolListener>;
+    fn NotifyServiceStateChange(&self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::core::Result<()>;
+    fn NotifySessionOfServiceStart(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
+    fn NotifySessionOfServiceStop(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
+    fn NotifySessionStateChange(&self, sessionid: *const WTS_SESSION_ID, eventid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSProtocolManager_Vtbl {
@@ -4454,8 +4454,8 @@ impl IWTSProtocolManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSProtocolShadowCallback_Impl: Sized {
-    fn StopShadow(&mut self) -> ::windows::core::Result<()>;
-    fn InvokeTargetShadow(&mut self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn StopShadow(&self) -> ::windows::core::Result<()>;
+    fn InvokeTargetShadow(&self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSProtocolShadowCallback_Vtbl {
@@ -4484,9 +4484,9 @@ impl IWTSProtocolShadowCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSProtocolShadowConnection_Impl: Sized {
-    fn Start(&mut self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: &::core::option::Option<IWTSProtocolShadowCallback>) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
-    fn DoTarget(&mut self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Start(&self, ptargetservername: super::super::Foundation::PWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: &::core::option::Option<IWTSProtocolShadowCallback>) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn DoTarget(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSProtocolShadowConnection_Vtbl {
@@ -4519,12 +4519,12 @@ impl IWTSProtocolShadowConnection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSSBPlugin_Impl: Sized {
-    fn Initialize(&mut self) -> ::windows::core::Result<u32>;
-    fn WTSSBX_MachineChangeNotification(&mut self, notificationtype: WTSSBX_NOTIFICATION_TYPE, machineid: i32, pmachineinfo: *const WTSSBX_MACHINE_INFO) -> ::windows::core::Result<()>;
-    fn WTSSBX_SessionChangeNotification(&mut self, notificationtype: WTSSBX_NOTIFICATION_TYPE, machineid: i32, numofsessions: u32, sessioninfo: *const WTSSBX_SESSION_INFO) -> ::windows::core::Result<()>;
-    fn WTSSBX_GetMostSuitableServer(&mut self, username: super::super::Foundation::PWSTR, domainname: super::super::Foundation::PWSTR, applicationtype: super::super::Foundation::PWSTR, farmname: super::super::Foundation::PWSTR, pmachineid: *mut i32) -> ::windows::core::Result<()>;
-    fn Terminated(&mut self) -> ::windows::core::Result<()>;
-    fn WTSSBX_GetUserExternalSession(&mut self, username: super::super::Foundation::PWSTR, domainname: super::super::Foundation::PWSTR, applicationtype: super::super::Foundation::PWSTR, redirectorinternalip: *const WTSSBX_IP_ADDRESS, psessionid: *mut u32, pmachineconnectinfo: *mut WTSSBX_MACHINE_CONNECT_INFO) -> ::windows::core::Result<()>;
+    fn Initialize(&self) -> ::windows::core::Result<u32>;
+    fn WTSSBX_MachineChangeNotification(&self, notificationtype: WTSSBX_NOTIFICATION_TYPE, machineid: i32, pmachineinfo: *const WTSSBX_MACHINE_INFO) -> ::windows::core::Result<()>;
+    fn WTSSBX_SessionChangeNotification(&self, notificationtype: WTSSBX_NOTIFICATION_TYPE, machineid: i32, numofsessions: u32, sessioninfo: *const WTSSBX_SESSION_INFO) -> ::windows::core::Result<()>;
+    fn WTSSBX_GetMostSuitableServer(&self, username: super::super::Foundation::PWSTR, domainname: super::super::Foundation::PWSTR, applicationtype: super::super::Foundation::PWSTR, farmname: super::super::Foundation::PWSTR, pmachineid: *mut i32) -> ::windows::core::Result<()>;
+    fn Terminated(&self) -> ::windows::core::Result<()>;
+    fn WTSSBX_GetUserExternalSession(&self, username: super::super::Foundation::PWSTR, domainname: super::super::Foundation::PWSTR, applicationtype: super::super::Foundation::PWSTR, redirectorinternalip: *const WTSSBX_IP_ADDRESS, psessionid: *mut u32, pmachineconnectinfo: *mut WTSSBX_MACHINE_CONNECT_INFO) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSSBPlugin_Vtbl {
@@ -4580,8 +4580,8 @@ impl IWTSSBPlugin_Vtbl {
     }
 }
 pub trait IWTSVirtualChannel_Impl: Sized {
-    fn Write(&mut self, cbsize: u32, pbuffer: *const u8, preserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn Write(&self, cbsize: u32, pbuffer: *const u8, preserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 impl IWTSVirtualChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSVirtualChannel_Impl, const OFFSET: isize>() -> IWTSVirtualChannel_Vtbl {
@@ -4602,8 +4602,8 @@ impl IWTSVirtualChannel_Vtbl {
     }
 }
 pub trait IWTSVirtualChannelCallback_Impl: Sized {
-    fn OnDataReceived(&mut self, cbsize: u32, pbuffer: *const u8) -> ::windows::core::Result<()>;
-    fn OnClose(&mut self) -> ::windows::core::Result<()>;
+    fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> ::windows::core::Result<()>;
+    fn OnClose(&self) -> ::windows::core::Result<()>;
 }
 impl IWTSVirtualChannelCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSVirtualChannelCallback_Impl, const OFFSET: isize>() -> IWTSVirtualChannelCallback_Vtbl {
@@ -4628,7 +4628,7 @@ impl IWTSVirtualChannelCallback_Vtbl {
     }
 }
 pub trait IWTSVirtualChannelManager_Impl: Sized {
-    fn CreateListener(&mut self, pszchannelname: *const u8, uflags: u32, plistenercallback: &::core::option::Option<IWTSListenerCallback>) -> ::windows::core::Result<IWTSListener>;
+    fn CreateListener(&self, pszchannelname: *const u8, uflags: u32, plistenercallback: &::core::option::Option<IWTSListenerCallback>) -> ::windows::core::Result<IWTSListener>;
 }
 impl IWTSVirtualChannelManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSVirtualChannelManager_Impl, const OFFSET: isize>() -> IWTSVirtualChannelManager_Vtbl {
@@ -4651,9 +4651,9 @@ impl IWTSVirtualChannelManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWorkspace_Impl: Sized {
-    fn GetWorkspaceNames(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn StartRemoteApplication(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn GetProcessId(&mut self) -> ::windows::core::Result<u32>;
+    fn GetWorkspaceNames(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn StartRemoteApplication(&self, bstrworkspaceid: &super::super::Foundation::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn GetProcessId(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWorkspace_Vtbl {
@@ -4698,7 +4698,7 @@ impl IWorkspace_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWorkspace2_Impl: Sized + IWorkspace_Impl {
-    fn StartRemoteApplicationEx(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrrequestingappid: &super::super::Foundation::BSTR, bstrrequestingappfamilyname: &super::super::Foundation::BSTR, blaunchintoimmersiveclient: i16, bstrimmersiveclientactivationcontext: &super::super::Foundation::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn StartRemoteApplicationEx(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrrequestingappid: &super::super::Foundation::BSTR, bstrrequestingappfamilyname: &super::super::Foundation::BSTR, blaunchintoimmersiveclient: i16, bstrimmersiveclientactivationcontext: &super::super::Foundation::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWorkspace2_Vtbl {
@@ -4716,8 +4716,8 @@ impl IWorkspace2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWorkspace3_Impl: Sized + IWorkspace_Impl + IWorkspace2_Impl {
-    fn GetClaimsToken2(&mut self, bstrclaimshint: &super::super::Foundation::BSTR, bstruserhint: &super::super::Foundation::BSTR, claimcookie: u32, hwndcreduiparent: u32, rectcreduiparent: &super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetClaimsToken(&mut self, bstraccesstoken: &super::super::Foundation::BSTR, ullaccesstokenexpiration: u64, bstrrefreshtoken: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetClaimsToken2(&self, bstrclaimshint: &super::super::Foundation::BSTR, bstruserhint: &super::super::Foundation::BSTR, claimcookie: u32, hwndcreduiparent: u32, rectcreduiparent: &super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetClaimsToken(&self, bstraccesstoken: &super::super::Foundation::BSTR, ullaccesstokenexpiration: u64, bstrrefreshtoken: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWorkspace3_Vtbl {
@@ -4750,9 +4750,9 @@ impl IWorkspace3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWorkspaceClientExt_Impl: Sized {
-    fn GetResourceId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetResourceDisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn IssueDisconnect(&mut self) -> ::windows::core::Result<()>;
+    fn GetResourceId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetResourceDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn IssueDisconnect(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWorkspaceClientExt_Vtbl {
@@ -4796,8 +4796,8 @@ impl IWorkspaceClientExt_Vtbl {
     }
 }
 pub trait IWorkspaceRegistration_Impl: Sized {
-    fn AddResource(&mut self, punk: &::core::option::Option<IWorkspaceClientExt>) -> ::windows::core::Result<u32>;
-    fn RemoveResource(&mut self, dwcookieconnection: u32) -> ::windows::core::Result<()>;
+    fn AddResource(&self, punk: &::core::option::Option<IWorkspaceClientExt>) -> ::windows::core::Result<u32>;
+    fn RemoveResource(&self, dwcookieconnection: u32) -> ::windows::core::Result<()>;
 }
 impl IWorkspaceRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceRegistration_Impl, const OFFSET: isize>() -> IWorkspaceRegistration_Vtbl {
@@ -4829,8 +4829,8 @@ impl IWorkspaceRegistration_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWorkspaceRegistration2_Impl: Sized + IWorkspaceRegistration_Impl {
-    fn AddResourceEx(&mut self, punk: &::core::option::Option<IWorkspaceClientExt>, bstreventloguploadaddress: &super::super::Foundation::BSTR, pdwcookie: *mut u32, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RemoveResourceEx(&mut self, dwcookieconnection: u32, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn AddResourceEx(&self, punk: &::core::option::Option<IWorkspaceClientExt>, bstreventloguploadaddress: &super::super::Foundation::BSTR, pdwcookie: *mut u32, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RemoveResourceEx(&self, dwcookieconnection: u32, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWorkspaceRegistration2_Vtbl {
@@ -4857,9 +4857,9 @@ impl IWorkspaceRegistration2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWorkspaceReportMessage_Impl: Sized {
-    fn RegisterErrorLogMessage(&mut self, bstrmessage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsErrorMessageRegistered(&mut self, bstrwkspid: &super::super::Foundation::BSTR, dwerrortype: u32, bstrerrormessagetype: &super::super::Foundation::BSTR, dwerrorcode: u32) -> ::windows::core::Result<i16>;
-    fn RegisterErrorEvent(&mut self, bstrwkspid: &super::super::Foundation::BSTR, dwerrortype: u32, bstrerrormessagetype: &super::super::Foundation::BSTR, dwerrorcode: u32) -> ::windows::core::Result<()>;
+    fn RegisterErrorLogMessage(&self, bstrmessage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsErrorMessageRegistered(&self, bstrwkspid: &super::super::Foundation::BSTR, dwerrortype: u32, bstrerrormessagetype: &super::super::Foundation::BSTR, dwerrorcode: u32) -> ::windows::core::Result<i16>;
+    fn RegisterErrorEvent(&self, bstrwkspid: &super::super::Foundation::BSTR, dwerrortype: u32, bstrerrormessagetype: &super::super::Foundation::BSTR, dwerrorcode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWorkspaceReportMessage_Vtbl {
@@ -4898,11 +4898,11 @@ impl IWorkspaceReportMessage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWorkspaceResTypeRegistry_Impl: Sized + super::Com::IDispatch_Impl {
-    fn AddResourceType(&mut self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR, bstrlauncher: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DeleteResourceType(&mut self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetRegisteredFileExtensions(&mut self, fmachinewide: i16) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn GetResourceTypeInfo(&mut self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ModifyResourceType(&mut self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR, bstrlauncher: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddResourceType(&self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR, bstrlauncher: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeleteResourceType(&self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetRegisteredFileExtensions(&self, fmachinewide: i16) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn GetResourceTypeInfo(&self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ModifyResourceType(&self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR, bstrlauncher: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceResTypeRegistry_Vtbl {
@@ -4959,13 +4959,13 @@ impl IWorkspaceResTypeRegistry_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWorkspaceScriptable_Impl: Sized + super::Com::IDispatch_Impl {
-    fn DisconnectWorkspace(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StartWorkspace(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrworkspaceparams: &super::super::Foundation::BSTR, ltimeout: i32, lflags: i32) -> ::windows::core::Result<()>;
-    fn IsWorkspaceCredentialSpecified(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bcountunauthenticatedcredentials: i16) -> ::windows::core::Result<i16>;
-    fn IsWorkspaceSSOEnabled(&mut self) -> ::windows::core::Result<i16>;
-    fn ClearWorkspaceCredential(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnAuthenticated(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DisconnectWorkspaceByFriendlyName(&mut self, bstrworkspacefriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DisconnectWorkspace(&self, bstrworkspaceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StartWorkspace(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrworkspaceparams: &super::super::Foundation::BSTR, ltimeout: i32, lflags: i32) -> ::windows::core::Result<()>;
+    fn IsWorkspaceCredentialSpecified(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bcountunauthenticatedcredentials: i16) -> ::windows::core::Result<i16>;
+    fn IsWorkspaceSSOEnabled(&self) -> ::windows::core::Result<i16>;
+    fn ClearWorkspaceCredential(&self, bstrworkspaceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnAuthenticated(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DisconnectWorkspaceByFriendlyName(&self, bstrworkspacefriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceScriptable_Vtbl {
@@ -5034,8 +5034,8 @@ impl IWorkspaceScriptable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWorkspaceScriptable2_Impl: Sized + super::Com::IDispatch_Impl + IWorkspaceScriptable_Impl {
-    fn StartWorkspaceEx(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR, bstrredirectorname: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrappcontainer: &super::super::Foundation::BSTR, bstrworkspaceparams: &super::super::Foundation::BSTR, ltimeout: i32, lflags: i32) -> ::windows::core::Result<()>;
-    fn ResourceDismissed(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StartWorkspaceEx(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR, bstrredirectorname: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrappcontainer: &super::super::Foundation::BSTR, bstrworkspaceparams: &super::super::Foundation::BSTR, ltimeout: i32, lflags: i32) -> ::windows::core::Result<()>;
+    fn ResourceDismissed(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceScriptable2_Vtbl {
@@ -5062,7 +5062,7 @@ impl IWorkspaceScriptable2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWorkspaceScriptable3_Impl: Sized + super::Com::IDispatch_Impl + IWorkspaceScriptable_Impl + IWorkspaceScriptable2_Impl {
-    fn StartWorkspaceEx2(&mut self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR, bstrredirectorname: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrappcontainer: &super::super::Foundation::BSTR, bstrworkspaceparams: &super::super::Foundation::BSTR, ltimeout: i32, lflags: i32, bstreventloguploadaddress: &super::super::Foundation::BSTR, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn StartWorkspaceEx2(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR, bstrredirectorname: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrappcontainer: &super::super::Foundation::BSTR, bstrworkspaceparams: &super::super::Foundation::BSTR, ltimeout: i32, lflags: i32, bstreventloguploadaddress: &super::super::Foundation::BSTR, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceScriptable3_Vtbl {
@@ -5107,12 +5107,12 @@ impl IWorkspaceScriptable3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ItsPubPlugin_Impl: Sized {
-    fn GetResourceList(&mut self, userid: super::super::Foundation::PWSTR, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource) -> ::windows::core::Result<()>;
-    fn GetResource(&mut self, alias: super::super::Foundation::PWSTR, flags: i32) -> ::windows::core::Result<pluginResource>;
-    fn GetCacheLastUpdateTime(&mut self) -> ::windows::core::Result<u64>;
-    fn pluginName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn pluginVersion(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ResolveResource(&mut self, resourcetype: *mut u32, resourcelocation: super::super::Foundation::PWSTR, endpointname: super::super::Foundation::PWSTR, userid: super::super::Foundation::PWSTR, alias: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetResourceList(&self, userid: super::super::Foundation::PWSTR, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource) -> ::windows::core::Result<()>;
+    fn GetResource(&self, alias: super::super::Foundation::PWSTR, flags: i32) -> ::windows::core::Result<pluginResource>;
+    fn GetCacheLastUpdateTime(&self) -> ::windows::core::Result<u64>;
+    fn pluginName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn pluginVersion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ResolveResource(&self, resourcetype: *mut u32, resourcelocation: super::super::Foundation::PWSTR, endpointname: super::super::Foundation::PWSTR, userid: super::super::Foundation::PWSTR, alias: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ItsPubPlugin_Vtbl {
@@ -5187,10 +5187,10 @@ impl ItsPubPlugin_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ItsPubPlugin2_Impl: Sized + ItsPubPlugin_Impl {
-    fn GetResource2List(&mut self, userid: super::super::Foundation::PWSTR, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource2) -> ::windows::core::Result<()>;
-    fn GetResource2(&mut self, alias: super::super::Foundation::PWSTR, flags: i32) -> ::windows::core::Result<pluginResource2>;
-    fn ResolvePersonalDesktop(&mut self, userid: super::super::Foundation::PWSTR, poolid: super::super::Foundation::PWSTR, epdresolutiontype: TSPUB_PLUGIN_PD_RESOLUTION_TYPE, ppdassignmenttype: *mut TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE, endpointname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn DeletePersonalDesktopAssignment(&mut self, userid: super::super::Foundation::PWSTR, poolid: super::super::Foundation::PWSTR, endpointname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetResource2List(&self, userid: super::super::Foundation::PWSTR, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource2) -> ::windows::core::Result<()>;
+    fn GetResource2(&self, alias: super::super::Foundation::PWSTR, flags: i32) -> ::windows::core::Result<pluginResource2>;
+    fn ResolvePersonalDesktop(&self, userid: super::super::Foundation::PWSTR, poolid: super::super::Foundation::PWSTR, epdresolutiontype: TSPUB_PLUGIN_PD_RESOLUTION_TYPE, ppdassignmenttype: *mut TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE, endpointname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn DeletePersonalDesktopAssignment(&self, userid: super::super::Foundation::PWSTR, poolid: super::super::Foundation::PWSTR, endpointname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ItsPubPlugin2_Vtbl {

@@ -1,9 +1,9 @@
 #[cfg(feature = "Foundation")]
 pub trait ISpiDeviceStatics_Impl: Sized {
-    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorFromFriendlyName(&mut self, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetBusInfo(&mut self, busid: &::windows::core::HSTRING) -> ::windows::core::Result<SpiBusInfo>;
-    fn FromIdAsync(&mut self, busid: &::windows::core::HSTRING, settings: &::core::option::Option<SpiConnectionSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>;
+    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetBusInfo(&self, busid: &::windows::core::HSTRING) -> ::windows::core::Result<SpiBusInfo>;
+    fn FromIdAsync(&self, busid: &::windows::core::HSTRING, settings: &::core::option::Option<SpiConnectionSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISpiDeviceStatics {

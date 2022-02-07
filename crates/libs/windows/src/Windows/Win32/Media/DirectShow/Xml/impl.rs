@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXMLGraphBuilder_Impl: Sized {
-    fn BuildFromXML(&mut self, pgraph: &::core::option::Option<super::IGraphBuilder>, pxml: &::core::option::Option<super::super::super::Data::Xml::MsXml::IXMLElement>) -> ::windows::core::Result<()>;
-    fn SaveToXML(&mut self, pgraph: &::core::option::Option<super::IGraphBuilder>, pbstrxml: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BuildFromXMLFile(&mut self, pgraph: &::core::option::Option<super::IGraphBuilder>, wszfilename: super::super::super::Foundation::PWSTR, wszbaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn BuildFromXML(&self, pgraph: &::core::option::Option<super::IGraphBuilder>, pxml: &::core::option::Option<super::super::super::Data::Xml::MsXml::IXMLElement>) -> ::windows::core::Result<()>;
+    fn SaveToXML(&self, pgraph: &::core::option::Option<super::IGraphBuilder>, pbstrxml: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BuildFromXMLFile(&self, pgraph: &::core::option::Option<super::IGraphBuilder>, wszfilename: super::super::super::Foundation::PWSTR, wszbaseurl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXMLGraphBuilder_Vtbl {

@@ -1,9 +1,9 @@
 #[cfg(feature = "Foundation")]
 pub trait ICommand_Impl: Sized {
-    fn CanExecuteChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCanExecuteChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CanExecute(&mut self, parameter: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
-    fn Execute(&mut self, parameter: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn CanExecuteChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCanExecuteChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CanExecute(&self, parameter: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
+    fn Execute(&self, parameter: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ICommand {

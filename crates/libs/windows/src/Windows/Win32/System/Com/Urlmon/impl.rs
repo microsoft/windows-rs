@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBindCallbackRedirect_Impl: Sized {
-    fn Redirect(&mut self, lpcurl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<i16>;
+    fn Redirect(&self, lpcurl: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<i16>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBindCallbackRedirect_Vtbl {
@@ -23,7 +23,7 @@ impl IBindCallbackRedirect_Vtbl {
     }
 }
 pub trait IBindHttpSecurity_Impl: Sized {
-    fn GetIgnoreCertMask(&mut self) -> ::windows::core::Result<u32>;
+    fn GetIgnoreCertMask(&self) -> ::windows::core::Result<u32>;
 }
 impl IBindHttpSecurity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindHttpSecurity_Impl, const OFFSET: isize>() -> IBindHttpSecurity_Vtbl {
@@ -46,7 +46,7 @@ impl IBindHttpSecurity_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBindProtocol_Impl: Sized {
-    fn CreateBinding(&mut self, szurl: super::super::super::Foundation::PWSTR, pbc: &::core::option::Option<super::IBindCtx>) -> ::windows::core::Result<super::IBinding>;
+    fn CreateBinding(&self, szurl: super::super::super::Foundation::PWSTR, pbc: &::core::option::Option<super::IBindCtx>) -> ::windows::core::Result<super::IBinding>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBindProtocol_Vtbl {
@@ -70,8 +70,8 @@ impl IBindProtocol_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICatalogFileInfo_Impl: Sized {
-    fn GetCatalogFile(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PSTR>;
-    fn GetJavaTrust(&mut self, ppjavatrust: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetCatalogFile(&self) -> ::windows::core::Result<super::super::super::Foundation::PSTR>;
+    fn GetJavaTrust(&self, ppjavatrust: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICatalogFileInfo_Vtbl {
@@ -104,7 +104,7 @@ impl ICatalogFileInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICodeInstall_Impl: Sized + IWindowForBindingUI_Impl {
-    fn OnCodeInstallProblem(&mut self, ulstatuscode: u32, szdestination: super::super::super::Foundation::PWSTR, szsource: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn OnCodeInstallProblem(&self, ulstatuscode: u32, szdestination: super::super::super::Foundation::PWSTR, szsource: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICodeInstall_Vtbl {
@@ -121,9 +121,9 @@ impl ICodeInstall_Vtbl {
     }
 }
 pub trait IDataFilter_Impl: Sized {
-    fn DoEncode(&mut self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn DoDecode(&mut self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn SetEncodingLevel(&mut self, dwenclevel: u32) -> ::windows::core::Result<()>;
+    fn DoEncode(&self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn DoDecode(&self, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn SetEncodingLevel(&self, dwenclevel: u32) -> ::windows::core::Result<()>;
 }
 impl IDataFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataFilter_Impl, const OFFSET: isize>() -> IDataFilter_Vtbl {
@@ -155,8 +155,8 @@ impl IDataFilter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEncodingFilterFactory_Impl: Sized {
-    fn FindBestFilter(&mut self, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR, info: &DATAINFO) -> ::windows::core::Result<IDataFilter>;
-    fn GetDefaultFilter(&mut self, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IDataFilter>;
+    fn FindBestFilter(&self, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR, info: &DATAINFO) -> ::windows::core::Result<IDataFilter>;
+    fn GetDefaultFilter(&self, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IDataFilter>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEncodingFilterFactory_Vtbl {
@@ -195,7 +195,7 @@ impl IEncodingFilterFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGetBindHandle_Impl: Sized {
-    fn GetBindHandle(&mut self, enumrequestedhandle: BINDHANDLETYPES) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
+    fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IGetBindHandle_Vtbl {
@@ -219,8 +219,8 @@ impl IGetBindHandle_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHttpNegotiate_Impl: Sized {
-    fn BeginningTransaction(&mut self, szurl: super::super::super::Foundation::PWSTR, szheaders: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn OnResponse(&mut self, dwresponsecode: u32, szresponseheaders: super::super::super::Foundation::PWSTR, szrequestheaders: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn BeginningTransaction(&self, szurl: super::super::super::Foundation::PWSTR, szheaders: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn OnResponse(&self, dwresponsecode: u32, szresponseheaders: super::super::super::Foundation::PWSTR, szrequestheaders: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IHttpNegotiate_Vtbl {
@@ -259,7 +259,7 @@ impl IHttpNegotiate_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHttpNegotiate2_Impl: Sized + IHttpNegotiate_Impl {
-    fn GetRootSecurityId(&mut self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
+    fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IHttpNegotiate2_Vtbl {
@@ -277,7 +277,7 @@ impl IHttpNegotiate2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHttpNegotiate3_Impl: Sized + IHttpNegotiate_Impl + IHttpNegotiate2_Impl {
-    fn GetSerializedClientCertContext(&mut self, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSerializedClientCertContext(&self, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IHttpNegotiate3_Vtbl {
@@ -298,7 +298,7 @@ impl IHttpNegotiate3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHttpSecurity_Impl: Sized + IWindowForBindingUI_Impl {
-    fn OnSecurityProblem(&mut self, dwproblem: u32) -> ::windows::core::Result<()>;
+    fn OnSecurityProblem(&self, dwproblem: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IHttpSecurity_Vtbl {
@@ -325,8 +325,8 @@ impl IInternet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IInternetBindInfo_Impl: Sized {
-    fn GetBindInfo(&mut self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::Result<()>;
-    fn GetBindString(&mut self, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::Result<()>;
+    fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 impl IInternetBindInfo_Vtbl {
@@ -353,7 +353,7 @@ impl IInternetBindInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IInternetBindInfoEx_Impl: Sized + IInternetBindInfo_Impl {
-    fn GetBindInfoEx(&mut self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
+    fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 impl IInternetBindInfoEx_Vtbl {
@@ -370,9 +370,9 @@ impl IInternetBindInfoEx_Vtbl {
     }
 }
 pub trait IInternetHostSecurityManager_Impl: Sized {
-    fn GetSecurityId(&mut self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
-    fn ProcessUrlAction(&mut self, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn QueryCustomPolicy(&mut self, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn GetSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
+    fn ProcessUrlAction(&self, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn QueryCustomPolicy(&self, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>;
 }
 impl IInternetHostSecurityManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetHostSecurityManager_Impl, const OFFSET: isize>() -> IInternetHostSecurityManager_Vtbl {
@@ -403,8 +403,8 @@ impl IInternetHostSecurityManager_Vtbl {
     }
 }
 pub trait IInternetPriority_Impl: Sized {
-    fn SetPriority(&mut self, npriority: i32) -> ::windows::core::Result<()>;
-    fn GetPriority(&mut self) -> ::windows::core::Result<i32>;
+    fn SetPriority(&self, npriority: i32) -> ::windows::core::Result<()>;
+    fn GetPriority(&self) -> ::windows::core::Result<i32>;
 }
 impl IInternetPriority_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetPriority_Impl, const OFFSET: isize>() -> IInternetPriority_Vtbl {
@@ -436,10 +436,10 @@ impl IInternetPriority_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocol_Impl: Sized + IInternetProtocolRoot_Impl {
-    fn Read(&mut self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()>;
-    fn Seek(&mut self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64>;
-    fn LockRequest(&mut self, dwoptions: u32) -> ::windows::core::Result<()>;
-    fn UnlockRequest(&mut self) -> ::windows::core::Result<()>;
+    fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()>;
+    fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64>;
+    fn LockRequest(&self, dwoptions: u32) -> ::windows::core::Result<()>;
+    fn UnlockRequest(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetProtocol_Vtbl {
@@ -484,7 +484,7 @@ impl IInternetProtocol_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocolEx_Impl: Sized + IInternetProtocolRoot_Impl + IInternetProtocol_Impl {
-    fn StartEx(&mut self, puri: &::core::option::Option<super::IUri>, poiprotsink: &::core::option::Option<IInternetProtocolSink>, poibindinfo: &::core::option::Option<IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
+    fn StartEx(&self, puri: &::core::option::Option<super::IUri>, poiprotsink: &::core::option::Option<IInternetProtocolSink>, poibindinfo: &::core::option::Option<IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetProtocolEx_Vtbl {
@@ -502,10 +502,10 @@ impl IInternetProtocolEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocolInfo_Impl: Sized {
-    fn ParseUrl(&mut self, pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn CombineUrl(&mut self, pwzbaseurl: super::super::super::Foundation::PWSTR, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn CompareUrl(&mut self, pwzurl1: super::super::super::Foundation::PWSTR, pwzurl2: super::super::super::Foundation::PWSTR, dwcompareflags: u32) -> ::windows::core::Result<()>;
-    fn QueryInfo(&mut self, pwzurl: super::super::super::Foundation::PWSTR, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn ParseUrl(&self, pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn CombineUrl(&self, pwzbaseurl: super::super::super::Foundation::PWSTR, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn CompareUrl(&self, pwzurl1: super::super::super::Foundation::PWSTR, pwzurl2: super::super::super::Foundation::PWSTR, dwcompareflags: u32) -> ::windows::core::Result<()>;
+    fn QueryInfo(&self, pwzurl: super::super::super::Foundation::PWSTR, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetProtocolInfo_Vtbl {
@@ -544,12 +544,12 @@ impl IInternetProtocolInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocolRoot_Impl: Sized {
-    fn Start(&mut self, szurl: super::super::super::Foundation::PWSTR, poiprotsink: &::core::option::Option<IInternetProtocolSink>, poibindinfo: &::core::option::Option<IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
-    fn Continue(&mut self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()>;
-    fn Abort(&mut self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()>;
-    fn Terminate(&mut self, dwoptions: u32) -> ::windows::core::Result<()>;
-    fn Suspend(&mut self) -> ::windows::core::Result<()>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
+    fn Start(&self, szurl: super::super::super::Foundation::PWSTR, poiprotsink: &::core::option::Option<IInternetProtocolSink>, poibindinfo: &::core::option::Option<IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
+    fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()>;
+    fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()>;
+    fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()>;
+    fn Suspend(&self) -> ::windows::core::Result<()>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetProtocolRoot_Vtbl {
@@ -600,10 +600,10 @@ impl IInternetProtocolRoot_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocolSink_Impl: Sized {
-    fn Switch(&mut self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()>;
-    fn ReportProgress(&mut self, ulstatuscode: u32, szstatustext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ReportData(&mut self, grfbscf: u32, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()>;
-    fn ReportResult(&mut self, hrresult: ::windows::core::HRESULT, dwerror: u32, szresult: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Switch(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()>;
+    fn ReportProgress(&self, ulstatuscode: u32, szstatustext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ReportData(&self, grfbscf: u32, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()>;
+    fn ReportResult(&self, hrresult: ::windows::core::HRESULT, dwerror: u32, szresult: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetProtocolSink_Vtbl {
@@ -641,9 +641,9 @@ impl IInternetProtocolSink_Vtbl {
     }
 }
 pub trait IInternetProtocolSinkStackable_Impl: Sized {
-    fn SwitchSink(&mut self, poiprotsink: &::core::option::Option<IInternetProtocolSink>) -> ::windows::core::Result<()>;
-    fn CommitSwitch(&mut self) -> ::windows::core::Result<()>;
-    fn RollbackSwitch(&mut self) -> ::windows::core::Result<()>;
+    fn SwitchSink(&self, poiprotsink: &::core::option::Option<IInternetProtocolSink>) -> ::windows::core::Result<()>;
+    fn CommitSwitch(&self) -> ::windows::core::Result<()>;
+    fn RollbackSwitch(&self) -> ::windows::core::Result<()>;
 }
 impl IInternetProtocolSinkStackable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetProtocolSinkStackable_Impl, const OFFSET: isize>() -> IInternetProtocolSinkStackable_Vtbl {
@@ -675,14 +675,14 @@ impl IInternetProtocolSinkStackable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetSecurityManager_Impl: Sized {
-    fn SetSecuritySite(&mut self, psite: &::core::option::Option<IInternetSecurityMgrSite>) -> ::windows::core::Result<()>;
-    fn GetSecuritySite(&mut self) -> ::windows::core::Result<IInternetSecurityMgrSite>;
-    fn MapUrlToZone(&mut self, pwszurl: super::super::super::Foundation::PWSTR, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetSecurityId(&mut self, pwszurl: super::super::super::Foundation::PWSTR, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
-    fn ProcessUrlAction(&mut self, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn QueryCustomPolicy(&mut self, pwszurl: super::super::super::Foundation::PWSTR, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn SetZoneMapping(&mut self, dwzone: u32, lpszpattern: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetZoneMappings(&mut self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetSecuritySite(&self, psite: &::core::option::Option<IInternetSecurityMgrSite>) -> ::windows::core::Result<()>;
+    fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite>;
+    fn MapUrlToZone(&self, pwszurl: super::super::super::Foundation::PWSTR, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetSecurityId(&self, pwszurl: super::super::super::Foundation::PWSTR, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
+    fn ProcessUrlAction(&self, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn QueryCustomPolicy(&self, pwszurl: super::super::super::Foundation::PWSTR, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn SetZoneMapping(&self, dwzone: u32, lpszpattern: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetSecurityManager_Vtbl {
@@ -751,7 +751,7 @@ impl IInternetSecurityManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetSecurityManagerEx_Impl: Sized + IInternetSecurityManager_Impl {
-    fn ProcessUrlActionEx(&mut self, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
+    fn ProcessUrlActionEx(&self, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetSecurityManagerEx_Vtbl {
@@ -769,10 +769,10 @@ impl IInternetSecurityManagerEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetSecurityManagerEx2_Impl: Sized + IInternetSecurityManager_Impl + IInternetSecurityManagerEx_Impl {
-    fn MapUrlToZoneEx2(&mut self, puri: &::core::option::Option<super::IUri>, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut super::super::super::Foundation::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
-    fn ProcessUrlActionEx2(&mut self, puri: &::core::option::Option<super::IUri>, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSecurityIdEx2(&mut self, puri: &::core::option::Option<super::IUri>, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
-    fn QueryCustomPolicyEx2(&mut self, puri: &::core::option::Option<super::IUri>, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::Result<()>;
+    fn MapUrlToZoneEx2(&self, puri: &::core::option::Option<super::IUri>, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut super::super::super::Foundation::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
+    fn ProcessUrlActionEx2(&self, puri: &::core::option::Option<super::IUri>, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSecurityIdEx2(&self, puri: &::core::option::Option<super::IUri>, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
+    fn QueryCustomPolicyEx2(&self, puri: &::core::option::Option<super::IUri>, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetSecurityManagerEx2_Vtbl {
@@ -811,8 +811,8 @@ impl IInternetSecurityManagerEx2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetSecurityMgrSite_Impl: Sized {
-    fn GetWindow(&mut self) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
-    fn EnableModeless(&mut self, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetWindow(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
+    fn EnableModeless(&self, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetSecurityMgrSite_Vtbl {
@@ -845,13 +845,13 @@ impl IInternetSecurityMgrSite_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetSession_Impl: Sized {
-    fn RegisterNameSpace(&mut self, pcf: &::core::option::Option<super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwzprotocol: super::super::super::Foundation::PWSTR, cpatterns: u32, ppwzpatterns: *const super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn UnregisterNameSpace(&mut self, pcf: &::core::option::Option<super::IClassFactory>, pszprotocol: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RegisterMimeFilter(&mut self, pcf: &::core::option::Option<super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn UnregisterMimeFilter(&mut self, pcf: &::core::option::Option<super::IClassFactory>, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn CreateBinding(&mut self, pbc: &::core::option::Option<super::IBindCtx>, szurl: super::super::super::Foundation::PWSTR, punkouter: &::core::option::Option<::windows::core::IUnknown>, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>, ppoinetprot: *mut ::core::option::Option<IInternetProtocol>, dwoption: u32) -> ::windows::core::Result<()>;
-    fn SetSessionOption(&mut self, dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn GetSessionOption(&mut self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn RegisterNameSpace(&self, pcf: &::core::option::Option<super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwzprotocol: super::super::super::Foundation::PWSTR, cpatterns: u32, ppwzpatterns: *const super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn UnregisterNameSpace(&self, pcf: &::core::option::Option<super::IClassFactory>, pszprotocol: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RegisterMimeFilter(&self, pcf: &::core::option::Option<super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn UnregisterMimeFilter(&self, pcf: &::core::option::Option<super::IClassFactory>, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CreateBinding(&self, pbc: &::core::option::Option<super::IBindCtx>, szurl: super::super::super::Foundation::PWSTR, punkouter: &::core::option::Option<::windows::core::IUnknown>, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>, ppoinetprot: *mut ::core::option::Option<IInternetProtocol>, dwoption: u32) -> ::windows::core::Result<()>;
+    fn SetSessionOption(&self, dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn GetSessionOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetSession_Vtbl {
@@ -907,8 +907,8 @@ impl IInternetSession_Vtbl {
     }
 }
 pub trait IInternetThreadSwitch_Impl: Sized {
-    fn Prepare(&mut self) -> ::windows::core::Result<()>;
-    fn Continue(&mut self) -> ::windows::core::Result<()>;
+    fn Prepare(&self) -> ::windows::core::Result<()>;
+    fn Continue(&self) -> ::windows::core::Result<()>;
 }
 impl IInternetThreadSwitch_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetThreadSwitch_Impl, const OFFSET: isize>() -> IInternetThreadSwitch_Vtbl {
@@ -934,18 +934,18 @@ impl IInternetThreadSwitch_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetZoneManager_Impl: Sized {
-    fn GetZoneAttributes(&mut self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()>;
-    fn SetZoneAttributes(&mut self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()>;
-    fn GetZoneCustomPolicy(&mut self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()>;
-    fn SetZoneCustomPolicy(&mut self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()>;
-    fn GetZoneActionPolicy(&mut self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()>;
-    fn SetZoneActionPolicy(&mut self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()>;
-    fn PromptAction(&mut self, dwaction: u32, hwndparent: super::super::super::Foundation::HWND, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwpromptflags: u32) -> ::windows::core::Result<()>;
-    fn LogAction(&mut self, dwaction: u32, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwlogflags: u32) -> ::windows::core::Result<()>;
-    fn CreateZoneEnumerator(&mut self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetZoneAt(&mut self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32>;
-    fn DestroyZoneEnumerator(&mut self, dwenum: u32) -> ::windows::core::Result<()>;
-    fn CopyTemplatePoliciesToZone(&mut self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()>;
+    fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()>;
+    fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()>;
+    fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()>;
+    fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()>;
+    fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()>;
+    fn PromptAction(&self, dwaction: u32, hwndparent: super::super::super::Foundation::HWND, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwpromptflags: u32) -> ::windows::core::Result<()>;
+    fn LogAction(&self, dwaction: u32, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwlogflags: u32) -> ::windows::core::Result<()>;
+    fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32>;
+    fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()>;
+    fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetZoneManager_Vtbl {
@@ -1038,8 +1038,8 @@ impl IInternetZoneManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetZoneManagerEx_Impl: Sized + IInternetZoneManager_Impl {
-    fn GetZoneActionPolicyEx(&mut self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()>;
-    fn SetZoneActionPolicyEx(&mut self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetZoneManagerEx_Vtbl {
@@ -1066,10 +1066,10 @@ impl IInternetZoneManagerEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetZoneManagerEx2_Impl: Sized + IInternetZoneManager_Impl + IInternetZoneManagerEx_Impl {
-    fn GetZoneAttributesEx(&mut self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetZoneSecurityState(&mut self, dwzoneindex: u32, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetIESecurityState(&mut self, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn FixUnsecureSettings(&mut self) -> ::windows::core::Result<()>;
+    fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetZoneSecurityState(&self, dwzoneindex: u32, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetIESecurityState(&self, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn FixUnsecureSettings(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInternetZoneManagerEx2_Vtbl {
@@ -1108,7 +1108,7 @@ impl IInternetZoneManagerEx2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMonikerProp_Impl: Sized {
-    fn PutProperty(&mut self, mkp: MONIKERPROPERTY, val: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn PutProperty(&self, mkp: MONIKERPROPERTY, val: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMonikerProp_Vtbl {
@@ -1126,12 +1126,12 @@ impl IMonikerProp_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistMoniker_Impl: Sized {
-    fn GetClassID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IsDirty(&mut self) -> ::windows::core::Result<()>;
-    fn Load(&mut self, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: &::core::option::Option<super::IMoniker>, pibc: &::core::option::Option<super::IBindCtx>, grfmode: u32) -> ::windows::core::Result<()>;
-    fn Save(&mut self, pimkname: &::core::option::Option<super::IMoniker>, pbc: &::core::option::Option<super::IBindCtx>, fremember: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveCompleted(&mut self, pimkname: &::core::option::Option<super::IMoniker>, pibc: &::core::option::Option<super::IBindCtx>) -> ::windows::core::Result<()>;
-    fn GetCurMoniker(&mut self) -> ::windows::core::Result<super::IMoniker>;
+    fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn Load(&self, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: &::core::option::Option<super::IMoniker>, pibc: &::core::option::Option<super::IBindCtx>, grfmode: u32) -> ::windows::core::Result<()>;
+    fn Save(&self, pimkname: &::core::option::Option<super::IMoniker>, pbc: &::core::option::Option<super::IBindCtx>, fremember: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveCompleted(&self, pimkname: &::core::option::Option<super::IMoniker>, pibc: &::core::option::Option<super::IBindCtx>) -> ::windows::core::Result<()>;
+    fn GetCurMoniker(&self) -> ::windows::core::Result<super::IMoniker>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPersistMoniker_Vtbl {
@@ -1194,10 +1194,10 @@ impl IPersistMoniker_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
 pub trait ISoftDistExt_Impl: Sized {
-    fn ProcessSoftDist(&mut self, szcdfurl: super::super::super::Foundation::PWSTR, psoftdistelement: &::core::option::Option<super::super::super::Data::Xml::MsXml::IXMLElement>, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::Result<()>;
-    fn GetFirstCodeBase(&mut self, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()>;
-    fn GetNextCodeBase(&mut self, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()>;
-    fn AsyncInstallDistributionUnit(&mut self, pbc: &::core::option::Option<super::IBindCtx>, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::Result<()>;
+    fn ProcessSoftDist(&self, szcdfurl: super::super::super::Foundation::PWSTR, psoftdistelement: &::core::option::Option<super::super::super::Data::Xml::MsXml::IXMLElement>, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::Result<()>;
+    fn GetFirstCodeBase(&self, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()>;
+    fn GetNextCodeBase(&self, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()>;
+    fn AsyncInstallDistributionUnit(&self, pbc: &::core::option::Option<super::IBindCtx>, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
 impl ISoftDistExt_Vtbl {
@@ -1235,8 +1235,8 @@ impl ISoftDistExt_Vtbl {
     }
 }
 pub trait IUriBuilderFactory_Impl: Sized {
-    fn CreateIUriBuilder(&mut self, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<super::IUriBuilder>;
-    fn CreateInitializedIUriBuilder(&mut self, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<super::IUriBuilder>;
+    fn CreateIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<super::IUriBuilder>;
+    fn CreateInitializedIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows::core::Result<super::IUriBuilder>;
 }
 impl IUriBuilderFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUriBuilderFactory_Impl, const OFFSET: isize>() -> IUriBuilderFactory_Vtbl {
@@ -1273,7 +1273,7 @@ impl IUriBuilderFactory_Vtbl {
     }
 }
 pub trait IUriContainer_Impl: Sized {
-    fn GetIUri(&mut self) -> ::windows::core::Result<super::IUri>;
+    fn GetIUri(&self) -> ::windows::core::Result<super::IUri>;
 }
 impl IUriContainer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUriContainer_Impl, const OFFSET: isize>() -> IUriContainer_Vtbl {
@@ -1296,7 +1296,7 @@ impl IUriContainer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWinInetCacheHints_Impl: Sized {
-    fn SetCacheExtension(&mut self, pwzext: super::super::super::Foundation::PWSTR, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
+    fn SetCacheExtension(&self, pwzext: super::super::super::Foundation::PWSTR, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWinInetCacheHints_Vtbl {
@@ -1314,7 +1314,7 @@ impl IWinInetCacheHints_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWinInetCacheHints2_Impl: Sized + IWinInetCacheHints_Impl {
-    fn SetCacheExtension2(&mut self, pwzext: super::super::super::Foundation::PWSTR, pwzcachefile: super::super::super::Foundation::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
+    fn SetCacheExtension2(&self, pwzext: super::super::super::Foundation::PWSTR, pwzcachefile: super::super::super::Foundation::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWinInetCacheHints2_Vtbl {
@@ -1331,8 +1331,8 @@ impl IWinInetCacheHints2_Vtbl {
     }
 }
 pub trait IWinInetFileStream_Impl: Sized {
-    fn SetHandleForUnlock(&mut self, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::core::Result<()>;
-    fn SetDeleteFile(&mut self, dwreserved: usize) -> ::windows::core::Result<()>;
+    fn SetHandleForUnlock(&self, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::core::Result<()>;
+    fn SetDeleteFile(&self, dwreserved: usize) -> ::windows::core::Result<()>;
 }
 impl IWinInetFileStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinInetFileStream_Impl, const OFFSET: isize>() -> IWinInetFileStream_Vtbl {
@@ -1357,7 +1357,7 @@ impl IWinInetFileStream_Vtbl {
     }
 }
 pub trait IWinInetHttpInfo_Impl: Sized + IWinInetInfo_Impl {
-    fn QueryInfo(&mut self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
+    fn QueryInfo(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IWinInetHttpInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinInetHttpInfo_Impl, const OFFSET: isize>() -> IWinInetHttpInfo_Vtbl {
@@ -1373,7 +1373,7 @@ impl IWinInetHttpInfo_Vtbl {
     }
 }
 pub trait IWinInetHttpTimeouts_Impl: Sized {
-    fn GetRequestTimeouts(&mut self, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRequestTimeouts(&self, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IWinInetHttpTimeouts_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinInetHttpTimeouts_Impl, const OFFSET: isize>() -> IWinInetHttpTimeouts_Vtbl {
@@ -1389,7 +1389,7 @@ impl IWinInetHttpTimeouts_Vtbl {
     }
 }
 pub trait IWinInetInfo_Impl: Sized {
-    fn QueryOption(&mut self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::Result<()>;
+    fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IWinInetInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinInetInfo_Impl, const OFFSET: isize>() -> IWinInetInfo_Vtbl {
@@ -1406,7 +1406,7 @@ impl IWinInetInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWindowForBindingUI_Impl: Sized {
-    fn GetWindow(&mut self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
+    fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWindowForBindingUI_Vtbl {
@@ -1429,7 +1429,7 @@ impl IWindowForBindingUI_Vtbl {
     }
 }
 pub trait IWrappedProtocol_Impl: Sized {
-    fn GetWrapperCode(&mut self, pncode: *mut i32, dwreserved: usize) -> ::windows::core::Result<()>;
+    fn GetWrapperCode(&self, pncode: *mut i32, dwreserved: usize) -> ::windows::core::Result<()>;
 }
 impl IWrappedProtocol_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWrappedProtocol_Impl, const OFFSET: isize>() -> IWrappedProtocol_Vtbl {
@@ -1445,9 +1445,9 @@ impl IWrappedProtocol_Vtbl {
     }
 }
 pub trait IZoneIdentifier_Impl: Sized {
-    fn GetId(&mut self) -> ::windows::core::Result<u32>;
-    fn SetId(&mut self, dwzone: u32) -> ::windows::core::Result<()>;
-    fn Remove(&mut self) -> ::windows::core::Result<()>;
+    fn GetId(&self) -> ::windows::core::Result<u32>;
+    fn SetId(&self, dwzone: u32) -> ::windows::core::Result<()>;
+    fn Remove(&self) -> ::windows::core::Result<()>;
 }
 impl IZoneIdentifier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IZoneIdentifier_Impl, const OFFSET: isize>() -> IZoneIdentifier_Vtbl {
@@ -1485,12 +1485,12 @@ impl IZoneIdentifier_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IZoneIdentifier2_Impl: Sized + IZoneIdentifier_Impl {
-    fn GetLastWriterPackageFamilyName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn SetLastWriterPackageFamilyName(&mut self, packagefamilyname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RemoveLastWriterPackageFamilyName(&mut self) -> ::windows::core::Result<()>;
-    fn GetAppZoneId(&mut self) -> ::windows::core::Result<u32>;
-    fn SetAppZoneId(&mut self, zone: u32) -> ::windows::core::Result<()>;
-    fn RemoveAppZoneId(&mut self) -> ::windows::core::Result<()>;
+    fn GetLastWriterPackageFamilyName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn SetLastWriterPackageFamilyName(&self, packagefamilyname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RemoveLastWriterPackageFamilyName(&self) -> ::windows::core::Result<()>;
+    fn GetAppZoneId(&self) -> ::windows::core::Result<u32>;
+    fn SetAppZoneId(&self, zone: u32) -> ::windows::core::Result<()>;
+    fn RemoveAppZoneId(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IZoneIdentifier2_Vtbl {

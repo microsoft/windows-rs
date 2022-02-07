@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContentPrefetcherTaskTrigger_Impl: Sized {
-    fn TriggerContentPrefetcherTask(&mut self, packagefullname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn IsRegisteredForContentPrefetch(&mut self, packagefullname: super::super::Foundation::PWSTR) -> ::windows::core::Result<u8>;
+    fn TriggerContentPrefetcherTask(&self, packagefullname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn IsRegisteredForContentPrefetch(&self, packagefullname: super::super::Foundation::PWSTR) -> ::windows::core::Result<u8>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IContentPrefetcherTaskTrigger {

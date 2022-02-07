@@ -1,13 +1,13 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ICameraUIControl_Impl: Sized {
-    fn Show(&mut self, pwindow: &::core::option::Option<::windows::core::IUnknown>, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: &::core::option::Option<ICameraUIControlEventCallback>) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn Suspend(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn GetCurrentViewType(&mut self) -> ::windows::core::Result<CameraUIControlViewType>;
-    fn GetActiveItem(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetSelectedItems(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn RemoveCapturedItem(&mut self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Show(&self, pwindow: &::core::option::Option<::windows::core::IUnknown>, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: &::core::option::Option<ICameraUIControlEventCallback>) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn Suspend(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
+    fn GetCurrentViewType(&self) -> ::windows::core::Result<CameraUIControlViewType>;
+    fn GetActiveItem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetSelectedItems(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn RemoveCapturedItem(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ICameraUIControl_Vtbl {
@@ -94,11 +94,11 @@ impl ICameraUIControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICameraUIControlEventCallback_Impl: Sized {
-    fn OnStartupComplete(&mut self);
-    fn OnSuspendComplete(&mut self);
-    fn OnItemCaptured(&mut self, pszpath: super::super::Foundation::PWSTR);
-    fn OnItemDeleted(&mut self, pszpath: super::super::Foundation::PWSTR);
-    fn OnClosed(&mut self);
+    fn OnStartupComplete(&self);
+    fn OnSuspendComplete(&self);
+    fn OnItemCaptured(&self, pszpath: super::super::Foundation::PWSTR);
+    fn OnItemDeleted(&self, pszpath: super::super::Foundation::PWSTR);
+    fn OnClosed(&self);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICameraUIControlEventCallback_Vtbl {
@@ -143,7 +143,7 @@ impl ICameraUIControlEventCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IClipServiceNotificationHelper_Impl: Sized {
-    fn ShowToast(&mut self, titletext: &super::super::Foundation::BSTR, bodytext: &super::super::Foundation::BSTR, packagename: &super::super::Foundation::BSTR, appid: &super::super::Foundation::BSTR, launchcommand: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ShowToast(&self, titletext: &super::super::Foundation::BSTR, bodytext: &super::super::Foundation::BSTR, packagename: &super::super::Foundation::BSTR, appid: &super::super::Foundation::BSTR, launchcommand: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IClipServiceNotificationHelper_Vtbl {
@@ -160,7 +160,7 @@ impl IClipServiceNotificationHelper_Vtbl {
     }
 }
 pub trait IContainerActivationHelper_Impl: Sized {
-    fn CanActivateClientVM(&mut self) -> ::windows::core::Result<i16>;
+    fn CanActivateClientVM(&self) -> ::windows::core::Result<i16>;
 }
 impl IContainerActivationHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContainerActivationHelper_Impl, const OFFSET: isize>() -> IContainerActivationHelper_Vtbl {
@@ -183,7 +183,7 @@ impl IContainerActivationHelper_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDefaultBrowserSyncSettings_Impl: Sized {
-    fn IsEnabled(&mut self) -> super::super::Foundation::BOOL;
+    fn IsEnabled(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDefaultBrowserSyncSettings_Vtbl {
@@ -200,7 +200,7 @@ impl IDefaultBrowserSyncSettings_Vtbl {
     }
 }
 pub trait IDeleteBrowsingHistory_Impl: Sized {
-    fn DeleteBrowsingHistory(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
+    fn DeleteBrowsingHistory(&self, dwflags: u32) -> ::windows::core::Result<()>;
 }
 impl IDeleteBrowsingHistory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeleteBrowsingHistory_Impl, const OFFSET: isize>() -> IDeleteBrowsingHistory_Vtbl {
@@ -217,10 +217,10 @@ impl IDeleteBrowsingHistory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEditionUpgradeBroker_Impl: Sized {
-    fn InitializeParentWindow(&mut self, parenthandle: u32) -> ::windows::core::Result<()>;
-    fn UpdateOperatingSystem(&mut self, parameter: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ShowProductKeyUI(&mut self) -> ::windows::core::Result<()>;
-    fn CanUpgrade(&mut self) -> ::windows::core::Result<()>;
+    fn InitializeParentWindow(&self, parenthandle: u32) -> ::windows::core::Result<()>;
+    fn UpdateOperatingSystem(&self, parameter: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ShowProductKeyUI(&self) -> ::windows::core::Result<()>;
+    fn CanUpgrade(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEditionUpgradeBroker_Vtbl {
@@ -259,11 +259,11 @@ impl IEditionUpgradeBroker_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEditionUpgradeHelper_Impl: Sized {
-    fn CanUpgrade(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn UpdateOperatingSystem(&mut self, contentid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ShowProductKeyUI(&mut self) -> ::windows::core::Result<()>;
-    fn GetOsProductContentId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetGenuineLocalStatus(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn CanUpgrade(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn UpdateOperatingSystem(&self, contentid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ShowProductKeyUI(&self) -> ::windows::core::Result<()>;
+    fn GetOsProductContentId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetGenuineLocalStatus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEditionUpgradeHelper_Vtbl {
@@ -326,7 +326,7 @@ impl IEditionUpgradeHelper_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWindowsLockModeHelper_Impl: Sized {
-    fn GetSMode(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetSMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWindowsLockModeHelper_Vtbl {

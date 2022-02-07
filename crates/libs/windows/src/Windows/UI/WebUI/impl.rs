@@ -1,5 +1,5 @@
 pub trait IActivatedEventArgsDeferral_Impl: Sized {
-    fn ActivatedOperation(&mut self) -> ::windows::core::Result<ActivatedOperation>;
+    fn ActivatedOperation(&self) -> ::windows::core::Result<ActivatedOperation>;
 }
 impl ::windows::core::RuntimeName for IActivatedEventArgsDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.IActivatedEventArgsDeferral";
@@ -28,8 +28,8 @@ impl IActivatedEventArgsDeferral_Vtbl {
     }
 }
 pub trait IWebUIBackgroundTaskInstance_Impl: Sized {
-    fn Succeeded(&mut self) -> ::windows::core::Result<bool>;
-    fn SetSucceeded(&mut self, succeeded: bool) -> ::windows::core::Result<()>;
+    fn Succeeded(&self) -> ::windows::core::Result<bool>;
+    fn SetSucceeded(&self, succeeded: bool) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWebUIBackgroundTaskInstance {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
@@ -64,7 +64,7 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
     }
 }
 pub trait IWebUINavigatedEventArgs_Impl: Sized {
-    fn NavigatedOperation(&mut self) -> ::windows::core::Result<WebUINavigatedOperation>;
+    fn NavigatedOperation(&self) -> ::windows::core::Result<WebUINavigatedOperation>;
 }
 impl ::windows::core::RuntimeName for IWebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUINavigatedEventArgs";

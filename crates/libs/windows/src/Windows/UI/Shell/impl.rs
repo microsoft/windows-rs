@@ -1,5 +1,5 @@
 pub trait IAdaptiveCard_Impl: Sized {
-    fn ToJson(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IAdaptiveCard {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCard";
@@ -25,7 +25,7 @@ impl IAdaptiveCard_Vtbl {
     }
 }
 pub trait IAdaptiveCardBuilderStatics_Impl: Sized {
-    fn CreateAdaptiveCardFromJson(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IAdaptiveCard>;
+    fn CreateAdaptiveCardFromJson(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<IAdaptiveCard>;
 }
 impl ::windows::core::RuntimeName for IAdaptiveCardBuilderStatics {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCardBuilderStatics";

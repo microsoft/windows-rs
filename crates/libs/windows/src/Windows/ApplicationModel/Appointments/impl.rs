@@ -1,8 +1,8 @@
 pub trait IAppointmentParticipant_Impl: Sized {
-    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Address(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetAddress(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Address(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetAddress(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IAppointmentParticipant {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.IAppointmentParticipant";

@@ -1,5 +1,5 @@
 pub trait ISpiControllerProvider_Impl: Sized {
-    fn GetDeviceProvider(&mut self, settings: &::core::option::Option<ProviderSpiConnectionSettings>) -> ::windows::core::Result<ISpiDeviceProvider>;
+    fn GetDeviceProvider(&self, settings: &::core::option::Option<ProviderSpiConnectionSettings>) -> ::windows::core::Result<ISpiDeviceProvider>;
 }
 impl ::windows::core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
@@ -29,12 +29,12 @@ impl ISpiControllerProvider_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ISpiDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
-    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ConnectionSettings(&mut self) -> ::windows::core::Result<ProviderSpiConnectionSettings>;
-    fn Write(&mut self, buffer: &[u8]) -> ::windows::core::Result<()>;
-    fn Read(&mut self, buffer: &mut [u8]) -> ::windows::core::Result<()>;
-    fn TransferSequential(&mut self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()>;
-    fn TransferFullDuplex(&mut self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()>;
+    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ConnectionSettings(&self) -> ::windows::core::Result<ProviderSpiConnectionSettings>;
+    fn Write(&self, buffer: &[u8]) -> ::windows::core::Result<()>;
+    fn Read(&self, buffer: &mut [u8]) -> ::windows::core::Result<()>;
+    fn TransferSequential(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()>;
+    fn TransferFullDuplex(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISpiDeviceProvider {
@@ -103,7 +103,7 @@ impl ISpiDeviceProvider_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait ISpiProvider_Impl: Sized {
-    fn GetControllersAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>;
+    fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISpiProvider {

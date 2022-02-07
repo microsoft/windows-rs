@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait ILocationPermissions_Impl: Sized {
-    fn GetGlobalLocationPermission(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn CheckLocationCapability(&mut self, dwclientthreadid: u32) -> ::windows::core::Result<()>;
+    fn GetGlobalLocationPermission(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn CheckLocationCapability(&self, dwclientthreadid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ILocationPermissions_Vtbl {
@@ -34,21 +34,21 @@ impl ILocationPermissions_Vtbl {
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISensor_Impl: Sized {
-    fn GetID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetCategory(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetFriendlyName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetProperty(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn GetProperties(&mut self, pkeys: &::core::option::Option<super::PortableDevices::IPortableDeviceKeyCollection>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
-    fn GetSupportedDataFields(&mut self) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceKeyCollection>;
-    fn SetProperties(&mut self, pproperties: &::core::option::Option<super::PortableDevices::IPortableDeviceValues>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
-    fn SupportsDataField(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<i16>;
-    fn GetState(&mut self) -> ::windows::core::Result<SensorState>;
-    fn GetData(&mut self) -> ::windows::core::Result<ISensorDataReport>;
-    fn SupportsEvent(&mut self, eventguid: *const ::windows::core::GUID) -> ::windows::core::Result<i16>;
-    fn GetEventInterest(&mut self, ppvalues: *mut *mut ::windows::core::GUID, pcount: *mut u32) -> ::windows::core::Result<()>;
-    fn SetEventInterest(&mut self, pvalues: *const ::windows::core::GUID, count: u32) -> ::windows::core::Result<()>;
-    fn SetEventSink(&mut self, pevents: &::core::option::Option<ISensorEvents>) -> ::windows::core::Result<()>;
+    fn GetID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetCategory(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetFriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetProperties(&self, pkeys: &::core::option::Option<super::PortableDevices::IPortableDeviceKeyCollection>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
+    fn GetSupportedDataFields(&self) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceKeyCollection>;
+    fn SetProperties(&self, pproperties: &::core::option::Option<super::PortableDevices::IPortableDeviceValues>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
+    fn SupportsDataField(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<i16>;
+    fn GetState(&self) -> ::windows::core::Result<SensorState>;
+    fn GetData(&self) -> ::windows::core::Result<ISensorDataReport>;
+    fn SupportsEvent(&self, eventguid: *const ::windows::core::GUID) -> ::windows::core::Result<i16>;
+    fn GetEventInterest(&self, ppvalues: *mut *mut ::windows::core::GUID, pcount: *mut u32) -> ::windows::core::Result<()>;
+    fn SetEventInterest(&self, pvalues: *const ::windows::core::GUID, count: u32) -> ::windows::core::Result<()>;
+    fn SetEventSink(&self, pevents: &::core::option::Option<ISensorEvents>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISensor_Vtbl {
@@ -224,12 +224,12 @@ impl ISensor_Vtbl {
     }
 }
 pub trait ISensorCollection_Impl: Sized {
-    fn GetAt(&mut self, ulindex: u32) -> ::windows::core::Result<ISensor>;
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn Add(&mut self, psensor: &::core::option::Option<ISensor>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, psensor: &::core::option::Option<ISensor>) -> ::windows::core::Result<()>;
-    fn RemoveByID(&mut self, sensorid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<ISensor>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn Add(&self, psensor: &::core::option::Option<ISensor>) -> ::windows::core::Result<()>;
+    fn Remove(&self, psensor: &::core::option::Option<ISensor>) -> ::windows::core::Result<()>;
+    fn RemoveByID(&self, sensorid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
 }
 impl ISensorCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensorCollection_Impl, const OFFSET: isize>() -> ISensorCollection_Vtbl {
@@ -291,9 +291,9 @@ impl ISensorCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISensorDataReport_Impl: Sized {
-    fn GetTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn GetSensorValue(&mut self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn GetSensorValues(&mut self, pkeys: &::core::option::Option<super::PortableDevices::IPortableDeviceKeyCollection>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
+    fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
+    fn GetSensorValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetSensorValues(&self, pkeys: &::core::option::Option<super::PortableDevices::IPortableDeviceKeyCollection>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISensorDataReport_Vtbl {
@@ -344,10 +344,10 @@ impl ISensorDataReport_Vtbl {
 }
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 pub trait ISensorEvents_Impl: Sized {
-    fn OnStateChanged(&mut self, psensor: &::core::option::Option<ISensor>, state: SensorState) -> ::windows::core::Result<()>;
-    fn OnDataUpdated(&mut self, psensor: &::core::option::Option<ISensor>, pnewdata: &::core::option::Option<ISensorDataReport>) -> ::windows::core::Result<()>;
-    fn OnEvent(&mut self, psensor: &::core::option::Option<ISensor>, eventid: *const ::windows::core::GUID, peventdata: &::core::option::Option<super::PortableDevices::IPortableDeviceValues>) -> ::windows::core::Result<()>;
-    fn OnLeave(&mut self, id: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnStateChanged(&self, psensor: &::core::option::Option<ISensor>, state: SensorState) -> ::windows::core::Result<()>;
+    fn OnDataUpdated(&self, psensor: &::core::option::Option<ISensor>, pnewdata: &::core::option::Option<ISensorDataReport>) -> ::windows::core::Result<()>;
+    fn OnEvent(&self, psensor: &::core::option::Option<ISensor>, eventid: *const ::windows::core::GUID, peventdata: &::core::option::Option<super::PortableDevices::IPortableDeviceValues>) -> ::windows::core::Result<()>;
+    fn OnLeave(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 impl ISensorEvents_Vtbl {
@@ -386,11 +386,11 @@ impl ISensorEvents_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISensorManager_Impl: Sized {
-    fn GetSensorsByCategory(&mut self, sensorcategory: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection>;
-    fn GetSensorsByType(&mut self, sensortype: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection>;
-    fn GetSensorByID(&mut self, sensorid: *const ::windows::core::GUID) -> ::windows::core::Result<ISensor>;
-    fn SetEventSink(&mut self, pevents: &::core::option::Option<ISensorManagerEvents>) -> ::windows::core::Result<()>;
-    fn RequestPermissions(&mut self, hparent: super::super::Foundation::HWND, psensors: &::core::option::Option<ISensorCollection>, fmodal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetSensorsByCategory(&self, sensorcategory: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection>;
+    fn GetSensorsByType(&self, sensortype: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection>;
+    fn GetSensorByID(&self, sensorid: *const ::windows::core::GUID) -> ::windows::core::Result<ISensor>;
+    fn SetEventSink(&self, pevents: &::core::option::Option<ISensorManagerEvents>) -> ::windows::core::Result<()>;
+    fn RequestPermissions(&self, hparent: super::super::Foundation::HWND, psensors: &::core::option::Option<ISensorCollection>, fmodal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISensorManager_Vtbl {
@@ -452,7 +452,7 @@ impl ISensorManager_Vtbl {
     }
 }
 pub trait ISensorManagerEvents_Impl: Sized {
-    fn OnSensorEnter(&mut self, psensor: &::core::option::Option<ISensor>, state: SensorState) -> ::windows::core::Result<()>;
+    fn OnSensorEnter(&self, psensor: &::core::option::Option<ISensor>, state: SensorState) -> ::windows::core::Result<()>;
 }
 impl ISensorManagerEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensorManagerEvents_Impl, const OFFSET: isize>() -> ISensorManagerEvents_Vtbl {

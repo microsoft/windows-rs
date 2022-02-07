@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IMidiMessage_Impl: Sized {
-    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn RawData(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Type(&mut self) -> ::windows::core::Result<MidiMessageType>;
+    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn RawData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Type(&self) -> ::windows::core::Result<MidiMessageType>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IMidiMessage {
@@ -60,9 +60,9 @@ impl IMidiMessage_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IMidiOutPort_Impl: Sized + super::super::Foundation::IClosable_Impl {
-    fn SendMessage(&mut self, midimessage: &::core::option::Option<IMidiMessage>) -> ::windows::core::Result<()>;
-    fn SendBuffer(&mut self, mididata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
-    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SendMessage(&self, midimessage: &::core::option::Option<IMidiMessage>) -> ::windows::core::Result<()>;
+    fn SendBuffer(&self, mididata: &::core::option::Option<super::super::Storage::Streams::IBuffer>) -> ::windows::core::Result<()>;
+    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IMidiOutPort {

@@ -1,16 +1,16 @@
 #[cfg(feature = "Security_Credentials")]
 pub trait IBackgroundTransferBase_Impl: Sized {
-    fn SetRequestHeader(&mut self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ServerCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&mut self, credential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn ProxyCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&mut self, credential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn Method(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetMethod(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Group(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetGroup(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn CostPolicy(&mut self) -> ::windows::core::Result<BackgroundTransferCostPolicy>;
-    fn SetCostPolicy(&mut self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()>;
+    fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetServerCredential(&self, credential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetProxyCredential(&self, credential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetMethod(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetGroup(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy>;
+    fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Security_Credentials")]
 impl ::windows::core::RuntimeName for IBackgroundTransferBase {
@@ -129,8 +129,8 @@ impl IBackgroundTransferBase_Vtbl {
     }
 }
 pub trait IBackgroundTransferContentPartFactory_Impl: Sized {
-    fn CreateWithName(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTransferContentPart>;
-    fn CreateWithNameAndFileName(&mut self, name: &::windows::core::HSTRING, filename: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTransferContentPart>;
+    fn CreateWithName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTransferContentPart>;
+    fn CreateWithNameAndFileName(&self, name: &::windows::core::HSTRING, filename: &::windows::core::HSTRING) -> ::windows::core::Result<BackgroundTransferContentPart>;
 }
 impl ::windows::core::RuntimeName for IBackgroundTransferContentPartFactory {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPartFactory";
@@ -173,14 +173,14 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IBackgroundTransferOperation_Impl: Sized {
-    fn Guid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn RequestedUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn Method(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Group(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CostPolicy(&mut self) -> ::windows::core::Result<BackgroundTransferCostPolicy>;
-    fn SetCostPolicy(&mut self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()>;
-    fn GetResultStreamAt(&mut self, position: u64) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
-    fn GetResponseInformation(&mut self) -> ::windows::core::Result<ResponseInformation>;
+    fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn RequestedUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy>;
+    fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()>;
+    fn GetResultStreamAt(&self, position: u64) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream>;
+    fn GetResponseInformation(&self) -> ::windows::core::Result<ResponseInformation>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IBackgroundTransferOperation {
@@ -295,8 +295,8 @@ impl IBackgroundTransferOperation_Vtbl {
     }
 }
 pub trait IBackgroundTransferOperationPriority_Impl: Sized {
-    fn Priority(&mut self) -> ::windows::core::Result<BackgroundTransferPriority>;
-    fn SetPriority(&mut self, value: BackgroundTransferPriority) -> ::windows::core::Result<()>;
+    fn Priority(&self) -> ::windows::core::Result<BackgroundTransferPriority>;
+    fn SetPriority(&self, value: BackgroundTransferPriority) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IBackgroundTransferOperationPriority {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.IBackgroundTransferOperationPriority";

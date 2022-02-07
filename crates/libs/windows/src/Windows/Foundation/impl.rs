@@ -1,7 +1,7 @@
 pub trait IAsyncAction_Impl: Sized + IAsyncInfo_Impl {
-    fn SetCompleted(&mut self, handler: &::core::option::Option<AsyncActionCompletedHandler>) -> ::windows::core::Result<()>;
-    fn Completed(&mut self) -> ::windows::core::Result<AsyncActionCompletedHandler>;
-    fn GetResults(&mut self) -> ::windows::core::Result<()>;
+    fn SetCompleted(&self, handler: &::core::option::Option<AsyncActionCompletedHandler>) -> ::windows::core::Result<()>;
+    fn Completed(&self) -> ::windows::core::Result<AsyncActionCompletedHandler>;
+    fn GetResults(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IAsyncAction {
     const NAME: &'static str = "Windows.Foundation.IAsyncAction";
@@ -45,11 +45,11 @@ pub trait IAsyncActionWithProgress_Impl<TProgress>: Sized + IAsyncInfo_Impl
 where
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    fn SetProgress(&mut self, handler: &::core::option::Option<AsyncActionProgressHandler<TProgress>>) -> ::windows::core::Result<()>;
-    fn Progress(&mut self) -> ::windows::core::Result<AsyncActionProgressHandler<TProgress>>;
-    fn SetCompleted(&mut self, handler: &::core::option::Option<AsyncActionWithProgressCompletedHandler<TProgress>>) -> ::windows::core::Result<()>;
-    fn Completed(&mut self) -> ::windows::core::Result<AsyncActionWithProgressCompletedHandler<TProgress>>;
-    fn GetResults(&mut self) -> ::windows::core::Result<()>;
+    fn SetProgress(&self, handler: &::core::option::Option<AsyncActionProgressHandler<TProgress>>) -> ::windows::core::Result<()>;
+    fn Progress(&self) -> ::windows::core::Result<AsyncActionProgressHandler<TProgress>>;
+    fn SetCompleted(&self, handler: &::core::option::Option<AsyncActionWithProgressCompletedHandler<TProgress>>) -> ::windows::core::Result<()>;
+    fn Completed(&self) -> ::windows::core::Result<AsyncActionWithProgressCompletedHandler<TProgress>>;
+    fn GetResults(&self) -> ::windows::core::Result<()>;
 }
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IAsyncActionWithProgress<TProgress> {
     const NAME: &'static str = "Windows.Foundation.IAsyncActionWithProgress";
@@ -110,11 +110,11 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
     }
 }
 pub trait IAsyncInfo_Impl: Sized {
-    fn Id(&mut self) -> ::windows::core::Result<u32>;
-    fn Status(&mut self) -> ::windows::core::Result<AsyncStatus>;
-    fn ErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<u32>;
+    fn Status(&self) -> ::windows::core::Result<AsyncStatus>;
+    fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
@@ -184,9 +184,9 @@ pub trait IAsyncOperation_Impl<TResult>: Sized + IAsyncInfo_Impl
 where
     TResult: ::windows::core::RuntimeType + 'static,
 {
-    fn SetCompleted(&mut self, handler: &::core::option::Option<AsyncOperationCompletedHandler<TResult>>) -> ::windows::core::Result<()>;
-    fn Completed(&mut self) -> ::windows::core::Result<AsyncOperationCompletedHandler<TResult>>;
-    fn GetResults(&mut self) -> ::windows::core::Result<TResult>;
+    fn SetCompleted(&self, handler: &::core::option::Option<AsyncOperationCompletedHandler<TResult>>) -> ::windows::core::Result<()>;
+    fn Completed(&self) -> ::windows::core::Result<AsyncOperationCompletedHandler<TResult>>;
+    fn GetResults(&self) -> ::windows::core::Result<TResult>;
 }
 impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IAsyncOperation<TResult> {
     const NAME: &'static str = "Windows.Foundation.IAsyncOperation";
@@ -239,11 +239,11 @@ where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    fn SetProgress(&mut self, handler: &::core::option::Option<AsyncOperationProgressHandler<TResult, TProgress>>) -> ::windows::core::Result<()>;
-    fn Progress(&mut self) -> ::windows::core::Result<AsyncOperationProgressHandler<TResult, TProgress>>;
-    fn SetCompleted(&mut self, handler: &::core::option::Option<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>) -> ::windows::core::Result<()>;
-    fn Completed(&mut self) -> ::windows::core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>;
-    fn GetResults(&mut self) -> ::windows::core::Result<TResult>;
+    fn SetProgress(&self, handler: &::core::option::Option<AsyncOperationProgressHandler<TResult, TProgress>>) -> ::windows::core::Result<()>;
+    fn Progress(&self) -> ::windows::core::Result<AsyncOperationProgressHandler<TResult, TProgress>>;
+    fn SetCompleted(&self, handler: &::core::option::Option<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>) -> ::windows::core::Result<()>;
+    fn Completed(&self) -> ::windows::core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>;
+    fn GetResults(&self) -> ::windows::core::Result<TResult>;
 }
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IAsyncOperationWithProgress<TResult, TProgress> {
     const NAME: &'static str = "Windows.Foundation.IAsyncOperationWithProgress";
@@ -312,7 +312,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     }
 }
 pub trait IClosable_Impl: Sized {
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IClosable {
     const NAME: &'static str = "Windows.Foundation.IClosable";
@@ -331,7 +331,7 @@ impl IClosable_Vtbl {
     }
 }
 pub trait IGetActivationFactory_Impl: Sized {
-    fn GetActivationFactory(&mut self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetActivationFactory(&self, activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 impl ::windows::core::RuntimeName for IGetActivationFactory {
     const NAME: &'static str = "Windows.Foundation.IGetActivationFactory";
@@ -360,7 +360,7 @@ impl IGetActivationFactory_Vtbl {
     }
 }
 pub trait IMemoryBuffer_Impl: Sized + IClosable_Impl {
-    fn CreateReference(&mut self) -> ::windows::core::Result<IMemoryBufferReference>;
+    fn CreateReference(&self) -> ::windows::core::Result<IMemoryBufferReference>;
 }
 impl ::windows::core::RuntimeName for IMemoryBuffer {
     const NAME: &'static str = "Windows.Foundation.IMemoryBuffer";
@@ -386,9 +386,9 @@ impl IMemoryBuffer_Vtbl {
     }
 }
 pub trait IMemoryBufferReference_Impl: Sized + IClosable_Impl {
-    fn Capacity(&mut self) -> ::windows::core::Result<u32>;
-    fn Closed(&mut self, handler: &::core::option::Option<TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>) -> ::windows::core::Result<EventRegistrationToken>;
-    fn RemoveClosed(&mut self, cookie: &EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Capacity(&self) -> ::windows::core::Result<u32>;
+    fn Closed(&self, handler: &::core::option::Option<TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>) -> ::windows::core::Result<EventRegistrationToken>;
+    fn RemoveClosed(&self, cookie: &EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMemoryBufferReference {
     const NAME: &'static str = "Windows.Foundation.IMemoryBufferReference";
@@ -436,45 +436,45 @@ impl IMemoryBufferReference_Vtbl {
     }
 }
 pub trait IPropertyValue_Impl: Sized {
-    fn Type(&mut self) -> ::windows::core::Result<PropertyType>;
-    fn IsNumericScalar(&mut self) -> ::windows::core::Result<bool>;
-    fn GetUInt8(&mut self) -> ::windows::core::Result<u8>;
-    fn GetInt16(&mut self) -> ::windows::core::Result<i16>;
-    fn GetUInt16(&mut self) -> ::windows::core::Result<u16>;
-    fn GetInt32(&mut self) -> ::windows::core::Result<i32>;
-    fn GetUInt32(&mut self) -> ::windows::core::Result<u32>;
-    fn GetInt64(&mut self) -> ::windows::core::Result<i64>;
-    fn GetUInt64(&mut self) -> ::windows::core::Result<u64>;
-    fn GetSingle(&mut self) -> ::windows::core::Result<f32>;
-    fn GetDouble(&mut self) -> ::windows::core::Result<f64>;
-    fn GetChar16(&mut self) -> ::windows::core::Result<u16>;
-    fn GetBoolean(&mut self) -> ::windows::core::Result<bool>;
-    fn GetString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetGuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetDateTime(&mut self) -> ::windows::core::Result<DateTime>;
-    fn GetTimeSpan(&mut self) -> ::windows::core::Result<TimeSpan>;
-    fn GetPoint(&mut self) -> ::windows::core::Result<Point>;
-    fn GetSize(&mut self) -> ::windows::core::Result<Size>;
-    fn GetRect(&mut self) -> ::windows::core::Result<Rect>;
-    fn GetUInt8Array(&mut self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
-    fn GetInt16Array(&mut self, value: &mut ::windows::core::Array<i16>) -> ::windows::core::Result<()>;
-    fn GetUInt16Array(&mut self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()>;
-    fn GetInt32Array(&mut self, value: &mut ::windows::core::Array<i32>) -> ::windows::core::Result<()>;
-    fn GetUInt32Array(&mut self, value: &mut ::windows::core::Array<u32>) -> ::windows::core::Result<()>;
-    fn GetInt64Array(&mut self, value: &mut ::windows::core::Array<i64>) -> ::windows::core::Result<()>;
-    fn GetUInt64Array(&mut self, value: &mut ::windows::core::Array<u64>) -> ::windows::core::Result<()>;
-    fn GetSingleArray(&mut self, value: &mut ::windows::core::Array<f32>) -> ::windows::core::Result<()>;
-    fn GetDoubleArray(&mut self, value: &mut ::windows::core::Array<f64>) -> ::windows::core::Result<()>;
-    fn GetChar16Array(&mut self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()>;
-    fn GetBooleanArray(&mut self, value: &mut ::windows::core::Array<bool>) -> ::windows::core::Result<()>;
-    fn GetStringArray(&mut self, value: &mut ::windows::core::Array<::windows::core::HSTRING>) -> ::windows::core::Result<()>;
-    fn GetInspectableArray(&mut self, value: &mut ::windows::core::Array<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn GetGuidArray(&mut self, value: &mut ::windows::core::Array<::windows::core::GUID>) -> ::windows::core::Result<()>;
-    fn GetDateTimeArray(&mut self, value: &mut ::windows::core::Array<DateTime>) -> ::windows::core::Result<()>;
-    fn GetTimeSpanArray(&mut self, value: &mut ::windows::core::Array<TimeSpan>) -> ::windows::core::Result<()>;
-    fn GetPointArray(&mut self, value: &mut ::windows::core::Array<Point>) -> ::windows::core::Result<()>;
-    fn GetSizeArray(&mut self, value: &mut ::windows::core::Array<Size>) -> ::windows::core::Result<()>;
-    fn GetRectArray(&mut self, value: &mut ::windows::core::Array<Rect>) -> ::windows::core::Result<()>;
+    fn Type(&self) -> ::windows::core::Result<PropertyType>;
+    fn IsNumericScalar(&self) -> ::windows::core::Result<bool>;
+    fn GetUInt8(&self) -> ::windows::core::Result<u8>;
+    fn GetInt16(&self) -> ::windows::core::Result<i16>;
+    fn GetUInt16(&self) -> ::windows::core::Result<u16>;
+    fn GetInt32(&self) -> ::windows::core::Result<i32>;
+    fn GetUInt32(&self) -> ::windows::core::Result<u32>;
+    fn GetInt64(&self) -> ::windows::core::Result<i64>;
+    fn GetUInt64(&self) -> ::windows::core::Result<u64>;
+    fn GetSingle(&self) -> ::windows::core::Result<f32>;
+    fn GetDouble(&self) -> ::windows::core::Result<f64>;
+    fn GetChar16(&self) -> ::windows::core::Result<u16>;
+    fn GetBoolean(&self) -> ::windows::core::Result<bool>;
+    fn GetString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetDateTime(&self) -> ::windows::core::Result<DateTime>;
+    fn GetTimeSpan(&self) -> ::windows::core::Result<TimeSpan>;
+    fn GetPoint(&self) -> ::windows::core::Result<Point>;
+    fn GetSize(&self) -> ::windows::core::Result<Size>;
+    fn GetRect(&self) -> ::windows::core::Result<Rect>;
+    fn GetUInt8Array(&self, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>;
+    fn GetInt16Array(&self, value: &mut ::windows::core::Array<i16>) -> ::windows::core::Result<()>;
+    fn GetUInt16Array(&self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()>;
+    fn GetInt32Array(&self, value: &mut ::windows::core::Array<i32>) -> ::windows::core::Result<()>;
+    fn GetUInt32Array(&self, value: &mut ::windows::core::Array<u32>) -> ::windows::core::Result<()>;
+    fn GetInt64Array(&self, value: &mut ::windows::core::Array<i64>) -> ::windows::core::Result<()>;
+    fn GetUInt64Array(&self, value: &mut ::windows::core::Array<u64>) -> ::windows::core::Result<()>;
+    fn GetSingleArray(&self, value: &mut ::windows::core::Array<f32>) -> ::windows::core::Result<()>;
+    fn GetDoubleArray(&self, value: &mut ::windows::core::Array<f64>) -> ::windows::core::Result<()>;
+    fn GetChar16Array(&self, value: &mut ::windows::core::Array<u16>) -> ::windows::core::Result<()>;
+    fn GetBooleanArray(&self, value: &mut ::windows::core::Array<bool>) -> ::windows::core::Result<()>;
+    fn GetStringArray(&self, value: &mut ::windows::core::Array<::windows::core::HSTRING>) -> ::windows::core::Result<()>;
+    fn GetInspectableArray(&self, value: &mut ::windows::core::Array<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn GetGuidArray(&self, value: &mut ::windows::core::Array<::windows::core::GUID>) -> ::windows::core::Result<()>;
+    fn GetDateTimeArray(&self, value: &mut ::windows::core::Array<DateTime>) -> ::windows::core::Result<()>;
+    fn GetTimeSpanArray(&self, value: &mut ::windows::core::Array<TimeSpan>) -> ::windows::core::Result<()>;
+    fn GetPointArray(&self, value: &mut ::windows::core::Array<Point>) -> ::windows::core::Result<()>;
+    fn GetSizeArray(&self, value: &mut ::windows::core::Array<Size>) -> ::windows::core::Result<()>;
+    fn GetRectArray(&self, value: &mut ::windows::core::Array<Rect>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IPropertyValue {
     const NAME: &'static str = "Windows.Foundation.IPropertyValue";
@@ -867,7 +867,7 @@ pub trait IReference_Impl<T>: Sized + IPropertyValue_Impl
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    fn Value(&mut self) -> ::windows::core::Result<T>;
+    fn Value(&self) -> ::windows::core::Result<T>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IReference<T> {
     const NAME: &'static str = "Windows.Foundation.IReference";
@@ -900,7 +900,7 @@ pub trait IReferenceArray_Impl<T>: Sized + IPropertyValue_Impl
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    fn Value(&mut self) -> ::windows::core::Result<::windows::core::Array<T>>;
+    fn Value(&self) -> ::windows::core::Result<::windows::core::Array<T>>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IReferenceArray<T> {
     const NAME: &'static str = "Windows.Foundation.IReferenceArray";
@@ -931,7 +931,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
     }
 }
 pub trait IStringable_Impl: Sized {
-    fn ToString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IStringable {
     const NAME: &'static str = "Windows.Foundation.IStringable";
@@ -957,8 +957,8 @@ impl IStringable_Vtbl {
     }
 }
 pub trait IWwwFormUrlDecoderEntry_Impl: Sized {
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IWwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.IWwwFormUrlDecoderEntry";

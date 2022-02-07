@@ -1,7 +1,7 @@
 pub trait ICustomGameControllerFactory_Impl: Sized {
-    fn CreateGameController(&mut self, provider: &::core::option::Option<IGameControllerProvider>) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn OnGameControllerAdded(&mut self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
-    fn OnGameControllerRemoved(&mut self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
+    fn CreateGameController(&self, provider: &::core::option::Option<IGameControllerProvider>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn OnGameControllerAdded(&self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
+    fn OnGameControllerRemoved(&self, value: &::core::option::Option<super::IGameController>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICustomGameControllerFactory {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.ICustomGameControllerFactory";
@@ -42,8 +42,8 @@ impl ICustomGameControllerFactory_Vtbl {
     }
 }
 pub trait IGameControllerInputSink_Impl: Sized {
-    fn OnInputResumed(&mut self, timestamp: u64) -> ::windows::core::Result<()>;
-    fn OnInputSuspended(&mut self, timestamp: u64) -> ::windows::core::Result<()>;
+    fn OnInputResumed(&self, timestamp: u64) -> ::windows::core::Result<()>;
+    fn OnInputSuspended(&self, timestamp: u64) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGameControllerInputSink";
@@ -71,11 +71,11 @@ impl IGameControllerInputSink_Vtbl {
     }
 }
 pub trait IGameControllerProvider_Impl: Sized {
-    fn FirmwareVersionInfo(&mut self) -> ::windows::core::Result<GameControllerVersionInfo>;
-    fn HardwareProductId(&mut self) -> ::windows::core::Result<u16>;
-    fn HardwareVendorId(&mut self) -> ::windows::core::Result<u16>;
-    fn HardwareVersionInfo(&mut self) -> ::windows::core::Result<GameControllerVersionInfo>;
-    fn IsConnected(&mut self) -> ::windows::core::Result<bool>;
+    fn FirmwareVersionInfo(&self) -> ::windows::core::Result<GameControllerVersionInfo>;
+    fn HardwareProductId(&self) -> ::windows::core::Result<u16>;
+    fn HardwareVendorId(&self) -> ::windows::core::Result<u16>;
+    fn HardwareVersionInfo(&self) -> ::windows::core::Result<GameControllerVersionInfo>;
+    fn IsConnected(&self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGameControllerProvider";
@@ -156,8 +156,8 @@ impl IGameControllerProvider_Vtbl {
     }
 }
 pub trait IGipGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
-    fn OnKeyReceived(&mut self, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::core::Result<()>;
-    fn OnMessageReceived(&mut self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()>;
+    fn OnKeyReceived(&self, timestamp: u64, keycode: u8, ispressed: bool) -> ::windows::core::Result<()>;
+    fn OnMessageReceived(&self, timestamp: u64, messageclass: GipMessageClass, messageid: u8, sequenceid: u8, messagebuffer: &[u8]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGipGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IGipGameControllerInputSink";
@@ -185,7 +185,7 @@ impl IGipGameControllerInputSink_Vtbl {
     }
 }
 pub trait IHidGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
-    fn OnInputReportReceived(&mut self, timestamp: u64, reportid: u8, reportbuffer: &[u8]) -> ::windows::core::Result<()>;
+    fn OnInputReportReceived(&self, timestamp: u64, reportid: u8, reportbuffer: &[u8]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IHidGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IHidGameControllerInputSink";
@@ -207,7 +207,7 @@ impl IHidGameControllerInputSink_Vtbl {
     }
 }
 pub trait IXusbGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
-    fn OnInputReceived(&mut self, timestamp: u64, reportid: u8, inputbuffer: &[u8]) -> ::windows::core::Result<()>;
+    fn OnInputReceived(&self, timestamp: u64, reportid: u8, inputbuffer: &[u8]) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IXusbGameControllerInputSink {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.IXusbGameControllerInputSink";

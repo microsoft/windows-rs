@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscFormat2DataEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&mut self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscFormat2DataEvents_Vtbl {
@@ -18,7 +18,7 @@ impl DDiscFormat2DataEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscFormat2EraseEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&mut self, object: &::core::option::Option<super::super::System::Com::IDispatch>, elapsedseconds: i32, estimatedtotalseconds: i32) -> ::windows::core::Result<()>;
+    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, elapsedseconds: i32, estimatedtotalseconds: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscFormat2EraseEvents_Vtbl {
@@ -36,7 +36,7 @@ impl DDiscFormat2EraseEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscFormat2RawCDEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&mut self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscFormat2RawCDEvents_Vtbl {
@@ -54,7 +54,7 @@ impl DDiscFormat2RawCDEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscFormat2TrackAtOnceEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&mut self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscFormat2TrackAtOnceEvents_Vtbl {
@@ -72,8 +72,8 @@ impl DDiscFormat2TrackAtOnceEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscMaster2Events_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn NotifyDeviceAdded(&mut self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NotifyDeviceRemoved(&mut self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NotifyDeviceAdded(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NotifyDeviceRemoved(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscMaster2Events_Vtbl {
@@ -100,7 +100,7 @@ impl DDiscMaster2Events_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DFileSystemImageEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&mut self, object: &::core::option::Option<super::super::System::Com::IDispatch>, currentfile: &super::super::Foundation::BSTR, copiedsectors: i32, totalsectors: i32) -> ::windows::core::Result<()>;
+    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, currentfile: &super::super::Foundation::BSTR, copiedsectors: i32, totalsectors: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DFileSystemImageEvents_Vtbl {
@@ -118,7 +118,7 @@ impl DFileSystemImageEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DFileSystemImageImportEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn UpdateImport(&mut self, object: &::core::option::Option<super::super::System::Com::IDispatch>, filesystem: FsiFileSystems, currentitem: &super::super::Foundation::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>;
+    fn UpdateImport(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, filesystem: FsiFileSystems, currentitem: &super::super::Foundation::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DFileSystemImageImportEvents_Vtbl {
@@ -136,7 +136,7 @@ impl DFileSystemImageImportEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DWriteEngine2Events_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&mut self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DWriteEngine2Events_Vtbl {
@@ -154,8 +154,8 @@ impl DWriteEngine2Events_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBlockRange_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn StartLba(&mut self) -> ::windows::core::Result<i32>;
-    fn EndLba(&mut self) -> ::windows::core::Result<i32>;
+    fn StartLba(&self) -> ::windows::core::Result<i32>;
+    fn EndLba(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBlockRange_Vtbl {
@@ -194,7 +194,7 @@ impl IBlockRange_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBlockRangeList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn BlockRanges(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn BlockRanges(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBlockRangeList_Vtbl {
@@ -218,15 +218,15 @@ impl IBlockRangeList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBootOptions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn BootImage(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn Manufacturer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetManufacturer(&mut self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PlatformId(&mut self) -> ::windows::core::Result<PlatformId>;
-    fn SetPlatformId(&mut self, newval: PlatformId) -> ::windows::core::Result<()>;
-    fn Emulation(&mut self) -> ::windows::core::Result<EmulationType>;
-    fn SetEmulation(&mut self, newval: EmulationType) -> ::windows::core::Result<()>;
-    fn ImageSize(&mut self) -> ::windows::core::Result<u32>;
-    fn AssignBootImage(&mut self, newval: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn BootImage(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn Manufacturer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetManufacturer(&self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PlatformId(&self) -> ::windows::core::Result<PlatformId>;
+    fn SetPlatformId(&self, newval: PlatformId) -> ::windows::core::Result<()>;
+    fn Emulation(&self) -> ::windows::core::Result<EmulationType>;
+    fn SetEmulation(&self, newval: EmulationType) -> ::windows::core::Result<()>;
+    fn ImageSize(&self) -> ::windows::core::Result<u32>;
+    fn AssignBootImage(&self, newval: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBootOptions_Vtbl {
@@ -324,8 +324,8 @@ impl IBootOptions_Vtbl {
     }
 }
 pub trait IBurnVerification_Impl: Sized {
-    fn SetBurnVerificationLevel(&mut self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows::core::Result<()>;
-    fn BurnVerificationLevel(&mut self) -> ::windows::core::Result<IMAPI_BURN_VERIFICATION_LEVEL>;
+    fn SetBurnVerificationLevel(&self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows::core::Result<()>;
+    fn BurnVerificationLevel(&self) -> ::windows::core::Result<IMAPI_BURN_VERIFICATION_LEVEL>;
 }
 impl IBurnVerification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBurnVerification_Impl, const OFFSET: isize>() -> IBurnVerification_Vtbl {
@@ -357,11 +357,11 @@ impl IBurnVerification_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn IsRecorderSupported(&mut self, recorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<i16>;
-    fn IsCurrentMediaSupported(&mut self, recorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<i16>;
-    fn MediaPhysicallyBlank(&mut self) -> ::windows::core::Result<i16>;
-    fn MediaHeuristicallyBlank(&mut self) -> ::windows::core::Result<i16>;
-    fn SupportedMediaTypes(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn IsRecorderSupported(&self, recorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<i16>;
+    fn IsCurrentMediaSupported(&self, recorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<i16>;
+    fn MediaPhysicallyBlank(&self) -> ::windows::core::Result<i16>;
+    fn MediaHeuristicallyBlank(&self) -> ::windows::core::Result<i16>;
+    fn SupportedMediaTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2_Vtbl {
@@ -436,38 +436,38 @@ impl IDiscFormat2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2Data_Impl: Sized + super::super::System::Com::IDispatch_Impl + IDiscFormat2_Impl {
-    fn SetRecorder(&mut self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
-    fn Recorder(&mut self) -> ::windows::core::Result<IDiscRecorder2>;
-    fn SetBufferUnderrunFreeDisabled(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn BufferUnderrunFreeDisabled(&mut self) -> ::windows::core::Result<i16>;
-    fn SetPostgapAlreadyInImage(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn PostgapAlreadyInImage(&mut self) -> ::windows::core::Result<i16>;
-    fn CurrentMediaStatus(&mut self) -> ::windows::core::Result<IMAPI_FORMAT2_DATA_MEDIA_STATE>;
-    fn WriteProtectStatus(&mut self) -> ::windows::core::Result<IMAPI_MEDIA_WRITE_PROTECT_STATE>;
-    fn TotalSectorsOnMedia(&mut self) -> ::windows::core::Result<i32>;
-    fn FreeSectorsOnMedia(&mut self) -> ::windows::core::Result<i32>;
-    fn NextWritableAddress(&mut self) -> ::windows::core::Result<i32>;
-    fn StartAddressOfPreviousSession(&mut self) -> ::windows::core::Result<i32>;
-    fn LastWrittenAddressOfPreviousSession(&mut self) -> ::windows::core::Result<i32>;
-    fn SetForceMediaToBeClosed(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn ForceMediaToBeClosed(&mut self) -> ::windows::core::Result<i16>;
-    fn SetDisableConsumerDvdCompatibilityMode(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn DisableConsumerDvdCompatibilityMode(&mut self) -> ::windows::core::Result<i16>;
-    fn CurrentPhysicalMediaType(&mut self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SetClientName(&mut self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ClientName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RequestedWriteSpeed(&mut self) -> ::windows::core::Result<i32>;
-    fn RequestedRotationTypeIsPureCAV(&mut self) -> ::windows::core::Result<i16>;
-    fn CurrentWriteSpeed(&mut self) -> ::windows::core::Result<i32>;
-    fn CurrentRotationTypeIsPureCAV(&mut self) -> ::windows::core::Result<i16>;
-    fn SupportedWriteSpeeds(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SupportedWriteSpeedDescriptors(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetForceOverwrite(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn ForceOverwrite(&mut self) -> ::windows::core::Result<i16>;
-    fn MultisessionInterfaces(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn Write(&mut self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn CancelWrite(&mut self) -> ::windows::core::Result<()>;
-    fn SetWriteSpeed(&mut self, requestedsectorspersecond: i32, rotationtypeispurecav: i16) -> ::windows::core::Result<()>;
+    fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
+    fn SetBufferUnderrunFreeDisabled(&self, value: i16) -> ::windows::core::Result<()>;
+    fn BufferUnderrunFreeDisabled(&self) -> ::windows::core::Result<i16>;
+    fn SetPostgapAlreadyInImage(&self, value: i16) -> ::windows::core::Result<()>;
+    fn PostgapAlreadyInImage(&self) -> ::windows::core::Result<i16>;
+    fn CurrentMediaStatus(&self) -> ::windows::core::Result<IMAPI_FORMAT2_DATA_MEDIA_STATE>;
+    fn WriteProtectStatus(&self) -> ::windows::core::Result<IMAPI_MEDIA_WRITE_PROTECT_STATE>;
+    fn TotalSectorsOnMedia(&self) -> ::windows::core::Result<i32>;
+    fn FreeSectorsOnMedia(&self) -> ::windows::core::Result<i32>;
+    fn NextWritableAddress(&self) -> ::windows::core::Result<i32>;
+    fn StartAddressOfPreviousSession(&self) -> ::windows::core::Result<i32>;
+    fn LastWrittenAddressOfPreviousSession(&self) -> ::windows::core::Result<i32>;
+    fn SetForceMediaToBeClosed(&self, value: i16) -> ::windows::core::Result<()>;
+    fn ForceMediaToBeClosed(&self) -> ::windows::core::Result<i16>;
+    fn SetDisableConsumerDvdCompatibilityMode(&self, value: i16) -> ::windows::core::Result<()>;
+    fn DisableConsumerDvdCompatibilityMode(&self) -> ::windows::core::Result<i16>;
+    fn CurrentPhysicalMediaType(&self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
+    fn SetClientName(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RequestedWriteSpeed(&self) -> ::windows::core::Result<i32>;
+    fn RequestedRotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
+    fn CurrentWriteSpeed(&self) -> ::windows::core::Result<i32>;
+    fn CurrentRotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
+    fn SupportedWriteSpeeds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn SupportedWriteSpeedDescriptors(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn SetForceOverwrite(&self, value: i16) -> ::windows::core::Result<()>;
+    fn ForceOverwrite(&self) -> ::windows::core::Result<i16>;
+    fn MultisessionInterfaces(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn Write(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn CancelWrite(&self) -> ::windows::core::Result<()>;
+    fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2Data_Vtbl {
@@ -806,10 +806,10 @@ impl IDiscFormat2Data_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2DataEventArgs_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWriteEngine2EventArgs_Impl {
-    fn ElapsedTime(&mut self) -> ::windows::core::Result<i32>;
-    fn RemainingTime(&mut self) -> ::windows::core::Result<i32>;
-    fn TotalTime(&mut self) -> ::windows::core::Result<i32>;
-    fn CurrentAction(&mut self) -> ::windows::core::Result<IMAPI_FORMAT2_DATA_WRITE_ACTION>;
+    fn ElapsedTime(&self) -> ::windows::core::Result<i32>;
+    fn RemainingTime(&self) -> ::windows::core::Result<i32>;
+    fn TotalTime(&self) -> ::windows::core::Result<i32>;
+    fn CurrentAction(&self) -> ::windows::core::Result<IMAPI_FORMAT2_DATA_WRITE_ACTION>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2DataEventArgs_Vtbl {
@@ -872,14 +872,14 @@ impl IDiscFormat2DataEventArgs_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2Erase_Impl: Sized + super::super::System::Com::IDispatch_Impl + IDiscFormat2_Impl {
-    fn SetRecorder(&mut self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
-    fn Recorder(&mut self) -> ::windows::core::Result<IDiscRecorder2>;
-    fn SetFullErase(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn FullErase(&mut self) -> ::windows::core::Result<i16>;
-    fn CurrentPhysicalMediaType(&mut self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SetClientName(&mut self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ClientName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn EraseMedia(&mut self) -> ::windows::core::Result<()>;
+    fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
+    fn SetFullErase(&self, value: i16) -> ::windows::core::Result<()>;
+    fn FullErase(&self) -> ::windows::core::Result<i16>;
+    fn CurrentPhysicalMediaType(&self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
+    fn SetClientName(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn EraseMedia(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2Erase_Vtbl {
@@ -966,30 +966,30 @@ impl IDiscFormat2Erase_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2RawCD_Impl: Sized + super::super::System::Com::IDispatch_Impl + IDiscFormat2_Impl {
-    fn PrepareMedia(&mut self) -> ::windows::core::Result<()>;
-    fn WriteMedia(&mut self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn WriteMedia2(&mut self, data: &::core::option::Option<super::super::System::Com::IStream>, streamleadinsectors: i32) -> ::windows::core::Result<()>;
-    fn CancelWrite(&mut self) -> ::windows::core::Result<()>;
-    fn ReleaseMedia(&mut self) -> ::windows::core::Result<()>;
-    fn SetWriteSpeed(&mut self, requestedsectorspersecond: i32, rotationtypeispurecav: i16) -> ::windows::core::Result<()>;
-    fn SetRecorder(&mut self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
-    fn Recorder(&mut self) -> ::windows::core::Result<IDiscRecorder2>;
-    fn SetBufferUnderrunFreeDisabled(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn BufferUnderrunFreeDisabled(&mut self) -> ::windows::core::Result<i16>;
-    fn StartOfNextSession(&mut self) -> ::windows::core::Result<i32>;
-    fn LastPossibleStartOfLeadout(&mut self) -> ::windows::core::Result<i32>;
-    fn CurrentPhysicalMediaType(&mut self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SupportedSectorTypes(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetRequestedSectorType(&mut self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> ::windows::core::Result<()>;
-    fn RequestedSectorType(&mut self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>;
-    fn SetClientName(&mut self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ClientName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RequestedWriteSpeed(&mut self) -> ::windows::core::Result<i32>;
-    fn RequestedRotationTypeIsPureCAV(&mut self) -> ::windows::core::Result<i16>;
-    fn CurrentWriteSpeed(&mut self) -> ::windows::core::Result<i32>;
-    fn CurrentRotationTypeIsPureCAV(&mut self) -> ::windows::core::Result<i16>;
-    fn SupportedWriteSpeeds(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SupportedWriteSpeedDescriptors(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn PrepareMedia(&self) -> ::windows::core::Result<()>;
+    fn WriteMedia(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn WriteMedia2(&self, data: &::core::option::Option<super::super::System::Com::IStream>, streamleadinsectors: i32) -> ::windows::core::Result<()>;
+    fn CancelWrite(&self) -> ::windows::core::Result<()>;
+    fn ReleaseMedia(&self) -> ::windows::core::Result<()>;
+    fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: i16) -> ::windows::core::Result<()>;
+    fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
+    fn SetBufferUnderrunFreeDisabled(&self, value: i16) -> ::windows::core::Result<()>;
+    fn BufferUnderrunFreeDisabled(&self) -> ::windows::core::Result<i16>;
+    fn StartOfNextSession(&self) -> ::windows::core::Result<i32>;
+    fn LastPossibleStartOfLeadout(&self) -> ::windows::core::Result<i32>;
+    fn CurrentPhysicalMediaType(&self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
+    fn SupportedSectorTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn SetRequestedSectorType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> ::windows::core::Result<()>;
+    fn RequestedSectorType(&self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>;
+    fn SetClientName(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RequestedWriteSpeed(&self) -> ::windows::core::Result<i32>;
+    fn RequestedRotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
+    fn CurrentWriteSpeed(&self) -> ::windows::core::Result<i32>;
+    fn CurrentRotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
+    fn SupportedWriteSpeeds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn SupportedWriteSpeedDescriptors(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2RawCD_Vtbl {
@@ -1232,9 +1232,9 @@ impl IDiscFormat2RawCD_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2RawCDEventArgs_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWriteEngine2EventArgs_Impl {
-    fn CurrentAction(&mut self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_WRITE_ACTION>;
-    fn ElapsedTime(&mut self) -> ::windows::core::Result<i32>;
-    fn RemainingTime(&mut self) -> ::windows::core::Result<i32>;
+    fn CurrentAction(&self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_WRITE_ACTION>;
+    fn ElapsedTime(&self) -> ::windows::core::Result<i32>;
+    fn RemainingTime(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2RawCDEventArgs_Vtbl {
@@ -1285,31 +1285,31 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2TrackAtOnce_Impl: Sized + super::super::System::Com::IDispatch_Impl + IDiscFormat2_Impl {
-    fn PrepareMedia(&mut self) -> ::windows::core::Result<()>;
-    fn AddAudioTrack(&mut self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn CancelAddTrack(&mut self) -> ::windows::core::Result<()>;
-    fn ReleaseMedia(&mut self) -> ::windows::core::Result<()>;
-    fn SetWriteSpeed(&mut self, requestedsectorspersecond: i32, rotationtypeispurecav: i16) -> ::windows::core::Result<()>;
-    fn SetRecorder(&mut self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
-    fn Recorder(&mut self) -> ::windows::core::Result<IDiscRecorder2>;
-    fn SetBufferUnderrunFreeDisabled(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn BufferUnderrunFreeDisabled(&mut self) -> ::windows::core::Result<i16>;
-    fn NumberOfExistingTracks(&mut self) -> ::windows::core::Result<i32>;
-    fn TotalSectorsOnMedia(&mut self) -> ::windows::core::Result<i32>;
-    fn FreeSectorsOnMedia(&mut self) -> ::windows::core::Result<i32>;
-    fn UsedSectorsOnMedia(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDoNotFinalizeMedia(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn DoNotFinalizeMedia(&mut self) -> ::windows::core::Result<i16>;
-    fn ExpectedTableOfContents(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CurrentPhysicalMediaType(&mut self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn SetClientName(&mut self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ClientName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RequestedWriteSpeed(&mut self) -> ::windows::core::Result<i32>;
-    fn RequestedRotationTypeIsPureCAV(&mut self) -> ::windows::core::Result<i16>;
-    fn CurrentWriteSpeed(&mut self) -> ::windows::core::Result<i32>;
-    fn CurrentRotationTypeIsPureCAV(&mut self) -> ::windows::core::Result<i16>;
-    fn SupportedWriteSpeeds(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SupportedWriteSpeedDescriptors(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn PrepareMedia(&self) -> ::windows::core::Result<()>;
+    fn AddAudioTrack(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn CancelAddTrack(&self) -> ::windows::core::Result<()>;
+    fn ReleaseMedia(&self) -> ::windows::core::Result<()>;
+    fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: i16) -> ::windows::core::Result<()>;
+    fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
+    fn SetBufferUnderrunFreeDisabled(&self, value: i16) -> ::windows::core::Result<()>;
+    fn BufferUnderrunFreeDisabled(&self) -> ::windows::core::Result<i16>;
+    fn NumberOfExistingTracks(&self) -> ::windows::core::Result<i32>;
+    fn TotalSectorsOnMedia(&self) -> ::windows::core::Result<i32>;
+    fn FreeSectorsOnMedia(&self) -> ::windows::core::Result<i32>;
+    fn UsedSectorsOnMedia(&self) -> ::windows::core::Result<i32>;
+    fn SetDoNotFinalizeMedia(&self, value: i16) -> ::windows::core::Result<()>;
+    fn DoNotFinalizeMedia(&self) -> ::windows::core::Result<i16>;
+    fn ExpectedTableOfContents(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn CurrentPhysicalMediaType(&self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
+    fn SetClientName(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RequestedWriteSpeed(&self) -> ::windows::core::Result<i32>;
+    fn RequestedRotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
+    fn CurrentWriteSpeed(&self) -> ::windows::core::Result<i32>;
+    fn CurrentRotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
+    fn SupportedWriteSpeeds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn SupportedWriteSpeedDescriptors(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2TrackAtOnce_Vtbl {
@@ -1570,10 +1570,10 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2TrackAtOnceEventArgs_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWriteEngine2EventArgs_Impl {
-    fn CurrentTrackNumber(&mut self) -> ::windows::core::Result<i32>;
-    fn CurrentAction(&mut self) -> ::windows::core::Result<IMAPI_FORMAT2_TAO_WRITE_ACTION>;
-    fn ElapsedTime(&mut self) -> ::windows::core::Result<i32>;
-    fn RemainingTime(&mut self) -> ::windows::core::Result<i32>;
+    fn CurrentTrackNumber(&self) -> ::windows::core::Result<i32>;
+    fn CurrentAction(&self) -> ::windows::core::Result<IMAPI_FORMAT2_TAO_WRITE_ACTION>;
+    fn ElapsedTime(&self) -> ::windows::core::Result<i32>;
+    fn RemainingTime(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
@@ -1635,18 +1635,18 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
     }
 }
 pub trait IDiscMaster_Impl: Sized {
-    fn Open(&mut self) -> ::windows::core::Result<()>;
-    fn EnumDiscMasterFormats(&mut self) -> ::windows::core::Result<IEnumDiscMasterFormats>;
-    fn GetActiveDiscMasterFormat(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetActiveDiscMasterFormat(&mut self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn EnumDiscRecorders(&mut self) -> ::windows::core::Result<IEnumDiscRecorders>;
-    fn GetActiveDiscRecorder(&mut self) -> ::windows::core::Result<IDiscRecorder>;
-    fn SetActiveDiscRecorder(&mut self, precorder: &::core::option::Option<IDiscRecorder>) -> ::windows::core::Result<()>;
-    fn ClearFormatContent(&mut self) -> ::windows::core::Result<()>;
-    fn ProgressAdvise(&mut self, pevents: &::core::option::Option<IDiscMasterProgressEvents>) -> ::windows::core::Result<usize>;
-    fn ProgressUnadvise(&mut self, vcookie: usize) -> ::windows::core::Result<()>;
-    fn RecordDisc(&mut self, bsimulate: u8, bejectafterburn: u8) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn Open(&self) -> ::windows::core::Result<()>;
+    fn EnumDiscMasterFormats(&self) -> ::windows::core::Result<IEnumDiscMasterFormats>;
+    fn GetActiveDiscMasterFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetActiveDiscMasterFormat(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn EnumDiscRecorders(&self) -> ::windows::core::Result<IEnumDiscRecorders>;
+    fn GetActiveDiscRecorder(&self) -> ::windows::core::Result<IDiscRecorder>;
+    fn SetActiveDiscRecorder(&self, precorder: &::core::option::Option<IDiscRecorder>) -> ::windows::core::Result<()>;
+    fn ClearFormatContent(&self) -> ::windows::core::Result<()>;
+    fn ProgressAdvise(&self, pevents: &::core::option::Option<IDiscMasterProgressEvents>) -> ::windows::core::Result<usize>;
+    fn ProgressUnadvise(&self, vcookie: usize) -> ::windows::core::Result<()>;
+    fn RecordDisc(&self, bsimulate: u8, bejectafterburn: u8) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 impl IDiscMaster_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscMaster_Impl, const OFFSET: isize>() -> IDiscMaster_Vtbl {
@@ -1762,10 +1762,10 @@ impl IDiscMaster_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscMaster2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn IsSupportedEnvironment(&mut self) -> ::windows::core::Result<i16>;
+    fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn IsSupportedEnvironment(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscMaster2_Vtbl {
@@ -1827,15 +1827,15 @@ impl IDiscMaster2_Vtbl {
     }
 }
 pub trait IDiscMasterProgressEvents_Impl: Sized {
-    fn QueryCancel(&mut self) -> ::windows::core::Result<u8>;
-    fn NotifyPnPActivity(&mut self) -> ::windows::core::Result<()>;
-    fn NotifyAddProgress(&mut self, ncompletedsteps: i32, ntotalsteps: i32) -> ::windows::core::Result<()>;
-    fn NotifyBlockProgress(&mut self, ncompleted: i32, ntotal: i32) -> ::windows::core::Result<()>;
-    fn NotifyTrackProgress(&mut self, ncurrenttrack: i32, ntotaltracks: i32) -> ::windows::core::Result<()>;
-    fn NotifyPreparingBurn(&mut self, nestimatedseconds: i32) -> ::windows::core::Result<()>;
-    fn NotifyClosingDisc(&mut self, nestimatedseconds: i32) -> ::windows::core::Result<()>;
-    fn NotifyBurnComplete(&mut self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn NotifyEraseComplete(&mut self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn QueryCancel(&self) -> ::windows::core::Result<u8>;
+    fn NotifyPnPActivity(&self) -> ::windows::core::Result<()>;
+    fn NotifyAddProgress(&self, ncompletedsteps: i32, ntotalsteps: i32) -> ::windows::core::Result<()>;
+    fn NotifyBlockProgress(&self, ncompleted: i32, ntotal: i32) -> ::windows::core::Result<()>;
+    fn NotifyTrackProgress(&self, ncurrenttrack: i32, ntotaltracks: i32) -> ::windows::core::Result<()>;
+    fn NotifyPreparingBurn(&self, nestimatedseconds: i32) -> ::windows::core::Result<()>;
+    fn NotifyClosingDisc(&self, nestimatedseconds: i32) -> ::windows::core::Result<()>;
+    fn NotifyBurnComplete(&self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn NotifyEraseComplete(&self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl IDiscMasterProgressEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscMasterProgressEvents_Impl, const OFFSET: isize>() -> IDiscMasterProgressEvents_Vtbl {
@@ -1909,21 +1909,21 @@ impl IDiscMasterProgressEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IDiscRecorder_Impl: Sized {
-    fn Init(&mut self, pbyuniqueid: *const u8, nulidsize: u32, nuldrivenumber: u32) -> ::windows::core::Result<()>;
-    fn GetRecorderGUID(&mut self, pbyuniqueid: *mut u8, ulbuffersize: u32, pulreturnsizerequired: *mut u32) -> ::windows::core::Result<()>;
-    fn GetRecorderType(&mut self) -> ::windows::core::Result<RECORDER_TYPES>;
-    fn GetDisplayNames(&mut self, pbstrvendorid: *mut super::super::Foundation::BSTR, pbstrproductid: *mut super::super::Foundation::BSTR, pbstrrevision: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetBasePnPID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetRecorderProperties(&mut self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage>;
-    fn SetRecorderProperties(&mut self, ppropstg: &::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyStorage>) -> ::windows::core::Result<()>;
-    fn GetRecorderState(&mut self) -> ::windows::core::Result<DISC_RECORDER_STATE_FLAGS>;
-    fn OpenExclusive(&mut self) -> ::windows::core::Result<()>;
-    fn QueryMediaType(&mut self, fmediatype: *mut MEDIA_TYPES, fmediaflags: *mut MEDIA_FLAGS) -> ::windows::core::Result<()>;
-    fn QueryMediaInfo(&mut self, pbsessions: *mut u8, pblasttrack: *mut u8, ulstartaddress: *mut u32, ulnextwritable: *mut u32, ulfreeblocks: *mut u32) -> ::windows::core::Result<()>;
-    fn Eject(&mut self) -> ::windows::core::Result<()>;
-    fn Erase(&mut self, bfullerase: u8) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn Init(&self, pbyuniqueid: *const u8, nulidsize: u32, nuldrivenumber: u32) -> ::windows::core::Result<()>;
+    fn GetRecorderGUID(&self, pbyuniqueid: *mut u8, ulbuffersize: u32, pulreturnsizerequired: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRecorderType(&self) -> ::windows::core::Result<RECORDER_TYPES>;
+    fn GetDisplayNames(&self, pbstrvendorid: *mut super::super::Foundation::BSTR, pbstrproductid: *mut super::super::Foundation::BSTR, pbstrrevision: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetBasePnPID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetRecorderProperties(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage>;
+    fn SetRecorderProperties(&self, ppropstg: &::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyStorage>) -> ::windows::core::Result<()>;
+    fn GetRecorderState(&self) -> ::windows::core::Result<DISC_RECORDER_STATE_FLAGS>;
+    fn OpenExclusive(&self) -> ::windows::core::Result<()>;
+    fn QueryMediaType(&self, fmediatype: *mut MEDIA_TYPES, fmediaflags: *mut MEDIA_FLAGS) -> ::windows::core::Result<()>;
+    fn QueryMediaInfo(&self, pbsessions: *mut u8, pblasttrack: *mut u8, ulstartaddress: *mut u32, ulnextwritable: *mut u32, ulfreeblocks: *mut u32) -> ::windows::core::Result<()>;
+    fn Eject(&self) -> ::windows::core::Result<()>;
+    fn Erase(&self, bfullerase: u8) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IDiscRecorder_Vtbl {
@@ -2058,27 +2058,27 @@ impl IDiscRecorder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscRecorder2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn EjectMedia(&mut self) -> ::windows::core::Result<()>;
-    fn CloseTray(&mut self) -> ::windows::core::Result<()>;
-    fn AcquireExclusiveAccess(&mut self, force: i16, __midl__idiscrecorder20000: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ReleaseExclusiveAccess(&mut self) -> ::windows::core::Result<()>;
-    fn DisableMcn(&mut self) -> ::windows::core::Result<()>;
-    fn EnableMcn(&mut self) -> ::windows::core::Result<()>;
-    fn InitializeDiscRecorder(&mut self, recorderuniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ActiveDiscRecorder(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn VendorId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProductId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProductRevision(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn VolumeName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn VolumePathNames(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn DeviceCanLoadMedia(&mut self) -> ::windows::core::Result<i16>;
-    fn LegacyDeviceNumber(&mut self) -> ::windows::core::Result<i32>;
-    fn SupportedFeaturePages(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CurrentFeaturePages(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SupportedProfiles(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CurrentProfiles(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SupportedModePages(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ExclusiveAccessOwner(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn EjectMedia(&self) -> ::windows::core::Result<()>;
+    fn CloseTray(&self) -> ::windows::core::Result<()>;
+    fn AcquireExclusiveAccess(&self, force: i16, __midl__idiscrecorder20000: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ReleaseExclusiveAccess(&self) -> ::windows::core::Result<()>;
+    fn DisableMcn(&self) -> ::windows::core::Result<()>;
+    fn EnableMcn(&self) -> ::windows::core::Result<()>;
+    fn InitializeDiscRecorder(&self, recorderuniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ActiveDiscRecorder(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn VendorId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ProductId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ProductRevision(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn VolumeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn VolumePathNames(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn DeviceCanLoadMedia(&self) -> ::windows::core::Result<i16>;
+    fn LegacyDeviceNumber(&self) -> ::windows::core::Result<i32>;
+    fn SupportedFeaturePages(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn CurrentFeaturePages(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn SupportedProfiles(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn CurrentProfiles(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn SupportedModePages(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn ExclusiveAccessOwner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscRecorder2_Vtbl {
@@ -2303,24 +2303,24 @@ impl IDiscRecorder2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDiscRecorder2Ex_Impl: Sized {
-    fn SendCommandNoData(&mut self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> ::windows::core::Result<()>;
-    fn SendCommandSendDataToDevice(&mut self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: u32) -> ::windows::core::Result<()>;
-    fn SendCommandGetDataFromDevice(&mut self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn ReadDvdStructure(&mut self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
-    fn SendDvdStructure(&mut self, format: u32, data: *const u8, count: u32) -> ::windows::core::Result<()>;
-    fn GetAdapterDescriptor(&mut self, data: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDeviceDescriptor(&mut self, data: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDiscInformation(&mut self, discinformation: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetTrackInformation(&mut self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetFeaturePage(&mut self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: super::super::Foundation::BOOLEAN, featuredata: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetModePage(&mut self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
-    fn SetModePage(&mut self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, bytesize: u32) -> ::windows::core::Result<()>;
-    fn GetSupportedFeaturePages(&mut self, currentfeatureonly: super::super::Foundation::BOOLEAN, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSupportedProfiles(&mut self, currentonly: super::super::Foundation::BOOLEAN, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSupportedModePages(&mut self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> ::windows::core::Result<()>;
-    fn GetByteAlignmentMask(&mut self) -> ::windows::core::Result<u32>;
-    fn GetMaximumNonPageAlignedTransferSize(&mut self) -> ::windows::core::Result<u32>;
-    fn GetMaximumPageAlignedTransferSize(&mut self) -> ::windows::core::Result<u32>;
+    fn SendCommandNoData(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> ::windows::core::Result<()>;
+    fn SendCommandSendDataToDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *const u8, buffersize: u32) -> ::windows::core::Result<()>;
+    fn SendCommandGetDataFromDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32, buffer: *mut u8, buffersize: u32, bufferfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
+    fn SendDvdStructure(&self, format: u32, data: *const u8, count: u32) -> ::windows::core::Result<()>;
+    fn GetAdapterDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDeviceDescriptor(&self, data: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDiscInformation(&self, discinformation: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFeaturePage(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: super::super::Foundation::BOOLEAN, featuredata: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetModePage(&self, requestedmodepage: IMAPI_MODE_PAGE_TYPE, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagedata: *mut *mut u8, bytesize: *mut u32) -> ::windows::core::Result<()>;
+    fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: *const u8, bytesize: u32) -> ::windows::core::Result<()>;
+    fn GetSupportedFeaturePages(&self, currentfeatureonly: super::super::Foundation::BOOLEAN, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSupportedProfiles(&self, currentonly: super::super::Foundation::BOOLEAN, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSupportedModePages(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, modepagetypes: *mut *mut IMAPI_MODE_PAGE_TYPE, validpages: *mut u32) -> ::windows::core::Result<()>;
+    fn GetByteAlignmentMask(&self) -> ::windows::core::Result<u32>;
+    fn GetMaximumNonPageAlignedTransferSize(&self) -> ::windows::core::Result<u32>;
+    fn GetMaximumPageAlignedTransferSize(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDiscRecorder2Ex_Vtbl {
@@ -2460,10 +2460,10 @@ impl IDiscRecorder2Ex_Vtbl {
     }
 }
 pub trait IEnumDiscMasterFormats_Impl: Sized {
-    fn Next(&mut self, cformats: u32, lpiidformatid: *mut ::windows::core::GUID, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, cformats: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumDiscMasterFormats>;
+    fn Next(&self, cformats: u32, lpiidformatid: *mut ::windows::core::GUID, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, cformats: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumDiscMasterFormats>;
 }
 impl IEnumDiscMasterFormats_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiscMasterFormats_Impl, const OFFSET: isize>() -> IEnumDiscMasterFormats_Vtbl {
@@ -2506,10 +2506,10 @@ impl IEnumDiscMasterFormats_Vtbl {
     }
 }
 pub trait IEnumDiscRecorders_Impl: Sized {
-    fn Next(&mut self, crecorders: u32, pprecorder: *mut ::core::option::Option<IDiscRecorder>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, crecorders: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumDiscRecorders>;
+    fn Next(&self, crecorders: u32, pprecorder: *mut ::core::option::Option<IDiscRecorder>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, crecorders: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumDiscRecorders>;
 }
 impl IEnumDiscRecorders_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiscRecorders_Impl, const OFFSET: isize>() -> IEnumDiscRecorders_Vtbl {
@@ -2553,10 +2553,10 @@ impl IEnumDiscRecorders_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumFsiItems_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IFsiItem>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumFsiItems>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IFsiItem>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumFsiItems>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumFsiItems_Vtbl {
@@ -2601,10 +2601,10 @@ impl IEnumFsiItems_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumProgressItems_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IProgressItem>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumProgressItems>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IProgressItem>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumProgressItems>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumProgressItems_Vtbl {
@@ -2649,56 +2649,56 @@ impl IEnumProgressItems_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFileSystemImage_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Root(&mut self) -> ::windows::core::Result<IFsiDirectoryItem>;
-    fn SessionStartBlock(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSessionStartBlock(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn FreeMediaBlocks(&mut self) -> ::windows::core::Result<i32>;
-    fn SetFreeMediaBlocks(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn SetMaxMediaBlocksFromDevice(&mut self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
-    fn UsedBlocks(&mut self) -> ::windows::core::Result<i32>;
-    fn VolumeName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetVolumeName(&mut self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ImportedVolumeName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn BootImageOptions(&mut self) -> ::windows::core::Result<IBootOptions>;
-    fn SetBootImageOptions(&mut self, newval: &::core::option::Option<IBootOptions>) -> ::windows::core::Result<()>;
-    fn FileCount(&mut self) -> ::windows::core::Result<i32>;
-    fn DirectoryCount(&mut self) -> ::windows::core::Result<i32>;
-    fn WorkingDirectory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetWorkingDirectory(&mut self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ChangePoint(&mut self) -> ::windows::core::Result<i32>;
-    fn StrictFileSystemCompliance(&mut self) -> ::windows::core::Result<i16>;
-    fn SetStrictFileSystemCompliance(&mut self, newval: i16) -> ::windows::core::Result<()>;
-    fn UseRestrictedCharacterSet(&mut self) -> ::windows::core::Result<i16>;
-    fn SetUseRestrictedCharacterSet(&mut self, newval: i16) -> ::windows::core::Result<()>;
-    fn FileSystemsToCreate(&mut self) -> ::windows::core::Result<FsiFileSystems>;
-    fn SetFileSystemsToCreate(&mut self, newval: FsiFileSystems) -> ::windows::core::Result<()>;
-    fn FileSystemsSupported(&mut self) -> ::windows::core::Result<FsiFileSystems>;
-    fn SetUDFRevision(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn UDFRevision(&mut self) -> ::windows::core::Result<i32>;
-    fn UDFRevisionsSupported(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ChooseImageDefaults(&mut self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
-    fn ChooseImageDefaultsForMediaType(&mut self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> ::windows::core::Result<()>;
-    fn SetISO9660InterchangeLevel(&mut self, newval: i32) -> ::windows::core::Result<()>;
-    fn ISO9660InterchangeLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn ISO9660InterchangeLevelsSupported(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CreateResultImage(&mut self) -> ::windows::core::Result<IFileSystemImageResult>;
-    fn Exists(&mut self, fullpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<FsiItemType>;
-    fn CalculateDiscIdentifier(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn IdentifyFileSystemsOnDisc(&mut self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<FsiFileSystems>;
-    fn GetDefaultFileSystemForImport(&mut self, filesystems: FsiFileSystems) -> ::windows::core::Result<FsiFileSystems>;
-    fn ImportFileSystem(&mut self) -> ::windows::core::Result<FsiFileSystems>;
-    fn ImportSpecificFileSystem(&mut self, filesystemtouse: FsiFileSystems) -> ::windows::core::Result<()>;
-    fn RollbackToChangePoint(&mut self, changepoint: i32) -> ::windows::core::Result<()>;
-    fn LockInChangePoint(&mut self) -> ::windows::core::Result<()>;
-    fn CreateDirectoryItem(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiDirectoryItem>;
-    fn CreateFileItem(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiFileItem>;
-    fn VolumeNameUDF(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn VolumeNameJoliet(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn VolumeNameISO9660(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn StageFiles(&mut self) -> ::windows::core::Result<i16>;
-    fn SetStageFiles(&mut self, newval: i16) -> ::windows::core::Result<()>;
-    fn MultisessionInterfaces(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetMultisessionInterfaces(&mut self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn Root(&self) -> ::windows::core::Result<IFsiDirectoryItem>;
+    fn SessionStartBlock(&self) -> ::windows::core::Result<i32>;
+    fn SetSessionStartBlock(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn FreeMediaBlocks(&self) -> ::windows::core::Result<i32>;
+    fn SetFreeMediaBlocks(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn SetMaxMediaBlocksFromDevice(&self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn UsedBlocks(&self) -> ::windows::core::Result<i32>;
+    fn VolumeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetVolumeName(&self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ImportedVolumeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn BootImageOptions(&self) -> ::windows::core::Result<IBootOptions>;
+    fn SetBootImageOptions(&self, newval: &::core::option::Option<IBootOptions>) -> ::windows::core::Result<()>;
+    fn FileCount(&self) -> ::windows::core::Result<i32>;
+    fn DirectoryCount(&self) -> ::windows::core::Result<i32>;
+    fn WorkingDirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetWorkingDirectory(&self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ChangePoint(&self) -> ::windows::core::Result<i32>;
+    fn StrictFileSystemCompliance(&self) -> ::windows::core::Result<i16>;
+    fn SetStrictFileSystemCompliance(&self, newval: i16) -> ::windows::core::Result<()>;
+    fn UseRestrictedCharacterSet(&self) -> ::windows::core::Result<i16>;
+    fn SetUseRestrictedCharacterSet(&self, newval: i16) -> ::windows::core::Result<()>;
+    fn FileSystemsToCreate(&self) -> ::windows::core::Result<FsiFileSystems>;
+    fn SetFileSystemsToCreate(&self, newval: FsiFileSystems) -> ::windows::core::Result<()>;
+    fn FileSystemsSupported(&self) -> ::windows::core::Result<FsiFileSystems>;
+    fn SetUDFRevision(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn UDFRevision(&self) -> ::windows::core::Result<i32>;
+    fn UDFRevisionsSupported(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn ChooseImageDefaults(&self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> ::windows::core::Result<()>;
+    fn SetISO9660InterchangeLevel(&self, newval: i32) -> ::windows::core::Result<()>;
+    fn ISO9660InterchangeLevel(&self) -> ::windows::core::Result<i32>;
+    fn ISO9660InterchangeLevelsSupported(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn CreateResultImage(&self) -> ::windows::core::Result<IFileSystemImageResult>;
+    fn Exists(&self, fullpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<FsiItemType>;
+    fn CalculateDiscIdentifier(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn IdentifyFileSystemsOnDisc(&self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<FsiFileSystems>;
+    fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> ::windows::core::Result<FsiFileSystems>;
+    fn ImportFileSystem(&self) -> ::windows::core::Result<FsiFileSystems>;
+    fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> ::windows::core::Result<()>;
+    fn RollbackToChangePoint(&self, changepoint: i32) -> ::windows::core::Result<()>;
+    fn LockInChangePoint(&self) -> ::windows::core::Result<()>;
+    fn CreateDirectoryItem(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiDirectoryItem>;
+    fn CreateFileItem(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiFileItem>;
+    fn VolumeNameUDF(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn VolumeNameJoliet(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn VolumeNameISO9660(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn StageFiles(&self) -> ::windows::core::Result<i16>;
+    fn SetStageFiles(&self, newval: i16) -> ::windows::core::Result<()>;
+    fn MultisessionInterfaces(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFileSystemImage_Vtbl {
@@ -3205,8 +3205,8 @@ impl IFileSystemImage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFileSystemImage2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFileSystemImage_Impl {
-    fn BootImageOptionsArray(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetBootImageOptionsArray(&mut self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn BootImageOptionsArray(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFileSystemImage2_Vtbl {
@@ -3239,9 +3239,9 @@ impl IFileSystemImage2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFileSystemImage3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFileSystemImage_Impl + IFileSystemImage2_Impl {
-    fn CreateRedundantUdfMetadataFiles(&mut self) -> ::windows::core::Result<i16>;
-    fn SetCreateRedundantUdfMetadataFiles(&mut self, newval: i16) -> ::windows::core::Result<()>;
-    fn ProbeSpecificFileSystem(&mut self, filesystemtoprobe: FsiFileSystems) -> ::windows::core::Result<i16>;
+    fn CreateRedundantUdfMetadataFiles(&self) -> ::windows::core::Result<i16>;
+    fn SetCreateRedundantUdfMetadataFiles(&self, newval: i16) -> ::windows::core::Result<()>;
+    fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFileSystemImage3_Vtbl {
@@ -3286,11 +3286,11 @@ impl IFileSystemImage3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFileSystemImageResult_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ImageStream(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn ProgressItems(&mut self) -> ::windows::core::Result<IProgressItems>;
-    fn TotalBlocks(&mut self) -> ::windows::core::Result<i32>;
-    fn BlockSize(&mut self) -> ::windows::core::Result<i32>;
-    fn DiscId(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ImageStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn ProgressItems(&self) -> ::windows::core::Result<IProgressItems>;
+    fn TotalBlocks(&self) -> ::windows::core::Result<i32>;
+    fn BlockSize(&self) -> ::windows::core::Result<i32>;
+    fn DiscId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFileSystemImageResult_Vtbl {
@@ -3365,7 +3365,7 @@ impl IFileSystemImageResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFileSystemImageResult2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFileSystemImageResult_Impl {
-    fn ModifiedBlocks(&mut self) -> ::windows::core::Result<IBlockRangeList>;
+    fn ModifiedBlocks(&self) -> ::windows::core::Result<IBlockRangeList>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFileSystemImageResult2_Vtbl {
@@ -3389,16 +3389,16 @@ impl IFileSystemImageResult2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiDirectoryItem_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiItem>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn EnumFsiItems(&mut self) -> ::windows::core::Result<IEnumFsiItems>;
-    fn AddDirectory(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddFile(&mut self, path: &super::super::Foundation::BSTR, filedata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn AddTree(&mut self, sourcedirectory: &super::super::Foundation::BSTR, includebasedirectory: i16) -> ::windows::core::Result<()>;
-    fn Add(&mut self, item: &::core::option::Option<IFsiItem>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RemoveTree(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
+    fn Item(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiItem>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn EnumFsiItems(&self) -> ::windows::core::Result<IEnumFsiItems>;
+    fn AddDirectory(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddFile(&self, path: &super::super::Foundation::BSTR, filedata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddTree(&self, sourcedirectory: &super::super::Foundation::BSTR, includebasedirectory: i16) -> ::windows::core::Result<()>;
+    fn Add(&self, item: &::core::option::Option<IFsiItem>) -> ::windows::core::Result<()>;
+    fn Remove(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemoveTree(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiDirectoryItem_Vtbl {
@@ -3497,7 +3497,7 @@ impl IFsiDirectoryItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiDirectoryItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl + IFsiDirectoryItem_Impl {
-    fn AddTreeWithNamedStreams(&mut self, sourcedirectory: &super::super::Foundation::BSTR, includebasedirectory: i16) -> ::windows::core::Result<()>;
+    fn AddTreeWithNamedStreams(&self, sourcedirectory: &super::super::Foundation::BSTR, includebasedirectory: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiDirectoryItem2_Vtbl {
@@ -3515,11 +3515,11 @@ impl IFsiDirectoryItem2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiFileItem_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl {
-    fn DataSize(&mut self) -> ::windows::core::Result<i64>;
-    fn DataSize32BitLow(&mut self) -> ::windows::core::Result<i32>;
-    fn DataSize32BitHigh(&mut self) -> ::windows::core::Result<i32>;
-    fn Data(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetData(&mut self, newval: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn DataSize(&self) -> ::windows::core::Result<i64>;
+    fn DataSize32BitLow(&self) -> ::windows::core::Result<i32>;
+    fn DataSize32BitHigh(&self) -> ::windows::core::Result<i32>;
+    fn Data(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn SetData(&self, newval: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiFileItem_Vtbl {
@@ -3588,12 +3588,12 @@ impl IFsiFileItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiFileItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl + IFsiFileItem_Impl {
-    fn FsiNamedStreams(&mut self) -> ::windows::core::Result<IFsiNamedStreams>;
-    fn IsNamedStream(&mut self) -> ::windows::core::Result<i16>;
-    fn AddStream(&mut self, name: &super::super::Foundation::BSTR, streamdata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn RemoveStream(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsRealTime(&mut self) -> ::windows::core::Result<i16>;
-    fn SetIsRealTime(&mut self, newval: i16) -> ::windows::core::Result<()>;
+    fn FsiNamedStreams(&self) -> ::windows::core::Result<IFsiNamedStreams>;
+    fn IsNamedStream(&self) -> ::windows::core::Result<i16>;
+    fn AddStream(&self, name: &super::super::Foundation::BSTR, streamdata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn RemoveStream(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsRealTime(&self) -> ::windows::core::Result<i16>;
+    fn SetIsRealTime(&self, newval: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiFileItem2_Vtbl {
@@ -3662,18 +3662,18 @@ impl IFsiFileItem2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn FullPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CreationTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetCreationTime(&mut self, newval: f64) -> ::windows::core::Result<()>;
-    fn LastAccessedTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetLastAccessedTime(&mut self, newval: f64) -> ::windows::core::Result<()>;
-    fn LastModifiedTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetLastModifiedTime(&mut self, newval: f64) -> ::windows::core::Result<()>;
-    fn IsHidden(&mut self) -> ::windows::core::Result<i16>;
-    fn SetIsHidden(&mut self, newval: i16) -> ::windows::core::Result<()>;
-    fn FileSystemName(&mut self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn FileSystemPath(&mut self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn FullPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CreationTime(&self) -> ::windows::core::Result<f64>;
+    fn SetCreationTime(&self, newval: f64) -> ::windows::core::Result<()>;
+    fn LastAccessedTime(&self) -> ::windows::core::Result<f64>;
+    fn SetLastAccessedTime(&self, newval: f64) -> ::windows::core::Result<()>;
+    fn LastModifiedTime(&self) -> ::windows::core::Result<f64>;
+    fn SetLastModifiedTime(&self, newval: f64) -> ::windows::core::Result<()>;
+    fn IsHidden(&self) -> ::windows::core::Result<i16>;
+    fn SetIsHidden(&self, newval: i16) -> ::windows::core::Result<()>;
+    fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn FileSystemPath(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiItem_Vtbl {
@@ -3808,10 +3808,10 @@ impl IFsiItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiNamedStreams_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<IFsiFileItem2>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn EnumNamedStreams(&mut self) -> ::windows::core::Result<IEnumFsiItems>;
+    fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<IFsiFileItem2>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn EnumNamedStreams(&self) -> ::windows::core::Result<IEnumFsiItems>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiNamedStreams_Vtbl {
@@ -3874,11 +3874,11 @@ impl IFsiNamedStreams_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IIsoImageManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Stream(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetPath(&mut self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetStream(&mut self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Validate(&mut self) -> ::windows::core::Result<()>;
+    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Stream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn SetPath(&self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetStream(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Validate(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IIsoImageManager_Vtbl {
@@ -3935,12 +3935,12 @@ impl IIsoImageManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IJolietDiscMaster_Impl: Sized {
-    fn GetTotalDataBlocks(&mut self) -> ::windows::core::Result<i32>;
-    fn GetUsedDataBlocks(&mut self) -> ::windows::core::Result<i32>;
-    fn GetDataBlockSize(&mut self) -> ::windows::core::Result<i32>;
-    fn AddData(&mut self, pstorage: &::core::option::Option<super::super::System::Com::StructuredStorage::IStorage>, lfileoverwrite: i32) -> ::windows::core::Result<()>;
-    fn GetJolietProperties(&mut self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage>;
-    fn SetJolietProperties(&mut self, ppropstg: &::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyStorage>) -> ::windows::core::Result<()>;
+    fn GetTotalDataBlocks(&self) -> ::windows::core::Result<i32>;
+    fn GetUsedDataBlocks(&self) -> ::windows::core::Result<i32>;
+    fn GetDataBlockSize(&self) -> ::windows::core::Result<i32>;
+    fn AddData(&self, pstorage: &::core::option::Option<super::super::System::Com::StructuredStorage::IStorage>, lfileoverwrite: i32) -> ::windows::core::Result<()>;
+    fn GetJolietProperties(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage>;
+    fn SetJolietProperties(&self, ppropstg: &::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyStorage>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IJolietDiscMaster_Vtbl {
@@ -4015,10 +4015,10 @@ impl IJolietDiscMaster_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMultisession_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn IsSupportedOnCurrentMediaState(&mut self) -> ::windows::core::Result<i16>;
-    fn SetInUse(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn InUse(&mut self) -> ::windows::core::Result<i16>;
-    fn ImportRecorder(&mut self) -> ::windows::core::Result<IDiscRecorder2>;
+    fn IsSupportedOnCurrentMediaState(&self) -> ::windows::core::Result<i16>;
+    fn SetInUse(&self, value: i16) -> ::windows::core::Result<()>;
+    fn InUse(&self) -> ::windows::core::Result<i16>;
+    fn ImportRecorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMultisession_Vtbl {
@@ -4075,9 +4075,9 @@ impl IMultisession_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMultisessionRandomWrite_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMultisession_Impl {
-    fn WriteUnitSize(&mut self) -> ::windows::core::Result<i32>;
-    fn LastWrittenAddress(&mut self) -> ::windows::core::Result<i32>;
-    fn TotalSectorsOnMedia(&mut self) -> ::windows::core::Result<i32>;
+    fn WriteUnitSize(&self) -> ::windows::core::Result<i32>;
+    fn LastWrittenAddress(&self) -> ::windows::core::Result<i32>;
+    fn TotalSectorsOnMedia(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMultisessionRandomWrite_Vtbl {
@@ -4128,11 +4128,11 @@ impl IMultisessionRandomWrite_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMultisessionSequential_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMultisession_Impl {
-    fn IsFirstDataSession(&mut self) -> ::windows::core::Result<i16>;
-    fn StartAddressOfPreviousSession(&mut self) -> ::windows::core::Result<i32>;
-    fn LastWrittenAddressOfPreviousSession(&mut self) -> ::windows::core::Result<i32>;
-    fn NextWritableAddress(&mut self) -> ::windows::core::Result<i32>;
-    fn FreeSectorsOnMedia(&mut self) -> ::windows::core::Result<i32>;
+    fn IsFirstDataSession(&self) -> ::windows::core::Result<i16>;
+    fn StartAddressOfPreviousSession(&self) -> ::windows::core::Result<i32>;
+    fn LastWrittenAddressOfPreviousSession(&self) -> ::windows::core::Result<i32>;
+    fn NextWritableAddress(&self) -> ::windows::core::Result<i32>;
+    fn FreeSectorsOnMedia(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMultisessionSequential_Vtbl {
@@ -4207,7 +4207,7 @@ impl IMultisessionSequential_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMultisessionSequential2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMultisession_Impl + IMultisessionSequential_Impl {
-    fn WriteUnitSize(&mut self) -> ::windows::core::Result<i32>;
+    fn WriteUnitSize(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMultisessionSequential2_Vtbl {
@@ -4231,10 +4231,10 @@ impl IMultisessionSequential2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IProgressItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn FirstBlock(&mut self) -> ::windows::core::Result<u32>;
-    fn LastBlock(&mut self) -> ::windows::core::Result<u32>;
-    fn BlockCount(&mut self) -> ::windows::core::Result<u32>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn FirstBlock(&self) -> ::windows::core::Result<u32>;
+    fn LastBlock(&self) -> ::windows::core::Result<u32>;
+    fn BlockCount(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IProgressItem_Vtbl {
@@ -4297,12 +4297,12 @@ impl IProgressItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IProgressItems_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<IProgressItem>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn ProgressItemFromBlock(&mut self, block: u32) -> ::windows::core::Result<IProgressItem>;
-    fn ProgressItemFromDescription(&mut self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<IProgressItem>;
-    fn EnumProgressItems(&mut self) -> ::windows::core::Result<IEnumProgressItems>;
+    fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<IProgressItem>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn ProgressItemFromBlock(&self, block: u32) -> ::windows::core::Result<IProgressItem>;
+    fn ProgressItemFromDescription(&self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<IProgressItem>;
+    fn EnumProgressItems(&self) -> ::windows::core::Result<IEnumProgressItems>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IProgressItems_Vtbl {
@@ -4389,25 +4389,25 @@ impl IProgressItems_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRawCDImageCreator_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn CreateResultImage(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn AddTrack(&mut self, datatype: IMAPI_CD_SECTOR_TYPE, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<i32>;
-    fn AddSpecialPregap(&mut self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn AddSubcodeRWGenerator(&mut self, subcode: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn SetResultingImageType(&mut self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> ::windows::core::Result<()>;
-    fn ResultingImageType(&mut self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>;
-    fn StartOfLeadout(&mut self) -> ::windows::core::Result<i32>;
-    fn SetStartOfLeadoutLimit(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn StartOfLeadoutLimit(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDisableGaplessAudio(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn DisableGaplessAudio(&mut self) -> ::windows::core::Result<i16>;
-    fn SetMediaCatalogNumber(&mut self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MediaCatalogNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetStartingTrackNumber(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn StartingTrackNumber(&mut self) -> ::windows::core::Result<i32>;
-    fn TrackInfo(&mut self, trackindex: i32) -> ::windows::core::Result<IRawCDImageTrackInfo>;
-    fn NumberOfExistingTracks(&mut self) -> ::windows::core::Result<i32>;
-    fn LastUsedUserSectorInImage(&mut self) -> ::windows::core::Result<i32>;
-    fn ExpectedTableOfContents(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn CreateResultImage(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn AddTrack(&self, datatype: IMAPI_CD_SECTOR_TYPE, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<i32>;
+    fn AddSpecialPregap(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddSubcodeRWGenerator(&self, subcode: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SetResultingImageType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> ::windows::core::Result<()>;
+    fn ResultingImageType(&self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>;
+    fn StartOfLeadout(&self) -> ::windows::core::Result<i32>;
+    fn SetStartOfLeadoutLimit(&self, value: i32) -> ::windows::core::Result<()>;
+    fn StartOfLeadoutLimit(&self) -> ::windows::core::Result<i32>;
+    fn SetDisableGaplessAudio(&self, value: i16) -> ::windows::core::Result<()>;
+    fn DisableGaplessAudio(&self) -> ::windows::core::Result<i16>;
+    fn SetMediaCatalogNumber(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MediaCatalogNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetStartingTrackNumber(&self, value: i32) -> ::windows::core::Result<()>;
+    fn StartingTrackNumber(&self) -> ::windows::core::Result<i32>;
+    fn TrackInfo(&self, trackindex: i32) -> ::windows::core::Result<IRawCDImageTrackInfo>;
+    fn NumberOfExistingTracks(&self) -> ::windows::core::Result<i32>;
+    fn LastUsedUserSectorInImage(&self) -> ::windows::core::Result<i32>;
+    fn ExpectedTableOfContents(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRawCDImageCreator_Vtbl {
@@ -4608,19 +4608,19 @@ impl IRawCDImageCreator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRawCDImageTrackInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn StartingLba(&mut self) -> ::windows::core::Result<i32>;
-    fn SectorCount(&mut self) -> ::windows::core::Result<i32>;
-    fn TrackNumber(&mut self) -> ::windows::core::Result<i32>;
-    fn SectorType(&mut self) -> ::windows::core::Result<IMAPI_CD_SECTOR_TYPE>;
-    fn ISRC(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetISRC(&mut self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DigitalAudioCopySetting(&mut self) -> ::windows::core::Result<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING>;
-    fn SetDigitalAudioCopySetting(&mut self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> ::windows::core::Result<()>;
-    fn AudioHasPreemphasis(&mut self) -> ::windows::core::Result<i16>;
-    fn SetAudioHasPreemphasis(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn TrackIndexes(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn AddTrackIndex(&mut self, lbaoffset: i32) -> ::windows::core::Result<()>;
-    fn ClearTrackIndex(&mut self, lbaoffset: i32) -> ::windows::core::Result<()>;
+    fn StartingLba(&self) -> ::windows::core::Result<i32>;
+    fn SectorCount(&self) -> ::windows::core::Result<i32>;
+    fn TrackNumber(&self) -> ::windows::core::Result<i32>;
+    fn SectorType(&self) -> ::windows::core::Result<IMAPI_CD_SECTOR_TYPE>;
+    fn ISRC(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetISRC(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DigitalAudioCopySetting(&self) -> ::windows::core::Result<IMAPI_CD_TRACK_DIGITAL_COPY_SETTING>;
+    fn SetDigitalAudioCopySetting(&self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> ::windows::core::Result<()>;
+    fn AudioHasPreemphasis(&self) -> ::windows::core::Result<i16>;
+    fn SetAudioHasPreemphasis(&self, value: i16) -> ::windows::core::Result<()>;
+    fn TrackIndexes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn AddTrackIndex(&self, lbaoffset: i32) -> ::windows::core::Result<()>;
+    fn ClearTrackIndex(&self, lbaoffset: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRawCDImageTrackInfo_Vtbl {
@@ -4760,14 +4760,14 @@ impl IRawCDImageTrackInfo_Vtbl {
     }
 }
 pub trait IRedbookDiscMaster_Impl: Sized {
-    fn GetTotalAudioTracks(&mut self) -> ::windows::core::Result<i32>;
-    fn GetTotalAudioBlocks(&mut self) -> ::windows::core::Result<i32>;
-    fn GetUsedAudioBlocks(&mut self) -> ::windows::core::Result<i32>;
-    fn GetAvailableAudioTrackBlocks(&mut self) -> ::windows::core::Result<i32>;
-    fn GetAudioBlockSize(&mut self) -> ::windows::core::Result<i32>;
-    fn CreateAudioTrack(&mut self, nblocks: i32) -> ::windows::core::Result<()>;
-    fn AddAudioTrackBlocks(&mut self, pby: *const u8, cb: i32) -> ::windows::core::Result<()>;
-    fn CloseAudioTrack(&mut self) -> ::windows::core::Result<()>;
+    fn GetTotalAudioTracks(&self) -> ::windows::core::Result<i32>;
+    fn GetTotalAudioBlocks(&self) -> ::windows::core::Result<i32>;
+    fn GetUsedAudioBlocks(&self) -> ::windows::core::Result<i32>;
+    fn GetAvailableAudioTrackBlocks(&self) -> ::windows::core::Result<i32>;
+    fn GetAudioBlockSize(&self) -> ::windows::core::Result<i32>;
+    fn CreateAudioTrack(&self, nblocks: i32) -> ::windows::core::Result<()>;
+    fn AddAudioTrackBlocks(&self, pby: *const u8, cb: i32) -> ::windows::core::Result<()>;
+    fn CloseAudioTrack(&self) -> ::windows::core::Result<()>;
 }
 impl IRedbookDiscMaster_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRedbookDiscMaster_Impl, const OFFSET: isize>() -> IRedbookDiscMaster_Vtbl {
@@ -4859,10 +4859,10 @@ impl IRedbookDiscMaster_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IStreamConcatenate_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
-    fn Initialize(&mut self, stream1: &::core::option::Option<super::super::System::Com::IStream>, stream2: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Initialize2(&mut self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, streamcount: u32) -> ::windows::core::Result<()>;
-    fn Append(&mut self, stream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Append2(&mut self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, streamcount: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, stream1: &::core::option::Option<super::super::System::Com::IStream>, stream2: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Initialize2(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, streamcount: u32) -> ::windows::core::Result<()>;
+    fn Append(&self, stream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Append2(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, streamcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IStreamConcatenate_Vtbl {
@@ -4901,7 +4901,7 @@ impl IStreamConcatenate_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IStreamInterleave_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
-    fn Initialize(&mut self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IStreamInterleave_Vtbl {
@@ -4919,10 +4919,10 @@ impl IStreamInterleave_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IStreamPseudoRandomBased_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
-    fn SetSeed(&mut self, value: u32) -> ::windows::core::Result<()>;
-    fn Seed(&mut self) -> ::windows::core::Result<u32>;
-    fn SetExtendedSeed(&mut self, values: *const u32, ecount: u32) -> ::windows::core::Result<()>;
-    fn ExtendedSeed(&mut self, values: *mut *mut u32, ecount: *mut u32) -> ::windows::core::Result<()>;
+    fn SetSeed(&self, value: u32) -> ::windows::core::Result<()>;
+    fn Seed(&self) -> ::windows::core::Result<u32>;
+    fn SetExtendedSeed(&self, values: *const u32, ecount: u32) -> ::windows::core::Result<()>;
+    fn ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IStreamPseudoRandomBased_Vtbl {
@@ -4967,19 +4967,19 @@ impl IStreamPseudoRandomBased_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWriteEngine2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn WriteSection(&mut self, data: &::core::option::Option<super::super::System::Com::IStream>, startingblockaddress: i32, numberofblocks: i32) -> ::windows::core::Result<()>;
-    fn CancelWrite(&mut self) -> ::windows::core::Result<()>;
-    fn SetRecorder(&mut self, value: &::core::option::Option<IDiscRecorder2Ex>) -> ::windows::core::Result<()>;
-    fn Recorder(&mut self) -> ::windows::core::Result<IDiscRecorder2Ex>;
-    fn SetUseStreamingWrite12(&mut self, value: i16) -> ::windows::core::Result<()>;
-    fn UseStreamingWrite12(&mut self) -> ::windows::core::Result<i16>;
-    fn SetStartingSectorsPerSecond(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn StartingSectorsPerSecond(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEndingSectorsPerSecond(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn EndingSectorsPerSecond(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBytesPerSector(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn BytesPerSector(&mut self) -> ::windows::core::Result<i32>;
-    fn WriteInProgress(&mut self) -> ::windows::core::Result<i16>;
+    fn WriteSection(&self, data: &::core::option::Option<super::super::System::Com::IStream>, startingblockaddress: i32, numberofblocks: i32) -> ::windows::core::Result<()>;
+    fn CancelWrite(&self) -> ::windows::core::Result<()>;
+    fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2Ex>) -> ::windows::core::Result<()>;
+    fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2Ex>;
+    fn SetUseStreamingWrite12(&self, value: i16) -> ::windows::core::Result<()>;
+    fn UseStreamingWrite12(&self) -> ::windows::core::Result<i16>;
+    fn SetStartingSectorsPerSecond(&self, value: i32) -> ::windows::core::Result<()>;
+    fn StartingSectorsPerSecond(&self) -> ::windows::core::Result<i32>;
+    fn SetEndingSectorsPerSecond(&self, value: i32) -> ::windows::core::Result<()>;
+    fn EndingSectorsPerSecond(&self) -> ::windows::core::Result<i32>;
+    fn SetBytesPerSector(&self, value: i32) -> ::windows::core::Result<()>;
+    fn BytesPerSector(&self) -> ::windows::core::Result<i32>;
+    fn WriteInProgress(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWriteEngine2_Vtbl {
@@ -5108,13 +5108,13 @@ impl IWriteEngine2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWriteEngine2EventArgs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn StartLba(&mut self) -> ::windows::core::Result<i32>;
-    fn SectorCount(&mut self) -> ::windows::core::Result<i32>;
-    fn LastReadLba(&mut self) -> ::windows::core::Result<i32>;
-    fn LastWrittenLba(&mut self) -> ::windows::core::Result<i32>;
-    fn TotalSystemBuffer(&mut self) -> ::windows::core::Result<i32>;
-    fn UsedSystemBuffer(&mut self) -> ::windows::core::Result<i32>;
-    fn FreeSystemBuffer(&mut self) -> ::windows::core::Result<i32>;
+    fn StartLba(&self) -> ::windows::core::Result<i32>;
+    fn SectorCount(&self) -> ::windows::core::Result<i32>;
+    fn LastReadLba(&self) -> ::windows::core::Result<i32>;
+    fn LastWrittenLba(&self) -> ::windows::core::Result<i32>;
+    fn TotalSystemBuffer(&self) -> ::windows::core::Result<i32>;
+    fn UsedSystemBuffer(&self) -> ::windows::core::Result<i32>;
+    fn FreeSystemBuffer(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWriteEngine2EventArgs_Vtbl {
@@ -5213,9 +5213,9 @@ impl IWriteEngine2EventArgs_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWriteSpeedDescriptor_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn MediaType(&mut self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
-    fn RotationTypeIsPureCAV(&mut self) -> ::windows::core::Result<i16>;
-    fn WriteSpeed(&mut self) -> ::windows::core::Result<i32>;
+    fn MediaType(&self) -> ::windows::core::Result<IMAPI_MEDIA_PHYSICAL_TYPE>;
+    fn RotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
+    fn WriteSpeed(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWriteSpeedDescriptor_Vtbl {

@@ -1,8 +1,8 @@
 pub trait IEnumOfflineFilesItems_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IOfflineFilesItem>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumOfflineFilesItems>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IOfflineFilesItem>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumOfflineFilesItems>;
 }
 impl IEnumOfflineFilesItems_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumOfflineFilesItems_Impl, const OFFSET: isize>() -> IEnumOfflineFilesItems_Vtbl {
@@ -45,10 +45,10 @@ impl IEnumOfflineFilesItems_Vtbl {
     }
 }
 pub trait IEnumOfflineFilesSettings_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IOfflineFilesSetting>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumOfflineFilesSettings>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IOfflineFilesSetting>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumOfflineFilesSettings>;
 }
 impl IEnumOfflineFilesSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumOfflineFilesSettings_Impl, const OFFSET: isize>() -> IEnumOfflineFilesSettings_Vtbl {
@@ -92,23 +92,23 @@ impl IEnumOfflineFilesSettings_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesCache_Impl: Sized {
-    fn Synchronize(&mut self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: &::core::option::Option<IOfflineFilesSyncConflictHandler>, piprogress: &::core::option::Option<IOfflineFilesSyncProgress>, psyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn DeleteItems(&mut self, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: &::core::option::Option<IOfflineFilesSimpleProgress>) -> ::windows::core::Result<()>;
-    fn DeleteItemsForUser(&mut self, pszuser: super::super::Foundation::PWSTR, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: &::core::option::Option<IOfflineFilesSimpleProgress>) -> ::windows::core::Result<()>;
-    fn Pin(&mut self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: &::core::option::Option<IOfflineFilesSyncProgress>) -> ::windows::core::Result<()>;
-    fn Unpin(&mut self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: &::core::option::Option<IOfflineFilesSyncProgress>) -> ::windows::core::Result<()>;
-    fn GetEncryptionStatus(&mut self, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Encrypt(&mut self, hwndparent: super::super::Foundation::HWND, bencrypt: super::super::Foundation::BOOL, dwencryptioncontrolflags: u32, basync: super::super::Foundation::BOOL, piprogress: &::core::option::Option<IOfflineFilesSyncProgress>) -> ::windows::core::Result<()>;
-    fn FindItem(&mut self, pszpath: super::super::Foundation::PWSTR, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem>;
-    fn FindItemEx(&mut self, pszpath: super::super::Foundation::PWSTR, pincludefilefilter: &::core::option::Option<IOfflineFilesItemFilter>, pincludedirfilter: &::core::option::Option<IOfflineFilesItemFilter>, pexcludefilefilter: &::core::option::Option<IOfflineFilesItemFilter>, pexcludedirfilter: &::core::option::Option<IOfflineFilesItemFilter>, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem>;
-    fn RenameItem(&mut self, pszpathoriginal: super::super::Foundation::PWSTR, pszpathnew: super::super::Foundation::PWSTR, breplaceifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetDiskSpaceInformation(&mut self, pcbvolumetotal: *mut u64, pcblimit: *mut u64, pcbused: *mut u64, pcbunpinnedlimit: *mut u64, pcbunpinnedused: *mut u64) -> ::windows::core::Result<()>;
-    fn SetDiskSpaceLimits(&mut self, cblimit: u64, cbunpinnedlimit: u64) -> ::windows::core::Result<()>;
-    fn ProcessAdminPinPolicy(&mut self, ppinprogress: &::core::option::Option<IOfflineFilesSyncProgress>, punpinprogress: &::core::option::Option<IOfflineFilesSyncProgress>) -> ::windows::core::Result<()>;
-    fn GetSettingObject(&mut self, pszsettingname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IOfflineFilesSetting>;
-    fn EnumSettingObjects(&mut self) -> ::windows::core::Result<IEnumOfflineFilesSettings>;
-    fn IsPathCacheable(&mut self, pszpath: super::super::Foundation::PWSTR, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> ::windows::core::Result<()>;
+    fn Synchronize(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, basync: super::super::Foundation::BOOL, dwsynccontrol: u32, pisyncconflicthandler: &::core::option::Option<IOfflineFilesSyncConflictHandler>, piprogress: &::core::option::Option<IOfflineFilesSyncProgress>, psyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn DeleteItems(&self, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: &::core::option::Option<IOfflineFilesSimpleProgress>) -> ::windows::core::Result<()>;
+    fn DeleteItemsForUser(&self, pszuser: super::super::Foundation::PWSTR, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, dwflags: u32, basync: super::super::Foundation::BOOL, piprogress: &::core::option::Option<IOfflineFilesSimpleProgress>) -> ::windows::core::Result<()>;
+    fn Pin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: &::core::option::Option<IOfflineFilesSyncProgress>) -> ::windows::core::Result<()>;
+    fn Unpin(&self, hwndparent: super::super::Foundation::HWND, rgpszpaths: *const super::super::Foundation::PWSTR, cpaths: u32, bdeep: super::super::Foundation::BOOL, basync: super::super::Foundation::BOOL, dwpincontrolflags: u32, piprogress: &::core::option::Option<IOfflineFilesSyncProgress>) -> ::windows::core::Result<()>;
+    fn GetEncryptionStatus(&self, pbencrypted: *mut super::super::Foundation::BOOL, pbpartial: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Encrypt(&self, hwndparent: super::super::Foundation::HWND, bencrypt: super::super::Foundation::BOOL, dwencryptioncontrolflags: u32, basync: super::super::Foundation::BOOL, piprogress: &::core::option::Option<IOfflineFilesSyncProgress>) -> ::windows::core::Result<()>;
+    fn FindItem(&self, pszpath: super::super::Foundation::PWSTR, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem>;
+    fn FindItemEx(&self, pszpath: super::super::Foundation::PWSTR, pincludefilefilter: &::core::option::Option<IOfflineFilesItemFilter>, pincludedirfilter: &::core::option::Option<IOfflineFilesItemFilter>, pexcludefilefilter: &::core::option::Option<IOfflineFilesItemFilter>, pexcludedirfilter: &::core::option::Option<IOfflineFilesItemFilter>, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem>;
+    fn RenameItem(&self, pszpathoriginal: super::super::Foundation::PWSTR, pszpathnew: super::super::Foundation::PWSTR, breplaceifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetLocation(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetDiskSpaceInformation(&self, pcbvolumetotal: *mut u64, pcblimit: *mut u64, pcbused: *mut u64, pcbunpinnedlimit: *mut u64, pcbunpinnedused: *mut u64) -> ::windows::core::Result<()>;
+    fn SetDiskSpaceLimits(&self, cblimit: u64, cbunpinnedlimit: u64) -> ::windows::core::Result<()>;
+    fn ProcessAdminPinPolicy(&self, ppinprogress: &::core::option::Option<IOfflineFilesSyncProgress>, punpinprogress: &::core::option::Option<IOfflineFilesSyncProgress>) -> ::windows::core::Result<()>;
+    fn GetSettingObject(&self, pszsettingname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IOfflineFilesSetting>;
+    fn EnumSettingObjects(&self) -> ::windows::core::Result<IEnumOfflineFilesSettings>;
+    fn IsPathCacheable(&self, pszpath: super::super::Foundation::PWSTR, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesCache_Vtbl {
@@ -255,7 +255,7 @@ impl IOfflineFilesCache_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesCache2_Impl: Sized + IOfflineFilesCache_Impl {
-    fn RenameItemEx(&mut self, pszpathoriginal: super::super::Foundation::PWSTR, pszpathnew: super::super::Foundation::PWSTR, breplaceifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn RenameItemEx(&self, pszpathoriginal: super::super::Foundation::PWSTR, pszpathnew: super::super::Foundation::PWSTR, breplaceifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesCache2_Vtbl {
@@ -273,12 +273,12 @@ impl IOfflineFilesCache2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesChangeInfo_Impl: Sized {
-    fn IsDirty(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsDeletedOffline(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsCreatedOffline(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsLocallyModifiedData(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsLocallyModifiedAttributes(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsLocallyModifiedTime(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsDirty(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsDeletedOffline(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsCreatedOffline(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsLocallyModifiedData(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsLocallyModifiedAttributes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsLocallyModifiedTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesChangeInfo_Vtbl {
@@ -365,10 +365,10 @@ impl IOfflineFilesChangeInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesConnectionInfo_Impl: Sized {
-    fn GetConnectState(&mut self, pconnectstate: *mut OFFLINEFILES_CONNECT_STATE, pofflinereason: *mut OFFLINEFILES_OFFLINE_REASON) -> ::windows::core::Result<()>;
-    fn SetConnectState(&mut self, hwndparent: super::super::Foundation::HWND, dwflags: u32, connectstate: OFFLINEFILES_CONNECT_STATE) -> ::windows::core::Result<()>;
-    fn TransitionOnline(&mut self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::Result<()>;
-    fn TransitionOffline(&mut self, hwndparent: super::super::Foundation::HWND, dwflags: u32, bforceopenfilesclosed: super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetConnectState(&self, pconnectstate: *mut OFFLINEFILES_CONNECT_STATE, pofflinereason: *mut OFFLINEFILES_OFFLINE_REASON) -> ::windows::core::Result<()>;
+    fn SetConnectState(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32, connectstate: OFFLINEFILES_CONNECT_STATE) -> ::windows::core::Result<()>;
+    fn TransitionOnline(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::Result<()>;
+    fn TransitionOffline(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32, bforceopenfilesclosed: super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesConnectionInfo_Vtbl {
@@ -423,8 +423,8 @@ impl IOfflineFilesDirectoryItem_Vtbl {
     }
 }
 pub trait IOfflineFilesDirtyInfo_Impl: Sized {
-    fn LocalDirtyByteCount(&mut self) -> ::windows::core::Result<i64>;
-    fn RemoteDirtyByteCount(&mut self) -> ::windows::core::Result<i64>;
+    fn LocalDirtyByteCount(&self) -> ::windows::core::Result<i64>;
+    fn RemoteDirtyByteCount(&self) -> ::windows::core::Result<i64>;
 }
 impl IOfflineFilesDirtyInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineFilesDirtyInfo_Impl, const OFFSET: isize>() -> IOfflineFilesDirtyInfo_Vtbl {
@@ -462,8 +462,8 @@ impl IOfflineFilesDirtyInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IOfflineFilesErrorInfo_Impl: Sized {
-    fn GetRawData(&mut self) -> ::windows::core::Result<*mut super::super::System::Com::BYTE_BLOB>;
-    fn GetDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetRawData(&self) -> ::windows::core::Result<*mut super::super::System::Com::BYTE_BLOB>;
+    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOfflineFilesErrorInfo_Vtbl {
@@ -502,31 +502,31 @@ impl IOfflineFilesErrorInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesEvents_Impl: Sized {
-    fn CacheMoved(&mut self, pszoldpath: super::super::Foundation::PWSTR, psznewpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn CacheIsFull(&mut self) -> ::windows::core::Result<()>;
-    fn CacheIsCorrupted(&mut self) -> ::windows::core::Result<()>;
-    fn Enabled(&mut self, benabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn EncryptionChanged(&mut self, bwasencrypted: super::super::Foundation::BOOL, bwaspartial: super::super::Foundation::BOOL, bisencrypted: super::super::Foundation::BOOL, bispartial: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SyncBegin(&mut self, rsyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SyncFileResult(&mut self, rsyncid: *const ::windows::core::GUID, pszfile: super::super::Foundation::PWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn SyncConflictRecAdded(&mut self, pszconflictpath: super::super::Foundation::PWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>;
-    fn SyncConflictRecUpdated(&mut self, pszconflictpath: super::super::Foundation::PWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>;
-    fn SyncConflictRecRemoved(&mut self, pszconflictpath: super::super::Foundation::PWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>;
-    fn SyncEnd(&mut self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn NetTransportArrived(&mut self) -> ::windows::core::Result<()>;
-    fn NoNetTransports(&mut self) -> ::windows::core::Result<()>;
-    fn ItemDisconnected(&mut self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
-    fn ItemReconnected(&mut self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
-    fn ItemAvailableOffline(&mut self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
-    fn ItemNotAvailableOffline(&mut self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
-    fn ItemPinned(&mut self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
-    fn ItemNotPinned(&mut self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
-    fn ItemModified(&mut self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: super::super::Foundation::BOOL, bmodifiedattributes: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn ItemAddedToCache(&mut self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
-    fn ItemDeletedFromCache(&mut self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
-    fn ItemRenamed(&mut self, pszoldpath: super::super::Foundation::PWSTR, psznewpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
-    fn DataLost(&mut self) -> ::windows::core::Result<()>;
-    fn Ping(&mut self) -> ::windows::core::Result<()>;
+    fn CacheMoved(&self, pszoldpath: super::super::Foundation::PWSTR, psznewpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CacheIsFull(&self) -> ::windows::core::Result<()>;
+    fn CacheIsCorrupted(&self) -> ::windows::core::Result<()>;
+    fn Enabled(&self, benabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn EncryptionChanged(&self, bwasencrypted: super::super::Foundation::BOOL, bwaspartial: super::super::Foundation::BOOL, bisencrypted: super::super::Foundation::BOOL, bispartial: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SyncBegin(&self, rsyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SyncFileResult(&self, rsyncid: *const ::windows::core::GUID, pszfile: super::super::Foundation::PWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn SyncConflictRecAdded(&self, pszconflictpath: super::super::Foundation::PWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>;
+    fn SyncConflictRecUpdated(&self, pszconflictpath: super::super::Foundation::PWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>;
+    fn SyncConflictRecRemoved(&self, pszconflictpath: super::super::Foundation::PWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()>;
+    fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn NetTransportArrived(&self) -> ::windows::core::Result<()>;
+    fn NoNetTransports(&self) -> ::windows::core::Result<()>;
+    fn ItemDisconnected(&self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
+    fn ItemReconnected(&self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
+    fn ItemAvailableOffline(&self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
+    fn ItemNotAvailableOffline(&self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
+    fn ItemPinned(&self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
+    fn ItemNotPinned(&self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
+    fn ItemModified(&self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: super::super::Foundation::BOOL, bmodifiedattributes: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ItemAddedToCache(&self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
+    fn ItemDeletedFromCache(&self, pszpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
+    fn ItemRenamed(&self, pszoldpath: super::super::Foundation::PWSTR, psznewpath: super::super::Foundation::PWSTR, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()>;
+    fn DataLost(&self) -> ::windows::core::Result<()>;
+    fn Ping(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesEvents_Vtbl {
@@ -691,15 +691,15 @@ impl IOfflineFilesEvents_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesEvents2_Impl: Sized + IOfflineFilesEvents_Impl {
-    fn ItemReconnectBegin(&mut self) -> ::windows::core::Result<()>;
-    fn ItemReconnectEnd(&mut self) -> ::windows::core::Result<()>;
-    fn CacheEvictBegin(&mut self) -> ::windows::core::Result<()>;
-    fn CacheEvictEnd(&mut self) -> ::windows::core::Result<()>;
-    fn BackgroundSyncBegin(&mut self, dwsynccontrolflags: u32) -> ::windows::core::Result<()>;
-    fn BackgroundSyncEnd(&mut self, dwsynccontrolflags: u32) -> ::windows::core::Result<()>;
-    fn PolicyChangeDetected(&mut self) -> ::windows::core::Result<()>;
-    fn PreferenceChangeDetected(&mut self) -> ::windows::core::Result<()>;
-    fn SettingsChangesApplied(&mut self) -> ::windows::core::Result<()>;
+    fn ItemReconnectBegin(&self) -> ::windows::core::Result<()>;
+    fn ItemReconnectEnd(&self) -> ::windows::core::Result<()>;
+    fn CacheEvictBegin(&self) -> ::windows::core::Result<()>;
+    fn CacheEvictEnd(&self) -> ::windows::core::Result<()>;
+    fn BackgroundSyncBegin(&self, dwsynccontrolflags: u32) -> ::windows::core::Result<()>;
+    fn BackgroundSyncEnd(&self, dwsynccontrolflags: u32) -> ::windows::core::Result<()>;
+    fn PolicyChangeDetected(&self) -> ::windows::core::Result<()>;
+    fn PreferenceChangeDetected(&self) -> ::windows::core::Result<()>;
+    fn SettingsChangesApplied(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesEvents2_Vtbl {
@@ -768,9 +768,9 @@ impl IOfflineFilesEvents2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesEvents3_Impl: Sized + IOfflineFilesEvents_Impl + IOfflineFilesEvents2_Impl {
-    fn TransparentCacheItemNotify(&mut self, pszpath: super::super::Foundation::PWSTR, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: super::super::Foundation::BOOL, bmodifiedattributes: super::super::Foundation::BOOL, pzsoldpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn PrefetchFileBegin(&mut self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn PrefetchFileEnd(&mut self, pszpath: super::super::Foundation::PWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn TransparentCacheItemNotify(&self, pszpath: super::super::Foundation::PWSTR, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: super::super::Foundation::BOOL, bmodifiedattributes: super::super::Foundation::BOOL, pzsoldpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn PrefetchFileBegin(&self, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn PrefetchFileEnd(&self, pszpath: super::super::Foundation::PWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesEvents3_Vtbl {
@@ -803,8 +803,8 @@ impl IOfflineFilesEvents3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesEvents4_Impl: Sized + IOfflineFilesEvents_Impl + IOfflineFilesEvents2_Impl + IOfflineFilesEvents3_Impl {
-    fn PrefetchCloseHandleBegin(&mut self) -> ::windows::core::Result<()>;
-    fn PrefetchCloseHandleEnd(&mut self, dwclosedhandlecount: u32, dwopenhandlecount: u32, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn PrefetchCloseHandleBegin(&self) -> ::windows::core::Result<()>;
+    fn PrefetchCloseHandleEnd(&self, dwclosedhandlecount: u32, dwopenhandlecount: u32, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesEvents4_Vtbl {
@@ -831,9 +831,9 @@ impl IOfflineFilesEvents4_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesEventsFilter_Impl: Sized {
-    fn GetPathFilter(&mut self, ppszfilter: *mut super::super::Foundation::PWSTR, pmatch: *mut OFFLINEFILES_PATHFILTER_MATCH) -> ::windows::core::Result<()>;
-    fn GetIncludedEvents(&mut self, celements: u32, prgevents: *mut OFFLINEFILES_EVENTS, pcevents: *mut u32) -> ::windows::core::Result<()>;
-    fn GetExcludedEvents(&mut self, celements: u32, prgevents: *mut OFFLINEFILES_EVENTS, pcevents: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPathFilter(&self, ppszfilter: *mut super::super::Foundation::PWSTR, pmatch: *mut OFFLINEFILES_PATHFILTER_MATCH) -> ::windows::core::Result<()>;
+    fn GetIncludedEvents(&self, celements: u32, prgevents: *mut OFFLINEFILES_EVENTS, pcevents: *mut u32) -> ::windows::core::Result<()>;
+    fn GetExcludedEvents(&self, celements: u32, prgevents: *mut OFFLINEFILES_EVENTS, pcevents: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesEventsFilter_Vtbl {
@@ -866,8 +866,8 @@ impl IOfflineFilesEventsFilter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesFileItem_Impl: Sized + IOfflineFilesItem_Impl {
-    fn IsSparse(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsEncrypted(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsSparse(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsEncrypted(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesFileItem_Vtbl {
@@ -906,9 +906,9 @@ impl IOfflineFilesFileItem_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesFileSysInfo_Impl: Sized {
-    fn GetAttributes(&mut self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<u32>;
-    fn GetTimes(&mut self, copy: OFFLINEFILES_ITEM_COPY, pftcreationtime: *mut super::super::Foundation::FILETIME, pftlastwritetime: *mut super::super::Foundation::FILETIME, pftchangetime: *mut super::super::Foundation::FILETIME, pftlastaccesstime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn GetFileSize(&mut self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<i64>;
+    fn GetAttributes(&self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<u32>;
+    fn GetTimes(&self, copy: OFFLINEFILES_ITEM_COPY, pftcreationtime: *mut super::super::Foundation::FILETIME, pftlastwritetime: *mut super::super::Foundation::FILETIME, pftchangetime: *mut super::super::Foundation::FILETIME, pftlastaccesstime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn GetFileSize(&self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<i64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesFileSysInfo_Vtbl {
@@ -953,7 +953,7 @@ impl IOfflineFilesFileSysInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesGhostInfo_Impl: Sized {
-    fn IsGhosted(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsGhosted(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesGhostInfo_Vtbl {
@@ -977,11 +977,11 @@ impl IOfflineFilesGhostInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesItem_Impl: Sized {
-    fn GetItemType(&mut self) -> ::windows::core::Result<OFFLINEFILES_ITEM_TYPE>;
-    fn GetPath(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetParentItem(&mut self) -> ::windows::core::Result<IOfflineFilesItem>;
-    fn Refresh(&mut self, dwqueryflags: u32) -> ::windows::core::Result<()>;
-    fn IsMarkedForDeletion(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetItemType(&self) -> ::windows::core::Result<OFFLINEFILES_ITEM_TYPE>;
+    fn GetPath(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetParentItem(&self) -> ::windows::core::Result<IOfflineFilesItem>;
+    fn Refresh(&self, dwqueryflags: u32) -> ::windows::core::Result<()>;
+    fn IsMarkedForDeletion(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesItem_Vtbl {
@@ -1049,8 +1049,8 @@ impl IOfflineFilesItem_Vtbl {
     }
 }
 pub trait IOfflineFilesItemContainer_Impl: Sized {
-    fn EnumItems(&mut self, dwqueryflags: u32) -> ::windows::core::Result<IEnumOfflineFilesItems>;
-    fn EnumItemsEx(&mut self, pincludefilefilter: &::core::option::Option<IOfflineFilesItemFilter>, pincludedirfilter: &::core::option::Option<IOfflineFilesItemFilter>, pexcludefilefilter: &::core::option::Option<IOfflineFilesItemFilter>, pexcludedirfilter: &::core::option::Option<IOfflineFilesItemFilter>, dwenumflags: u32, dwqueryflags: u32) -> ::windows::core::Result<IEnumOfflineFilesItems>;
+    fn EnumItems(&self, dwqueryflags: u32) -> ::windows::core::Result<IEnumOfflineFilesItems>;
+    fn EnumItemsEx(&self, pincludefilefilter: &::core::option::Option<IOfflineFilesItemFilter>, pincludedirfilter: &::core::option::Option<IOfflineFilesItemFilter>, pexcludefilefilter: &::core::option::Option<IOfflineFilesItemFilter>, pexcludedirfilter: &::core::option::Option<IOfflineFilesItemFilter>, dwenumflags: u32, dwqueryflags: u32) -> ::windows::core::Result<IEnumOfflineFilesItems>;
 }
 impl IOfflineFilesItemContainer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOfflineFilesItemContainer_Impl, const OFFSET: isize>() -> IOfflineFilesItemContainer_Vtbl {
@@ -1088,9 +1088,9 @@ impl IOfflineFilesItemContainer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesItemFilter_Impl: Sized {
-    fn GetFilterFlags(&mut self, pullflags: *mut u64, pullmask: *mut u64) -> ::windows::core::Result<()>;
-    fn GetTimeFilter(&mut self, pfttime: *mut super::super::Foundation::FILETIME, pbevaltimeofday: *mut super::super::Foundation::BOOL, ptimetype: *mut OFFLINEFILES_ITEM_TIME, pcompare: *mut OFFLINEFILES_COMPARE) -> ::windows::core::Result<()>;
-    fn GetPatternFilter(&mut self, pszpattern: super::super::Foundation::PWSTR, cchpattern: u32) -> ::windows::core::Result<()>;
+    fn GetFilterFlags(&self, pullflags: *mut u64, pullmask: *mut u64) -> ::windows::core::Result<()>;
+    fn GetTimeFilter(&self, pfttime: *mut super::super::Foundation::FILETIME, pbevaltimeofday: *mut super::super::Foundation::BOOL, ptimetype: *mut OFFLINEFILES_ITEM_TIME, pcompare: *mut OFFLINEFILES_COMPARE) -> ::windows::core::Result<()>;
+    fn GetPatternFilter(&self, pszpattern: super::super::Foundation::PWSTR, cchpattern: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesItemFilter_Vtbl {
@@ -1123,11 +1123,11 @@ impl IOfflineFilesItemFilter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesPinInfo_Impl: Sized {
-    fn IsPinned(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsPinnedForUser(&mut self, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn IsPinnedForUserByPolicy(&mut self, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn IsPinnedForComputer(&mut self, pbpinnedforcomputer: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn IsPinnedForFolderRedirection(&mut self, pbpinnedforfolderredirection: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsPinned(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsPinnedForUser(&self, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsPinnedForUserByPolicy(&self, pbpinnedforuser: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsPinnedForComputer(&self, pbpinnedforcomputer: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsPinnedForFolderRedirection(&self, pbpinnedforfolderredirection: *mut super::super::Foundation::BOOL, pbinherit: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesPinInfo_Vtbl {
@@ -1178,7 +1178,7 @@ impl IOfflineFilesPinInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesPinInfo2_Impl: Sized + IOfflineFilesPinInfo_Impl {
-    fn IsPartlyPinned(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsPartlyPinned(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesPinInfo2_Vtbl {
@@ -1202,9 +1202,9 @@ impl IOfflineFilesPinInfo2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesProgress_Impl: Sized {
-    fn Begin(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn QueryAbort(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn End(&mut self, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn Begin(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn QueryAbort(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn End(&self, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesProgress_Vtbl {
@@ -1260,15 +1260,15 @@ impl IOfflineFilesServerItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IOfflineFilesSetting_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetValueType(&mut self) -> ::windows::core::Result<OFFLINEFILES_SETTING_VALUE_TYPE>;
-    fn GetPreference(&mut self, pvarvalue: *mut super::super::System::Com::VARIANT, dwscope: u32) -> ::windows::core::Result<()>;
-    fn GetPreferenceScope(&mut self) -> ::windows::core::Result<u32>;
-    fn SetPreference(&mut self, pvarvalue: *const super::super::System::Com::VARIANT, dwscope: u32) -> ::windows::core::Result<()>;
-    fn DeletePreference(&mut self, dwscope: u32) -> ::windows::core::Result<()>;
-    fn GetPolicy(&mut self, pvarvalue: *mut super::super::System::Com::VARIANT, dwscope: u32) -> ::windows::core::Result<()>;
-    fn GetPolicyScope(&mut self) -> ::windows::core::Result<u32>;
-    fn GetValue(&mut self, pvarvalue: *mut super::super::System::Com::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetValueType(&self) -> ::windows::core::Result<OFFLINEFILES_SETTING_VALUE_TYPE>;
+    fn GetPreference(&self, pvarvalue: *mut super::super::System::Com::VARIANT, dwscope: u32) -> ::windows::core::Result<()>;
+    fn GetPreferenceScope(&self) -> ::windows::core::Result<u32>;
+    fn SetPreference(&self, pvarvalue: *const super::super::System::Com::VARIANT, dwscope: u32) -> ::windows::core::Result<()>;
+    fn DeletePreference(&self, dwscope: u32) -> ::windows::core::Result<()>;
+    fn GetPolicy(&self, pvarvalue: *mut super::super::System::Com::VARIANT, dwscope: u32) -> ::windows::core::Result<()>;
+    fn GetPolicyScope(&self) -> ::windows::core::Result<u32>;
+    fn GetValue(&self, pvarvalue: *mut super::super::System::Com::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IOfflineFilesSetting_Vtbl {
@@ -1361,9 +1361,9 @@ impl IOfflineFilesSetting_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesShareInfo_Impl: Sized {
-    fn GetShareItem(&mut self) -> ::windows::core::Result<IOfflineFilesShareItem>;
-    fn GetShareCachingMode(&mut self) -> ::windows::core::Result<OFFLINEFILES_CACHING_MODE>;
-    fn IsShareDfsJunction(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetShareItem(&self) -> ::windows::core::Result<IOfflineFilesShareItem>;
+    fn GetShareCachingMode(&self) -> ::windows::core::Result<OFFLINEFILES_CACHING_MODE>;
+    fn IsShareDfsJunction(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesShareInfo_Vtbl {
@@ -1425,8 +1425,8 @@ impl IOfflineFilesShareItem_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSimpleProgress_Impl: Sized + IOfflineFilesProgress_Impl {
-    fn ItemBegin(&mut self, pszfile: super::super::Foundation::PWSTR) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>;
-    fn ItemResult(&mut self, pszfile: super::super::Foundation::PWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>;
+    fn ItemBegin(&self, pszfile: super::super::Foundation::PWSTR) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>;
+    fn ItemResult(&self, pszfile: super::super::Foundation::PWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesSimpleProgress_Vtbl {
@@ -1465,7 +1465,7 @@ impl IOfflineFilesSimpleProgress_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSuspend_Impl: Sized {
-    fn SuspendRoot(&mut self, bsuspend: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SuspendRoot(&self, bsuspend: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesSuspend_Vtbl {
@@ -1483,7 +1483,7 @@ impl IOfflineFilesSuspend_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSuspendInfo_Impl: Sized {
-    fn IsSuspended(&mut self, pbsuspended: *mut super::super::Foundation::BOOL, pbsuspendedroot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsSuspended(&self, pbsuspended: *mut super::super::Foundation::BOOL, pbsuspendedroot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesSuspendInfo_Vtbl {
@@ -1501,7 +1501,7 @@ impl IOfflineFilesSuspendInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSyncConflictHandler_Impl: Sized {
-    fn ResolveConflict(&mut self, pszpath: super::super::Foundation::PWSTR, fstateknown: u32, state: OFFLINEFILES_SYNC_STATE, fchangedetails: u32, pconflictresolution: *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, ppsznewname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ResolveConflict(&self, pszpath: super::super::Foundation::PWSTR, fstateknown: u32, state: OFFLINEFILES_SYNC_STATE, fchangedetails: u32, pconflictresolution: *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, ppsznewname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesSyncConflictHandler_Vtbl {
@@ -1519,13 +1519,13 @@ impl IOfflineFilesSyncConflictHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IOfflineFilesSyncErrorInfo_Impl: Sized + IOfflineFilesErrorInfo_Impl {
-    fn GetSyncOperation(&mut self) -> ::windows::core::Result<OFFLINEFILES_SYNC_OPERATION>;
-    fn GetItemChangeFlags(&mut self) -> ::windows::core::Result<u32>;
-    fn InfoEnumerated(&mut self, pblocalenumerated: *mut super::super::Foundation::BOOL, pbremoteenumerated: *mut super::super::Foundation::BOOL, pboriginalenumerated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn InfoAvailable(&mut self, pblocalinfo: *mut super::super::Foundation::BOOL, pbremoteinfo: *mut super::super::Foundation::BOOL, pboriginalinfo: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetLocalInfo(&mut self) -> ::windows::core::Result<IOfflineFilesSyncErrorItemInfo>;
-    fn GetRemoteInfo(&mut self) -> ::windows::core::Result<IOfflineFilesSyncErrorItemInfo>;
-    fn GetOriginalInfo(&mut self) -> ::windows::core::Result<IOfflineFilesSyncErrorItemInfo>;
+    fn GetSyncOperation(&self) -> ::windows::core::Result<OFFLINEFILES_SYNC_OPERATION>;
+    fn GetItemChangeFlags(&self) -> ::windows::core::Result<u32>;
+    fn InfoEnumerated(&self, pblocalenumerated: *mut super::super::Foundation::BOOL, pbremoteenumerated: *mut super::super::Foundation::BOOL, pboriginalenumerated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn InfoAvailable(&self, pblocalinfo: *mut super::super::Foundation::BOOL, pbremoteinfo: *mut super::super::Foundation::BOOL, pboriginalinfo: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetLocalInfo(&self) -> ::windows::core::Result<IOfflineFilesSyncErrorItemInfo>;
+    fn GetRemoteInfo(&self) -> ::windows::core::Result<IOfflineFilesSyncErrorItemInfo>;
+    fn GetOriginalInfo(&self) -> ::windows::core::Result<IOfflineFilesSyncErrorItemInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOfflineFilesSyncErrorInfo_Vtbl {
@@ -1612,9 +1612,9 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSyncErrorItemInfo_Impl: Sized {
-    fn GetFileAttributes(&mut self) -> ::windows::core::Result<u32>;
-    fn GetFileTimes(&mut self, pftlastwrite: *mut super::super::Foundation::FILETIME, pftchange: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn GetFileSize(&mut self) -> ::windows::core::Result<i64>;
+    fn GetFileAttributes(&self) -> ::windows::core::Result<u32>;
+    fn GetFileTimes(&self, pftlastwrite: *mut super::super::Foundation::FILETIME, pftchange: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn GetFileSize(&self) -> ::windows::core::Result<i64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesSyncErrorItemInfo_Vtbl {
@@ -1659,8 +1659,8 @@ impl IOfflineFilesSyncErrorItemInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesSyncProgress_Impl: Sized + IOfflineFilesProgress_Impl {
-    fn SyncItemBegin(&mut self, pszfile: super::super::Foundation::PWSTR) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>;
-    fn SyncItemResult(&mut self, pszfile: super::super::Foundation::PWSTR, hrresult: ::windows::core::HRESULT, perrorinfo: &::core::option::Option<IOfflineFilesSyncErrorInfo>) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>;
+    fn SyncItemBegin(&self, pszfile: super::super::Foundation::PWSTR) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>;
+    fn SyncItemResult(&self, pszfile: super::super::Foundation::PWSTR, hrresult: ::windows::core::HRESULT, perrorinfo: &::core::option::Option<IOfflineFilesSyncErrorInfo>) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesSyncProgress_Vtbl {
@@ -1699,7 +1699,7 @@ impl IOfflineFilesSyncProgress_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOfflineFilesTransparentCacheInfo_Impl: Sized {
-    fn IsTransparentlyCached(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsTransparentlyCached(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOfflineFilesTransparentCacheInfo_Vtbl {

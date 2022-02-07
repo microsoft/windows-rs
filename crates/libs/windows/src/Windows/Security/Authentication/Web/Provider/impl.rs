@@ -1,7 +1,7 @@
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderBaseReportOperation_Impl: Sized {
-    fn ReportCompleted(&mut self) -> ::windows::core::Result<()>;
-    fn ReportError(&mut self, value: &::core::option::Option<super::Core::WebProviderError>) -> ::windows::core::Result<()>;
+    fn ReportCompleted(&self) -> ::windows::core::Result<()>;
+    fn ReportError(&self, value: &::core::option::Option<super::Core::WebProviderError>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl ::windows::core::RuntimeName for IWebAccountProviderBaseReportOperation {
@@ -31,7 +31,7 @@ impl IWebAccountProviderBaseReportOperation_Vtbl {
     }
 }
 pub trait IWebAccountProviderOperation_Impl: Sized {
-    fn Kind(&mut self) -> ::windows::core::Result<WebAccountProviderOperationKind>;
+    fn Kind(&self) -> ::windows::core::Result<WebAccountProviderOperationKind>;
 }
 impl ::windows::core::RuntimeName for IWebAccountProviderOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation";
@@ -58,8 +58,8 @@ impl IWebAccountProviderOperation_Vtbl {
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderSilentReportOperation_Impl: Sized + IWebAccountProviderBaseReportOperation_Impl {
-    fn ReportUserInteractionRequired(&mut self) -> ::windows::core::Result<()>;
-    fn ReportUserInteractionRequiredWithError(&mut self, value: &::core::option::Option<super::Core::WebProviderError>) -> ::windows::core::Result<()>;
+    fn ReportUserInteractionRequired(&self) -> ::windows::core::Result<()>;
+    fn ReportUserInteractionRequiredWithError(&self, value: &::core::option::Option<super::Core::WebProviderError>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl ::windows::core::RuntimeName for IWebAccountProviderSilentReportOperation {
@@ -89,7 +89,7 @@ impl IWebAccountProviderSilentReportOperation_Vtbl {
     }
 }
 pub trait IWebAccountProviderTokenObjects_Impl: Sized {
-    fn Operation(&mut self) -> ::windows::core::Result<IWebAccountProviderOperation>;
+    fn Operation(&self) -> ::windows::core::Result<IWebAccountProviderOperation>;
 }
 impl ::windows::core::RuntimeName for IWebAccountProviderTokenObjects {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects";
@@ -119,7 +119,7 @@ impl IWebAccountProviderTokenObjects_Vtbl {
 }
 #[cfg(feature = "System")]
 pub trait IWebAccountProviderTokenObjects2_Impl: Sized + IWebAccountProviderTokenObjects_Impl {
-    fn User(&mut self) -> ::windows::core::Result<super::super::super::super::System::User>;
+    fn User(&self) -> ::windows::core::Result<super::super::super::super::System::User>;
 }
 #[cfg(feature = "System")]
 impl ::windows::core::RuntimeName for IWebAccountProviderTokenObjects2 {
@@ -148,10 +148,10 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IWebAccountProviderTokenOperation_Impl: Sized + IWebAccountProviderOperation_Impl {
-    fn ProviderRequest(&mut self) -> ::windows::core::Result<WebProviderTokenRequest>;
-    fn ProviderResponses(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<WebProviderTokenResponse>>;
-    fn SetCacheExpirationTime(&mut self, value: &super::super::super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
-    fn CacheExpirationTime(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime>;
+    fn ProviderRequest(&self) -> ::windows::core::Result<WebProviderTokenRequest>;
+    fn ProviderResponses(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<WebProviderTokenResponse>>;
+    fn SetCacheExpirationTime(&self, value: &super::super::super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn CacheExpirationTime(&self) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IWebAccountProviderTokenOperation {
@@ -215,7 +215,7 @@ impl IWebAccountProviderTokenOperation_Vtbl {
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderUIReportOperation_Impl: Sized + IWebAccountProviderBaseReportOperation_Impl {
-    fn ReportUserCanceled(&mut self) -> ::windows::core::Result<()>;
+    fn ReportUserCanceled(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl ::windows::core::RuntimeName for IWebAccountProviderUIReportOperation {

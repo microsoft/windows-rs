@@ -1,7 +1,7 @@
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAdaptiveNotificationContent_Impl: Sized {
-    fn Kind(&mut self) -> ::windows::core::Result<AdaptiveNotificationContentKind>;
-    fn Hints(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
+    fn Kind(&self) -> ::windows::core::Result<AdaptiveNotificationContentKind>;
+    fn Hints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAdaptiveNotificationContent {

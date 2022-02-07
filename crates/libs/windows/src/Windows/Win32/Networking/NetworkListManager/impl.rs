@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumNetworkConnections_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<INetworkConnection>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumNetworkConnections>;
+    fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetworkConnection>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumNetworkConnections>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumNetworkConnections_Vtbl {
@@ -61,11 +61,11 @@ impl IEnumNetworkConnections_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumNetworks_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<INetwork>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumNetworks>;
+    fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetwork>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumNetworks>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumNetworks_Vtbl {
@@ -122,19 +122,19 @@ impl IEnumNetworks_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, sznetworknewname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, szdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetNetworkId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetDomainType(&mut self) -> ::windows::core::Result<NLM_DOMAIN_TYPE>;
-    fn GetNetworkConnections(&mut self) -> ::windows::core::Result<IEnumNetworkConnections>;
-    fn GetTimeCreatedAndConnected(&mut self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> ::windows::core::Result<()>;
-    fn IsConnectedToInternet(&mut self) -> ::windows::core::Result<i16>;
-    fn IsConnected(&mut self) -> ::windows::core::Result<i16>;
-    fn GetConnectivity(&mut self) -> ::windows::core::Result<NLM_CONNECTIVITY>;
-    fn GetCategory(&mut self) -> ::windows::core::Result<NLM_NETWORK_CATEGORY>;
-    fn SetCategory(&mut self, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::core::Result<()>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetName(&self, sznetworknewname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, szdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetNetworkId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetDomainType(&self) -> ::windows::core::Result<NLM_DOMAIN_TYPE>;
+    fn GetNetworkConnections(&self) -> ::windows::core::Result<IEnumNetworkConnections>;
+    fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> ::windows::core::Result<()>;
+    fn IsConnectedToInternet(&self) -> ::windows::core::Result<i16>;
+    fn IsConnected(&self) -> ::windows::core::Result<i16>;
+    fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY>;
+    fn GetCategory(&self) -> ::windows::core::Result<NLM_NETWORK_CATEGORY>;
+    fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetwork_Vtbl {
@@ -281,13 +281,13 @@ impl INetwork_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetworkConnection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetNetwork(&mut self) -> ::windows::core::Result<INetwork>;
-    fn IsConnectedToInternet(&mut self) -> ::windows::core::Result<i16>;
-    fn IsConnected(&mut self) -> ::windows::core::Result<i16>;
-    fn GetConnectivity(&mut self) -> ::windows::core::Result<NLM_CONNECTIVITY>;
-    fn GetConnectionId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetAdapterId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetDomainType(&mut self) -> ::windows::core::Result<NLM_DOMAIN_TYPE>;
+    fn GetNetwork(&self) -> ::windows::core::Result<INetwork>;
+    fn IsConnectedToInternet(&self) -> ::windows::core::Result<i16>;
+    fn IsConnected(&self) -> ::windows::core::Result<i16>;
+    fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY>;
+    fn GetConnectionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetAdapterId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetDomainType(&self) -> ::windows::core::Result<NLM_DOMAIN_TYPE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetworkConnection_Vtbl {
@@ -386,8 +386,8 @@ impl INetworkConnection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetworkConnectionCost_Impl: Sized {
-    fn GetCost(&mut self) -> ::windows::core::Result<u32>;
-    fn GetDataPlanStatus(&mut self) -> ::windows::core::Result<NLM_DATAPLAN_STATUS>;
+    fn GetCost(&self) -> ::windows::core::Result<u32>;
+    fn GetDataPlanStatus(&self) -> ::windows::core::Result<NLM_DATAPLAN_STATUS>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetworkConnectionCost_Vtbl {
@@ -425,8 +425,8 @@ impl INetworkConnectionCost_Vtbl {
     }
 }
 pub trait INetworkConnectionCostEvents_Impl: Sized {
-    fn ConnectionCostChanged(&mut self, connectionid: &::windows::core::GUID, newcost: u32) -> ::windows::core::Result<()>;
-    fn ConnectionDataPlanStatusChanged(&mut self, connectionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ConnectionCostChanged(&self, connectionid: &::windows::core::GUID, newcost: u32) -> ::windows::core::Result<()>;
+    fn ConnectionDataPlanStatusChanged(&self, connectionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl INetworkConnectionCostEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkConnectionCostEvents_Impl, const OFFSET: isize>() -> INetworkConnectionCostEvents_Vtbl {
@@ -451,8 +451,8 @@ impl INetworkConnectionCostEvents_Vtbl {
     }
 }
 pub trait INetworkConnectionEvents_Impl: Sized {
-    fn NetworkConnectionConnectivityChanged(&mut self, connectionid: &::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()>;
-    fn NetworkConnectionPropertyChanged(&mut self, connectionid: &::windows::core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows::core::Result<()>;
+    fn NetworkConnectionConnectivityChanged(&self, connectionid: &::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()>;
+    fn NetworkConnectionPropertyChanged(&self, connectionid: &::windows::core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows::core::Result<()>;
 }
 impl INetworkConnectionEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkConnectionEvents_Impl, const OFFSET: isize>() -> INetworkConnectionEvents_Vtbl {
@@ -478,9 +478,9 @@ impl INetworkConnectionEvents_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetworkCostManager_Impl: Sized {
-    fn GetCost(&mut self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()>;
-    fn GetDataPlanStatus(&mut self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()>;
-    fn SetDestinationAddresses(&mut self, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: i16) -> ::windows::core::Result<()>;
+    fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()>;
+    fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()>;
+    fn SetDestinationAddresses(&self, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetworkCostManager_Vtbl {
@@ -512,8 +512,8 @@ impl INetworkCostManager_Vtbl {
     }
 }
 pub trait INetworkCostManagerEvents_Impl: Sized {
-    fn CostChanged(&mut self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()>;
-    fn DataPlanStatusChanged(&mut self, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()>;
+    fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()>;
+    fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()>;
 }
 impl INetworkCostManagerEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkCostManagerEvents_Impl, const OFFSET: isize>() -> INetworkCostManagerEvents_Vtbl {
@@ -538,10 +538,10 @@ impl INetworkCostManagerEvents_Vtbl {
     }
 }
 pub trait INetworkEvents_Impl: Sized {
-    fn NetworkAdded(&mut self, networkid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn NetworkDeleted(&mut self, networkid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn NetworkConnectivityChanged(&mut self, networkid: &::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()>;
-    fn NetworkPropertyChanged(&mut self, networkid: &::windows::core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> ::windows::core::Result<()>;
+    fn NetworkAdded(&self, networkid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn NetworkDeleted(&self, networkid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn NetworkConnectivityChanged(&self, networkid: &::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()>;
+    fn NetworkPropertyChanged(&self, networkid: &::windows::core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> ::windows::core::Result<()>;
 }
 impl INetworkEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkEvents_Impl, const OFFSET: isize>() -> INetworkEvents_Vtbl {
@@ -579,15 +579,15 @@ impl INetworkEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetworkListManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetNetworks(&mut self, flags: NLM_ENUM_NETWORK) -> ::windows::core::Result<IEnumNetworks>;
-    fn GetNetwork(&mut self, gdnetworkid: &::windows::core::GUID) -> ::windows::core::Result<INetwork>;
-    fn GetNetworkConnections(&mut self) -> ::windows::core::Result<IEnumNetworkConnections>;
-    fn GetNetworkConnection(&mut self, gdnetworkconnectionid: &::windows::core::GUID) -> ::windows::core::Result<INetworkConnection>;
-    fn IsConnectedToInternet(&mut self) -> ::windows::core::Result<i16>;
-    fn IsConnected(&mut self) -> ::windows::core::Result<i16>;
-    fn GetConnectivity(&mut self) -> ::windows::core::Result<NLM_CONNECTIVITY>;
-    fn SetSimulatedProfileInfo(&mut self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> ::windows::core::Result<()>;
-    fn ClearSimulatedProfileInfo(&mut self) -> ::windows::core::Result<()>;
+    fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> ::windows::core::Result<IEnumNetworks>;
+    fn GetNetwork(&self, gdnetworkid: &::windows::core::GUID) -> ::windows::core::Result<INetwork>;
+    fn GetNetworkConnections(&self) -> ::windows::core::Result<IEnumNetworkConnections>;
+    fn GetNetworkConnection(&self, gdnetworkconnectionid: &::windows::core::GUID) -> ::windows::core::Result<INetworkConnection>;
+    fn IsConnectedToInternet(&self) -> ::windows::core::Result<i16>;
+    fn IsConnected(&self) -> ::windows::core::Result<i16>;
+    fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY>;
+    fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> ::windows::core::Result<()>;
+    fn ClearSimulatedProfileInfo(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetworkListManager_Vtbl {
@@ -697,7 +697,7 @@ impl INetworkListManager_Vtbl {
     }
 }
 pub trait INetworkListManagerEvents_Impl: Sized {
-    fn ConnectivityChanged(&mut self, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()>;
+    fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()>;
 }
 impl INetworkListManagerEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkListManagerEvents_Impl, const OFFSET: isize>() -> INetworkListManagerEvents_Vtbl {

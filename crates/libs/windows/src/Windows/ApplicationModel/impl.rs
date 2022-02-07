@@ -1,6 +1,6 @@
 #[cfg(feature = "Foundation")]
 pub trait IEnteredBackgroundEventArgs_Impl: Sized {
-    fn GetDeferral(&mut self) -> ::windows::core::Result<super::Foundation::Deferral>;
+    fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IEnteredBackgroundEventArgs {
@@ -32,7 +32,7 @@ impl IEnteredBackgroundEventArgs_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ILeavingBackgroundEventArgs_Impl: Sized {
-    fn GetDeferral(&mut self) -> ::windows::core::Result<super::Foundation::Deferral>;
+    fn GetDeferral(&self) -> ::windows::core::Result<super::Foundation::Deferral>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ILeavingBackgroundEventArgs {
@@ -63,7 +63,7 @@ impl ILeavingBackgroundEventArgs_Vtbl {
     }
 }
 pub trait ISuspendingDeferral_Impl: Sized {
-    fn Complete(&mut self) -> ::windows::core::Result<()>;
+    fn Complete(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingDeferral";
@@ -82,7 +82,7 @@ impl ISuspendingDeferral_Vtbl {
     }
 }
 pub trait ISuspendingEventArgs_Impl: Sized {
-    fn SuspendingOperation(&mut self) -> ::windows::core::Result<SuspendingOperation>;
+    fn SuspendingOperation(&self) -> ::windows::core::Result<SuspendingOperation>;
 }
 impl ::windows::core::RuntimeName for ISuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ISuspendingEventArgs";
@@ -112,8 +112,8 @@ impl ISuspendingEventArgs_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ISuspendingOperation_Impl: Sized {
-    fn GetDeferral(&mut self) -> ::windows::core::Result<SuspendingDeferral>;
-    fn Deadline(&mut self) -> ::windows::core::Result<super::Foundation::DateTime>;
+    fn GetDeferral(&self) -> ::windows::core::Result<SuspendingDeferral>;
+    fn Deadline(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISuspendingOperation {

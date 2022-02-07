@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDialBranding_Impl: Sized {
-    fn Initialize(&mut self, pwzconnectoid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetBitmap(&mut self, dwindex: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP>;
+    fn Initialize(&self, pwzconnectoid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetBitmap(&self, dwindex: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDialBranding_Vtbl {
@@ -34,13 +34,13 @@ impl IDialBranding_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDialEngine_Impl: Sized {
-    fn Initialize(&mut self, pwzconnectoid: super::super::Foundation::PWSTR, pides: &::core::option::Option<IDialEventSink>) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR, dwbufsize: u32) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Dial(&mut self) -> ::windows::core::Result<()>;
-    fn HangUp(&mut self) -> ::windows::core::Result<()>;
-    fn GetConnectedState(&mut self) -> ::windows::core::Result<u32>;
-    fn GetConnectHandle(&mut self) -> ::windows::core::Result<usize>;
+    fn Initialize(&self, pwzconnectoid: super::super::Foundation::PWSTR, pides: &::core::option::Option<IDialEventSink>) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR, dwbufsize: u32) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Dial(&self) -> ::windows::core::Result<()>;
+    fn HangUp(&self) -> ::windows::core::Result<()>;
+    fn GetConnectedState(&self) -> ::windows::core::Result<u32>;
+    fn GetConnectHandle(&self) -> ::windows::core::Result<usize>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDialEngine_Vtbl {
@@ -108,7 +108,7 @@ impl IDialEngine_Vtbl {
     }
 }
 pub trait IDialEventSink_Impl: Sized {
-    fn OnEvent(&mut self, dwevent: u32, dwstatus: u32) -> ::windows::core::Result<()>;
+    fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows::core::Result<()>;
 }
 impl IDialEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDialEventSink_Impl, const OFFSET: isize>() -> IDialEventSink_Vtbl {
@@ -125,7 +125,7 @@ impl IDialEventSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IProofOfPossessionCookieInfoManager_Impl: Sized {
-    fn GetCookieInfoForUri(&mut self, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>;
+    fn GetCookieInfoForUri(&self, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IProofOfPossessionCookieInfoManager_Vtbl {
@@ -143,7 +143,7 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IProofOfPossessionCookieInfoManager2_Impl: Sized {
-    fn GetCookieInfoWithUriForAccount(&mut self, webaccount: &::core::option::Option<::windows::core::IInspectable>, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>;
+    fn GetCookieInfoWithUriForAccount(&self, webaccount: &::core::option::Option<::windows::core::IInspectable>, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IProofOfPossessionCookieInfoManager2_Vtbl {

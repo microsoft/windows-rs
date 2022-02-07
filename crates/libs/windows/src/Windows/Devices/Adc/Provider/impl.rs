@@ -1,14 +1,14 @@
 pub trait IAdcControllerProvider_Impl: Sized {
-    fn ChannelCount(&mut self) -> ::windows::core::Result<i32>;
-    fn ResolutionInBits(&mut self) -> ::windows::core::Result<i32>;
-    fn MinValue(&mut self) -> ::windows::core::Result<i32>;
-    fn MaxValue(&mut self) -> ::windows::core::Result<i32>;
-    fn ChannelMode(&mut self) -> ::windows::core::Result<ProviderAdcChannelMode>;
-    fn SetChannelMode(&mut self, value: ProviderAdcChannelMode) -> ::windows::core::Result<()>;
-    fn IsChannelModeSupported(&mut self, channelmode: ProviderAdcChannelMode) -> ::windows::core::Result<bool>;
-    fn AcquireChannel(&mut self, channel: i32) -> ::windows::core::Result<()>;
-    fn ReleaseChannel(&mut self, channel: i32) -> ::windows::core::Result<()>;
-    fn ReadValue(&mut self, channelnumber: i32) -> ::windows::core::Result<i32>;
+    fn ChannelCount(&self) -> ::windows::core::Result<i32>;
+    fn ResolutionInBits(&self) -> ::windows::core::Result<i32>;
+    fn MinValue(&self) -> ::windows::core::Result<i32>;
+    fn MaxValue(&self) -> ::windows::core::Result<i32>;
+    fn ChannelMode(&self) -> ::windows::core::Result<ProviderAdcChannelMode>;
+    fn SetChannelMode(&self, value: ProviderAdcChannelMode) -> ::windows::core::Result<()>;
+    fn IsChannelModeSupported(&self, channelmode: ProviderAdcChannelMode) -> ::windows::core::Result<bool>;
+    fn AcquireChannel(&self, channel: i32) -> ::windows::core::Result<()>;
+    fn ReleaseChannel(&self, channel: i32) -> ::windows::core::Result<()>;
+    fn ReadValue(&self, channelnumber: i32) -> ::windows::core::Result<i32>;
 }
 impl ::windows::core::RuntimeName for IAdcControllerProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcControllerProvider";
@@ -134,7 +134,7 @@ impl IAdcControllerProvider_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAdcProvider_Impl: Sized {
-    fn GetControllers(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>;
+    fn GetControllers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAdcProvider {

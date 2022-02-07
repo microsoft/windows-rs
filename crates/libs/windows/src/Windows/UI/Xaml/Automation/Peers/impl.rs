@@ -1,34 +1,34 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IAutomationPeerOverrides_Impl: Sized {
-    fn GetPatternCore(&mut self, patterninterface: PatternInterface) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetAcceleratorKeyCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetAccessKeyCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetAutomationControlTypeCore(&mut self) -> ::windows::core::Result<AutomationControlType>;
-    fn GetAutomationIdCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetBoundingRectangleCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
-    fn GetChildrenCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeer>>;
-    fn GetClassNameCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetClickablePointCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
-    fn GetHelpTextCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetItemStatusCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetItemTypeCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetLabeledByCore(&mut self) -> ::windows::core::Result<AutomationPeer>;
-    fn GetLocalizedControlTypeCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetNameCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetOrientationCore(&mut self) -> ::windows::core::Result<AutomationOrientation>;
-    fn HasKeyboardFocusCore(&mut self) -> ::windows::core::Result<bool>;
-    fn IsContentElementCore(&mut self) -> ::windows::core::Result<bool>;
-    fn IsControlElementCore(&mut self) -> ::windows::core::Result<bool>;
-    fn IsEnabledCore(&mut self) -> ::windows::core::Result<bool>;
-    fn IsKeyboardFocusableCore(&mut self) -> ::windows::core::Result<bool>;
-    fn IsOffscreenCore(&mut self) -> ::windows::core::Result<bool>;
-    fn IsPasswordCore(&mut self) -> ::windows::core::Result<bool>;
-    fn IsRequiredForFormCore(&mut self) -> ::windows::core::Result<bool>;
-    fn SetFocusCore(&mut self) -> ::windows::core::Result<()> {
+    fn GetPatternCore(&self, patterninterface: PatternInterface) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetAcceleratorKeyCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAccessKeyCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetAutomationControlTypeCore(&self) -> ::windows::core::Result<AutomationControlType>;
+    fn GetAutomationIdCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetBoundingRectangleCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn GetChildrenCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeer>>;
+    fn GetClassNameCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetClickablePointCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Point>;
+    fn GetHelpTextCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetItemStatusCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetItemTypeCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetLabeledByCore(&self) -> ::windows::core::Result<AutomationPeer>;
+    fn GetLocalizedControlTypeCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetNameCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetOrientationCore(&self) -> ::windows::core::Result<AutomationOrientation>;
+    fn HasKeyboardFocusCore(&self) -> ::windows::core::Result<bool>;
+    fn IsContentElementCore(&self) -> ::windows::core::Result<bool>;
+    fn IsControlElementCore(&self) -> ::windows::core::Result<bool>;
+    fn IsEnabledCore(&self) -> ::windows::core::Result<bool>;
+    fn IsKeyboardFocusableCore(&self) -> ::windows::core::Result<bool>;
+    fn IsOffscreenCore(&self) -> ::windows::core::Result<bool>;
+    fn IsPasswordCore(&self) -> ::windows::core::Result<bool>;
+    fn IsRequiredForFormCore(&self) -> ::windows::core::Result<bool>;
+    fn SetFocusCore(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn GetPeerFromPointCore(&mut self, point: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<AutomationPeer>;
-    fn GetLiveSettingCore(&mut self) -> ::windows::core::Result<AutomationLiveSetting>;
+    fn GetPeerFromPointCore(&self, point: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<AutomationPeer>;
+    fn GetLiveSettingCore(&self) -> ::windows::core::Result<AutomationLiveSetting>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides {
@@ -391,10 +391,10 @@ impl IAutomationPeerOverrides_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAutomationPeerOverrides2_Impl: Sized {
-    fn ShowContextMenuCore(&mut self) -> ::windows::core::Result<()> {
+    fn ShowContextMenuCore(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn GetControlledPeersCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AutomationPeer>>;
+    fn GetControlledPeersCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AutomationPeer>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides2 {
@@ -432,13 +432,13 @@ impl IAutomationPeerOverrides2_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IAutomationPeerOverrides3_Impl: Sized {
-    fn NavigateCore(&mut self, direction: AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetElementFromPointCore(&mut self, pointinwindowcoordinates: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetFocusedElementCore(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GetAnnotationsCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeerAnnotation>>;
-    fn GetPositionInSetCore(&mut self) -> ::windows::core::Result<i32>;
-    fn GetSizeOfSetCore(&mut self) -> ::windows::core::Result<i32>;
-    fn GetLevelCore(&mut self) -> ::windows::core::Result<i32>;
+    fn NavigateCore(&self, direction: AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetElementFromPointCore(&self, pointinwindowcoordinates: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetFocusedElementCore(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GetAnnotationsCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<AutomationPeerAnnotation>>;
+    fn GetPositionInSetCore(&self) -> ::windows::core::Result<i32>;
+    fn GetSizeOfSetCore(&self) -> ::windows::core::Result<i32>;
+    fn GetLevelCore(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides3 {
@@ -547,8 +547,8 @@ impl IAutomationPeerOverrides3_Vtbl {
     }
 }
 pub trait IAutomationPeerOverrides4_Impl: Sized {
-    fn GetLandmarkTypeCore(&mut self) -> ::windows::core::Result<AutomationLandmarkType>;
-    fn GetLocalizedLandmarkTypeCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetLandmarkTypeCore(&self) -> ::windows::core::Result<AutomationLandmarkType>;
+    fn GetLocalizedLandmarkTypeCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides4 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides4";
@@ -591,12 +591,12 @@ impl IAutomationPeerOverrides4_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAutomationPeerOverrides5_Impl: Sized {
-    fn IsPeripheralCore(&mut self) -> ::windows::core::Result<bool>;
-    fn IsDataValidForFormCore(&mut self) -> ::windows::core::Result<bool>;
-    fn GetFullDescriptionCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDescribedByCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
-    fn GetFlowsToCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
-    fn GetFlowsFromCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
+    fn IsPeripheralCore(&self) -> ::windows::core::Result<bool>;
+    fn IsDataValidForFormCore(&self) -> ::windows::core::Result<bool>;
+    fn GetFullDescriptionCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDescribedByCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
+    fn GetFlowsToCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
+    fn GetFlowsFromCore(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IIterable<AutomationPeer>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides5 {
@@ -692,7 +692,7 @@ impl IAutomationPeerOverrides5_Vtbl {
     }
 }
 pub trait IAutomationPeerOverrides6_Impl: Sized {
-    fn GetCultureCore(&mut self) -> ::windows::core::Result<i32>;
+    fn GetCultureCore(&self) -> ::windows::core::Result<i32>;
 }
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides6 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides6";
@@ -721,7 +721,7 @@ impl IAutomationPeerOverrides6_Vtbl {
     }
 }
 pub trait IAutomationPeerOverrides8_Impl: Sized {
-    fn GetHeadingLevelCore(&mut self) -> ::windows::core::Result<AutomationHeadingLevel>;
+    fn GetHeadingLevelCore(&self) -> ::windows::core::Result<AutomationHeadingLevel>;
 }
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides8 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides8";
@@ -750,7 +750,7 @@ impl IAutomationPeerOverrides8_Vtbl {
     }
 }
 pub trait IAutomationPeerOverrides9_Impl: Sized {
-    fn IsDialogCore(&mut self) -> ::windows::core::Result<bool>;
+    fn IsDialogCore(&self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IAutomationPeerOverrides9 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.IAutomationPeerOverrides9";
@@ -779,7 +779,7 @@ impl IAutomationPeerOverrides9_Vtbl {
     }
 }
 pub trait IItemsControlAutomationPeerOverrides2_Impl: Sized {
-    fn OnCreateItemAutomationPeer(&mut self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemAutomationPeer>;
+    fn OnCreateItemAutomationPeer(&self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemAutomationPeer>;
 }
 impl ::windows::core::RuntimeName for IItemsControlAutomationPeerOverrides2 {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.IItemsControlAutomationPeerOverrides2";

@@ -1,6 +1,6 @@
 pub trait ID3DBlob_Impl: Sized {
-    fn GetBufferPointer(&mut self) -> *mut ::core::ffi::c_void;
-    fn GetBufferSize(&mut self) -> usize;
+    fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void;
+    fn GetBufferSize(&self) -> usize;
 }
 impl ID3DBlob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3DBlob_Impl, const OFFSET: isize>() -> ID3DBlob_Vtbl {
@@ -25,8 +25,8 @@ impl ID3DBlob_Vtbl {
     }
 }
 pub trait ID3DDestructionNotifier_Impl: Sized {
-    fn RegisterDestructionCallback(&mut self, callbackfn: &PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
-    fn UnregisterDestructionCallback(&mut self, callbackid: u32) -> ::windows::core::Result<()>;
+    fn RegisterDestructionCallback(&self, callbackfn: &PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
+    fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()>;
 }
 impl ID3DDestructionNotifier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3DDestructionNotifier_Impl, const OFFSET: isize>() -> ID3DDestructionNotifier_Vtbl {
@@ -58,8 +58,8 @@ impl ID3DDestructionNotifier_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3DInclude_Impl: Sized {
-    fn Open(&mut self, includetype: D3D_INCLUDE_TYPE, pfilename: super::super::Foundation::PSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>;
-    fn Close(&mut self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: super::super::Foundation::PSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>;
+    fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3DInclude_Vtbl {

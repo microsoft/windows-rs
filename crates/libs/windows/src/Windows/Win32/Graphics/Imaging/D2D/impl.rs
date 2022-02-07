@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IWICImageEncoder_Impl: Sized {
-    fn WriteFrame(&mut self, pimage: &::core::option::Option<super::super::Direct2D::ID2D1Image>, pframeencode: &::core::option::Option<super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> ::windows::core::Result<()>;
-    fn WriteFrameThumbnail(&mut self, pimage: &::core::option::Option<super::super::Direct2D::ID2D1Image>, pframeencode: &::core::option::Option<super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> ::windows::core::Result<()>;
-    fn WriteThumbnail(&mut self, pimage: &::core::option::Option<super::super::Direct2D::ID2D1Image>, pencoder: &::core::option::Option<super::IWICBitmapEncoder>, pimageparameters: *const super::WICImageParameters) -> ::windows::core::Result<()>;
+    fn WriteFrame(&self, pimage: &::core::option::Option<super::super::Direct2D::ID2D1Image>, pframeencode: &::core::option::Option<super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> ::windows::core::Result<()>;
+    fn WriteFrameThumbnail(&self, pimage: &::core::option::Option<super::super::Direct2D::ID2D1Image>, pframeencode: &::core::option::Option<super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> ::windows::core::Result<()>;
+    fn WriteThumbnail(&self, pimage: &::core::option::Option<super::super::Direct2D::ID2D1Image>, pencoder: &::core::option::Option<super::IWICBitmapEncoder>, pimageparameters: *const super::WICImageParameters) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IWICImageEncoder_Vtbl {
@@ -35,7 +35,7 @@ impl IWICImageEncoder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICImagingFactory2_Impl: Sized + super::IWICImagingFactory_Impl {
-    fn CreateImageEncoder(&mut self, pd2ddevice: &::core::option::Option<super::super::Direct2D::ID2D1Device>) -> ::windows::core::Result<IWICImageEncoder>;
+    fn CreateImageEncoder(&self, pd2ddevice: &::core::option::Option<super::super::Direct2D::ID2D1Device>) -> ::windows::core::Result<IWICImageEncoder>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWICImagingFactory2_Vtbl {

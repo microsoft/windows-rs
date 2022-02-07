@@ -1,9 +1,9 @@
 pub trait IIOControlCode_Impl: Sized {
-    fn AccessMode(&mut self) -> ::windows::core::Result<IOControlAccessMode>;
-    fn BufferingMethod(&mut self) -> ::windows::core::Result<IOControlBufferingMethod>;
-    fn Function(&mut self) -> ::windows::core::Result<u16>;
-    fn DeviceType(&mut self) -> ::windows::core::Result<u16>;
-    fn ControlCode(&mut self) -> ::windows::core::Result<u32>;
+    fn AccessMode(&self) -> ::windows::core::Result<IOControlAccessMode>;
+    fn BufferingMethod(&self) -> ::windows::core::Result<IOControlBufferingMethod>;
+    fn Function(&self) -> ::windows::core::Result<u16>;
+    fn DeviceType(&self) -> ::windows::core::Result<u16>;
+    fn ControlCode(&self) -> ::windows::core::Result<u32>;
 }
 impl ::windows::core::RuntimeName for IIOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";

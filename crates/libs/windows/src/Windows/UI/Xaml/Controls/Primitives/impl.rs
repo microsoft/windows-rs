@@ -1,5 +1,5 @@
 pub trait IFlyoutBaseOverrides_Impl: Sized {
-    fn CreatePresenter(&mut self) -> ::windows::core::Result<super::Control>;
+    fn CreatePresenter(&self) -> ::windows::core::Result<super::Control>;
 }
 impl ::windows::core::RuntimeName for IFlyoutBaseOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseOverrides";
@@ -29,7 +29,7 @@ impl IFlyoutBaseOverrides_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Input")]
 pub trait IFlyoutBaseOverrides4_Impl: Sized {
-    fn OnProcessKeyboardAccelerators(&mut self, args: &::core::option::Option<super::super::Input::ProcessKeyboardAcceleratorEventArgs>) -> ::windows::core::Result<()> {
+    fn OnProcessKeyboardAccelerators(&self, args: &::core::option::Option<super::super::Input::ProcessKeyboardAcceleratorEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -55,10 +55,10 @@ impl IFlyoutBaseOverrides4_Vtbl {
     }
 }
 pub trait IPickerFlyoutBaseOverrides_Impl: Sized {
-    fn OnConfirmed(&mut self) -> ::windows::core::Result<()> {
+    fn OnConfirmed(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn ShouldShowConfirmationButtons(&mut self) -> ::windows::core::Result<bool>;
+    fn ShouldShowConfirmationButtons(&self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IPickerFlyoutBaseOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.IPickerFlyoutBaseOverrides";
@@ -93,13 +93,13 @@ impl IPickerFlyoutBaseOverrides_Vtbl {
     }
 }
 pub trait IRangeBaseOverrides_Impl: Sized {
-    fn OnMinimumChanged(&mut self, oldminimum: f64, newminimum: f64) -> ::windows::core::Result<()> {
+    fn OnMinimumChanged(&self, oldminimum: f64, newminimum: f64) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnMaximumChanged(&mut self, oldmaximum: f64, newmaximum: f64) -> ::windows::core::Result<()> {
+    fn OnMaximumChanged(&self, oldmaximum: f64, newmaximum: f64) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnValueChanged(&mut self, oldvalue: f64, newvalue: f64) -> ::windows::core::Result<()> {
+    fn OnValueChanged(&self, oldvalue: f64, newvalue: f64) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -136,14 +136,14 @@ impl IRangeBaseOverrides_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IScrollSnapPointsInfo_Impl: Sized {
-    fn AreHorizontalSnapPointsRegular(&mut self) -> ::windows::core::Result<bool>;
-    fn AreVerticalSnapPointsRegular(&mut self) -> ::windows::core::Result<bool>;
-    fn HorizontalSnapPointsChanged(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHorizontalSnapPointsChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn VerticalSnapPointsChanged(&mut self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVerticalSnapPointsChanged(&mut self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn GetIrregularSnapPoints(&mut self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<f32>>;
-    fn GetRegularSnapPoints(&mut self, orientation: super::Orientation, alignment: SnapPointsAlignment, offset: &mut f32) -> ::windows::core::Result<f32>;
+    fn AreHorizontalSnapPointsRegular(&self) -> ::windows::core::Result<bool>;
+    fn AreVerticalSnapPointsRegular(&self) -> ::windows::core::Result<bool>;
+    fn HorizontalSnapPointsChanged(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHorizontalSnapPointsChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn VerticalSnapPointsChanged(&self, handler: &::core::option::Option<super::super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVerticalSnapPointsChanged(&self, token: &super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetIrregularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<f32>>;
+    fn GetRegularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment, offset: &mut f32) -> ::windows::core::Result<f32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IScrollSnapPointsInfo {
@@ -251,7 +251,7 @@ impl IScrollSnapPointsInfo_Vtbl {
     }
 }
 pub trait IToggleButtonOverrides_Impl: Sized {
-    fn OnToggle(&mut self) -> ::windows::core::Result<()> {
+    fn OnToggle(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }

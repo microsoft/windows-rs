@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IHolographicCameraInterop_Impl: Sized {
-    fn CreateDirect3D12BackBufferResource(&mut self, pdevice: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
-    fn CreateDirect3D12HardwareProtectedBackBufferResource(&mut self, pdevice: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
-    fn AcquireDirect3D12BufferResource(&mut self, presourcetoacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcommandqueue: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> ::windows::core::Result<()>;
-    fn AcquireDirect3D12BufferResourceWithTimeout(&mut self, presourcetoacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcommandqueue: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>, duration: u64) -> ::windows::core::Result<()>;
-    fn UnacquireDirect3D12BufferResource(&mut self, presourcetounacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>) -> ::windows::core::Result<()>;
+    fn CreateDirect3D12BackBufferResource(&self, pdevice: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
+    fn CreateDirect3D12HardwareProtectedBackBufferResource(&self, pdevice: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
+    fn AcquireDirect3D12BufferResource(&self, presourcetoacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcommandqueue: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> ::windows::core::Result<()>;
+    fn AcquireDirect3D12BufferResourceWithTimeout(&self, presourcetoacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcommandqueue: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>, duration: u64) -> ::windows::core::Result<()>;
+    fn UnacquireDirect3D12BufferResource(&self, presourcetounacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows::core::RuntimeName for IHolographicCameraInterop {
@@ -65,8 +65,8 @@ impl IHolographicCameraInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IHolographicCameraRenderingParametersInterop_Impl: Sized {
-    fn CommitDirect3D12Resource(&mut self, pcolorresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcolorresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, colorresourcefencesignalvalue: u64) -> ::windows::core::Result<()>;
-    fn CommitDirect3D12ResourceWithDepthData(&mut self, pcolorresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcolorresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, colorresourcefencesignalvalue: u64, pdepthresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pdepthresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, depthresourcefencesignalvalue: u64) -> ::windows::core::Result<()>;
+    fn CommitDirect3D12Resource(&self, pcolorresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcolorresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, colorresourcefencesignalvalue: u64) -> ::windows::core::Result<()>;
+    fn CommitDirect3D12ResourceWithDepthData(&self, pcolorresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcolorresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, colorresourcefencesignalvalue: u64, pdepthresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pdepthresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, depthresourcefencesignalvalue: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::windows::core::RuntimeName for IHolographicCameraRenderingParametersInterop {
@@ -97,11 +97,11 @@ impl IHolographicCameraRenderingParametersInterop_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IHolographicQuadLayerInterop_Impl: Sized {
-    fn CreateDirect3D12ContentBufferResource(&mut self, pdevice: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
-    fn CreateDirect3D12HardwareProtectedContentBufferResource(&mut self, pdevice: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
-    fn AcquireDirect3D12BufferResource(&mut self, presourcetoacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcommandqueue: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> ::windows::core::Result<()>;
-    fn AcquireDirect3D12BufferResourceWithTimeout(&mut self, presourcetoacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcommandqueue: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>, duration: u64) -> ::windows::core::Result<()>;
-    fn UnacquireDirect3D12BufferResource(&mut self, presourcetounacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>) -> ::windows::core::Result<()>;
+    fn CreateDirect3D12ContentBufferResource(&self, pdevice: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
+    fn CreateDirect3D12HardwareProtectedContentBufferResource(&self, pdevice: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
+    fn AcquireDirect3D12BufferResource(&self, presourcetoacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcommandqueue: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> ::windows::core::Result<()>;
+    fn AcquireDirect3D12BufferResourceWithTimeout(&self, presourcetoacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcommandqueue: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>, duration: u64) -> ::windows::core::Result<()>;
+    fn UnacquireDirect3D12BufferResource(&self, presourcetounacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows::core::RuntimeName for IHolographicQuadLayerInterop {
@@ -162,7 +162,7 @@ impl IHolographicQuadLayerInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IHolographicQuadLayerUpdateParametersInterop_Impl: Sized {
-    fn CommitDirect3D12Resource(&mut self, pcolorresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcolorresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, colorresourcefencesignalvalue: u64) -> ::windows::core::Result<()>;
+    fn CommitDirect3D12Resource(&self, pcolorresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcolorresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, colorresourcefencesignalvalue: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::windows::core::RuntimeName for IHolographicQuadLayerUpdateParametersInterop {

@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IABContainer_Impl: Sized + IMAPIProp_Impl + IMAPIContainer_Impl {
-    fn CreateEntry(&mut self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp>;
-    fn CopyEntries(&mut self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
-    fn DeleteEntries(&mut self, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::Result<()>;
-    fn ResolveNames(&mut self, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<_flaglist>;
+    fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp>;
+    fn CopyEntries(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
+    fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::Result<()>;
+    fn ResolveNames(&self, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<_flaglist>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IABContainer_Vtbl {
@@ -54,24 +54,24 @@ impl IABContainer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAddrBook_Impl: Sized + IMAPIProp_Impl {
-    fn OpenEntry(&mut self, cbentryid: u32, lpentryid: *mut ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CompareEntryIDs(&mut self, cbentryid1: u32, lpentryid1: *mut ENTRYID, cbentryid2: u32, lpentryid2: *mut ENTRYID, ulflags: u32, lpulresult: *mut u32) -> ::windows::core::Result<()>;
-    fn Advise(&mut self, cbentryid: u32, lpentryid: *mut ENTRYID, uleventmask: u32, lpadvisesink: &::core::option::Option<IMAPIAdviseSink>, lpulconnection: *mut u32) -> ::windows::core::Result<()>;
-    fn Unadvise(&mut self, ulconnection: u32) -> ::windows::core::Result<()>;
-    fn CreateOneOff(&mut self, lpszname: *mut i8, lpszadrtype: *mut i8, lpszaddress: *mut i8, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows::core::Result<()>;
-    fn NewEntry(&mut self, uluiparam: u32, ulflags: u32, cbeidcontainer: u32, lpeidcontainer: *mut ENTRYID, cbeidnewentrytpl: u32, lpeidnewentrytpl: *mut ENTRYID, lpcbeidnewentry: *mut u32, lppeidnewentry: *mut *mut ENTRYID) -> ::windows::core::Result<()>;
-    fn ResolveName(&mut self, uluiparam: usize, ulflags: u32, lpsznewentrytitle: *mut i8, lpadrlist: *mut ADRLIST) -> ::windows::core::Result<()>;
-    fn Address(&mut self, lpuluiparam: *mut u32, lpadrparms: *mut ADRPARM, lppadrlist: *mut *mut ADRLIST) -> ::windows::core::Result<()>;
-    fn Details(&mut self, lpuluiparam: *mut usize, lpfndismiss: &LPFNDISMISS, lpvdismisscontext: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, lpfbuttoncallback: &LPFNBUTTON, lpvbuttoncontext: *mut ::core::ffi::c_void, lpszbuttontext: *mut i8, ulflags: u32) -> ::windows::core::Result<()>;
-    fn RecipOptions(&mut self, uluiparam: u32, ulflags: u32, lprecip: *mut ADRENTRY) -> ::windows::core::Result<()>;
-    fn QueryDefaultRecipOpt(&mut self, lpszadrtype: *mut i8, ulflags: u32, lpcvalues: *mut u32, lppoptions: *mut *mut SPropValue) -> ::windows::core::Result<()>;
-    fn GetPAB(&mut self, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows::core::Result<()>;
-    fn SetPAB(&mut self, cbentryid: u32, lpentryid: *mut ENTRYID) -> ::windows::core::Result<()>;
-    fn GetDefaultDir(&mut self, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows::core::Result<()>;
-    fn SetDefaultDir(&mut self, cbentryid: u32, lpentryid: *mut ENTRYID) -> ::windows::core::Result<()>;
-    fn GetSearchPath(&mut self, ulflags: u32, lppsearchpath: *mut *mut SRowSet) -> ::windows::core::Result<()>;
-    fn SetSearchPath(&mut self, ulflags: u32, lpsearchpath: *mut SRowSet) -> ::windows::core::Result<()>;
-    fn PrepareRecips(&mut self, ulflags: u32, lpproptagarray: *mut SPropTagArray, lpreciplist: *mut ADRLIST) -> ::windows::core::Result<()>;
+    fn OpenEntry(&self, cbentryid: u32, lpentryid: *mut ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CompareEntryIDs(&self, cbentryid1: u32, lpentryid1: *mut ENTRYID, cbentryid2: u32, lpentryid2: *mut ENTRYID, ulflags: u32, lpulresult: *mut u32) -> ::windows::core::Result<()>;
+    fn Advise(&self, cbentryid: u32, lpentryid: *mut ENTRYID, uleventmask: u32, lpadvisesink: &::core::option::Option<IMAPIAdviseSink>, lpulconnection: *mut u32) -> ::windows::core::Result<()>;
+    fn Unadvise(&self, ulconnection: u32) -> ::windows::core::Result<()>;
+    fn CreateOneOff(&self, lpszname: *mut i8, lpszadrtype: *mut i8, lpszaddress: *mut i8, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows::core::Result<()>;
+    fn NewEntry(&self, uluiparam: u32, ulflags: u32, cbeidcontainer: u32, lpeidcontainer: *mut ENTRYID, cbeidnewentrytpl: u32, lpeidnewentrytpl: *mut ENTRYID, lpcbeidnewentry: *mut u32, lppeidnewentry: *mut *mut ENTRYID) -> ::windows::core::Result<()>;
+    fn ResolveName(&self, uluiparam: usize, ulflags: u32, lpsznewentrytitle: *mut i8, lpadrlist: *mut ADRLIST) -> ::windows::core::Result<()>;
+    fn Address(&self, lpuluiparam: *mut u32, lpadrparms: *mut ADRPARM, lppadrlist: *mut *mut ADRLIST) -> ::windows::core::Result<()>;
+    fn Details(&self, lpuluiparam: *mut usize, lpfndismiss: &LPFNDISMISS, lpvdismisscontext: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, lpfbuttoncallback: &LPFNBUTTON, lpvbuttoncontext: *mut ::core::ffi::c_void, lpszbuttontext: *mut i8, ulflags: u32) -> ::windows::core::Result<()>;
+    fn RecipOptions(&self, uluiparam: u32, ulflags: u32, lprecip: *mut ADRENTRY) -> ::windows::core::Result<()>;
+    fn QueryDefaultRecipOpt(&self, lpszadrtype: *mut i8, ulflags: u32, lpcvalues: *mut u32, lppoptions: *mut *mut SPropValue) -> ::windows::core::Result<()>;
+    fn GetPAB(&self, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows::core::Result<()>;
+    fn SetPAB(&self, cbentryid: u32, lpentryid: *mut ENTRYID) -> ::windows::core::Result<()>;
+    fn GetDefaultDir(&self, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows::core::Result<()>;
+    fn SetDefaultDir(&self, cbentryid: u32, lpentryid: *mut ENTRYID) -> ::windows::core::Result<()>;
+    fn GetSearchPath(&self, ulflags: u32, lppsearchpath: *mut *mut SRowSet) -> ::windows::core::Result<()>;
+    fn SetSearchPath(&self, ulflags: u32, lpsearchpath: *mut SRowSet) -> ::windows::core::Result<()>;
+    fn PrepareRecips(&self, ulflags: u32, lpproptagarray: *mut SPropTagArray, lpreciplist: *mut ADRLIST) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAddrBook_Vtbl {
@@ -205,10 +205,10 @@ impl IAttach_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDistList_Impl: Sized + IMAPIProp_Impl + IMAPIContainer_Impl {
-    fn CreateEntry(&mut self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp>;
-    fn CopyEntries(&mut self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
-    fn DeleteEntries(&mut self, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::Result<()>;
-    fn ResolveNames(&mut self, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<_flaglist>;
+    fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows::core::Result<IMAPIProp>;
+    fn CopyEntries(&self, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
+    fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::Result<()>;
+    fn ResolveNames(&self, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<_flaglist>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDistList_Vtbl {
@@ -259,7 +259,7 @@ impl IDistList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMAPIAdviseSink_Impl: Sized {
-    fn OnNotify(&mut self, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32;
+    fn OnNotify(&self, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPIAdviseSink_Vtbl {
@@ -277,11 +277,11 @@ impl IMAPIAdviseSink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMAPIContainer_Impl: Sized + IMAPIProp_Impl {
-    fn GetContentsTable(&mut self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
-    fn GetHierarchyTable(&mut self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
-    fn OpenEntry(&mut self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetSearchCriteria(&mut self, lprestriction: *const SRestriction, lpcontainerlist: *const SBinaryArray, ulsearchflags: u32) -> ::windows::core::Result<()>;
-    fn GetSearchCriteria(&mut self, ulflags: u32, lpprestriction: *mut *mut SRestriction, lppcontainerlist: *mut *mut SBinaryArray, lpulsearchstate: *mut u32) -> ::windows::core::Result<()>;
+    fn GetContentsTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
+    fn GetHierarchyTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
+    fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetSearchCriteria(&self, lprestriction: *const SRestriction, lpcontainerlist: *const SBinaryArray, ulsearchflags: u32) -> ::windows::core::Result<()>;
+    fn GetSearchCriteria(&self, ulflags: u32, lpprestriction: *mut *mut SRestriction, lppcontainerlist: *mut *mut SBinaryArray, lpulsearchstate: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPIContainer_Vtbl {
@@ -337,9 +337,9 @@ impl IMAPIContainer_Vtbl {
     }
 }
 pub trait IMAPIControl_Impl: Sized {
-    fn GetLastError(&mut self, hresult: ::windows::core::HRESULT, ulflags: u32) -> ::windows::core::Result<*mut MAPIERROR>;
-    fn Activate(&mut self, ulflags: u32, uluiparam: usize) -> ::windows::core::Result<()>;
-    fn GetState(&mut self, ulflags: u32, lpulstate: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32) -> ::windows::core::Result<*mut MAPIERROR>;
+    fn Activate(&self, ulflags: u32, uluiparam: usize) -> ::windows::core::Result<()>;
+    fn GetState(&self, ulflags: u32, lpulstate: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IMAPIControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIControl_Impl, const OFFSET: isize>() -> IMAPIControl_Vtbl {
@@ -377,17 +377,17 @@ impl IMAPIControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMAPIFolder_Impl: Sized + IMAPIProp_Impl + IMAPIContainer_Impl {
-    fn CreateMessage(&mut self, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lppmessage: *mut ::core::option::Option<IMessage>) -> ::windows::core::Result<()>;
-    fn CopyMessages(&mut self, lpmsglist: *const SBinaryArray, lpinterface: *const ::windows::core::GUID, lpdestfolder: *const ::core::ffi::c_void, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
-    fn DeleteMessages(&mut self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
-    fn CreateFolder(&mut self, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: *const i8, lpinterface: *const ::windows::core::GUID, ulflags: u32) -> ::windows::core::Result<IMAPIFolder>;
-    fn CopyFolder(&mut self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *const ::windows::core::GUID, lpdestfolder: *const ::core::ffi::c_void, lpsznewfoldername: *const i8, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
-    fn DeleteFolder(&mut self, cbentryid: u32, lpentryid: *const ENTRYID, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
-    fn SetReadFlags(&mut self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
-    fn GetMessageStatus(&mut self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<u32>;
-    fn SetMessageStatus(&mut self, cbentryid: u32, lpentryid: *const ENTRYID, ulnewstatus: u32, ulnewstatusmask: u32) -> ::windows::core::Result<u32>;
-    fn SaveContentsSort(&mut self, lpsortcriteria: *const SSortOrderSet, ulflags: u32) -> ::windows::core::Result<()>;
-    fn EmptyFolder(&mut self, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
+    fn CreateMessage(&self, lpinterface: *mut ::windows::core::GUID, ulflags: u32, lppmessage: *mut ::core::option::Option<IMessage>) -> ::windows::core::Result<()>;
+    fn CopyMessages(&self, lpmsglist: *const SBinaryArray, lpinterface: *const ::windows::core::GUID, lpdestfolder: *const ::core::ffi::c_void, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
+    fn DeleteMessages(&self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
+    fn CreateFolder(&self, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: *const i8, lpinterface: *const ::windows::core::GUID, ulflags: u32) -> ::windows::core::Result<IMAPIFolder>;
+    fn CopyFolder(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *const ::windows::core::GUID, lpdestfolder: *const ::core::ffi::c_void, lpsznewfoldername: *const i8, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
+    fn DeleteFolder(&self, cbentryid: u32, lpentryid: *const ENTRYID, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
+    fn SetReadFlags(&self, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
+    fn GetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<u32>;
+    fn SetMessageStatus(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulnewstatus: u32, ulnewstatusmask: u32) -> ::windows::core::Result<u32>;
+    fn SaveContentsSort(&self, lpsortcriteria: *const SSortOrderSet, ulflags: u32) -> ::windows::core::Result<()>;
+    fn EmptyFolder(&self, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPIFolder_Vtbl {
@@ -485,11 +485,11 @@ impl IMAPIFolder_Vtbl {
     }
 }
 pub trait IMAPIProgress_Impl: Sized {
-    fn Progress(&mut self, ulvalue: u32, ulcount: u32, ultotal: u32) -> ::windows::core::Result<()>;
-    fn GetFlags(&mut self, lpulflags: *mut u32) -> ::windows::core::Result<()>;
-    fn GetMax(&mut self, lpulmax: *mut u32) -> ::windows::core::Result<()>;
-    fn GetMin(&mut self, lpulmin: *mut u32) -> ::windows::core::Result<()>;
-    fn SetLimits(&mut self, lpulmin: *mut u32, lpulmax: *mut u32, lpulflags: *mut u32) -> ::windows::core::Result<()>;
+    fn Progress(&self, ulvalue: u32, ulcount: u32, ultotal: u32) -> ::windows::core::Result<()>;
+    fn GetFlags(&self, lpulflags: *mut u32) -> ::windows::core::Result<()>;
+    fn GetMax(&self, lpulmax: *mut u32) -> ::windows::core::Result<()>;
+    fn GetMin(&self, lpulmin: *mut u32) -> ::windows::core::Result<()>;
+    fn SetLimits(&self, lpulmin: *mut u32, lpulmax: *mut u32, lpulflags: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IMAPIProgress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIProgress_Impl, const OFFSET: isize>() -> IMAPIProgress_Vtbl {
@@ -533,17 +533,17 @@ impl IMAPIProgress_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMAPIProp_Impl: Sized {
-    fn GetLastError(&mut self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()>;
-    fn SaveChanges(&mut self, ulflags: u32) -> ::windows::core::Result<()>;
-    fn GetProps(&mut self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()>;
-    fn GetPropList(&mut self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()>;
-    fn OpenProperty(&mut self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetProps(&mut self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
-    fn DeleteProps(&mut self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
-    fn CopyTo(&mut self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
-    fn CopyProps(&mut self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
-    fn GetNamesFromIDs(&mut self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()>;
-    fn GetIDsFromNames(&mut self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()>;
+    fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()>;
+    fn SaveChanges(&self, ulflags: u32) -> ::windows::core::Result<()>;
+    fn GetProps(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows::core::Result<()>;
+    fn GetPropList(&self, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()>;
+    fn OpenProperty(&self, ulproptag: u32, lpiid: *mut ::windows::core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetProps(&self, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
+    fn DeleteProps(&self, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
+    fn CopyTo(&self, ciidexclude: u32, rgiidexclude: *mut ::windows::core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
+    fn CopyProps(&self, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, lpinterface: *mut ::windows::core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
+    fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()>;
+    fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPIProp_Vtbl {
@@ -624,10 +624,10 @@ impl IMAPIProp_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMAPIStatus_Impl: Sized + IMAPIProp_Impl {
-    fn ValidateState(&mut self, uluiparam: usize, ulflags: u32) -> ::windows::core::Result<()>;
-    fn SettingsDialog(&mut self, uluiparam: usize, ulflags: u32) -> ::windows::core::Result<()>;
-    fn ChangePassword(&mut self, lpoldpass: *const i8, lpnewpass: *const i8, ulflags: u32) -> ::windows::core::Result<()>;
-    fn FlushQueues(&mut self, uluiparam: usize, cbtargettransport: u32, lptargettransport: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<()>;
+    fn ValidateState(&self, uluiparam: usize, ulflags: u32) -> ::windows::core::Result<()>;
+    fn SettingsDialog(&self, uluiparam: usize, ulflags: u32) -> ::windows::core::Result<()>;
+    fn ChangePassword(&self, lpoldpass: *const i8, lpnewpass: *const i8, ulflags: u32) -> ::windows::core::Result<()>;
+    fn FlushQueues(&self, uluiparam: usize, cbtargettransport: u32, lptargettransport: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPIStatus_Vtbl {
@@ -666,29 +666,29 @@ impl IMAPIStatus_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMAPITable_Impl: Sized {
-    fn GetLastError(&mut self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()>;
-    fn Advise(&mut self, uleventmask: u32, lpadvisesink: &::core::option::Option<IMAPIAdviseSink>, lpulconnection: *mut u32) -> ::windows::core::Result<()>;
-    fn Unadvise(&mut self, ulconnection: u32) -> ::windows::core::Result<()>;
-    fn GetStatus(&mut self, lpultablestatus: *mut u32, lpultabletype: *mut u32) -> ::windows::core::Result<()>;
-    fn SetColumns(&mut self, lpproptagarray: *mut SPropTagArray, ulflags: u32) -> ::windows::core::Result<()>;
-    fn QueryColumns(&mut self, ulflags: u32, lpproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()>;
-    fn GetRowCount(&mut self, ulflags: u32, lpulcount: *mut u32) -> ::windows::core::Result<()>;
-    fn SeekRow(&mut self, bkorigin: u32, lrowcount: i32, lplrowssought: *mut i32) -> ::windows::core::Result<()>;
-    fn SeekRowApprox(&mut self, ulnumerator: u32, uldenominator: u32) -> ::windows::core::Result<()>;
-    fn QueryPosition(&mut self, lpulrow: *mut u32, lpulnumerator: *mut u32, lpuldenominator: *mut u32) -> ::windows::core::Result<()>;
-    fn FindRow(&mut self, lprestriction: *mut SRestriction, bkorigin: u32, ulflags: u32) -> ::windows::core::Result<()>;
-    fn Restrict(&mut self, lprestriction: *mut SRestriction, ulflags: u32) -> ::windows::core::Result<()>;
-    fn CreateBookmark(&mut self, lpbkposition: *mut u32) -> ::windows::core::Result<()>;
-    fn FreeBookmark(&mut self, bkposition: u32) -> ::windows::core::Result<()>;
-    fn SortTable(&mut self, lpsortcriteria: *mut SSortOrderSet, ulflags: u32) -> ::windows::core::Result<()>;
-    fn QuerySortOrder(&mut self, lppsortcriteria: *mut *mut SSortOrderSet) -> ::windows::core::Result<()>;
-    fn QueryRows(&mut self, lrowcount: i32, ulflags: u32, lpprows: *mut *mut SRowSet) -> ::windows::core::Result<()>;
-    fn Abort(&mut self) -> ::windows::core::Result<()>;
-    fn ExpandRow(&mut self, cbinstancekey: u32, pbinstancekey: *mut u8, ulrowcount: u32, ulflags: u32, lpprows: *mut *mut SRowSet, lpulmorerows: *mut u32) -> ::windows::core::Result<()>;
-    fn CollapseRow(&mut self, cbinstancekey: u32, pbinstancekey: *mut u8, ulflags: u32, lpulrowcount: *mut u32) -> ::windows::core::Result<()>;
-    fn WaitForCompletion(&mut self, ulflags: u32, ultimeout: u32, lpultablestatus: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCollapseState(&mut self, ulflags: u32, cbinstancekey: u32, lpbinstancekey: *mut u8, lpcbcollapsestate: *mut u32, lppbcollapsestate: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn SetCollapseState(&mut self, ulflags: u32, cbcollapsestate: u32, pbcollapsestate: *mut u8, lpbklocation: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()>;
+    fn Advise(&self, uleventmask: u32, lpadvisesink: &::core::option::Option<IMAPIAdviseSink>, lpulconnection: *mut u32) -> ::windows::core::Result<()>;
+    fn Unadvise(&self, ulconnection: u32) -> ::windows::core::Result<()>;
+    fn GetStatus(&self, lpultablestatus: *mut u32, lpultabletype: *mut u32) -> ::windows::core::Result<()>;
+    fn SetColumns(&self, lpproptagarray: *mut SPropTagArray, ulflags: u32) -> ::windows::core::Result<()>;
+    fn QueryColumns(&self, ulflags: u32, lpproptagarray: *mut *mut SPropTagArray) -> ::windows::core::Result<()>;
+    fn GetRowCount(&self, ulflags: u32, lpulcount: *mut u32) -> ::windows::core::Result<()>;
+    fn SeekRow(&self, bkorigin: u32, lrowcount: i32, lplrowssought: *mut i32) -> ::windows::core::Result<()>;
+    fn SeekRowApprox(&self, ulnumerator: u32, uldenominator: u32) -> ::windows::core::Result<()>;
+    fn QueryPosition(&self, lpulrow: *mut u32, lpulnumerator: *mut u32, lpuldenominator: *mut u32) -> ::windows::core::Result<()>;
+    fn FindRow(&self, lprestriction: *mut SRestriction, bkorigin: u32, ulflags: u32) -> ::windows::core::Result<()>;
+    fn Restrict(&self, lprestriction: *mut SRestriction, ulflags: u32) -> ::windows::core::Result<()>;
+    fn CreateBookmark(&self, lpbkposition: *mut u32) -> ::windows::core::Result<()>;
+    fn FreeBookmark(&self, bkposition: u32) -> ::windows::core::Result<()>;
+    fn SortTable(&self, lpsortcriteria: *mut SSortOrderSet, ulflags: u32) -> ::windows::core::Result<()>;
+    fn QuerySortOrder(&self, lppsortcriteria: *mut *mut SSortOrderSet) -> ::windows::core::Result<()>;
+    fn QueryRows(&self, lrowcount: i32, ulflags: u32, lpprows: *mut *mut SRowSet) -> ::windows::core::Result<()>;
+    fn Abort(&self) -> ::windows::core::Result<()>;
+    fn ExpandRow(&self, cbinstancekey: u32, pbinstancekey: *mut u8, ulrowcount: u32, ulflags: u32, lpprows: *mut *mut SRowSet, lpulmorerows: *mut u32) -> ::windows::core::Result<()>;
+    fn CollapseRow(&self, cbinstancekey: u32, pbinstancekey: *mut u8, ulflags: u32, lpulrowcount: *mut u32) -> ::windows::core::Result<()>;
+    fn WaitForCompletion(&self, ulflags: u32, ultimeout: u32, lpultablestatus: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCollapseState(&self, ulflags: u32, cbinstancekey: u32, lpbinstancekey: *mut u8, lpcbcollapsestate: *mut u32, lppbcollapsestate: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn SetCollapseState(&self, ulflags: u32, cbcollapsestate: u32, pbcollapsestate: *mut u8, lpbklocation: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPITable_Vtbl {
@@ -852,14 +852,14 @@ impl IMailUser_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMessage_Impl: Sized + IMAPIProp_Impl {
-    fn GetAttachmentTable(&mut self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
-    fn OpenAttach(&mut self, ulattachmentnum: u32, lpinterface: *const ::windows::core::GUID, ulflags: u32) -> ::windows::core::Result<IAttach>;
-    fn CreateAttach(&mut self, lpinterface: *const ::windows::core::GUID, ulflags: u32, lpulattachmentnum: *mut u32, lppattach: *mut ::core::option::Option<IAttach>) -> ::windows::core::Result<()>;
-    fn DeleteAttach(&mut self, ulattachmentnum: u32, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
-    fn GetRecipientTable(&mut self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
-    fn ModifyRecipients(&mut self, ulflags: u32, lpmods: *const ADRLIST) -> ::windows::core::Result<()>;
-    fn SubmitMessage(&mut self, ulflags: u32) -> ::windows::core::Result<()>;
-    fn SetReadFlag(&mut self, ulflags: u32) -> ::windows::core::Result<()>;
+    fn GetAttachmentTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
+    fn OpenAttach(&self, ulattachmentnum: u32, lpinterface: *const ::windows::core::GUID, ulflags: u32) -> ::windows::core::Result<IAttach>;
+    fn CreateAttach(&self, lpinterface: *const ::windows::core::GUID, ulflags: u32, lpulattachmentnum: *mut u32, lppattach: *mut ::core::option::Option<IAttach>) -> ::windows::core::Result<()>;
+    fn DeleteAttach(&self, ulattachmentnum: u32, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
+    fn GetRecipientTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
+    fn ModifyRecipients(&self, ulflags: u32, lpmods: *const ADRLIST) -> ::windows::core::Result<()>;
+    fn SubmitMessage(&self, ulflags: u32) -> ::windows::core::Result<()>;
+    fn SetReadFlag(&self, ulflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMessage_Vtbl {
@@ -940,19 +940,19 @@ impl IMessage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMsgStore_Impl: Sized + IMAPIProp_Impl {
-    fn Advise(&mut self, cbentryid: u32, lpentryid: *const ENTRYID, uleventmask: u32, lpadvisesink: &::core::option::Option<IMAPIAdviseSink>) -> ::windows::core::Result<u32>;
-    fn Unadvise(&mut self, ulconnection: u32) -> ::windows::core::Result<()>;
-    fn CompareEntryIDs(&mut self, cbentryid1: u32, lpentryid1: *const ENTRYID, cbentryid2: u32, lpentryid2: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<u32>;
-    fn OpenEntry(&mut self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *const ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetReceiveFolder(&mut self, lpszmessageclass: *const i8, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> ::windows::core::Result<()>;
-    fn GetReceiveFolder(&mut self, lpszmessageclass: *const i8, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID, lppszexplicitclass: *mut *mut i8) -> ::windows::core::Result<()>;
-    fn GetReceiveFolderTable(&mut self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
-    fn StoreLogoff(&mut self, lpulflags: *mut u32) -> ::windows::core::Result<()>;
-    fn AbortSubmit(&mut self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<()>;
-    fn GetOutgoingQueue(&mut self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
-    fn SetLockState(&mut self, lpmessage: &::core::option::Option<IMessage>, ullockstate: u32) -> ::windows::core::Result<()>;
-    fn FinishedMsg(&mut self, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> ::windows::core::Result<()>;
-    fn NotifyNewMail(&mut self, lpnotification: *const NOTIFICATION) -> ::windows::core::Result<()>;
+    fn Advise(&self, cbentryid: u32, lpentryid: *const ENTRYID, uleventmask: u32, lpadvisesink: &::core::option::Option<IMAPIAdviseSink>) -> ::windows::core::Result<u32>;
+    fn Unadvise(&self, ulconnection: u32) -> ::windows::core::Result<()>;
+    fn CompareEntryIDs(&self, cbentryid1: u32, lpentryid1: *const ENTRYID, cbentryid2: u32, lpentryid2: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<u32>;
+    fn OpenEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *const ::windows::core::GUID, ulflags: u32, lpulobjtype: *mut u32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetReceiveFolder(&self, lpszmessageclass: *const i8, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> ::windows::core::Result<()>;
+    fn GetReceiveFolder(&self, lpszmessageclass: *const i8, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID, lppszexplicitclass: *mut *mut i8) -> ::windows::core::Result<()>;
+    fn GetReceiveFolderTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
+    fn StoreLogoff(&self, lpulflags: *mut u32) -> ::windows::core::Result<()>;
+    fn AbortSubmit(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<()>;
+    fn GetOutgoingQueue(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
+    fn SetLockState(&self, lpmessage: &::core::option::Option<IMessage>, ullockstate: u32) -> ::windows::core::Result<()>;
+    fn FinishedMsg(&self, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> ::windows::core::Result<()>;
+    fn NotifyNewMail(&self, lpnotification: *const NOTIFICATION) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMsgStore_Vtbl {
@@ -1080,10 +1080,10 @@ impl IProfSect_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPropData_Impl: Sized + IMAPIProp_Impl {
-    fn HrSetObjAccess(&mut self, ulaccess: u32) -> ::windows::core::Result<()>;
-    fn HrSetPropAccess(&mut self, lpproptagarray: *mut SPropTagArray, rgulaccess: *mut u32) -> ::windows::core::Result<()>;
-    fn HrGetPropAccess(&mut self, lppproptagarray: *mut *mut SPropTagArray, lprgulaccess: *mut *mut u32) -> ::windows::core::Result<()>;
-    fn HrAddObjProps(&mut self, lppproptagarray: *mut SPropTagArray, lprgulaccess: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
+    fn HrSetObjAccess(&self, ulaccess: u32) -> ::windows::core::Result<()>;
+    fn HrSetPropAccess(&self, lpproptagarray: *mut SPropTagArray, rgulaccess: *mut u32) -> ::windows::core::Result<()>;
+    fn HrGetPropAccess(&self, lppproptagarray: *mut *mut SPropTagArray, lprgulaccess: *mut *mut u32) -> ::windows::core::Result<()>;
+    fn HrAddObjProps(&self, lppproptagarray: *mut SPropTagArray, lprgulaccess: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPropData_Vtbl {
@@ -1122,11 +1122,11 @@ impl IPropData_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IProviderAdmin_Impl: Sized {
-    fn GetLastError(&mut self, hresult: ::windows::core::HRESULT, ulflags: u32) -> ::windows::core::Result<*mut MAPIERROR>;
-    fn GetProviderTable(&mut self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
-    fn CreateProvider(&mut self, lpszprovider: *const i8, cvalues: u32, lpprops: *const SPropValue, uluiparam: usize, ulflags: u32) -> ::windows::core::Result<MAPIUID>;
-    fn DeleteProvider(&mut self, lpuid: *const MAPIUID) -> ::windows::core::Result<()>;
-    fn OpenProfileSection(&mut self, lpuid: *const MAPIUID, lpinterface: *const ::windows::core::GUID, ulflags: u32) -> ::windows::core::Result<IProfSect>;
+    fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32) -> ::windows::core::Result<*mut MAPIERROR>;
+    fn GetProviderTable(&self, ulflags: u32) -> ::windows::core::Result<IMAPITable>;
+    fn CreateProvider(&self, lpszprovider: *const i8, cvalues: u32, lpprops: *const SPropValue, uluiparam: usize, ulflags: u32) -> ::windows::core::Result<MAPIUID>;
+    fn DeleteProvider(&self, lpuid: *const MAPIUID) -> ::windows::core::Result<()>;
+    fn OpenProfileSection(&self, lpuid: *const MAPIUID, lpinterface: *const ::windows::core::GUID, ulflags: u32) -> ::windows::core::Result<IProfSect>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IProviderAdmin_Vtbl {
@@ -1195,15 +1195,15 @@ impl IProviderAdmin_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITableData_Impl: Sized {
-    fn HrGetView(&mut self, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut CALLERRELEASE, ulcallerdata: u32, lppmapitable: *mut ::core::option::Option<IMAPITable>) -> ::windows::core::Result<()>;
-    fn HrModifyRow(&mut self, param0: *mut SRow) -> ::windows::core::Result<()>;
-    fn HrDeleteRow(&mut self, lpspropvalue: *mut SPropValue) -> ::windows::core::Result<()>;
-    fn HrQueryRow(&mut self, lpspropvalue: *mut SPropValue, lppsrow: *mut *mut SRow, lpulirow: *mut u32) -> ::windows::core::Result<()>;
-    fn HrEnumRow(&mut self, ulrownumber: u32, lppsrow: *mut *mut SRow) -> ::windows::core::Result<()>;
-    fn HrNotify(&mut self, ulflags: u32, cvalues: u32, lpspropvalue: *mut SPropValue) -> ::windows::core::Result<()>;
-    fn HrInsertRow(&mut self, ulirow: u32, lpsrow: *mut SRow) -> ::windows::core::Result<()>;
-    fn HrModifyRows(&mut self, ulflags: u32, lpsrowset: *mut SRowSet) -> ::windows::core::Result<()>;
-    fn HrDeleteRows(&mut self, ulflags: u32, lprowsettodelete: *mut SRowSet, crowsdeleted: *mut u32) -> ::windows::core::Result<()>;
+    fn HrGetView(&self, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut CALLERRELEASE, ulcallerdata: u32, lppmapitable: *mut ::core::option::Option<IMAPITable>) -> ::windows::core::Result<()>;
+    fn HrModifyRow(&self, param0: *mut SRow) -> ::windows::core::Result<()>;
+    fn HrDeleteRow(&self, lpspropvalue: *mut SPropValue) -> ::windows::core::Result<()>;
+    fn HrQueryRow(&self, lpspropvalue: *mut SPropValue, lppsrow: *mut *mut SRow, lpulirow: *mut u32) -> ::windows::core::Result<()>;
+    fn HrEnumRow(&self, ulrownumber: u32, lppsrow: *mut *mut SRow) -> ::windows::core::Result<()>;
+    fn HrNotify(&self, ulflags: u32, cvalues: u32, lpspropvalue: *mut SPropValue) -> ::windows::core::Result<()>;
+    fn HrInsertRow(&self, ulirow: u32, lpsrow: *mut SRow) -> ::windows::core::Result<()>;
+    fn HrModifyRows(&self, ulflags: u32, lpsrowset: *mut SRowSet) -> ::windows::core::Result<()>;
+    fn HrDeleteRows(&self, ulflags: u32, lprowsettodelete: *mut SRowSet, crowsdeleted: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITableData_Vtbl {
@@ -1272,7 +1272,7 @@ impl ITableData_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWABExtInit_Impl: Sized {
-    fn Initialize(&mut self, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows::core::Result<()>;
+    fn Initialize(&self, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWABExtInit_Vtbl {
@@ -1290,22 +1290,22 @@ impl IWABExtInit_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWABOBJECT__Impl: Sized {
-    fn QueryInterface(&mut self, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn AddRef(&mut self) -> u32;
-    fn Release(&mut self) -> u32;
-    fn GetLastError(&mut self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()>;
-    fn AllocateBuffer(&mut self, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn AllocateMore(&mut self, cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn FreeBuffer(&mut self, lpbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Backup(&mut self, lpfilename: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn Import(&mut self, lpwip: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn Find(&mut self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn VCardDisplay(&mut self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn LDAPUrl(&mut self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR) -> ::windows::core::Result<IMailUser>;
-    fn VCardCreate(&mut self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: &::core::option::Option<IMailUser>) -> ::windows::core::Result<()>;
-    fn VCardRetrieve(&mut self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: super::super::Foundation::PSTR) -> ::windows::core::Result<IMailUser>;
-    fn GetMe(&mut self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn SetMe(&mut self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, sbeid: &SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn QueryInterface(&self, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AddRef(&self) -> u32;
+    fn Release(&self) -> u32;
+    fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()>;
+    fn AllocateBuffer(&self, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AllocateMore(&self, cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn FreeBuffer(&self, lpbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Backup(&self, lpfilename: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn Import(&self, lpwip: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn Find(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn VCardDisplay(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn LDAPUrl(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR) -> ::windows::core::Result<IMailUser>;
+    fn VCardCreate(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: &::core::option::Option<IMailUser>) -> ::windows::core::Result<()>;
+    fn VCardRetrieve(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: super::super::Foundation::PSTR) -> ::windows::core::Result<IMailUser>;
+    fn GetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn SetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, sbeid: &SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWABOBJECT__Vtbl {
@@ -1427,19 +1427,19 @@ impl IWABOBJECT__Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWABObject_Impl: Sized {
-    fn GetLastError(&mut self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()>;
-    fn AllocateBuffer(&mut self, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn AllocateMore(&mut self, cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn FreeBuffer(&mut self, lpbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Backup(&mut self, lpfilename: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn Import(&mut self, lpwip: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn Find(&mut self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn VCardDisplay(&mut self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn LDAPUrl(&mut self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR) -> ::windows::core::Result<IMailUser>;
-    fn VCardCreate(&mut self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: &::core::option::Option<IMailUser>) -> ::windows::core::Result<()>;
-    fn VCardRetrieve(&mut self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: super::super::Foundation::PSTR) -> ::windows::core::Result<IMailUser>;
-    fn GetMe(&mut self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn SetMe(&mut self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, sbeid: &SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn GetLastError(&self, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::Result<()>;
+    fn AllocateBuffer(&self, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AllocateMore(&self, cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn FreeBuffer(&self, lpbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Backup(&self, lpfilename: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn Import(&self, lpwip: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn Find(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn VCardDisplay(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn LDAPUrl(&self, lpiab: &::core::option::Option<IAddrBook>, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR) -> ::windows::core::Result<IMailUser>;
+    fn VCardCreate(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: &::core::option::Option<IMailUser>) -> ::windows::core::Result<()>;
+    fn VCardRetrieve(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpszvcard: super::super::Foundation::PSTR) -> ::windows::core::Result<IMailUser>;
+    fn GetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn SetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, sbeid: &SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWABObject_Vtbl {

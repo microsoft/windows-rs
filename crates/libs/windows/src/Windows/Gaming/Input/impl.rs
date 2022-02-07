@@ -1,14 +1,14 @@
 #[cfg(all(feature = "Foundation", feature = "System"))]
 pub trait IGameController_Impl: Sized {
-    fn HeadsetConnected(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHeadsetConnected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn HeadsetDisconnected(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveHeadsetDisconnected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn UserChanged(&mut self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUserChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Headset(&mut self) -> ::windows::core::Result<Headset>;
-    fn IsWireless(&mut self) -> ::windows::core::Result<bool>;
-    fn User(&mut self) -> ::windows::core::Result<super::super::System::User>;
+    fn HeadsetConnected(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHeadsetConnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn HeadsetDisconnected(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveHeadsetDisconnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UserChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUserChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Headset(&self) -> ::windows::core::Result<Headset>;
+    fn IsWireless(&self) -> ::windows::core::Result<bool>;
+    fn User(&self) -> ::windows::core::Result<super::super::System::User>;
 }
 #[cfg(all(feature = "Foundation", feature = "System"))]
 impl ::windows::core::RuntimeName for IGameController {
@@ -123,7 +123,7 @@ impl IGameController_Vtbl {
 }
 #[cfg(feature = "Devices_Power")]
 pub trait IGameControllerBatteryInfo_Impl: Sized {
-    fn TryGetBatteryReport(&mut self) -> ::windows::core::Result<super::super::Devices::Power::BatteryReport>;
+    fn TryGetBatteryReport(&self) -> ::windows::core::Result<super::super::Devices::Power::BatteryReport>;
 }
 #[cfg(feature = "Devices_Power")]
 impl ::windows::core::RuntimeName for IGameControllerBatteryInfo {

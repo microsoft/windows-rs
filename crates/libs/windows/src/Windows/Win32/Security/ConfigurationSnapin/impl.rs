@@ -1,8 +1,8 @@
 pub trait ISceSvcAttachmentData_Impl: Sized {
-    fn GetData(&mut self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: &::core::option::Option<ISceSvcAttachmentPersistInfo>, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn FreeBuffer(&mut self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CloseHandle(&mut self, scesvchandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetData(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: &::core::option::Option<ISceSvcAttachmentPersistInfo>, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CloseHandle(&self, scesvchandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ISceSvcAttachmentData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISceSvcAttachmentData_Impl, const OFFSET: isize>() -> ISceSvcAttachmentData_Vtbl {
@@ -40,9 +40,9 @@ impl ISceSvcAttachmentData_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISceSvcAttachmentPersistInfo_Impl: Sized {
-    fn Save(&mut self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn IsDirty(&mut self, lptemplatename: *mut i8) -> ::windows::core::Result<()>;
-    fn FreeBuffer(&mut self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsDirty(&self, lptemplatename: *mut i8) -> ::windows::core::Result<()>;
+    fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISceSvcAttachmentPersistInfo_Vtbl {

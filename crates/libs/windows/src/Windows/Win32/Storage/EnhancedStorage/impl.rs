@@ -1,11 +1,11 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT_Impl: Sized {
-    fn Authorize(&mut self, hwndparent: u32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn Unauthorize(&mut self) -> ::windows::core::Result<()>;
-    fn GetAuthorizationState(&mut self) -> ::windows::core::Result<ACT_AUTHORIZATION_STATE>;
-    fn GetMatchingVolume(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetUniqueIdentity(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetSilos(&mut self, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::core::Result<()>;
+    fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn Unauthorize(&self) -> ::windows::core::Result<()>;
+    fn GetAuthorizationState(&self) -> ::windows::core::Result<ACT_AUTHORIZATION_STATE>;
+    fn GetMatchingVolume(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetUniqueIdentity(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageACT_Vtbl {
@@ -74,8 +74,8 @@ impl IEnhancedStorageACT_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT2_Impl: Sized + IEnhancedStorageACT_Impl {
-    fn GetDeviceName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn IsDeviceRemovable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetDeviceName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn IsDeviceRemovable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageACT2_Vtbl {
@@ -114,9 +114,9 @@ impl IEnhancedStorageACT2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageACT3_Impl: Sized + IEnhancedStorageACT_Impl + IEnhancedStorageACT2_Impl {
-    fn UnauthorizeEx(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
-    fn IsQueueFrozen(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetShellExtSupport(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn UnauthorizeEx(&self, dwflags: u32) -> ::windows::core::Result<()>;
+    fn IsQueueFrozen(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetShellExtSupport(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageACT3_Vtbl {
@@ -161,11 +161,11 @@ impl IEnhancedStorageACT3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation"))]
 pub trait IEnhancedStorageSilo_Impl: Sized {
-    fn GetInfo(&mut self) -> ::windows::core::Result<SILO_INFO>;
-    fn GetActions(&mut self, pppienhancedstoragesiloactions: *mut *mut ::core::option::Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::Result<()>;
-    fn SendCommand(&mut self, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPortableDevice(&mut self) -> ::windows::core::Result<super::super::Devices::PortableDevices::IPortableDevice>;
-    fn GetDevicePath(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetInfo(&self) -> ::windows::core::Result<SILO_INFO>;
+    fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut ::core::option::Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::Result<()>;
+    fn SendCommand(&self, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPortableDevice(&self) -> ::windows::core::Result<super::super::Devices::PortableDevices::IPortableDevice>;
+    fn GetDevicePath(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation"))]
 impl IEnhancedStorageSilo_Vtbl {
@@ -228,9 +228,9 @@ impl IEnhancedStorageSilo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnhancedStorageSiloAction_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Invoke(&mut self) -> ::windows::core::Result<()>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Invoke(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageSiloAction_Vtbl {
@@ -275,8 +275,8 @@ impl IEnhancedStorageSiloAction_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumEnhancedStorageACT_Impl: Sized {
-    fn GetACTs(&mut self, pppienhancedstorageacts: *mut *mut ::core::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows::core::Result<()>;
-    fn GetMatchingACT(&mut self, szvolume: super::super::Foundation::PWSTR) -> ::windows::core::Result<IEnhancedStorageACT>;
+    fn GetACTs(&self, pppienhancedstorageacts: *mut *mut ::core::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows::core::Result<()>;
+    fn GetMatchingACT(&self, szvolume: super::super::Foundation::PWSTR) -> ::windows::core::Result<IEnhancedStorageACT>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumEnhancedStorageACT_Vtbl {

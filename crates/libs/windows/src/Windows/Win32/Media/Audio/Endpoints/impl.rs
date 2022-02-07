@@ -1,5 +1,5 @@
 pub trait IAudioEndpointFormatControl_Impl: Sized {
-    fn ResetToDefault(&mut self, resetflags: u32) -> ::windows::core::Result<()>;
+    fn ResetToDefault(&self, resetflags: u32) -> ::windows::core::Result<()>;
 }
 impl IAudioEndpointFormatControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointFormatControl_Impl, const OFFSET: isize>() -> IAudioEndpointFormatControl_Vtbl {
@@ -16,8 +16,8 @@ impl IAudioEndpointFormatControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_Apo"))]
 pub trait IAudioEndpointLastBufferControl_Impl: Sized {
-    fn IsLastBufferControlSupported(&mut self) -> super::super::super::Foundation::BOOL;
-    fn ReleaseOutputDataPointerForLastBuffer(&mut self, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY);
+    fn IsLastBufferControlSupported(&self) -> super::super::super::Foundation::BOOL;
+    fn ReleaseOutputDataPointerForLastBuffer(&self, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_Apo"))]
 impl IAudioEndpointLastBufferControl_Vtbl {
@@ -43,8 +43,8 @@ impl IAudioEndpointLastBufferControl_Vtbl {
     }
 }
 pub trait IAudioEndpointOffloadStreamMeter_Impl: Sized {
-    fn GetMeterChannelCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetMeteringData(&mut self, u32channelcount: u32) -> ::windows::core::Result<f32>;
+    fn GetMeterChannelCount(&self) -> ::windows::core::Result<u32>;
+    fn GetMeteringData(&self, u32channelcount: u32) -> ::windows::core::Result<f32>;
 }
 impl IAudioEndpointOffloadStreamMeter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointOffloadStreamMeter_Impl, const OFFSET: isize>() -> IAudioEndpointOffloadStreamMeter_Vtbl {
@@ -81,8 +81,8 @@ impl IAudioEndpointOffloadStreamMeter_Vtbl {
     }
 }
 pub trait IAudioEndpointOffloadStreamMute_Impl: Sized {
-    fn SetMute(&mut self, bmuted: u8) -> ::windows::core::Result<()>;
-    fn GetMute(&mut self) -> ::windows::core::Result<u8>;
+    fn SetMute(&self, bmuted: u8) -> ::windows::core::Result<()>;
+    fn GetMute(&self) -> ::windows::core::Result<u8>;
 }
 impl IAudioEndpointOffloadStreamMute_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointOffloadStreamMute_Impl, const OFFSET: isize>() -> IAudioEndpointOffloadStreamMute_Vtbl {
@@ -114,9 +114,9 @@ impl IAudioEndpointOffloadStreamMute_Vtbl {
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub trait IAudioEndpointOffloadStreamVolume_Impl: Sized {
-    fn GetVolumeChannelCount(&mut self) -> ::windows::core::Result<u32>;
-    fn SetChannelVolumes(&mut self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> ::windows::core::Result<()>;
-    fn GetChannelVolumes(&mut self, u32channelcount: u32) -> ::windows::core::Result<f32>;
+    fn GetVolumeChannelCount(&self) -> ::windows::core::Result<u32>;
+    fn SetChannelVolumes(&self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> ::windows::core::Result<()>;
+    fn GetChannelVolumes(&self, u32channelcount: u32) -> ::windows::core::Result<f32>;
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 impl IAudioEndpointOffloadStreamVolume_Vtbl {
@@ -161,24 +161,24 @@ impl IAudioEndpointOffloadStreamVolume_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioEndpointVolume_Impl: Sized {
-    fn RegisterControlChangeNotify(&mut self, pnotify: &::core::option::Option<IAudioEndpointVolumeCallback>) -> ::windows::core::Result<()>;
-    fn UnregisterControlChangeNotify(&mut self, pnotify: &::core::option::Option<IAudioEndpointVolumeCallback>) -> ::windows::core::Result<()>;
-    fn GetChannelCount(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMasterVolumeLevel(&mut self, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetMasterVolumeLevelScalar(&mut self, flevel: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetMasterVolumeLevel(&mut self) -> ::windows::core::Result<f32>;
-    fn GetMasterVolumeLevelScalar(&mut self) -> ::windows::core::Result<f32>;
-    fn SetChannelVolumeLevel(&mut self, nchannel: u32, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetChannelVolumeLevelScalar(&mut self, nchannel: u32, flevel: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetChannelVolumeLevel(&mut self, nchannel: u32) -> ::windows::core::Result<f32>;
-    fn GetChannelVolumeLevelScalar(&mut self, nchannel: u32) -> ::windows::core::Result<f32>;
-    fn SetMute(&mut self, bmute: super::super::super::Foundation::BOOL, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetMute(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn GetVolumeStepInfo(&mut self, pnstep: *mut u32, pnstepcount: *mut u32) -> ::windows::core::Result<()>;
-    fn VolumeStepUp(&mut self, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn VolumeStepDown(&mut self, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn QueryHardwareSupport(&mut self) -> ::windows::core::Result<u32>;
-    fn GetVolumeRange(&mut self, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::Result<()>;
+    fn RegisterControlChangeNotify(&self, pnotify: &::core::option::Option<IAudioEndpointVolumeCallback>) -> ::windows::core::Result<()>;
+    fn UnregisterControlChangeNotify(&self, pnotify: &::core::option::Option<IAudioEndpointVolumeCallback>) -> ::windows::core::Result<()>;
+    fn GetChannelCount(&self) -> ::windows::core::Result<u32>;
+    fn SetMasterVolumeLevel(&self, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetMasterVolumeLevelScalar(&self, flevel: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetMasterVolumeLevel(&self) -> ::windows::core::Result<f32>;
+    fn GetMasterVolumeLevelScalar(&self) -> ::windows::core::Result<f32>;
+    fn SetChannelVolumeLevel(&self, nchannel: u32, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetChannelVolumeLevelScalar(&self, nchannel: u32, flevel: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetChannelVolumeLevel(&self, nchannel: u32) -> ::windows::core::Result<f32>;
+    fn GetChannelVolumeLevelScalar(&self, nchannel: u32) -> ::windows::core::Result<f32>;
+    fn SetMute(&self, bmute: super::super::super::Foundation::BOOL, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetMute(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetVolumeStepInfo(&self, pnstep: *mut u32, pnstepcount: *mut u32) -> ::windows::core::Result<()>;
+    fn VolumeStepUp(&self, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn VolumeStepDown(&self, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn QueryHardwareSupport(&self) -> ::windows::core::Result<u32>;
+    fn GetVolumeRange(&self, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioEndpointVolume_Vtbl {
@@ -343,7 +343,7 @@ impl IAudioEndpointVolume_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioEndpointVolumeCallback_Impl: Sized {
-    fn OnNotify(&mut self, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows::core::Result<()>;
+    fn OnNotify(&self, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioEndpointVolumeCallback_Vtbl {
@@ -361,7 +361,7 @@ impl IAudioEndpointVolumeCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioEndpointVolumeEx_Impl: Sized + IAudioEndpointVolume_Impl {
-    fn GetVolumeRangeChannel(&mut self, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::Result<()>;
+    fn GetVolumeRangeChannel(&self, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioEndpointVolumeEx_Vtbl {
@@ -379,8 +379,8 @@ impl IAudioEndpointVolumeEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioLfxControl_Impl: Sized {
-    fn SetLocalEffectsState(&mut self, benabled: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetLocalEffectsState(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn SetLocalEffectsState(&self, benabled: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetLocalEffectsState(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioLfxControl_Vtbl {
@@ -412,10 +412,10 @@ impl IAudioLfxControl_Vtbl {
     }
 }
 pub trait IAudioMeterInformation_Impl: Sized {
-    fn GetPeakValue(&mut self) -> ::windows::core::Result<f32>;
-    fn GetMeteringChannelCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetChannelsPeakValues(&mut self, u32channelcount: u32, afpeakvalues: *mut f32) -> ::windows::core::Result<()>;
-    fn QueryHardwareSupport(&mut self) -> ::windows::core::Result<u32>;
+    fn GetPeakValue(&self) -> ::windows::core::Result<f32>;
+    fn GetMeteringChannelCount(&self) -> ::windows::core::Result<u32>;
+    fn GetChannelsPeakValues(&self, u32channelcount: u32, afpeakvalues: *mut f32) -> ::windows::core::Result<()>;
+    fn QueryHardwareSupport(&self) -> ::windows::core::Result<u32>;
 }
 impl IAudioMeterInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioMeterInformation_Impl, const OFFSET: isize>() -> IAudioMeterInformation_Vtbl {
@@ -471,11 +471,11 @@ impl IAudioMeterInformation_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHardwareAudioEngineBase_Impl: Sized {
-    fn GetAvailableOffloadConnectorCount(&mut self, _pwstrdeviceid: super::super::super::Foundation::PWSTR, _uconnectorid: u32) -> ::windows::core::Result<u32>;
-    fn GetEngineFormat(&mut self, pdevice: &::core::option::Option<super::IMMDevice>, _brequestdeviceformat: super::super::super::Foundation::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn SetEngineDeviceFormat(&mut self, pdevice: &::core::option::Option<super::IMMDevice>, _pwfxformat: *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn SetGfxState(&mut self, pdevice: &::core::option::Option<super::IMMDevice>, _benable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetGfxState(&mut self, pdevice: &::core::option::Option<super::IMMDevice>) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetAvailableOffloadConnectorCount(&self, _pwstrdeviceid: super::super::super::Foundation::PWSTR, _uconnectorid: u32) -> ::windows::core::Result<u32>;
+    fn GetEngineFormat(&self, pdevice: &::core::option::Option<super::IMMDevice>, _brequestdeviceformat: super::super::super::Foundation::BOOL, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn SetEngineDeviceFormat(&self, pdevice: &::core::option::Option<super::IMMDevice>, _pwfxformat: *mut super::WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn SetGfxState(&self, pdevice: &::core::option::Option<super::IMMDevice>, _benable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetGfxState(&self, pdevice: &::core::option::Option<super::IMMDevice>) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IHardwareAudioEngineBase_Vtbl {

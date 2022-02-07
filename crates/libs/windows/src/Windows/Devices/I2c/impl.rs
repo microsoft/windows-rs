@@ -1,8 +1,8 @@
 #[cfg(feature = "Foundation")]
 pub trait II2cDeviceStatics_Impl: Sized {
-    fn GetDeviceSelector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetDeviceSelectorFromFriendlyName(&mut self, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FromIdAsync(&mut self, deviceid: &::windows::core::HSTRING, settings: &::core::option::Option<I2cConnectionSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>;
+    fn GetDeviceSelector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FromIdAsync(&self, deviceid: &::windows::core::HSTRING, settings: &::core::option::Option<I2cConnectionSettings>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for II2cDeviceStatics {

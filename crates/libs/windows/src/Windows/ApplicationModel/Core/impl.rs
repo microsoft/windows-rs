@@ -1,7 +1,7 @@
 #[cfg(feature = "Foundation")]
 pub trait ICoreApplicationUnhandledError_Impl: Sized {
-    fn UnhandledErrorDetected(&mut self, handler: &::core::option::Option<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveUnhandledErrorDetected(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn UnhandledErrorDetected(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUnhandledErrorDetected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ICoreApplicationUnhandledError {
@@ -39,11 +39,11 @@ impl ICoreApplicationUnhandledError_Vtbl {
 }
 #[cfg(feature = "UI_Core")]
 pub trait IFrameworkView_Impl: Sized {
-    fn Initialize(&mut self, applicationview: &::core::option::Option<CoreApplicationView>) -> ::windows::core::Result<()>;
-    fn SetWindow(&mut self, window: &::core::option::Option<super::super::UI::Core::CoreWindow>) -> ::windows::core::Result<()>;
-    fn Load(&mut self, entrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Run(&mut self) -> ::windows::core::Result<()>;
-    fn Uninitialize(&mut self) -> ::windows::core::Result<()>;
+    fn Initialize(&self, applicationview: &::core::option::Option<CoreApplicationView>) -> ::windows::core::Result<()>;
+    fn SetWindow(&self, window: &::core::option::Option<super::super::UI::Core::CoreWindow>) -> ::windows::core::Result<()>;
+    fn Load(&self, entrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Run(&self) -> ::windows::core::Result<()>;
+    fn Uninitialize(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "UI_Core")]
 impl ::windows::core::RuntimeName for IFrameworkView {
@@ -91,7 +91,7 @@ impl IFrameworkView_Vtbl {
     }
 }
 pub trait IFrameworkViewSource_Impl: Sized {
-    fn CreateView(&mut self) -> ::windows::core::Result<IFrameworkView>;
+    fn CreateView(&self) -> ::windows::core::Result<IFrameworkView>;
 }
 impl ::windows::core::RuntimeName for IFrameworkViewSource {
     const NAME: &'static str = "Windows.ApplicationModel.Core.IFrameworkViewSource";

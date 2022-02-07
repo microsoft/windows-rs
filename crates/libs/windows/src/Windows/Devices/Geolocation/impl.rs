@@ -1,7 +1,7 @@
 pub trait IGeoshape_Impl: Sized {
-    fn GeoshapeType(&mut self) -> ::windows::core::Result<GeoshapeType>;
-    fn SpatialReferenceId(&mut self) -> ::windows::core::Result<u32>;
-    fn AltitudeReferenceSystem(&mut self) -> ::windows::core::Result<AltitudeReferenceSystem>;
+    fn GeoshapeType(&self) -> ::windows::core::Result<GeoshapeType>;
+    fn SpatialReferenceId(&self) -> ::windows::core::Result<u32>;
+    fn AltitudeReferenceSystem(&self) -> ::windows::core::Result<AltitudeReferenceSystem>;
 }
 impl ::windows::core::RuntimeName for IGeoshape {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoshape";

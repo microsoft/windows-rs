@@ -1,5 +1,5 @@
 pub trait ISoftwareBitmapNative_Impl: Sized {
-    fn GetData(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetData(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISoftwareBitmapNative {
     const NAME: &'static str = "";
@@ -19,8 +19,8 @@ impl ISoftwareBitmapNative_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging", feature = "Win32_Media_MediaFoundation"))]
 pub trait ISoftwareBitmapNativeFactory_Impl: Sized {
-    fn CreateFromWICBitmap(&mut self, data: &::core::option::Option<super::super::super::super::Graphics::Imaging::IWICBitmap>, forcereadonly: super::super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateFromMF2DBuffer2(&mut self, data: &::core::option::Option<super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: super::super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateFromWICBitmap(&self, data: &::core::option::Option<super::super::super::super::Graphics::Imaging::IWICBitmap>, forcereadonly: super::super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateFromMF2DBuffer2(&self, data: &::core::option::Option<super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: super::super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows::core::RuntimeName for ISoftwareBitmapNativeFactory {

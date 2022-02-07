@@ -1,22 +1,22 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIME_Impl: Sized {
-    fn Inquire(&mut self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::Result<()>;
-    fn ConversionList(&mut self, himc: super::super::super::Globalization::HIMC, szsource: super::super::super::Foundation::PWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn Configure(&mut self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::Result<()>;
-    fn Destroy(&mut self, ureserved: u32) -> ::windows::core::Result<()>;
-    fn Escape(&mut self, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
-    fn SetActiveContext(&mut self, himc: super::super::super::Globalization::HIMC, fflag: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn ProcessKey(&mut self, himc: super::super::super::Globalization::HIMC, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> ::windows::core::Result<()>;
-    fn Notify(&mut self, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()>;
-    fn Select(&mut self, himc: super::super::super::Globalization::HIMC, fselect: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetCompositionString(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
-    fn ToAsciiEx(&mut self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: super::super::super::Globalization::HIMC, pdwtransbuf: *mut u32, pusize: *mut u32) -> ::windows::core::Result<()>;
-    fn RegisterWord(&mut self, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn UnregisterWord(&mut self, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetRegisterWordStyle(&mut self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::Result<()>;
-    fn EnumRegisterWord(&mut self, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
-    fn GetCodePageA(&mut self) -> ::windows::core::Result<u32>;
-    fn GetLangId(&mut self) -> ::windows::core::Result<u16>;
+    fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::Result<()>;
+    fn ConversionList(&self, himc: super::super::super::Globalization::HIMC, szsource: super::super::super::Foundation::PWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn Configure(&self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::Result<()>;
+    fn Destroy(&self, ureserved: u32) -> ::windows::core::Result<()>;
+    fn Escape(&self, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
+    fn SetActiveContext(&self, himc: super::super::super::Globalization::HIMC, fflag: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ProcessKey(&self, himc: super::super::super::Globalization::HIMC, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> ::windows::core::Result<()>;
+    fn Notify(&self, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()>;
+    fn Select(&self, himc: super::super::super::Globalization::HIMC, fselect: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetCompositionString(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
+    fn ToAsciiEx(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: super::super::super::Globalization::HIMC, pdwtransbuf: *mut u32, pusize: *mut u32) -> ::windows::core::Result<()>;
+    fn RegisterWord(&self, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn UnregisterWord(&self, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szstring: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::Result<()>;
+    fn EnumRegisterWord(&self, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
+    fn GetCodePageA(&self) -> ::windows::core::Result<u32>;
+    fn GetLangId(&self) -> ::windows::core::Result<u16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 impl IActiveIME_Vtbl {
@@ -151,8 +151,8 @@ impl IActiveIME_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIME2_Impl: Sized + IActiveIME_Impl {
-    fn Sleep(&mut self) -> ::windows::core::Result<()>;
-    fn Unsleep(&mut self, fdead: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Sleep(&self) -> ::windows::core::Result<()>;
+    fn Unsleep(&self, fdead: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 impl IActiveIME2_Vtbl {
@@ -175,74 +175,74 @@ impl IActiveIME2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIMMApp_Impl: Sized {
-    fn AssociateContext(&mut self, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
-    fn ConfigureIMEA(&mut self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> ::windows::core::Result<()>;
-    fn ConfigureIMEW(&mut self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::Result<()>;
-    fn CreateContext(&mut self) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
-    fn DestroyContext(&mut self, hime: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
-    fn EnumRegisterWordA(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA>;
-    fn EnumRegisterWordW(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
-    fn EscapeA(&mut self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
-    fn EscapeW(&mut self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
-    fn GetCandidateListA(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCandidateListW(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCandidateListCountA(&mut self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCandidateListCountW(&mut self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCandidateWindow(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32) -> ::windows::core::Result<CANDIDATEFORM>;
-    fn GetCompositionFontA(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTA>;
-    fn GetCompositionFontW(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTW>;
-    fn GetCompositionStringA(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetCompositionStringW(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetCompositionWindow(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<COMPOSITIONFORM>;
-    fn GetContext(&mut self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
-    fn GetConversionListA(&mut self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetConversionListW(&mut self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetConversionStatus(&mut self, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDefaultIMEWnd(&mut self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
-    fn GetDescriptionA(&mut self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDescriptionW(&mut self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGuideLineA(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGuideLineW(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn GetIMEFileNameA(&mut self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetIMEFileNameW(&mut self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetOpenStatus(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, hkl: super::super::TextServices::HKL, fdwindex: u32) -> ::windows::core::Result<u32>;
-    fn GetRegisterWordStyleA(&mut self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetRegisterWordStyleW(&mut self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetStatusWindowPos(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Foundation::POINT>;
-    fn GetVirtualKey(&mut self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<u32>;
-    fn InstallIMEA(&mut self, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
-    fn InstallIMEW(&mut self, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
-    fn IsIME(&mut self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<()>;
-    fn IsUIMessageA(&mut self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn IsUIMessageW(&mut self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn NotifyIME(&mut self, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()>;
-    fn RegisterWordA(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn RegisterWordW(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ReleaseContext(&mut self, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
-    fn SetCandidateWindow(&mut self, himc: super::super::super::Globalization::HIMC, pcandidate: *const CANDIDATEFORM) -> ::windows::core::Result<()>;
-    fn SetCompositionFontA(&mut self, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()>;
-    fn SetCompositionFontW(&mut self, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>;
-    fn SetCompositionStringA(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
-    fn SetCompositionStringW(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
-    fn SetCompositionWindow(&mut self, himc: super::super::super::Globalization::HIMC, pcompform: *const COMPOSITIONFORM) -> ::windows::core::Result<()>;
-    fn SetConversionStatus(&mut self, himc: super::super::super::Globalization::HIMC, fdwconversion: u32, fdwsentence: u32) -> ::windows::core::Result<()>;
-    fn SetOpenStatus(&mut self, himc: super::super::super::Globalization::HIMC, fopen: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetStatusWindowPos(&mut self, himc: super::super::super::Globalization::HIMC, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
-    fn SimulateHotKey(&mut self, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> ::windows::core::Result<()>;
-    fn UnregisterWordA(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn UnregisterWordW(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Activate(&mut self, frestorelayout: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Deactivate(&mut self) -> ::windows::core::Result<()>;
-    fn OnDefWindowProc(&mut self, hwnd: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
-    fn FilterClientWindows(&mut self, aaclasslist: *const u16, usize: u32) -> ::windows::core::Result<()>;
-    fn GetCodePageA(&mut self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<u32>;
-    fn GetLangId(&mut self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<u16>;
-    fn AssociateContextEx(&mut self, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC, dwflags: u32) -> ::windows::core::Result<()>;
-    fn DisableIME(&mut self, idthread: u32) -> ::windows::core::Result<()>;
-    fn GetImeMenuItemsA(&mut self, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn GetImeMenuItemsW(&mut self, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn EnumInputContext(&mut self, idthread: u32) -> ::windows::core::Result<IEnumInputContext>;
+    fn AssociateContext(&self, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
+    fn ConfigureIMEA(&self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> ::windows::core::Result<()>;
+    fn ConfigureIMEW(&self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::Result<()>;
+    fn CreateContext(&self) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
+    fn DestroyContext(&self, hime: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
+    fn EnumRegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA>;
+    fn EnumRegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
+    fn EscapeA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
+    fn EscapeW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
+    fn GetCandidateListA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCandidateListW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCandidateListCountA(&self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCandidateListCountW(&self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCandidateWindow(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32) -> ::windows::core::Result<CANDIDATEFORM>;
+    fn GetCompositionFontA(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTA>;
+    fn GetCompositionFontW(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTW>;
+    fn GetCompositionStringA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetCompositionStringW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetCompositionWindow(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<COMPOSITIONFORM>;
+    fn GetContext(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
+    fn GetConversionListA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetConversionListW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetConversionStatus(&self, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDefaultIMEWnd(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
+    fn GetDescriptionA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDescriptionW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGuideLineA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGuideLineW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn GetIMEFileNameA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetIMEFileNameW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetOpenStatus(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, hkl: super::super::TextServices::HKL, fdwindex: u32) -> ::windows::core::Result<u32>;
+    fn GetRegisterWordStyleA(&self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRegisterWordStyleW(&self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStatusWindowPos(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Foundation::POINT>;
+    fn GetVirtualKey(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<u32>;
+    fn InstallIMEA(&self, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
+    fn InstallIMEW(&self, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
+    fn IsIME(&self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<()>;
+    fn IsUIMessageA(&self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn IsUIMessageW(&self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn NotifyIME(&self, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()>;
+    fn RegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn RegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ReleaseContext(&self, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
+    fn SetCandidateWindow(&self, himc: super::super::super::Globalization::HIMC, pcandidate: *const CANDIDATEFORM) -> ::windows::core::Result<()>;
+    fn SetCompositionFontA(&self, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()>;
+    fn SetCompositionFontW(&self, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>;
+    fn SetCompositionStringA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
+    fn SetCompositionStringW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
+    fn SetCompositionWindow(&self, himc: super::super::super::Globalization::HIMC, pcompform: *const COMPOSITIONFORM) -> ::windows::core::Result<()>;
+    fn SetConversionStatus(&self, himc: super::super::super::Globalization::HIMC, fdwconversion: u32, fdwsentence: u32) -> ::windows::core::Result<()>;
+    fn SetOpenStatus(&self, himc: super::super::super::Globalization::HIMC, fopen: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetStatusWindowPos(&self, himc: super::super::super::Globalization::HIMC, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn SimulateHotKey(&self, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> ::windows::core::Result<()>;
+    fn UnregisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn UnregisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Activate(&self, frestorelayout: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Deactivate(&self) -> ::windows::core::Result<()>;
+    fn OnDefWindowProc(&self, hwnd: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
+    fn FilterClientWindows(&self, aaclasslist: *const u16, usize: u32) -> ::windows::core::Result<()>;
+    fn GetCodePageA(&self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<u32>;
+    fn GetLangId(&self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<u16>;
+    fn AssociateContextEx(&self, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC, dwflags: u32) -> ::windows::core::Result<()>;
+    fn DisableIME(&self, idthread: u32) -> ::windows::core::Result<()>;
+    fn GetImeMenuItemsA(&self, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn GetImeMenuItemsW(&self, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn EnumInputContext(&self, idthread: u32) -> ::windows::core::Result<IEnumInputContext>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
 impl IActiveIMMApp_Vtbl {
@@ -779,94 +779,94 @@ impl IActiveIMMApp_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIMMIME_Impl: Sized {
-    fn AssociateContext(&mut self, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
-    fn ConfigureIMEA(&mut self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> ::windows::core::Result<()>;
-    fn ConfigureIMEW(&mut self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::Result<()>;
-    fn CreateContext(&mut self) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
-    fn DestroyContext(&mut self, hime: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
-    fn EnumRegisterWordA(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA>;
-    fn EnumRegisterWordW(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
-    fn EscapeA(&mut self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
-    fn EscapeW(&mut self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
-    fn GetCandidateListA(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCandidateListW(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCandidateListCountA(&mut self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCandidateListCountW(&mut self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCandidateWindow(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32) -> ::windows::core::Result<CANDIDATEFORM>;
-    fn GetCompositionFontA(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTA>;
-    fn GetCompositionFontW(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTW>;
-    fn GetCompositionStringA(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetCompositionStringW(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetCompositionWindow(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<COMPOSITIONFORM>;
-    fn GetContext(&mut self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
-    fn GetConversionListA(&mut self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetConversionListW(&mut self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetConversionStatus(&mut self, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDefaultIMEWnd(&mut self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
-    fn GetDescriptionA(&mut self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDescriptionW(&mut self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGuideLineA(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGuideLineW(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn GetIMEFileNameA(&mut self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetIMEFileNameW(&mut self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetOpenStatus(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, hkl: super::super::TextServices::HKL, fdwindex: u32) -> ::windows::core::Result<u32>;
-    fn GetRegisterWordStyleA(&mut self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetRegisterWordStyleW(&mut self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::Result<()>;
-    fn GetStatusWindowPos(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Foundation::POINT>;
-    fn GetVirtualKey(&mut self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<u32>;
-    fn InstallIMEA(&mut self, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
-    fn InstallIMEW(&mut self, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
-    fn IsIME(&mut self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<()>;
-    fn IsUIMessageA(&mut self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn IsUIMessageW(&mut self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn NotifyIME(&mut self, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()>;
-    fn RegisterWordA(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn RegisterWordW(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ReleaseContext(&mut self, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
-    fn SetCandidateWindow(&mut self, himc: super::super::super::Globalization::HIMC, pcandidate: *const CANDIDATEFORM) -> ::windows::core::Result<()>;
-    fn SetCompositionFontA(&mut self, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()>;
-    fn SetCompositionFontW(&mut self, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>;
-    fn SetCompositionStringA(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
-    fn SetCompositionStringW(&mut self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
-    fn SetCompositionWindow(&mut self, himc: super::super::super::Globalization::HIMC, pcompform: *const COMPOSITIONFORM) -> ::windows::core::Result<()>;
-    fn SetConversionStatus(&mut self, himc: super::super::super::Globalization::HIMC, fdwconversion: u32, fdwsentence: u32) -> ::windows::core::Result<()>;
-    fn SetOpenStatus(&mut self, himc: super::super::super::Globalization::HIMC, fopen: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetStatusWindowPos(&mut self, himc: super::super::super::Globalization::HIMC, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
-    fn SimulateHotKey(&mut self, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> ::windows::core::Result<()>;
-    fn UnregisterWordA(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn UnregisterWordW(&mut self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GenerateMessage(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
-    fn LockIMC(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<*mut INPUTCONTEXT>;
-    fn UnlockIMC(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
-    fn GetIMCLockCount(&mut self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<u32>;
-    fn CreateIMCC(&mut self, dwsize: u32) -> ::windows::core::Result<super::super::super::Globalization::HIMCC>;
-    fn DestroyIMCC(&mut self, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::Result<()>;
-    fn LockIMCC(&mut self, himcc: super::super::super::Globalization::HIMCC, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn UnlockIMCC(&mut self, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::Result<()>;
-    fn ReSizeIMCC(&mut self, himcc: super::super::super::Globalization::HIMCC, dwsize: u32) -> ::windows::core::Result<super::super::super::Globalization::HIMCC>;
-    fn GetIMCCSize(&mut self, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::Result<u32>;
-    fn GetIMCCLockCount(&mut self, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::Result<u32>;
-    fn GetHotKey(&mut self, dwhotkeyid: u32, pumodifiers: *mut u32, puvkey: *mut u32, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::Result<()>;
-    fn SetHotKey(&mut self, dwhotkeyid: u32, umodifiers: u32, uvkey: u32, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<()>;
-    fn CreateSoftKeyboard(&mut self, utype: u32, howner: super::super::super::Foundation::HWND, x: i32, y: i32) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
-    fn DestroySoftKeyboard(&mut self, hsoftkbdwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn ShowSoftKeyboard(&mut self, hsoftkbdwnd: super::super::super::Foundation::HWND, ncmdshow: i32) -> ::windows::core::Result<()>;
-    fn GetCodePageA(&mut self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<u32>;
-    fn GetLangId(&mut self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<u16>;
-    fn KeybdEvent(&mut self, lgidime: u16, bvk: u8, bscan: u8, dwflags: u32, dwextrainfo: u32) -> ::windows::core::Result<()>;
-    fn LockModal(&mut self) -> ::windows::core::Result<()>;
-    fn UnlockModal(&mut self) -> ::windows::core::Result<()>;
-    fn AssociateContextEx(&mut self, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC, dwflags: u32) -> ::windows::core::Result<()>;
-    fn DisableIME(&mut self, idthread: u32) -> ::windows::core::Result<()>;
-    fn GetImeMenuItemsA(&mut self, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn GetImeMenuItemsW(&mut self, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn EnumInputContext(&mut self, idthread: u32) -> ::windows::core::Result<IEnumInputContext>;
-    fn RequestMessageA(&mut self, himc: super::super::super::Globalization::HIMC, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
-    fn RequestMessageW(&mut self, himc: super::super::super::Globalization::HIMC, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
-    fn SendIMCA(&mut self, hwnd: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
-    fn SendIMCW(&mut self, hwnd: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
-    fn IsSleeping(&mut self) -> ::windows::core::Result<()>;
+    fn AssociateContext(&self, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
+    fn ConfigureIMEA(&self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> ::windows::core::Result<()>;
+    fn ConfigureIMEW(&self, hkl: super::super::TextServices::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> ::windows::core::Result<()>;
+    fn CreateContext(&self) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
+    fn DestroyContext(&self, hime: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
+    fn EnumRegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordA>;
+    fn EnumRegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW>;
+    fn EscapeA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
+    fn EscapeW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
+    fn GetCandidateListA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCandidateListW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, ubuflen: u32, pcandlist: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCandidateListCountA(&self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCandidateListCountW(&self, himc: super::super::super::Globalization::HIMC, pdwlistsize: *mut u32, pdwbuflen: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCandidateWindow(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32) -> ::windows::core::Result<CANDIDATEFORM>;
+    fn GetCompositionFontA(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTA>;
+    fn GetCompositionFontW(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Graphics::Gdi::LOGFONTW>;
+    fn GetCompositionStringA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetCompositionStringW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, plcopied: *mut i32, pbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetCompositionWindow(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<COMPOSITIONFORM>;
+    fn GetContext(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Globalization::HIMC>;
+    fn GetConversionListA(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetConversionListW(&self, hkl: super::super::TextServices::HKL, himc: super::super::super::Globalization::HIMC, psrc: super::super::super::Foundation::PWSTR, ubuflen: u32, uflag: u32, pdst: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetConversionStatus(&self, himc: super::super::super::Globalization::HIMC, pfdwconversion: *mut u32, pfdwsentence: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDefaultIMEWnd(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
+    fn GetDescriptionA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDescriptionW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szdescription: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGuideLineA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGuideLineW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, dwbuflen: u32, pbuf: super::super::super::Foundation::PWSTR, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn GetIMEFileNameA(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetIMEFileNameW(&self, hkl: super::super::TextServices::HKL, ubuflen: u32, szfilename: super::super::super::Foundation::PWSTR, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetOpenStatus(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, hkl: super::super::TextServices::HKL, fdwindex: u32) -> ::windows::core::Result<u32>;
+    fn GetRegisterWordStyleA(&self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFA, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRegisterWordStyleW(&self, hkl: super::super::TextServices::HKL, nitem: u32, pstylebuf: *mut STYLEBUFW, pucopied: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStatusWindowPos(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<super::super::super::Foundation::POINT>;
+    fn GetVirtualKey(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<u32>;
+    fn InstallIMEA(&self, szimefilename: super::super::super::Foundation::PSTR, szlayouttext: super::super::super::Foundation::PSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
+    fn InstallIMEW(&self, szimefilename: super::super::super::Foundation::PWSTR, szlayouttext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::TextServices::HKL>;
+    fn IsIME(&self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<()>;
+    fn IsUIMessageA(&self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn IsUIMessageW(&self, hwndime: super::super::super::Foundation::HWND, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn NotifyIME(&self, himc: super::super::super::Globalization::HIMC, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()>;
+    fn RegisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn RegisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ReleaseContext(&self, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
+    fn SetCandidateWindow(&self, himc: super::super::super::Globalization::HIMC, pcandidate: *const CANDIDATEFORM) -> ::windows::core::Result<()>;
+    fn SetCompositionFontA(&self, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> ::windows::core::Result<()>;
+    fn SetCompositionFontW(&self, himc: super::super::super::Globalization::HIMC, plf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>;
+    fn SetCompositionStringA(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
+    fn SetCompositionStringW(&self, himc: super::super::super::Globalization::HIMC, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()>;
+    fn SetCompositionWindow(&self, himc: super::super::super::Globalization::HIMC, pcompform: *const COMPOSITIONFORM) -> ::windows::core::Result<()>;
+    fn SetConversionStatus(&self, himc: super::super::super::Globalization::HIMC, fdwconversion: u32, fdwsentence: u32) -> ::windows::core::Result<()>;
+    fn SetOpenStatus(&self, himc: super::super::super::Globalization::HIMC, fopen: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetStatusWindowPos(&self, himc: super::super::super::Globalization::HIMC, pptpos: *const super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
+    fn SimulateHotKey(&self, hwnd: super::super::super::Foundation::HWND, dwhotkeyid: u32) -> ::windows::core::Result<()>;
+    fn UnregisterWordA(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn UnregisterWordW(&self, hkl: super::super::TextServices::HKL, szreading: super::super::super::Foundation::PWSTR, dwstyle: u32, szunregister: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GenerateMessage(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
+    fn LockIMC(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<*mut INPUTCONTEXT>;
+    fn UnlockIMC(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<()>;
+    fn GetIMCLockCount(&self, himc: super::super::super::Globalization::HIMC) -> ::windows::core::Result<u32>;
+    fn CreateIMCC(&self, dwsize: u32) -> ::windows::core::Result<super::super::super::Globalization::HIMCC>;
+    fn DestroyIMCC(&self, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::Result<()>;
+    fn LockIMCC(&self, himcc: super::super::super::Globalization::HIMCC, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn UnlockIMCC(&self, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::Result<()>;
+    fn ReSizeIMCC(&self, himcc: super::super::super::Globalization::HIMCC, dwsize: u32) -> ::windows::core::Result<super::super::super::Globalization::HIMCC>;
+    fn GetIMCCSize(&self, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::Result<u32>;
+    fn GetIMCCLockCount(&self, himcc: super::super::super::Globalization::HIMCC) -> ::windows::core::Result<u32>;
+    fn GetHotKey(&self, dwhotkeyid: u32, pumodifiers: *mut u32, puvkey: *mut u32, phkl: *mut super::super::TextServices::HKL) -> ::windows::core::Result<()>;
+    fn SetHotKey(&self, dwhotkeyid: u32, umodifiers: u32, uvkey: u32, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<()>;
+    fn CreateSoftKeyboard(&self, utype: u32, howner: super::super::super::Foundation::HWND, x: i32, y: i32) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
+    fn DestroySoftKeyboard(&self, hsoftkbdwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn ShowSoftKeyboard(&self, hsoftkbdwnd: super::super::super::Foundation::HWND, ncmdshow: i32) -> ::windows::core::Result<()>;
+    fn GetCodePageA(&self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<u32>;
+    fn GetLangId(&self, hkl: super::super::TextServices::HKL) -> ::windows::core::Result<u16>;
+    fn KeybdEvent(&self, lgidime: u16, bvk: u8, bscan: u8, dwflags: u32, dwextrainfo: u32) -> ::windows::core::Result<()>;
+    fn LockModal(&self) -> ::windows::core::Result<()>;
+    fn UnlockModal(&self) -> ::windows::core::Result<()>;
+    fn AssociateContextEx(&self, hwnd: super::super::super::Foundation::HWND, himc: super::super::super::Globalization::HIMC, dwflags: u32) -> ::windows::core::Result<()>;
+    fn DisableIME(&self, idthread: u32) -> ::windows::core::Result<()>;
+    fn GetImeMenuItemsA(&self, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOA, pimemenu: *mut IMEMENUITEMINFOA, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn GetImeMenuItemsW(&self, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn EnumInputContext(&self, idthread: u32) -> ::windows::core::Result<IEnumInputContext>;
+    fn RequestMessageA(&self, himc: super::super::super::Globalization::HIMC, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
+    fn RequestMessageW(&self, himc: super::super::super::Globalization::HIMC, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
+    fn SendIMCA(&self, hwnd: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
+    fn SendIMCW(&self, hwnd: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
+    fn IsSleeping(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
 impl IActiveIMMIME_Vtbl {
@@ -1583,11 +1583,11 @@ impl IActiveIMMIME_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IActiveIMMMessagePumpOwner_Impl: Sized {
-    fn Start(&mut self) -> ::windows::core::Result<()>;
-    fn End(&mut self) -> ::windows::core::Result<()>;
-    fn OnTranslateMessage(&mut self, pmsg: *const super::super::WindowsAndMessaging::MSG) -> ::windows::core::Result<()>;
-    fn Pause(&mut self) -> ::windows::core::Result<u32>;
-    fn Resume(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
+    fn Start(&self) -> ::windows::core::Result<()>;
+    fn End(&self) -> ::windows::core::Result<()>;
+    fn OnTranslateMessage(&self, pmsg: *const super::super::WindowsAndMessaging::MSG) -> ::windows::core::Result<()>;
+    fn Pause(&self) -> ::windows::core::Result<u32>;
+    fn Resume(&self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IActiveIMMMessagePumpOwner_Vtbl {
@@ -1638,8 +1638,8 @@ impl IActiveIMMMessagePumpOwner_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IActiveIMMRegistrar_Impl: Sized {
-    fn RegisterIME(&mut self, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: super::super::super::Foundation::PWSTR, pszdesc: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn UnregisterIME(&mut self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegisterIME(&self, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: super::super::super::Foundation::PWSTR, pszdesc: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn UnregisterIME(&self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IActiveIMMRegistrar_Vtbl {
@@ -1666,10 +1666,10 @@ impl IActiveIMMRegistrar_Vtbl {
 }
 #[cfg(feature = "Win32_Globalization")]
 pub trait IEnumInputContext_Impl: Sized {
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumInputContext>;
-    fn Next(&mut self, ulcount: u32, rginputcontext: *mut super::super::super::Globalization::HIMC, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, ulcount: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumInputContext>;
+    fn Next(&self, ulcount: u32, rginputcontext: *mut super::super::super::Globalization::HIMC, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Globalization")]
 impl IEnumInputContext_Vtbl {
@@ -1714,10 +1714,10 @@ impl IEnumInputContext_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumRegisterWordA_Impl: Sized {
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumRegisterWordA>;
-    fn Next(&mut self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, ulcount: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumRegisterWordA>;
+    fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumRegisterWordA_Vtbl {
@@ -1762,10 +1762,10 @@ impl IEnumRegisterWordA_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumRegisterWordW_Impl: Sized {
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumRegisterWordW>;
-    fn Next(&mut self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, ulcount: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumRegisterWordW>;
+    fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumRegisterWordW_Vtbl {
@@ -1821,10 +1821,10 @@ impl IFEClassFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFECommon_Impl: Sized {
-    fn IsDefaultIME(&mut self, szname: super::super::super::Foundation::PSTR, cszname: i32) -> ::windows::core::Result<()>;
-    fn SetDefaultIME(&mut self) -> ::windows::core::Result<()>;
-    fn InvokeWordRegDialog(&mut self, pimedlg: *mut IMEDLG) -> ::windows::core::Result<()>;
-    fn InvokeDictToolDialog(&mut self, pimedlg: *mut IMEDLG) -> ::windows::core::Result<()>;
+    fn IsDefaultIME(&self, szname: super::super::super::Foundation::PSTR, cszname: i32) -> ::windows::core::Result<()>;
+    fn SetDefaultIME(&self) -> ::windows::core::Result<()>;
+    fn InvokeWordRegDialog(&self, pimedlg: *mut IMEDLG) -> ::windows::core::Result<()>;
+    fn InvokeDictToolDialog(&self, pimedlg: *mut IMEDLG) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFECommon_Vtbl {
@@ -1863,23 +1863,23 @@ impl IFECommon_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFEDictionary_Impl: Sized {
-    fn Open(&mut self, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn GetHeader(&mut self, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::Result<()>;
-    fn DisplayProperty(&mut self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn GetPosTable(&mut self, prgpostbl: *mut *mut POSTBL, pcpostbl: *mut i32) -> ::windows::core::Result<()>;
-    fn GetWords(&mut self, pwchfirst: super::super::super::Foundation::PWSTR, pwchlast: super::super::super::Foundation::PWSTR, pwchdisplay: super::super::super::Foundation::PWSTR, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()>;
-    fn NextWords(&mut self, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()>;
-    fn Create(&mut self, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
-    fn SetHeader(&mut self, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
-    fn ExistWord(&mut self, pwrd: *mut IMEWRD) -> ::windows::core::Result<()>;
-    fn ExistDependency(&mut self, pdp: *mut IMEDP) -> ::windows::core::Result<()>;
-    fn RegisterWord(&mut self, reg: IMEREG, pwrd: *mut IMEWRD) -> ::windows::core::Result<()>;
-    fn RegisterDependency(&mut self, reg: IMEREG, pdp: *mut IMEDP) -> ::windows::core::Result<()>;
-    fn GetDependencies(&mut self, pwchkakarireading: super::super::super::Foundation::PWSTR, pwchkakaridisplay: super::super::super::Foundation::PWSTR, ulkakaripos: u32, pwchukereading: super::super::super::Foundation::PWSTR, pwchukedisplay: super::super::super::Foundation::PWSTR, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
-    fn NextDependencies(&mut self, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
-    fn ConvertFromOldMSIME(&mut self, pchdic: super::super::super::Foundation::PSTR, pfnlog: &PFNLOG, reg: IMEREG) -> ::windows::core::Result<()>;
-    fn ConvertFromUserToSys(&mut self) -> ::windows::core::Result<()>;
+    fn Open(&self, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn GetHeader(&self, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> ::windows::core::Result<()>;
+    fn DisplayProperty(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn GetPosTable(&self, prgpostbl: *mut *mut POSTBL, pcpostbl: *mut i32) -> ::windows::core::Result<()>;
+    fn GetWords(&self, pwchfirst: super::super::super::Foundation::PWSTR, pwchlast: super::super::super::Foundation::PWSTR, pwchdisplay: super::super::super::Foundation::PWSTR, ulpos: u32, ulselect: u32, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()>;
+    fn NextWords(&self, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows::core::Result<()>;
+    fn Create(&self, pchdictpath: super::super::super::Foundation::PSTR, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
+    fn SetHeader(&self, pshf: *mut IMESHF) -> ::windows::core::Result<()>;
+    fn ExistWord(&self, pwrd: *mut IMEWRD) -> ::windows::core::Result<()>;
+    fn ExistDependency(&self, pdp: *mut IMEDP) -> ::windows::core::Result<()>;
+    fn RegisterWord(&self, reg: IMEREG, pwrd: *mut IMEWRD) -> ::windows::core::Result<()>;
+    fn RegisterDependency(&self, reg: IMEREG, pdp: *mut IMEDP) -> ::windows::core::Result<()>;
+    fn GetDependencies(&self, pwchkakarireading: super::super::super::Foundation::PWSTR, pwchkakaridisplay: super::super::super::Foundation::PWSTR, ulkakaripos: u32, pwchukereading: super::super::super::Foundation::PWSTR, pwchukedisplay: super::super::super::Foundation::PWSTR, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
+    fn NextDependencies(&self, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> ::windows::core::Result<()>;
+    fn ConvertFromOldMSIME(&self, pchdic: super::super::super::Foundation::PSTR, pfnlog: &PFNLOG, reg: IMEREG) -> ::windows::core::Result<()>;
+    fn ConvertFromUserToSys(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFEDictionary_Vtbl {
@@ -1998,12 +1998,12 @@ impl IFEDictionary_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFELanguage_Impl: Sized {
-    fn Open(&mut self) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn GetJMorphResult(&mut self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: super::super::super::Foundation::PWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::Result<()>;
-    fn GetConversionModeCaps(&mut self, pdwcaps: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPhonetic(&mut self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetConversion(&mut self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Open(&self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn GetJMorphResult(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: super::super::super::Foundation::PWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::Result<()>;
+    fn GetConversionModeCaps(&self, pdwcaps: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPhonetic(&self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetConversion(&self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFELanguage_Vtbl {
@@ -2054,7 +2054,7 @@ impl IFELanguage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IImePad_Impl: Sized {
-    fn Request(&mut self, piimepadapplet: &::core::option::Option<IImePadApplet>, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn Request(&self, piimepadapplet: &::core::option::Option<IImePadApplet>, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IImePad_Vtbl {
@@ -2072,11 +2072,11 @@ impl IImePad_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IImePadApplet_Impl: Sized {
-    fn Initialize(&mut self, lpiimepad: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Terminate(&mut self) -> ::windows::core::Result<()>;
-    fn GetAppletConfig(&mut self, lpappletcfg: *mut IMEAPPLETCFG) -> ::windows::core::Result<()>;
-    fn CreateUI(&mut self, hwndparent: super::super::super::Foundation::HWND, lpimeappletui: *mut IMEAPPLETUI) -> ::windows::core::Result<()>;
-    fn Notify(&mut self, lpimepad: &::core::option::Option<::windows::core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn Initialize(&self, lpiimepad: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Terminate(&self) -> ::windows::core::Result<()>;
+    fn GetAppletConfig(&self, lpappletcfg: *mut IMEAPPLETCFG) -> ::windows::core::Result<()>;
+    fn CreateUI(&self, hwndparent: super::super::super::Foundation::HWND, lpimeappletui: *mut IMEAPPLETUI) -> ::windows::core::Result<()>;
+    fn Notify(&self, lpimepad: &::core::option::Option<::windows::core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IImePadApplet_Vtbl {
@@ -2121,8 +2121,8 @@ impl IImePadApplet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IImePlugInDictDictionaryList_Impl: Sized {
-    fn GetDictionariesInUse(&mut self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn DeleteDictionary(&mut self, bstrdictionaryguid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetDictionariesInUse(&self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn DeleteDictionary(&self, bstrdictionaryguid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IImePlugInDictDictionaryList_Vtbl {
@@ -2148,7 +2148,7 @@ impl IImePlugInDictDictionaryList_Vtbl {
     }
 }
 pub trait IImeSpecifyApplets_Impl: Sized {
-    fn GetAppletIIDList(&mut self, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::Result<()>;
+    fn GetAppletIIDList(&self, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::Result<()>;
 }
 impl IImeSpecifyApplets_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImeSpecifyApplets_Impl, const OFFSET: isize>() -> IImeSpecifyApplets_Vtbl {

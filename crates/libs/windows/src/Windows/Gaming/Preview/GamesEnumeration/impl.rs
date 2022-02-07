@@ -1,10 +1,10 @@
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IGameListEntry_Impl: Sized {
-    fn DisplayInfo(&mut self) -> ::windows::core::Result<super::super::super::ApplicationModel::AppDisplayInfo>;
-    fn LaunchAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
-    fn Category(&mut self) -> ::windows::core::Result<GameListCategory>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
-    fn SetCategoryAsync(&mut self, value: GameListCategory) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
+    fn DisplayInfo(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::AppDisplayInfo>;
+    fn LaunchAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
+    fn Category(&self) -> ::windows::core::Result<GameListCategory>;
+    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>;
+    fn SetCategoryAsync(&self, value: GameListCategory) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IGameListEntry {

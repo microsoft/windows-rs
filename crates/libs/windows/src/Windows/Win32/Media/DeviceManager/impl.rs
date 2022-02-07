@@ -1,6 +1,6 @@
 pub trait IComponentAuthenticate_Impl: Sized {
-    fn SACAuth(&mut self, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> ::windows::core::Result<()>;
-    fn SACGetProtocols(&mut self, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> ::windows::core::Result<()>;
+    fn SACAuth(&self, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> ::windows::core::Result<()>;
+    fn SACGetProtocols(&self, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IComponentAuthenticate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComponentAuthenticate_Impl, const OFFSET: isize>() -> IComponentAuthenticate_Vtbl {
@@ -26,17 +26,17 @@ impl IComponentAuthenticate_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPDevice_Impl: Sized {
-    fn GetName(&mut self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
-    fn GetManufacturer(&mut self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
-    fn GetVersion(&mut self) -> ::windows::core::Result<u32>;
-    fn GetType(&mut self) -> ::windows::core::Result<u32>;
-    fn GetSerialNumber(&mut self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn GetPowerSource(&mut self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::core::Result<()>;
-    fn GetStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn GetDeviceIcon(&mut self) -> ::windows::core::Result<u32>;
-    fn EnumStorage(&mut self) -> ::windows::core::Result<IMDSPEnumStorage>;
-    fn GetFormatSupport(&mut self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()>;
-    fn SendOpaqueCommand(&mut self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
+    fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetManufacturer(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetVersion(&self) -> ::windows::core::Result<u32>;
+    fn GetType(&self) -> ::windows::core::Result<u32>;
+    fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStatus(&self) -> ::windows::core::Result<u32>;
+    fn GetDeviceIcon(&self) -> ::windows::core::Result<u32>;
+    fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage>;
+    fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPDevice_Vtbl {
@@ -147,10 +147,10 @@ impl IMDSPDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IMDSPDevice2_Impl: Sized + IMDSPDevice_Impl {
-    fn GetStorage(&mut self, pszstoragename: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
-    fn GetFormatSupport2(&mut self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSpecifyPropertyPages(&mut self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCanonicalName(&mut self, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetStorage(&self, pszstoragename: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
+    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCanonicalName(&self, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IMDSPDevice2_Vtbl {
@@ -195,11 +195,11 @@ impl IMDSPDevice2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait IMDSPDevice3_Impl: Sized + IMDSPDevice_Impl + IMDSPDevice2_Impl {
-    fn GetProperty(&mut self, pwszpropname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetProperty(&mut self, pwszpropname: super::super::Foundation::PWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn GetFormatCapability(&mut self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY>;
-    fn DeviceIoControl(&mut self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()>;
-    fn FindStorage(&mut self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
+    fn GetProperty(&self, pwszpropname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetProperty(&self, pwszpropname: super::super::Foundation::PWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY>;
+    fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl IMDSPDevice3_Vtbl {
@@ -261,14 +261,14 @@ impl IMDSPDevice3_Vtbl {
     }
 }
 pub trait IMDSPDeviceControl_Impl: Sized {
-    fn GetDCStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn GetCapabilities(&mut self) -> ::windows::core::Result<u32>;
-    fn Play(&mut self) -> ::windows::core::Result<()>;
-    fn Record(&mut self, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn Pause(&mut self) -> ::windows::core::Result<()>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
-    fn Seek(&mut self, fumode: u32, noffset: i32) -> ::windows::core::Result<()>;
+    fn GetDCStatus(&self) -> ::windows::core::Result<u32>;
+    fn GetCapabilities(&self) -> ::windows::core::Result<u32>;
+    fn Play(&self) -> ::windows::core::Result<()>;
+    fn Record(&self, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn Pause(&self) -> ::windows::core::Result<()>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn Seek(&self, fumode: u32, noffset: i32) -> ::windows::core::Result<()>;
 }
 impl IMDSPDeviceControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMDSPDeviceControl_Impl, const OFFSET: isize>() -> IMDSPDeviceControl_Vtbl {
@@ -342,7 +342,7 @@ impl IMDSPDeviceControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPDirectTransfer_Impl: Sized {
-    fn TransferToDevice(&mut self, pwszsourcefilepath: super::super::Foundation::PWSTR, psourceoperation: &::core::option::Option<IWMDMOperation>, fuflags: u32, pwszdestinationname: super::super::Foundation::PWSTR, psourcemetadata: &::core::option::Option<IWMDMMetaData>, ptransferprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<IMDSPStorage>;
+    fn TransferToDevice(&self, pwszsourcefilepath: super::super::Foundation::PWSTR, psourceoperation: &::core::option::Option<IWMDMOperation>, fuflags: u32, pwszdestinationname: super::super::Foundation::PWSTR, psourcemetadata: &::core::option::Option<IWMDMMetaData>, ptransferprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<IMDSPStorage>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPDirectTransfer_Vtbl {
@@ -365,10 +365,10 @@ impl IMDSPDirectTransfer_Vtbl {
     }
 }
 pub trait IMDSPEnumDevice_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppdevice: *mut ::core::option::Option<IMDSPDevice>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<u32>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IMDSPEnumDevice>;
+    fn Next(&self, celt: u32, ppdevice: *mut ::core::option::Option<IMDSPDevice>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<u32>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IMDSPEnumDevice>;
 }
 impl IMDSPEnumDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMDSPEnumDevice_Impl, const OFFSET: isize>() -> IMDSPEnumDevice_Vtbl {
@@ -417,10 +417,10 @@ impl IMDSPEnumDevice_Vtbl {
     }
 }
 pub trait IMDSPEnumStorage_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppstorage: *mut ::core::option::Option<IMDSPStorage>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<u32>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IMDSPEnumStorage>;
+    fn Next(&self, celt: u32, ppstorage: *mut ::core::option::Option<IMDSPStorage>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<u32>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IMDSPEnumStorage>;
 }
 impl IMDSPEnumStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMDSPEnumStorage_Impl, const OFFSET: isize>() -> IMDSPEnumStorage_Vtbl {
@@ -470,14 +470,14 @@ impl IMDSPEnumStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPObject_Impl: Sized {
-    fn Open(&mut self, fumode: u32) -> ::windows::core::Result<()>;
-    fn Read(&mut self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn Write(&mut self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn Delete(&mut self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
-    fn Seek(&mut self, fuflags: u32, dwoffset: u32) -> ::windows::core::Result<()>;
-    fn Rename(&mut self, pwsznewname: super::super::Foundation::PWSTR, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
-    fn Move(&mut self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>, ptarget: &::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn Open(&self, fumode: u32) -> ::windows::core::Result<()>;
+    fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn Delete(&self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Seek(&self, fuflags: u32, dwoffset: u32) -> ::windows::core::Result<()>;
+    fn Rename(&self, pwsznewname: super::super::Foundation::PWSTR, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Move(&self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>, ptarget: &::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPObject_Vtbl {
@@ -540,8 +540,8 @@ impl IMDSPObject_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPObject2_Impl: Sized + IMDSPObject_Impl {
-    fn ReadOnClearChannel(&mut self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
-    fn WriteOnClearChannel(&mut self, pdata: *const u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn ReadOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn WriteOnClearChannel(&self, pdata: *const u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPObject2_Vtbl {
@@ -567,13 +567,13 @@ impl IMDSPObject2_Vtbl {
     }
 }
 pub trait IMDSPObjectInfo_Impl: Sized {
-    fn GetPlayLength(&mut self) -> ::windows::core::Result<u32>;
-    fn SetPlayLength(&mut self, dwlength: u32) -> ::windows::core::Result<()>;
-    fn GetPlayOffset(&mut self) -> ::windows::core::Result<u32>;
-    fn SetPlayOffset(&mut self, dwoffset: u32) -> ::windows::core::Result<()>;
-    fn GetTotalLength(&mut self) -> ::windows::core::Result<u32>;
-    fn GetLastPlayPosition(&mut self) -> ::windows::core::Result<u32>;
-    fn GetLongestPlayPosition(&mut self) -> ::windows::core::Result<u32>;
+    fn GetPlayLength(&self) -> ::windows::core::Result<u32>;
+    fn SetPlayLength(&self, dwlength: u32) -> ::windows::core::Result<()>;
+    fn GetPlayOffset(&self) -> ::windows::core::Result<u32>;
+    fn SetPlayOffset(&self, dwoffset: u32) -> ::windows::core::Result<()>;
+    fn GetTotalLength(&self) -> ::windows::core::Result<u32>;
+    fn GetLastPlayPosition(&self) -> ::windows::core::Result<u32>;
+    fn GetLongestPlayPosition(&self) -> ::windows::core::Result<u32>;
 }
 impl IMDSPObjectInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMDSPObjectInfo_Impl, const OFFSET: isize>() -> IMDSPObjectInfo_Vtbl {
@@ -659,7 +659,7 @@ impl IMDSPObjectInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPRevoked_Impl: Sized {
-    fn GetRevocationURL(&mut self, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRevocationURL(&self, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPRevoked_Vtbl {
@@ -677,16 +677,16 @@ impl IMDSPRevoked_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPStorage_Impl: Sized {
-    fn SetAttributes(&mut self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn GetStorageGlobals(&mut self) -> ::windows::core::Result<IMDSPStorageGlobals>;
-    fn GetAttributes(&mut self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn GetName(&mut self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
-    fn GetDate(&mut self) -> ::windows::core::Result<WMDMDATETIME>;
-    fn GetSize(&mut self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()>;
-    fn GetRights(&mut self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn CreateStorage(&mut self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
-    fn EnumStorage(&mut self) -> ::windows::core::Result<IMDSPEnumStorage>;
-    fn SendOpaqueCommand(&mut self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
+    fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn GetStorageGlobals(&self) -> ::windows::core::Result<IMDSPStorageGlobals>;
+    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME>;
+    fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn CreateStorage(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
+    fn EnumStorage(&self) -> ::windows::core::Result<IMDSPEnumStorage>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPStorage_Vtbl {
@@ -785,10 +785,10 @@ impl IMDSPStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPStorage2_Impl: Sized + IMDSPStorage_Impl {
-    fn GetStorage(&mut self, pszstoragename: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
-    fn CreateStorage2(&mut self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: super::super::Foundation::PWSTR, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>;
-    fn SetAttributes2(&mut self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
-    fn GetAttributes2(&mut self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn GetStorage(&self, pszstoragename: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
+    fn CreateStorage2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: super::super::Foundation::PWSTR, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>;
+    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPStorage2_Vtbl {
@@ -839,8 +839,8 @@ impl IMDSPStorage2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPStorage3_Impl: Sized + IMDSPStorage_Impl + IMDSPStorage2_Impl {
-    fn GetMetadata(&mut self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
-    fn SetMetadata(&mut self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
+    fn GetMetadata(&self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
+    fn SetMetadata(&self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPStorage3_Vtbl {
@@ -867,12 +867,12 @@ impl IMDSPStorage3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDSPStorage4_Impl: Sized + IMDSPStorage_Impl + IMDSPStorage2_Impl + IMDSPStorage3_Impl {
-    fn SetReferences(&mut self, dwrefs: u32, ppispstorage: *const ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
-    fn GetReferences(&mut self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
-    fn CreateStorageWithMetadata(&mut self, dwattributes: u32, pwszname: super::super::Foundation::PWSTR, pmetadata: &::core::option::Option<IWMDMMetaData>, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>;
-    fn GetSpecifiedMetadata(&mut self, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
-    fn FindStorage(&mut self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
-    fn GetParent(&mut self) -> ::windows::core::Result<IMDSPStorage>;
+    fn SetReferences(&self, dwrefs: u32, ppispstorage: *const ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
+    fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()>;
+    fn CreateStorageWithMetadata(&self, dwattributes: u32, pwszname: super::super::Foundation::PWSTR, pmetadata: &::core::option::Option<IWMDMMetaData>, qwfilesize: u64) -> ::windows::core::Result<IMDSPStorage>;
+    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IMDSPStorage>;
+    fn GetParent(&self) -> ::windows::core::Result<IMDSPStorage>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDSPStorage4_Vtbl {
@@ -940,15 +940,15 @@ impl IMDSPStorage4_Vtbl {
     }
 }
 pub trait IMDSPStorageGlobals_Impl: Sized {
-    fn GetCapabilities(&mut self) -> ::windows::core::Result<u32>;
-    fn GetSerialNumber(&mut self, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn GetTotalSize(&mut self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::core::Result<()>;
-    fn GetTotalFree(&mut self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::core::Result<()>;
-    fn GetTotalBad(&mut self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::core::Result<()>;
-    fn GetStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn Initialize(&mut self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
-    fn GetDevice(&mut self) -> ::windows::core::Result<IMDSPDevice>;
-    fn GetRootStorage(&mut self) -> ::windows::core::Result<IMDSPStorage>;
+    fn GetCapabilities(&self) -> ::windows::core::Result<u32>;
+    fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::core::Result<()>;
+    fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::core::Result<()>;
+    fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStatus(&self) -> ::windows::core::Result<u32>;
+    fn Initialize(&self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn GetDevice(&self) -> ::windows::core::Result<IMDSPDevice>;
+    fn GetRootStorage(&self) -> ::windows::core::Result<IMDSPStorage>;
 }
 impl IMDSPStorageGlobals_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMDSPStorageGlobals_Impl, const OFFSET: isize>() -> IMDSPStorageGlobals_Vtbl {
@@ -1039,8 +1039,8 @@ impl IMDSPStorageGlobals_Vtbl {
     }
 }
 pub trait IMDServiceProvider_Impl: Sized {
-    fn GetDeviceCount(&mut self) -> ::windows::core::Result<u32>;
-    fn EnumDevices(&mut self) -> ::windows::core::Result<IMDSPEnumDevice>;
+    fn GetDeviceCount(&self) -> ::windows::core::Result<u32>;
+    fn EnumDevices(&self) -> ::windows::core::Result<IMDSPEnumDevice>;
 }
 impl IMDServiceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMDServiceProvider_Impl, const OFFSET: isize>() -> IMDServiceProvider_Vtbl {
@@ -1078,7 +1078,7 @@ impl IMDServiceProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDServiceProvider2_Impl: Sized + IMDServiceProvider_Impl {
-    fn CreateDevice(&mut self, pwszdevicepath: super::super::Foundation::PWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, pwszdevicepath: super::super::Foundation::PWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut ::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDServiceProvider2_Vtbl {
@@ -1096,7 +1096,7 @@ impl IMDServiceProvider2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMDServiceProvider3_Impl: Sized + IMDServiceProvider_Impl + IMDServiceProvider2_Impl {
-    fn SetDeviceEnumPreference(&mut self, dwenumpref: u32) -> ::windows::core::Result<()>;
+    fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMDServiceProvider3_Vtbl {
@@ -1113,7 +1113,7 @@ impl IMDServiceProvider3_Vtbl {
     }
 }
 pub trait ISCPSecureAuthenticate_Impl: Sized {
-    fn GetSecureQuery(&mut self) -> ::windows::core::Result<ISCPSecureQuery>;
+    fn GetSecureQuery(&self) -> ::windows::core::Result<ISCPSecureQuery>;
 }
 impl ISCPSecureAuthenticate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISCPSecureAuthenticate_Impl, const OFFSET: isize>() -> ISCPSecureAuthenticate_Vtbl {
@@ -1135,7 +1135,7 @@ impl ISCPSecureAuthenticate_Vtbl {
     }
 }
 pub trait ISCPSecureAuthenticate2_Impl: Sized + ISCPSecureAuthenticate_Impl {
-    fn GetSCPSession(&mut self) -> ::windows::core::Result<ISCPSession>;
+    fn GetSCPSession(&self) -> ::windows::core::Result<ISCPSession>;
 }
 impl ISCPSecureAuthenticate2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISCPSecureAuthenticate2_Impl, const OFFSET: isize>() -> ISCPSecureAuthenticate2_Vtbl {
@@ -1157,9 +1157,9 @@ impl ISCPSecureAuthenticate2_Vtbl {
     }
 }
 pub trait ISCPSecureExchange_Impl: Sized {
-    fn TransferContainerData(&mut self, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn ObjectData(&mut self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn TransferComplete(&mut self) -> ::windows::core::Result<()>;
+    fn TransferContainerData(&self, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn TransferComplete(&self) -> ::windows::core::Result<()>;
 }
 impl ISCPSecureExchange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISCPSecureExchange_Impl, const OFFSET: isize>() -> ISCPSecureExchange_Vtbl {
@@ -1190,7 +1190,7 @@ impl ISCPSecureExchange_Vtbl {
     }
 }
 pub trait ISCPSecureExchange2_Impl: Sized + ISCPSecureExchange_Impl {
-    fn TransferContainerData2(&mut self, pdata: *const u8, dwsize: u32, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn TransferContainerData2(&self, pdata: *const u8, dwsize: u32, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
 }
 impl ISCPSecureExchange2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISCPSecureExchange2_Impl, const OFFSET: isize>() -> ISCPSecureExchange2_Vtbl {
@@ -1206,9 +1206,9 @@ impl ISCPSecureExchange2_Vtbl {
     }
 }
 pub trait ISCPSecureExchange3_Impl: Sized + ISCPSecureExchange_Impl + ISCPSecureExchange2_Impl {
-    fn TransferContainerDataOnClearChannel(&mut self, pdevice: &::core::option::Option<IMDSPDevice>, pdata: *const u8, dwsize: u32, pprogresscallback: &::core::option::Option<IWMDMProgress3>) -> ::windows::core::Result<u32>;
-    fn GetObjectDataOnClearChannel(&mut self, pdevice: &::core::option::Option<IMDSPDevice>, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
-    fn TransferCompleteForDevice(&mut self, pdevice: &::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>;
+    fn TransferContainerDataOnClearChannel(&self, pdevice: &::core::option::Option<IMDSPDevice>, pdata: *const u8, dwsize: u32, pprogresscallback: &::core::option::Option<IWMDMProgress3>) -> ::windows::core::Result<u32>;
+    fn GetObjectDataOnClearChannel(&self, pdevice: &::core::option::Option<IMDSPDevice>, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn TransferCompleteForDevice(&self, pdevice: &::core::option::Option<IMDSPDevice>) -> ::windows::core::Result<()>;
 }
 impl ISCPSecureExchange3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISCPSecureExchange3_Impl, const OFFSET: isize>() -> ISCPSecureExchange3_Vtbl {
@@ -1246,10 +1246,10 @@ impl ISCPSecureExchange3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISCPSecureQuery_Impl: Sized {
-    fn GetDataDemands(&mut self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn ExamineData(&mut self, fuflags: u32, pwszextension: super::super::Foundation::PWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn MakeDecision(&mut self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: &::core::option::Option<IMDSPStorageGlobals>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn GetRights(&mut self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: &::core::option::Option<IMDSPStorageGlobals>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn ExamineData(&self, fuflags: u32, pwszextension: super::super::Foundation::PWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn MakeDecision(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: &::core::option::Option<IMDSPStorageGlobals>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn GetRights(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: &::core::option::Option<IMDSPStorageGlobals>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISCPSecureQuery_Vtbl {
@@ -1288,7 +1288,7 @@ impl ISCPSecureQuery_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISCPSecureQuery2_Impl: Sized + ISCPSecureQuery_Impl {
-    fn MakeDecision2(&mut self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: &::core::option::Option<IMDSPStorageGlobals>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: &::core::option::Option<::windows::core::IUnknown>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn MakeDecision2(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: &::core::option::Option<IMDSPStorageGlobals>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: &::core::option::Option<::windows::core::IUnknown>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISCPSecureQuery2_Vtbl {
@@ -1327,8 +1327,8 @@ impl ISCPSecureQuery2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISCPSecureQuery3_Impl: Sized + ISCPSecureQuery_Impl + ISCPSecureQuery2_Impl {
-    fn GetRightsOnClearChannel(&mut self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: &::core::option::Option<IMDSPStorageGlobals>, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
-    fn MakeDecisionOnClearChannel(&mut self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: &::core::option::Option<IMDSPStorageGlobals>, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: &::core::option::Option<::windows::core::IUnknown>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()>;
+    fn GetRightsOnClearChannel(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: &::core::option::Option<IMDSPStorageGlobals>, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
+    fn MakeDecisionOnClearChannel(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: &::core::option::Option<IMDSPStorageGlobals>, pprogresscallback: &::core::option::Option<IWMDMProgress3>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: &::core::option::Option<::windows::core::IUnknown>, ppexchange: *mut ::core::option::Option<ISCPSecureExchange>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISCPSecureQuery3_Vtbl {
@@ -1375,9 +1375,9 @@ impl ISCPSecureQuery3_Vtbl {
     }
 }
 pub trait ISCPSession_Impl: Sized {
-    fn BeginSession(&mut self, pidevice: &::core::option::Option<IMDSPDevice>, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
-    fn EndSession(&mut self, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
-    fn GetSecureQuery(&mut self) -> ::windows::core::Result<ISCPSecureQuery>;
+    fn BeginSession(&self, pidevice: &::core::option::Option<IMDSPDevice>, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
+    fn EndSession(&self, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
+    fn GetSecureQuery(&self) -> ::windows::core::Result<ISCPSecureQuery>;
 }
 impl ISCPSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISCPSession_Impl, const OFFSET: isize>() -> ISCPSession_Vtbl {
@@ -1415,17 +1415,17 @@ impl ISCPSession_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMDevice_Impl: Sized {
-    fn GetName(&mut self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
-    fn GetManufacturer(&mut self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
-    fn GetVersion(&mut self) -> ::windows::core::Result<u32>;
-    fn GetType(&mut self) -> ::windows::core::Result<u32>;
-    fn GetSerialNumber(&mut self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn GetPowerSource(&mut self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::core::Result<()>;
-    fn GetStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn GetDeviceIcon(&mut self) -> ::windows::core::Result<u32>;
-    fn EnumStorage(&mut self) -> ::windows::core::Result<IWMDMEnumStorage>;
-    fn GetFormatSupport(&mut self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()>;
-    fn SendOpaqueCommand(&mut self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
+    fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetManufacturer(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetVersion(&self) -> ::windows::core::Result<u32>;
+    fn GetType(&self) -> ::windows::core::Result<u32>;
+    fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStatus(&self) -> ::windows::core::Result<u32>;
+    fn GetDeviceIcon(&self) -> ::windows::core::Result<u32>;
+    fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage>;
+    fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::core::Result<()>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMDevice_Vtbl {
@@ -1536,10 +1536,10 @@ impl IWMDMDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IWMDMDevice2_Impl: Sized + IWMDMDevice_Impl {
-    fn GetStorage(&mut self, pszstoragename: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMStorage>;
-    fn GetFormatSupport2(&mut self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSpecifyPropertyPages(&mut self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCanonicalName(&mut self, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetStorage(&self, pszstoragename: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMStorage>;
+    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::core::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::core::option::Option<::windows::core::IUnknown>, pcunks: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCanonicalName(&self, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IWMDMDevice2_Vtbl {
@@ -1584,11 +1584,11 @@ impl IWMDMDevice2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait IWMDMDevice3_Impl: Sized + IWMDMDevice_Impl + IWMDMDevice2_Impl {
-    fn GetProperty(&mut self, pwszpropname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetProperty(&mut self, pwszpropname: super::super::Foundation::PWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn GetFormatCapability(&mut self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY>;
-    fn DeviceIoControl(&mut self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()>;
-    fn FindStorage(&mut self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMStorage>;
+    fn GetProperty(&self, pwszpropname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetProperty(&self, pwszpropname: super::super::Foundation::PWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::core::Result<WMDM_FORMAT_CAPABILITY>;
+    fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::core::Result<()>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMStorage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl IWMDMDevice3_Vtbl {
@@ -1650,14 +1650,14 @@ impl IWMDMDevice3_Vtbl {
     }
 }
 pub trait IWMDMDeviceControl_Impl: Sized {
-    fn GetStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn GetCapabilities(&mut self) -> ::windows::core::Result<u32>;
-    fn Play(&mut self) -> ::windows::core::Result<()>;
-    fn Record(&mut self, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn Pause(&mut self) -> ::windows::core::Result<()>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
-    fn Seek(&mut self, fumode: u32, noffset: i32) -> ::windows::core::Result<()>;
+    fn GetStatus(&self) -> ::windows::core::Result<u32>;
+    fn GetCapabilities(&self) -> ::windows::core::Result<u32>;
+    fn Play(&self) -> ::windows::core::Result<()>;
+    fn Record(&self, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn Pause(&self) -> ::windows::core::Result<()>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn Seek(&self, fumode: u32, noffset: i32) -> ::windows::core::Result<()>;
 }
 impl IWMDMDeviceControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMDeviceControl_Impl, const OFFSET: isize>() -> IWMDMDeviceControl_Vtbl {
@@ -1730,8 +1730,8 @@ impl IWMDMDeviceControl_Vtbl {
     }
 }
 pub trait IWMDMDeviceSession_Impl: Sized {
-    fn BeginSession(&mut self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
-    fn EndSession(&mut self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
+    fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
+    fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::Result<()>;
 }
 impl IWMDMDeviceSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMDeviceSession_Impl, const OFFSET: isize>() -> IWMDMDeviceSession_Vtbl {
@@ -1756,10 +1756,10 @@ impl IWMDMDeviceSession_Vtbl {
     }
 }
 pub trait IWMDMEnumDevice_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppdevice: *mut ::core::option::Option<IWMDMDevice>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<u32>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IWMDMEnumDevice>;
+    fn Next(&self, celt: u32, ppdevice: *mut ::core::option::Option<IWMDMDevice>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<u32>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IWMDMEnumDevice>;
 }
 impl IWMDMEnumDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMEnumDevice_Impl, const OFFSET: isize>() -> IWMDMEnumDevice_Vtbl {
@@ -1808,10 +1808,10 @@ impl IWMDMEnumDevice_Vtbl {
     }
 }
 pub trait IWMDMEnumStorage_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppstorage: *mut ::core::option::Option<IWMDMStorage>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<u32>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IWMDMEnumStorage>;
+    fn Next(&self, celt: u32, ppstorage: *mut ::core::option::Option<IWMDMStorage>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<u32>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IWMDMEnumStorage>;
 }
 impl IWMDMEnumStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMEnumStorage_Impl, const OFFSET: isize>() -> IWMDMEnumStorage_Vtbl {
@@ -1861,15 +1861,15 @@ impl IWMDMEnumStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMLogger_Impl: Sized {
-    fn IsEnabled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Enable(&mut self, fenable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetLogFileName(&mut self, pszfilename: super::super::Foundation::PSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
-    fn SetLogFileName(&mut self, pszfilename: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn LogString(&mut self, dwflags: u32, pszsrcname: super::super::Foundation::PSTR, pszlog: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn LogDword(&mut self, dwflags: u32, pszsrcname: super::super::Foundation::PSTR, pszlogformat: super::super::Foundation::PSTR, dwlog: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn GetSizeParams(&mut self, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> ::windows::core::Result<()>;
-    fn SetSizeParams(&mut self, dwmaxsize: u32, dwshrinktosize: u32) -> ::windows::core::Result<()>;
+    fn IsEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Enable(&self, fenable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetLogFileName(&self, pszfilename: super::super::Foundation::PSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn SetLogFileName(&self, pszfilename: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn LogString(&self, dwflags: u32, pszsrcname: super::super::Foundation::PSTR, pszlog: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn LogDword(&self, dwflags: u32, pszsrcname: super::super::Foundation::PSTR, pszlogformat: super::super::Foundation::PSTR, dwlog: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn GetSizeParams(&self, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> ::windows::core::Result<()>;
+    fn SetSizeParams(&self, dwmaxsize: u32, dwshrinktosize: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMLogger_Vtbl {
@@ -1944,10 +1944,10 @@ impl IWMDMLogger_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMMetaData_Impl: Sized {
-    fn AddItem(&mut self, r#type: WMDM_TAG_DATATYPE, pwsztagname: super::super::Foundation::PWSTR, pvalue: *const u8, ilength: u32) -> ::windows::core::Result<()>;
-    fn QueryByName(&mut self, pwsztagname: super::super::Foundation::PWSTR, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()>;
-    fn QueryByIndex(&mut self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()>;
-    fn GetItemCount(&mut self) -> ::windows::core::Result<u32>;
+    fn AddItem(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: super::super::Foundation::PWSTR, pvalue: *const u8, ilength: u32) -> ::windows::core::Result<()>;
+    fn QueryByName(&self, pwsztagname: super::super::Foundation::PWSTR, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()>;
+    fn QueryByIndex(&self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetItemCount(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMMetaData_Vtbl {
@@ -1992,7 +1992,7 @@ impl IWMDMMetaData_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMNotification_Impl: Sized {
-    fn WMDMMessage(&mut self, dwmessagetype: u32, pwszcanonicalname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn WMDMMessage(&self, dwmessagetype: u32, pwszcanonicalname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMNotification_Vtbl {
@@ -2009,13 +2009,13 @@ impl IWMDMNotification_Vtbl {
     }
 }
 pub trait IWMDMObjectInfo_Impl: Sized {
-    fn GetPlayLength(&mut self) -> ::windows::core::Result<u32>;
-    fn SetPlayLength(&mut self, dwlength: u32) -> ::windows::core::Result<()>;
-    fn GetPlayOffset(&mut self) -> ::windows::core::Result<u32>;
-    fn SetPlayOffset(&mut self, dwoffset: u32) -> ::windows::core::Result<()>;
-    fn GetTotalLength(&mut self) -> ::windows::core::Result<u32>;
-    fn GetLastPlayPosition(&mut self) -> ::windows::core::Result<u32>;
-    fn GetLongestPlayPosition(&mut self) -> ::windows::core::Result<u32>;
+    fn GetPlayLength(&self) -> ::windows::core::Result<u32>;
+    fn SetPlayLength(&self, dwlength: u32) -> ::windows::core::Result<()>;
+    fn GetPlayOffset(&self) -> ::windows::core::Result<u32>;
+    fn SetPlayOffset(&self, dwoffset: u32) -> ::windows::core::Result<()>;
+    fn GetTotalLength(&self) -> ::windows::core::Result<u32>;
+    fn GetLastPlayPosition(&self) -> ::windows::core::Result<u32>;
+    fn GetLongestPlayPosition(&self) -> ::windows::core::Result<u32>;
 }
 impl IWMDMObjectInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMObjectInfo_Impl, const OFFSET: isize>() -> IWMDMObjectInfo_Vtbl {
@@ -2101,16 +2101,16 @@ impl IWMDMObjectInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMOperation_Impl: Sized {
-    fn BeginRead(&mut self) -> ::windows::core::Result<()>;
-    fn BeginWrite(&mut self) -> ::windows::core::Result<()>;
-    fn GetObjectName(&mut self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
-    fn SetObjectName(&mut self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
-    fn GetObjectAttributes(&mut self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn SetObjectAttributes(&mut self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn GetObjectTotalSize(&mut self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()>;
-    fn SetObjectTotalSize(&mut self, dwsize: u32, dwsizehigh: u32) -> ::windows::core::Result<()>;
-    fn TransferObjectData(&mut self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn End(&mut self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn BeginRead(&self) -> ::windows::core::Result<()>;
+    fn BeginWrite(&self) -> ::windows::core::Result<()>;
+    fn GetObjectName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn SetObjectName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()>;
+    fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> ::windows::core::Result<()>;
+    fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn End(&self, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMOperation_Vtbl {
@@ -2185,8 +2185,8 @@ impl IWMDMOperation_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMOperation2_Impl: Sized + IWMDMOperation_Impl {
-    fn SetObjectAttributes2(&mut self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
-    fn GetObjectAttributes2(&mut self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMOperation2_Vtbl {
@@ -2213,7 +2213,7 @@ impl IWMDMOperation2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMOperation3_Impl: Sized + IWMDMOperation_Impl {
-    fn TransferObjectDataOnClearChannel(&mut self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMOperation3_Vtbl {
@@ -2233,9 +2233,9 @@ impl IWMDMOperation3_Vtbl {
     }
 }
 pub trait IWMDMProgress_Impl: Sized {
-    fn Begin(&mut self, dwestimatedticks: u32) -> ::windows::core::Result<()>;
-    fn Progress(&mut self, dwtranspiredticks: u32) -> ::windows::core::Result<()>;
-    fn End(&mut self) -> ::windows::core::Result<()>;
+    fn Begin(&self, dwestimatedticks: u32) -> ::windows::core::Result<()>;
+    fn Progress(&self, dwtranspiredticks: u32) -> ::windows::core::Result<()>;
+    fn End(&self) -> ::windows::core::Result<()>;
 }
 impl IWMDMProgress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMProgress_Impl, const OFFSET: isize>() -> IWMDMProgress_Vtbl {
@@ -2266,7 +2266,7 @@ impl IWMDMProgress_Vtbl {
     }
 }
 pub trait IWMDMProgress2_Impl: Sized + IWMDMProgress_Impl {
-    fn End2(&mut self, hrcompletioncode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn End2(&self, hrcompletioncode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl IWMDMProgress2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMProgress2_Impl, const OFFSET: isize>() -> IWMDMProgress2_Vtbl {
@@ -2282,9 +2282,9 @@ impl IWMDMProgress2_Vtbl {
     }
 }
 pub trait IWMDMProgress3_Impl: Sized + IWMDMProgress_Impl + IWMDMProgress2_Impl {
-    fn Begin3(&mut self, eventid: &::windows::core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
-    fn Progress3(&mut self, eventid: &::windows::core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
-    fn End3(&mut self, eventid: &::windows::core::GUID, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
+    fn Begin3(&self, eventid: &::windows::core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
+    fn Progress3(&self, eventid: &::windows::core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
+    fn End3(&self, eventid: &::windows::core::GUID, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
 }
 impl IWMDMProgress3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMProgress3_Impl, const OFFSET: isize>() -> IWMDMProgress3_Vtbl {
@@ -2316,7 +2316,7 @@ impl IWMDMProgress3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMRevoked_Impl: Sized {
-    fn GetRevocationURL(&mut self, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRevocationURL(&self, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMRevoked_Vtbl {
@@ -2334,15 +2334,15 @@ impl IWMDMRevoked_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorage_Impl: Sized {
-    fn SetAttributes(&mut self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn GetStorageGlobals(&mut self) -> ::windows::core::Result<IWMDMStorageGlobals>;
-    fn GetAttributes(&mut self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()>;
-    fn GetName(&mut self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
-    fn GetDate(&mut self) -> ::windows::core::Result<WMDMDATETIME>;
-    fn GetSize(&mut self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()>;
-    fn GetRights(&mut self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn EnumStorage(&mut self) -> ::windows::core::Result<IWMDMEnumStorage>;
-    fn SendOpaqueCommand(&mut self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
+    fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn GetStorageGlobals(&self) -> ::windows::core::Result<IWMDMStorageGlobals>;
+    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::core::Result<()>;
+    fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetDate(&self) -> ::windows::core::Result<WMDMDATETIME>;
+    fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn EnumStorage(&self) -> ::windows::core::Result<IWMDMEnumStorage>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMStorage_Vtbl {
@@ -2429,9 +2429,9 @@ impl IWMDMStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorage2_Impl: Sized + IWMDMStorage_Impl {
-    fn GetStorage(&mut self, pszstoragename: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMStorage>;
-    fn SetAttributes2(&mut self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
-    fn GetAttributes2(&mut self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn GetStorage(&self, pszstoragename: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMStorage>;
+    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
+    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMStorage2_Vtbl {
@@ -2470,10 +2470,10 @@ impl IWMDMStorage2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorage3_Impl: Sized + IWMDMStorage_Impl + IWMDMStorage2_Impl {
-    fn GetMetadata(&mut self) -> ::windows::core::Result<IWMDMMetaData>;
-    fn SetMetadata(&mut self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
-    fn CreateEmptyMetadataObject(&mut self) -> ::windows::core::Result<IWMDMMetaData>;
-    fn SetEnumPreference(&mut self, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> ::windows::core::Result<()>;
+    fn GetMetadata(&self) -> ::windows::core::Result<IWMDMMetaData>;
+    fn SetMetadata(&self, pmetadata: &::core::option::Option<IWMDMMetaData>) -> ::windows::core::Result<()>;
+    fn CreateEmptyMetadataObject(&self) -> ::windows::core::Result<IWMDMMetaData>;
+    fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMStorage3_Vtbl {
@@ -2524,12 +2524,12 @@ impl IWMDMStorage3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorage4_Impl: Sized + IWMDMStorage_Impl + IWMDMStorage2_Impl + IWMDMStorage3_Impl {
-    fn SetReferences(&mut self, dwrefs: u32, ppiwmdmstorage: *const ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
-    fn GetReferences(&mut self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
-    fn GetRightsWithProgress(&mut self, piprogresscallback: &::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSpecifiedMetadata(&mut self, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMMetaData>;
-    fn FindStorage(&mut self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMStorage>;
-    fn GetParent(&mut self) -> ::windows::core::Result<IWMDMStorage>;
+    fn SetReferences(&self, dwrefs: u32, ppiwmdmstorage: *const ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
+    fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
+    fn GetRightsWithProgress(&self, piprogresscallback: &::core::option::Option<IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMMetaData>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMStorage>;
+    fn GetParent(&self) -> ::windows::core::Result<IWMDMStorage>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMStorage4_Vtbl {
@@ -2598,11 +2598,11 @@ impl IWMDMStorage4_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorageControl_Impl: Sized {
-    fn Insert(&mut self, fumode: u32, pwszfile: super::super::Foundation::PWSTR, poperation: &::core::option::Option<IWMDMOperation>, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<IWMDMStorage>;
-    fn Delete(&mut self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
-    fn Rename(&mut self, fumode: u32, pwsznewname: super::super::Foundation::PWSTR, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
-    fn Read(&mut self, fumode: u32, pwszfile: super::super::Foundation::PWSTR, pprogress: &::core::option::Option<IWMDMProgress>, poperation: &::core::option::Option<IWMDMOperation>) -> ::windows::core::Result<()>;
-    fn Move(&mut self, fumode: u32, ptargetobject: &::core::option::Option<IWMDMStorage>, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Insert(&self, fumode: u32, pwszfile: super::super::Foundation::PWSTR, poperation: &::core::option::Option<IWMDMOperation>, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<IWMDMStorage>;
+    fn Delete(&self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Rename(&self, fumode: u32, pwsznewname: super::super::Foundation::PWSTR, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn Read(&self, fumode: u32, pwszfile: super::super::Foundation::PWSTR, pprogress: &::core::option::Option<IWMDMProgress>, poperation: &::core::option::Option<IWMDMOperation>) -> ::windows::core::Result<()>;
+    fn Move(&self, fumode: u32, ptargetobject: &::core::option::Option<IWMDMStorage>, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMStorageControl_Vtbl {
@@ -2653,7 +2653,7 @@ impl IWMDMStorageControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorageControl2_Impl: Sized + IWMDMStorageControl_Impl {
-    fn Insert2(&mut self, fumode: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: &::core::option::Option<IWMDMOperation>, pprogress: &::core::option::Option<IWMDMProgress>, punknown: &::core::option::Option<::windows::core::IUnknown>, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
+    fn Insert2(&self, fumode: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: &::core::option::Option<IWMDMOperation>, pprogress: &::core::option::Option<IWMDMProgress>, punknown: &::core::option::Option<::windows::core::IUnknown>, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMStorageControl2_Vtbl {
@@ -2671,7 +2671,7 @@ impl IWMDMStorageControl2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDMStorageControl3_Impl: Sized + IWMDMStorageControl_Impl + IWMDMStorageControl2_Impl {
-    fn Insert3(&mut self, fumode: u32, futype: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: &::core::option::Option<IWMDMOperation>, pprogress: &::core::option::Option<IWMDMProgress>, pmetadata: &::core::option::Option<IWMDMMetaData>, punknown: &::core::option::Option<::windows::core::IUnknown>, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
+    fn Insert3(&self, fumode: u32, futype: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: &::core::option::Option<IWMDMOperation>, pprogress: &::core::option::Option<IWMDMProgress>, pmetadata: &::core::option::Option<IWMDMMetaData>, punknown: &::core::option::Option<::windows::core::IUnknown>, ppnewobject: *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDMStorageControl3_Vtbl {
@@ -2688,13 +2688,13 @@ impl IWMDMStorageControl3_Vtbl {
     }
 }
 pub trait IWMDMStorageGlobals_Impl: Sized {
-    fn GetCapabilities(&mut self) -> ::windows::core::Result<u32>;
-    fn GetSerialNumber(&mut self, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()>;
-    fn GetTotalSize(&mut self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::core::Result<()>;
-    fn GetTotalFree(&mut self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::core::Result<()>;
-    fn GetTotalBad(&mut self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::core::Result<()>;
-    fn GetStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn Initialize(&mut self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
+    fn GetCapabilities(&self) -> ::windows::core::Result<u32>;
+    fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::core::Result<()>;
+    fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::core::Result<()>;
+    fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::core::Result<()>;
+    fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStatus(&self) -> ::windows::core::Result<u32>;
+    fn Initialize(&self, fumode: u32, pprogress: &::core::option::Option<IWMDMProgress>) -> ::windows::core::Result<()>;
 }
 impl IWMDMStorageGlobals_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDMStorageGlobals_Impl, const OFFSET: isize>() -> IWMDMStorageGlobals_Vtbl {
@@ -2761,9 +2761,9 @@ impl IWMDMStorageGlobals_Vtbl {
     }
 }
 pub trait IWMDeviceManager_Impl: Sized {
-    fn GetRevision(&mut self) -> ::windows::core::Result<u32>;
-    fn GetDeviceCount(&mut self) -> ::windows::core::Result<u32>;
-    fn EnumDevices(&mut self) -> ::windows::core::Result<IWMDMEnumDevice>;
+    fn GetRevision(&self) -> ::windows::core::Result<u32>;
+    fn GetDeviceCount(&self) -> ::windows::core::Result<u32>;
+    fn EnumDevices(&self) -> ::windows::core::Result<IWMDMEnumDevice>;
 }
 impl IWMDeviceManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDeviceManager_Impl, const OFFSET: isize>() -> IWMDeviceManager_Vtbl {
@@ -2813,9 +2813,9 @@ impl IWMDeviceManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDeviceManager2_Impl: Sized + IWMDeviceManager_Impl {
-    fn GetDeviceFromCanonicalName(&mut self, pwszcanonicalname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMDevice>;
-    fn EnumDevices2(&mut self) -> ::windows::core::Result<IWMDMEnumDevice>;
-    fn Reinitialize(&mut self) -> ::windows::core::Result<()>;
+    fn GetDeviceFromCanonicalName(&self, pwszcanonicalname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMDMDevice>;
+    fn EnumDevices2(&self) -> ::windows::core::Result<IWMDMEnumDevice>;
+    fn Reinitialize(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDeviceManager2_Vtbl {
@@ -2860,7 +2860,7 @@ impl IWMDeviceManager2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDeviceManager3_Impl: Sized + IWMDeviceManager_Impl + IWMDeviceManager2_Impl {
-    fn SetDeviceEnumPreference(&mut self, dwenumpref: u32) -> ::windows::core::Result<()>;
+    fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDeviceManager3_Vtbl {

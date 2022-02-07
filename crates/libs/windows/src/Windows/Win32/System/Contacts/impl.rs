@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContact_Impl: Sized {
-    fn GetContactID(&mut self, pszcontactid: super::super::Foundation::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPath(&mut self, pszpath: super::super::Foundation::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> ::windows::core::Result<()>;
-    fn CommitChanges(&mut self, dwcommitflags: u32) -> ::windows::core::Result<()>;
+    fn GetContactID(&self, pszcontactid: super::super::Foundation::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPath(&self, pszpath: super::super::Foundation::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> ::windows::core::Result<()>;
+    fn CommitChanges(&self, dwcommitflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContact_Vtbl {
@@ -35,15 +35,15 @@ impl IContact_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationAggregate_Impl: Sized {
-    fn Save(&mut self) -> ::windows::core::Result<()>;
-    fn GetComponentItems(&mut self) -> ::windows::core::Result<IContactAggregationContactCollection>;
-    fn Link(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Groups(&mut self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection>;
-    fn AntiLink(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetAntiLink(&mut self, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FavoriteOrder(&mut self) -> ::windows::core::Result<u32>;
-    fn SetFavoriteOrder(&mut self, favoriteorder: u32) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Save(&self) -> ::windows::core::Result<()>;
+    fn GetComponentItems(&self) -> ::windows::core::Result<IContactAggregationContactCollection>;
+    fn Link(&self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection>;
+    fn AntiLink(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAntiLink(&self, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn FavoriteOrder(&self) -> ::windows::core::Result<u32>;
+    fn SetFavoriteOrder(&self, favoriteorder: u32) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationAggregate_Vtbl {
@@ -142,10 +142,10 @@ impl IContactAggregationAggregate_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationAggregateCollection_Impl: Sized {
-    fn FindFirst(&mut self) -> ::windows::core::Result<IContactAggregationAggregate>;
-    fn FindFirstByAntiLinkId(&mut self, pantilinkid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationAggregate>;
-    fn FindNext(&mut self) -> ::windows::core::Result<IContactAggregationAggregate>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationAggregate>;
+    fn FindFirstByAntiLinkId(&self, pantilinkid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationAggregate>;
+    fn FindNext(&self) -> ::windows::core::Result<IContactAggregationAggregate>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationAggregateCollection_Vtbl {
@@ -208,24 +208,24 @@ impl IContactAggregationAggregateCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationContact_Impl: Sized {
-    fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Save(&mut self) -> ::windows::core::Result<()>;
-    fn MoveToAggregate(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Unlink(&mut self) -> ::windows::core::Result<()>;
-    fn AccountId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetAccountId(&mut self, paccountid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AggregateId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Id(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn IsMe(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsExternal(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn NetworkSourceId(&mut self) -> ::windows::core::Result<u32>;
-    fn SetNetworkSourceId(&mut self, networksourceid: u32) -> ::windows::core::Result<()>;
-    fn NetworkSourceIdString(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetNetworkSourceIdString(&mut self, pnetworksourceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RemoteObjectId(&mut self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
-    fn SetRemoteObjectId(&mut self, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
-    fn SyncIdentityHash(&mut self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
-    fn SetSyncIdentityHash(&mut self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
+    fn Delete(&self) -> ::windows::core::Result<()>;
+    fn Save(&self) -> ::windows::core::Result<()>;
+    fn MoveToAggregate(&self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Unlink(&self) -> ::windows::core::Result<()>;
+    fn AccountId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAccountId(&self, paccountid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AggregateId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Id(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn IsMe(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsExternal(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn NetworkSourceId(&self) -> ::windows::core::Result<u32>;
+    fn SetNetworkSourceId(&self, networksourceid: u32) -> ::windows::core::Result<()>;
+    fn NetworkSourceIdString(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetNetworkSourceIdString(&self, pnetworksourceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RemoteObjectId(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
+    fn SetRemoteObjectId(&self, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
+    fn SyncIdentityHash(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
+    fn SetSyncIdentityHash(&self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationContact_Vtbl {
@@ -402,11 +402,11 @@ impl IContactAggregationContact_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationContactCollection_Impl: Sized {
-    fn FindFirst(&mut self) -> ::windows::core::Result<IContactAggregationContact>;
-    fn FindNext(&mut self) -> ::windows::core::Result<IContactAggregationContact>;
-    fn FindFirstByIdentityHash(&mut self, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, pidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn FindFirstByRemoteId(&mut self, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>;
+    fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationContact>;
+    fn FindNext(&self) -> ::windows::core::Result<IContactAggregationContact>;
+    fn FindFirstByIdentityHash(&self, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, pidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn FindFirstByRemoteId(&self, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationContactCollection_Vtbl {
@@ -481,16 +481,16 @@ impl IContactAggregationContactCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationGroup_Impl: Sized {
-    fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Save(&mut self) -> ::windows::core::Result<()>;
-    fn Add(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Members(&mut self) -> ::windows::core::Result<IContactAggregationAggregateCollection>;
-    fn GlobalObjectId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetGlobalObjectId(&mut self, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetName(&mut self, pname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Delete(&self) -> ::windows::core::Result<()>;
+    fn Save(&self) -> ::windows::core::Result<()>;
+    fn Add(&self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Remove(&self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Members(&self) -> ::windows::core::Result<IContactAggregationAggregateCollection>;
+    fn GlobalObjectId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetGlobalObjectId(&self, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetName(&self, pname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationGroup_Vtbl {
@@ -588,10 +588,10 @@ impl IContactAggregationGroup_Vtbl {
     }
 }
 pub trait IContactAggregationGroupCollection_Impl: Sized {
-    fn FindFirst(&mut self) -> ::windows::core::Result<IContactAggregationGroup>;
-    fn FindFirstByGlobalObjectId(&mut self, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::Result<IContactAggregationGroup>;
-    fn FindNext(&mut self) -> ::windows::core::Result<IContactAggregationGroup>;
-    fn Count(&mut self) -> ::windows::core::Result<u32>;
+    fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationGroup>;
+    fn FindFirstByGlobalObjectId(&self, pglobalobjectid: *const ::windows::core::GUID) -> ::windows::core::Result<IContactAggregationGroup>;
+    fn FindNext(&self) -> ::windows::core::Result<IContactAggregationGroup>;
+    fn Count(&self) -> ::windows::core::Result<u32>;
 }
 impl IContactAggregationGroupCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationGroupCollection_Impl, const OFFSET: isize>() -> IContactAggregationGroupCollection_Vtbl {
@@ -653,23 +653,23 @@ impl IContactAggregationGroupCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationLink_Impl: Sized {
-    fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Save(&mut self) -> ::windows::core::Result<()>;
-    fn AccountId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetAccountId(&mut self, paccountid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn IsLinkResolved(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetIsLinkResolved(&mut self, islinkresolved: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn NetworkSourceIdString(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetNetworkSourceIdString(&mut self, pnetworksourceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RemoteObjectId(&mut self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
-    fn SetRemoteObjectId(&mut self, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
-    fn ServerPerson(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetServerPerson(&mut self, pserverpersonid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ServerPersonBaseline(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetServerPersonBaseline(&mut self, pserverpersonid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SyncIdentityHash(&mut self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
-    fn SetSyncIdentityHash(&mut self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
+    fn Delete(&self) -> ::windows::core::Result<()>;
+    fn Save(&self) -> ::windows::core::Result<()>;
+    fn AccountId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAccountId(&self, paccountid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn IsLinkResolved(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetIsLinkResolved(&self, islinkresolved: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn NetworkSourceIdString(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetNetworkSourceIdString(&self, pnetworksourceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RemoteObjectId(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
+    fn SetRemoteObjectId(&self, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
+    fn ServerPerson(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetServerPerson(&self, pserverpersonid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ServerPersonBaseline(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetServerPersonBaseline(&self, pserverpersonid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SyncIdentityHash(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
+    fn SetSyncIdentityHash(&self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationLink_Vtbl {
@@ -834,10 +834,10 @@ impl IContactAggregationLink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationLinkCollection_Impl: Sized {
-    fn FindFirst(&mut self) -> ::windows::core::Result<IContactAggregationLink>;
-    fn FindFirstByRemoteId(&mut self, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationLink>;
-    fn FindNext(&mut self) -> ::windows::core::Result<IContactAggregationLink>;
-    fn Count(&mut self) -> ::windows::core::Result<u32>;
+    fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationLink>;
+    fn FindFirstByRemoteId(&self, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationLink>;
+    fn FindNext(&self) -> ::windows::core::Result<IContactAggregationLink>;
+    fn Count(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationLinkCollection_Vtbl {
@@ -900,21 +900,21 @@ impl IContactAggregationLinkCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationManager_Impl: Sized {
-    fn GetVersionInfo(&mut self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::core::Result<()>;
-    fn CreateOrOpenGroup(&mut self, pgroupname: super::super::Foundation::PWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::core::option::Option<IContactAggregationGroup>) -> ::windows::core::Result<()>;
-    fn CreateExternalContact(&mut self) -> ::windows::core::Result<IContactAggregationContact>;
-    fn CreateServerPerson(&mut self) -> ::windows::core::Result<IContactAggregationServerPerson>;
-    fn CreateServerContactLink(&mut self) -> ::windows::core::Result<IContactAggregationLink>;
-    fn Flush(&mut self) -> ::windows::core::Result<()>;
-    fn OpenAggregateContact(&mut self, pitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationAggregate>;
-    fn OpenContact(&mut self, pitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationContact>;
-    fn OpenServerContactLink(&mut self, pitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationLink>;
-    fn OpenServerPerson(&mut self, pitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
-    fn Contacts(&mut self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationContactCollection>;
-    fn AggregateContacts(&mut self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationAggregateCollection>;
-    fn Groups(&mut self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection>;
-    fn ServerPersons(&mut self) -> ::windows::core::Result<IContactAggregationServerPersonCollection>;
-    fn ServerContactLinks(&mut self, ppersonitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationLinkCollection>;
+    fn GetVersionInfo(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::core::Result<()>;
+    fn CreateOrOpenGroup(&self, pgroupname: super::super::Foundation::PWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::core::option::Option<IContactAggregationGroup>) -> ::windows::core::Result<()>;
+    fn CreateExternalContact(&self) -> ::windows::core::Result<IContactAggregationContact>;
+    fn CreateServerPerson(&self) -> ::windows::core::Result<IContactAggregationServerPerson>;
+    fn CreateServerContactLink(&self) -> ::windows::core::Result<IContactAggregationLink>;
+    fn Flush(&self) -> ::windows::core::Result<()>;
+    fn OpenAggregateContact(&self, pitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationAggregate>;
+    fn OpenContact(&self, pitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationContact>;
+    fn OpenServerContactLink(&self, pitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationLink>;
+    fn OpenServerPerson(&self, pitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
+    fn Contacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationContactCollection>;
+    fn AggregateContacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationAggregateCollection>;
+    fn Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection>;
+    fn ServerPersons(&self) -> ::windows::core::Result<IContactAggregationServerPersonCollection>;
+    fn ServerContactLinks(&self, ppersonitemid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationLinkCollection>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationManager_Vtbl {
@@ -1091,29 +1091,29 @@ impl IContactAggregationManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationServerPerson_Impl: Sized {
-    fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Save(&mut self) -> ::windows::core::Result<()>;
-    fn AggregateId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetAggregateId(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AntiLink(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetAntiLink(&mut self, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AntiLinkBaseline(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetAntiLinkBaseline(&mut self, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn FavoriteOrder(&mut self) -> ::windows::core::Result<u32>;
-    fn SetFavoriteOrder(&mut self, favoriteorder: u32) -> ::windows::core::Result<()>;
-    fn FavoriteOrderBaseline(&mut self) -> ::windows::core::Result<u32>;
-    fn SetFavoriteOrderBaseline(&mut self, favoriteorder: u32) -> ::windows::core::Result<()>;
-    fn Groups(&mut self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
-    fn SetGroups(&mut self, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
-    fn GroupsBaseline(&mut self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
-    fn SetGroupsBaseline(&mut self, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn IsTombstone(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetIsTombstone(&mut self, istombstone: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn LinkedAggregateId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetLinkedAggregateId(&mut self, plinkedaggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ObjectId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetObjectId(&mut self, pobjectid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Delete(&self) -> ::windows::core::Result<()>;
+    fn Save(&self) -> ::windows::core::Result<()>;
+    fn AggregateId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAggregateId(&self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AntiLink(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAntiLink(&self, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AntiLinkBaseline(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAntiLinkBaseline(&self, pantilink: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn FavoriteOrder(&self) -> ::windows::core::Result<u32>;
+    fn SetFavoriteOrder(&self, favoriteorder: u32) -> ::windows::core::Result<()>;
+    fn FavoriteOrderBaseline(&self) -> ::windows::core::Result<u32>;
+    fn SetFavoriteOrderBaseline(&self, favoriteorder: u32) -> ::windows::core::Result<()>;
+    fn Groups(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
+    fn SetGroups(&self, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
+    fn GroupsBaseline(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
+    fn SetGroupsBaseline(&self, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn IsTombstone(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetIsTombstone(&self, istombstone: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn LinkedAggregateId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetLinkedAggregateId(&self, plinkedaggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ObjectId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetObjectId(&self, pobjectid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationServerPerson_Vtbl {
@@ -1332,12 +1332,12 @@ impl IContactAggregationServerPerson_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactAggregationServerPersonCollection_Impl: Sized {
-    fn FindFirst(&mut self) -> ::windows::core::Result<IContactAggregationServerPerson>;
-    fn FindFirstByServerId(&mut self, pserverid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
-    fn FindFirstByAggregateId(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
-    fn FindFirstByLinkedAggregateId(&mut self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
-    fn FindNext(&mut self) -> ::windows::core::Result<IContactAggregationServerPerson>;
-    fn Count(&mut self) -> ::windows::core::Result<u32>;
+    fn FindFirst(&self) -> ::windows::core::Result<IContactAggregationServerPerson>;
+    fn FindFirstByServerId(&self, pserverid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
+    fn FindFirstByAggregateId(&self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
+    fn FindFirstByLinkedAggregateId(&self, paggregateid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
+    fn FindNext(&self) -> ::windows::core::Result<IContactAggregationServerPerson>;
+    fn Count(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationServerPersonCollection_Vtbl {
@@ -1423,9 +1423,9 @@ impl IContactAggregationServerPersonCollection_Vtbl {
     }
 }
 pub trait IContactCollection_Impl: Sized {
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Next(&mut self) -> ::windows::core::Result<()>;
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IContact>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Next(&self) -> ::windows::core::Result<()>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IContact>;
 }
 impl IContactCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactCollection_Impl, const OFFSET: isize>() -> IContactCollection_Vtbl {
@@ -1463,12 +1463,12 @@ impl IContactCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactManager_Impl: Sized {
-    fn Initialize(&mut self, pszappname: super::super::Foundation::PWSTR, pszappversion: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Load(&mut self, pszcontactid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContact>;
-    fn MergeContactIDs(&mut self, psznewcontactid: super::super::Foundation::PWSTR, pszoldcontactid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetMeContact(&mut self) -> ::windows::core::Result<IContact>;
-    fn SetMeContact(&mut self, pmecontact: &::core::option::Option<IContact>) -> ::windows::core::Result<()>;
-    fn GetContactCollection(&mut self) -> ::windows::core::Result<IContactCollection>;
+    fn Initialize(&self, pszappname: super::super::Foundation::PWSTR, pszappversion: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Load(&self, pszcontactid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IContact>;
+    fn MergeContactIDs(&self, psznewcontactid: super::super::Foundation::PWSTR, pszoldcontactid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetMeContact(&self) -> ::windows::core::Result<IContact>;
+    fn SetMeContact(&self, pmecontact: &::core::option::Option<IContact>) -> ::windows::core::Result<()>;
+    fn GetContactCollection(&self) -> ::windows::core::Result<IContactCollection>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactManager_Vtbl {
@@ -1537,19 +1537,19 @@ impl IContactManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IContactProperties_Impl: Sized {
-    fn GetString(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDate(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn GetBinary(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
-    fn GetLabels(&mut self, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32, pszlabels: super::super::Foundation::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> ::windows::core::Result<()>;
-    fn SetString(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetDate(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, ftdatetime: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn SetBinary(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, pstream: &::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
-    fn SetLabels(&mut self, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn CreateArrayNode(&mut self, pszarrayname: super::super::Foundation::PWSTR, dwflags: u32, fappend: super::super::Foundation::BOOL, psznewarrayelementname: super::super::Foundation::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows::core::Result<()>;
-    fn DeleteProperty(&mut self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
-    fn DeleteArrayNode(&mut self, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
-    fn DeleteLabels(&mut self, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetPropertyCollection(&mut self, pppropertycollection: *mut ::core::option::Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: super::super::Foundation::PWSTR, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR, fanylabelmatches: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetString(&self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDate(&self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn GetBinary(&self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
+    fn GetLabels(&self, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32, pszlabels: super::super::Foundation::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> ::windows::core::Result<()>;
+    fn SetString(&self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetDate(&self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, ftdatetime: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn SetBinary(&self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, pstream: &::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SetLabels(&self, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CreateArrayNode(&self, pszarrayname: super::super::Foundation::PWSTR, dwflags: u32, fappend: super::super::Foundation::BOOL, psznewarrayelementname: super::super::Foundation::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows::core::Result<()>;
+    fn DeleteProperty(&self, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn DeleteArrayNode(&self, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn DeleteLabels(&self, pszarrayelementname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetPropertyCollection(&self, pppropertycollection: *mut ::core::option::Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: super::super::Foundation::PWSTR, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR, fanylabelmatches: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IContactProperties_Vtbl {
@@ -1642,13 +1642,13 @@ impl IContactProperties_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContactPropertyCollection_Impl: Sized {
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Next(&mut self) -> ::windows::core::Result<()>;
-    fn GetPropertyName(&mut self, pszpropertyname: super::super::Foundation::PWSTR, cchpropertyname: u32, pdwcchpropertynamerequired: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPropertyType(&mut self, pdwtype: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPropertyVersion(&mut self, pdwversion: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPropertyModificationDate(&mut self, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn GetPropertyArrayElementID(&mut self, pszarrayelementid: super::super::Foundation::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Next(&self) -> ::windows::core::Result<()>;
+    fn GetPropertyName(&self, pszpropertyname: super::super::Foundation::PWSTR, cchpropertyname: u32, pdwcchpropertynamerequired: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPropertyType(&self, pdwtype: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPropertyVersion(&self, pdwversion: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPropertyModificationDate(&self, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn GetPropertyArrayElementID(&self, pszarrayelementid: super::super::Foundation::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactPropertyCollection_Vtbl {

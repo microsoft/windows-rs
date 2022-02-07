@@ -1,11 +1,11 @@
 pub trait ISpeechRecognitionConstraint_Impl: Sized {
-    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
-    fn SetIsEnabled(&mut self, value: bool) -> ::windows::core::Result<()>;
-    fn Tag(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTag(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Type(&mut self) -> ::windows::core::Result<SpeechRecognitionConstraintType>;
-    fn Probability(&mut self) -> ::windows::core::Result<SpeechRecognitionConstraintProbability>;
-    fn SetProbability(&mut self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()>;
+    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
+    fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Tag(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTag(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Type(&self) -> ::windows::core::Result<SpeechRecognitionConstraintType>;
+    fn Probability(&self) -> ::windows::core::Result<SpeechRecognitionConstraintProbability>;
+    fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISpeechRecognitionConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint";

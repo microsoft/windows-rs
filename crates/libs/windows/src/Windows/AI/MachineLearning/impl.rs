@@ -1,8 +1,8 @@
 pub trait ILearningModelFeatureDescriptor_Impl: Sized {
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Kind(&mut self) -> ::windows::core::Result<LearningModelFeatureKind>;
-    fn IsRequired(&mut self) -> ::windows::core::Result<bool>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind>;
+    fn IsRequired(&self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for ILearningModelFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureDescriptor";
@@ -70,7 +70,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
     }
 }
 pub trait ILearningModelFeatureValue_Impl: Sized {
-    fn Kind(&mut self) -> ::windows::core::Result<LearningModelFeatureKind>;
+    fn Kind(&self) -> ::windows::core::Result<LearningModelFeatureKind>;
 }
 impl ::windows::core::RuntimeName for ILearningModelFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureValue";
@@ -109,8 +109,8 @@ impl ILearningModelOperatorProvider_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait ITensor_Impl: Sized + ILearningModelFeatureValue_Impl {
-    fn TensorKind(&mut self) -> ::windows::core::Result<TensorKind>;
-    fn Shape(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>>;
+    fn TensorKind(&self) -> ::windows::core::Result<TensorKind>;
+    fn Shape(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i64>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ITensor {

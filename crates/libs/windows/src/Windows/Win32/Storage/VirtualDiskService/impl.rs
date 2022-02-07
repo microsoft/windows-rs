@@ -1,8 +1,8 @@
 pub trait IEnumVdsObject_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppobjectarray: *mut ::core::option::Option<::windows::core::IUnknown>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn Next(&self, celt: u32, ppobjectarray: *mut ::core::option::Option<::windows::core::IUnknown>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
 impl IEnumVdsObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumVdsObject_Impl, const OFFSET: isize>() -> IEnumVdsObject_Vtbl {
@@ -46,8 +46,8 @@ impl IEnumVdsObject_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsAdmin_Impl: Sized {
-    fn RegisterProvider(&mut self, providerid: &::windows::core::GUID, providerclsid: &::windows::core::GUID, pwszname: super::super::Foundation::PWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: super::super::Foundation::PWSTR, pwszversion: super::super::Foundation::PWSTR, guidversionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UnregisterProvider(&mut self, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegisterProvider(&self, providerid: &::windows::core::GUID, providerclsid: &::windows::core::GUID, pwszname: super::super::Foundation::PWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: super::super::Foundation::PWSTR, pwszversion: super::super::Foundation::PWSTR, guidversionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UnregisterProvider(&self, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsAdmin_Vtbl {
@@ -73,7 +73,7 @@ impl IVdsAdmin_Vtbl {
     }
 }
 pub trait IVdsAdviseSink_Impl: Sized {
-    fn OnNotify(&mut self, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> ::windows::core::Result<()>;
+    fn OnNotify(&self, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> ::windows::core::Result<()>;
 }
 impl IVdsAdviseSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdviseSink_Impl, const OFFSET: isize>() -> IVdsAdviseSink_Vtbl {
@@ -89,9 +89,9 @@ impl IVdsAdviseSink_Vtbl {
     }
 }
 pub trait IVdsAsync_Impl: Sized {
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn Wait(&mut self, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::Result<()>;
-    fn QueryStatus(&mut self, phrresult: *mut ::windows::core::HRESULT, pulpercentcompleted: *mut u32) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Wait(&self, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::Result<()>;
+    fn QueryStatus(&self, phrresult: *mut ::windows::core::HRESULT, pulpercentcompleted: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IVdsAsync_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAsync_Impl, const OFFSET: isize>() -> IVdsAsync_Vtbl {
@@ -123,14 +123,14 @@ impl IVdsAsync_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsController_Impl: Sized {
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_CONTROLLER_PROP>;
-    fn GetSubSystem(&mut self) -> ::windows::core::Result<IVdsSubSystem>;
-    fn GetPortProperties(&mut self, sportnumber: i16) -> ::windows::core::Result<VDS_PORT_PROP>;
-    fn FlushCache(&mut self) -> ::windows::core::Result<()>;
-    fn InvalidateCache(&mut self) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn QueryAssociatedLuns(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn SetStatus(&mut self, status: VDS_CONTROLLER_STATUS) -> ::windows::core::Result<()>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_CONTROLLER_PROP>;
+    fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
+    fn GetPortProperties(&self, sportnumber: i16) -> ::windows::core::Result<VDS_PORT_PROP>;
+    fn FlushCache(&self) -> ::windows::core::Result<()>;
+    fn InvalidateCache(&self) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsController_Vtbl {
@@ -216,7 +216,7 @@ impl IVdsController_Vtbl {
     }
 }
 pub trait IVdsControllerControllerPort_Impl: Sized {
-    fn QueryControllerPorts(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn QueryControllerPorts(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
 impl IVdsControllerControllerPort_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsControllerControllerPort_Impl, const OFFSET: isize>() -> IVdsControllerControllerPort_Vtbl {
@@ -239,11 +239,11 @@ impl IVdsControllerControllerPort_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsControllerPort_Impl: Sized {
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_PORT_PROP>;
-    fn GetController(&mut self) -> ::windows::core::Result<IVdsController>;
-    fn QueryAssociatedLuns(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn SetStatus(&mut self, status: VDS_PORT_STATUS) -> ::windows::core::Result<()>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_PORT_PROP>;
+    fn GetController(&self) -> ::windows::core::Result<IVdsController>;
+    fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn SetStatus(&self, status: VDS_PORT_STATUS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsControllerPort_Vtbl {
@@ -306,12 +306,12 @@ impl IVdsControllerPort_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsDrive_Impl: Sized {
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_DRIVE_PROP>;
-    fn GetSubSystem(&mut self) -> ::windows::core::Result<IVdsSubSystem>;
-    fn QueryExtents(&mut self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()>;
-    fn SetFlags(&mut self, ulflags: u32) -> ::windows::core::Result<()>;
-    fn ClearFlags(&mut self, ulflags: u32) -> ::windows::core::Result<()>;
-    fn SetStatus(&mut self, status: VDS_DRIVE_STATUS) -> ::windows::core::Result<()>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_DRIVE_PROP>;
+    fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
+    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()>;
+    fn SetFlags(&self, ulflags: u32) -> ::windows::core::Result<()>;
+    fn ClearFlags(&self, ulflags: u32) -> ::windows::core::Result<()>;
+    fn SetStatus(&self, status: VDS_DRIVE_STATUS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsDrive_Vtbl {
@@ -374,7 +374,7 @@ impl IVdsDrive_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsDrive2_Impl: Sized {
-    fn GetProperties2(&mut self) -> ::windows::core::Result<VDS_DRIVE_PROP2>;
+    fn GetProperties2(&self) -> ::windows::core::Result<VDS_DRIVE_PROP2>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsDrive2_Vtbl {
@@ -397,9 +397,9 @@ impl IVdsDrive2_Vtbl {
     }
 }
 pub trait IVdsHwProvider_Impl: Sized {
-    fn QuerySubSystems(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn Reenumerate(&mut self) -> ::windows::core::Result<()>;
-    fn Refresh(&mut self) -> ::windows::core::Result<()>;
+    fn QuerySubSystems(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn Reenumerate(&self) -> ::windows::core::Result<()>;
+    fn Refresh(&self) -> ::windows::core::Result<()>;
 }
 impl IVdsHwProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProvider_Impl, const OFFSET: isize>() -> IVdsHwProvider_Vtbl {
@@ -437,7 +437,7 @@ impl IVdsHwProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsHwProviderPrivate_Impl: Sized {
-    fn QueryIfCreatedLun(&mut self, pwszdevicepath: super::super::Foundation::PWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID>;
+    fn QueryIfCreatedLun(&self, pwszdevicepath: super::super::Foundation::PWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsHwProviderPrivate_Vtbl {
@@ -460,7 +460,7 @@ impl IVdsHwProviderPrivate_Vtbl {
     }
 }
 pub trait IVdsHwProviderPrivateMpio_Impl: Sized {
-    fn SetAllPathStatusesFromHbaPort(&mut self, hbaportprop: &VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::Result<()>;
+    fn SetAllPathStatusesFromHbaPort(&self, hbaportprop: &VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::Result<()>;
 }
 impl IVdsHwProviderPrivateMpio_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderPrivateMpio_Impl, const OFFSET: isize>() -> IVdsHwProviderPrivateMpio_Vtbl {
@@ -480,9 +480,9 @@ impl IVdsHwProviderPrivateMpio_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsHwProviderStoragePools_Impl: Sized {
-    fn QueryStoragePools(&mut self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> ::windows::core::Result<IEnumVdsObject>;
-    fn CreateLunInStoragePool(&mut self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: &::windows::core::GUID, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
-    fn QueryMaxLunCreateSizeInStoragePool(&mut self, r#type: VDS_LUN_TYPE, storagepoolid: &::windows::core::GUID, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
+    fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> ::windows::core::Result<IEnumVdsObject>;
+    fn CreateLunInStoragePool(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: &::windows::core::GUID, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
+    fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: &::windows::core::GUID, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsHwProviderStoragePools_Vtbl {
@@ -532,7 +532,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
     }
 }
 pub trait IVdsHwProviderType_Impl: Sized {
-    fn GetProviderType(&mut self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE>;
+    fn GetProviderType(&self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE>;
 }
 impl IVdsHwProviderType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderType_Impl, const OFFSET: isize>() -> IVdsHwProviderType_Vtbl {
@@ -554,7 +554,7 @@ impl IVdsHwProviderType_Vtbl {
     }
 }
 pub trait IVdsHwProviderType2_Impl: Sized {
-    fn GetProviderType2(&mut self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE>;
+    fn GetProviderType2(&self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE>;
 }
 impl IVdsHwProviderType2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderType2_Impl, const OFFSET: isize>() -> IVdsHwProviderType2_Vtbl {
@@ -576,13 +576,13 @@ impl IVdsHwProviderType2_Vtbl {
     }
 }
 pub trait IVdsIscsiPortal_Impl: Sized {
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_ISCSI_PORTAL_PROP>;
-    fn GetSubSystem(&mut self) -> ::windows::core::Result<IVdsSubSystem>;
-    fn QueryAssociatedPortalGroups(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn SetStatus(&mut self, status: VDS_ISCSI_PORTAL_STATUS) -> ::windows::core::Result<()>;
-    fn SetIpsecTunnelAddress(&mut self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> ::windows::core::Result<()>;
-    fn GetIpsecSecurity(&mut self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> ::windows::core::Result<u64>;
-    fn SetIpsecSecurity(&mut self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_PORTAL_PROP>;
+    fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
+    fn QueryAssociatedPortalGroups(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> ::windows::core::Result<()>;
+    fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> ::windows::core::Result<()>;
+    fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> ::windows::core::Result<u64>;
+    fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()>;
 }
 impl IVdsIscsiPortal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiPortal_Impl, const OFFSET: isize>() -> IVdsIscsiPortal_Vtbl {
@@ -661,12 +661,12 @@ impl IVdsIscsiPortal_Vtbl {
     }
 }
 pub trait IVdsIscsiPortalGroup_Impl: Sized {
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_ISCSI_PORTALGROUP_PROP>;
-    fn GetTarget(&mut self) -> ::windows::core::Result<IVdsIscsiTarget>;
-    fn QueryAssociatedPortals(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn AddPortal(&mut self, portalid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
-    fn RemovePortal(&mut self, portalid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
-    fn Delete(&mut self) -> ::windows::core::Result<IVdsAsync>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_PORTALGROUP_PROP>;
+    fn GetTarget(&self) -> ::windows::core::Result<IVdsIscsiTarget>;
+    fn QueryAssociatedPortals(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn AddPortal(&self, portalid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
+    fn RemovePortal(&self, portalid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
+    fn Delete(&self) -> ::windows::core::Result<IVdsAsync>;
 }
 impl IVdsIscsiPortalGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>() -> IVdsIscsiPortalGroup_Vtbl {
@@ -752,16 +752,16 @@ impl IVdsIscsiPortalGroup_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsIscsiTarget_Impl: Sized {
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_ISCSI_TARGET_PROP>;
-    fn GetSubSystem(&mut self) -> ::windows::core::Result<IVdsSubSystem>;
-    fn QueryPortalGroups(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn QueryAssociatedLuns(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn CreatePortalGroup(&mut self) -> ::windows::core::Result<IVdsAsync>;
-    fn Delete(&mut self) -> ::windows::core::Result<IVdsAsync>;
-    fn SetFriendlyName(&mut self, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetSharedSecret(&mut self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RememberInitiatorSharedSecret(&mut self, pwszinitiatorname: super::super::Foundation::PWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::Result<()>;
-    fn GetConnectedInitiators(&mut self, pppwszinitiatorlist: *mut *mut super::super::Foundation::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::Result<()>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_ISCSI_TARGET_PROP>;
+    fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
+    fn QueryPortalGroups(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn CreatePortalGroup(&self) -> ::windows::core::Result<IVdsAsync>;
+    fn Delete(&self) -> ::windows::core::Result<IVdsAsync>;
+    fn SetFriendlyName(&self, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetSharedSecret(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: super::super::Foundation::PWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::Result<()>;
+    fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut super::super::Foundation::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsIscsiTarget_Vtbl {
@@ -872,23 +872,23 @@ impl IVdsIscsiTarget_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLun_Impl: Sized {
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_LUN_PROP>;
-    fn GetSubSystem(&mut self) -> ::windows::core::Result<IVdsSubSystem>;
-    fn GetIdentificationData(&mut self) -> ::windows::core::Result<VDS_LUN_INFORMATION>;
-    fn QueryActiveControllers(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn Extend(&mut self, ullnumberofbytestoadd: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32) -> ::windows::core::Result<IVdsAsync>;
-    fn Shrink(&mut self, ullnumberofbytestoremove: u64) -> ::windows::core::Result<IVdsAsync>;
-    fn QueryPlexes(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn AddPlex(&mut self, lunid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
-    fn RemovePlex(&mut self, plexid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
-    fn Recover(&mut self) -> ::windows::core::Result<IVdsAsync>;
-    fn SetMask(&mut self, pwszunmaskinglist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn AssociateControllers(&mut self, pactivecontrolleridarray: *const ::windows::core::GUID, lnumberofactivecontrollers: i32, pinactivecontrolleridarray: *const ::windows::core::GUID, lnumberofinactivecontrollers: i32) -> ::windows::core::Result<()>;
-    fn QueryHints(&mut self) -> ::windows::core::Result<VDS_HINTS>;
-    fn ApplyHints(&mut self, phints: *const VDS_HINTS) -> ::windows::core::Result<()>;
-    fn SetStatus(&mut self, status: VDS_LUN_STATUS) -> ::windows::core::Result<()>;
-    fn QueryMaxLunExtendSize(&mut self, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32) -> ::windows::core::Result<u64>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_LUN_PROP>;
+    fn GetSubSystem(&self) -> ::windows::core::Result<IVdsSubSystem>;
+    fn GetIdentificationData(&self) -> ::windows::core::Result<VDS_LUN_INFORMATION>;
+    fn QueryActiveControllers(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32) -> ::windows::core::Result<IVdsAsync>;
+    fn Shrink(&self, ullnumberofbytestoremove: u64) -> ::windows::core::Result<IVdsAsync>;
+    fn QueryPlexes(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn AddPlex(&self, lunid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
+    fn RemovePlex(&self, plexid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
+    fn Recover(&self) -> ::windows::core::Result<IVdsAsync>;
+    fn SetMask(&self, pwszunmaskinglist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Delete(&self) -> ::windows::core::Result<()>;
+    fn AssociateControllers(&self, pactivecontrolleridarray: *const ::windows::core::GUID, lnumberofactivecontrollers: i32, pinactivecontrolleridarray: *const ::windows::core::GUID, lnumberofinactivecontrollers: i32) -> ::windows::core::Result<()>;
+    fn QueryHints(&self) -> ::windows::core::Result<VDS_HINTS>;
+    fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows::core::Result<()>;
+    fn SetStatus(&self, status: VDS_LUN_STATUS) -> ::windows::core::Result<()>;
+    fn QueryMaxLunExtendSize(&self, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsLun_Vtbl {
@@ -1077,8 +1077,8 @@ impl IVdsLun_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLun2_Impl: Sized {
-    fn QueryHints2(&mut self) -> ::windows::core::Result<VDS_HINTS2>;
-    fn ApplyHints2(&mut self, phints2: *const VDS_HINTS2) -> ::windows::core::Result<()>;
+    fn QueryHints2(&self) -> ::windows::core::Result<VDS_HINTS2>;
+    fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsLun2_Vtbl {
@@ -1110,8 +1110,8 @@ impl IVdsLun2_Vtbl {
     }
 }
 pub trait IVdsLunControllerPorts_Impl: Sized {
-    fn AssociateControllerPorts(&mut self, pactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofinactivecontrollerports: i32) -> ::windows::core::Result<()>;
-    fn QueryActiveControllerPorts(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn AssociateControllerPorts(&self, pactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofinactivecontrollerports: i32) -> ::windows::core::Result<()>;
+    fn QueryActiveControllerPorts(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
 impl IVdsLunControllerPorts_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunControllerPorts_Impl, const OFFSET: isize>() -> IVdsLunControllerPorts_Vtbl {
@@ -1142,8 +1142,8 @@ impl IVdsLunControllerPorts_Vtbl {
     }
 }
 pub trait IVdsLunIscsi_Impl: Sized {
-    fn AssociateTargets(&mut self, ptargetidarray: *const ::windows::core::GUID, lnumberoftargets: i32) -> ::windows::core::Result<()>;
-    fn QueryAssociatedTargets(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn AssociateTargets(&self, ptargetidarray: *const ::windows::core::GUID, lnumberoftargets: i32) -> ::windows::core::Result<()>;
+    fn QueryAssociatedTargets(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
 impl IVdsLunIscsi_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunIscsi_Impl, const OFFSET: isize>() -> IVdsLunIscsi_Vtbl {
@@ -1175,10 +1175,10 @@ impl IVdsLunIscsi_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLunMpio_Impl: Sized {
-    fn GetPathInfo(&mut self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> ::windows::core::Result<()>;
-    fn GetLoadBalancePolicy(&mut self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut i32) -> ::windows::core::Result<()>;
-    fn SetLoadBalancePolicy(&mut self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: *const VDS_PATH_POLICY, lnumberofpaths: i32) -> ::windows::core::Result<()>;
-    fn GetSupportedLbPolicies(&mut self) -> ::windows::core::Result<u32>;
+    fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> ::windows::core::Result<()>;
+    fn GetLoadBalancePolicy(&self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut i32) -> ::windows::core::Result<()>;
+    fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: *const VDS_PATH_POLICY, lnumberofpaths: i32) -> ::windows::core::Result<()>;
+    fn GetSupportedLbPolicies(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsLunMpio_Vtbl {
@@ -1223,7 +1223,7 @@ impl IVdsLunMpio_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLunNaming_Impl: Sized {
-    fn SetFriendlyName(&mut self, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetFriendlyName(&self, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsLunNaming_Vtbl {
@@ -1240,7 +1240,7 @@ impl IVdsLunNaming_Vtbl {
     }
 }
 pub trait IVdsLunNumber_Impl: Sized {
-    fn GetLunNumber(&mut self) -> ::windows::core::Result<u32>;
+    fn GetLunNumber(&self) -> ::windows::core::Result<u32>;
 }
 impl IVdsLunNumber_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunNumber_Impl, const OFFSET: isize>() -> IVdsLunNumber_Vtbl {
@@ -1263,11 +1263,11 @@ impl IVdsLunNumber_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLunPlex_Impl: Sized {
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_LUN_PLEX_PROP>;
-    fn GetLun(&mut self) -> ::windows::core::Result<IVdsLun>;
-    fn QueryExtents(&mut self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()>;
-    fn QueryHints(&mut self) -> ::windows::core::Result<VDS_HINTS>;
-    fn ApplyHints(&mut self, phints: *const VDS_HINTS) -> ::windows::core::Result<()>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_LUN_PLEX_PROP>;
+    fn GetLun(&self) -> ::windows::core::Result<IVdsLun>;
+    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()>;
+    fn QueryHints(&self) -> ::windows::core::Result<VDS_HINTS>;
+    fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsLunPlex_Vtbl {
@@ -1329,9 +1329,9 @@ impl IVdsLunPlex_Vtbl {
     }
 }
 pub trait IVdsMaintenance_Impl: Sized {
-    fn StartMaintenance(&mut self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()>;
-    fn StopMaintenance(&mut self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()>;
-    fn PulseMaintenance(&mut self, operation: VDS_MAINTENANCE_OPERATION, ulcount: u32) -> ::windows::core::Result<()>;
+    fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()>;
+    fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()>;
+    fn PulseMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION, ulcount: u32) -> ::windows::core::Result<()>;
 }
 impl IVdsMaintenance_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsMaintenance_Impl, const OFFSET: isize>() -> IVdsMaintenance_Vtbl {
@@ -1363,7 +1363,7 @@ impl IVdsMaintenance_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsProvider_Impl: Sized {
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_PROVIDER_PROP>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_PROVIDER_PROP>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsProvider_Vtbl {
@@ -1387,9 +1387,9 @@ impl IVdsProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsProviderPrivate_Impl: Sized {
-    fn GetObject(&mut self, objectid: &::windows::core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn OnLoad(&mut self, pwszmachinename: super::super::Foundation::PWSTR, pcallbackobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn OnUnload(&mut self, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetObject(&self, objectid: &::windows::core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn OnLoad(&self, pwszmachinename: super::super::Foundation::PWSTR, pcallbackobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsProviderPrivate_Vtbl {
@@ -1427,7 +1427,7 @@ impl IVdsProviderPrivate_Vtbl {
     }
 }
 pub trait IVdsProviderSupport_Impl: Sized {
-    fn GetVersionSupport(&mut self) -> ::windows::core::Result<u32>;
+    fn GetVersionSupport(&self) -> ::windows::core::Result<u32>;
 }
 impl IVdsProviderSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProviderSupport_Impl, const OFFSET: isize>() -> IVdsProviderSupport_Vtbl {
@@ -1450,12 +1450,12 @@ impl IVdsProviderSupport_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsStoragePool_Impl: Sized {
-    fn GetProvider(&mut self) -> ::windows::core::Result<IVdsProvider>;
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_STORAGE_POOL_PROP>;
-    fn GetAttributes(&mut self) -> ::windows::core::Result<VDS_POOL_ATTRIBUTES>;
-    fn QueryDriveExtents(&mut self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()>;
-    fn QueryAllocatedLuns(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn QueryAllocatedStoragePools(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn GetProvider(&self) -> ::windows::core::Result<IVdsProvider>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_STORAGE_POOL_PROP>;
+    fn GetAttributes(&self) -> ::windows::core::Result<VDS_POOL_ATTRIBUTES>;
+    fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows::core::Result<()>;
+    fn QueryAllocatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn QueryAllocatedStoragePools(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsStoragePool_Vtbl {
@@ -1536,18 +1536,18 @@ impl IVdsStoragePool_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystem_Impl: Sized {
-    fn GetProperties(&mut self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP>;
-    fn GetProvider(&mut self) -> ::windows::core::Result<IVdsProvider>;
-    fn QueryControllers(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn QueryLuns(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn QueryDrives(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn GetDrive(&mut self, sbusnumber: i16, sslotnumber: i16) -> ::windows::core::Result<IVdsDrive>;
-    fn Reenumerate(&mut self) -> ::windows::core::Result<()>;
-    fn SetControllerStatus(&mut self, ponlinecontrolleridarray: *const ::windows::core::GUID, lnumberofonlinecontrollers: i32, pofflinecontrolleridarray: *const ::windows::core::GUID, lnumberofofflinecontrollers: i32) -> ::windows::core::Result<()>;
-    fn CreateLun(&mut self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints: *const VDS_HINTS) -> ::windows::core::Result<IVdsAsync>;
-    fn ReplaceDrive(&mut self, drivetobereplaced: &::windows::core::GUID, replacementdrive: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetStatus(&mut self, status: VDS_SUB_SYSTEM_STATUS) -> ::windows::core::Result<()>;
-    fn QueryMaxLunCreateSize(&mut self, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints: *const VDS_HINTS) -> ::windows::core::Result<u64>;
+    fn GetProperties(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP>;
+    fn GetProvider(&self) -> ::windows::core::Result<IVdsProvider>;
+    fn QueryControllers(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn QueryLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn QueryDrives(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn GetDrive(&self, sbusnumber: i16, sslotnumber: i16) -> ::windows::core::Result<IVdsDrive>;
+    fn Reenumerate(&self) -> ::windows::core::Result<()>;
+    fn SetControllerStatus(&self, ponlinecontrolleridarray: *const ::windows::core::GUID, lnumberofonlinecontrollers: i32, pofflinecontrolleridarray: *const ::windows::core::GUID, lnumberofofflinecontrollers: i32) -> ::windows::core::Result<()>;
+    fn CreateLun(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints: *const VDS_HINTS) -> ::windows::core::Result<IVdsAsync>;
+    fn ReplaceDrive(&self, drivetobereplaced: &::windows::core::GUID, replacementdrive: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> ::windows::core::Result<()>;
+    fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints: *const VDS_HINTS) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsSubSystem_Vtbl {
@@ -1682,10 +1682,10 @@ impl IVdsSubSystem_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystem2_Impl: Sized {
-    fn GetProperties2(&mut self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP2>;
-    fn GetDrive2(&mut self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> ::windows::core::Result<IVdsDrive>;
-    fn CreateLun2(&mut self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
-    fn QueryMaxLunCreateSize2(&mut self, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
+    fn GetProperties2(&self) -> ::windows::core::Result<VDS_SUB_SYSTEM_PROP2>;
+    fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> ::windows::core::Result<IVdsDrive>;
+    fn CreateLun2(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
+    fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsSubSystem2_Vtbl {
@@ -1747,7 +1747,7 @@ impl IVdsSubSystem2_Vtbl {
     }
 }
 pub trait IVdsSubSystemInterconnect_Impl: Sized {
-    fn GetSupportedInterconnects(&mut self) -> ::windows::core::Result<u32>;
+    fn GetSupportedInterconnects(&self) -> ::windows::core::Result<u32>;
 }
 impl IVdsSubSystemInterconnect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemInterconnect_Impl, const OFFSET: isize>() -> IVdsSubSystemInterconnect_Vtbl {
@@ -1770,10 +1770,10 @@ impl IVdsSubSystemInterconnect_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystemIscsi_Impl: Sized {
-    fn QueryTargets(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn QueryPortals(&mut self) -> ::windows::core::Result<IEnumVdsObject>;
-    fn CreateTarget(&mut self, pwsziscsiname: super::super::Foundation::PWSTR, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IVdsAsync>;
-    fn SetIpsecGroupPresharedKey(&mut self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()>;
+    fn QueryTargets(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn QueryPortals(&self) -> ::windows::core::Result<IEnumVdsObject>;
+    fn CreateTarget(&self, pwsziscsiname: super::super::Foundation::PWSTR, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IVdsAsync>;
+    fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsSubSystemIscsi_Vtbl {
@@ -1830,7 +1830,7 @@ impl IVdsSubSystemIscsi_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystemNaming_Impl: Sized {
-    fn SetFriendlyName(&mut self, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetFriendlyName(&self, pwszfriendlyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsSubSystemNaming_Vtbl {

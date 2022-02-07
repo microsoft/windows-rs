@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IInkAnalysisNode_Impl: Sized {
-    fn Id(&mut self) -> ::windows::core::Result<u32>;
-    fn Kind(&mut self) -> ::windows::core::Result<InkAnalysisNodeKind>;
-    fn BoundingRect(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
-    fn RotatedBoundingRect(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>;
-    fn Children(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>;
-    fn Parent(&mut self) -> ::windows::core::Result<IInkAnalysisNode>;
-    fn GetStrokeIds(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>>;
+    fn Id(&self) -> ::windows::core::Result<u32>;
+    fn Kind(&self) -> ::windows::core::Result<InkAnalysisNodeKind>;
+    fn BoundingRect(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Rect>;
+    fn RotatedBoundingRect(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>>;
+    fn Children(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>;
+    fn Parent(&self) -> ::windows::core::Result<IInkAnalysisNode>;
+    fn GetStrokeIds(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IInkAnalysisNode {
@@ -115,7 +115,7 @@ impl IInkAnalysisNode_Vtbl {
     }
 }
 pub trait IInkAnalyzerFactory_Impl: Sized {
-    fn CreateAnalyzer(&mut self) -> ::windows::core::Result<InkAnalyzer>;
+    fn CreateAnalyzer(&self) -> ::windows::core::Result<InkAnalyzer>;
 }
 impl ::windows::core::RuntimeName for IInkAnalyzerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.IInkAnalyzerFactory";

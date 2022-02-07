@@ -1,5 +1,5 @@
 pub trait IAudioFrameNative_Impl: Sized {
-    fn GetData(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetData(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IAudioFrameNative {
     const NAME: &'static str = "";
@@ -19,7 +19,7 @@ impl IAudioFrameNative_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IAudioFrameNativeFactory_Impl: Sized {
-    fn CreateFromMFSample(&mut self, data: &::core::option::Option<super::super::super::Media::MediaFoundation::IMFSample>, forcereadonly: super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateFromMFSample(&self, data: &::core::option::Option<super::super::super::Media::MediaFoundation::IMFSample>, forcereadonly: super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows::core::RuntimeName for IAudioFrameNativeFactory {
@@ -43,8 +43,8 @@ impl IAudioFrameNativeFactory_Vtbl {
     }
 }
 pub trait IVideoFrameNative_Impl: Sized {
-    fn GetData(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetDevice(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetData(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetDevice(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IVideoFrameNative {
     const NAME: &'static str = "";
@@ -73,7 +73,7 @@ impl IVideoFrameNative_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IVideoFrameNativeFactory_Impl: Sized {
-    fn CreateFromMFSample(&mut self, data: &::core::option::Option<super::super::super::Media::MediaFoundation::IMFSample>, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: &::core::option::Option<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateFromMFSample(&self, data: &::core::option::Option<super::super::super::Media::MediaFoundation::IMFSample>, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: &::core::option::Option<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl ::windows::core::RuntimeName for IVideoFrameNativeFactory {

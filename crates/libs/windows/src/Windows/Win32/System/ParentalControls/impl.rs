@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCGamesSettings_Impl: Sized + IWPCSettings_Impl {
-    fn IsBlocked(&mut self, guidappid: &::windows::core::GUID) -> ::windows::core::Result<u32>;
+    fn IsBlocked(&self, guidappid: &::windows::core::GUID) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWPCGamesSettings_Vtbl {
@@ -24,9 +24,9 @@ impl IWPCGamesSettings_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCProviderConfig_Impl: Sized {
-    fn GetUserSummary(&mut self, bstrsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Configure(&mut self, hwnd: super::super::Foundation::HWND, bstrsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RequestOverride(&mut self, hwnd: super::super::Foundation::HWND, bstrpath: &super::super::Foundation::BSTR, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()>;
+    fn GetUserSummary(&self, bstrsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Configure(&self, hwnd: super::super::Foundation::HWND, bstrsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RequestOverride(&self, hwnd: super::super::Foundation::HWND, bstrpath: &super::super::Foundation::BSTR, dwflags: WPCFLAG_RESTRICTION) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWPCProviderConfig_Vtbl {
@@ -64,8 +64,8 @@ impl IWPCProviderConfig_Vtbl {
     }
 }
 pub trait IWPCProviderState_Impl: Sized {
-    fn Enable(&mut self) -> ::windows::core::Result<()>;
-    fn Disable(&mut self) -> ::windows::core::Result<()>;
+    fn Enable(&self) -> ::windows::core::Result<()>;
+    fn Disable(&self) -> ::windows::core::Result<()>;
 }
 impl IWPCProviderState_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWPCProviderState_Impl, const OFFSET: isize>() -> IWPCProviderState_Vtbl {
@@ -90,7 +90,7 @@ impl IWPCProviderState_Vtbl {
     }
 }
 pub trait IWPCProviderSupport_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetCurrent(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl IWPCProviderSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWPCProviderSupport_Impl, const OFFSET: isize>() -> IWPCProviderSupport_Vtbl {
@@ -113,9 +113,9 @@ impl IWPCProviderSupport_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCSettings_Impl: Sized {
-    fn IsLoggingRequired(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetLastSettingsChangeTime(&mut self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn GetRestrictions(&mut self) -> ::windows::core::Result<WPCFLAG_RESTRICTION>;
+    fn IsLoggingRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetLastSettingsChangeTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
+    fn GetRestrictions(&self) -> ::windows::core::Result<WPCFLAG_RESTRICTION>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWPCSettings_Vtbl {
@@ -166,8 +166,8 @@ impl IWPCSettings_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCWebSettings_Impl: Sized + IWPCSettings_Impl {
-    fn GetSettings(&mut self) -> ::windows::core::Result<WPCFLAG_WEB_SETTING>;
-    fn RequestURLOverride(&mut self, hwnd: super::super::Foundation::HWND, pcszurl: super::super::Foundation::PWSTR, curls: u32, ppcszsuburls: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetSettings(&self) -> ::windows::core::Result<WPCFLAG_WEB_SETTING>;
+    fn RequestURLOverride(&self, hwnd: super::super::Foundation::HWND, pcszurl: super::super::Foundation::PWSTR, curls: u32, ppcszsuburls: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWPCWebSettings_Vtbl {
@@ -206,7 +206,7 @@ impl IWPCWebSettings_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWindowsParentalControls_Impl: Sized + IWindowsParentalControlsCore_Impl {
-    fn GetGamesSettings(&mut self, pcszsid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWPCGamesSettings>;
+    fn GetGamesSettings(&self, pcszsid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWPCGamesSettings>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWindowsParentalControls_Vtbl {
@@ -230,10 +230,10 @@ impl IWindowsParentalControls_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWindowsParentalControlsCore_Impl: Sized {
-    fn GetVisibility(&mut self) -> ::windows::core::Result<WPCFLAG_VISIBILITY>;
-    fn GetUserSettings(&mut self, pcszsid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWPCSettings>;
-    fn GetWebSettings(&mut self, pcszsid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWPCWebSettings>;
-    fn GetWebFilterInfo(&mut self, pguidid: *mut ::windows::core::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetVisibility(&self) -> ::windows::core::Result<WPCFLAG_VISIBILITY>;
+    fn GetUserSettings(&self, pcszsid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWPCSettings>;
+    fn GetWebSettings(&self, pcszsid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWPCWebSettings>;
+    fn GetWebFilterInfo(&self, pguidid: *mut ::windows::core::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWindowsParentalControlsCore_Vtbl {
