@@ -71,6 +71,9 @@ impl ::core::fmt::Debug for FrameNavigationOptions {
 unsafe impl ::windows::core::RuntimeType for FrameNavigationOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.FrameNavigationOptions;{b539ad2a-9fb7-520a-8f41-57a50c59cf92})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FrameNavigationOptions {
     type Vtable = IFrameNavigationOptions_Vtbl;
@@ -376,6 +379,9 @@ unsafe impl ::windows::core::Interface for LoadCompletedEventHandler {
 unsafe impl ::windows::core::RuntimeType for LoadCompletedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{aebaf785-43fc-4e2c-95c3-97ae84eabc8e}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -455,6 +461,9 @@ unsafe impl ::windows::core::Interface for NavigatedEventHandler {
 unsafe impl ::windows::core::RuntimeType for NavigatedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7bd1cf54-23cf-4cce-b2f5-4ce78d96896e}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -533,6 +542,9 @@ impl ::core::fmt::Debug for NavigatingCancelEventArgs {
 unsafe impl ::windows::core::RuntimeType for NavigatingCancelEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.NavigatingCancelEventArgs;{fd1d67ae-eafb-4079-be80-6dc92a03aedf})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for NavigatingCancelEventArgs {
     type Vtable = INavigatingCancelEventArgs_Vtbl;
@@ -655,6 +667,9 @@ unsafe impl ::windows::core::Interface for NavigatingCancelEventHandler {
 unsafe impl ::windows::core::RuntimeType for NavigatingCancelEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{75d6a78f-a302-4489-9898-24ea49182910}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -693,6 +708,9 @@ impl ::core::fmt::Debug for NavigationCacheMode {
 unsafe impl ::windows::core::RuntimeType for NavigationCacheMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Navigation.NavigationCacheMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
@@ -775,6 +793,9 @@ impl ::core::fmt::Debug for NavigationEventArgs {
 unsafe impl ::windows::core::RuntimeType for NavigationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.NavigationEventArgs;{b6aa9834-6691-44d1-bdf7-58820c27b0d0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for NavigationEventArgs {
     type Vtable = INavigationEventArgs_Vtbl;
@@ -879,6 +900,9 @@ impl ::core::fmt::Debug for NavigationFailedEventArgs {
 unsafe impl ::windows::core::RuntimeType for NavigationFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.NavigationFailedEventArgs;{11c1dff7-36c2-4102-b2ef-0217a97289b3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for NavigationFailedEventArgs {
     type Vtable = INavigationFailedEventArgs_Vtbl;
@@ -1001,6 +1025,9 @@ unsafe impl ::windows::core::Interface for NavigationFailedEventHandler {
 unsafe impl ::windows::core::RuntimeType for NavigationFailedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4dab4671-12b2-43c7-b892-9be2dcd3e88d}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1040,6 +1067,9 @@ impl ::core::fmt::Debug for NavigationMode {
 unsafe impl ::windows::core::RuntimeType for NavigationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Navigation.NavigationMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
@@ -1113,6 +1143,9 @@ unsafe impl ::windows::core::Interface for NavigationStoppedEventHandler {
 unsafe impl ::windows::core::RuntimeType for NavigationStoppedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f0117ddb-12fa-4d8d-8b26-b383d09c2b3c}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1195,6 +1228,9 @@ impl ::core::fmt::Debug for PageStackEntry {
 unsafe impl ::windows::core::RuntimeType for PageStackEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.PageStackEntry;{ef8814a6-9388-4aca-8572-405194069080})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PageStackEntry {
     type Vtable = IPageStackEntry_Vtbl;

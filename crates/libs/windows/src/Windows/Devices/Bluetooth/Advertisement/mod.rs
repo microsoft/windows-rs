@@ -103,6 +103,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisement {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement;{066fb2b7-33d1-4e7d-8367-cf81d0f79653})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisement {
     type Vtable = IBluetoothLEAdvertisement_Vtbl;
@@ -238,6 +241,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementBytePattern {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementBytePattern {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern;{fbfad7f2-b9c5-4a08-bc51-502f8ef68a79})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementBytePattern {
     type Vtable = IBluetoothLEAdvertisementBytePattern_Vtbl;
@@ -360,6 +366,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementDataSection {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementDataSection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection;{d7213314-3a43-40f9-b6f0-92bfefc34ae3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementDataSection {
     type Vtable = IBluetoothLEAdvertisementDataSection_Vtbl;
@@ -629,6 +638,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementFilter {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter;{131eb0d3-d04e-47b1-837e-49405bf6f80f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementFilter {
     type Vtable = IBluetoothLEAdvertisementFilter_Vtbl;
@@ -741,6 +753,9 @@ impl ::core::ops::Not for BluetoothLEAdvertisementFlags {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementFlags {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFlags;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
@@ -880,6 +895,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisher {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher;{cde820f9-d9fa-43d6-a264-ddd8b7da8b78})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisher {
     type Vtable = IBluetoothLEAdvertisementPublisher_Vtbl;
@@ -964,6 +982,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherStatus {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
@@ -1014,6 +1035,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherStatusChangedEventA
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs;{09c2bd9f-2dff-4b23-86ee-0d14fb94aeae})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     type Vtable = IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Vtbl;
@@ -1186,6 +1210,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementReceivedEventArgs {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs;{27987ddf-e596-41be-8d43-9e6731d4a913})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementReceivedEventArgs {
     type Vtable = IBluetoothLEAdvertisementReceivedEventArgs_Vtbl;
@@ -1270,6 +1297,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementType {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
@@ -1450,6 +1480,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcher {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher;{a6ac336f-f3d3-4297-8d6c-c81ea6623f40})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcher {
     type Vtable = IBluetoothLEAdvertisementWatcher_Vtbl;
@@ -1533,6 +1566,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherStatus {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
@@ -1566,6 +1602,9 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherStoppedEventArgs {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs;{dd40f84d-e7b9-43e3-9c04-0685d085fd8c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     type Vtable = IBluetoothLEAdvertisementWatcherStoppedEventArgs_Vtbl;
@@ -1688,6 +1727,9 @@ impl ::core::fmt::Debug for BluetoothLEManufacturerData {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEManufacturerData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData;{912dba18-6963-4533-b061-4694dafb34e5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BluetoothLEManufacturerData {
     type Vtable = IBluetoothLEManufacturerData_Vtbl;
@@ -1769,6 +1811,9 @@ impl ::core::fmt::Debug for BluetoothLEScanningMode {
 unsafe impl ::windows::core::RuntimeType for BluetoothLEScanningMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEScanningMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]

@@ -47,6 +47,9 @@ impl ::core::fmt::Debug for AudioCaptureEffectsManager {
 unsafe impl ::windows::core::RuntimeType for AudioCaptureEffectsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioCaptureEffectsManager;{8f85c271-038d-4393-8298-540110608eef})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AudioCaptureEffectsManager {
     type Vtable = IAudioCaptureEffectsManager_Vtbl;
@@ -129,6 +132,9 @@ impl ::core::fmt::Debug for AudioEffect {
 unsafe impl ::windows::core::RuntimeType for AudioEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffect;{34aafa51-9207-4055-be93-6e5734a86ae4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AudioEffect {
     type Vtable = IAudioEffect_Vtbl;
@@ -240,6 +246,9 @@ impl ::core::fmt::Debug for AudioEffectDefinition {
 unsafe impl ::windows::core::RuntimeType for AudioEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioEffectDefinition;{e4d7f974-7d80-4f73-9089-e31c9db9c294})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AudioEffectDefinition {
     type Vtable = IAudioEffectDefinition_Vtbl;
@@ -360,6 +369,9 @@ impl ::core::fmt::Debug for AudioEffectType {
 unsafe impl ::windows::core::RuntimeType for AudioEffectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Effects'*"]
 pub struct AudioEffectsManager {}
@@ -477,6 +489,9 @@ impl ::core::fmt::Debug for AudioRenderEffectsManager {
 unsafe impl ::windows::core::RuntimeType for AudioRenderEffectsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioRenderEffectsManager;{4dc98966-8751-42b2-bfcb-39ca7864bd47})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AudioRenderEffectsManager {
     type Vtable = IAudioRenderEffectsManager_Vtbl;
@@ -585,6 +600,9 @@ impl ::core::fmt::Debug for CompositeVideoFrameContext {
 unsafe impl ::windows::core::RuntimeType for CompositeVideoFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.CompositeVideoFrameContext;{6c30024b-f514-4278-a5f7-b9188049d110})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositeVideoFrameContext {
     type Vtable = ICompositeVideoFrameContext_Vtbl;
@@ -753,6 +771,9 @@ impl ::core::fmt::Debug for IAudioEffectDefinition {
 unsafe impl ::windows::core::RuntimeType for IAudioEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e4d7f974-7d80-4f73-9089-e31c9db9c294}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioEffectDefinition {
     type Vtable = IAudioEffectDefinition_Vtbl;
@@ -994,6 +1015,9 @@ impl ::core::fmt::Debug for IBasicAudioEffect {
 unsafe impl ::windows::core::RuntimeType for IBasicAudioEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8c062c53-6bc0-48b8-a99a-4b41550f1359}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IBasicAudioEffect {
     type Vtable = IBasicAudioEffect_Vtbl;
@@ -1162,6 +1186,9 @@ impl ::core::fmt::Debug for IBasicVideoEffect {
 unsafe impl ::windows::core::RuntimeType for IBasicVideoEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8262c7ef-b360-40be-949b-2ff42ff35693}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IBasicVideoEffect {
     type Vtable = IBasicVideoEffect_Vtbl;
@@ -1371,6 +1398,9 @@ impl ::core::fmt::Debug for IVideoCompositor {
 unsafe impl ::windows::core::RuntimeType for IVideoCompositor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8510b43e-420c-420f-96c7-7c98bba1fc55}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IVideoCompositor {
     type Vtable = IVideoCompositor_Vtbl;
@@ -1470,6 +1500,9 @@ impl ::core::fmt::Debug for IVideoCompositorDefinition {
 unsafe impl ::windows::core::RuntimeType for IVideoCompositorDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IVideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinition_Vtbl;
@@ -1583,6 +1616,9 @@ impl ::core::fmt::Debug for IVideoEffectDefinition {
 unsafe impl ::windows::core::RuntimeType for IVideoEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{39f38cf0-8d0f-4f3e-84fc-2d46a5297943}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IVideoEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
@@ -1760,6 +1796,9 @@ impl ::core::fmt::Debug for MediaEffectClosedReason {
 unsafe impl ::windows::core::RuntimeType for MediaEffectClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaEffectClosedReason;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
@@ -1792,6 +1831,9 @@ impl ::core::fmt::Debug for MediaMemoryTypes {
 unsafe impl ::windows::core::RuntimeType for MediaMemoryTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaMemoryTypes;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
@@ -1833,6 +1875,9 @@ impl ::core::fmt::Debug for ProcessAudioFrameContext {
 unsafe impl ::windows::core::RuntimeType for ProcessAudioFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessAudioFrameContext;{4cd92946-1222-4a27-a586-fb3e20273255})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProcessAudioFrameContext {
     type Vtable = IProcessAudioFrameContext_Vtbl;
@@ -1923,6 +1968,9 @@ impl ::core::fmt::Debug for ProcessVideoFrameContext {
 unsafe impl ::windows::core::RuntimeType for ProcessVideoFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessVideoFrameContext;{276f0e2b-6461-401e-ba78-0fdad6114eec})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProcessVideoFrameContext {
     type Vtable = IProcessVideoFrameContext_Vtbl;
@@ -2034,6 +2082,9 @@ impl ::core::fmt::Debug for SlowMotionEffectDefinition {
 unsafe impl ::windows::core::RuntimeType for SlowMotionEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.SlowMotionEffectDefinition;{35053cd0-176c-4763-82c4-1b02dbe31737})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SlowMotionEffectDefinition {
     type Vtable = ISlowMotionEffectDefinition_Vtbl;
@@ -2167,6 +2218,9 @@ impl ::core::fmt::Debug for VideoCompositorDefinition {
 unsafe impl ::windows::core::RuntimeType for VideoCompositorDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoCompositorDefinition;{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinition_Vtbl;
@@ -2300,6 +2354,9 @@ impl ::core::fmt::Debug for VideoEffectDefinition {
 unsafe impl ::windows::core::RuntimeType for VideoEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VideoEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
@@ -2518,6 +2575,9 @@ impl ::core::fmt::Debug for VideoTransformEffectDefinition {
 unsafe impl ::windows::core::RuntimeType for VideoTransformEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VideoTransformEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
@@ -2685,6 +2745,9 @@ impl ::core::fmt::Debug for VideoTransformSphericalProjection {
 unsafe impl ::windows::core::RuntimeType for VideoTransformSphericalProjection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformSphericalProjection;{cf4401f0-9bf2-4c39-9f41-e022514a8468})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VideoTransformSphericalProjection {
     type Vtable = IVideoTransformSphericalProjection_Vtbl;

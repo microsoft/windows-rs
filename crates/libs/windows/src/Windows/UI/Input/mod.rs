@@ -37,6 +37,9 @@ impl ::core::fmt::Debug for AttachableInputObject {
 unsafe impl ::windows::core::RuntimeType for AttachableInputObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.AttachableInputObject;{9b822734-a3c1-542a-b2f4-0e32b773fb07})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AttachableInputObject {
     type Vtable = IAttachableInputObject_Vtbl;
@@ -138,6 +141,9 @@ unsafe impl ::windows::core::Abi for CrossSlideThresholds {
 unsafe impl ::windows::core::RuntimeType for CrossSlideThresholds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.CrossSlideThresholds;f4;f4;f4;f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for CrossSlideThresholds {
     fn eq(&self, other: &Self) -> bool {
@@ -208,6 +214,9 @@ impl ::core::fmt::Debug for CrossSlidingEventArgs {
 unsafe impl ::windows::core::RuntimeType for CrossSlidingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.CrossSlidingEventArgs;{e9374738-6f88-41d9-8720-78e08e398349})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CrossSlidingEventArgs {
     type Vtable = ICrossSlidingEventArgs_Vtbl;
@@ -291,6 +300,9 @@ impl ::core::fmt::Debug for CrossSlidingState {
 unsafe impl ::windows::core::RuntimeType for CrossSlidingState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.CrossSlidingState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
@@ -350,6 +362,9 @@ impl ::core::fmt::Debug for DraggingEventArgs {
 unsafe impl ::windows::core::RuntimeType for DraggingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.DraggingEventArgs;{1c905384-083c-4bd3-b559-179cddeb33ec})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DraggingEventArgs {
     type Vtable = IDraggingEventArgs_Vtbl;
@@ -429,6 +444,9 @@ impl ::core::fmt::Debug for DraggingState {
 unsafe impl ::windows::core::RuntimeType for DraggingState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.DraggingState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
@@ -511,6 +529,9 @@ impl ::core::fmt::Debug for EdgeGesture {
 unsafe impl ::windows::core::RuntimeType for EdgeGesture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGesture;{580d5292-2ab1-49aa-a7f0-33bd3f8df9f1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EdgeGesture {
     type Vtable = IEdgeGesture_Vtbl;
@@ -591,6 +612,9 @@ impl ::core::fmt::Debug for EdgeGestureEventArgs {
 unsafe impl ::windows::core::RuntimeType for EdgeGestureEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.EdgeGestureEventArgs;{44fa4a24-2d09-42e1-8b5e-368208796a4c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EdgeGestureEventArgs {
     type Vtable = IEdgeGestureEventArgs_Vtbl;
@@ -670,6 +694,9 @@ impl ::core::fmt::Debug for EdgeGestureKind {
 unsafe impl ::windows::core::RuntimeType for EdgeGestureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
@@ -703,6 +730,9 @@ impl ::core::fmt::Debug for GazeInputAccessStatus {
 unsafe impl ::windows::core::RuntimeType for GazeInputAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GazeInputAccessStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
@@ -1236,6 +1266,9 @@ impl ::core::fmt::Debug for GestureRecognizer {
 unsafe impl ::windows::core::RuntimeType for GestureRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.GestureRecognizer;{b47a37bf-3d6b-4f88-83e8-6dcb4012ffb0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GestureRecognizer {
     type Vtable = IGestureRecognizer_Vtbl;
@@ -1358,6 +1391,9 @@ impl ::core::ops::Not for GestureSettings {
 unsafe impl ::windows::core::RuntimeType for GestureSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
@@ -1425,6 +1461,9 @@ impl ::core::fmt::Debug for HoldingEventArgs {
 unsafe impl ::windows::core::RuntimeType for HoldingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.HoldingEventArgs;{2bf755c5-e799-41b4-bb40-242f40959b71})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HoldingEventArgs {
     type Vtable = IHoldingEventArgs_Vtbl;
@@ -1504,6 +1543,9 @@ impl ::core::fmt::Debug for HoldingState {
 unsafe impl ::windows::core::RuntimeType for HoldingState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2339,6 +2381,9 @@ impl ::core::fmt::Debug for IPointerPointTransform {
 unsafe impl ::windows::core::RuntimeType for IPointerPointTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4d5fe14f-b87c-4028-bc9c-59e9947fb056}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IPointerPointTransform {
     type Vtable = IPointerPointTransform_Vtbl;
@@ -3116,6 +3161,9 @@ impl ::core::fmt::Debug for InputActivationListener {
 unsafe impl ::windows::core::RuntimeType for InputActivationListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListener;{5d6d4ed2-28c7-5ae3-aa74-c918a9f243ca})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InputActivationListener {
     type Vtable = IInputActivationListener_Vtbl;
@@ -3244,6 +3292,9 @@ impl ::core::fmt::Debug for InputActivationListenerActivationChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for InputActivationListenerActivationChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.InputActivationListenerActivationChangedEventArgs;{7699b465-1dcf-5791-b4b9-6cafbeed2056})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InputActivationListenerActivationChangedEventArgs {
     type Vtable = IInputActivationListenerActivationChangedEventArgs_Vtbl;
@@ -3326,6 +3377,9 @@ impl ::core::fmt::Debug for InputActivationState {
 unsafe impl ::windows::core::RuntimeType for InputActivationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.InputActivationState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
@@ -3406,6 +3460,9 @@ impl ::core::fmt::Debug for KeyboardDeliveryInterceptor {
 unsafe impl ::windows::core::RuntimeType for KeyboardDeliveryInterceptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.KeyboardDeliveryInterceptor;{b4baf068-8f49-446c-8db5-8c0ffe85cc9e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for KeyboardDeliveryInterceptor {
     type Vtable = IKeyboardDeliveryInterceptor_Vtbl;
@@ -3532,6 +3589,9 @@ impl ::core::fmt::Debug for ManipulationCompletedEventArgs {
 unsafe impl ::windows::core::RuntimeType for ManipulationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationCompletedEventArgs;{b34ab22b-d19b-46ff-9f38-dec7754bb9e7})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ManipulationCompletedEventArgs {
     type Vtable = IManipulationCompletedEventArgs_Vtbl;
@@ -3611,6 +3671,9 @@ unsafe impl ::windows::core::Abi for ManipulationDelta {
 unsafe impl ::windows::core::RuntimeType for ManipulationDelta {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationDelta;struct(Windows.Foundation.Point;f4;f4);f4;f4;f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for ManipulationDelta {
@@ -3703,6 +3766,9 @@ impl ::core::fmt::Debug for ManipulationInertiaStartingEventArgs {
 unsafe impl ::windows::core::RuntimeType for ManipulationInertiaStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationInertiaStartingEventArgs;{dd37a898-26bf-467a-9ce5-ccf3fb11371e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ManipulationInertiaStartingEventArgs {
     type Vtable = IManipulationInertiaStartingEventArgs_Vtbl;
@@ -3810,6 +3876,9 @@ impl ::core::fmt::Debug for ManipulationStartedEventArgs {
 unsafe impl ::windows::core::RuntimeType for ManipulationStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationStartedEventArgs;{ddec873e-cfce-4932-8c1d-3c3d011a34c0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ManipulationStartedEventArgs {
     type Vtable = IManipulationStartedEventArgs_Vtbl;
@@ -3943,6 +4012,9 @@ impl ::core::fmt::Debug for ManipulationUpdatedEventArgs {
 unsafe impl ::windows::core::RuntimeType for ManipulationUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.ManipulationUpdatedEventArgs;{cb354ce5-abb8-4f9f-b3ce-8181aa61ad82})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ManipulationUpdatedEventArgs {
     type Vtable = IManipulationUpdatedEventArgs_Vtbl;
@@ -4021,6 +4093,9 @@ unsafe impl ::windows::core::Abi for ManipulationVelocities {
 unsafe impl ::windows::core::RuntimeType for ManipulationVelocities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationVelocities;struct(Windows.Foundation.Point;f4;f4);f4;f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for ManipulationVelocities {
@@ -4116,6 +4191,9 @@ impl ::core::fmt::Debug for MouseWheelParameters {
 unsafe impl ::windows::core::RuntimeType for MouseWheelParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.MouseWheelParameters;{ead0ca44-9ded-4037-8149-5e4cc2564468})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MouseWheelParameters {
     type Vtable = IMouseWheelParameters_Vtbl;
@@ -4290,6 +4368,9 @@ impl ::core::fmt::Debug for PointerPoint {
 unsafe impl ::windows::core::RuntimeType for PointerPoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPoint;{e995317d-7296-42d9-8233-c5be73b74a4a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointerPoint {
     type Vtable = IPointerPoint_Vtbl;
@@ -4565,6 +4646,9 @@ impl ::core::fmt::Debug for PointerPointProperties {
 unsafe impl ::windows::core::RuntimeType for PointerPointProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerPointProperties;{c79d8a4b-c163-4ee7-803f-67ce79f9972d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointerPointProperties {
     type Vtable = IPointerPointProperties_Vtbl;
@@ -4652,6 +4736,9 @@ impl ::core::fmt::Debug for PointerUpdateKind {
 unsafe impl ::windows::core::RuntimeType for PointerUpdateKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.PointerUpdateKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
@@ -4715,6 +4802,9 @@ impl ::core::fmt::Debug for PointerVisualizationSettings {
 unsafe impl ::windows::core::RuntimeType for PointerVisualizationSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.PointerVisualizationSettings;{4d1e6461-84f7-499d-bd91-2a36e2b7aaa2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointerVisualizationSettings {
     type Vtable = IPointerVisualizationSettings_Vtbl;
@@ -4992,6 +5082,9 @@ impl ::core::fmt::Debug for RadialController {
 unsafe impl ::windows::core::RuntimeType for RadialController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialController;{3055d1c8-df51-43d4-b23b-0e1037467a09})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialController {
     type Vtable = IRadialController_Vtbl;
@@ -5083,6 +5176,9 @@ impl ::core::fmt::Debug for RadialControllerButtonClickedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RadialControllerButtonClickedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonClickedEventArgs;{206aa438-e651-11e5-bf62-2c27d7404e85})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerButtonClickedEventArgs {
     type Vtable = IRadialControllerButtonClickedEventArgs_Vtbl;
@@ -5174,6 +5270,9 @@ impl ::core::fmt::Debug for RadialControllerButtonHoldingEventArgs {
 unsafe impl ::windows::core::RuntimeType for RadialControllerButtonHoldingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonHoldingEventArgs;{3d577eee-3cee-11e6-b535-001bdc06ab3b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerButtonHoldingEventArgs {
     type Vtable = IRadialControllerButtonHoldingEventArgs_Vtbl;
@@ -5265,6 +5364,9 @@ impl ::core::fmt::Debug for RadialControllerButtonPressedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RadialControllerButtonPressedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonPressedEventArgs;{3d577eed-4cee-11e6-b535-001bdc06ab3b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerButtonPressedEventArgs {
     type Vtable = IRadialControllerButtonPressedEventArgs_Vtbl;
@@ -5356,6 +5458,9 @@ impl ::core::fmt::Debug for RadialControllerButtonReleasedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RadialControllerButtonReleasedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerButtonReleasedEventArgs;{3d577eef-3cee-11e6-b535-001bdc06ab3b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerButtonReleasedEventArgs {
     type Vtable = IRadialControllerButtonReleasedEventArgs_Vtbl;
@@ -5514,6 +5619,9 @@ impl ::core::fmt::Debug for RadialControllerConfiguration {
 unsafe impl ::windows::core::RuntimeType for RadialControllerConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerConfiguration;{a6b79ecb-6a52-4430-910c-56370a9d6b42})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerConfiguration {
     type Vtable = IRadialControllerConfiguration_Vtbl;
@@ -5613,6 +5721,9 @@ impl ::core::fmt::Debug for RadialControllerControlAcquiredEventArgs {
 unsafe impl ::windows::core::RuntimeType for RadialControllerControlAcquiredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerControlAcquiredEventArgs;{206aa439-e651-11e5-bf62-2c27d7404e85})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerControlAcquiredEventArgs {
     type Vtable = IRadialControllerControlAcquiredEventArgs_Vtbl;
@@ -5730,6 +5841,9 @@ impl ::core::fmt::Debug for RadialControllerMenu {
 unsafe impl ::windows::core::RuntimeType for RadialControllerMenu {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenu;{8506b35d-f640-4412-aba0-bad077e5ea8a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerMenu {
     type Vtable = IRadialControllerMenu_Vtbl;
@@ -5880,6 +5994,9 @@ impl ::core::fmt::Debug for RadialControllerMenuItem {
 unsafe impl ::windows::core::RuntimeType for RadialControllerMenuItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerMenuItem;{c80fc98d-ad0b-4c9c-8f2f-136a2373a6ba})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerMenuItem {
     type Vtable = IRadialControllerMenuItem_Vtbl;
@@ -5967,6 +6084,9 @@ impl ::core::fmt::Debug for RadialControllerMenuKnownIcon {
 unsafe impl ::windows::core::RuntimeType for RadialControllerMenuKnownIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerMenuKnownIcon;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
@@ -6025,6 +6145,9 @@ impl ::core::fmt::Debug for RadialControllerRotationChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RadialControllerRotationChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerRotationChangedEventArgs;{206aa435-e651-11e5-bf62-2c27d7404e85})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerRotationChangedEventArgs {
     type Vtable = IRadialControllerRotationChangedEventArgs_Vtbl;
@@ -6117,6 +6240,9 @@ impl ::core::fmt::Debug for RadialControllerScreenContact {
 unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContact {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContact;{206aa434-e651-11e5-bf62-2c27d7404e85})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerScreenContact {
     type Vtable = IRadialControllerScreenContact_Vtbl;
@@ -6216,6 +6342,9 @@ impl ::core::fmt::Debug for RadialControllerScreenContactContinuedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactContinuedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs;{206aa437-e651-11e5-bf62-2c27d7404e85})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerScreenContactContinuedEventArgs {
     type Vtable = IRadialControllerScreenContactContinuedEventArgs_Vtbl;
@@ -6307,6 +6436,9 @@ impl ::core::fmt::Debug for RadialControllerScreenContactEndedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactEndedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactEndedEventArgs;{3d577ef2-3cee-11e6-b535-001bdc06ab3b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerScreenContactEndedEventArgs {
     type Vtable = IRadialControllerScreenContactEndedEventArgs_Vtbl;
@@ -6406,6 +6538,9 @@ impl ::core::fmt::Debug for RadialControllerScreenContactStartedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RadialControllerScreenContactStartedEventArgs;{206aa436-e651-11e5-bf62-2c27d7404e85})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadialControllerScreenContactStartedEventArgs {
     type Vtable = IRadialControllerScreenContactStartedEventArgs_Vtbl;
@@ -6489,6 +6624,9 @@ impl ::core::fmt::Debug for RadialControllerSystemMenuItemKind {
 unsafe impl ::windows::core::RuntimeType for RadialControllerSystemMenuItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerSystemMenuItemKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
@@ -6540,6 +6678,9 @@ impl ::core::fmt::Debug for RightTappedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RightTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.RightTappedEventArgs;{4cbf40bd-af7a-4a36-9476-b1dce141709a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RightTappedEventArgs {
     type Vtable = IRightTappedEventArgs_Vtbl;
@@ -6691,6 +6832,9 @@ impl ::core::fmt::Debug for SystemButtonEventController {
 unsafe impl ::windows::core::RuntimeType for SystemButtonEventController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemButtonEventController;{59b893a9-73bc-52b5-ba41-82511b2cb46c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SystemButtonEventController {
     type Vtable = ISystemButtonEventController_Vtbl;
@@ -6832,6 +6976,9 @@ impl ::core::fmt::Debug for SystemFunctionButtonEventArgs {
 unsafe impl ::windows::core::RuntimeType for SystemFunctionButtonEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionButtonEventArgs;{4833896f-80d1-5dd6-92a7-62a508ffef5a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SystemFunctionButtonEventArgs {
     type Vtable = ISystemFunctionButtonEventArgs_Vtbl;
@@ -6935,6 +7082,9 @@ impl ::core::fmt::Debug for SystemFunctionLockChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for SystemFunctionLockChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockChangedEventArgs;{cd040608-fcf9-585c-beab-f1d2eaf364ab})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SystemFunctionLockChangedEventArgs {
     type Vtable = ISystemFunctionLockChangedEventArgs_Vtbl;
@@ -7038,6 +7188,9 @@ impl ::core::fmt::Debug for SystemFunctionLockIndicatorChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for SystemFunctionLockIndicatorChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs;{b212b94e-7a6f-58ae-b304-bae61d0371b9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SystemFunctionLockIndicatorChangedEventArgs {
     type Vtable = ISystemFunctionLockIndicatorChangedEventArgs_Vtbl;
@@ -7146,6 +7299,9 @@ impl ::core::fmt::Debug for TappedEventArgs {
 unsafe impl ::windows::core::RuntimeType for TappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.TappedEventArgs;{cfa126e4-253a-4c3c-953b-395c37aed309})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TappedEventArgs {
     type Vtable = ITappedEventArgs_Vtbl;

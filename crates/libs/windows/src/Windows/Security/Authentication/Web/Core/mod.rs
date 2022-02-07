@@ -48,6 +48,9 @@ impl ::core::fmt::Debug for FindAllAccountsResult {
 unsafe impl ::windows::core::RuntimeType for FindAllAccountsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.FindAllAccountsResult;{a5812b5d-b72e-420c-86ab-aac0d7b7261f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FindAllAccountsResult {
     type Vtable = IFindAllAccountsResult_Vtbl;
@@ -130,6 +133,9 @@ impl ::core::fmt::Debug for FindAllWebAccountsStatus {
 unsafe impl ::windows::core::RuntimeType for FindAllWebAccountsStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -535,6 +541,9 @@ impl ::core::fmt::Debug for WebAccountEventArgs {
 unsafe impl ::windows::core::RuntimeType for WebAccountEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebAccountEventArgs;{6fb7037d-424e-44ec-977c-ef2415462a5a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebAccountEventArgs {
     type Vtable = IWebAccountEventArgs_Vtbl;
@@ -669,6 +678,9 @@ impl ::core::fmt::Debug for WebAccountMonitor {
 unsafe impl ::windows::core::RuntimeType for WebAccountMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebAccountMonitor;{7445f5fd-aa9d-4619-8d5d-c138a4ede3e5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebAccountMonitor {
     type Vtable = IWebAccountMonitor_Vtbl;
@@ -919,6 +931,9 @@ impl ::core::fmt::Debug for WebProviderError {
 unsafe impl ::windows::core::RuntimeType for WebProviderError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebProviderError;{db191bb1-50c5-4809-8dca-09c99410245c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebProviderError {
     type Vtable = IWebProviderError_Vtbl;
@@ -1094,6 +1109,9 @@ impl ::core::fmt::Debug for WebTokenRequest {
 unsafe impl ::windows::core::RuntimeType for WebTokenRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequest;{b77b4d68-adcb-4673-b364-0cf7b35caf97})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebTokenRequest {
     type Vtable = IWebTokenRequest_Vtbl;
@@ -1174,6 +1192,9 @@ impl ::core::fmt::Debug for WebTokenRequestPromptType {
 unsafe impl ::windows::core::RuntimeType for WebTokenRequestPromptType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestPromptType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
@@ -1233,6 +1254,9 @@ impl ::core::fmt::Debug for WebTokenRequestResult {
 unsafe impl ::windows::core::RuntimeType for WebTokenRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequestResult;{c12a8305-d1f8-4483-8d54-38fe292784ff})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebTokenRequestResult {
     type Vtable = IWebTokenRequestResult_Vtbl;
@@ -1317,6 +1341,9 @@ impl ::core::fmt::Debug for WebTokenRequestStatus {
 unsafe impl ::windows::core::RuntimeType for WebTokenRequestStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
@@ -1411,6 +1438,9 @@ impl ::core::fmt::Debug for WebTokenResponse {
 unsafe impl ::windows::core::RuntimeType for WebTokenResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenResponse;{67a7c5ca-83f6-44c6-a3b1-0eb69e41fa8a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebTokenResponse {
     type Vtable = IWebTokenResponse_Vtbl;

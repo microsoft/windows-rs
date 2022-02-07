@@ -54,6 +54,9 @@ unsafe impl ::windows::core::Abi for Color {
 unsafe impl ::windows::core::RuntimeType for Color {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for Color {
     fn eq(&self, other: &Self) -> bool {
@@ -114,6 +117,9 @@ impl ::core::fmt::Debug for ColorHelper {
 unsafe impl ::windows::core::RuntimeType for ColorHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ColorHelper;{193cfbe7-65c7-4540-ad08-6283ba76879a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ColorHelper {
     type Vtable = IColorHelper_Vtbl;
@@ -1180,6 +1186,9 @@ impl ::core::fmt::Debug for Colors {
 unsafe impl ::windows::core::RuntimeType for Colors {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Colors;{9b8c9326-4ca6-4ce5-8994-9eff65cabdcc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Colors {
     type Vtable = IColors_Vtbl;
@@ -1490,6 +1499,9 @@ impl ::core::fmt::Debug for UIContentRoot {
 unsafe impl ::windows::core::RuntimeType for UIContentRoot {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIContentRoot;{1dfcbac6-b36b-5cb9-9bc5-2b7a0eddc378})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UIContentRoot {
     type Vtable = IUIContentRoot_Vtbl;
@@ -1563,6 +1575,9 @@ impl ::core::fmt::Debug for UIContext {
 unsafe impl ::windows::core::RuntimeType for UIContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIContext;{bb5cfacd-5bd8-59d0-a59e-1c17a4d6d243})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UIContext {
     type Vtable = IUIContext_Vtbl;
@@ -1635,6 +1650,9 @@ unsafe impl ::windows::core::Abi for WindowId {
 unsafe impl ::windows::core::RuntimeType for WindowId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.WindowId;u8)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for WindowId {
     fn eq(&self, other: &Self) -> bool {

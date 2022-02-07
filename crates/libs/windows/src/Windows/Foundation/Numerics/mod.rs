@@ -26,6 +26,9 @@ unsafe impl ::windows::core::Abi for Matrix3x2 {
 unsafe impl ::windows::core::RuntimeType for Matrix3x2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for Matrix3x2 {
     fn eq(&self, other: &Self) -> bool {
@@ -216,6 +219,9 @@ unsafe impl ::windows::core::Abi for Matrix4x4 {
 unsafe impl ::windows::core::RuntimeType for Matrix4x4 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for Matrix4x4 {
     fn eq(&self, other: &Self) -> bool {
@@ -417,6 +423,9 @@ unsafe impl ::windows::core::Abi for Plane {
 unsafe impl ::windows::core::RuntimeType for Plane {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for Plane {
     fn eq(&self, other: &Self) -> bool {
@@ -454,6 +463,9 @@ unsafe impl ::windows::core::Abi for Quaternion {
 unsafe impl ::windows::core::RuntimeType for Quaternion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for Quaternion {
     fn eq(&self, other: &Self) -> bool {
@@ -489,6 +501,9 @@ unsafe impl ::windows::core::Abi for Rational {
 unsafe impl ::windows::core::RuntimeType for Rational {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Rational;u4;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for Rational {
     fn eq(&self, other: &Self) -> bool {
@@ -524,6 +539,9 @@ unsafe impl ::windows::core::Abi for Vector2 {
 unsafe impl ::windows::core::RuntimeType for Vector2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for Vector2 {
     fn eq(&self, other: &Self) -> bool {
@@ -733,6 +751,9 @@ unsafe impl ::windows::core::Abi for Vector3 {
 unsafe impl ::windows::core::RuntimeType for Vector3 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for Vector3 {
     fn eq(&self, other: &Self) -> bool {
@@ -946,6 +967,9 @@ unsafe impl ::windows::core::Abi for Vector4 {
 unsafe impl ::windows::core::RuntimeType for Vector4 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for Vector4 {
     fn eq(&self, other: &Self) -> bool {

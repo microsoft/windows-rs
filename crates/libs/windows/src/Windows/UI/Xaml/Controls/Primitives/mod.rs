@@ -31,6 +31,9 @@ impl ::core::fmt::Debug for AnimationDirection {
 unsafe impl ::windows::core::RuntimeType for AnimationDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.AnimationDirection;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -64,6 +67,9 @@ impl ::core::fmt::Debug for AppBarButtonTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for AppBarButtonTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.AppBarButtonTemplateSettings;{cbc9b39d-0c95-4951-bff2-13963691c366})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppBarButtonTemplateSettings {
     type Vtable = IAppBarButtonTemplateSettings_Vtbl;
@@ -239,6 +245,9 @@ impl ::core::fmt::Debug for AppBarTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for AppBarTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.AppBarTemplateSettings;{bcc2a863-eb35-423c-8389-d7827be3bf67})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppBarTemplateSettings {
     type Vtable = IAppBarTemplateSettings_Vtbl;
@@ -341,6 +350,9 @@ impl ::core::fmt::Debug for AppBarToggleButtonTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for AppBarToggleButtonTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.AppBarToggleButtonTemplateSettings;{aaf99c48-d8f4-40d9-9fa3-3a64f0fec5d8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppBarToggleButtonTemplateSettings {
     type Vtable = IAppBarToggleButtonTemplateSettings_Vtbl;
@@ -547,6 +559,9 @@ impl ::core::fmt::Debug for ButtonBase {
 unsafe impl ::windows::core::RuntimeType for ButtonBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ButtonBase;{fa002c1a-494e-46cf-91d4-e14a8d798674})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ButtonBase {
     type Vtable = IButtonBase_Vtbl;
@@ -780,6 +795,9 @@ impl ::core::fmt::Debug for CalendarPanel {
 unsafe impl ::windows::core::RuntimeType for CalendarPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CalendarPanel;{fcd55a2d-02d3-4ee6-9a90-9df3ead00994})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CalendarPanel {
     type Vtable = ICalendarPanel_Vtbl;
@@ -1107,6 +1125,9 @@ impl ::core::fmt::Debug for CalendarViewTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for CalendarViewTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CalendarViewTemplateSettings;{56c71483-64e1-477c-8a0b-cb2f3334b9b0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CalendarViewTemplateSettings {
     type Vtable = ICalendarViewTemplateSettings_Vtbl;
@@ -1450,6 +1471,9 @@ impl ::core::fmt::Debug for CarouselPanel {
 unsafe impl ::windows::core::RuntimeType for CarouselPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CarouselPanel;{deab78b2-373b-4151-8785-e544d0d9362b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CarouselPanel {
     type Vtable = ICarouselPanel_Vtbl;
@@ -1743,6 +1767,9 @@ impl ::core::fmt::Debug for ColorPickerSlider {
 unsafe impl ::windows::core::RuntimeType for ColorPickerSlider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ColorPickerSlider;{94394d83-e0df-4c5f-bbcd-8155f4020440})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ColorPickerSlider {
     type Vtable = IColorPickerSlider_Vtbl;
@@ -2231,6 +2258,9 @@ impl ::core::fmt::Debug for ColorSpectrum {
 unsafe impl ::windows::core::RuntimeType for ColorSpectrum {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ColorSpectrum;{ce46f271-f509-4f98-8288-e4942fb385df})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ColorSpectrum {
     type Vtable = IColorSpectrum_Vtbl;
@@ -2477,6 +2507,9 @@ impl ::core::fmt::Debug for ComboBoxTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for ComboBoxTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ComboBoxTemplateSettings;{83285c4e-17f6-4aa3-b61b-e87c718604ea})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ComboBoxTemplateSettings {
     type Vtable = IComboBoxTemplateSettings_Vtbl;
@@ -2599,6 +2632,9 @@ impl ::core::fmt::Debug for CommandBarFlyoutCommandBar {
 unsafe impl ::windows::core::RuntimeType for CommandBarFlyoutCommandBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBar;{14146e7c-38c4-55c4-b706-ce18f6061e7e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CommandBarFlyoutCommandBar {
     type Vtable = ICommandBarFlyoutCommandBar_Vtbl;
@@ -3027,6 +3063,9 @@ impl ::core::fmt::Debug for CommandBarFlyoutCommandBarTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for CommandBarFlyoutCommandBarTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBarTemplateSettings;{47642c44-26ff-5d14-9cfc-77dc64f3a447})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CommandBarFlyoutCommandBarTemplateSettings {
     type Vtable = ICommandBarFlyoutCommandBarTemplateSettings_Vtbl;
@@ -3218,6 +3257,9 @@ impl ::core::fmt::Debug for CommandBarTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for CommandBarTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.CommandBarTemplateSettings;{61c8f92c-05aa-414a-a2ae-482c5a46c08e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CommandBarTemplateSettings {
     type Vtable = ICommandBarTemplateSettings_Vtbl;
@@ -3318,6 +3360,9 @@ impl ::core::fmt::Debug for ComponentResourceLocation {
 unsafe impl ::windows::core::RuntimeType for ComponentResourceLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ComponentResourceLocation;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -3387,6 +3432,9 @@ impl ::core::fmt::Debug for DragCompletedEventArgs {
 unsafe impl ::windows::core::RuntimeType for DragCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.DragCompletedEventArgs;{b04f29a1-bd16-48f6-a511-9c2763641331})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragCompletedEventArgs {
     type Vtable = IDragCompletedEventArgs_Vtbl;
@@ -3529,6 +3577,9 @@ unsafe impl ::windows::core::Interface for DragCompletedEventHandler {
 unsafe impl ::windows::core::RuntimeType for DragCompletedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{36b28888-19ac-4b4e-9137-a6cf2b023883}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3596,6 +3647,9 @@ impl ::core::fmt::Debug for DragDeltaEventArgs {
 unsafe impl ::windows::core::RuntimeType for DragDeltaEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.DragDeltaEventArgs;{2c2dd73c-2806-49fc-aae9-6d792b572b6a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragDeltaEventArgs {
     type Vtable = IDragDeltaEventArgs_Vtbl;
@@ -3738,6 +3792,9 @@ unsafe impl ::windows::core::Interface for DragDeltaEventHandler {
 unsafe impl ::windows::core::RuntimeType for DragDeltaEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4ac24f9f-ac28-49e9-9189-dccffeb66472}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3805,6 +3862,9 @@ impl ::core::fmt::Debug for DragStartedEventArgs {
 unsafe impl ::windows::core::RuntimeType for DragStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.DragStartedEventArgs;{9f915dd0-a124-4366-bd85-2408214aeed4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragStartedEventArgs {
     type Vtable = IDragStartedEventArgs_Vtbl;
@@ -3947,6 +4007,9 @@ unsafe impl ::windows::core::Interface for DragStartedEventHandler {
 unsafe impl ::windows::core::RuntimeType for DragStartedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d2eea48a-c65a-495d-a2f1-72c66989142d}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3986,6 +4049,9 @@ impl ::core::fmt::Debug for EdgeTransitionLocation {
 unsafe impl ::windows::core::RuntimeType for EdgeTransitionLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.EdgeTransitionLocation;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -4385,6 +4451,9 @@ impl ::core::fmt::Debug for FlyoutBase {
 unsafe impl ::windows::core::RuntimeType for FlyoutBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.FlyoutBase;{723eea0b-d12e-430d-a9f0-9bb32bbf9913})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FlyoutBase {
     type Vtable = IFlyoutBase_Vtbl;
@@ -4492,6 +4561,9 @@ impl ::core::fmt::Debug for FlyoutBaseClosingEventArgs {
 unsafe impl ::windows::core::RuntimeType for FlyoutBaseClosingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.FlyoutBaseClosingEventArgs;{d075852d-b09a-4fd1-b005-db2ba01206fb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FlyoutBaseClosingEventArgs {
     type Vtable = IFlyoutBaseClosingEventArgs_Vtbl;
@@ -4584,6 +4656,9 @@ impl ::core::fmt::Debug for FlyoutPlacementMode {
 unsafe impl ::windows::core::RuntimeType for FlyoutPlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.FlyoutPlacementMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -4617,6 +4692,9 @@ impl ::core::fmt::Debug for FlyoutShowMode {
 unsafe impl ::windows::core::RuntimeType for FlyoutShowMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.FlyoutShowMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -4718,6 +4796,9 @@ impl ::core::fmt::Debug for FlyoutShowOptions {
 unsafe impl ::windows::core::RuntimeType for FlyoutShowOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.FlyoutShowOptions;{57d693ad-0c74-54dd-b110-1ee43fabadd9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FlyoutShowOptions {
     type Vtable = IFlyoutShowOptions_Vtbl;
@@ -4798,6 +4879,9 @@ impl ::core::fmt::Debug for GeneratorDirection {
 unsafe impl ::windows::core::RuntimeType for GeneratorDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.GeneratorDirection;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
@@ -4822,6 +4906,9 @@ unsafe impl ::windows::core::Abi for GeneratorPosition {
 unsafe impl ::windows::core::RuntimeType for GeneratorPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Controls.Primitives.GeneratorPosition;i4;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for GeneratorPosition {
     fn eq(&self, other: &Self) -> bool {
@@ -4870,6 +4957,9 @@ impl ::core::fmt::Debug for GeneratorPositionHelper {
 unsafe impl ::windows::core::RuntimeType for GeneratorPositionHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.GeneratorPositionHelper;{cd40318d-7745-40d9-ab9d-abbda4a7ffea})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GeneratorPositionHelper {
     type Vtable = IGeneratorPositionHelper_Vtbl;
@@ -5442,6 +5532,9 @@ impl ::core::fmt::Debug for GridViewItemPresenter {
 unsafe impl ::windows::core::RuntimeType for GridViewItemPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.GridViewItemPresenter;{214f9010-56e2-4821-8a1c-2305709af94b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GridViewItemPresenter {
     type Vtable = IGridViewItemPresenter_Vtbl;
@@ -5656,6 +5749,9 @@ impl ::core::fmt::Debug for GridViewItemTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for GridViewItemTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.GridViewItemTemplateSettings;{9e30baaf-165d-4267-a45e-1a43a75706ac})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GridViewItemTemplateSettings {
     type Vtable = IGridViewItemTemplateSettings_Vtbl;
@@ -5756,6 +5852,9 @@ impl ::core::fmt::Debug for GroupHeaderPlacement {
 unsafe impl ::windows::core::RuntimeType for GroupHeaderPlacement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.GroupHeaderPlacement;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8415,6 +8514,9 @@ impl ::core::fmt::Debug for IScrollSnapPointsInfo {
 unsafe impl ::windows::core::RuntimeType for IScrollSnapPointsInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1b5d1336-e61b-4d51-be41-fd8ddc55c58c}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IScrollSnapPointsInfo {
     type Vtable = IScrollSnapPointsInfo_Vtbl;
@@ -8873,6 +8975,9 @@ impl ::core::fmt::Debug for ItemsChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for ItemsChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ItemsChangedEventArgs;{e8b45568-7d10-421e-be29-81839a91de20})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ItemsChangedEventArgs {
     type Vtable = IItemsChangedEventArgs_Vtbl;
@@ -8995,6 +9100,9 @@ unsafe impl ::windows::core::Interface for ItemsChangedEventHandler {
 unsafe impl ::windows::core::RuntimeType for ItemsChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{178257be-a304-482f-8bf0-b9d2e39612a3}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -9100,6 +9208,9 @@ impl ::core::fmt::Debug for JumpListItemBackgroundConverter {
 unsafe impl ::windows::core::RuntimeType for JumpListItemBackgroundConverter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.JumpListItemBackgroundConverter;{81177858-d224-410c-b16c-c5b6bb6188b2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for JumpListItemBackgroundConverter {
     type Vtable = IJumpListItemBackgroundConverter_Vtbl;
@@ -9294,6 +9405,9 @@ impl ::core::fmt::Debug for JumpListItemForegroundConverter {
 unsafe impl ::windows::core::RuntimeType for JumpListItemForegroundConverter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.JumpListItemForegroundConverter;{1590ed38-c504-4796-a63a-5bfc9eefaae8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for JumpListItemForegroundConverter {
     type Vtable = IJumpListItemForegroundConverter_Vtbl;
@@ -9447,6 +9561,9 @@ impl ::core::fmt::Debug for LayoutInformation {
 unsafe impl ::windows::core::RuntimeType for LayoutInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.LayoutInformation;{b5384c9b-c8cf-41b3-bf16-18c8420e72c9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LayoutInformation {
     type Vtable = ILayoutInformation_Vtbl;
@@ -10834,6 +10951,9 @@ impl ::core::fmt::Debug for ListViewItemPresenter {
 unsafe impl ::windows::core::RuntimeType for ListViewItemPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenter;{fc8946bd-a3a2-4969-8174-25b5d3c28033})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListViewItemPresenter {
     type Vtable = IListViewItemPresenter_Vtbl;
@@ -11046,6 +11166,9 @@ impl ::core::fmt::Debug for ListViewItemPresenterCheckMode {
 unsafe impl ::windows::core::RuntimeType for ListViewItemPresenterCheckMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenterCheckMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -11077,6 +11200,9 @@ impl ::core::fmt::Debug for ListViewItemPresenterSelectionIndicatorMode {
 unsafe impl ::windows::core::RuntimeType for ListViewItemPresenterSelectionIndicatorMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenterSelectionIndicatorMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -11110,6 +11236,9 @@ impl ::core::fmt::Debug for ListViewItemTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for ListViewItemTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ListViewItemTemplateSettings;{67af84bf-8279-4686-9326-cd189f27575d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListViewItemTemplateSettings {
     type Vtable = IListViewItemTemplateSettings_Vtbl;
@@ -11366,6 +11495,9 @@ impl ::core::fmt::Debug for LoopingSelector {
 unsafe impl ::windows::core::RuntimeType for LoopingSelector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.LoopingSelector;{4c9a3e04-4827-49d9-8806-093957b0fd21})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoopingSelector {
     type Vtable = ILoopingSelector_Vtbl;
@@ -11571,6 +11703,9 @@ impl ::core::fmt::Debug for LoopingSelectorItem {
 unsafe impl ::windows::core::RuntimeType for LoopingSelectorItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.LoopingSelectorItem;{c69714b9-27c6-4433-9d7c-0dbfb2f4344f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoopingSelectorItem {
     type Vtable = ILoopingSelectorItem_Vtbl;
@@ -11860,6 +11995,9 @@ impl ::core::fmt::Debug for LoopingSelectorPanel {
 unsafe impl ::windows::core::RuntimeType for LoopingSelectorPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.LoopingSelectorPanel;{40a9ba70-1011-4778-87f7-6bfd20d6377d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoopingSelectorPanel {
     type Vtable = ILoopingSelectorPanel_Vtbl;
@@ -12116,6 +12254,9 @@ impl ::core::fmt::Debug for MenuFlyoutItemTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for MenuFlyoutItemTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.MenuFlyoutItemTemplateSettings;{56ad1809-3a16-4147-81cb-d0b35c834e0f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MenuFlyoutItemTemplateSettings {
     type Vtable = IMenuFlyoutItemTemplateSettings_Vtbl;
@@ -12218,6 +12359,9 @@ impl ::core::fmt::Debug for MenuFlyoutPresenterTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for MenuFlyoutPresenterTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.MenuFlyoutPresenterTemplateSettings;{d68fd00d-629d-4349-ac51-b877c80983b8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MenuFlyoutPresenterTemplateSettings {
     type Vtable = IMenuFlyoutPresenterTemplateSettings_Vtbl;
@@ -12357,6 +12501,9 @@ impl ::core::fmt::Debug for NavigationViewItemPresenter {
 unsafe impl ::windows::core::RuntimeType for NavigationViewItemPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.NavigationViewItemPresenter;{9956d3fc-4693-59cb-b6bf-37249058be96})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for NavigationViewItemPresenter {
     type Vtable = INavigationViewItemPresenter_Vtbl;
@@ -12818,6 +12965,9 @@ impl ::core::fmt::Debug for OrientedVirtualizingPanel {
 unsafe impl ::windows::core::RuntimeType for OrientedVirtualizingPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.OrientedVirtualizingPanel;{f077b577-39bd-46ee-bdd7-0826beed71b8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for OrientedVirtualizingPanel {
     type Vtable = IOrientedVirtualizingPanel_Vtbl;
@@ -13111,6 +13261,9 @@ impl ::core::fmt::Debug for PickerFlyoutBase {
 unsafe impl ::windows::core::RuntimeType for PickerFlyoutBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.PickerFlyoutBase;{e33574ea-1076-44d1-9383-dc24ac5cff2a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PickerFlyoutBase {
     type Vtable = IPickerFlyoutBase_Vtbl;
@@ -13245,6 +13398,9 @@ impl ::core::fmt::Debug for PivotHeaderItem {
 unsafe impl ::windows::core::RuntimeType for PivotHeaderItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.PivotHeaderItem;{594572c2-82aa-410b-9e55-fd8e2c98862d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PivotHeaderItem {
     type Vtable = IPivotHeaderItem_Vtbl;
@@ -13478,6 +13634,9 @@ impl ::core::fmt::Debug for PivotHeaderPanel {
 unsafe impl ::windows::core::RuntimeType for PivotHeaderPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.PivotHeaderPanel;{21484ebc-9241-4203-bd37-6c08fb096612})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PivotHeaderPanel {
     type Vtable = IPivotHeaderPanel_Vtbl;
@@ -13774,6 +13933,9 @@ impl ::core::fmt::Debug for PivotPanel {
 unsafe impl ::windows::core::RuntimeType for PivotPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.PivotPanel;{ad4ebe80-22a9-4ca3-9212-2773b6359ff3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PivotPanel {
     type Vtable = IPivotPanel_Vtbl;
@@ -14011,6 +14173,9 @@ impl ::core::fmt::Debug for PlacementMode {
 unsafe impl ::windows::core::RuntimeType for PlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.PlacementMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -14326,6 +14491,9 @@ impl ::core::fmt::Debug for Popup {
 unsafe impl ::windows::core::RuntimeType for Popup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.Popup;{62418240-e6d3-4705-a1dc-39156456ee29})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Popup {
     type Vtable = IPopup_Vtbl;
@@ -14529,6 +14697,9 @@ impl ::core::fmt::Debug for PopupPlacementMode {
 unsafe impl ::windows::core::RuntimeType for PopupPlacementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.PopupPlacementMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -14610,6 +14781,9 @@ impl ::core::fmt::Debug for ProgressBarTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for ProgressBarTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ProgressBarTemplateSettings;{3fe2ea2a-e3f2-4c2b-9488-918d77d2bbe4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProgressBarTemplateSettings {
     type Vtable = IProgressBarTemplateSettings_Vtbl;
@@ -14728,6 +14902,9 @@ impl ::core::fmt::Debug for ProgressRingTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for ProgressRingTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ProgressRingTemplateSettings;{b9b675ec-c723-42e6-83e9-9826272bdc0e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProgressRingTemplateSettings {
     type Vtable = IProgressRingTemplateSettings_Vtbl;
@@ -14942,6 +15119,9 @@ impl ::core::fmt::Debug for RangeBase {
 unsafe impl ::windows::core::RuntimeType for RangeBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.RangeBase;{fa002c1a-494e-46cf-91d4-e14a8d798675})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RangeBase {
     type Vtable = IRangeBase_Vtbl;
@@ -15164,6 +15344,9 @@ impl ::core::fmt::Debug for RangeBaseValueChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RangeBaseValueChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs;{a1921777-d5c1-4f9c-a7b0-0401b7e6dc5c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RangeBaseValueChangedEventArgs {
     type Vtable = IRangeBaseValueChangedEventArgs_Vtbl;
@@ -15306,6 +15489,9 @@ unsafe impl ::windows::core::Interface for RangeBaseValueChangedEventHandler {
 unsafe impl ::windows::core::RuntimeType for RangeBaseValueChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e3906fd9-4d1b-4ac8-a43c-c3b908742799}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15389,6 +15575,9 @@ impl ::core::fmt::Debug for RepeatButton {
 unsafe impl ::windows::core::RuntimeType for RepeatButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.RepeatButton;{02200df9-021a-484a-a93b-0f31020314e5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RepeatButton {
     type Vtable = IRepeatButton_Vtbl;
@@ -15722,6 +15911,9 @@ impl ::core::fmt::Debug for ScrollBar {
 unsafe impl ::windows::core::RuntimeType for ScrollBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ScrollBar;{f57ae6ca-d1a6-4b90-a4e9-54df1ba8d2ec})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ScrollBar {
     type Vtable = IScrollBar_Vtbl;
@@ -15971,6 +16163,9 @@ impl ::core::fmt::Debug for ScrollEventArgs {
 unsafe impl ::windows::core::RuntimeType for ScrollEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ScrollEventArgs;{c57e5168-3afe-448d-b752-2f364c75d743})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ScrollEventArgs {
     type Vtable = IScrollEventArgs_Vtbl;
@@ -16113,6 +16308,9 @@ unsafe impl ::windows::core::Interface for ScrollEventHandler {
 unsafe impl ::windows::core::RuntimeType for ScrollEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8860b0a4-a383-4c83-b306-a1c39d7db87f}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -16157,6 +16355,9 @@ impl ::core::fmt::Debug for ScrollEventType {
 unsafe impl ::windows::core::RuntimeType for ScrollEventType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ScrollEventType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -16189,6 +16390,9 @@ impl ::core::fmt::Debug for ScrollingIndicatorMode {
 unsafe impl ::windows::core::RuntimeType for ScrollingIndicatorMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.ScrollingIndicatorMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -16343,6 +16547,9 @@ impl ::core::fmt::Debug for Selector {
 unsafe impl ::windows::core::RuntimeType for Selector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.Selector;{e30eb3a5-b36b-42dc-8527-cd25136c083c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Selector {
     type Vtable = ISelector_Vtbl;
@@ -16616,6 +16823,9 @@ impl ::core::fmt::Debug for SelectorItem {
 unsafe impl ::windows::core::RuntimeType for SelectorItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.SelectorItem;{541c8d6c-0283-4581-b945-2a64c28a0646})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SelectorItem {
     type Vtable = ISelectorItem_Vtbl;
@@ -16895,6 +17105,9 @@ impl ::core::fmt::Debug for SettingsFlyoutTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for SettingsFlyoutTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.SettingsFlyoutTemplateSettings;{bcf14c10-cea7-43f1-9d68-57605ded69d4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SettingsFlyoutTemplateSettings {
     type Vtable = ISettingsFlyoutTemplateSettings_Vtbl;
@@ -16995,6 +17208,9 @@ impl ::core::fmt::Debug for SliderSnapsTo {
 unsafe impl ::windows::core::RuntimeType for SliderSnapsTo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.SliderSnapsTo;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -17027,6 +17243,9 @@ impl ::core::fmt::Debug for SnapPointsAlignment {
 unsafe impl ::windows::core::RuntimeType for SnapPointsAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.SnapPointsAlignment;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -17100,6 +17319,9 @@ impl ::core::fmt::Debug for SplitViewTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for SplitViewTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.SplitViewTemplateSettings;{c16ab5a7-4996-4443-b199-6b6b89124eab})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SplitViewTemplateSettings {
     type Vtable = ISplitViewTemplateSettings_Vtbl;
@@ -17271,6 +17493,9 @@ impl ::core::fmt::Debug for Thumb {
 unsafe impl ::windows::core::RuntimeType for Thumb {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.Thumb;{e8b2b281-0d6a-45cf-b333-2402b037f099})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Thumb {
     type Vtable = IThumb_Vtbl;
@@ -17511,6 +17736,9 @@ impl ::core::fmt::Debug for TickBar {
 unsafe impl ::windows::core::RuntimeType for TickBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.TickBar;{994683fa-f1f6-487d-a5ac-c15921bfa995})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TickBar {
     type Vtable = ITickBar_Vtbl;
@@ -17706,6 +17934,9 @@ impl ::core::fmt::Debug for TickPlacement {
 unsafe impl ::windows::core::RuntimeType for TickPlacement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Primitives.TickPlacement;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
@@ -17843,6 +18074,9 @@ impl ::core::fmt::Debug for ToggleButton {
 unsafe impl ::windows::core::RuntimeType for ToggleButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ToggleButton;{589877fb-0fc7-4036-9d8b-127dfa75c16d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ToggleButton {
     type Vtable = IToggleButton_Vtbl;
@@ -18153,6 +18387,9 @@ impl ::core::fmt::Debug for ToggleSwitchTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for ToggleSwitchTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ToggleSwitchTemplateSettings;{02b7bdcd-628a-4363-86e0-51d6e2e89e58})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ToggleSwitchTemplateSettings {
     type Vtable = IToggleSwitchTemplateSettings_Vtbl;
@@ -18263,6 +18500,9 @@ impl ::core::fmt::Debug for ToolTipTemplateSettings {
 unsafe impl ::windows::core::RuntimeType for ToolTipTemplateSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Primitives.ToolTipTemplateSettings;{d4388247-0ec4-4506-affd-afac2225b48c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ToolTipTemplateSettings {
     type Vtable = IToolTipTemplateSettings_Vtbl;

@@ -32,6 +32,9 @@ impl ::core::fmt::Debug for CurrentTimeChangeRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for CurrentTimeChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs;{99711324-edc7-4bf5-91f6-3c8627db59e5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CurrentTimeChangeRequestedEventArgs {
     type Vtable = ICurrentTimeChangeRequestedEventArgs_Vtbl;
@@ -658,6 +661,9 @@ impl ::core::fmt::Debug for MuteChangeRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MuteChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.MuteChangeRequestedEventArgs;{e4b4f5f6-af1f-4f1e-b437-7da32400e1d4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MuteChangeRequestedEventArgs {
     type Vtable = IMuteChangeRequestedEventArgs_Vtbl;
@@ -791,6 +797,9 @@ impl ::core::fmt::Debug for PlayToConnection {
 unsafe impl ::windows::core::RuntimeType for PlayToConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToConnection;{112fbfc8-f235-4fde-8d41-9bf27c9e9a40})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnection {
@@ -894,6 +903,9 @@ impl ::core::fmt::Debug for PlayToConnectionError {
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
@@ -944,6 +956,9 @@ impl ::core::fmt::Debug for PlayToConnectionErrorEventArgs {
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionErrorEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToConnectionErrorEventArgs;{bf5eada6-88e6-445f-9d40-d9b9f8939896})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnectionErrorEventArgs {
@@ -1045,6 +1060,9 @@ impl ::core::fmt::Debug for PlayToConnectionState {
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
@@ -1095,6 +1113,9 @@ impl ::core::fmt::Debug for PlayToConnectionStateChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs;{68c4b50f-0c20-4980-8602-58c62238d423})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnectionStateChangedEventArgs {
@@ -1206,6 +1227,9 @@ impl ::core::fmt::Debug for PlayToConnectionTransferredEventArgs {
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionTransferredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToConnectionTransferredEventArgs;{fae3193a-0683-47d9-8df0-18cbb48984d8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnectionTransferredEventArgs {
@@ -1363,6 +1387,9 @@ impl ::core::fmt::Debug for PlayToManager {
 unsafe impl ::windows::core::RuntimeType for PlayToManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToManager;{f56a206e-1b77-42ef-8f0d-b949f8d9b260})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToManager {
@@ -1732,6 +1759,9 @@ impl ::core::fmt::Debug for PlayToReceiver {
 unsafe impl ::windows::core::RuntimeType for PlayToReceiver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToReceiver;{ac15cf47-a162-4aa6-af1b-3aa35f3b9069})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PlayToReceiver {
     type Vtable = IPlayToReceiver_Vtbl;
@@ -1856,6 +1886,9 @@ impl ::core::fmt::Debug for PlayToSource {
 unsafe impl ::windows::core::RuntimeType for PlayToSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSource;{7f138a08-fbb7-4b09-8356-aa5f4e335c31})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSource {
@@ -1955,6 +1988,9 @@ impl ::core::fmt::Debug for PlayToSourceDeferral {
 unsafe impl ::windows::core::RuntimeType for PlayToSourceDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSourceDeferral;{4100891d-278e-4f29-859b-a9e501053e7d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceDeferral {
@@ -2078,6 +2114,9 @@ impl ::core::fmt::Debug for PlayToSourceRequest {
 unsafe impl ::windows::core::RuntimeType for PlayToSourceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSourceRequest;{f8584665-64f4-44a0-ac0d-468d2b8fda83})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceRequest {
@@ -2180,6 +2219,9 @@ impl ::core::fmt::Debug for PlayToSourceRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for PlayToSourceRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSourceRequestedEventArgs;{c5cdc330-29df-4ec6-9da9-9fbdfcfc1b3e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceRequestedEventArgs {
@@ -2318,6 +2360,9 @@ impl ::core::fmt::Debug for PlayToSourceSelectedEventArgs {
 unsafe impl ::windows::core::RuntimeType for PlayToSourceSelectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSourceSelectedEventArgs;{0c9d8511-5202-4dcb-8c67-abda12bb3c12})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceSelectedEventArgs {
@@ -2412,6 +2457,9 @@ impl ::core::fmt::Debug for PlaybackRateChangeRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for PlaybackRateChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs;{0f5661ae-2c88-4cca-8540-d586095d13a5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PlaybackRateChangeRequestedEventArgs {
     type Vtable = IPlaybackRateChangeRequestedEventArgs_Vtbl;
@@ -2569,6 +2617,9 @@ impl ::core::fmt::Debug for SourceChangeRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for SourceChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.SourceChangeRequestedEventArgs;{fb3f3a96-7aa6-4a8b-86e7-54f6c6d34f64})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SourceChangeRequestedEventArgs {
     type Vtable = ISourceChangeRequestedEventArgs_Vtbl;
@@ -2649,6 +2700,9 @@ impl ::core::fmt::Debug for VolumeChangeRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for VolumeChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.VolumeChangeRequestedEventArgs;{6f026d5c-cf75-4c2b-913e-6d7c6c329179})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VolumeChangeRequestedEventArgs {
     type Vtable = IVolumeChangeRequestedEventArgs_Vtbl;

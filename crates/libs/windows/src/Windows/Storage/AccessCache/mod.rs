@@ -60,6 +60,9 @@ impl ::core::ops::Not for AccessCacheOptions {
 unsafe impl ::windows::core::RuntimeType for AccessCacheOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.AccessCacheOptions;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Storage_AccessCache'*"]
@@ -83,6 +86,9 @@ unsafe impl ::windows::core::Abi for AccessListEntry {
 unsafe impl ::windows::core::RuntimeType for AccessListEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Storage.AccessCache.AccessListEntry;string;string)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for AccessListEntry {
     fn eq(&self, other: &Self) -> bool {
@@ -171,6 +177,9 @@ impl ::core::fmt::Debug for AccessListEntryView {
 unsafe impl ::windows::core::RuntimeType for AccessListEntryView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.AccessListEntryView;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};struct(Windows.Storage.AccessCache.AccessListEntry;string;string)))");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for AccessListEntryView {
@@ -531,6 +540,9 @@ impl ::core::fmt::Debug for IStorageItemAccessList {
 unsafe impl ::windows::core::RuntimeType for IStorageItemAccessList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2caff6ad-de90-47f5-b2c3-dd36c9fdd453}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageItemAccessList {
     type Vtable = IStorageItemAccessList_Vtbl;
@@ -644,6 +656,9 @@ impl ::core::fmt::Debug for ItemRemovedEventArgs {
 unsafe impl ::windows::core::RuntimeType for ItemRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.ItemRemovedEventArgs;{59677e5c-55be-4c66-ba66-5eaea79d2631})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ItemRemovedEventArgs {
     type Vtable = IItemRemovedEventArgs_Vtbl;
@@ -722,6 +737,9 @@ impl ::core::fmt::Debug for RecentStorageItemVisibility {
 unsafe impl ::windows::core::RuntimeType for RecentStorageItemVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_AccessCache'*"]
 pub struct StorageApplicationPermissions {}
@@ -917,6 +935,9 @@ impl ::core::fmt::Debug for StorageItemAccessList {
 unsafe impl ::windows::core::RuntimeType for StorageItemAccessList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemAccessList;{2caff6ad-de90-47f5-b2c3-dd36c9fdd453})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageItemAccessList {
     type Vtable = IStorageItemAccessList_Vtbl;
@@ -1162,6 +1183,9 @@ impl ::core::fmt::Debug for StorageItemMostRecentlyUsedList {
 unsafe impl ::windows::core::RuntimeType for StorageItemMostRecentlyUsedList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList;{016239d5-510d-411e-8cf1-c3d1effa4c33})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageItemMostRecentlyUsedList {
     type Vtable = IStorageItemMostRecentlyUsedList_Vtbl;

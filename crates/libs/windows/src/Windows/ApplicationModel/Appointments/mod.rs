@@ -380,6 +380,9 @@ impl ::core::fmt::Debug for Appointment {
 unsafe impl ::windows::core::RuntimeType for Appointment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.Appointment;{dd002f2f-2bdd-4076-90a3-22c275312965})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Appointment {
     type Vtable = IAppointment_Vtbl;
@@ -463,6 +466,9 @@ impl ::core::fmt::Debug for AppointmentBusyStatus {
 unsafe impl ::windows::core::RuntimeType for AppointmentBusyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentBusyStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -884,6 +890,9 @@ impl ::core::fmt::Debug for AppointmentCalendar {
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendar;{5273819d-8339-3d4f-a02f-64084452bb5d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendar {
     type Vtable = IAppointmentCalendar_Vtbl;
@@ -966,6 +975,9 @@ impl ::core::fmt::Debug for AppointmentCalendarOtherAppReadAccess {
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppReadAccess;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -998,6 +1010,9 @@ impl ::core::fmt::Debug for AppointmentCalendarOtherAppWriteAccess {
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppWriteAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppWriteAccess;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -1090,6 +1105,9 @@ impl ::core::fmt::Debug for AppointmentCalendarSyncManager {
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager;{2b21b3a0-4aff-4392-bc5f-5645ffcffb17})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManager {
     type Vtable = IAppointmentCalendarSyncManager_Vtbl;
@@ -1175,6 +1193,9 @@ impl ::core::fmt::Debug for AppointmentCalendarSyncStatus {
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -1217,6 +1238,9 @@ impl ::core::fmt::Debug for AppointmentConflictResult {
 unsafe impl ::windows::core::RuntimeType for AppointmentConflictResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentConflictResult;{d5cdf0be-2f2f-3b7d-af0a-a7e20f3a46e3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentConflictResult {
     type Vtable = IAppointmentConflictResult_Vtbl;
@@ -1298,6 +1322,9 @@ impl ::core::fmt::Debug for AppointmentConflictType {
 unsafe impl ::windows::core::RuntimeType for AppointmentConflictType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentConflictType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -1363,6 +1390,9 @@ impl ::core::ops::Not for AppointmentDaysOfWeek {
 unsafe impl ::windows::core::RuntimeType for AppointmentDaysOfWeek {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -1394,6 +1424,9 @@ impl ::core::fmt::Debug for AppointmentDetailsKind {
 unsafe impl ::windows::core::RuntimeType for AppointmentDetailsKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDetailsKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -1444,6 +1477,9 @@ impl ::core::fmt::Debug for AppointmentException {
 unsafe impl ::windows::core::RuntimeType for AppointmentException {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentException;{a2076767-16f6-4bce-9f5a-8600b8019fcb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentException {
     type Vtable = IAppointmentException_Vtbl;
@@ -1577,6 +1613,9 @@ impl ::core::fmt::Debug for AppointmentInvitee {
 unsafe impl ::windows::core::RuntimeType for AppointmentInvitee {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentInvitee;{13bf0796-9842-495b-b0e7-ef8f79c0701d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentInvitee {
     type Vtable = IAppointmentInvitee_Vtbl;
@@ -1933,6 +1972,9 @@ impl ::core::fmt::Debug for AppointmentManagerForUser {
 unsafe impl ::windows::core::RuntimeType for AppointmentManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentManagerForUser;{70261423-73cc-4660-b318-b01365302a03})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentManagerForUser {
     type Vtable = IAppointmentManagerForUser_Vtbl;
@@ -2040,6 +2082,9 @@ impl ::core::fmt::Debug for AppointmentOrganizer {
 unsafe impl ::windows::core::RuntimeType for AppointmentOrganizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentOrganizer;{615e2902-9718-467b-83fb-b293a19121de})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentOrganizer {
     type Vtable = IAppointmentParticipant_Vtbl;
@@ -2145,6 +2190,9 @@ impl ::core::fmt::Debug for AppointmentParticipantResponse {
 unsafe impl ::windows::core::RuntimeType for AppointmentParticipantResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantResponse;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -2177,6 +2225,9 @@ impl ::core::fmt::Debug for AppointmentParticipantRole {
 unsafe impl ::windows::core::RuntimeType for AppointmentParticipantRole {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantRole;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 pub struct AppointmentProperties {}
@@ -2546,6 +2597,9 @@ impl ::core::fmt::Debug for AppointmentRecurrence {
 unsafe impl ::windows::core::RuntimeType for AppointmentRecurrence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentRecurrence;{d87b3e83-15a6-487b-b959-0c361e60e954})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentRecurrence {
     type Vtable = IAppointmentRecurrence_Vtbl;
@@ -2630,6 +2684,9 @@ impl ::core::fmt::Debug for AppointmentRecurrenceUnit {
 unsafe impl ::windows::core::RuntimeType for AppointmentRecurrenceUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -2661,6 +2718,9 @@ impl ::core::fmt::Debug for AppointmentSensitivity {
 unsafe impl ::windows::core::RuntimeType for AppointmentSensitivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSensitivity;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -2906,6 +2966,9 @@ impl ::core::fmt::Debug for AppointmentStore {
 unsafe impl ::windows::core::RuntimeType for AppointmentStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStore;{a461918c-7a47-4d96-96c9-15cd8a05a735})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentStore {
     type Vtable = IAppointmentStore_Vtbl;
@@ -2987,6 +3050,9 @@ impl ::core::fmt::Debug for AppointmentStoreAccessType {
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreAccessType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -3036,6 +3102,9 @@ impl ::core::fmt::Debug for AppointmentStoreChange {
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChange;{a5a6e035-0a33-3654-8463-b543e90c3b79})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChange {
     type Vtable = IAppointmentStoreChange_Vtbl;
@@ -3129,6 +3198,9 @@ impl ::core::fmt::Debug for AppointmentStoreChangeReader {
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader;{8b2409f1-65f3-42a0-961d-4c209bf30370})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangeReader {
     type Vtable = IAppointmentStoreChangeReader_Vtbl;
@@ -3229,6 +3301,9 @@ impl ::core::fmt::Debug for AppointmentStoreChangeTracker {
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker;{1b25f4b1-8ece-4f17-93c8-e6412458fd5c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangeTracker {
     type Vtable = IAppointmentStoreChangeTracker_Vtbl;
@@ -3314,6 +3389,9 @@ impl ::core::fmt::Debug for AppointmentStoreChangeType {
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreChangeType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -3344,6 +3422,9 @@ impl ::core::fmt::Debug for AppointmentStoreChangedDeferral {
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral;{4cb82026-fedb-4bc3-9662-95a9befdf4df})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangedDeferral {
     type Vtable = IAppointmentStoreChangedDeferral_Vtbl;
@@ -3426,6 +3507,9 @@ impl ::core::fmt::Debug for AppointmentStoreChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs;{2285f8b9-0791-417e-bfea-cc6d41636c8c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangedEventArgs {
     type Vtable = IAppointmentStoreChangedEventArgs_Vtbl;
@@ -3499,6 +3583,9 @@ impl ::core::fmt::Debug for AppointmentStoreNotificationTriggerDetails {
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails;{9b33cb11-c301-421e-afef-047ecfa76adb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreNotificationTriggerDetails {
     type Vtable = IAppointmentStoreNotificationTriggerDetails_Vtbl;
@@ -3579,6 +3666,9 @@ impl ::core::fmt::Debug for AppointmentSummaryCardView {
 unsafe impl ::windows::core::RuntimeType for AppointmentSummaryCardView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSummaryCardView;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -3613,6 +3703,9 @@ impl ::core::fmt::Debug for AppointmentWeekOfMonth {
 unsafe impl ::windows::core::RuntimeType for AppointmentWeekOfMonth {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -3672,6 +3765,9 @@ impl ::core::ops::Not for FindAppointmentCalendarsOptions {
 unsafe impl ::windows::core::RuntimeType for FindAppointmentCalendarsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.FindAppointmentCalendarsOptions;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
@@ -3748,6 +3844,9 @@ impl ::core::fmt::Debug for FindAppointmentsOptions {
 unsafe impl ::windows::core::RuntimeType for FindAppointmentsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.FindAppointmentsOptions;{55f7dc55-9942-3086-82b5-2cb29f64d5f5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FindAppointmentsOptions {
     type Vtable = IFindAppointmentsOptions_Vtbl;
@@ -4429,6 +4528,9 @@ impl ::core::fmt::Debug for IAppointmentParticipant {
 unsafe impl ::windows::core::RuntimeType for IAppointmentParticipant {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{615e2902-9718-467b-83fb-b293a19121de}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IAppointmentParticipant {
     type Vtable = IAppointmentParticipant_Vtbl;
@@ -4860,6 +4962,9 @@ impl ::core::fmt::Debug for RecurrenceType {
 unsafe impl ::windows::core::RuntimeType for RecurrenceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.RecurrenceType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

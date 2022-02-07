@@ -95,6 +95,9 @@ unsafe impl Abi for HRESULT {
 unsafe impl RuntimeType for HRESULT {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"struct(Windows.Foundation.HResult;i32)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> Result<Self> {
+        Ok(*from)
+    }
 }
 
 impl<T> core::convert::From<Result<T>> for HRESULT {

@@ -124,6 +124,9 @@ impl ::core::fmt::Debug for MessagingSyncPolicy {
 unsafe impl ::windows::core::RuntimeType for MessagingSyncPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Workplace.MessagingSyncPolicy;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Management_Workplace'*"]
 pub struct WorkplaceSettings {}

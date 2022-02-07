@@ -30,6 +30,9 @@ impl ::core::fmt::Debug for DeviceAccountAuthenticationType {
 unsafe impl ::windows::core::RuntimeType for DeviceAccountAuthenticationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
@@ -645,6 +648,9 @@ impl ::core::fmt::Debug for DeviceAccountConfiguration {
 unsafe impl ::windows::core::RuntimeType for DeviceAccountConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration;{ad0123a3-fbdc-4d1b-be43-5a27ea4a1b63})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DeviceAccountConfiguration {
     type Vtable = IDeviceAccountConfiguration_Vtbl;
@@ -727,6 +733,9 @@ impl ::core::fmt::Debug for DeviceAccountIconId {
 unsafe impl ::windows::core::RuntimeType for DeviceAccountIconId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
@@ -763,6 +772,9 @@ impl ::core::fmt::Debug for DeviceAccountMailAgeFilter {
 unsafe impl ::windows::core::RuntimeType for DeviceAccountMailAgeFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
@@ -795,6 +807,9 @@ impl ::core::fmt::Debug for DeviceAccountServerType {
 unsafe impl ::windows::core::RuntimeType for DeviceAccountServerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
@@ -831,6 +846,9 @@ impl ::core::fmt::Debug for DeviceAccountSyncScheduleKind {
 unsafe impl ::windows::core::RuntimeType for DeviceAccountSyncScheduleKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]

@@ -69,6 +69,9 @@ impl ::core::fmt::Debug for AnnotationPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for AnnotationPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AnnotationPatternIdentifiers;{d475a0c1-48b2-4e40-a6cf-3dc4b638c0de})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AnnotationPatternIdentifiers {
     type Vtable = IAnnotationPatternIdentifiers_Vtbl;
@@ -170,6 +173,9 @@ impl ::core::fmt::Debug for AnnotationType {
 unsafe impl ::windows::core::RuntimeType for AnnotationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AnnotationType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -202,6 +208,9 @@ impl ::core::fmt::Debug for AutomationActiveEnd {
 unsafe impl ::windows::core::RuntimeType for AutomationActiveEnd {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationActiveEnd;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -239,6 +248,9 @@ impl ::core::fmt::Debug for AutomationAnimationStyle {
 unsafe impl ::windows::core::RuntimeType for AutomationAnimationStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationAnimationStyle;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -335,6 +347,9 @@ impl ::core::fmt::Debug for AutomationAnnotation {
 unsafe impl ::windows::core::RuntimeType for AutomationAnnotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AutomationAnnotation;{fb3c30ca-03d8-4618-91bf-e4d84f4af318})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AutomationAnnotation {
     type Vtable = IAutomationAnnotation_Vtbl;
@@ -440,6 +455,9 @@ impl ::core::fmt::Debug for AutomationBulletStyle {
 unsafe impl ::windows::core::RuntimeType for AutomationBulletStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationBulletStyle;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -471,6 +489,9 @@ impl ::core::fmt::Debug for AutomationCaretBidiMode {
 unsafe impl ::windows::core::RuntimeType for AutomationCaretBidiMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationCaretBidiMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -503,6 +524,9 @@ impl ::core::fmt::Debug for AutomationCaretPosition {
 unsafe impl ::windows::core::RuntimeType for AutomationCaretPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationCaretPosition;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -841,6 +865,9 @@ impl ::core::fmt::Debug for AutomationElementIdentifiers {
 unsafe impl ::windows::core::RuntimeType for AutomationElementIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AutomationElementIdentifiers;{e68a63cf-4345-4e2d-8a6a-49cce1fa2dcc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AutomationElementIdentifiers {
     type Vtable = IAutomationElementIdentifiers_Vtbl;
@@ -923,6 +950,9 @@ impl ::core::fmt::Debug for AutomationFlowDirections {
 unsafe impl ::windows::core::RuntimeType for AutomationFlowDirections {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationFlowDirections;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -957,6 +987,9 @@ impl ::core::fmt::Debug for AutomationOutlineStyles {
 unsafe impl ::windows::core::RuntimeType for AutomationOutlineStyles {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationOutlineStyles;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -1544,6 +1577,9 @@ impl ::core::fmt::Debug for AutomationProperties {
 unsafe impl ::windows::core::RuntimeType for AutomationProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AutomationProperties;{68d7232c-e622-48e9-af0b-1ffa33cc5cba})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AutomationProperties {
     type Vtable = IAutomationProperties_Vtbl;
@@ -1617,6 +1653,9 @@ impl ::core::fmt::Debug for AutomationProperty {
 unsafe impl ::windows::core::RuntimeType for AutomationProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.AutomationProperty;{b627195b-3227-4e16-9534-ddece30ddb46})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AutomationProperty {
     type Vtable = IAutomationProperty_Vtbl;
@@ -1710,6 +1749,9 @@ impl ::core::fmt::Debug for AutomationStyleId {
 unsafe impl ::windows::core::RuntimeType for AutomationStyleId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationStyleId;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -1758,6 +1800,9 @@ impl ::core::fmt::Debug for AutomationTextDecorationLineStyle {
 unsafe impl ::windows::core::RuntimeType for AutomationTextDecorationLineStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationTextDecorationLineStyle;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -1791,6 +1836,9 @@ impl ::core::fmt::Debug for AutomationTextEditChangeType {
 unsafe impl ::windows::core::RuntimeType for AutomationTextEditChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.AutomationTextEditChangeType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -1828,6 +1876,9 @@ impl ::core::fmt::Debug for DockPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for DockPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.DockPatternIdentifiers;{ccd7f4e6-e4f9-47ff-bde7-378b11f78e09})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DockPatternIdentifiers {
     type Vtable = IDockPatternIdentifiers_Vtbl;
@@ -1912,6 +1963,9 @@ impl ::core::fmt::Debug for DockPosition {
 unsafe impl ::windows::core::RuntimeType for DockPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.DockPosition;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -1970,6 +2024,9 @@ impl ::core::fmt::Debug for DragPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for DragPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.DragPatternIdentifiers;{6266e985-4d07-4e80-82eb-8f96690a1a0c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragPatternIdentifiers {
     type Vtable = IDragPatternIdentifiers_Vtbl;
@@ -2063,6 +2120,9 @@ impl ::core::fmt::Debug for DropTargetPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for DropTargetPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.DropTargetPatternIdentifiers;{11865133-a6fe-4634-bd18-0ef612b7b208})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DropTargetPatternIdentifiers {
     type Vtable = IDropTargetPatternIdentifiers_Vtbl;
@@ -2149,6 +2209,9 @@ impl ::core::fmt::Debug for ExpandCollapsePatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for ExpandCollapsePatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.ExpandCollapsePatternIdentifiers;{b006bac0-751b-4d55-92cb-613ec1bdf5d0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ExpandCollapsePatternIdentifiers {
     type Vtable = IExpandCollapsePatternIdentifiers_Vtbl;
@@ -2231,6 +2294,9 @@ impl ::core::fmt::Debug for ExpandCollapseState {
 unsafe impl ::windows::core::RuntimeType for ExpandCollapseState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ExpandCollapseState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -2296,6 +2362,9 @@ impl ::core::fmt::Debug for GridItemPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for GridItemPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.GridItemPatternIdentifiers;{757744f1-3285-4fb1-803b-2545bd431599})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GridItemPatternIdentifiers {
     type Vtable = IGridItemPatternIdentifiers_Vtbl;
@@ -2389,6 +2458,9 @@ impl ::core::fmt::Debug for GridPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for GridPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.GridPatternIdentifiers;{c902980f-96c5-450c-9044-7e52c24f9e94})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GridPatternIdentifiers {
     type Vtable = IGridPatternIdentifiers_Vtbl;
@@ -3505,6 +3577,9 @@ impl ::core::fmt::Debug for MultipleViewPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for MultipleViewPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.MultipleViewPatternIdentifiers;{5d5cd3b8-1e12-488b-b0ea-5e6cb89816e1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MultipleViewPatternIdentifiers {
     type Vtable = IMultipleViewPatternIdentifiers_Vtbl;
@@ -3626,6 +3701,9 @@ impl ::core::fmt::Debug for RangeValuePatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for RangeValuePatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.RangeValuePatternIdentifiers;{f8760f45-33c9-467d-bc9e-d1515263ace1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RangeValuePatternIdentifiers {
     type Vtable = IRangeValuePatternIdentifiers_Vtbl;
@@ -3707,6 +3785,9 @@ impl ::core::fmt::Debug for RowOrColumnMajor {
 unsafe impl ::windows::core::RuntimeType for RowOrColumnMajor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.RowOrColumnMajor;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -3741,6 +3822,9 @@ impl ::core::fmt::Debug for ScrollAmount {
 unsafe impl ::windows::core::RuntimeType for ScrollAmount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ScrollAmount;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -3820,6 +3904,9 @@ impl ::core::fmt::Debug for ScrollPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for ScrollPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.ScrollPatternIdentifiers;{366b1003-425c-4951-ae83-d521e73bc696})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ScrollPatternIdentifiers {
     type Vtable = IScrollPatternIdentifiers_Vtbl;
@@ -3913,6 +4000,9 @@ impl ::core::fmt::Debug for SelectionItemPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for SelectionItemPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.SelectionItemPatternIdentifiers;{2dafa41a-3ef8-4bb5-a02b-3ee1b2274740})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SelectionItemPatternIdentifiers {
     type Vtable = ISelectionItemPatternIdentifiers_Vtbl;
@@ -4013,6 +4103,9 @@ impl ::core::fmt::Debug for SelectionPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for SelectionPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.SelectionPatternIdentifiers;{4aa66fb0-e3f7-475f-b78d-f8a83bb730c4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SelectionPatternIdentifiers {
     type Vtable = ISelectionPatternIdentifiers_Vtbl;
@@ -4099,6 +4192,9 @@ impl ::core::fmt::Debug for SpreadsheetItemPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for SpreadsheetItemPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.SpreadsheetItemPatternIdentifiers;{84347e19-ca4b-46a2-a794-c87928a3b1ab})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpreadsheetItemPatternIdentifiers {
     type Vtable = ISpreadsheetItemPatternIdentifiers_Vtbl;
@@ -4227,6 +4323,9 @@ impl ::core::fmt::Debug for StylesPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for StylesPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.StylesPatternIdentifiers;{b0e4e201-e89d-436b-8287-4f7903466879})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StylesPatternIdentifiers {
     type Vtable = IStylesPatternIdentifiers_Vtbl;
@@ -4308,6 +4407,9 @@ impl ::core::fmt::Debug for SupportedTextSelection {
 unsafe impl ::windows::core::RuntimeType for SupportedTextSelection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.SupportedTextSelection;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -4343,6 +4445,9 @@ impl ::core::fmt::Debug for SynchronizedInputType {
 unsafe impl ::windows::core::RuntimeType for SynchronizedInputType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.SynchronizedInputType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -4387,6 +4492,9 @@ impl ::core::fmt::Debug for TableItemPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for TableItemPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.TableItemPatternIdentifiers;{c326e5ad-8077-4c64-98e4-e83bcf1b4389})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TableItemPatternIdentifiers {
     type Vtable = ITableItemPatternIdentifiers_Vtbl;
@@ -4487,6 +4595,9 @@ impl ::core::fmt::Debug for TablePatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for TablePatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.TablePatternIdentifiers;{38d104fe-0d0c-412a-bf8d-51ede683baf5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TablePatternIdentifiers {
     type Vtable = ITablePatternIdentifiers_Vtbl;
@@ -4573,6 +4684,9 @@ impl ::core::fmt::Debug for TogglePatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for TogglePatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.TogglePatternIdentifiers;{7e191f6b-34d4-4ae7-83ac-29f88882d985})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TogglePatternIdentifiers {
     type Vtable = ITogglePatternIdentifiers_Vtbl;
@@ -4654,6 +4768,9 @@ impl ::core::fmt::Debug for ToggleState {
 unsafe impl ::windows::core::RuntimeType for ToggleState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ToggleState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -4712,6 +4829,9 @@ impl ::core::fmt::Debug for TransformPattern2Identifiers {
 unsafe impl ::windows::core::RuntimeType for TransformPattern2Identifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.TransformPattern2Identifiers;{08aaa03d-dea7-402f-8097-9a2783d60e5d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TransformPattern2Identifiers {
     type Vtable = ITransformPattern2Identifiers_Vtbl;
@@ -4812,6 +4932,9 @@ impl ::core::fmt::Debug for TransformPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for TransformPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.TransformPatternIdentifiers;{e4115b8c-c3c8-4a37-b994-2709a7811665})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TransformPatternIdentifiers {
     type Vtable = ITransformPatternIdentifiers_Vtbl;
@@ -4905,6 +5028,9 @@ impl ::core::fmt::Debug for ValuePatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for ValuePatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.ValuePatternIdentifiers;{425bf64c-5333-4e41-b470-2bad14ecd085})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ValuePatternIdentifiers {
     type Vtable = IValuePatternIdentifiers_Vtbl;
@@ -4988,6 +5114,9 @@ impl ::core::fmt::Debug for WindowInteractionState {
 unsafe impl ::windows::core::RuntimeType for WindowInteractionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.WindowInteractionState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -5060,6 +5189,9 @@ impl ::core::fmt::Debug for WindowPatternIdentifiers {
 unsafe impl ::windows::core::RuntimeType for WindowPatternIdentifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.WindowPatternIdentifiers;{39f78bb4-7032-41e2-b79e-27b74a8628de})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WindowPatternIdentifiers {
     type Vtable = IWindowPatternIdentifiers_Vtbl;
@@ -5141,6 +5273,9 @@ impl ::core::fmt::Debug for WindowVisualState {
 unsafe impl ::windows::core::RuntimeType for WindowVisualState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.WindowVisualState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
@@ -5175,6 +5310,9 @@ impl ::core::fmt::Debug for ZoomUnit {
 unsafe impl ::windows::core::RuntimeType for ZoomUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.ZoomUnit;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

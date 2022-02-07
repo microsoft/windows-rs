@@ -287,6 +287,9 @@ impl ::core::fmt::Debug for CurrencyFormatter {
 unsafe impl ::windows::core::RuntimeType for CurrencyFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.CurrencyFormatter;{11730ca5-4b00-41b2-b332-73b12a497d54})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CurrencyFormatter {
     type Vtable = ICurrencyFormatter_Vtbl;
@@ -521,6 +524,9 @@ impl ::core::fmt::Debug for CurrencyFormatterMode {
 unsafe impl ::windows::core::RuntimeType for CurrencyFormatterMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.CurrencyFormatterMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
@@ -778,6 +784,9 @@ impl ::core::fmt::Debug for DecimalFormatter {
 unsafe impl ::windows::core::RuntimeType for DecimalFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.DecimalFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DecimalFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -1151,6 +1160,9 @@ impl ::core::fmt::Debug for INumberFormatter {
 unsafe impl ::windows::core::RuntimeType for INumberFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a5007c49-7676-4db7-8631-1b6ff265caa9}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for INumberFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -1252,6 +1264,9 @@ impl ::core::fmt::Debug for INumberFormatter2 {
 unsafe impl ::windows::core::RuntimeType for INumberFormatter2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d4a8c1f0-80d0-4b0d-a89e-882c1e8f8310}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for INumberFormatter2 {
     type Vtable = INumberFormatter2_Vtbl;
@@ -1427,6 +1442,9 @@ impl ::core::fmt::Debug for INumberFormatterOptions {
 unsafe impl ::windows::core::RuntimeType for INumberFormatterOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{80332d21-aee1-4a39-baa2-07ed8c96daf6}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for INumberFormatterOptions {
     type Vtable = INumberFormatterOptions_Vtbl;
@@ -1545,6 +1563,9 @@ impl ::core::fmt::Debug for INumberParser {
 unsafe impl ::windows::core::RuntimeType for INumberParser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e6659412-4a13-4a53-83a1-392fbe4cff9f}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for INumberParser {
     type Vtable = INumberParser_Vtbl;
@@ -1679,6 +1700,9 @@ impl ::core::fmt::Debug for INumberRounder {
 unsafe impl ::windows::core::RuntimeType for INumberRounder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5473c375-38ed-4631-b80c-ef34fc48b7f5}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for INumberRounder {
     type Vtable = INumberRounder_Vtbl;
@@ -1772,6 +1796,9 @@ impl ::core::fmt::Debug for INumberRounderOption {
 unsafe impl ::windows::core::RuntimeType for INumberRounderOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3b088433-646f-4efe-8d48-66eb2e49e736}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for INumberRounderOption {
     type Vtable = INumberRounderOption_Vtbl;
@@ -1929,6 +1956,9 @@ impl ::core::fmt::Debug for ISignedZeroOption {
 unsafe impl ::windows::core::RuntimeType for ISignedZeroOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fd1cdd31-0a3c-49c4-a642-96a1564f4f30}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ISignedZeroOption {
     type Vtable = ISignedZeroOption_Vtbl;
@@ -2034,6 +2064,9 @@ impl ::core::fmt::Debug for ISignificantDigitsOption {
 unsafe impl ::windows::core::RuntimeType for ISignificantDigitsOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1d4dfcdd-2d43-4ee8-bbf1-c1b26a711a58}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ISignificantDigitsOption {
     type Vtable = ISignificantDigitsOption_Vtbl;
@@ -2151,6 +2184,9 @@ impl ::core::fmt::Debug for IncrementNumberRounder {
 unsafe impl ::windows::core::RuntimeType for IncrementNumberRounder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.IncrementNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IncrementNumberRounder {
     type Vtable = INumberRounder_Vtbl;
@@ -2305,6 +2341,9 @@ impl ::core::fmt::Debug for NumeralSystemTranslator {
 unsafe impl ::windows::core::RuntimeType for NumeralSystemTranslator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.NumeralSystemTranslator;{28f5bc2c-8c23-4234-ad2e-fa5a3a426e9b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for NumeralSystemTranslator {
     type Vtable = INumeralSystemTranslator_Vtbl;
@@ -2611,6 +2650,9 @@ impl ::core::fmt::Debug for PercentFormatter {
 unsafe impl ::windows::core::RuntimeType for PercentFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PercentFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PercentFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -3071,6 +3113,9 @@ impl ::core::fmt::Debug for PermilleFormatter {
 unsafe impl ::windows::core::RuntimeType for PermilleFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PermilleFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PermilleFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -3314,6 +3359,9 @@ impl ::core::fmt::Debug for RoundingAlgorithm {
 unsafe impl ::windows::core::RuntimeType for RoundingAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.RoundingAlgorithm;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
@@ -3420,6 +3468,9 @@ impl ::core::fmt::Debug for SignificantDigitsNumberRounder {
 unsafe impl ::windows::core::RuntimeType for SignificantDigitsNumberRounder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SignificantDigitsNumberRounder {
     type Vtable = INumberRounder_Vtbl;

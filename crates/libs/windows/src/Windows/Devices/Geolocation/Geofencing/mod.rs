@@ -117,6 +117,9 @@ impl ::core::fmt::Debug for Geofence {
 unsafe impl ::windows::core::RuntimeType for Geofence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.Geofence;{9c090823-edb8-47e0-8245-5bf61d321f2d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Geofence {
     type Vtable = IGeofence_Vtbl;
@@ -267,6 +270,9 @@ impl ::core::fmt::Debug for GeofenceMonitor {
 unsafe impl ::windows::core::RuntimeType for GeofenceMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceMonitor;{4c0f5f78-1c1f-4621-bbbd-833b92247226})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GeofenceMonitor {
     type Vtable = IGeofenceMonitor_Vtbl;
@@ -351,6 +357,9 @@ impl ::core::fmt::Debug for GeofenceMonitorStatus {
 unsafe impl ::windows::core::RuntimeType for GeofenceMonitorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
@@ -382,6 +391,9 @@ impl ::core::fmt::Debug for GeofenceRemovalReason {
 unsafe impl ::windows::core::RuntimeType for GeofenceRemovalReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
@@ -443,6 +455,9 @@ impl ::core::ops::Not for GeofenceState {
 unsafe impl ::windows::core::RuntimeType for GeofenceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceState;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
@@ -500,6 +515,9 @@ impl ::core::fmt::Debug for GeofenceStateChangeReport {
 unsafe impl ::windows::core::RuntimeType for GeofenceStateChangeReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport;{9a243c18-2464-4c89-be05-b3ffff5babc5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GeofenceStateChangeReport {
     type Vtable = IGeofenceStateChangeReport_Vtbl;
@@ -727,6 +745,9 @@ impl ::core::ops::Not for MonitoredGeofenceStates {
 unsafe impl ::windows::core::RuntimeType for MonitoredGeofenceStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

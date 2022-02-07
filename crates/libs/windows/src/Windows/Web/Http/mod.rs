@@ -127,6 +127,9 @@ impl ::core::fmt::Debug for HttpBufferContent {
 unsafe impl ::windows::core::RuntimeType for HttpBufferContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpBufferContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpBufferContent {
     type Vtable = IHttpContent_Vtbl;
@@ -499,6 +502,9 @@ impl ::core::fmt::Debug for HttpClient {
 unsafe impl ::windows::core::RuntimeType for HttpClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpClient;{7fda1151-3574-4880-a8ba-e6b1e0061f3d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpClient {
     type Vtable = IHttpClient_Vtbl;
@@ -631,6 +637,9 @@ impl ::core::fmt::Debug for HttpCompletionOption {
 unsafe impl ::windows::core::RuntimeType for HttpCompletionOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
@@ -755,6 +764,9 @@ impl ::core::fmt::Debug for HttpCookie {
 unsafe impl ::windows::core::RuntimeType for HttpCookie {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpCookie {
     type Vtable = IHttpCookie_Vtbl;
@@ -907,6 +919,9 @@ impl ::core::fmt::Debug for HttpCookieCollection {
 unsafe impl ::windows::core::RuntimeType for HttpCookieCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Web.Http.HttpCookie;{1f5488e2-cc2d-4779-86a7-88f10687d249})))");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for HttpCookieCollection {
@@ -1091,6 +1106,9 @@ impl ::core::fmt::Debug for HttpCookieManager {
 unsafe impl ::windows::core::RuntimeType for HttpCookieManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpCookieManager;{7a431780-cd4f-4e57-a84a-5b0a53d6bb96})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpCookieManager {
     type Vtable = IHttpCookieManager_Vtbl;
@@ -1255,6 +1273,9 @@ impl ::core::fmt::Debug for HttpFormUrlEncodedContent {
 unsafe impl ::windows::core::RuntimeType for HttpFormUrlEncodedContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpFormUrlEncodedContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpFormUrlEncodedContent {
     type Vtable = IHttpContent_Vtbl;
@@ -1459,6 +1480,9 @@ impl ::core::fmt::Debug for HttpGetBufferResult {
 unsafe impl ::windows::core::RuntimeType for HttpGetBufferResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetBufferResult;{53d08e7c-e209-404e-9a49-742d8236fd3a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpGetBufferResult {
     type Vtable = IHttpGetBufferResult_Vtbl;
@@ -1641,6 +1665,9 @@ impl ::core::fmt::Debug for HttpGetInputStreamResult {
 unsafe impl ::windows::core::RuntimeType for HttpGetInputStreamResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetInputStreamResult;{d5d63463-13aa-4ee0-be95-a0c39fe91203})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpGetInputStreamResult {
     type Vtable = IHttpGetInputStreamResult_Vtbl;
@@ -1822,6 +1849,9 @@ impl ::core::fmt::Debug for HttpGetStringResult {
 unsafe impl ::windows::core::RuntimeType for HttpGetStringResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpGetStringResult;{9bac466d-8509-4775-b16d-8953f47a7f5f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpGetStringResult {
     type Vtable = IHttpGetStringResult_Vtbl;
@@ -2031,6 +2061,9 @@ impl ::core::fmt::Debug for HttpMethod {
 unsafe impl ::windows::core::RuntimeType for HttpMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMethod;{728d4022-700d-4fe0-afa5-40299c58dbfd})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpMethod {
     type Vtable = IHttpMethod_Vtbl;
@@ -2248,6 +2281,9 @@ impl ::core::fmt::Debug for HttpMultipartContent {
 unsafe impl ::windows::core::RuntimeType for HttpMultipartContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpMultipartContent {
     type Vtable = IHttpContent_Vtbl;
@@ -2558,6 +2594,9 @@ impl ::core::fmt::Debug for HttpMultipartFormDataContent {
 unsafe impl ::windows::core::RuntimeType for HttpMultipartFormDataContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpMultipartFormDataContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpMultipartFormDataContent {
     type Vtable = IHttpContent_Vtbl;
@@ -2762,6 +2801,9 @@ unsafe impl ::windows::core::Abi for HttpProgress {
 unsafe impl ::windows::core::RuntimeType for HttpProgress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Web.Http.HttpProgress;enum(Windows.Web.Http.HttpProgressStage;i4);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u8;pinterface({61c17706-2d65-11e0-9ae8-d48564015472};u8);u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for HttpProgress {
@@ -2815,6 +2857,9 @@ impl ::core::fmt::Debug for HttpProgressStage {
 unsafe impl ::windows::core::RuntimeType for HttpProgressStage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
@@ -2942,6 +2987,9 @@ impl ::core::fmt::Debug for HttpRequestMessage {
 unsafe impl ::windows::core::RuntimeType for HttpRequestMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestMessage;{f5762b3c-74d4-4811-b5dc-9f8b4e2f9abf})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpRequestMessage {
     type Vtable = IHttpRequestMessage_Vtbl;
@@ -3115,6 +3163,9 @@ impl ::core::fmt::Debug for HttpRequestResult {
 unsafe impl ::windows::core::RuntimeType for HttpRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpRequestResult;{6acf4da8-b5eb-4a35-a902-4217fbe820c5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpRequestResult {
     type Vtable = IHttpRequestResult_Vtbl;
@@ -3378,6 +3429,9 @@ impl ::core::fmt::Debug for HttpResponseMessage {
 unsafe impl ::windows::core::RuntimeType for HttpResponseMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpResponseMessage;{fee200fb-8664-44e0-95d9-42696199bffc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpResponseMessage {
     type Vtable = IHttpResponseMessage_Vtbl;
@@ -3511,6 +3565,9 @@ impl ::core::fmt::Debug for HttpResponseMessageSource {
 unsafe impl ::windows::core::RuntimeType for HttpResponseMessageSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
@@ -3598,6 +3655,9 @@ impl ::core::fmt::Debug for HttpStatusCode {
 unsafe impl ::windows::core::RuntimeType for HttpStatusCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
@@ -3713,6 +3773,9 @@ impl ::core::fmt::Debug for HttpStreamContent {
 unsafe impl ::windows::core::RuntimeType for HttpStreamContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStreamContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpStreamContent {
     type Vtable = IHttpContent_Vtbl;
@@ -3966,6 +4029,9 @@ impl ::core::fmt::Debug for HttpStringContent {
 unsafe impl ::windows::core::RuntimeType for HttpStringContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpStringContent;{6b14a441-fba7-4bd2-af0a-839de7c295da})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpStringContent {
     type Vtable = IHttpContent_Vtbl;
@@ -4159,6 +4225,9 @@ impl ::core::fmt::Debug for HttpTransportInformation {
 unsafe impl ::windows::core::RuntimeType for HttpTransportInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.HttpTransportInformation;{70127198-c6a7-4ed0-833a-83fd8b8f178d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpTransportInformation {
     type Vtable = IHttpTransportInformation_Vtbl;
@@ -4267,6 +4336,9 @@ impl ::core::fmt::Debug for HttpVersion {
 unsafe impl ::windows::core::RuntimeType for HttpVersion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpVersion;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -4570,6 +4642,9 @@ impl ::core::fmt::Debug for IHttpContent {
 unsafe impl ::windows::core::RuntimeType for IHttpContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6b14a441-fba7-4bd2-af0a-839de7c295da}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IHttpContent {
     type Vtable = IHttpContent_Vtbl;

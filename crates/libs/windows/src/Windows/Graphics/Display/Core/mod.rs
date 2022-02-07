@@ -31,6 +31,9 @@ impl ::core::fmt::Debug for HdmiDisplayColorSpace {
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayColorSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Graphics_Display_Core'*"]
@@ -78,6 +81,9 @@ unsafe impl ::windows::core::Abi for HdmiDisplayHdr2086Metadata {
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayHdr2086Metadata {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.Core.HdmiDisplayHdr2086Metadata;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for HdmiDisplayHdr2086Metadata {
     fn eq(&self, other: &Self) -> bool {
@@ -122,6 +128,9 @@ impl ::core::fmt::Debug for HdmiDisplayHdrOption {
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayHdrOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_Display_Core'*"]
 #[repr(transparent)]
@@ -227,6 +236,9 @@ impl ::core::fmt::Debug for HdmiDisplayInformation {
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.Core.HdmiDisplayInformation;{130b3c0a-f565-476e-abd5-ea05aee74c69})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HdmiDisplayInformation {
     type Vtable = IHdmiDisplayInformation_Vtbl;
@@ -397,6 +409,9 @@ impl ::core::fmt::Debug for HdmiDisplayMode {
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.Core.HdmiDisplayMode;{0c06d5ad-1b90-4f51-9981-ef5a1c0ddf66})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HdmiDisplayMode {
     type Vtable = IHdmiDisplayMode_Vtbl;
@@ -479,6 +494,9 @@ impl ::core::fmt::Debug for HdmiDisplayPixelEncoding {
 unsafe impl ::windows::core::RuntimeType for HdmiDisplayPixelEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]

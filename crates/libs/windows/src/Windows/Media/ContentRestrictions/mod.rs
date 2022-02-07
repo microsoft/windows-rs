@@ -31,6 +31,9 @@ impl ::core::fmt::Debug for ContentAccessRestrictionLevel {
 unsafe impl ::windows::core::RuntimeType for ContentAccessRestrictionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_ContentRestrictions'*"]
 #[repr(transparent)]
@@ -82,6 +85,9 @@ impl ::core::fmt::Debug for ContentRestrictionsBrowsePolicy {
 unsafe impl ::windows::core::RuntimeType for ContentRestrictionsBrowsePolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy;{8c0133a4-442e-461a-8757-fad2f5bd37e4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContentRestrictionsBrowsePolicy {
     type Vtable = IContentRestrictionsBrowsePolicy_Vtbl;
@@ -279,6 +285,9 @@ impl ::core::fmt::Debug for RatedContentCategory {
 unsafe impl ::windows::core::RuntimeType for RatedContentCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_ContentRestrictions'*"]
 #[repr(transparent)]
@@ -385,6 +394,9 @@ impl ::core::fmt::Debug for RatedContentDescription {
 unsafe impl ::windows::core::RuntimeType for RatedContentDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.RatedContentDescription;{694866df-66b2-4dc3-96b1-f090eedee255})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RatedContentDescription {
     type Vtable = IRatedContentDescription_Vtbl;
@@ -520,6 +532,9 @@ impl ::core::fmt::Debug for RatedContentRestrictions {
 unsafe impl ::windows::core::RuntimeType for RatedContentRestrictions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.RatedContentRestrictions;{3f7f23cb-ba07-4401-a49d-8b9222205723})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RatedContentRestrictions {
     type Vtable = IRatedContentRestrictions_Vtbl;

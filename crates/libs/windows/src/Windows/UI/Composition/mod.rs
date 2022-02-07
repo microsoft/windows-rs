@@ -189,6 +189,9 @@ impl ::core::fmt::Debug for AmbientLight {
 unsafe impl ::windows::core::RuntimeType for AmbientLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AmbientLight;{a48130a1-b7c4-46f7-b9bf-daf43a44e6ee})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AmbientLight {
     type Vtable = IAmbientLight_Vtbl;
@@ -518,6 +521,9 @@ impl ::core::fmt::Debug for AnimationController {
 unsafe impl ::windows::core::RuntimeType for AnimationController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationController;{c934efd2-0722-4f5f-a4e2-9510f3d43bf7})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AnimationController {
     type Vtable = IAnimationController_Vtbl;
@@ -666,6 +672,9 @@ impl ::core::fmt::Debug for AnimationControllerProgressBehavior {
 unsafe impl ::windows::core::RuntimeType for AnimationControllerProgressBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationControllerProgressBehavior;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -697,6 +706,9 @@ impl ::core::fmt::Debug for AnimationDelayBehavior {
 unsafe impl ::windows::core::RuntimeType for AnimationDelayBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDelayBehavior;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -730,6 +742,9 @@ impl ::core::fmt::Debug for AnimationDirection {
 unsafe impl ::windows::core::RuntimeType for AnimationDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDirection;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -761,6 +776,9 @@ impl ::core::fmt::Debug for AnimationIterationBehavior {
 unsafe impl ::windows::core::RuntimeType for AnimationIterationBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationIterationBehavior;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -794,6 +812,9 @@ impl ::core::fmt::Debug for AnimationPropertyAccessMode {
 unsafe impl ::windows::core::RuntimeType for AnimationPropertyAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationPropertyAccessMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -947,6 +968,9 @@ impl ::core::fmt::Debug for AnimationPropertyInfo {
 unsafe impl ::windows::core::RuntimeType for AnimationPropertyInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationPropertyInfo;{f4716f05-ed77-4e3c-b328-5c3985b3738f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AnimationPropertyInfo {
     type Vtable = IAnimationPropertyInfo_Vtbl;
@@ -1096,6 +1120,9 @@ impl ::core::fmt::Debug for AnimationStopBehavior {
 unsafe impl ::windows::core::RuntimeType for AnimationStopBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationStopBehavior;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -1236,6 +1263,9 @@ impl ::core::fmt::Debug for BackEasingFunction {
 unsafe impl ::windows::core::RuntimeType for BackEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BackEasingFunction;{b8560da4-5e3c-545d-b263-7987a2bd27cb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BackEasingFunction {
     type Vtable = IBackEasingFunction_Vtbl;
@@ -1708,6 +1738,9 @@ impl ::core::fmt::Debug for BooleanKeyFrameAnimation {
 unsafe impl ::windows::core::RuntimeType for BooleanKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BooleanKeyFrameAnimation;{95e23a08-d1f4-4972-9770-3efe68d82e14})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BooleanKeyFrameAnimation {
     type Vtable = IBooleanKeyFrameAnimation_Vtbl;
@@ -2035,6 +2068,9 @@ impl ::core::fmt::Debug for BounceEasingFunction {
 unsafe impl ::windows::core::RuntimeType for BounceEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceEasingFunction;{e7fdb44b-aad5-5174-9421-eef8b75a6a43})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BounceEasingFunction {
     type Vtable = IBounceEasingFunction_Vtbl;
@@ -2499,6 +2535,9 @@ impl ::core::fmt::Debug for BounceScalarNaturalMotionAnimation {
 unsafe impl ::windows::core::RuntimeType for BounceScalarNaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceScalarNaturalMotionAnimation;{baa30dcc-a633-4618-9b06-7f7c72c87cff})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BounceScalarNaturalMotionAnimation {
     type Vtable = IBounceScalarNaturalMotionAnimation_Vtbl;
@@ -3027,6 +3066,9 @@ impl ::core::fmt::Debug for BounceVector2NaturalMotionAnimation {
 unsafe impl ::windows::core::RuntimeType for BounceVector2NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector2NaturalMotionAnimation;{da344196-2154-4b3c-88aa-47361204eccd})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BounceVector2NaturalMotionAnimation {
     type Vtable = IBounceVector2NaturalMotionAnimation_Vtbl;
@@ -3555,6 +3597,9 @@ impl ::core::fmt::Debug for BounceVector3NaturalMotionAnimation {
 unsafe impl ::windows::core::RuntimeType for BounceVector3NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector3NaturalMotionAnimation;{47dabc31-10d3-4518-86f1-09caf742d113})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BounceVector3NaturalMotionAnimation {
     type Vtable = IBounceVector3NaturalMotionAnimation_Vtbl;
@@ -3886,6 +3931,9 @@ impl ::core::fmt::Debug for CircleEasingFunction {
 unsafe impl ::windows::core::RuntimeType for CircleEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CircleEasingFunction;{1e07222a-6f82-5a28-8748-2e92fc46ee2b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CircleEasingFunction {
     type Vtable = ICircleEasingFunction_Vtbl;
@@ -4376,6 +4424,9 @@ impl ::core::fmt::Debug for ColorKeyFrameAnimation {
 unsafe impl ::windows::core::RuntimeType for ColorKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ColorKeyFrameAnimation;{93adb5e9-8e05-4593-84a3-dca152781e56})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ColorKeyFrameAnimation {
     type Vtable = IColorKeyFrameAnimation_Vtbl;
@@ -4772,6 +4823,9 @@ impl ::core::fmt::Debug for CompositionAnimation {
 unsafe impl ::windows::core::RuntimeType for CompositionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimation;{464c4c2c-1caa-4061-9b40-e13fde1503ca})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionAnimation {
     type Vtable = ICompositionAnimation_Vtbl;
@@ -5067,6 +5121,9 @@ impl ::core::fmt::Debug for CompositionAnimationGroup {
 unsafe impl ::windows::core::RuntimeType for CompositionAnimationGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimationGroup;{5e7cc90c-cd14-4e07-8a55-c72527aabdac})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionAnimationGroup {
     type Vtable = ICompositionAnimationGroup_Vtbl;
@@ -5372,6 +5429,9 @@ impl ::core::fmt::Debug for CompositionBackdropBrush {
 unsafe impl ::windows::core::RuntimeType for CompositionBackdropBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBackdropBrush;{c5acae58-3898-499e-8d7f-224e91286a5d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionBackdropBrush {
     type Vtable = ICompositionBackdropBrush_Vtbl;
@@ -5541,6 +5601,9 @@ impl ::core::fmt::Debug for CompositionBackfaceVisibility {
 unsafe impl ::windows::core::RuntimeType for CompositionBackfaceVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBackfaceVisibility;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -5665,6 +5728,9 @@ impl ::core::fmt::Debug for CompositionBatchCompletedEventArgs {
 unsafe impl ::windows::core::RuntimeType for CompositionBatchCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBatchCompletedEventArgs;{0d00dad0-9464-450a-a562-2e2698b0a812})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionBatchCompletedEventArgs {
     type Vtable = ICompositionBatchCompletedEventArgs_Vtbl;
@@ -5844,6 +5910,9 @@ impl ::core::ops::Not for CompositionBatchTypes {
 unsafe impl ::windows::core::RuntimeType for CompositionBatchTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBatchTypes;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -5883,6 +5952,9 @@ impl ::core::fmt::Debug for CompositionBitmapInterpolationMode {
 unsafe impl ::windows::core::RuntimeType for CompositionBitmapInterpolationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBitmapInterpolationMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -5915,6 +5987,9 @@ impl ::core::fmt::Debug for CompositionBorderMode {
 unsafe impl ::windows::core::RuntimeType for CompositionBorderMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBorderMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -6039,6 +6114,9 @@ impl ::core::fmt::Debug for CompositionBrush {
 unsafe impl ::windows::core::RuntimeType for CompositionBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBrush;{ab0d7608-30c0-40e9-b568-b60a6bd1fb46})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionBrush {
     type Vtable = ICompositionBrush_Vtbl;
@@ -6224,6 +6302,9 @@ impl ::core::fmt::Debug for CompositionCapabilities {
 unsafe impl ::windows::core::RuntimeType for CompositionCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionCapabilities;{8253353e-b517-48bc-b1e8-4b3561a2e181})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionCapabilities {
     type Vtable = ICompositionCapabilities_Vtbl;
@@ -6498,6 +6579,9 @@ impl ::core::fmt::Debug for CompositionClip {
 unsafe impl ::windows::core::RuntimeType for CompositionClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionClip;{1ccd2a52-cfc7-4ace-9983-146bb8eb6a3c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionClip {
     type Vtable = ICompositionClip_Vtbl;
@@ -6752,6 +6836,9 @@ impl ::core::fmt::Debug for CompositionColorBrush {
 unsafe impl ::windows::core::RuntimeType for CompositionColorBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorBrush;{2b264c5e-bf35-4831-8642-cf70c20fff2f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionColorBrush {
     type Vtable = ICompositionColorBrush_Vtbl;
@@ -7039,6 +7126,9 @@ impl ::core::fmt::Debug for CompositionColorGradientStop {
 unsafe impl ::windows::core::RuntimeType for CompositionColorGradientStop {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStop;{6f00ca92-c801-4e41-9a8f-a53e20f57778})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionColorGradientStop {
     type Vtable = ICompositionColorGradientStop_Vtbl;
@@ -7277,6 +7367,9 @@ impl ::core::fmt::Debug for CompositionColorGradientStopCollection {
 unsafe impl ::windows::core::RuntimeType for CompositionColorGradientStopCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStopCollection;{9f1d20ec-7b04-4b1d-90bc-9fa32c0cfd26})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionColorGradientStopCollection {
     type Vtable = ICompositionColorGradientStopCollection_Vtbl;
@@ -7428,6 +7521,9 @@ impl ::core::fmt::Debug for CompositionColorSpace {
 unsafe impl ::windows::core::RuntimeType for CompositionColorSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionColorSpace;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -7583,6 +7679,9 @@ impl ::core::fmt::Debug for CompositionCommitBatch {
 unsafe impl ::windows::core::RuntimeType for CompositionCommitBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionCommitBatch;{0d00dad0-ca07-4400-8c8e-cb5db08559cc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionCommitBatch {
     type Vtable = ICompositionCommitBatch_Vtbl;
@@ -7733,6 +7832,9 @@ impl ::core::fmt::Debug for CompositionCompositeMode {
 unsafe impl ::windows::core::RuntimeType for CompositionCompositeMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionCompositeMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -7952,6 +8054,9 @@ impl ::core::fmt::Debug for CompositionContainerShape {
 unsafe impl ::windows::core::RuntimeType for CompositionContainerShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionContainerShape;{4f5e859b-2e5b-44a8-982c-aa0f69c16059})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionContainerShape {
     type Vtable = ICompositionContainerShape_Vtbl;
@@ -8279,6 +8384,9 @@ impl ::core::fmt::Debug for CompositionDrawingSurface {
 unsafe impl ::windows::core::RuntimeType for CompositionDrawingSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionDrawingSurface;{a166c300-fad0-4d11-9e67-e433162ff49e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionDrawingSurface {
     type Vtable = ICompositionDrawingSurface_Vtbl;
@@ -8449,6 +8557,9 @@ impl ::core::fmt::Debug for CompositionDropShadowSourcePolicy {
 unsafe impl ::windows::core::RuntimeType for CompositionDropShadowSourcePolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionDropShadowSourcePolicy;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -8656,6 +8767,9 @@ impl ::core::fmt::Debug for CompositionEasingFunction {
 unsafe impl ::windows::core::RuntimeType for CompositionEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEasingFunction;{5145e356-bf79-4ea8-8cc2-6b5b472e6c9a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionEasingFunction {
     type Vtable = ICompositionEasingFunction_Vtbl;
@@ -8805,6 +8919,9 @@ impl ::core::fmt::Debug for CompositionEasingFunctionMode {
 unsafe impl ::windows::core::RuntimeType for CompositionEasingFunctionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEasingFunctionMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -8942,6 +9059,9 @@ impl ::core::fmt::Debug for CompositionEffectBrush {
 unsafe impl ::windows::core::RuntimeType for CompositionEffectBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectBrush;{bf7f795e-83cc-44bf-a447-3e3c071789ec})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionEffectBrush {
     type Vtable = ICompositionEffectBrush_Vtbl;
@@ -9227,6 +9347,9 @@ impl ::core::fmt::Debug for CompositionEffectFactory {
 unsafe impl ::windows::core::RuntimeType for CompositionEffectFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectFactory;{be5624af-ba7e-4510-9850-41c0b4ff74df})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionEffectFactory {
     type Vtable = ICompositionEffectFactory_Vtbl;
@@ -9377,6 +9500,9 @@ impl ::core::fmt::Debug for CompositionEffectFactoryLoadStatus {
 unsafe impl ::windows::core::RuntimeType for CompositionEffectFactoryLoadStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEffectFactoryLoadStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -9422,6 +9548,9 @@ impl ::core::fmt::Debug for CompositionEffectSourceParameter {
 unsafe impl ::windows::core::RuntimeType for CompositionEffectSourceParameter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectSourceParameter;{858ab13a-3292-4e4e-b3bb-2b6c6544a6ee})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionEffectSourceParameter {
     type Vtable = ICompositionEffectSourceParameter_Vtbl;
@@ -9690,6 +9819,9 @@ impl ::core::fmt::Debug for CompositionEllipseGeometry {
 unsafe impl ::windows::core::RuntimeType for CompositionEllipseGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEllipseGeometry;{4801f884-f6ad-4b93-afa9-897b64e57b1f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionEllipseGeometry {
     type Vtable = ICompositionEllipseGeometry_Vtbl;
@@ -10078,6 +10210,9 @@ impl ::core::fmt::Debug for CompositionGeometricClip {
 unsafe impl ::windows::core::RuntimeType for CompositionGeometricClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometricClip;{c840b581-81c9-4444-a2c1-ccaece3a50e5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionGeometricClip {
     type Vtable = ICompositionGeometricClip_Vtbl;
@@ -10378,6 +10513,9 @@ impl ::core::fmt::Debug for CompositionGeometry {
 unsafe impl ::windows::core::RuntimeType for CompositionGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometry;{e985217c-6a17-4207-abd8-5fd3dd612a9d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionGeometry {
     type Vtable = ICompositionGeometry_Vtbl;
@@ -10527,6 +10665,9 @@ impl ::core::fmt::Debug for CompositionGetValueStatus {
 unsafe impl ::windows::core::RuntimeType for CompositionGetValueStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGetValueStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -10799,6 +10940,9 @@ impl ::core::fmt::Debug for CompositionGradientBrush {
 unsafe impl ::windows::core::RuntimeType for CompositionGradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGradientBrush;{1d9709e0-ffc6-4c0e-a9ab-34144d4c9098})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionGradientBrush {
     type Vtable = ICompositionGradientBrush_Vtbl;
@@ -10968,6 +11112,9 @@ impl ::core::fmt::Debug for CompositionGradientExtendMode {
 unsafe impl ::windows::core::RuntimeType for CompositionGradientExtendMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGradientExtendMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -11157,6 +11304,9 @@ impl ::core::fmt::Debug for CompositionGraphicsDevice {
 unsafe impl ::windows::core::RuntimeType for CompositionGraphicsDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGraphicsDevice;{fb22c6e1-80a2-4667-9936-dbeaf6eefe95})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionGraphicsDevice {
     type Vtable = ICompositionGraphicsDevice_Vtbl;
@@ -11427,6 +11577,9 @@ impl ::core::fmt::Debug for CompositionLight {
 unsafe impl ::windows::core::RuntimeType for CompositionLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLight;{41a6d7c2-2e5d-4bc1-b09e-8f0a03e3d8d3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionLight {
     type Vtable = ICompositionLight_Vtbl;
@@ -11737,6 +11890,9 @@ impl ::core::fmt::Debug for CompositionLineGeometry {
 unsafe impl ::windows::core::RuntimeType for CompositionLineGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLineGeometry;{dd7615a4-0c9a-4b67-8dce-440a5bf9cdec})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionLineGeometry {
     type Vtable = ICompositionLineGeometry_Vtbl;
@@ -12176,6 +12332,9 @@ impl ::core::fmt::Debug for CompositionLinearGradientBrush {
 unsafe impl ::windows::core::RuntimeType for CompositionLinearGradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLinearGradientBrush;{983bc519-a9db-413c-a2d8-2a9056fc525e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionLinearGradientBrush {
     type Vtable = ICompositionLinearGradientBrush_Vtbl;
@@ -12364,6 +12523,9 @@ impl ::core::fmt::Debug for CompositionMappingMode {
 unsafe impl ::windows::core::RuntimeType for CompositionMappingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionMappingMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -12514,6 +12676,9 @@ impl ::core::fmt::Debug for CompositionMaskBrush {
 unsafe impl ::windows::core::RuntimeType for CompositionMaskBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMaskBrush;{522cf09e-be6b-4f41-be49-f9226d471b4a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionMaskBrush {
     type Vtable = ICompositionMaskBrush_Vtbl;
@@ -12818,6 +12983,9 @@ impl ::core::fmt::Debug for CompositionMipmapSurface {
 unsafe impl ::windows::core::RuntimeType for CompositionMipmapSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMipmapSurface;{4863675c-cf4a-4b1c-9ece-c5ec0c2b2fe6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionMipmapSurface {
     type Vtable = ICompositionMipmapSurface_Vtbl;
@@ -13231,6 +13399,9 @@ impl ::core::fmt::Debug for CompositionNineGridBrush {
 unsafe impl ::windows::core::RuntimeType for CompositionNineGridBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionNineGridBrush;{f25154e4-bc8c-4be7-b80f-8685b83c0186})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionNineGridBrush {
     type Vtable = ICompositionNineGridBrush_Vtbl;
@@ -13505,6 +13676,9 @@ impl ::core::fmt::Debug for CompositionObject {
 unsafe impl ::windows::core::RuntimeType for CompositionObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionObject;{bcb4ad45-7609-4550-934f-16002a68fded})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionObject {
     type Vtable = ICompositionObject_Vtbl;
@@ -13640,6 +13814,9 @@ impl ::core::fmt::Debug for CompositionPath {
 unsafe impl ::windows::core::RuntimeType for CompositionPath {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPath;{66da1d5f-2e10-4f22-8a06-0a8151919e60})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionPath {
     type Vtable = ICompositionPath_Vtbl;
@@ -13891,6 +14068,9 @@ impl ::core::fmt::Debug for CompositionPathGeometry {
 unsafe impl ::windows::core::RuntimeType for CompositionPathGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPathGeometry;{0b6a417e-2c77-4c23-af5e-6304c147bb61})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionPathGeometry {
     type Vtable = ICompositionPathGeometry_Vtbl;
@@ -14220,6 +14400,9 @@ impl ::core::fmt::Debug for CompositionProjectedShadow {
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadow;{285b8e72-4328-523f-bcf2-5557c52c3b25})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionProjectedShadow {
     type Vtable = ICompositionProjectedShadow_Vtbl;
@@ -14487,6 +14670,9 @@ impl ::core::fmt::Debug for CompositionProjectedShadowCaster {
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowCaster {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowCaster;{b1d7d426-1e36-5a62-be56-a16112fdd148})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionProjectedShadowCaster {
     type Vtable = ICompositionProjectedShadowCaster_Vtbl;
@@ -14787,6 +14973,9 @@ impl ::core::fmt::Debug for CompositionProjectedShadowCasterCollection {
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowCasterCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowCasterCollection;{d2525c0c-e07f-58a3-ac91-37f73ee91740})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionProjectedShadowCasterCollection {
     type Vtable = ICompositionProjectedShadowCasterCollection_Vtbl;
@@ -15083,6 +15272,9 @@ impl ::core::fmt::Debug for CompositionProjectedShadowReceiver {
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowReceiver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiver;{1377985a-6a49-536a-9be4-a96a8e5298a9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionProjectedShadowReceiver {
     type Vtable = ICompositionProjectedShadowReceiver_Vtbl;
@@ -15356,6 +15548,9 @@ impl ::core::fmt::Debug for CompositionProjectedShadowReceiverUnorderedCollectio
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowReceiverUnorderedCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection;{02b3e3b7-27d2-599f-ac4b-ab787cdde6fd})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionProjectedShadowReceiverUnorderedCollection {
     type Vtable = ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl;
@@ -15768,6 +15963,9 @@ impl ::core::fmt::Debug for CompositionPropertySet {
 unsafe impl ::windows::core::RuntimeType for CompositionPropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPropertySet;{c9d6d202-5f67-4453-9117-9eadd430d3c2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionPropertySet {
     type Vtable = ICompositionPropertySet_Vtbl;
@@ -16202,6 +16400,9 @@ impl ::core::fmt::Debug for CompositionRadialGradientBrush {
 unsafe impl ::windows::core::RuntimeType for CompositionRadialGradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRadialGradientBrush;{3d3b50c5-e3fa-4ce2-b9fc-3ee12561788f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionRadialGradientBrush {
     type Vtable = ICompositionRadialGradientBrush_Vtbl;
@@ -16552,6 +16753,9 @@ impl ::core::fmt::Debug for CompositionRectangleGeometry {
 unsafe impl ::windows::core::RuntimeType for CompositionRectangleGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRectangleGeometry;{0cd51428-5356-4246-aecf-7a0b76975400})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionRectangleGeometry {
     type Vtable = ICompositionRectangleGeometry_Vtbl;
@@ -16897,6 +17101,9 @@ impl ::core::fmt::Debug for CompositionRoundedRectangleGeometry {
 unsafe impl ::windows::core::RuntimeType for CompositionRoundedRectangleGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRoundedRectangleGeometry;{8770c822-1d50-4b8b-b013-7c9a0e46935f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionRoundedRectangleGeometry {
     type Vtable = ICompositionRoundedRectangleGeometry_Vtbl;
@@ -17204,6 +17411,9 @@ impl ::core::fmt::Debug for CompositionScopedBatch {
 unsafe impl ::windows::core::RuntimeType for CompositionScopedBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionScopedBatch;{0d00dad0-fb07-46fd-8c72-6280d1a3d1dd})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionScopedBatch {
     type Vtable = ICompositionScopedBatch_Vtbl;
@@ -17445,6 +17655,9 @@ impl ::core::fmt::Debug for CompositionShadow {
 unsafe impl ::windows::core::RuntimeType for CompositionShadow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShadow;{329e52e2-4335-49cc-b14a-37782d10f0c4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionShadow {
     type Vtable = ICompositionShadow_Vtbl;
@@ -17772,6 +17985,9 @@ impl ::core::fmt::Debug for CompositionShape {
 unsafe impl ::windows::core::RuntimeType for CompositionShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShape;{b47ce2f7-9a88-42c4-9e87-2e500ca8688c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionShape {
     type Vtable = ICompositionShape_Vtbl;
@@ -18116,6 +18332,9 @@ impl ::core::fmt::Debug for CompositionShapeCollection {
 unsafe impl ::windows::core::RuntimeType for CompositionShapeCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShapeCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.CompositionShape;{b47ce2f7-9a88-42c4-9e87-2e500ca8688c})))");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for CompositionShapeCollection {
@@ -18683,6 +18902,9 @@ impl ::core::fmt::Debug for CompositionSpriteShape {
 unsafe impl ::windows::core::RuntimeType for CompositionSpriteShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSpriteShape;{401b61bb-0007-4363-b1f3-6bcc003fb83e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionSpriteShape {
     type Vtable = ICompositionSpriteShape_Vtbl;
@@ -18853,6 +19075,9 @@ impl ::core::fmt::Debug for CompositionStretch {
 unsafe impl ::windows::core::RuntimeType for CompositionStretch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStretch;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -18886,6 +19111,9 @@ impl ::core::fmt::Debug for CompositionStrokeCap {
 unsafe impl ::windows::core::RuntimeType for CompositionStrokeCap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeCap;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
@@ -19113,6 +19341,9 @@ impl ::core::fmt::Debug for CompositionStrokeDashArray {
 unsafe impl ::windows::core::RuntimeType for CompositionStrokeDashArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionStrokeDashArray;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};f4))");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for CompositionStrokeDashArray {
@@ -19351,6 +19582,9 @@ impl ::core::fmt::Debug for CompositionStrokeLineJoin {
 unsafe impl ::windows::core::RuntimeType for CompositionStrokeLineJoin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeLineJoin;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
@@ -19654,6 +19888,9 @@ impl ::core::fmt::Debug for CompositionSurfaceBrush {
 unsafe impl ::windows::core::RuntimeType for CompositionSurfaceBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSurfaceBrush;{ad016d79-1e4c-4c0d-9c29-83338c87c162})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionSurfaceBrush {
     type Vtable = ICompositionSurfaceBrush_Vtbl;
@@ -19928,6 +20165,9 @@ impl ::core::fmt::Debug for CompositionTarget {
 unsafe impl ::windows::core::RuntimeType for CompositionTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTarget;{a1bea8ba-d726-4663-8129-6b5e7927ffa6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionTarget {
     type Vtable = ICompositionTarget_Vtbl;
@@ -20169,6 +20409,9 @@ impl ::core::fmt::Debug for CompositionTransform {
 unsafe impl ::windows::core::RuntimeType for CompositionTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTransform;{7cd54529-fbed-4112-abc5-185906dd927c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionTransform {
     type Vtable = ICompositionTransform_Vtbl;
@@ -20479,6 +20722,9 @@ impl ::core::fmt::Debug for CompositionViewBox {
 unsafe impl ::windows::core::RuntimeType for CompositionViewBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionViewBox;{b440bf07-068f-4537-84c6-4ecbe019e1f4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionViewBox {
     type Vtable = ICompositionViewBox_Vtbl;
@@ -20792,6 +21038,9 @@ impl ::core::fmt::Debug for CompositionVirtualDrawingSurface {
 unsafe impl ::windows::core::RuntimeType for CompositionVirtualDrawingSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionVirtualDrawingSurface;{a9c384db-8740-4f94-8b9d-b68521e7863d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionVirtualDrawingSurface {
     type Vtable = ICompositionVirtualDrawingSurface_Vtbl;
@@ -21118,6 +21367,9 @@ impl ::core::fmt::Debug for CompositionVisualSurface {
 unsafe impl ::windows::core::RuntimeType for CompositionVisualSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionVisualSurface;{b224d803-4f6e-4a3f-8cae-3dc1cda74fc6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CompositionVisualSurface {
     type Vtable = ICompositionVisualSurface_Vtbl;
@@ -21954,6 +22206,9 @@ impl ::core::fmt::Debug for Compositor {
 unsafe impl ::windows::core::RuntimeType for Compositor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Compositor;{b403ca50-7f8c-4e83-985f-cc45060036d8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Compositor {
     type Vtable = ICompositor_Vtbl;
@@ -22462,6 +22717,9 @@ impl ::core::fmt::Debug for ContainerVisual {
 unsafe impl ::windows::core::RuntimeType for ContainerVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ContainerVisual;{02f6bc74-ed20-4773-afe6-d49b4a93db32})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContainerVisual {
     type Vtable = IContainerVisual_Vtbl;
@@ -22741,6 +22999,9 @@ impl ::core::fmt::Debug for CubicBezierEasingFunction {
 unsafe impl ::windows::core::RuntimeType for CubicBezierEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CubicBezierEasingFunction;{32350666-c1e8-44f9-96b8-c98acf0ae698})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CubicBezierEasingFunction {
     type Vtable = ICubicBezierEasingFunction_Vtbl;
@@ -23350,6 +23611,9 @@ impl ::core::fmt::Debug for DelegatedInkTrailVisual {
 unsafe impl ::windows::core::RuntimeType for DelegatedInkTrailVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DelegatedInkTrailVisual;{856e60b1-e1ab-5b23-8e3d-d513f221c998})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DelegatedInkTrailVisual {
     type Vtable = IDelegatedInkTrailVisual_Vtbl;
@@ -23694,6 +23958,9 @@ impl ::core::fmt::Debug for DistantLight {
 unsafe impl ::windows::core::RuntimeType for DistantLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DistantLight;{318cfafc-5ce3-4b55-ab5d-07a00353ac99})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DistantLight {
     type Vtable = IDistantLight_Vtbl;
@@ -24035,6 +24302,9 @@ impl ::core::fmt::Debug for DropShadow {
 unsafe impl ::windows::core::RuntimeType for DropShadow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DropShadow;{cb977c07-a154-4851-85e7-a8924c84fad8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DropShadow {
     type Vtable = IDropShadow_Vtbl;
@@ -24320,6 +24590,9 @@ impl ::core::fmt::Debug for ElasticEasingFunction {
 unsafe impl ::windows::core::RuntimeType for ElasticEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ElasticEasingFunction;{66de6285-054e-5594-8475-c22cb51f1bd5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ElasticEasingFunction {
     type Vtable = IElasticEasingFunction_Vtbl;
@@ -24597,6 +24870,9 @@ impl ::core::fmt::Debug for ExponentialEasingFunction {
 unsafe impl ::windows::core::RuntimeType for ExponentialEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExponentialEasingFunction;{6f7d1a51-98d2-5638-a34a-00486554c750})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ExponentialEasingFunction {
     type Vtable = IExponentialEasingFunction_Vtbl;
@@ -24964,6 +25240,9 @@ impl ::core::fmt::Debug for ExpressionAnimation {
 unsafe impl ::windows::core::RuntimeType for ExpressionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExpressionAnimation;{6acc5431-7d3d-4bf3-abb6-f44bdc4888c1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ExpressionAnimation {
     type Vtable = IExpressionAnimation_Vtbl;
@@ -25255,6 +25534,9 @@ impl ::core::fmt::Debug for IAnimationObject {
 unsafe impl ::windows::core::RuntimeType for IAnimationObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e7141e0a-04b8-4fc5-a4dc-195392e57807}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IAnimationObject {
     type Vtable = IAnimationObject_Vtbl;
@@ -25561,6 +25843,9 @@ impl ::core::fmt::Debug for ICompositionAnimationBase {
 unsafe impl ::windows::core::RuntimeType for ICompositionAnimationBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1c2c2999-e818-48d3-a6dd-d78c82f8ace9}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICompositionAnimationBase {
     type Vtable = ICompositionAnimationBase_Vtbl;
@@ -27080,6 +27365,9 @@ impl ::core::fmt::Debug for ICompositionSupportsSystemBackdrop {
 unsafe impl ::windows::core::RuntimeType for ICompositionSupportsSystemBackdrop {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{397dafe4-b6c2-5bb9-951d-f5707de8b7bc}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICompositionSupportsSystemBackdrop {
     type Vtable = ICompositionSupportsSystemBackdrop_Vtbl;
@@ -27155,6 +27443,9 @@ impl ::core::fmt::Debug for ICompositionSurface {
 unsafe impl ::windows::core::RuntimeType for ICompositionSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1527540d-42c7-47a6-a408-668f79a90dfb}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICompositionSurface {
     type Vtable = ICompositionSurface_Vtbl;
@@ -27329,6 +27620,9 @@ impl ::core::fmt::Debug for ICompositionSurfaceFacade {
 unsafe impl ::windows::core::RuntimeType for ICompositionSurfaceFacade {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e01622c8-2332-55c7-8868-a7312c5c229d}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICompositionSurfaceFacade {
     type Vtable = ICompositionSurfaceFacade_Vtbl;
@@ -28974,6 +29268,9 @@ impl ::core::fmt::Debug for IVisualElement {
 unsafe impl ::windows::core::RuntimeType for IVisualElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{01e64612-1d82-42f4-8e3f-a722ded33fc7}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IVisualElement {
     type Vtable = IVisualElement_Vtbl;
@@ -29056,6 +29353,9 @@ impl ::core::fmt::Debug for IVisualElement2 {
 unsafe impl ::windows::core::RuntimeType for IVisualElement2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{993ae8a0-6057-5e40-918c-e06e0b7e7c64}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IVisualElement2 {
     type Vtable = IVisualElement2_Vtbl;
@@ -29284,6 +29584,9 @@ impl ::core::fmt::Debug for ImplicitAnimationCollection {
 unsafe impl ::windows::core::RuntimeType for ImplicitAnimationCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ImplicitAnimationCollection;{0598a3ff-0a92-4c9d-a427-b25519250dbf})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ImplicitAnimationCollection {
     type Vtable = IImplicitAnimationCollection_Vtbl;
@@ -29666,6 +29969,9 @@ impl ::core::fmt::Debug for InitialValueExpressionCollection {
 unsafe impl ::windows::core::RuntimeType for InitialValueExpressionCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InitialValueExpressionCollection;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;string))");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for InitialValueExpressionCollection {
@@ -29901,6 +30207,9 @@ unsafe impl ::windows::core::Abi for InkTrailPoint {
 unsafe impl ::windows::core::RuntimeType for InkTrailPoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Composition.InkTrailPoint;struct(Windows.Foundation.Point;f4;f4);f4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for InkTrailPoint {
@@ -30192,6 +30501,9 @@ impl ::core::fmt::Debug for InsetClip {
 unsafe impl ::windows::core::RuntimeType for InsetClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InsetClip;{1e73e647-84c7-477a-b474-5880e0442e15})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InsetClip {
     type Vtable = IInsetClip_Vtbl;
@@ -30659,6 +30971,9 @@ impl ::core::fmt::Debug for KeyFrameAnimation {
 unsafe impl ::windows::core::RuntimeType for KeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.KeyFrameAnimation;{126e7f22-3ae9-4540-9a8a-deae8a4a4a84})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for KeyFrameAnimation {
     type Vtable = IKeyFrameAnimation_Vtbl;
@@ -31277,6 +31592,9 @@ impl ::core::fmt::Debug for LayerVisual {
 unsafe impl ::windows::core::RuntimeType for LayerVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LayerVisual;{af843985-0444-4887-8e83-b40b253f822c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LayerVisual {
     type Vtable = ILayerVisual_Vtbl;
@@ -31558,6 +31876,9 @@ impl ::core::fmt::Debug for LinearEasingFunction {
 unsafe impl ::windows::core::RuntimeType for LinearEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LinearEasingFunction;{9400975a-c7a6-46b3-acf7-1a268a0a117d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LinearEasingFunction {
     type Vtable = ILinearEasingFunction_Vtbl;
@@ -31953,6 +32274,9 @@ impl ::core::fmt::Debug for NaturalMotionAnimation {
 unsafe impl ::windows::core::RuntimeType for NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.NaturalMotionAnimation;{438de12d-769b-4821-a949-284a6547e873})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for NaturalMotionAnimation {
     type Vtable = INaturalMotionAnimation_Vtbl;
@@ -32452,6 +32776,9 @@ impl ::core::fmt::Debug for PathKeyFrameAnimation {
 unsafe impl ::windows::core::RuntimeType for PathKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PathKeyFrameAnimation;{9d0d18c9-1576-4b3f-be60-1d5031f5e71b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PathKeyFrameAnimation {
     type Vtable = IPathKeyFrameAnimation_Vtbl;
@@ -32903,6 +33230,9 @@ impl ::core::fmt::Debug for PointLight {
 unsafe impl ::windows::core::RuntimeType for PointLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PointLight;{b18545b3-0c5a-4ab0-bedc-4f3546948272})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointLight {
     type Vtable = IPointLight_Vtbl;
@@ -33180,6 +33510,9 @@ impl ::core::fmt::Debug for PowerEasingFunction {
 unsafe impl ::windows::core::RuntimeType for PowerEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PowerEasingFunction;{c3ff53d6-138b-5815-891a-b7f615ccc563})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PowerEasingFunction {
     type Vtable = IPowerEasingFunction_Vtbl;
@@ -33659,6 +33992,9 @@ impl ::core::fmt::Debug for QuaternionKeyFrameAnimation {
 unsafe impl ::windows::core::RuntimeType for QuaternionKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.QuaternionKeyFrameAnimation;{404e5835-ecf6-4240-8520-671279cf36bc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for QuaternionKeyFrameAnimation {
     type Vtable = IQuaternionKeyFrameAnimation_Vtbl;
@@ -34175,6 +34511,9 @@ impl ::core::fmt::Debug for RectangleClip {
 unsafe impl ::windows::core::RuntimeType for RectangleClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RectangleClip;{b3e7549e-00b4-5b53-8be8-353f6c433101})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RectangleClip {
     type Vtable = IRectangleClip_Vtbl;
@@ -34758,6 +35097,9 @@ impl ::core::fmt::Debug for RedirectVisual {
 unsafe impl ::windows::core::RuntimeType for RedirectVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RedirectVisual;{8cc6e340-8b75-5422-b06f-09ffe9f8617e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RedirectVisual {
     type Vtable = IRedirectVisual_Vtbl;
@@ -35047,6 +35389,9 @@ impl ::core::fmt::Debug for RenderingDeviceReplacedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RenderingDeviceReplacedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RenderingDeviceReplacedEventArgs;{3a31ac7d-28bf-4e7a-8524-71679d480f38})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RenderingDeviceReplacedEventArgs {
     type Vtable = IRenderingDeviceReplacedEventArgs_Vtbl;
@@ -35504,6 +35849,9 @@ impl ::core::fmt::Debug for ScalarKeyFrameAnimation {
 unsafe impl ::windows::core::RuntimeType for ScalarKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ScalarKeyFrameAnimation;{ae288fa9-252c-4b95-a725-bf85e38000a1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ScalarKeyFrameAnimation {
     type Vtable = IScalarKeyFrameAnimation_Vtbl;
@@ -35984,6 +36332,9 @@ impl ::core::fmt::Debug for ScalarNaturalMotionAnimation {
 unsafe impl ::windows::core::RuntimeType for ScalarNaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ScalarNaturalMotionAnimation;{94a94581-bf92-495b-b5bd-d2c659430737})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ScalarNaturalMotionAnimation {
     type Vtable = IScalarNaturalMotionAnimation_Vtbl;
@@ -36618,6 +36969,9 @@ impl ::core::fmt::Debug for ShapeVisual {
 unsafe impl ::windows::core::RuntimeType for ShapeVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ShapeVisual;{f2bd13c3-ba7e-4b0f-9126-ffb7536b8176})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ShapeVisual {
     type Vtable = IShapeVisual_Vtbl;
@@ -36907,6 +37261,9 @@ impl ::core::fmt::Debug for SineEasingFunction {
 unsafe impl ::windows::core::RuntimeType for SineEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SineEasingFunction;{f1b518bf-9563-5474-bd13-44b2df4b1d58})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SineEasingFunction {
     type Vtable = ISineEasingFunction_Vtbl;
@@ -37409,6 +37766,9 @@ impl ::core::fmt::Debug for SpotLight {
 unsafe impl ::windows::core::RuntimeType for SpotLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpotLight;{5a9fe273-44a1-4f95-a422-8fa5116bdb44})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpotLight {
     type Vtable = ISpotLight_Vtbl;
@@ -37875,6 +38235,9 @@ impl ::core::fmt::Debug for SpringScalarNaturalMotionAnimation {
 unsafe impl ::windows::core::RuntimeType for SpringScalarNaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringScalarNaturalMotionAnimation;{0572a95f-37f9-4fbe-b87b-5cd03a89501c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpringScalarNaturalMotionAnimation {
     type Vtable = ISpringScalarNaturalMotionAnimation_Vtbl;
@@ -38405,6 +38768,9 @@ impl ::core::fmt::Debug for SpringVector2NaturalMotionAnimation {
 unsafe impl ::windows::core::RuntimeType for SpringVector2NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector2NaturalMotionAnimation;{23f494b5-ee73-4f0f-a423-402b946df4b3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpringVector2NaturalMotionAnimation {
     type Vtable = ISpringVector2NaturalMotionAnimation_Vtbl;
@@ -38935,6 +39301,9 @@ impl ::core::fmt::Debug for SpringVector3NaturalMotionAnimation {
 unsafe impl ::windows::core::RuntimeType for SpringVector3NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector3NaturalMotionAnimation;{6c8749df-d57b-4794-8e2d-cecb11e194e5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpringVector3NaturalMotionAnimation {
     type Vtable = ISpringVector3NaturalMotionAnimation_Vtbl;
@@ -39593,6 +39962,9 @@ impl ::core::fmt::Debug for SpriteVisual {
 unsafe impl ::windows::core::RuntimeType for SpriteVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpriteVisual;{08e05581-1ad1-4f97-9757-402d76e4233b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpriteVisual {
     type Vtable = ISpriteVisual_Vtbl;
@@ -39939,6 +40311,9 @@ impl ::core::fmt::Debug for StepEasingFunction {
 unsafe impl ::windows::core::RuntimeType for StepEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.StepEasingFunction;{d0caa74b-560c-4a0b-a5f6-206ca8c3ecd6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StepEasingFunction {
     type Vtable = IStepEasingFunction_Vtbl;
@@ -40418,6 +40793,9 @@ impl ::core::fmt::Debug for Vector2KeyFrameAnimation {
 unsafe impl ::windows::core::RuntimeType for Vector2KeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector2KeyFrameAnimation;{df414515-4e29-4f11-b55e-bf2a6eb36294})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Vector2KeyFrameAnimation {
     type Vtable = IVector2KeyFrameAnimation_Vtbl;
@@ -40900,6 +41278,9 @@ impl ::core::fmt::Debug for Vector2NaturalMotionAnimation {
 unsafe impl ::windows::core::RuntimeType for Vector2NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector2NaturalMotionAnimation;{0f3e0b7d-e512-479d-a00c-77c93a30a395})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Vector2NaturalMotionAnimation {
     type Vtable = IVector2NaturalMotionAnimation_Vtbl;
@@ -41421,6 +41802,9 @@ impl ::core::fmt::Debug for Vector3KeyFrameAnimation {
 unsafe impl ::windows::core::RuntimeType for Vector3KeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3KeyFrameAnimation;{c8039daa-a281-43c2-a73d-b68e3c533c40})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Vector3KeyFrameAnimation {
     type Vtable = IVector3KeyFrameAnimation_Vtbl;
@@ -41903,6 +42287,9 @@ impl ::core::fmt::Debug for Vector3NaturalMotionAnimation {
 unsafe impl ::windows::core::RuntimeType for Vector3NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3NaturalMotionAnimation;{9c17042c-e2ca-45ad-969e-4e78b7b9ad41})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Vector3NaturalMotionAnimation {
     type Vtable = IVector3NaturalMotionAnimation_Vtbl;
@@ -42424,6 +42811,9 @@ impl ::core::fmt::Debug for Vector4KeyFrameAnimation {
 unsafe impl ::windows::core::RuntimeType for Vector4KeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector4KeyFrameAnimation;{2457945b-addd-4385-9606-b6a3d5e4e1b9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Vector4KeyFrameAnimation {
     type Vtable = IVector4KeyFrameAnimation_Vtbl;
@@ -43028,6 +43418,9 @@ impl ::core::fmt::Debug for Visual {
 unsafe impl ::windows::core::RuntimeType for Visual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Visual;{117e202d-a859-4c89-873b-c2aa566788e3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Visual {
     type Vtable = IVisual_Vtbl;
@@ -43316,6 +43709,9 @@ impl ::core::fmt::Debug for VisualCollection {
 unsafe impl ::windows::core::RuntimeType for VisualCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualCollection;{8b745505-fd3e-4a98-84a8-e949468c6bcb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisualCollection {
     type Vtable = IVisualCollection_Vtbl;
@@ -43631,6 +44027,9 @@ impl ::core::fmt::Debug for VisualUnorderedCollection {
 unsafe impl ::windows::core::RuntimeType for VisualUnorderedCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualUnorderedCollection;{338faa70-54c8-40a7-8029-c9ceeb0aa250})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisualUnorderedCollection {
     type Vtable = IVisualUnorderedCollection_Vtbl;

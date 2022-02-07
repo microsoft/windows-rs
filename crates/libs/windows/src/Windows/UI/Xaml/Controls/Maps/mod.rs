@@ -58,6 +58,9 @@ impl ::core::fmt::Debug for CustomMapTileDataSource {
 unsafe impl ::windows::core::RuntimeType for CustomMapTileDataSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource;{65da384a-2db1-4be1-b155-3d0c9ecf4799})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CustomMapTileDataSource {
     type Vtable = ICustomMapTileDataSource_Vtbl;
@@ -257,6 +260,9 @@ impl ::core::fmt::Debug for HttpMapTileDataSource {
 unsafe impl ::windows::core::RuntimeType for HttpMapTileDataSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource;{9d03cb5c-fd79-4795-87be-7e54ca0b37d0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HttpMapTileDataSource {
     type Vtable = IHttpMapTileDataSource_Vtbl;
@@ -2990,6 +2996,9 @@ impl ::core::fmt::Debug for LocalMapTileDataSource {
 unsafe impl ::windows::core::RuntimeType for LocalMapTileDataSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource;{616257b5-9108-4f12-8bf4-bb3c8f6274e5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LocalMapTileDataSource {
     type Vtable = ILocalMapTileDataSource_Vtbl;
@@ -3127,6 +3136,9 @@ impl ::core::fmt::Debug for MapActualCameraChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapActualCameraChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapActualCameraChangedEventArgs;{daa080da-b7f4-422c-a618-bbaa7c1d814c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapActualCameraChangedEventArgs {
     type Vtable = IMapActualCameraChangedEventArgs_Vtbl;
@@ -3224,6 +3236,9 @@ impl ::core::fmt::Debug for MapActualCameraChangingEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapActualCameraChangingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapActualCameraChangingEventArgs;{6b0dbed6-93f7-4682-8de5-a47a1cc7a945})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapActualCameraChangingEventArgs {
     type Vtable = IMapActualCameraChangingEventArgs_Vtbl;
@@ -3306,6 +3321,9 @@ impl ::core::fmt::Debug for MapAnimationKind {
 unsafe impl ::windows::core::RuntimeType for MapAnimationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapAnimationKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -3435,6 +3453,9 @@ impl ::core::fmt::Debug for MapBillboard {
 unsafe impl ::windows::core::RuntimeType for MapBillboard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapBillboard;{1694259d-0ae2-4f42-a02e-292ca835d39d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapBillboard {
     type Vtable = IMapBillboard_Vtbl;
@@ -3653,6 +3674,9 @@ impl ::core::fmt::Debug for MapCamera {
 unsafe impl ::windows::core::RuntimeType for MapCamera {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapCamera;{53a6b623-c0f8-4d8b-ad1e-a59598ea840b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapCamera {
     type Vtable = IMapCamera_Vtbl;
@@ -3754,6 +3778,9 @@ impl ::core::fmt::Debug for MapCameraChangeReason {
 unsafe impl ::windows::core::RuntimeType for MapCameraChangeReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapCameraChangeReason;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -3785,6 +3812,9 @@ impl ::core::fmt::Debug for MapColorScheme {
 unsafe impl ::windows::core::RuntimeType for MapColorScheme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapColorScheme;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -3844,6 +3874,9 @@ impl ::core::fmt::Debug for MapContextRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapContextRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapContextRequestedEventArgs;{fdd1b423-c961-4df2-bb57-82ee0f0bb591})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapContextRequestedEventArgs {
     type Vtable = IMapContextRequestedEventArgs_Vtbl;
@@ -5278,6 +5311,9 @@ impl ::core::fmt::Debug for MapControl {
 unsafe impl ::windows::core::RuntimeType for MapControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControl;{42d0b851-5256-4747-9e6c-0d11e966141e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControl {
     type Vtable = IMapControl_Vtbl;
@@ -5500,6 +5536,9 @@ impl ::core::fmt::Debug for MapControlBusinessLandmarkClickEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkClickEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkClickEventArgs;{5e464922-4a1a-4797-beb7-5cf7754cb867})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControlBusinessLandmarkClickEventArgs {
     type Vtable = IMapControlBusinessLandmarkClickEventArgs_Vtbl;
@@ -5590,6 +5629,9 @@ impl ::core::fmt::Debug for MapControlBusinessLandmarkPointerEnteredEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkPointerEnteredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerEnteredEventArgs;{5e4081a6-ea98-4f95-8caf-5b42696ff504})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControlBusinessLandmarkPointerEnteredEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerEnteredEventArgs_Vtbl;
@@ -5680,6 +5722,9 @@ impl ::core::fmt::Debug for MapControlBusinessLandmarkPointerExitedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkPointerExitedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerExitedEventArgs;{2bb52caf-f24a-46d0-b463-65f719731057})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControlBusinessLandmarkPointerExitedEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerExitedEventArgs_Vtbl;
@@ -5770,6 +5815,9 @@ impl ::core::fmt::Debug for MapControlBusinessLandmarkRightTappedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkRightTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkRightTappedEventArgs;{59ab8ae7-f184-4ab1-b0b0-35c8bf0654b2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControlBusinessLandmarkRightTappedEventArgs {
     type Vtable = IMapControlBusinessLandmarkRightTappedEventArgs_Vtbl;
@@ -5988,6 +6036,9 @@ impl ::core::fmt::Debug for MapControlDataHelper {
 unsafe impl ::windows::core::RuntimeType for MapControlDataHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlDataHelper;{8bb0f09c-14ab-486c-9de5-5a5def0205a2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControlDataHelper {
     type Vtable = IMapControlDataHelper_Vtbl;
@@ -6115,6 +6166,9 @@ impl ::core::fmt::Debug for MapControlTransitFeatureClickEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapControlTransitFeatureClickEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureClickEventArgs;{76179969-b765-4622-b08a-3072745a4541})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControlTransitFeatureClickEventArgs {
     type Vtable = IMapControlTransitFeatureClickEventArgs_Vtbl;
@@ -6222,6 +6276,9 @@ impl ::core::fmt::Debug for MapControlTransitFeaturePointerEnteredEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapControlTransitFeaturePointerEnteredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerEnteredEventArgs;{73911a4e-ec4f-479e-94a1-36e081d0d897})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControlTransitFeaturePointerEnteredEventArgs {
     type Vtable = IMapControlTransitFeaturePointerEnteredEventArgs_Vtbl;
@@ -6329,6 +6386,9 @@ impl ::core::fmt::Debug for MapControlTransitFeaturePointerExitedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapControlTransitFeaturePointerExitedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerExitedEventArgs;{6a11258d-448d-44e7-bc69-d13d497154e9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControlTransitFeaturePointerExitedEventArgs {
     type Vtable = IMapControlTransitFeaturePointerExitedEventArgs_Vtbl;
@@ -6436,6 +6496,9 @@ impl ::core::fmt::Debug for MapControlTransitFeatureRightTappedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapControlTransitFeatureRightTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureRightTappedEventArgs;{aea1cc49-a729-4eae-a59a-3ec9a125a028})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControlTransitFeatureRightTappedEventArgs {
     type Vtable = IMapControlTransitFeatureRightTappedEventArgs_Vtbl;
@@ -6530,6 +6593,9 @@ impl ::core::fmt::Debug for MapCustomExperience {
 unsafe impl ::windows::core::RuntimeType for MapCustomExperience {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapCustomExperience;{64592866-14a3-4e5f-8883-8e9c500eeede})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapCustomExperience {
     type Vtable = IMapCustomExperience_Vtbl;
@@ -6631,6 +6697,9 @@ impl ::core::fmt::Debug for MapCustomExperienceChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapCustomExperienceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapCustomExperienceChangedEventArgs;{b9e6fb9b-8fc1-4042-ac34-a61b38bb7514})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapCustomExperienceChangedEventArgs {
     type Vtable = IMapCustomExperienceChangedEventArgs_Vtbl;
@@ -6885,6 +6954,9 @@ impl ::core::fmt::Debug for MapElement {
 unsafe impl ::windows::core::RuntimeType for MapElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElement;{d61fc4df-b245-47f2-9ac2-43c058b1c903})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapElement {
     type Vtable = IMapElement_Vtbl;
@@ -7108,6 +7180,9 @@ impl ::core::fmt::Debug for MapElement3D {
 unsafe impl ::windows::core::RuntimeType for MapElement3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElement3D;{827af8d5-3843-48e2-bd00-0f0644fbe6a5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapElement3D {
     type Vtable = IMapElement3D_Vtbl;
@@ -7256,6 +7331,9 @@ impl ::core::fmt::Debug for MapElementClickEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapElementClickEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementClickEventArgs;{40168a11-d080-4519-99a1-3149fb8999d0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapElementClickEventArgs {
     type Vtable = IMapElementClickEventArgs_Vtbl;
@@ -7336,6 +7414,9 @@ impl ::core::fmt::Debug for MapElementCollisionBehavior {
 unsafe impl ::windows::core::RuntimeType for MapElementCollisionBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapElementCollisionBehavior;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -7394,6 +7475,9 @@ impl ::core::fmt::Debug for MapElementPointerEnteredEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapElementPointerEnteredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementPointerEnteredEventArgs;{ab85dd4e-91d7-4b31-8f0a-d390c7d3a2ef})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapElementPointerEnteredEventArgs {
     type Vtable = IMapElementPointerEnteredEventArgs_Vtbl;
@@ -7501,6 +7585,9 @@ impl ::core::fmt::Debug for MapElementPointerExitedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapElementPointerExitedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementPointerExitedEventArgs;{c1a45af9-60c9-4679-9119-20abc75d931f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapElementPointerExitedEventArgs {
     type Vtable = IMapElementPointerExitedEventArgs_Vtbl;
@@ -7669,6 +7756,9 @@ impl ::core::fmt::Debug for MapElementsLayer {
 unsafe impl ::windows::core::RuntimeType for MapElementsLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementsLayer;{de79689a-01ef-46f4-ac60-7c200b552610})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapElementsLayer {
     type Vtable = IMapElementsLayer_Vtbl;
@@ -7817,6 +7907,9 @@ impl ::core::fmt::Debug for MapElementsLayerClickEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapElementsLayerClickEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementsLayerClickEventArgs;{2ca7cf66-af1b-4c05-8c85-f74ae3d4677f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapElementsLayerClickEventArgs {
     type Vtable = IMapElementsLayerClickEventArgs_Vtbl;
@@ -7925,6 +8018,9 @@ impl ::core::fmt::Debug for MapElementsLayerContextRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapElementsLayerContextRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementsLayerContextRequestedEventArgs;{da45d0b3-7a0e-4758-808b-3a637627eb0d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapElementsLayerContextRequestedEventArgs {
     type Vtable = IMapElementsLayerContextRequestedEventArgs_Vtbl;
@@ -8032,6 +8128,9 @@ impl ::core::fmt::Debug for MapElementsLayerPointerEnteredEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapElementsLayerPointerEnteredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerEnteredEventArgs;{757fc032-4694-4404-8c89-348b6b76c5e6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapElementsLayerPointerEnteredEventArgs {
     type Vtable = IMapElementsLayerPointerEnteredEventArgs_Vtbl;
@@ -8139,6 +8238,9 @@ impl ::core::fmt::Debug for MapElementsLayerPointerExitedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapElementsLayerPointerExitedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerExitedEventArgs;{92f3c6ad-03ed-4c39-af20-2a07ee1ccea6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapElementsLayerPointerExitedEventArgs {
     type Vtable = IMapElementsLayerPointerExitedEventArgs_Vtbl;
@@ -8329,6 +8431,9 @@ impl ::core::fmt::Debug for MapIcon {
 unsafe impl ::windows::core::RuntimeType for MapIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapIcon;{d2096872-23d9-4a2b-8be0-69f3a85482ab})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapIcon {
     type Vtable = IMapIcon_Vtbl;
@@ -8468,6 +8573,9 @@ impl ::core::fmt::Debug for MapInputEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapInputEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapInputEventArgs;{9fc503a0-a8a2-4394-92e9-2247764f2f49})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapInputEventArgs {
     type Vtable = IMapInputEventArgs_Vtbl;
@@ -8574,6 +8682,9 @@ impl ::core::fmt::Debug for MapInteractionMode {
 unsafe impl ::windows::core::RuntimeType for MapInteractionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapInteractionMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -8667,6 +8778,9 @@ impl ::core::fmt::Debug for MapItemsControl {
 unsafe impl ::windows::core::RuntimeType for MapItemsControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapItemsControl;{94c2c4d3-b335-42c5-b660-e6a07ec3bddc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapItemsControl {
     type Vtable = IMapItemsControl_Vtbl;
@@ -8846,6 +8960,9 @@ impl ::core::fmt::Debug for MapLayer {
 unsafe impl ::windows::core::RuntimeType for MapLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapLayer;{6d0ff9c1-a14d-4f97-8f57-46715b57683a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapLayer {
     type Vtable = IMapLayer_Vtbl;
@@ -8948,6 +9065,9 @@ impl ::core::fmt::Debug for MapLoadingStatus {
 unsafe impl ::windows::core::RuntimeType for MapLoadingStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapLoadingStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -9014,6 +9134,9 @@ impl ::core::fmt::Debug for MapModel3D {
 unsafe impl ::windows::core::RuntimeType for MapModel3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapModel3D;{f8c541a1-ca27-4968-a2bf-9c20f06a0468})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapModel3D {
     type Vtable = IMapModel3D_Vtbl;
@@ -9115,6 +9238,9 @@ impl ::core::fmt::Debug for MapModel3DShadingOption {
 unsafe impl ::windows::core::RuntimeType for MapModel3DShadingOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapModel3DShadingOption;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -9146,6 +9272,9 @@ impl ::core::fmt::Debug for MapPanInteractionMode {
 unsafe impl ::windows::core::RuntimeType for MapPanInteractionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapPanInteractionMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -9280,6 +9409,9 @@ impl ::core::fmt::Debug for MapPolygon {
 unsafe impl ::windows::core::RuntimeType for MapPolygon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapPolygon;{abda2285-4926-4c3a-a5f9-19df7f69db3d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapPolygon {
     type Vtable = IMapPolygon_Vtbl;
@@ -9474,6 +9606,9 @@ impl ::core::fmt::Debug for MapPolyline {
 unsafe impl ::windows::core::RuntimeType for MapPolyline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapPolyline;{fbad24a2-24df-4a86-8ffa-0f8f4d9ec17d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapPolyline {
     type Vtable = IMapPolyline_Vtbl;
@@ -9594,6 +9729,9 @@ impl ::core::fmt::Debug for MapProjection {
 unsafe impl ::windows::core::RuntimeType for MapProjection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapProjection;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -9644,6 +9782,9 @@ impl ::core::fmt::Debug for MapRightTappedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapRightTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapRightTappedEventArgs;{20943171-6fe8-40a6-ad0e-297379b575a7})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapRightTappedEventArgs {
     type Vtable = IMapRightTappedEventArgs_Vtbl;
@@ -9775,6 +9916,9 @@ impl ::core::fmt::Debug for MapRouteView {
 unsafe impl ::windows::core::RuntimeType for MapRouteView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapRouteView;{740eaec5-bacc-41e1-a67e-dd6513832049})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapRouteView {
     type Vtable = IMapRouteView_Vtbl;
@@ -9968,6 +10112,9 @@ impl ::core::fmt::Debug for MapScene {
 unsafe impl ::windows::core::RuntimeType for MapScene {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapScene;{8bba10a9-50e7-482c-9789-c688b178ac24})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapScene {
     type Vtable = IMapScene_Vtbl;
@@ -10074,6 +10221,9 @@ impl ::core::fmt::Debug for MapStyle {
 unsafe impl ::windows::core::RuntimeType for MapStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapStyle;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -10168,6 +10318,9 @@ impl ::core::fmt::Debug for MapStyleSheet {
 unsafe impl ::windows::core::RuntimeType for MapStyleSheet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapStyleSheet;{ae54b2bf-8991-42ed-8d58-20473deede1d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapStyleSheet {
     type Vtable = IMapStyleSheet_Vtbl;
@@ -10778,6 +10931,9 @@ impl ::core::fmt::Debug for MapTargetCameraChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapTargetCameraChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTargetCameraChangedEventArgs;{dbf00472-e953-4fa8-97d0-ea86359057cf})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapTargetCameraChangedEventArgs {
     type Vtable = IMapTargetCameraChangedEventArgs_Vtbl;
@@ -10859,6 +11015,9 @@ impl ::core::fmt::Debug for MapTileAnimationState {
 unsafe impl ::windows::core::RuntimeType for MapTileAnimationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapTileAnimationState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -10914,6 +11073,9 @@ impl ::core::fmt::Debug for MapTileBitmapRequest {
 unsafe impl ::windows::core::RuntimeType for MapTileBitmapRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequest;{46733fbc-d89d-472b-b5f6-d7066b0584f4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapTileBitmapRequest {
     type Vtable = IMapTileBitmapRequest_Vtbl;
@@ -11000,6 +11162,9 @@ impl ::core::fmt::Debug for MapTileBitmapRequestDeferral {
 unsafe impl ::windows::core::RuntimeType for MapTileBitmapRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestDeferral;{fe370542-a4ac-4efa-9665-0490b0cafdd2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapTileBitmapRequestDeferral {
     type Vtable = IMapTileBitmapRequestDeferral_Vtbl;
@@ -11121,6 +11286,9 @@ impl ::core::fmt::Debug for MapTileBitmapRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapTileBitmapRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestedEventArgs;{337f691d-9b02-4aa2-8b1e-cc4d91719bf3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapTileBitmapRequestedEventArgs {
     type Vtable = IMapTileBitmapRequestedEventArgs_Vtbl;
@@ -11215,6 +11383,9 @@ impl ::core::fmt::Debug for MapTileDataSource {
 unsafe impl ::windows::core::RuntimeType for MapTileDataSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileDataSource;{c03d9f5e-be1f-4c69-9969-79467a513c38})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapTileDataSource {
     type Vtable = IMapTileDataSource_Vtbl;
@@ -11318,6 +11489,9 @@ impl ::core::fmt::Debug for MapTileLayer {
 unsafe impl ::windows::core::RuntimeType for MapTileLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapTileLayer;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -11751,6 +11925,9 @@ impl ::core::fmt::Debug for MapTileSource {
 unsafe impl ::windows::core::RuntimeType for MapTileSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileSource;{88a76e4e-2fdf-4567-9255-1100519c8d62})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapTileSource {
     type Vtable = IMapTileSource_Vtbl;
@@ -11875,6 +12052,9 @@ impl ::core::fmt::Debug for MapTileUriRequest {
 unsafe impl ::windows::core::RuntimeType for MapTileUriRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileUriRequest;{17402335-3127-45b8-87a7-99f87d4e2745})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapTileUriRequest {
     type Vtable = IMapTileUriRequest_Vtbl;
@@ -11961,6 +12141,9 @@ impl ::core::fmt::Debug for MapTileUriRequestDeferral {
 unsafe impl ::windows::core::RuntimeType for MapTileUriRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileUriRequestDeferral;{c117ade0-bf3e-4c51-8faa-4b593cf68eb2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapTileUriRequestDeferral {
     type Vtable = IMapTileUriRequestDeferral_Vtbl;
@@ -12082,6 +12265,9 @@ impl ::core::fmt::Debug for MapTileUriRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MapTileUriRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileUriRequestedEventArgs;{d2147b43-1bbf-4b98-8dd3-b7834e407e0d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapTileUriRequestedEventArgs {
     type Vtable = IMapTileUriRequestedEventArgs_Vtbl;
@@ -12162,6 +12348,9 @@ impl ::core::fmt::Debug for MapVisibleRegionKind {
 unsafe impl ::windows::core::RuntimeType for MapVisibleRegionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapVisibleRegionKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
@@ -12193,6 +12382,9 @@ impl ::core::fmt::Debug for MapWatermarkMode {
 unsafe impl ::windows::core::RuntimeType for MapWatermarkMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Controls.Maps.MapWatermarkMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
@@ -12217,6 +12409,9 @@ unsafe impl ::windows::core::Abi for MapZoomLevelRange {
 unsafe impl ::windows::core::RuntimeType for MapZoomLevelRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Controls.Maps.MapZoomLevelRange;f8;f8)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for MapZoomLevelRange {
     fn eq(&self, other: &Self) -> bool {
@@ -12350,6 +12545,9 @@ impl ::core::fmt::Debug for StreetsideExperience {
 unsafe impl ::windows::core::RuntimeType for StreetsideExperience {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.StreetsideExperience;{a558aec9-e30c-46c8-8116-484691675558})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreetsideExperience {
     type Vtable = IStreetsideExperience_Vtbl;
@@ -12494,6 +12692,9 @@ impl ::core::fmt::Debug for StreetsidePanorama {
 unsafe impl ::windows::core::RuntimeType for StreetsidePanorama {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.StreetsidePanorama;{6fe00fd8-ad60-4664-b539-b1069f16c5af})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreetsidePanorama {
     type Vtable = IStreetsidePanorama_Vtbl;

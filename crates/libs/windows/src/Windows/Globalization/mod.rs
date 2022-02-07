@@ -862,6 +862,9 @@ impl ::core::fmt::Debug for Calendar {
 unsafe impl ::windows::core::RuntimeType for Calendar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Calendar;{ca30221d-86d9-40fb-a26b-d44eb7cf08ea})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Calendar {
     type Vtable = ICalendar_Vtbl;
@@ -1117,6 +1120,9 @@ impl ::core::fmt::Debug for CurrencyAmount {
 unsafe impl ::windows::core::RuntimeType for CurrencyAmount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.CurrencyAmount;{74b49942-eb75-443a-95b3-7d723f56f93c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CurrencyAmount {
     type Vtable = ICurrencyAmount_Vtbl;
@@ -2358,6 +2364,9 @@ impl ::core::fmt::Debug for DayOfWeek {
 unsafe impl ::windows::core::RuntimeType for DayOfWeek {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.DayOfWeek;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
@@ -2471,6 +2480,9 @@ impl ::core::fmt::Debug for GeographicRegion {
 unsafe impl ::windows::core::RuntimeType for GeographicRegion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.GeographicRegion;{01e9a621-4a64-4ed9-954f-9edeb07bd903})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GeographicRegion {
     type Vtable = IGeographicRegion_Vtbl;
@@ -3340,6 +3352,9 @@ impl ::core::fmt::Debug for JapanesePhoneme {
 unsafe impl ::windows::core::RuntimeType for JapanesePhoneme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.JapanesePhoneme;{2f6a9300-e85b-43e6-897d-5d82f862df21})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for JapanesePhoneme {
     type Vtable = IJapanesePhoneme_Vtbl;
@@ -3553,6 +3568,9 @@ impl ::core::fmt::Debug for Language {
 unsafe impl ::windows::core::RuntimeType for Language {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Language;{ea79a752-f7c2-4265-b1bd-c4dec4e4f080})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Language {
     type Vtable = ILanguage_Vtbl;
@@ -3635,6 +3653,9 @@ impl ::core::fmt::Debug for LanguageLayoutDirection {
 unsafe impl ::windows::core::RuntimeType for LanguageLayoutDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Globalization.LanguageLayoutDirection;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Globalization'*"]
 pub struct NumeralSystemIdentifiers {}

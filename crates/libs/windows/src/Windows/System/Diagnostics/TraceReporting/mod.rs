@@ -91,6 +91,9 @@ impl ::core::fmt::Debug for PlatformDiagnosticActionState {
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticActionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 pub struct PlatformDiagnosticActions {}
@@ -193,6 +196,9 @@ impl ::core::fmt::Debug for PlatformDiagnosticEscalationType {
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEscalationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
@@ -253,6 +259,9 @@ impl ::core::ops::Not for PlatformDiagnosticEventBufferLatencies {
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEventBufferLatencies {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
@@ -326,6 +335,9 @@ impl ::core::fmt::Debug for PlatformDiagnosticTraceInfo {
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo;{f870ed97-d597-4bf7-88dc-cf5c7dc2a1d2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PlatformDiagnosticTraceInfo {
     type Vtable = IPlatformDiagnosticTraceInfo_Vtbl;
@@ -406,6 +418,9 @@ impl ::core::fmt::Debug for PlatformDiagnosticTracePriority {
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTracePriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
@@ -447,6 +462,9 @@ impl ::core::fmt::Debug for PlatformDiagnosticTraceRuntimeInfo {
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo;{3d4d5e2d-01d8-4768-8554-1eb1ca610986})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PlatformDiagnosticTraceRuntimeInfo {
     type Vtable = IPlatformDiagnosticTraceRuntimeInfo_Vtbl;
@@ -528,6 +546,9 @@ impl ::core::fmt::Debug for PlatformDiagnosticTraceSlotState {
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceSlotState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
@@ -560,6 +581,9 @@ impl ::core::fmt::Debug for PlatformDiagnosticTraceSlotType {
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceSlotType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

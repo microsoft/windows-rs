@@ -611,6 +611,9 @@ impl ::core::fmt::Debug for UserDataTask {
 unsafe impl ::windows::core::RuntimeType for UserDataTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTask;{7c6585d1-e0d4-4f99-aee2-bc2d5ddadf4c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTask {
     type Vtable = IUserDataTask_Vtbl;
@@ -694,6 +697,9 @@ impl ::core::fmt::Debug for UserDataTaskBatch {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch;{382da5fe-20b5-431c-8f42-a5d292ec930c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTaskBatch {
     type Vtable = IUserDataTaskBatch_Vtbl;
@@ -808,6 +814,9 @@ impl ::core::ops::Not for UserDataTaskDaysOfWeek {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskDaysOfWeek {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -839,6 +848,9 @@ impl ::core::fmt::Debug for UserDataTaskDetailsKind {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskDetailsKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDetailsKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -871,6 +883,9 @@ impl ::core::fmt::Debug for UserDataTaskKind {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -1045,6 +1060,9 @@ impl ::core::fmt::Debug for UserDataTaskList {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskList;{49412e39-7c1d-4df1-bed3-314b7cbf5e4e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTaskList {
     type Vtable = IUserDataTaskList_Vtbl;
@@ -1155,6 +1173,9 @@ impl ::core::fmt::Debug for UserDataTaskListLimitedWriteOperations {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListLimitedWriteOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations;{7aa267f2-6078-4183-919e-4f29f19cfae9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListLimitedWriteOperations {
     type Vtable = IUserDataTaskListLimitedWriteOperations_Vtbl;
@@ -1236,6 +1257,9 @@ impl ::core::fmt::Debug for UserDataTaskListOtherAppReadAccess {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppReadAccess;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -1267,6 +1291,9 @@ impl ::core::fmt::Debug for UserDataTaskListOtherAppWriteAccess {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListOtherAppWriteAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppWriteAccess;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -1359,6 +1386,9 @@ impl ::core::fmt::Debug for UserDataTaskListSyncManager {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager;{8e591a95-1dcf-469f-93ec-ba48bb553c6b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListSyncManager {
     type Vtable = IUserDataTaskListSyncManager_Vtbl;
@@ -1443,6 +1473,9 @@ impl ::core::fmt::Debug for UserDataTaskListSyncStatus {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -1506,6 +1539,9 @@ impl ::core::fmt::Debug for UserDataTaskManager {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskManager;{8451c914-e60b-48a9-9211-7fb8a56cb84c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTaskManager {
     type Vtable = IUserDataTaskManager_Vtbl;
@@ -1587,6 +1623,9 @@ impl ::core::fmt::Debug for UserDataTaskPriority {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskPriority;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -1619,6 +1658,9 @@ impl ::core::fmt::Debug for UserDataTaskQueryKind {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskQueryKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -1677,6 +1719,9 @@ impl ::core::fmt::Debug for UserDataTaskQueryOptions {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions;{959f27ed-909a-4d30-8c1b-331d8fe667e2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTaskQueryOptions {
     type Vtable = IUserDataTaskQueryOptions_Vtbl;
@@ -1756,6 +1801,9 @@ impl ::core::fmt::Debug for UserDataTaskQuerySortProperty {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskQuerySortProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQuerySortProperty;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -1790,6 +1838,9 @@ impl ::core::fmt::Debug for UserDataTaskReader {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskReader;{03e688b1-4ccf-4500-883b-e76290cfed63})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTaskReader {
     type Vtable = IUserDataTaskReader_Vtbl;
@@ -1987,6 +2038,9 @@ impl ::core::fmt::Debug for UserDataTaskRecurrenceProperties {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskRecurrenceProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties;{73df80b0-27c6-40ce-b149-9cd41485a69e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTaskRecurrenceProperties {
     type Vtable = IUserDataTaskRecurrenceProperties_Vtbl;
@@ -2071,6 +2125,9 @@ impl ::core::fmt::Debug for UserDataTaskRecurrenceUnit {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskRecurrenceUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceUnit;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -2159,6 +2216,9 @@ impl ::core::fmt::Debug for UserDataTaskRegenerationProperties {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskRegenerationProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties;{92ab0007-090e-4704-bb5c-84fc0b0d9c31})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTaskRegenerationProperties {
     type Vtable = IUserDataTaskRegenerationProperties_Vtbl;
@@ -2241,6 +2301,9 @@ impl ::core::fmt::Debug for UserDataTaskRegenerationUnit {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskRegenerationUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationUnit;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -2272,6 +2335,9 @@ impl ::core::fmt::Debug for UserDataTaskSensitivity {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskSensitivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskSensitivity;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -2333,6 +2399,9 @@ impl ::core::fmt::Debug for UserDataTaskStore {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.UserDataTaskStore;{f06a9cb0-f1db-45ba-8a62-086004c0213d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UserDataTaskStore {
     type Vtable = IUserDataTaskStore_Vtbl;
@@ -2413,6 +2482,9 @@ impl ::core::fmt::Debug for UserDataTaskStoreAccessType {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskStoreAccessType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
@@ -2447,6 +2519,9 @@ impl ::core::fmt::Debug for UserDataTaskWeekOfMonth {
 unsafe impl ::windows::core::RuntimeType for UserDataTaskWeekOfMonth {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

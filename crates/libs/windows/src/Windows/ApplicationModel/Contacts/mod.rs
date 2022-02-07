@@ -72,6 +72,9 @@ impl ::core::fmt::Debug for AggregateContactManager {
 unsafe impl ::windows::core::RuntimeType for AggregateContactManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.AggregateContactManager;{0379d5dd-db5a-4fd3-b54e-4df17917a212})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AggregateContactManager {
     type Vtable = IAggregateContactManager_Vtbl;
@@ -582,6 +585,9 @@ impl ::core::fmt::Debug for Contact {
 unsafe impl ::windows::core::RuntimeType for Contact {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Contact;{ec0072f3-2118-4049-9ebc-17f0ab692b64})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Contact {
     type Vtable = IContact_Vtbl;
@@ -754,6 +760,9 @@ impl ::core::fmt::Debug for ContactAddress {
 unsafe impl ::windows::core::RuntimeType for ContactAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAddress;{9739d39a-42ce-4872-8d70-3063aa584b70})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactAddress {
     type Vtable = IContactAddress_Vtbl;
@@ -835,6 +844,9 @@ impl ::core::fmt::Debug for ContactAddressKind {
 unsafe impl ::windows::core::RuntimeType for ContactAddressKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -952,6 +964,9 @@ impl ::core::fmt::Debug for ContactAnnotation {
 unsafe impl ::windows::core::RuntimeType for ContactAnnotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotation;{821fc2ef-7d41-44a2-84c3-60a281dd7b86})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactAnnotation {
     type Vtable = IContactAnnotation_Vtbl;
@@ -1104,6 +1119,9 @@ impl ::core::fmt::Debug for ContactAnnotationList {
 unsafe impl ::windows::core::RuntimeType for ContactAnnotationList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotationList;{92a486aa-5c88-45b9-aad0-461888e68d8a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactAnnotationList {
     type Vtable = IContactAnnotationList_Vtbl;
@@ -1217,6 +1235,9 @@ impl ::core::ops::Not for ContactAnnotationOperations {
 unsafe impl ::windows::core::RuntimeType for ContactAnnotationOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationOperations;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -1323,6 +1344,9 @@ impl ::core::fmt::Debug for ContactAnnotationStore {
 unsafe impl ::windows::core::RuntimeType for ContactAnnotationStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactAnnotationStore;{23acf4aa-7a77-457d-8203-987f4b31af09})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactAnnotationStore {
     type Vtable = IContactAnnotationStore_Vtbl;
@@ -1403,6 +1427,9 @@ impl ::core::fmt::Debug for ContactAnnotationStoreAccessType {
 unsafe impl ::windows::core::RuntimeType for ContactAnnotationStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -1445,6 +1472,9 @@ impl ::core::fmt::Debug for ContactBatch {
 unsafe impl ::windows::core::RuntimeType for ContactBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactBatch;{35d1972d-bfce-46bb-93f8-a5b06ec5e201})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactBatch {
     type Vtable = IContactBatch_Vtbl;
@@ -1526,6 +1556,9 @@ impl ::core::fmt::Debug for ContactBatchStatus {
 unsafe impl ::windows::core::RuntimeType for ContactBatchStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -1562,6 +1595,9 @@ impl ::core::fmt::Debug for ContactCardDelayedDataLoader {
 unsafe impl ::windows::core::RuntimeType for ContactCardDelayedDataLoader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader;{b60af902-1546-434d-869c-6e3520760ef3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactCardDelayedDataLoader {
     type Vtable = IContactCardDelayedDataLoader_Vtbl;
@@ -1669,6 +1705,9 @@ impl ::core::fmt::Debug for ContactCardHeaderKind {
 unsafe impl ::windows::core::RuntimeType for ContactCardHeaderKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -1736,6 +1775,9 @@ impl ::core::fmt::Debug for ContactCardOptions {
 unsafe impl ::windows::core::RuntimeType for ContactCardOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactCardOptions;{8c0a4f7e-6ab6-4f3f-be72-817236eeea5b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactCardOptions {
     type Vtable = IContactCardOptions_Vtbl;
@@ -1820,6 +1862,9 @@ impl ::core::fmt::Debug for ContactCardTabKind {
 unsafe impl ::windows::core::RuntimeType for ContactCardTabKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -1861,6 +1906,9 @@ impl ::core::fmt::Debug for ContactChange {
 unsafe impl ::windows::core::RuntimeType for ContactChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChange;{951d4b10-6a59-4720-a4e1-363d98c135d5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactChange {
     type Vtable = IContactChange_Vtbl;
@@ -1954,6 +2002,9 @@ impl ::core::fmt::Debug for ContactChangeReader {
 unsafe impl ::windows::core::RuntimeType for ContactChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangeReader;{217319fa-2d0c-42e0-a9da-3ecd56a78a47})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactChangeReader {
     type Vtable = IContactChangeReader_Vtbl;
@@ -2054,6 +2105,9 @@ impl ::core::fmt::Debug for ContactChangeTracker {
 unsafe impl ::windows::core::RuntimeType for ContactChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangeTracker;{6e992952-309b-404d-9712-b37bd30278aa})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactChangeTracker {
     type Vtable = IContactChangeTracker_Vtbl;
@@ -2136,6 +2190,9 @@ impl ::core::fmt::Debug for ContactChangeType {
 unsafe impl ::windows::core::RuntimeType for ContactChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -2166,6 +2223,9 @@ impl ::core::fmt::Debug for ContactChangedDeferral {
 unsafe impl ::windows::core::RuntimeType for ContactChangedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangedDeferral;{c5143ae8-1b03-46f8-b694-a523e83cfcb6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactChangedDeferral {
     type Vtable = IContactChangedDeferral_Vtbl;
@@ -2248,6 +2308,9 @@ impl ::core::fmt::Debug for ContactChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for ContactChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactChangedEventArgs;{525e7fd1-73f3-4b7d-a918-580be4366121})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactChangedEventArgs {
     type Vtable = IContactChangedEventArgs_Vtbl;
@@ -2355,6 +2418,9 @@ impl ::core::fmt::Debug for ContactConnectedServiceAccount {
 unsafe impl ::windows::core::RuntimeType for ContactConnectedServiceAccount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount;{f6f83553-aa27-4731-8e4a-3dec5ce9eec9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactConnectedServiceAccount {
     type Vtable = IContactConnectedServiceAccount_Vtbl;
@@ -2507,6 +2573,9 @@ impl ::core::fmt::Debug for ContactDate {
 unsafe impl ::windows::core::RuntimeType for ContactDate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactDate;{fe98ae66-b205-4934-9174-0ff2b0565707})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactDate {
     type Vtable = IContactDate_Vtbl;
@@ -2588,6 +2657,9 @@ impl ::core::fmt::Debug for ContactDateKind {
 unsafe impl ::windows::core::RuntimeType for ContactDateKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -2659,6 +2731,9 @@ impl ::core::fmt::Debug for ContactEmail {
 unsafe impl ::windows::core::RuntimeType for ContactEmail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactEmail;{90a219a9-e3d3-4d63-993b-05b9a5393abf})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactEmail {
     type Vtable = IContactEmail_Vtbl;
@@ -2740,6 +2815,9 @@ impl ::core::fmt::Debug for ContactEmailKind {
 unsafe impl ::windows::core::RuntimeType for ContactEmailKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -2823,6 +2901,9 @@ impl ::core::fmt::Debug for ContactField {
 unsafe impl ::windows::core::RuntimeType for ContactField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactField;{b176486a-d293-492c-a058-db575b3e3c0f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactField {
     type Vtable = IContactField_Vtbl;
@@ -2928,6 +3009,9 @@ impl ::core::fmt::Debug for ContactFieldCategory {
 unsafe impl ::windows::core::RuntimeType for ContactFieldCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -3033,6 +3117,9 @@ impl ::core::fmt::Debug for ContactFieldFactory {
 unsafe impl ::windows::core::RuntimeType for ContactFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactFieldFactory;{85e2913f-0e4a-4a3e-8994-406ae7ed646e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactFieldFactory {
     type Vtable = IContactFieldFactory_Vtbl;
@@ -3189,6 +3276,9 @@ impl ::core::fmt::Debug for ContactFieldType {
 unsafe impl ::windows::core::RuntimeType for ContactFieldType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -3213,6 +3303,9 @@ impl ::core::fmt::Debug for ContactGroup {
 unsafe impl ::windows::core::RuntimeType for ContactGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactGroup;{59bdeb01-9e9a-475d-bfe5-a37b806d852c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactGroup {
     type Vtable = IContactGroup_Vtbl;
@@ -3358,6 +3451,9 @@ impl ::core::fmt::Debug for ContactInformation {
 unsafe impl ::windows::core::RuntimeType for ContactInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactInformation;{275eb6d4-6a2e-4278-a914-e460d5f088f6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactInformation {
     type Vtable = IContactInformation_Vtbl;
@@ -3522,6 +3618,9 @@ impl ::core::fmt::Debug for ContactInstantMessageField {
 unsafe impl ::windows::core::RuntimeType for ContactInstantMessageField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactInstantMessageField;{cce33b37-0d85-41fa-b43d-da599c3eb009})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactInstantMessageField {
     type Vtable = IContactInstantMessageField_Vtbl;
@@ -3729,6 +3828,9 @@ impl ::core::fmt::Debug for ContactJobInfo {
 unsafe impl ::windows::core::RuntimeType for ContactJobInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactJobInfo;{6d117b4c-ce50-4b43-9e69-b18258ea5315})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactJobInfo {
     type Vtable = IContactJobInfo_Vtbl;
@@ -4082,6 +4184,9 @@ impl ::core::fmt::Debug for ContactList {
 unsafe impl ::windows::core::RuntimeType for ContactList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactList;{16ddec75-392c-4845-9dfb-51a3e7ef3e42})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactList {
     type Vtable = IContactList_Vtbl;
@@ -4174,6 +4279,9 @@ impl ::core::fmt::Debug for ContactListLimitedWriteOperations {
 unsafe impl ::windows::core::RuntimeType for ContactListLimitedWriteOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations;{e19813da-4a0b-44b8-9a1f-a0f3d218175f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactListLimitedWriteOperations {
     type Vtable = IContactListLimitedWriteOperations_Vtbl;
@@ -4256,6 +4364,9 @@ impl ::core::fmt::Debug for ContactListOtherAppReadAccess {
 unsafe impl ::windows::core::RuntimeType for ContactListOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -4288,6 +4399,9 @@ impl ::core::fmt::Debug for ContactListOtherAppWriteAccess {
 unsafe impl ::windows::core::RuntimeType for ContactListOtherAppWriteAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -4731,6 +4845,9 @@ impl ::core::fmt::Debug for ContactListSyncConstraints {
 unsafe impl ::windows::core::RuntimeType for ContactListSyncConstraints {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListSyncConstraints;{b2b0bf01-3062-4e2e-969d-018d1987f314})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactListSyncConstraints {
     type Vtable = IContactListSyncConstraints_Vtbl;
@@ -4872,6 +4989,9 @@ impl ::core::fmt::Debug for ContactListSyncManager {
 unsafe impl ::windows::core::RuntimeType for ContactListSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactListSyncManager;{146e83be-7925-4acc-9de5-21ddd06f8674})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactListSyncManager {
     type Vtable = IContactListSyncManager_Vtbl;
@@ -4957,6 +5077,9 @@ impl ::core::fmt::Debug for ContactListSyncStatus {
 unsafe impl ::windows::core::RuntimeType for ContactListSyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -5088,6 +5211,9 @@ impl ::core::fmt::Debug for ContactLocationField {
 unsafe impl ::windows::core::RuntimeType for ContactLocationField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactLocationField;{9ec00f82-ab6e-4b36-89e3-b23bc0a1dacc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactLocationField {
     type Vtable = IContactLocationField_Vtbl;
@@ -5447,6 +5573,9 @@ impl ::core::fmt::Debug for ContactManagerForUser {
 unsafe impl ::windows::core::RuntimeType for ContactManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactManagerForUser;{b74bba57-1076-4bef-aef3-54686d18387d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactManagerForUser {
     type Vtable = IContactManagerForUser_Vtbl;
@@ -5546,6 +5675,9 @@ impl ::core::fmt::Debug for ContactMatchReason {
 unsafe impl ::windows::core::RuntimeType for ContactMatchReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactMatchReason;{bc922504-e7d8-413e-95f4-b75c54c74077})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactMatchReason {
     type Vtable = IContactMatchReason_Vtbl;
@@ -5630,6 +5762,9 @@ impl ::core::fmt::Debug for ContactMatchReasonKind {
 unsafe impl ::windows::core::RuntimeType for ContactMatchReasonKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -5661,6 +5796,9 @@ impl ::core::fmt::Debug for ContactNameOrder {
 unsafe impl ::windows::core::RuntimeType for ContactNameOrder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -5736,6 +5874,9 @@ impl ::core::fmt::Debug for ContactPanel {
 unsafe impl ::windows::core::RuntimeType for ContactPanel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanel;{41bf1265-d2ee-4b97-a80a-7d8d64cca6f5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactPanel {
     type Vtable = IContactPanel_Vtbl;
@@ -5819,6 +5960,9 @@ impl ::core::fmt::Debug for ContactPanelClosingEventArgs {
 unsafe impl ::windows::core::RuntimeType for ContactPanelClosingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs;{222174d3-cf4b-46d7-b739-6edc16110bfb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactPanelClosingEventArgs {
     type Vtable = IContactPanelClosingEventArgs_Vtbl;
@@ -5906,6 +6050,9 @@ impl ::core::fmt::Debug for ContactPanelLaunchFullAppRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for ContactPanelLaunchFullAppRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs;{88d61c0e-23b4-4be8-8afc-072c25a4190d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactPanelLaunchFullAppRequestedEventArgs {
     type Vtable = IContactPanelLaunchFullAppRequestedEventArgs_Vtbl;
@@ -6026,6 +6173,9 @@ impl ::core::fmt::Debug for ContactPhone {
 unsafe impl ::windows::core::RuntimeType for ContactPhone {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPhone;{467dab65-2712-4f52-b783-9ea8111c63cd})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactPhone {
     type Vtable = IContactPhone_Vtbl;
@@ -6114,6 +6264,9 @@ impl ::core::fmt::Debug for ContactPhoneKind {
 unsafe impl ::windows::core::RuntimeType for ContactPhoneKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -6256,6 +6409,9 @@ impl ::core::fmt::Debug for ContactPicker {
 unsafe impl ::windows::core::RuntimeType for ContactPicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactPicker;{0e09fd91-42f8-4055-90a0-896f96738936})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactPicker {
     type Vtable = IContactPicker_Vtbl;
@@ -6364,6 +6520,9 @@ impl ::core::ops::Not for ContactQueryDesiredFields {
 unsafe impl ::windows::core::RuntimeType for ContactQueryDesiredFields {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQueryDesiredFields;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -6480,6 +6639,9 @@ impl ::core::fmt::Debug for ContactQueryOptions {
 unsafe impl ::windows::core::RuntimeType for ContactQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactQueryOptions;{4408cc9e-7d7c-42f0-8ac7-f50733ecdbc1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactQueryOptions {
     type Vtable = IContactQueryOptions_Vtbl;
@@ -6591,6 +6753,9 @@ impl ::core::ops::Not for ContactQuerySearchFields {
 unsafe impl ::windows::core::RuntimeType for ContactQuerySearchFields {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchFields;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -6622,6 +6787,9 @@ impl ::core::fmt::Debug for ContactQuerySearchScope {
 unsafe impl ::windows::core::RuntimeType for ContactQuerySearchScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -6686,6 +6854,9 @@ impl ::core::fmt::Debug for ContactQueryTextSearch {
 unsafe impl ::windows::core::RuntimeType for ContactQueryTextSearch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactQueryTextSearch;{f7e3f9cb-a957-439b-a0b7-1c02a1963ff0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactQueryTextSearch {
     type Vtable = IContactQueryTextSearch_Vtbl;
@@ -6778,6 +6949,9 @@ impl ::core::fmt::Debug for ContactReader {
 unsafe impl ::windows::core::RuntimeType for ContactReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactReader;{d397e42e-1488-42f2-bf64-253f4884bfed})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactReader {
     type Vtable = IContactReader_Vtbl;
@@ -6862,6 +7036,9 @@ impl ::core::fmt::Debug for ContactRelationship {
 unsafe impl ::windows::core::RuntimeType for ContactRelationship {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -6893,6 +7070,9 @@ impl ::core::fmt::Debug for ContactSelectionMode {
 unsafe impl ::windows::core::RuntimeType for ContactSelectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -6964,6 +7144,9 @@ impl ::core::fmt::Debug for ContactSignificantOther {
 unsafe impl ::windows::core::RuntimeType for ContactSignificantOther {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactSignificantOther;{8873b5ab-c5fb-46d8-93fe-da3ff1934054})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactSignificantOther {
     type Vtable = IContactSignificantOther_Vtbl;
@@ -7165,6 +7348,9 @@ impl ::core::fmt::Debug for ContactStore {
 unsafe impl ::windows::core::RuntimeType for ContactStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactStore;{2c220b10-3a6c-4293-b9bc-fe987f6e0d52})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactStore {
     type Vtable = IContactStore_Vtbl;
@@ -7246,6 +7432,9 @@ impl ::core::fmt::Debug for ContactStoreAccessType {
 unsafe impl ::windows::core::RuntimeType for ContactStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
@@ -7270,6 +7459,9 @@ impl ::core::fmt::Debug for ContactStoreNotificationTriggerDetails {
 unsafe impl ::windows::core::RuntimeType for ContactStoreNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails;{abb298d6-878a-4f8b-a9ce-46bb7d1c84ce})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactStoreNotificationTriggerDetails {
     type Vtable = IContactStoreNotificationTriggerDetails_Vtbl;
@@ -7392,6 +7584,9 @@ impl ::core::fmt::Debug for ContactWebsite {
 unsafe impl ::windows::core::RuntimeType for ContactWebsite {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.ContactWebsite;{9f130176-dc1b-4055-ad66-652f39d990e8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContactWebsite {
     type Vtable = IContactWebsite_Vtbl;
@@ -7488,6 +7683,9 @@ impl ::core::fmt::Debug for FullContactCardOptions {
 unsafe impl ::windows::core::RuntimeType for FullContactCardOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.FullContactCardOptions;{8744436c-5cf9-4683-bdca-a1fdebf8dbce})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FullContactCardOptions {
     type Vtable = IFullContactCardOptions_Vtbl;
@@ -8199,6 +8397,9 @@ impl ::core::fmt::Debug for IContactField {
 unsafe impl ::windows::core::RuntimeType for IContactField {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b176486a-d293-492c-a058-db575b3e3c0f}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IContactField {
     type Vtable = IContactField_Vtbl;
@@ -8301,6 +8502,9 @@ impl ::core::fmt::Debug for IContactFieldFactory {
 unsafe impl ::windows::core::RuntimeType for IContactFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{85e2913f-0e4a-4a3e-8994-406ae7ed646e}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IContactFieldFactory {
     type Vtable = IContactFieldFactory_Vtbl;
@@ -8475,6 +8679,9 @@ impl ::core::fmt::Debug for IContactInstantMessageFieldFactory {
 unsafe impl ::windows::core::RuntimeType for IContactInstantMessageFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ba0b6794-91a3-4bb2-b1b9-69a5dff0ba09}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IContactInstantMessageFieldFactory {
     type Vtable = IContactInstantMessageFieldFactory_Vtbl;
@@ -9042,6 +9249,9 @@ impl ::core::fmt::Debug for IContactLocationFieldFactory {
 unsafe impl ::windows::core::RuntimeType for IContactLocationFieldFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f79932d7-2fdf-43fe-8f18-41897390bcfe}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IContactLocationFieldFactory {
     type Vtable = IContactLocationFieldFactory_Vtbl;
@@ -9911,6 +10121,9 @@ impl ::core::fmt::Debug for PinnedContactIdsQueryResult {
 unsafe impl ::windows::core::RuntimeType for PinnedContactIdsQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult;{7d9b2552-1579-4ddc-871f-a30a3aea9ba1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PinnedContactIdsQueryResult {
     type Vtable = IPinnedContactIdsQueryResult_Vtbl;
@@ -10078,6 +10291,9 @@ impl ::core::fmt::Debug for PinnedContactManager {
 unsafe impl ::windows::core::RuntimeType for PinnedContactManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.PinnedContactManager;{fcbc740c-e1d6-45c3-b8b6-a35604e167a0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PinnedContactManager {
     type Vtable = IPinnedContactManager_Vtbl;
@@ -10158,6 +10374,9 @@ impl ::core::fmt::Debug for PinnedContactSurface {
 unsafe impl ::windows::core::RuntimeType for PinnedContactSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.PinnedContactSurface;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

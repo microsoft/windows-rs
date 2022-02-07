@@ -174,6 +174,9 @@ impl ::core::fmt::Debug for IXamlDirectObject {
 unsafe impl ::windows::core::RuntimeType for IXamlDirectObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{10614a82-cee4-4645-ba25-d071ce778355}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IXamlDirectObject {
     type Vtable = IXamlDirectObject_Vtbl;
@@ -584,6 +587,9 @@ impl ::core::fmt::Debug for XamlDirect {
 unsafe impl ::windows::core::RuntimeType for XamlDirect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Core.Direct.XamlDirect;{5ffa1295-add2-590f-a051-70989b866ade})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for XamlDirect {
     type Vtable = IXamlDirect_Vtbl;
@@ -800,6 +806,9 @@ impl ::core::fmt::Debug for XamlEventIndex {
 unsafe impl ::windows::core::RuntimeType for XamlEventIndex {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Core.Direct.XamlEventIndex;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
@@ -2498,6 +2507,9 @@ impl ::core::fmt::Debug for XamlPropertyIndex {
 unsafe impl ::windows::core::RuntimeType for XamlPropertyIndex {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Core.Direct.XamlPropertyIndex;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
@@ -2777,6 +2789,9 @@ impl ::core::fmt::Debug for XamlTypeIndex {
 unsafe impl ::windows::core::RuntimeType for XamlTypeIndex {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Core.Direct.XamlTypeIndex;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

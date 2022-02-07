@@ -180,6 +180,9 @@ impl ::core::fmt::Debug for EmailAttachment {
 unsafe impl ::windows::core::RuntimeType for EmailAttachment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailAttachment;{f353caf9-57c8-4adb-b992-60fceb584f54})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailAttachment {
     type Vtable = IEmailAttachment_Vtbl;
@@ -262,6 +265,9 @@ impl ::core::fmt::Debug for EmailAttachmentDownloadState {
 unsafe impl ::windows::core::RuntimeType for EmailAttachmentDownloadState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailAttachmentDownloadState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -294,6 +300,9 @@ impl ::core::fmt::Debug for EmailBatchStatus {
 unsafe impl ::windows::core::RuntimeType for EmailBatchStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailBatchStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -334,6 +343,9 @@ impl ::core::fmt::Debug for EmailCertificateValidationStatus {
 unsafe impl ::windows::core::RuntimeType for EmailCertificateValidationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailCertificateValidationStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -482,6 +494,9 @@ impl ::core::fmt::Debug for EmailConversation {
 unsafe impl ::windows::core::RuntimeType for EmailConversation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailConversation;{da18c248-a0bc-4349-902d-90f66389f51b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailConversation {
     type Vtable = IEmailConversation_Vtbl;
@@ -573,6 +588,9 @@ impl ::core::fmt::Debug for EmailConversationBatch {
 unsafe impl ::windows::core::RuntimeType for EmailConversationBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailConversationBatch;{b8c1ab81-01c5-432a-9df1-fe85d98a279a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailConversationBatch {
     type Vtable = IEmailConversationBatch_Vtbl;
@@ -656,6 +674,9 @@ impl ::core::fmt::Debug for EmailConversationReader {
 unsafe impl ::windows::core::RuntimeType for EmailConversationReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailConversationReader;{b4630f82-2875-44c8-9b8c-85beb3a3c653})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailConversationReader {
     type Vtable = IEmailConversationReader_Vtbl;
@@ -738,6 +759,9 @@ impl ::core::fmt::Debug for EmailFlagState {
 unsafe impl ::windows::core::RuntimeType for EmailFlagState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailFlagState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -962,6 +986,9 @@ impl ::core::fmt::Debug for EmailFolder {
 unsafe impl ::windows::core::RuntimeType for EmailFolder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailFolder;{a24f7771-996c-4864-b1ba-ed1240e57d11})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailFolder {
     type Vtable = IEmailFolder_Vtbl;
@@ -1043,6 +1070,9 @@ impl ::core::fmt::Debug for EmailImportance {
 unsafe impl ::windows::core::RuntimeType for EmailImportance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailImportance;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -1246,6 +1276,9 @@ impl ::core::fmt::Debug for EmailIrmInfo {
 unsafe impl ::windows::core::RuntimeType for EmailIrmInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailIrmInfo;{90f52193-b1a0-4ebd-a6b6-ddca55606e0e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailIrmInfo {
     type Vtable = IEmailIrmInfo_Vtbl;
@@ -1378,6 +1411,9 @@ impl ::core::fmt::Debug for EmailIrmTemplate {
 unsafe impl ::windows::core::RuntimeType for EmailIrmTemplate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailIrmTemplate;{f327758d-546d-4bea-a963-54a38b2cc016})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailIrmTemplate {
     type Vtable = IEmailIrmTemplate_Vtbl;
@@ -1484,6 +1520,9 @@ impl ::core::fmt::Debug for EmailItemCounts {
 unsafe impl ::windows::core::RuntimeType for EmailItemCounts {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailItemCounts;{5bd13321-fec8-4bab-83ba-0baf3c1f6cbd})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailItemCounts {
     type Vtable = IEmailItemCounts_Vtbl;
@@ -2058,6 +2097,9 @@ impl ::core::fmt::Debug for EmailMailbox {
 unsafe impl ::windows::core::RuntimeType for EmailMailbox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailbox;{a8790649-cf5b-411b-80b1-4a6a1484ce25})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailbox {
     type Vtable = IEmailMailbox_Vtbl;
@@ -2148,6 +2190,9 @@ impl ::core::fmt::Debug for EmailMailboxAction {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxAction;{ac9889fa-21fa-4927-9210-d410582fdf3e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxAction {
     type Vtable = IEmailMailboxAction_Vtbl;
@@ -2237,6 +2282,9 @@ impl ::core::fmt::Debug for EmailMailboxActionKind {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxActionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxActionKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -2269,6 +2317,9 @@ impl ::core::fmt::Debug for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiati
 unsafe impl ::windows::core::RuntimeType for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -2320,6 +2371,9 @@ impl ::core::fmt::Debug for EmailMailboxAutoReply {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxAutoReply {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxAutoReply;{e223254c-8ab4-485b-b31f-04d15476bd59})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxAutoReply {
     type Vtable = IEmailMailboxAutoReply_Vtbl;
@@ -2400,6 +2454,9 @@ impl ::core::fmt::Debug for EmailMailboxAutoReplyMessageResponseKind {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxAutoReplyMessageResponseKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -2512,6 +2569,9 @@ impl ::core::fmt::Debug for EmailMailboxAutoReplySettings {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxAutoReplySettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings;{a87a9fa8-0ac6-4b77-ba77-a6b99e9a27b8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxAutoReplySettings {
     type Vtable = IEmailMailboxAutoReplySettings_Vtbl;
@@ -2768,6 +2828,9 @@ impl ::core::fmt::Debug for EmailMailboxCapabilities {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxCapabilities;{eedec3a6-89db-4305-82c4-439e0a33da11})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxCapabilities {
     type Vtable = IEmailMailboxCapabilities_Vtbl;
@@ -2875,6 +2938,9 @@ impl ::core::fmt::Debug for EmailMailboxChange {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChange;{61edf54b-11ef-400c-adde-8cde65c85e66})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxChange {
     type Vtable = IEmailMailboxChange_Vtbl;
@@ -2968,6 +3034,9 @@ impl ::core::fmt::Debug for EmailMailboxChangeReader {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangeReader;{bdbd0ebb-c53d-4331-97be-be75a2146a75})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxChangeReader {
     type Vtable = IEmailMailboxChangeReader_Vtbl;
@@ -3068,6 +3137,9 @@ impl ::core::fmt::Debug for EmailMailboxChangeTracker {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangeTracker;{7ae48638-5166-42b7-8882-fd21c92bdd4b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxChangeTracker {
     type Vtable = IEmailMailboxChangeTracker_Vtbl;
@@ -3153,6 +3225,9 @@ impl ::core::fmt::Debug for EmailMailboxChangeType {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxChangeType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -3183,6 +3258,9 @@ impl ::core::fmt::Debug for EmailMailboxChangedDeferral {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxChangedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangedDeferral;{779a74c1-97c5-4b54-b30d-306232623e6d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxChangedDeferral {
     type Vtable = IEmailMailboxChangedDeferral_Vtbl;
@@ -3265,6 +3343,9 @@ impl ::core::fmt::Debug for EmailMailboxChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxChangedEventArgs;{3cfd5f6e-01d4-4e4a-a44c-b22dd42ec207})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxChangedEventArgs {
     type Vtable = IEmailMailboxChangedEventArgs_Vtbl;
@@ -3355,6 +3436,9 @@ impl ::core::fmt::Debug for EmailMailboxCreateFolderResult {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxCreateFolderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxCreateFolderResult;{b228557f-2885-4998-b595-8a2d374ce950})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxCreateFolderResult {
     type Vtable = IEmailMailboxCreateFolderResult_Vtbl;
@@ -3440,6 +3524,9 @@ impl ::core::fmt::Debug for EmailMailboxCreateFolderStatus {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxCreateFolderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -3475,6 +3562,9 @@ impl ::core::fmt::Debug for EmailMailboxDeleteFolderStatus {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxDeleteFolderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -3510,6 +3600,9 @@ impl ::core::fmt::Debug for EmailMailboxEmptyFolderStatus {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxEmptyFolderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -3542,6 +3635,9 @@ impl ::core::fmt::Debug for EmailMailboxOtherAppReadAccess {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -3573,6 +3669,9 @@ impl ::core::fmt::Debug for EmailMailboxOtherAppWriteAccess {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxOtherAppWriteAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -3680,6 +3779,9 @@ impl ::core::fmt::Debug for EmailMailboxPolicies {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxPolicies {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxPolicies;{1f3345c5-1c3b-4dc7-b410-6373783e545d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxPolicies {
     type Vtable = IEmailMailboxPolicies_Vtbl;
@@ -3764,6 +3866,9 @@ impl ::core::fmt::Debug for EmailMailboxSmimeEncryptionAlgorithm {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSmimeEncryptionAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -3796,6 +3901,9 @@ impl ::core::fmt::Debug for EmailMailboxSmimeSigningAlgorithm {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSmimeSigningAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -3888,6 +3996,9 @@ impl ::core::fmt::Debug for EmailMailboxSyncManager {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMailboxSyncManager;{517ac55a-3591-4b5d-85bc-c71dde862263})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMailboxSyncManager {
     type Vtable = IEmailMailboxSyncManager_Vtbl;
@@ -3973,6 +4084,9 @@ impl ::core::fmt::Debug for EmailMailboxSyncStatus {
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSyncStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 pub struct EmailManager {}
@@ -4071,6 +4185,9 @@ impl ::core::fmt::Debug for EmailManagerForUser {
 unsafe impl ::windows::core::RuntimeType for EmailManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailManagerForUser;{f773de9f-3ca5-4b0f-90c1-156e40174ce5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailManagerForUser {
     type Vtable = IEmailManagerForUser_Vtbl;
@@ -4343,6 +4460,9 @@ impl ::core::fmt::Debug for EmailMeetingInfo {
 unsafe impl ::windows::core::RuntimeType for EmailMeetingInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMeetingInfo;{31c03fa9-7933-415f-a275-d165ba07026b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMeetingInfo {
     type Vtable = IEmailMeetingInfo_Vtbl;
@@ -4424,6 +4544,9 @@ impl ::core::fmt::Debug for EmailMeetingResponseType {
 unsafe impl ::windows::core::RuntimeType for EmailMeetingResponseType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMeetingResponseType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -4881,6 +5004,9 @@ impl ::core::fmt::Debug for EmailMessage {
 unsafe impl ::windows::core::RuntimeType for EmailMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMessage;{6c6d948d-80b5-48f8-b0b1-e04e430f44e5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMessage {
     type Vtable = IEmailMessage_Vtbl;
@@ -4972,6 +5098,9 @@ impl ::core::fmt::Debug for EmailMessageBatch {
 unsafe impl ::windows::core::RuntimeType for EmailMessageBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMessageBatch;{605cd08f-25d9-4f1b-9e51-0514c0149653})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMessageBatch {
     type Vtable = IEmailMessageBatch_Vtbl;
@@ -5052,6 +5181,9 @@ impl ::core::fmt::Debug for EmailMessageBodyKind {
 unsafe impl ::windows::core::RuntimeType for EmailMessageBodyKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageBodyKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -5085,6 +5217,9 @@ impl ::core::fmt::Debug for EmailMessageDownloadState {
 unsafe impl ::windows::core::RuntimeType for EmailMessageDownloadState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageDownloadState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -5119,6 +5254,9 @@ impl ::core::fmt::Debug for EmailMessageReader {
 unsafe impl ::windows::core::RuntimeType for EmailMessageReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailMessageReader;{2f4abe9f-6213-4a85-a3b0-f92d1a839d19})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailMessageReader {
     type Vtable = IEmailMessageReader_Vtbl;
@@ -5201,6 +5339,9 @@ impl ::core::fmt::Debug for EmailMessageResponseKind {
 unsafe impl ::windows::core::RuntimeType for EmailMessageResponseKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageResponseKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -5234,6 +5375,9 @@ impl ::core::fmt::Debug for EmailMessageSmimeKind {
 unsafe impl ::windows::core::RuntimeType for EmailMessageSmimeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageSmimeKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -5269,6 +5413,9 @@ impl ::core::fmt::Debug for EmailQueryKind {
 unsafe impl ::windows::core::RuntimeType for EmailQueryKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQueryKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -5376,6 +5523,9 @@ impl ::core::fmt::Debug for EmailQueryOptions {
 unsafe impl ::windows::core::RuntimeType for EmailQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailQueryOptions;{45504b9b-3e7f-4d52-b6dd-d6fd4e1fbd9a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailQueryOptions {
     type Vtable = IEmailQueryOptions_Vtbl;
@@ -5488,6 +5638,9 @@ impl ::core::ops::Not for EmailQuerySearchFields {
 unsafe impl ::windows::core::RuntimeType for EmailQuerySearchFields {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchFields;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -5519,6 +5672,9 @@ impl ::core::fmt::Debug for EmailQuerySearchScope {
 unsafe impl ::windows::core::RuntimeType for EmailQuerySearchScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchScope;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -5550,6 +5706,9 @@ impl ::core::fmt::Debug for EmailQuerySortDirection {
 unsafe impl ::windows::core::RuntimeType for EmailQuerySortDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortDirection;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -5580,6 +5739,9 @@ impl ::core::fmt::Debug for EmailQuerySortProperty {
 unsafe impl ::windows::core::RuntimeType for EmailQuerySortProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortProperty;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -5644,6 +5806,9 @@ impl ::core::fmt::Debug for EmailQueryTextSearch {
 unsafe impl ::windows::core::RuntimeType for EmailQueryTextSearch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailQueryTextSearch;{9fa0a288-3c5d-46a5-a6e2-31d6fd17e540})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailQueryTextSearch {
     type Vtable = IEmailQueryTextSearch_Vtbl;
@@ -5770,6 +5935,9 @@ impl ::core::fmt::Debug for EmailRecipient {
 unsafe impl ::windows::core::RuntimeType for EmailRecipient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailRecipient;{cae825b3-4478-4814-b900-c902b5e19b53})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailRecipient {
     type Vtable = IEmailRecipient_Vtbl;
@@ -5879,6 +6047,9 @@ impl ::core::fmt::Debug for EmailRecipientResolutionResult {
 unsafe impl ::windows::core::RuntimeType for EmailRecipientResolutionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailRecipientResolutionResult;{918338fa-8d8d-4573-80d1-07172a34b98d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailRecipientResolutionResult {
     type Vtable = IEmailRecipientResolutionResult_Vtbl;
@@ -5965,6 +6136,9 @@ impl ::core::fmt::Debug for EmailRecipientResolutionStatus {
 unsafe impl ::windows::core::RuntimeType for EmailRecipientResolutionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailRecipientResolutionStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -6001,6 +6175,9 @@ impl ::core::fmt::Debug for EmailSpecialFolderKind {
 unsafe impl ::windows::core::RuntimeType for EmailSpecialFolderKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailSpecialFolderKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -6121,6 +6298,9 @@ impl ::core::fmt::Debug for EmailStore {
 unsafe impl ::windows::core::RuntimeType for EmailStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailStore;{f803226e-9137-4f8b-a470-279ac3058eb6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailStore {
     type Vtable = IEmailStore_Vtbl;
@@ -6201,6 +6381,9 @@ impl ::core::fmt::Debug for EmailStoreAccessType {
 unsafe impl ::windows::core::RuntimeType for EmailStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailStoreAccessType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
@@ -6225,6 +6408,9 @@ impl ::core::fmt::Debug for EmailStoreNotificationTriggerDetails {
 unsafe impl ::windows::core::RuntimeType for EmailStoreNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailStoreNotificationTriggerDetails;{ce17563c-46e6-43c9-96f7-facf7dd710cb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailStoreNotificationTriggerDetails {
     type Vtable = IEmailStoreNotificationTriggerDetails_Vtbl;

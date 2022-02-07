@@ -61,6 +61,9 @@ impl ::core::fmt::Debug for WindowManagementPreview {
 unsafe impl ::windows::core::RuntimeType for WindowManagementPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.Preview.WindowManagementPreview;{4ef55b0d-561d-513c-a67c-2c02b69cef41})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WindowManagementPreview {
     type Vtable = IWindowManagementPreview_Vtbl;

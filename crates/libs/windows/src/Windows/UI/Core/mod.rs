@@ -73,6 +73,9 @@ impl ::core::fmt::Debug for AcceleratorKeyEventArgs {
 unsafe impl ::windows::core::RuntimeType for AcceleratorKeyEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AcceleratorKeyEventArgs;{ff1c4c4a-9287-470b-836e-9086e3126ade})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AcceleratorKeyEventArgs {
     type Vtable = IAcceleratorKeyEventArgs_Vtbl;
@@ -176,6 +179,9 @@ impl ::core::fmt::Debug for AppViewBackButtonVisibility {
 unsafe impl ::windows::core::RuntimeType for AppViewBackButtonVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AppViewBackButtonVisibility;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
@@ -227,6 +233,9 @@ impl ::core::fmt::Debug for AutomationProviderRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for AutomationProviderRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AutomationProviderRequestedEventArgs;{961ff258-21bf-4b42-a298-fa479d4c52e2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AutomationProviderRequestedEventArgs {
     type Vtable = IAutomationProviderRequestedEventArgs_Vtbl;
@@ -334,6 +343,9 @@ impl ::core::fmt::Debug for BackRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for BackRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.BackRequestedEventArgs;{d603d28a-e411-4a4e-ba41-6a327a8675bc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BackRequestedEventArgs {
     type Vtable = IBackRequestedEventArgs_Vtbl;
@@ -437,6 +449,9 @@ impl ::core::fmt::Debug for CharacterReceivedEventArgs {
 unsafe impl ::windows::core::RuntimeType for CharacterReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CharacterReceivedEventArgs;{c584659f-99b2-4bcc-bd33-04e63f42902e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CharacterReceivedEventArgs {
     type Vtable = ICharacterReceivedEventArgs_Vtbl;
@@ -564,6 +579,9 @@ impl ::core::fmt::Debug for ClosestInteractiveBoundsRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for ClosestInteractiveBoundsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.ClosestInteractiveBoundsRequestedEventArgs;{347c11d7-f6f8-40e3-b29f-ae50d3e86486})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClosestInteractiveBoundsRequestedEventArgs {
     type Vtable = IClosestInteractiveBoundsRequestedEventArgs_Vtbl;
@@ -649,6 +667,9 @@ impl ::core::fmt::Debug for CoreAcceleratorKeyEventType {
 unsafe impl ::windows::core::RuntimeType for CoreAcceleratorKeyEventType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreAcceleratorKeyEventType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
@@ -689,6 +710,9 @@ impl ::core::fmt::Debug for CoreAcceleratorKeys {
 unsafe impl ::windows::core::RuntimeType for CoreAcceleratorKeys {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreAcceleratorKeys;{9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreAcceleratorKeys {
     type Vtable = ICoreAcceleratorKeys_Vtbl;
@@ -1105,6 +1129,9 @@ impl ::core::fmt::Debug for CoreComponentInputSource {
 unsafe impl ::windows::core::RuntimeType for CoreComponentInputSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreComponentInputSource;{9f488807-4580-4be8-be68-92a9311713bb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreComponentInputSource {
     type Vtable = ICoreInputSourceBase_Vtbl;
@@ -1273,6 +1300,9 @@ impl ::core::fmt::Debug for CoreCursor {
 unsafe impl ::windows::core::RuntimeType for CoreCursor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreCursor;{96893acf-111d-442c-8a77-b87992f8e2d6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreCursor {
     type Vtable = ICoreCursor_Vtbl;
@@ -1367,6 +1397,9 @@ impl ::core::fmt::Debug for CoreCursorType {
 unsafe impl ::windows::core::RuntimeType for CoreCursorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreCursorType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
@@ -1490,6 +1523,9 @@ impl ::core::fmt::Debug for CoreDispatcher {
 unsafe impl ::windows::core::RuntimeType for CoreDispatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreDispatcher;{60db2fa8-b705-4fde-a7d6-ebbb1891d39e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreDispatcher {
     type Vtable = ICoreDispatcher_Vtbl;
@@ -1594,6 +1630,9 @@ impl ::core::fmt::Debug for CoreDispatcherPriority {
 unsafe impl ::windows::core::RuntimeType for CoreDispatcherPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreDispatcherPriority;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
@@ -1657,6 +1696,9 @@ impl ::core::ops::Not for CoreIndependentInputFilters {
 unsafe impl ::windows::core::RuntimeType for CoreIndependentInputFilters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreIndependentInputFilters;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
@@ -1917,6 +1959,9 @@ impl ::core::fmt::Debug for CoreIndependentInputSource {
 unsafe impl ::windows::core::RuntimeType for CoreIndependentInputSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreIndependentInputSource;{9f488807-4580-4be8-be68-92a9311713bb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreIndependentInputSource {
     type Vtable = ICoreInputSourceBase_Vtbl;
@@ -2150,6 +2195,9 @@ impl ::core::fmt::Debug for CoreIndependentInputSourceController {
 unsafe impl ::windows::core::RuntimeType for CoreIndependentInputSourceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreIndependentInputSourceController;{0963261c-84fe-578a-83ca-6425309ccde4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreIndependentInputSourceController {
     type Vtable = ICoreIndependentInputSourceController_Vtbl;
@@ -2286,6 +2334,9 @@ impl ::core::ops::Not for CoreInputDeviceTypes {
 unsafe impl ::windows::core::RuntimeType for CoreInputDeviceTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreInputDeviceTypes;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'UI_Core'*"]
@@ -2314,6 +2365,9 @@ unsafe impl ::windows::core::Abi for CorePhysicalKeyStatus {
 unsafe impl ::windows::core::RuntimeType for CorePhysicalKeyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CorePhysicalKeyStatus;u4;u4;b1;b1;b1;b1)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for CorePhysicalKeyStatus {
     fn eq(&self, other: &Self) -> bool {
@@ -2358,6 +2412,9 @@ impl ::core::fmt::Debug for CoreProcessEventsOption {
 unsafe impl ::windows::core::RuntimeType for CoreProcessEventsOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProcessEventsOption;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'UI_Core', 'Foundation'*"]
@@ -2388,6 +2445,9 @@ unsafe impl ::windows::core::Abi for CoreProximityEvaluation {
 unsafe impl ::windows::core::RuntimeType for CoreProximityEvaluation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CoreProximityEvaluation;i4;struct(Windows.Foundation.Point;f4;f4))");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for CoreProximityEvaluation {
@@ -2433,6 +2493,9 @@ impl ::core::fmt::Debug for CoreProximityEvaluationScore {
 unsafe impl ::windows::core::RuntimeType for CoreProximityEvaluationScore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProximityEvaluationScore;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
@@ -2493,6 +2556,9 @@ impl ::core::ops::Not for CoreVirtualKeyStates {
 unsafe impl ::windows::core::RuntimeType for CoreVirtualKeyStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreVirtualKeyStates;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
@@ -3042,6 +3108,9 @@ impl ::core::fmt::Debug for CoreWindow {
 unsafe impl ::windows::core::RuntimeType for CoreWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindow;{79b9d5f2-879e-4b89-b798-79e47598030c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreWindow {
     type Vtable = ICoreWindow_Vtbl;
@@ -3166,6 +3235,9 @@ impl ::core::fmt::Debug for CoreWindowActivationMode {
 unsafe impl ::windows::core::RuntimeType for CoreWindowActivationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
@@ -3198,6 +3270,9 @@ impl ::core::fmt::Debug for CoreWindowActivationState {
 unsafe impl ::windows::core::RuntimeType for CoreWindowActivationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
@@ -3360,6 +3435,9 @@ impl ::core::fmt::Debug for CoreWindowDialog {
 unsafe impl ::windows::core::RuntimeType for CoreWindowDialog {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowDialog;{e7392ce0-c78d-427e-8b2c-01ff420c69d5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreWindowDialog {
     type Vtable = ICoreWindowDialog_Vtbl;
@@ -3445,6 +3523,9 @@ impl ::core::fmt::Debug for CoreWindowEventArgs {
 unsafe impl ::windows::core::RuntimeType for CoreWindowEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowEventArgs;{272b1ef3-c633-4da5-a26c-c6d0f56b29da})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreWindowEventArgs {
     type Vtable = ICoreWindowEventArgs_Vtbl;
@@ -3545,6 +3626,9 @@ impl ::core::fmt::Debug for CoreWindowFlowDirection {
 unsafe impl ::windows::core::RuntimeType for CoreWindowFlowDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowFlowDirection;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
@@ -3696,6 +3780,9 @@ impl ::core::fmt::Debug for CoreWindowFlyout {
 unsafe impl ::windows::core::RuntimeType for CoreWindowFlyout {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowFlyout;{e89d854d-2050-40bb-b344-f6f355eeb314})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreWindowFlyout {
     type Vtable = ICoreWindowFlyout_Vtbl;
@@ -3774,6 +3861,9 @@ impl ::core::fmt::Debug for CoreWindowPopupShowingEventArgs {
 unsafe impl ::windows::core::RuntimeType for CoreWindowPopupShowingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowPopupShowingEventArgs;{26155fa2-5ba5-4ea4-a3b4-2dc7d63c8e26})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreWindowPopupShowingEventArgs {
     type Vtable = ICoreWindowPopupShowingEventArgs_Vtbl;
@@ -3876,6 +3966,9 @@ impl ::core::fmt::Debug for CoreWindowResizeManager {
 unsafe impl ::windows::core::RuntimeType for CoreWindowResizeManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.CoreWindowResizeManager;{b8f0b925-b350-48b3-a198-5c1a84700243})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CoreWindowResizeManager {
     type Vtable = ICoreWindowResizeManager_Vtbl;
@@ -3998,6 +4091,9 @@ unsafe impl ::windows::core::Interface for DispatchedHandler {
 unsafe impl ::windows::core::RuntimeType for DispatchedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d1f276c4-98d8-4636-bf49-eb79507548e9}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4185,6 +4281,9 @@ impl ::core::fmt::Debug for ICoreAcceleratorKeys {
 unsafe impl ::windows::core::RuntimeType for ICoreAcceleratorKeys {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICoreAcceleratorKeys {
     type Vtable = ICoreAcceleratorKeys_Vtbl;
@@ -4477,6 +4576,9 @@ impl ::core::fmt::Debug for ICoreInputSourceBase {
 unsafe impl ::windows::core::RuntimeType for ICoreInputSourceBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9f488807-4580-4be8-be68-92a9311713bb}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICoreInputSourceBase {
     type Vtable = ICoreInputSourceBase_Vtbl;
@@ -4760,6 +4862,9 @@ impl ::core::fmt::Debug for ICorePointerInputSource {
 unsafe impl ::windows::core::RuntimeType for ICorePointerInputSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bbf1bb18-e47a-48eb-8807-f8f8d3ea4551}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICorePointerInputSource {
     type Vtable = ICorePointerInputSource_Vtbl;
@@ -5075,6 +5180,9 @@ impl ::core::fmt::Debug for ICorePointerInputSource2 {
 unsafe impl ::windows::core::RuntimeType for ICorePointerInputSource2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d703708a-4516-4786-b1e5-2751d563f997}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICorePointerInputSource2 {
     type Vtable = ICorePointerInputSource2_Vtbl;
@@ -5198,6 +5306,9 @@ impl ::core::fmt::Debug for ICorePointerRedirector {
 unsafe impl ::windows::core::RuntimeType for ICorePointerRedirector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8f9d0c94-5688-4b0c-a9f1-f931f7fa3dc3}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICorePointerRedirector {
     type Vtable = ICorePointerRedirector_Vtbl;
@@ -5699,6 +5810,9 @@ impl ::core::fmt::Debug for ICoreWindow {
 unsafe impl ::windows::core::RuntimeType for ICoreWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79b9d5f2-879e-4b89-b798-79e47598030c}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICoreWindow {
     type Vtable = ICoreWindow_Vtbl;
@@ -6102,6 +6216,9 @@ impl ::core::fmt::Debug for ICoreWindowEventArgs {
 unsafe impl ::windows::core::RuntimeType for ICoreWindowEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{272b1ef3-c633-4da5-a26c-c6d0f56b29da}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICoreWindowEventArgs {
     type Vtable = ICoreWindowEventArgs_Vtbl;
@@ -6348,6 +6465,9 @@ impl ::core::fmt::Debug for IInitializeWithCoreWindow {
 unsafe impl ::windows::core::RuntimeType for IInitializeWithCoreWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{188f20d6-9873-464a-ace5-57e010f465e6}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IInitializeWithCoreWindow {
     type Vtable = IInitializeWithCoreWindow_Vtbl;
@@ -6623,6 +6743,9 @@ unsafe impl ::windows::core::Interface for IdleDispatchedHandler {
 unsafe impl ::windows::core::RuntimeType for IdleDispatchedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a42b0c24-7f21-4abc-99c1-8f01007f0880}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6662,6 +6785,9 @@ impl ::core::fmt::Debug for IdleDispatchedHandlerArgs {
 unsafe impl ::windows::core::RuntimeType for IdleDispatchedHandlerArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.IdleDispatchedHandlerArgs;{98bb6a24-dc1c-43cb-b4ed-d1c0eb2391f3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IdleDispatchedHandlerArgs {
     type Vtable = IIdleDispatchedHandlerArgs_Vtbl;
@@ -6755,6 +6881,9 @@ impl ::core::fmt::Debug for InputEnabledEventArgs {
 unsafe impl ::windows::core::RuntimeType for InputEnabledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.InputEnabledEventArgs;{80371d4f-2fd8-4c24-aa86-3163a87b4e5a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InputEnabledEventArgs {
     type Vtable = IInputEnabledEventArgs_Vtbl;
@@ -6887,6 +7016,9 @@ impl ::core::fmt::Debug for KeyEventArgs {
 unsafe impl ::windows::core::RuntimeType for KeyEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.KeyEventArgs;{5ff5e930-2544-4a17-bd78-1f2fdebb106b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for KeyEventArgs {
     type Vtable = IKeyEventArgs_Vtbl;
@@ -7021,6 +7153,9 @@ impl ::core::fmt::Debug for PointerEventArgs {
 unsafe impl ::windows::core::RuntimeType for PointerEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.PointerEventArgs;{920d9cb1-a5fc-4a21-8c09-49dfe6ffe25f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointerEventArgs {
     type Vtable = IPointerEventArgs_Vtbl;
@@ -7155,6 +7290,9 @@ impl ::core::fmt::Debug for SystemNavigationManager {
 unsafe impl ::windows::core::RuntimeType for SystemNavigationManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.SystemNavigationManager;{93023118-cf50-42a6-9706-69107fa122e1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SystemNavigationManager {
     type Vtable = ISystemNavigationManager_Vtbl;
@@ -7293,6 +7431,9 @@ impl ::core::fmt::Debug for TouchHitTestingEventArgs {
 unsafe impl ::windows::core::RuntimeType for TouchHitTestingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.TouchHitTestingEventArgs;{22f3b823-0b7c-424e-9df7-33d4f962931b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TouchHitTestingEventArgs {
     type Vtable = ITouchHitTestingEventArgs_Vtbl;
@@ -7408,6 +7549,9 @@ impl ::core::fmt::Debug for VisibilityChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for VisibilityChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.VisibilityChangedEventArgs;{bf9918ea-d801-4564-a495-b1e84f8ad085})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisibilityChangedEventArgs {
     type Vtable = IVisibilityChangedEventArgs_Vtbl;
@@ -7523,6 +7667,9 @@ impl ::core::fmt::Debug for WindowActivatedEventArgs {
 unsafe impl ::windows::core::RuntimeType for WindowActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.WindowActivatedEventArgs;{179d65e7-4658-4cb6-aa13-41d094ea255e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WindowActivatedEventArgs {
     type Vtable = IWindowActivatedEventArgs_Vtbl;
@@ -7639,6 +7786,9 @@ impl ::core::fmt::Debug for WindowSizeChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for WindowSizeChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.WindowSizeChangedEventArgs;{5a200ec7-0426-47dc-b86c-6f475915e451})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WindowSizeChangedEventArgs {
     type Vtable = IWindowSizeChangedEventArgs_Vtbl;

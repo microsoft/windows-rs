@@ -116,6 +116,9 @@ impl ::core::fmt::Debug for AdaptiveTrigger {
 unsafe impl ::windows::core::RuntimeType for AdaptiveTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.AdaptiveTrigger;{a5f04119-0cd9-49f1-a23f-44e547ab9f1a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AdaptiveTrigger {
     type Vtable = IAdaptiveTrigger_Vtbl;
@@ -429,6 +432,9 @@ impl ::core::fmt::Debug for Application {
 unsafe impl ::windows::core::RuntimeType for Application {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Application;{74b861a1-7487-46a9-9a6e-c78b512726c5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Application {
     type Vtable = IApplication_Vtbl;
@@ -537,6 +543,9 @@ impl ::core::ops::Not for ApplicationHighContrastAdjustment {
 unsafe impl ::windows::core::RuntimeType for ApplicationHighContrastAdjustment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.ApplicationHighContrastAdjustment;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -610,6 +619,9 @@ unsafe impl ::windows::core::Interface for ApplicationInitializationCallback {
 unsafe impl ::windows::core::RuntimeType for ApplicationInitializationCallback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b6351c55-c284-46e4-8310-fb0967fab76f}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -640,6 +652,9 @@ impl ::core::fmt::Debug for ApplicationInitializationCallbackParams {
 unsafe impl ::windows::core::RuntimeType for ApplicationInitializationCallbackParams {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ApplicationInitializationCallbackParams;{751b792e-5772-4488-8b87-f547faa64474})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ApplicationInitializationCallbackParams {
     type Vtable = IApplicationInitializationCallbackParams_Vtbl;
@@ -720,6 +735,9 @@ impl ::core::fmt::Debug for ApplicationRequiresPointerMode {
 unsafe impl ::windows::core::RuntimeType for ApplicationRequiresPointerMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.ApplicationRequiresPointerMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -751,6 +769,9 @@ impl ::core::fmt::Debug for ApplicationTheme {
 unsafe impl ::windows::core::RuntimeType for ApplicationTheme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.ApplicationTheme;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -820,6 +841,9 @@ impl ::core::fmt::Debug for AutomationTextAttributesEnum {
 unsafe impl ::windows::core::RuntimeType for AutomationTextAttributesEnum {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.AutomationTextAttributesEnum;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -853,6 +877,9 @@ impl ::core::fmt::Debug for BindingFailedEventArgs {
 unsafe impl ::windows::core::RuntimeType for BindingFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.BindingFailedEventArgs;{32c1d013-4dbd-446d-bbb8-0de35048a449})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BindingFailedEventArgs {
     type Vtable = IBindingFailedEventArgs_Vtbl;
@@ -975,6 +1002,9 @@ unsafe impl ::windows::core::Interface for BindingFailedEventHandler {
 unsafe impl ::windows::core::RuntimeType for BindingFailedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{136b1782-54ba-420d-a1aa-82828721cde6}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1093,6 +1123,9 @@ impl ::core::fmt::Debug for BringIntoViewOptions {
 unsafe impl ::windows::core::RuntimeType for BringIntoViewOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.BringIntoViewOptions;{19bdd1b5-c7cb-46d9-a4dd-a1bbe83ef2fb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BringIntoViewOptions {
     type Vtable = IBringIntoViewOptions_Vtbl;
@@ -1263,6 +1296,9 @@ impl ::core::fmt::Debug for BringIntoViewRequestedEventArgs {
 unsafe impl ::windows::core::RuntimeType for BringIntoViewRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.BringIntoViewRequestedEventArgs;{0e629ec4-2206-4c8b-94ae-bdb66a4ebfd1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BringIntoViewRequestedEventArgs {
     type Vtable = IBringIntoViewRequestedEventArgs_Vtbl;
@@ -1392,6 +1428,9 @@ impl ::core::fmt::Debug for BrushTransition {
 unsafe impl ::windows::core::RuntimeType for BrushTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.BrushTransition;{1116972c-9dad-5429-a7dd-b2b7d061ab8e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BrushTransition {
     type Vtable = IBrushTransition_Vtbl;
@@ -1957,6 +1996,9 @@ impl ::core::fmt::Debug for ColorPaletteResources {
 unsafe impl ::windows::core::RuntimeType for ColorPaletteResources {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ColorPaletteResources;{258088c4-aef2-5d3f-833b-c36db6278ed9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ColorPaletteResources {
     type Vtable = IColorPaletteResources_Vtbl;
@@ -2140,6 +2182,9 @@ unsafe impl ::windows::core::Abi for CornerRadius {
 unsafe impl ::windows::core::RuntimeType for CornerRadius {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.CornerRadius;f8;f8;f8;f8)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for CornerRadius {
     fn eq(&self, other: &Self) -> bool {
@@ -2195,6 +2240,9 @@ impl ::core::fmt::Debug for CornerRadiusHelper {
 unsafe impl ::windows::core::RuntimeType for CornerRadiusHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.CornerRadiusHelper;{fd7be182-1cdb-4288-b8c8-85ee79297bfc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CornerRadiusHelper {
     type Vtable = ICornerRadiusHelper_Vtbl;
@@ -2327,6 +2375,9 @@ unsafe impl ::windows::core::Interface for CreateDefaultValueCallback {
 unsafe impl ::windows::core::RuntimeType for CreateDefaultValueCallback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d6ecb12c-15b5-4ec8-b95c-cdd208f08153}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2379,6 +2430,9 @@ impl ::core::fmt::Debug for DataContextChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for DataContextChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DataContextChangedEventArgs;{7da68e21-0b8f-4f9f-a143-f8e7780136a2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DataContextChangedEventArgs {
     type Vtable = IDataContextChangedEventArgs_Vtbl;
@@ -2517,6 +2571,9 @@ impl ::core::fmt::Debug for DataTemplate {
 unsafe impl ::windows::core::RuntimeType for DataTemplate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DataTemplate;{9910aec7-8ab5-4118-9bc6-09f45a35073d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DataTemplate {
     type Vtable = IDataTemplate_Vtbl;
@@ -2701,6 +2758,9 @@ impl ::core::fmt::Debug for DataTemplateKey {
 unsafe impl ::windows::core::RuntimeType for DataTemplateKey {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DataTemplateKey;{873b6c28-cceb-4b61-86fa-b2cec39cc2fa})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DataTemplateKey {
     type Vtable = IDataTemplateKey_Vtbl;
@@ -2868,6 +2928,9 @@ impl ::core::fmt::Debug for DebugSettings {
 unsafe impl ::windows::core::RuntimeType for DebugSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DebugSettings;{3d451f98-c6a7-4d17-8398-d83a067183d8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DebugSettings {
     type Vtable = IDebugSettings_Vtbl;
@@ -2998,6 +3061,9 @@ impl ::core::fmt::Debug for DependencyObject {
 unsafe impl ::windows::core::RuntimeType for DependencyObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DependencyObject;{5c526665-f60e-4912-af59-5fe0680f089d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DependencyObject {
     type Vtable = IDependencyObject_Vtbl;
@@ -3212,6 +3278,9 @@ impl ::core::fmt::Debug for DependencyObjectCollection {
 unsafe impl ::windows::core::RuntimeType for DependencyObjectCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DependencyObjectCollection;pinterface({5917eb53-50b4-4a0d-b309-65862b3f1dbc};rc(Windows.UI.Xaml.DependencyObject;{5c526665-f60e-4912-af59-5fe0680f089d})))");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for DependencyObjectCollection {
@@ -3453,6 +3522,9 @@ impl ::core::fmt::Debug for DependencyProperty {
 unsafe impl ::windows::core::RuntimeType for DependencyProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DependencyProperty;{85b13970-9bc4-4e96-acf1-30c8fd3d55c8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DependencyProperty {
     type Vtable = IDependencyProperty_Vtbl;
@@ -3575,6 +3647,9 @@ unsafe impl ::windows::core::Interface for DependencyPropertyChangedCallback {
 unsafe impl ::windows::core::RuntimeType for DependencyPropertyChangedCallback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{45883d16-27bf-4bc1-ac26-94c1601f3a49}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3630,6 +3705,9 @@ impl ::core::fmt::Debug for DependencyPropertyChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for DependencyPropertyChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DependencyPropertyChangedEventArgs;{81212c2b-24d0-4957-abc3-224470a93a4e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DependencyPropertyChangedEventArgs {
     type Vtable = IDependencyPropertyChangedEventArgs_Vtbl;
@@ -3752,6 +3830,9 @@ unsafe impl ::windows::core::Interface for DependencyPropertyChangedEventHandler
 unsafe impl ::windows::core::RuntimeType for DependencyPropertyChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{09223e5a-75be-4499-8180-1ddc005421c0}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3851,6 +3932,9 @@ impl ::core::fmt::Debug for DispatcherTimer {
 unsafe impl ::windows::core::RuntimeType for DispatcherTimer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DispatcherTimer;{d160ce46-cd22-4f5f-8c97-40e61da3e2dc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DispatcherTimer {
     type Vtable = IDispatcherTimer_Vtbl;
@@ -4020,6 +4104,9 @@ impl ::core::fmt::Debug for DragEventArgs {
 unsafe impl ::windows::core::RuntimeType for DragEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DragEventArgs;{b440c7c3-02b4-4980-9342-25dae1c0f188})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragEventArgs {
     type Vtable = IDragEventArgs_Vtbl;
@@ -4162,6 +4249,9 @@ unsafe impl ::windows::core::Interface for DragEventHandler {
 unsafe impl ::windows::core::RuntimeType for DragEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2ab1a205-1e73-4bcf-aabc-57b97e21961d}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4198,6 +4288,9 @@ impl ::core::fmt::Debug for DragOperationDeferral {
 unsafe impl ::windows::core::RuntimeType for DragOperationDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DragOperationDeferral;{ba73ecba-1b73-4086-b3d3-c223beea1633})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragOperationDeferral {
     type Vtable = IDragOperationDeferral_Vtbl;
@@ -4334,6 +4427,9 @@ impl ::core::fmt::Debug for DragStartingEventArgs {
 unsafe impl ::windows::core::RuntimeType for DragStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DragStartingEventArgs;{6800d3fa-90b8-46f9-8e30-5ac25f73f0f9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragStartingEventArgs {
     type Vtable = IDragStartingEventArgs_Vtbl;
@@ -4457,6 +4553,9 @@ impl ::core::fmt::Debug for DragUI {
 unsafe impl ::windows::core::RuntimeType for DragUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DragUI;{2d9bd838-7c60-4842-9170-346fe10a226a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragUI {
     type Vtable = IDragUI_Vtbl;
@@ -4612,6 +4711,9 @@ impl ::core::fmt::Debug for DragUIOverride {
 unsafe impl ::windows::core::RuntimeType for DragUIOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DragUIOverride;{bd6c9dfa-c961-4861-b7a5-bf4fe4a8a6ef})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragUIOverride {
     type Vtable = IDragUIOverride_Vtbl;
@@ -4695,6 +4797,9 @@ impl ::core::fmt::Debug for DropCompletedEventArgs {
 unsafe impl ::windows::core::RuntimeType for DropCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DropCompletedEventArgs;{6c4fc188-95bc-4261-9ec5-21cab677b734})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DropCompletedEventArgs {
     type Vtable = IDropCompletedEventArgs_Vtbl;
@@ -4794,6 +4899,9 @@ unsafe impl ::windows::core::Abi for Duration {
 unsafe impl ::windows::core::RuntimeType for Duration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Duration;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.UI.Xaml.DurationType;i4))");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for Duration {
@@ -4902,6 +5010,9 @@ impl ::core::fmt::Debug for DurationHelper {
 unsafe impl ::windows::core::RuntimeType for DurationHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DurationHelper;{25c1659f-4497-4135-940f-ee96f4d6e934})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DurationHelper {
     type Vtable = IDurationHelper_Vtbl;
@@ -4983,6 +5094,9 @@ impl ::core::fmt::Debug for DurationType {
 unsafe impl ::windows::core::RuntimeType for DurationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.DurationType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -5042,6 +5156,9 @@ impl ::core::fmt::Debug for EffectiveViewportChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for EffectiveViewportChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.EffectiveViewportChangedEventArgs;{55ee2e81-1c18-59ed-bd3d-c4ca8fa7d190})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EffectiveViewportChangedEventArgs {
     type Vtable = IEffectiveViewportChangedEventArgs_Vtbl;
@@ -5162,6 +5279,9 @@ impl ::core::fmt::Debug for ElementFactoryGetArgs {
 unsafe impl ::windows::core::RuntimeType for ElementFactoryGetArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ElementFactoryGetArgs;{fb508774-41a3-5829-9255-cf452d041df4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ElementFactoryGetArgs {
     type Vtable = IElementFactoryGetArgs_Vtbl;
@@ -5282,6 +5402,9 @@ impl ::core::fmt::Debug for ElementFactoryRecycleArgs {
 unsafe impl ::windows::core::RuntimeType for ElementFactoryRecycleArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ElementFactoryRecycleArgs;{86f16b14-37e8-5dd8-a90c-25d3710318b0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ElementFactoryRecycleArgs {
     type Vtable = IElementFactoryRecycleArgs_Vtbl;
@@ -5391,6 +5514,9 @@ impl ::core::ops::Not for ElementHighContrastAdjustment {
 unsafe impl ::windows::core::RuntimeType for ElementHighContrastAdjustment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.ElementHighContrastAdjustment;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -5427,6 +5553,9 @@ impl ::core::fmt::Debug for ElementSoundKind {
 unsafe impl ::windows::core::RuntimeType for ElementSoundKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.ElementSoundKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -5459,6 +5588,9 @@ impl ::core::fmt::Debug for ElementSoundMode {
 unsafe impl ::windows::core::RuntimeType for ElementSoundMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.ElementSoundMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -5531,6 +5663,9 @@ impl ::core::fmt::Debug for ElementSoundPlayer {
 unsafe impl ::windows::core::RuntimeType for ElementSoundPlayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ElementSoundPlayer;{387773a5-f036-460c-9b81-f3d6ea43f6f2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ElementSoundPlayer {
     type Vtable = IElementSoundPlayer_Vtbl;
@@ -5612,6 +5747,9 @@ impl ::core::fmt::Debug for ElementSoundPlayerState {
 unsafe impl ::windows::core::RuntimeType for ElementSoundPlayerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.ElementSoundPlayerState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -5644,6 +5782,9 @@ impl ::core::fmt::Debug for ElementSpatialAudioMode {
 unsafe impl ::windows::core::RuntimeType for ElementSpatialAudioMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.ElementSpatialAudioMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -5676,6 +5817,9 @@ impl ::core::fmt::Debug for ElementTheme {
 unsafe impl ::windows::core::RuntimeType for ElementTheme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.ElementTheme;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
@@ -5760,6 +5904,9 @@ unsafe impl ::windows::core::Interface for EnteredBackgroundEventHandler {
 unsafe impl ::windows::core::RuntimeType for EnteredBackgroundEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{93a956ae-1d7f-438b-b7b8-227d96b609c0}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
@@ -5824,6 +5971,9 @@ impl ::core::fmt::Debug for EventTrigger {
 unsafe impl ::windows::core::RuntimeType for EventTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.EventTrigger;{def8f855-0b49-4087-b1a9-b8b38488f786})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EventTrigger {
     type Vtable = IEventTrigger_Vtbl;
@@ -5946,6 +6096,9 @@ impl ::core::fmt::Debug for ExceptionRoutedEventArgs {
 unsafe impl ::windows::core::RuntimeType for ExceptionRoutedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ExceptionRoutedEventArgs;{dd9ff16a-4b62-4a6c-a49d-0671ef6136be})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ExceptionRoutedEventArgs {
     type Vtable = IExceptionRoutedEventArgs_Vtbl;
@@ -6088,6 +6241,9 @@ unsafe impl ::windows::core::Interface for ExceptionRoutedEventHandler {
 unsafe impl ::windows::core::RuntimeType for ExceptionRoutedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{68e0e810-f6ea-42bc-855b-5d9b67e6a262}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6125,6 +6281,9 @@ impl ::core::fmt::Debug for FlowDirection {
 unsafe impl ::windows::core::RuntimeType for FlowDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.FlowDirection;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -6158,6 +6317,9 @@ impl ::core::fmt::Debug for FocusState {
 unsafe impl ::windows::core::RuntimeType for FocusState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.FocusState;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -6190,6 +6352,9 @@ impl ::core::fmt::Debug for FocusVisualKind {
 unsafe impl ::windows::core::RuntimeType for FocusVisualKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.FocusVisualKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -6226,6 +6391,9 @@ impl ::core::fmt::Debug for FontCapitals {
 unsafe impl ::windows::core::RuntimeType for FontCapitals {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.FontCapitals;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -6265,6 +6433,9 @@ impl ::core::fmt::Debug for FontEastAsianLanguage {
 unsafe impl ::windows::core::RuntimeType for FontEastAsianLanguage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.FontEastAsianLanguage;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -6300,6 +6471,9 @@ impl ::core::fmt::Debug for FontEastAsianWidths {
 unsafe impl ::windows::core::RuntimeType for FontEastAsianWidths {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.FontEastAsianWidths;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -6332,6 +6506,9 @@ impl ::core::fmt::Debug for FontFraction {
 unsafe impl ::windows::core::RuntimeType for FontFraction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.FontFraction;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -6364,6 +6541,9 @@ impl ::core::fmt::Debug for FontNumeralAlignment {
 unsafe impl ::windows::core::RuntimeType for FontNumeralAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.FontNumeralAlignment;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -6396,6 +6576,9 @@ impl ::core::fmt::Debug for FontNumeralStyle {
 unsafe impl ::windows::core::RuntimeType for FontNumeralStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.FontNumeralStyle;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -6431,6 +6614,9 @@ impl ::core::fmt::Debug for FontVariants {
 unsafe impl ::windows::core::RuntimeType for FontVariants {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.FontVariants;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -7189,6 +7375,9 @@ impl ::core::fmt::Debug for FrameworkElement {
 unsafe impl ::windows::core::RuntimeType for FrameworkElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.FrameworkElement;{a391d09b-4a99-4b7c-9d8d-6fa5d01f6fbf})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FrameworkElement {
     type Vtable = IFrameworkElement_Vtbl;
@@ -7354,6 +7543,9 @@ impl ::core::fmt::Debug for FrameworkTemplate {
 unsafe impl ::windows::core::RuntimeType for FrameworkTemplate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.FrameworkTemplate;{a1e254d8-a446-4a27-9a9d-a0f59e1258a5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FrameworkTemplate {
     type Vtable = IFrameworkTemplate_Vtbl;
@@ -7485,6 +7677,9 @@ impl ::core::fmt::Debug for FrameworkView {
 unsafe impl ::windows::core::RuntimeType for FrameworkView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.FrameworkView;{ddba664b-b603-47aa-942d-3833174f0d80})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FrameworkView {
     type Vtable = IFrameworkView_Vtbl;
@@ -7601,6 +7796,9 @@ impl ::core::fmt::Debug for FrameworkViewSource {
 unsafe impl ::windows::core::RuntimeType for FrameworkViewSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.FrameworkViewSource;{e3b077da-35ad-4b09-b5b2-27420041ba9f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FrameworkViewSource {
     type Vtable = IFrameworkViewSource_Vtbl;
@@ -7700,6 +7898,9 @@ unsafe impl ::windows::core::Abi for GridLength {
 unsafe impl ::windows::core::RuntimeType for GridLength {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.GridLength;f8;enum(Windows.UI.Xaml.GridUnitType;i4))");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for GridLength {
     fn eq(&self, other: &Self) -> bool {
@@ -7790,6 +7991,9 @@ impl ::core::fmt::Debug for GridLengthHelper {
 unsafe impl ::windows::core::RuntimeType for GridLengthHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.GridLengthHelper;{7a826ce1-07a0-4083-b6d1-b1d917b976ac})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GridLengthHelper {
     type Vtable = IGridLengthHelper_Vtbl;
@@ -7871,6 +8075,9 @@ impl ::core::fmt::Debug for GridUnitType {
 unsafe impl ::windows::core::RuntimeType for GridUnitType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.GridUnitType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -7904,6 +8111,9 @@ impl ::core::fmt::Debug for HorizontalAlignment {
 unsafe impl ::windows::core::RuntimeType for HorizontalAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.HorizontalAlignment;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8645,6 +8855,9 @@ impl ::core::fmt::Debug for IDataTemplateExtension {
 unsafe impl ::windows::core::RuntimeType for IDataTemplateExtension {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{595e9547-cdff-4b92-b773-ab396878f353}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IDataTemplateExtension {
     type Vtable = IDataTemplateExtension_Vtbl;
@@ -9311,6 +9524,9 @@ impl ::core::fmt::Debug for IElementFactory {
 unsafe impl ::windows::core::RuntimeType for IElementFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{17d2ad90-1370-55c8-80e1-78b49004a9e1}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IElementFactory {
     type Vtable = IElementFactory_Vtbl;
@@ -12159,6 +12375,9 @@ unsafe impl ::windows::core::Interface for LeavingBackgroundEventHandler {
 unsafe impl ::windows::core::RuntimeType for LeavingBackgroundEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{aaad5dad-4fc6-4aa4-b7cf-877e36ada4f6}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
@@ -12201,6 +12420,9 @@ impl ::core::fmt::Debug for LineStackingStrategy {
 unsafe impl ::windows::core::RuntimeType for LineStackingStrategy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.LineStackingStrategy;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -12234,6 +12456,9 @@ impl ::core::fmt::Debug for MediaFailedRoutedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MediaFailedRoutedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.MediaFailedRoutedEventArgs;{46d1fa8d-5149-4153-ba3c-b03e64ee531e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MediaFailedRoutedEventArgs {
     type Vtable = IMediaFailedRoutedEventArgs_Vtbl;
@@ -12354,6 +12579,9 @@ impl ::core::fmt::Debug for OpticalMarginAlignment {
 unsafe impl ::windows::core::RuntimeType for OpticalMarginAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.OpticalMarginAlignment;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -12392,6 +12620,9 @@ impl ::core::fmt::Debug for PointHelper {
 unsafe impl ::windows::core::RuntimeType for PointHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.PointHelper;{727bdd92-64b0-49cf-a321-a9793e73e2e7})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointHelper {
     type Vtable = IPointHelper_Vtbl;
@@ -12514,6 +12745,9 @@ unsafe impl ::windows::core::Interface for PropertyChangedCallback {
 unsafe impl ::windows::core::RuntimeType for PropertyChangedCallback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5a9f8a25-d142-44a4-8231-fd676724f29b}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12629,6 +12863,9 @@ impl ::core::fmt::Debug for PropertyMetadata {
 unsafe impl ::windows::core::RuntimeType for PropertyMetadata {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.PropertyMetadata;{814ef30d-8d18-448a-8644-f2cb51e70380})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PropertyMetadata {
     type Vtable = IPropertyMetadata_Vtbl;
@@ -12723,6 +12960,9 @@ impl ::core::fmt::Debug for PropertyPath {
 unsafe impl ::windows::core::RuntimeType for PropertyPath {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.PropertyPath;{300e5d8a-1ff3-4d2c-95ec-27f81debacb8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PropertyPath {
     type Vtable = IPropertyPath_Vtbl;
@@ -12934,6 +13174,9 @@ impl ::core::fmt::Debug for RectHelper {
 unsafe impl ::windows::core::RuntimeType for RectHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.RectHelper;{a38781e2-4bfb-4ee2-afe5-89f31b37478d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RectHelper {
     type Vtable = IRectHelper_Vtbl;
@@ -13127,6 +13370,9 @@ impl ::core::fmt::Debug for ResourceDictionary {
 unsafe impl ::windows::core::RuntimeType for ResourceDictionary {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ResourceDictionary;{c1ea4f24-d6de-4191-8e3a-f48601f7489c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ResourceDictionary {
     type Vtable = IResourceDictionary_Vtbl;
@@ -13288,6 +13534,9 @@ impl ::core::fmt::Debug for RoutedEvent {
 unsafe impl ::windows::core::RuntimeType for RoutedEvent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.RoutedEvent;{a6b25818-43c1-4c70-865c-7bdd5a32e327})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RoutedEvent {
     type Vtable = IRoutedEvent_Vtbl;
@@ -13390,6 +13639,9 @@ impl ::core::fmt::Debug for RoutedEventArgs {
 unsafe impl ::windows::core::RuntimeType for RoutedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.RoutedEventArgs;{5c985ac6-d802-4b38-a223-bf070c43fedf})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RoutedEventArgs {
     type Vtable = IRoutedEventArgs_Vtbl;
@@ -13512,6 +13764,9 @@ unsafe impl ::windows::core::Interface for RoutedEventHandler {
 unsafe impl ::windows::core::RuntimeType for RoutedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a856e674-b0b6-4bc3-bba8-1ba06e40d4b5}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13578,6 +13833,9 @@ impl ::core::fmt::Debug for ScalarTransition {
 unsafe impl ::windows::core::RuntimeType for ScalarTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ScalarTransition;{4cb68238-e15d-524e-a73c-9d4dcfbea226})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ScalarTransition {
     type Vtable = IScalarTransition_Vtbl;
@@ -13710,6 +13968,9 @@ impl ::core::fmt::Debug for Setter {
 unsafe impl ::windows::core::RuntimeType for Setter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Setter;{a73ded29-b4ae-4a81-be85-e690ba0d3b6e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Setter {
     type Vtable = ISetter_Vtbl;
@@ -13832,6 +14093,9 @@ impl ::core::fmt::Debug for SetterBase {
 unsafe impl ::windows::core::RuntimeType for SetterBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.SetterBase;{418be27c-2ac4-4f22-8097-dea3aeeb2fb3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SetterBase {
     type Vtable = ISetterBase_Vtbl;
@@ -14037,6 +14301,9 @@ impl ::core::fmt::Debug for SetterBaseCollection {
 unsafe impl ::windows::core::RuntimeType for SetterBaseCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.SetterBaseCollection;{03c40ca8-909e-4117-811c-a4529496bdf1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SetterBaseCollection {
     type Vtable = ISetterBaseCollection_Vtbl;
@@ -14197,6 +14464,9 @@ impl ::core::fmt::Debug for SizeChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for SizeChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.SizeChangedEventArgs;{d5312e60-5cc1-42a1-920c-1af46be2f986})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SizeChangedEventArgs {
     type Vtable = ISizeChangedEventArgs_Vtbl;
@@ -14339,6 +14609,9 @@ unsafe impl ::windows::core::Interface for SizeChangedEventHandler {
 unsafe impl ::windows::core::RuntimeType for SizeChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1115b13c-25d2-480b-89dc-eb3dcbd6b7fa}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14407,6 +14680,9 @@ impl ::core::fmt::Debug for SizeHelper {
 unsafe impl ::windows::core::RuntimeType for SizeHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.SizeHelper;{e7225a94-5d03-4a03-ba94-967fc68fcefe})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SizeHelper {
     type Vtable = ISizeHelper_Vtbl;
@@ -14513,6 +14789,9 @@ impl ::core::fmt::Debug for StateTrigger {
 unsafe impl ::windows::core::RuntimeType for StateTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.StateTrigger;{67adef2e-d8d9-49f7-a1fd-2e35eedd23cd})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StateTrigger {
     type Vtable = IStateTrigger_Vtbl;
@@ -14632,6 +14911,9 @@ impl ::core::fmt::Debug for StateTriggerBase {
 unsafe impl ::windows::core::RuntimeType for StateTriggerBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.StateTriggerBase;{48b20698-af06-466c-8052-93666dde0e49})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StateTriggerBase {
     type Vtable = IStateTriggerBase_Vtbl;
@@ -14795,6 +15077,9 @@ impl ::core::fmt::Debug for Style {
 unsafe impl ::windows::core::RuntimeType for Style {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Style;{c4a9f225-9db7-4a7d-b6d1-f74edb9293c2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Style {
     type Vtable = IStyle_Vtbl;
@@ -14948,6 +15233,9 @@ unsafe impl ::windows::core::Interface for SuspendingEventHandler {
 unsafe impl ::windows::core::RuntimeType for SuspendingEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{23429465-e36a-40e2-b139-a4704602a6e1}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "ApplicationModel")]
 #[repr(C)]
@@ -15028,6 +15316,9 @@ impl ::core::fmt::Debug for TargetPropertyPath {
 unsafe impl ::windows::core::RuntimeType for TargetPropertyPath {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.TargetPropertyPath;{40740f8e-085f-4ced-be70-6f47acf15ad0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TargetPropertyPath {
     type Vtable = ITargetPropertyPath_Vtbl;
@@ -15113,6 +15404,9 @@ impl ::core::fmt::Debug for TextAlignment {
 unsafe impl ::windows::core::RuntimeType for TextAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.TextAlignment;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -15146,6 +15440,9 @@ impl ::core::fmt::Debug for TextLineBounds {
 unsafe impl ::windows::core::RuntimeType for TextLineBounds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.TextLineBounds;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -15178,6 +15475,9 @@ impl ::core::fmt::Debug for TextReadingOrder {
 unsafe impl ::windows::core::RuntimeType for TextReadingOrder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.TextReadingOrder;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -15211,6 +15511,9 @@ impl ::core::fmt::Debug for TextTrimming {
 unsafe impl ::windows::core::RuntimeType for TextTrimming {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.TextTrimming;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -15243,6 +15546,9 @@ impl ::core::fmt::Debug for TextWrapping {
 unsafe impl ::windows::core::RuntimeType for TextWrapping {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.TextWrapping;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'UI_Xaml'*"]
@@ -15269,6 +15575,9 @@ unsafe impl ::windows::core::Abi for Thickness {
 unsafe impl ::windows::core::RuntimeType for Thickness {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Thickness;f8;f8;f8;f8)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for Thickness {
     fn eq(&self, other: &Self) -> bool {
@@ -15324,6 +15633,9 @@ impl ::core::fmt::Debug for ThicknessHelper {
 unsafe impl ::windows::core::RuntimeType for ThicknessHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ThicknessHelper;{a86bae4b-1e8f-4eeb-9013-0b2838a97b34})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ThicknessHelper {
     type Vtable = IThicknessHelper_Vtbl;
@@ -15397,6 +15709,9 @@ impl ::core::fmt::Debug for TriggerAction {
 unsafe impl ::windows::core::RuntimeType for TriggerAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.TriggerAction;{a2c0df02-63d5-4b46-9b83-0868d3079621})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TriggerAction {
     type Vtable = ITriggerAction_Vtbl;
@@ -15601,6 +15916,9 @@ impl ::core::fmt::Debug for TriggerActionCollection {
 unsafe impl ::windows::core::RuntimeType for TriggerActionCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.TriggerActionCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.TriggerAction;{a2c0df02-63d5-4b46-9b83-0868d3079621})))");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TriggerActionCollection {
@@ -15754,6 +16072,9 @@ impl ::core::fmt::Debug for TriggerBase {
 unsafe impl ::windows::core::RuntimeType for TriggerBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.TriggerBase;{e7ea222f-dee6-4393-a8b2-8923d641f395})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TriggerBase {
     type Vtable = ITriggerBase_Vtbl;
@@ -15951,6 +16272,9 @@ impl ::core::fmt::Debug for TriggerCollection {
 unsafe impl ::windows::core::RuntimeType for TriggerCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.TriggerCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.TriggerBase;{e7ea222f-dee6-4393-a8b2-8923d641f395})))");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TriggerCollection {
@@ -18157,6 +18481,9 @@ impl ::core::fmt::Debug for UIElement {
 unsafe impl ::windows::core::RuntimeType for UIElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.UIElement;{676d0be9-b65c-41c6-ba40-58cf87f201c1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UIElement {
     type Vtable = IUIElement_Vtbl;
@@ -18419,6 +18746,9 @@ impl ::core::fmt::Debug for UIElementWeakCollection {
 unsafe impl ::windows::core::RuntimeType for UIElementWeakCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.UIElementWeakCollection;{10341223-e66d-519e-acf8-556bd244eac3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UIElementWeakCollection {
     type Vtable = IUIElementWeakCollection_Vtbl;
@@ -18590,6 +18920,9 @@ impl ::core::fmt::Debug for UnhandledExceptionEventArgs {
 unsafe impl ::windows::core::RuntimeType for UnhandledExceptionEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.UnhandledExceptionEventArgs;{7230269c-054e-4cf3-86c5-be90eb6863d5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UnhandledExceptionEventArgs {
     type Vtable = IUnhandledExceptionEventArgs_Vtbl;
@@ -18712,6 +19045,9 @@ unsafe impl ::windows::core::Interface for UnhandledExceptionEventHandler {
 unsafe impl ::windows::core::RuntimeType for UnhandledExceptionEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9274e6bd-49a1-4958-beee-d0e19587b6e3}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18791,6 +19127,9 @@ impl ::core::fmt::Debug for Vector3Transition {
 unsafe impl ::windows::core::RuntimeType for Vector3Transition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Vector3Transition;{d2e209dc-c4a2-5101-9a68-fa0150505589})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Vector3Transition {
     type Vtable = IVector3Transition_Vtbl;
@@ -18900,6 +19239,9 @@ impl ::core::ops::Not for Vector3TransitionComponents {
 unsafe impl ::windows::core::RuntimeType for Vector3TransitionComponents {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Vector3TransitionComponents;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -18933,6 +19275,9 @@ impl ::core::fmt::Debug for VerticalAlignment {
 unsafe impl ::windows::core::RuntimeType for VerticalAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.VerticalAlignment;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -18964,6 +19309,9 @@ impl ::core::fmt::Debug for Visibility {
 unsafe impl ::windows::core::RuntimeType for Visibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Visibility;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
@@ -19036,6 +19384,9 @@ impl ::core::fmt::Debug for VisualState {
 unsafe impl ::windows::core::RuntimeType for VisualState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.VisualState;{6320affc-c31a-4450-afde-f6ea7bd1f586})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisualState {
     type Vtable = IVisualState_Vtbl;
@@ -19178,6 +19529,9 @@ impl ::core::fmt::Debug for VisualStateChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for VisualStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.VisualStateChangedEventArgs;{fe216ab1-f31f-4791-8989-c70e1d9b59ff})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisualStateChangedEventArgs {
     type Vtable = IVisualStateChangedEventArgs_Vtbl;
@@ -19300,6 +19654,9 @@ unsafe impl ::windows::core::Interface for VisualStateChangedEventHandler {
 unsafe impl ::windows::core::RuntimeType for VisualStateChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e6d5bbd5-e029-43a6-b36d-84a81042d774}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -19402,6 +19759,9 @@ impl ::core::fmt::Debug for VisualStateGroup {
 unsafe impl ::windows::core::RuntimeType for VisualStateGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.VisualStateGroup;{e4f9d9a4-e028-44de-9b15-4929ae0a26c2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisualStateGroup {
     type Vtable = IVisualStateGroup_Vtbl;
@@ -19567,6 +19927,9 @@ impl ::core::fmt::Debug for VisualStateManager {
 unsafe impl ::windows::core::RuntimeType for VisualStateManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.VisualStateManager;{6fda9f9a-6fab-4112-9258-1006a3c3476e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisualStateManager {
     type Vtable = IVisualStateManager_Vtbl;
@@ -19752,6 +20115,9 @@ impl ::core::fmt::Debug for VisualTransition {
 unsafe impl ::windows::core::RuntimeType for VisualTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.VisualTransition;{55c5905e-2bc7-400d-aaa4-1a2981491ee0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisualTransition {
     type Vtable = IVisualTransition_Vtbl;
@@ -19998,6 +20364,9 @@ impl ::core::fmt::Debug for Window {
 unsafe impl ::windows::core::RuntimeType for Window {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Window;{3276167d-c9f6-462d-9de2-ae4c1fd8c2e5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Window {
     type Vtable = IWindow_Vtbl;
@@ -20131,6 +20500,9 @@ unsafe impl ::windows::core::Interface for WindowActivatedEventHandler {
 unsafe impl ::windows::core::RuntimeType for WindowActivatedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{18026348-8619-4c7b-b534-ced45d9de219}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "UI_Core")]
 #[repr(C)]
@@ -20225,6 +20597,9 @@ unsafe impl ::windows::core::Interface for WindowClosedEventHandler {
 unsafe impl ::windows::core::RuntimeType for WindowClosedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0db89161-20d7-45df-9122-ba89576703ba}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "UI_Core")]
 #[repr(C)]
@@ -20268,6 +20643,9 @@ impl ::core::fmt::Debug for WindowCreatedEventArgs {
 unsafe impl ::windows::core::RuntimeType for WindowCreatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.WindowCreatedEventArgs;{31b71470-feff-4654-af48-9b398ab5772b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WindowCreatedEventArgs {
     type Vtable = IWindowCreatedEventArgs_Vtbl;
@@ -20401,6 +20779,9 @@ unsafe impl ::windows::core::Interface for WindowSizeChangedEventHandler {
 unsafe impl ::windows::core::RuntimeType for WindowSizeChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5c21c742-2ced-4fd9-ba38-7118d40e966b}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "UI_Core")]
 #[repr(C)]
@@ -20495,6 +20876,9 @@ unsafe impl ::windows::core::Interface for WindowVisibilityChangedEventHandler {
 unsafe impl ::windows::core::RuntimeType for WindowVisibilityChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{10406ad6-b090-4a4a-b2ad-d682df27130f}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "UI_Core")]
 #[repr(C)]
@@ -20586,6 +20970,9 @@ impl ::core::fmt::Debug for XamlRoot {
 unsafe impl ::windows::core::RuntimeType for XamlRoot {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.XamlRoot;{34b50756-1696-5b6d-8e9b-c71464ccad5a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for XamlRoot {
     type Vtable = IXamlRoot_Vtbl;
@@ -20659,6 +21046,9 @@ impl ::core::fmt::Debug for XamlRootChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for XamlRootChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.XamlRootChangedEventArgs;{92d71c21-d23c-5a17-bcb8-001504b6bb19})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for XamlRootChangedEventArgs {
     type Vtable = IXamlRootChangedEventArgs_Vtbl;

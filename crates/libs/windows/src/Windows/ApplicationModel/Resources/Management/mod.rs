@@ -176,6 +176,9 @@ impl ::core::fmt::Debug for IndexedResourceCandidate {
 unsafe impl ::windows::core::RuntimeType for IndexedResourceCandidate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate;{0e619ef3-faec-4414-a9d7-54acd5953f29})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IndexedResourceCandidate {
     type Vtable = IIndexedResourceCandidate_Vtbl;
@@ -266,6 +269,9 @@ impl ::core::fmt::Debug for IndexedResourceQualifier {
 unsafe impl ::windows::core::RuntimeType for IndexedResourceQualifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier;{dae3bb9b-d304-497f-a168-a340042c8adb})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IndexedResourceQualifier {
     type Vtable = IIndexedResourceQualifier_Vtbl;
@@ -347,6 +353,9 @@ impl ::core::fmt::Debug for IndexedResourceType {
 unsafe impl ::windows::core::RuntimeType for IndexedResourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Resources_Management', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
@@ -425,6 +434,9 @@ impl ::core::fmt::Debug for ResourceIndexer {
 unsafe impl ::windows::core::RuntimeType for ResourceIndexer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.ResourceIndexer;{2d4cf9a5-e32f-4ab2-8748-96350a016da3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ResourceIndexer {

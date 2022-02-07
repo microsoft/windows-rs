@@ -139,6 +139,9 @@ impl ::core::fmt::Debug for BatteryStatus {
 unsafe impl ::windows::core::RuntimeType for BatteryStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.BatteryStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Power'*"]
 #[repr(transparent)]
@@ -171,6 +174,9 @@ impl ::core::fmt::Debug for EnergySaverStatus {
 unsafe impl ::windows::core::RuntimeType for EnergySaverStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.EnergySaverStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Power', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
@@ -584,6 +590,9 @@ impl ::core::fmt::Debug for PowerSupplyStatus {
 unsafe impl ::windows::core::RuntimeType for PowerSupplyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.PowerSupplyStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

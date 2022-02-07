@@ -203,6 +203,9 @@ impl ::core::fmt::Debug for ISpiDeviceStatics {
 unsafe impl ::windows::core::RuntimeType for ISpiDeviceStatics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a278e559-5720-4d3f-bd93-56f5ff5a5879}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ISpiDeviceStatics {
     type Vtable = ISpiDeviceStatics_Vtbl;
@@ -277,6 +280,9 @@ impl ::core::fmt::Debug for SpiBusInfo {
 unsafe impl ::windows::core::RuntimeType for SpiBusInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiBusInfo;{9929444a-54f2-48c6-b952-9c32fc02c669})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpiBusInfo {
     type Vtable = ISpiBusInfo_Vtbl;
@@ -428,6 +434,9 @@ impl ::core::fmt::Debug for SpiConnectionSettings {
 unsafe impl ::windows::core::RuntimeType for SpiConnectionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiConnectionSettings;{5283a37f-f935-4b9f-a7a7-3a7890afa5ce})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpiConnectionSettings {
     type Vtable = ISpiConnectionSettings_Vtbl;
@@ -531,6 +540,9 @@ impl ::core::fmt::Debug for SpiController {
 unsafe impl ::windows::core::RuntimeType for SpiController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiController;{a8d3c829-9895-4159-a934-8741f1ee6d27})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpiController {
     type Vtable = ISpiController_Vtbl;
@@ -681,6 +693,9 @@ impl ::core::fmt::Debug for SpiDevice {
 unsafe impl ::windows::core::RuntimeType for SpiDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiDevice;{05d5356d-11b6-4d39-84d5-95dfb4c9f2ce})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpiDevice {
     type Vtable = ISpiDevice_Vtbl;
@@ -789,6 +804,9 @@ impl ::core::fmt::Debug for SpiMode {
 unsafe impl ::windows::core::RuntimeType for SpiMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Spi'*"]
 #[repr(transparent)]
@@ -820,6 +838,9 @@ impl ::core::fmt::Debug for SpiSharingMode {
 unsafe impl ::windows::core::RuntimeType for SpiSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiSharingMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

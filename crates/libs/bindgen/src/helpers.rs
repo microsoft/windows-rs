@@ -79,6 +79,9 @@ pub fn gen_runtime_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
             unsafe impl<#(#constraints)*> ::windows::core::RuntimeType for #name {
                 const SIGNATURE: ::windows::core::ConstBuffer = #type_signature;
                 type DefaultType = ::core::option::Option<Self>;
+                fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+                    from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+                }
             }
         }
     } else {

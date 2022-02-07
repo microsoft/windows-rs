@@ -36,6 +36,9 @@ impl ::core::fmt::Debug for HandwritingLineHeight {
 unsafe impl ::windows::core::RuntimeType for HandwritingLineHeight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.HandwritingLineHeight;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -367,6 +370,9 @@ impl ::core::fmt::Debug for IInkPointFactory {
 unsafe impl ::windows::core::RuntimeType for IInkPointFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{29e5d51c-c98f-405d-9f3b-e53e31068d4d}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IInkPointFactory {
     type Vtable = IInkPointFactory_Vtbl;
@@ -614,6 +620,9 @@ impl ::core::fmt::Debug for IInkPresenterRulerFactory {
 unsafe impl ::windows::core::RuntimeType for IInkPresenterRulerFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{34361beb-9001-4a4b-a690-69dbaf63e501}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IInkPresenterRulerFactory {
     type Vtable = IInkPresenterRulerFactory_Vtbl;
@@ -751,6 +760,9 @@ impl ::core::fmt::Debug for IInkPresenterStencil {
 unsafe impl ::windows::core::RuntimeType for IInkPresenterStencil {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{30d12d6d-3e06-4d02-b116-277fb5d8addc}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IInkPresenterStencil {
     type Vtable = IInkPresenterStencil_Vtbl;
@@ -900,6 +912,9 @@ impl ::core::fmt::Debug for IInkRecognizerContainer {
 unsafe impl ::windows::core::RuntimeType for IInkRecognizerContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a74d9a31-8047-4698-a912-f82a5085012f}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IInkRecognizerContainer {
     type Vtable = IInkRecognizerContainer_Vtbl;
@@ -1241,6 +1256,9 @@ impl ::core::fmt::Debug for IInkStrokeContainer {
 unsafe impl ::windows::core::RuntimeType for IInkStrokeContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{22accbc6-faa9-4f14-b68c-f6cee670ae16}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IInkStrokeContainer {
     type Vtable = IInkStrokeContainer_Vtbl;
@@ -1742,6 +1760,9 @@ impl ::core::fmt::Debug for InkDrawingAttributes {
 unsafe impl ::windows::core::RuntimeType for InkDrawingAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributes;{97a2176c-6774-48ad-84f0-48f5a9be74f9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkDrawingAttributes {
     type Vtable = IInkDrawingAttributes_Vtbl;
@@ -1822,6 +1843,9 @@ impl ::core::fmt::Debug for InkDrawingAttributesKind {
 unsafe impl ::windows::core::RuntimeType for InkDrawingAttributesKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkDrawingAttributesKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
@@ -1860,6 +1884,9 @@ impl ::core::fmt::Debug for InkDrawingAttributesPencilProperties {
 unsafe impl ::windows::core::RuntimeType for InkDrawingAttributesPencilProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties;{4f2534cb-2d86-41bb-b0e8-e4c2a0253c52})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkDrawingAttributesPencilProperties {
     type Vtable = IInkDrawingAttributesPencilProperties_Vtbl;
@@ -1941,6 +1968,9 @@ impl ::core::fmt::Debug for InkHighContrastAdjustment {
 unsafe impl ::windows::core::RuntimeType for InkHighContrastAdjustment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkHighContrastAdjustment;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
@@ -2005,6 +2035,9 @@ impl ::core::fmt::Debug for InkInputConfiguration {
 unsafe impl ::windows::core::RuntimeType for InkInputConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputConfiguration;{93a68dc4-0b7b-49d7-b34f-9901e524dcf2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkInputConfiguration {
     type Vtable = IInkInputConfiguration_Vtbl;
@@ -2105,6 +2138,9 @@ impl ::core::fmt::Debug for InkInputProcessingConfiguration {
 unsafe impl ::windows::core::RuntimeType for InkInputProcessingConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputProcessingConfiguration;{2778d85e-33ca-4b06-a6d3-ac3945116d37})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkInputProcessingConfiguration {
     type Vtable = IInkInputProcessingConfiguration_Vtbl;
@@ -2186,6 +2222,9 @@ impl ::core::fmt::Debug for InkInputProcessingMode {
 unsafe impl ::windows::core::RuntimeType for InkInputProcessingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputProcessingMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
@@ -2217,6 +2256,9 @@ impl ::core::fmt::Debug for InkInputRightDragAction {
 unsafe impl ::windows::core::RuntimeType for InkInputRightDragAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputRightDragAction;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
@@ -2435,6 +2477,9 @@ impl ::core::fmt::Debug for InkManager {
 unsafe impl ::windows::core::RuntimeType for InkManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkManager;{4744737d-671b-4163-9c95-4e8d7a035fe1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkManager {
     type Vtable = IInkManager_Vtbl;
@@ -2558,6 +2603,9 @@ impl ::core::fmt::Debug for InkManipulationMode {
 unsafe impl ::windows::core::RuntimeType for InkManipulationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkManipulationMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
@@ -2624,6 +2672,9 @@ impl ::core::fmt::Debug for InkModelerAttributes {
 unsafe impl ::windows::core::RuntimeType for InkModelerAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkModelerAttributes;{bad31f27-0cd9-4bfd-b6f3-9e03ba8d7454})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkModelerAttributes {
     type Vtable = IInkModelerAttributes_Vtbl;
@@ -2704,6 +2755,9 @@ impl ::core::fmt::Debug for InkPersistenceFormat {
 unsafe impl ::windows::core::RuntimeType for InkPersistenceFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPersistenceFormat;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
@@ -2796,6 +2850,9 @@ impl ::core::fmt::Debug for InkPoint {
 unsafe impl ::windows::core::RuntimeType for InkPoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPoint;{9f87272b-858c-46a5-9b41-d195970459fd})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkPoint {
     type Vtable = IInkPoint_Vtbl;
@@ -3012,6 +3069,9 @@ impl ::core::fmt::Debug for InkPresenter {
 unsafe impl ::windows::core::RuntimeType for InkPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenter;{a69b70e2-887b-458f-b173-4fe4438930a3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkPresenter {
     type Vtable = IInkPresenter_Vtbl;
@@ -3092,6 +3152,9 @@ impl ::core::fmt::Debug for InkPresenterPredefinedConfiguration {
 unsafe impl ::windows::core::RuntimeType for InkPresenterPredefinedConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterPredefinedConfiguration;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
@@ -3282,6 +3345,9 @@ impl ::core::fmt::Debug for InkPresenterProtractor {
 unsafe impl ::windows::core::RuntimeType for InkPresenterProtractor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterProtractor;{7de3f2aa-ef6c-4e91-a73b-5b70d56fbd17})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkPresenterProtractor {
     type Vtable = IInkPresenterProtractor_Vtbl;
@@ -3504,6 +3570,9 @@ impl ::core::fmt::Debug for InkPresenterRuler {
 unsafe impl ::windows::core::RuntimeType for InkPresenterRuler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterRuler;{6cda7d5a-dec7-4dd7-877a-2133f183d48a})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkPresenterRuler {
     type Vtable = IInkPresenterRuler_Vtbl;
@@ -3607,6 +3676,9 @@ impl ::core::fmt::Debug for InkPresenterStencilKind {
 unsafe impl ::windows::core::RuntimeType for InkPresenterStencilKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterStencilKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
@@ -3659,6 +3731,9 @@ impl ::core::fmt::Debug for InkRecognitionResult {
 unsafe impl ::windows::core::RuntimeType for InkRecognitionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognitionResult;{36461a94-5068-40ef-8a05-2c2fb60908a2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkRecognitionResult {
     type Vtable = IInkRecognitionResult_Vtbl;
@@ -3740,6 +3815,9 @@ impl ::core::fmt::Debug for InkRecognitionTarget {
 unsafe impl ::windows::core::RuntimeType for InkRecognitionTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkRecognitionTarget;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
@@ -3773,6 +3851,9 @@ impl ::core::fmt::Debug for InkRecognizer {
 unsafe impl ::windows::core::RuntimeType for InkRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognizer;{077ccea3-904d-442a-b151-aaca3631c43b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkRecognizer {
     type Vtable = IInkRecognizer_Vtbl;
@@ -3875,6 +3956,9 @@ impl ::core::fmt::Debug for InkRecognizerContainer {
 unsafe impl ::windows::core::RuntimeType for InkRecognizerContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognizerContainer;{a74d9a31-8047-4698-a912-f82a5085012f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkRecognizerContainer {
     type Vtable = IInkRecognizerContainer_Vtbl;
@@ -4099,6 +4183,9 @@ impl ::core::fmt::Debug for InkStroke {
 unsafe impl ::windows::core::RuntimeType for InkStroke {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStroke;{15144d60-cce3-4fcf-9d52-11518ab6afd4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkStroke {
     type Vtable = IInkStroke_Vtbl;
@@ -4233,6 +4320,9 @@ impl ::core::fmt::Debug for InkStrokeBuilder {
 unsafe impl ::windows::core::RuntimeType for InkStrokeBuilder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeBuilder;{82bbd1dc-1c63-41dc-9e07-4b4a70ced801})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkStrokeBuilder {
     type Vtable = IInkStrokeBuilder_Vtbl;
@@ -4454,6 +4544,9 @@ impl ::core::fmt::Debug for InkStrokeContainer {
 unsafe impl ::windows::core::RuntimeType for InkStrokeContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeContainer;{22accbc6-faa9-4f14-b68c-f6cee670ae16})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkStrokeContainer {
     type Vtable = IInkStrokeContainer_Vtbl;
@@ -4616,6 +4709,9 @@ impl ::core::fmt::Debug for InkStrokeInput {
 unsafe impl ::windows::core::RuntimeType for InkStrokeInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeInput;{cf2ffe7b-5e10-43c6-a080-88f26e1dc67d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkStrokeInput {
     type Vtable = IInkStrokeInput_Vtbl;
@@ -4749,6 +4845,9 @@ impl ::core::fmt::Debug for InkStrokeRenderingSegment {
 unsafe impl ::windows::core::RuntimeType for InkStrokeRenderingSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeRenderingSegment;{68510f1f-88e3-477a-a2fa-569f5f1f9bd5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkStrokeRenderingSegment {
     type Vtable = IInkStrokeRenderingSegment_Vtbl;
@@ -4832,6 +4931,9 @@ impl ::core::fmt::Debug for InkStrokesCollectedEventArgs {
 unsafe impl ::windows::core::RuntimeType for InkStrokesCollectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesCollectedEventArgs;{c4f3f229-1938-495c-b4d9-6de4b08d4811})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkStrokesCollectedEventArgs {
     type Vtable = IInkStrokesCollectedEventArgs_Vtbl;
@@ -4913,6 +5015,9 @@ impl ::core::fmt::Debug for InkStrokesErasedEventArgs {
 unsafe impl ::windows::core::RuntimeType for InkStrokesErasedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesErasedEventArgs;{a4216a22-1503-4ebf-8ff5-2de84584a8aa})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkStrokesErasedEventArgs {
     type Vtable = IInkStrokesErasedEventArgs_Vtbl;
@@ -4999,6 +5104,9 @@ impl ::core::fmt::Debug for InkSynchronizer {
 unsafe impl ::windows::core::RuntimeType for InkSynchronizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkSynchronizer;{9b9ea160-ae9b-45f9-8407-4b493b163661})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkSynchronizer {
     type Vtable = IInkSynchronizer_Vtbl;
@@ -5184,6 +5292,9 @@ impl ::core::fmt::Debug for InkUnprocessedInput {
 unsafe impl ::windows::core::RuntimeType for InkUnprocessedInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkUnprocessedInput;{db4445e0-8398-4921-ac3b-ab978c5ba256})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkUnprocessedInput {
     type Vtable = IInkUnprocessedInput_Vtbl;
@@ -5323,6 +5434,9 @@ impl ::core::fmt::Debug for PenAndInkSettings {
 unsafe impl ::windows::core::RuntimeType for PenAndInkSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.PenAndInkSettings;{bc2ceb8f-0066-44a8-bb7a-b839b3deb8f5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PenAndInkSettings {
     type Vtable = IPenAndInkSettings_Vtbl;
@@ -5403,6 +5517,9 @@ impl ::core::fmt::Debug for PenHandedness {
 unsafe impl ::windows::core::RuntimeType for PenHandedness {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.PenHandedness;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
@@ -5434,6 +5551,9 @@ impl ::core::fmt::Debug for PenTipShape {
 unsafe impl ::windows::core::RuntimeType for PenTipShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.PenTipShape;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -572,6 +572,9 @@ impl ::core::fmt::Debug for MiracastReceiver {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiver;{7a315258-e444-51b4-aff7-b88daa1229e0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiver {
     type Vtable = IMiracastReceiver_Vtbl;
@@ -662,6 +665,9 @@ impl ::core::fmt::Debug for MiracastReceiverApplySettingsResult {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverApplySettingsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverApplySettingsResult;{d0aa6272-09cd-58e1-a4f2-5d5143d312f9})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverApplySettingsResult {
     type Vtable = IMiracastReceiverApplySettingsResult_Vtbl;
@@ -748,6 +754,9 @@ impl ::core::fmt::Debug for MiracastReceiverApplySettingsStatus {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverApplySettingsStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
@@ -781,6 +790,9 @@ impl ::core::fmt::Debug for MiracastReceiverAuthorizationMethod {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverAuthorizationMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
@@ -882,6 +894,9 @@ impl ::core::fmt::Debug for MiracastReceiverConnection {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverConnection;{704b2f36-d2e5-551f-a854-f822b7917d28})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverConnection {
     type Vtable = IMiracastReceiverConnection_Vtbl;
@@ -1007,6 +1022,9 @@ impl ::core::fmt::Debug for MiracastReceiverConnectionCreatedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverConnectionCreatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs;{7d8dfa39-307a-5c0f-94bd-d0c69d169982})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverConnectionCreatedEventArgs {
     type Vtable = IMiracastReceiverConnectionCreatedEventArgs_Vtbl;
@@ -1146,6 +1164,9 @@ impl ::core::fmt::Debug for MiracastReceiverCursorImageChannel {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverCursorImageChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverCursorImageChannel;{d9ac332d-723a-5a9d-b90a-81153efa2a0f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverCursorImageChannel {
     type Vtable = IMiracastReceiverCursorImageChannel_Vtbl;
@@ -1248,6 +1269,9 @@ impl ::core::fmt::Debug for MiracastReceiverCursorImageChannelSettings {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverCursorImageChannelSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings;{ccdbedff-bd00-5b9c-8e4c-00cacf86b634})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverCursorImageChannelSettings {
     type Vtable = IMiracastReceiverCursorImageChannelSettings_Vtbl;
@@ -1334,6 +1358,9 @@ impl ::core::fmt::Debug for MiracastReceiverDisconnectReason {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverDisconnectReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
@@ -1367,6 +1394,9 @@ impl ::core::fmt::Debug for MiracastReceiverDisconnectedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverDisconnectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs;{d9a15e5e-5fee-57e6-b4b0-04727db93229})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverDisconnectedEventArgs {
     type Vtable = IMiracastReceiverDisconnectedEventArgs_Vtbl;
@@ -1498,6 +1528,9 @@ impl ::core::fmt::Debug for MiracastReceiverGameControllerDevice {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverGameControllerDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverGameControllerDevice;{2d7171e8-bed4-5118-a058-e2477eb5888d})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverGameControllerDevice {
     type Vtable = IMiracastReceiverGameControllerDevice_Vtbl;
@@ -1578,6 +1611,9 @@ impl ::core::fmt::Debug for MiracastReceiverGameControllerDeviceUsageMode {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverGameControllerDeviceUsageMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
@@ -1619,6 +1655,9 @@ impl ::core::fmt::Debug for MiracastReceiverInputDevices {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverInputDevices {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverInputDevices;{da35bb02-28aa-5ee8-96f5-a42901c66f00})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverInputDevices {
     type Vtable = IMiracastReceiverInputDevices_Vtbl;
@@ -1737,6 +1776,9 @@ impl ::core::fmt::Debug for MiracastReceiverKeyboardDevice {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverKeyboardDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverKeyboardDevice;{beb67272-06c0-54ff-ac96-217464ff2501})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverKeyboardDevice {
     type Vtable = IMiracastReceiverKeyboardDevice_Vtbl;
@@ -1821,6 +1863,9 @@ impl ::core::fmt::Debug for MiracastReceiverListeningStatus {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverListeningStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
@@ -1880,6 +1925,9 @@ impl ::core::fmt::Debug for MiracastReceiverMediaSourceCreatedEventArgs {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverMediaSourceCreatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs;{17cf519e-1246-531d-945a-6b158e39c3aa})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverMediaSourceCreatedEventArgs {
     type Vtable = IMiracastReceiverMediaSourceCreatedEventArgs_Vtbl;
@@ -2048,6 +2096,9 @@ impl ::core::fmt::Debug for MiracastReceiverSession {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSession;{1d2bcdb4-ef8b-5209-bfc9-c32116504803})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverSession {
     type Vtable = IMiracastReceiverSession_Vtbl;
@@ -2164,6 +2215,9 @@ impl ::core::fmt::Debug for MiracastReceiverSessionStartResult {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSessionStartResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSessionStartResult;{b7c573ee-40ca-51ff-95f2-c9de34f2e90e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverSessionStartResult {
     type Vtable = IMiracastReceiverSessionStartResult_Vtbl;
@@ -2246,6 +2300,9 @@ impl ::core::fmt::Debug for MiracastReceiverSessionStartStatus {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSessionStartStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
@@ -2336,6 +2393,9 @@ impl ::core::fmt::Debug for MiracastReceiverSettings {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSettings;{57cd2f24-c55a-5fbe-9464-eb05307705dd})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverSettings {
     type Vtable = IMiracastReceiverSettings_Vtbl;
@@ -2451,6 +2511,9 @@ impl ::core::fmt::Debug for MiracastReceiverStatus {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverStatus;{c28a5591-23ab-519e-ad09-90bff6dcc87e})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverStatus {
     type Vtable = IMiracastReceiverStatus_Vtbl;
@@ -2569,6 +2632,9 @@ impl ::core::fmt::Debug for MiracastReceiverStreamControl {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverStreamControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverStreamControl;{38ea2d8b-2769-5ad7-8a8a-254b9df7ba82})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverStreamControl {
     type Vtable = IMiracastReceiverStreamControl_Vtbl;
@@ -2671,6 +2737,9 @@ impl ::core::fmt::Debug for MiracastReceiverVideoStreamSettings {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverVideoStreamSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverVideoStreamSettings;{169b5e1b-149d-52d0-b126-6f89744e4f50})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastReceiverVideoStreamSettings {
     type Vtable = IMiracastReceiverVideoStreamSettings_Vtbl;
@@ -2753,6 +2822,9 @@ impl ::core::fmt::Debug for MiracastReceiverWiFiStatus {
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverWiFiStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
@@ -2830,6 +2902,9 @@ impl ::core::fmt::Debug for MiracastTransmitter {
 unsafe impl ::windows::core::RuntimeType for MiracastTransmitter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastTransmitter;{342d79fd-2e64-5508-8a30-833d1eac70d0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MiracastTransmitter {
     type Vtable = IMiracastTransmitter_Vtbl;
@@ -2912,6 +2987,9 @@ impl ::core::fmt::Debug for MiracastTransmitterAuthorizationStatus {
 unsafe impl ::windows::core::RuntimeType for MiracastTransmitterAuthorizationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

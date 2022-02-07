@@ -34,6 +34,9 @@ impl ::core::fmt::Debug for AltitudeReferenceSystem {
 unsafe impl ::windows::core::RuntimeType for AltitudeReferenceSystem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.AltitudeReferenceSystem;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Devices_Geolocation'*"]
@@ -59,6 +62,9 @@ unsafe impl ::windows::core::Abi for BasicGeoposition {
 unsafe impl ::windows::core::RuntimeType for BasicGeoposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Geolocation.BasicGeoposition;f8;f8;f8)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for BasicGeoposition {
     fn eq(&self, other: &Self) -> bool {
@@ -136,6 +142,9 @@ impl ::core::fmt::Debug for CivicAddress {
 unsafe impl ::windows::core::RuntimeType for CivicAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.CivicAddress;{a8567a1a-64f4-4d48-bcea-f6b008eca34c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CivicAddress {
     type Vtable = ICivicAddress_Vtbl;
@@ -329,6 +338,9 @@ impl ::core::fmt::Debug for GeoboundingBox {
 unsafe impl ::windows::core::RuntimeType for GeoboundingBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeoboundingBox;{0896c80b-274f-43da-9a06-cbfcdaeb4ec2})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GeoboundingBox {
     type Vtable = IGeoboundingBox_Vtbl;
@@ -491,6 +503,9 @@ impl ::core::fmt::Debug for Geocircle {
 unsafe impl ::windows::core::RuntimeType for Geocircle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geocircle;{39e45843-a7f9-4e63-92a7-ba0c28d124b1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Geocircle {
     type Vtable = IGeocircle_Vtbl;
@@ -699,6 +714,9 @@ impl ::core::fmt::Debug for Geocoordinate {
 unsafe impl ::windows::core::RuntimeType for Geocoordinate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geocoordinate;{ee21a3aa-976a-4c70-803d-083ea55bcbc4})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Geocoordinate {
     type Vtable = IGeocoordinate_Vtbl;
@@ -818,6 +836,9 @@ impl ::core::fmt::Debug for GeocoordinateSatelliteData {
 unsafe impl ::windows::core::RuntimeType for GeocoordinateSatelliteData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeocoordinateSatelliteData;{c32a74d9-2608-474c-912c-06dd490f4af7})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GeocoordinateSatelliteData {
     type Vtable = IGeocoordinateSatelliteData_Vtbl;
@@ -899,6 +920,9 @@ impl ::core::fmt::Debug for GeolocationAccessStatus {
 unsafe impl ::windows::core::RuntimeType for GeolocationAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeolocationAccessStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
@@ -1100,6 +1124,9 @@ impl ::core::fmt::Debug for Geolocator {
 unsafe impl ::windows::core::RuntimeType for Geolocator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geolocator;{a9c3bf62-4524-4989-8aa9-de019d2e551f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Geolocator {
     type Vtable = IGeolocator_Vtbl;
@@ -1236,6 +1263,9 @@ impl ::core::fmt::Debug for Geopath {
 unsafe impl ::windows::core::RuntimeType for Geopath {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geopath;{e53fd7b9-2da4-4714-a652-de8593289898})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Geopath {
     type Vtable = IGeopath_Vtbl;
@@ -1390,6 +1420,9 @@ impl ::core::fmt::Debug for Geopoint {
 unsafe impl ::windows::core::RuntimeType for Geopoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geopoint;{6bfa00eb-e56e-49bb-9caf-cbaa78a8bcef})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Geopoint {
     type Vtable = IGeopoint_Vtbl;
@@ -1510,6 +1543,9 @@ impl ::core::fmt::Debug for Geoposition {
 unsafe impl ::windows::core::RuntimeType for Geoposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geoposition;{c18d0454-7d41-4ff7-a957-9dffb4ef7f5b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Geoposition {
     type Vtable = IGeoposition_Vtbl;
@@ -1592,6 +1628,9 @@ impl ::core::fmt::Debug for GeoshapeType {
 unsafe impl ::windows::core::RuntimeType for GeoshapeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeoshapeType;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
@@ -1642,6 +1681,9 @@ impl ::core::fmt::Debug for Geovisit {
 unsafe impl ::windows::core::RuntimeType for Geovisit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geovisit;{b1877a76-9ef6-41ab-a0dd-793ece76e2de})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Geovisit {
     type Vtable = IGeovisit_Vtbl;
@@ -1769,6 +1811,9 @@ impl ::core::fmt::Debug for GeovisitMonitor {
 unsafe impl ::windows::core::RuntimeType for GeovisitMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitMonitor;{80118aaf-5944-4591-83c1-396647f54f2c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GeovisitMonitor {
     type Vtable = IGeovisitMonitor_Vtbl;
@@ -1851,6 +1896,9 @@ impl ::core::fmt::Debug for GeovisitStateChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for GeovisitStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitStateChangedEventArgs;{ceb4d1ff-8b53-4968-beed-4cecd029ce15})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GeovisitStateChangedEventArgs {
     type Vtable = IGeovisitStateChangedEventArgs_Vtbl;
@@ -1934,6 +1982,9 @@ impl ::core::fmt::Debug for GeovisitTriggerDetails {
 unsafe impl ::windows::core::RuntimeType for GeovisitTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitTriggerDetails;{ea770d9e-d1c9-454b-99b7-b2f8cdd2482f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GeovisitTriggerDetails {
     type Vtable = IGeovisitTriggerDetails_Vtbl;
@@ -2534,6 +2585,9 @@ impl ::core::fmt::Debug for IGeoshape {
 unsafe impl ::windows::core::RuntimeType for IGeoshape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c99ca2af-c729-43c1-8fab-d6dec914df7e}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IGeoshape {
     type Vtable = IGeoshape_Vtbl;
@@ -2703,6 +2757,9 @@ impl ::core::fmt::Debug for PositionAccuracy {
 unsafe impl ::windows::core::RuntimeType for PositionAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionAccuracy;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
@@ -2736,6 +2793,9 @@ impl ::core::fmt::Debug for PositionChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for PositionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.PositionChangedEventArgs;{37859ce5-9d1e-46c5-bf3b-6ad8cac1a093})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PositionChangedEventArgs {
     type Vtable = IPositionChangedEventArgs_Vtbl;
@@ -2821,6 +2881,9 @@ impl ::core::fmt::Debug for PositionSource {
 unsafe impl ::windows::core::RuntimeType for PositionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionSource;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
@@ -2856,6 +2919,9 @@ impl ::core::fmt::Debug for PositionStatus {
 unsafe impl ::windows::core::RuntimeType for PositionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
@@ -2889,6 +2955,9 @@ impl ::core::fmt::Debug for StatusChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for StatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.StatusChangedEventArgs;{3453d2da-8c93-4111-a205-9aecfc9be5c0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StatusChangedEventArgs {
     type Vtable = IStatusChangedEventArgs_Vtbl;
@@ -2979,6 +3048,9 @@ impl ::core::fmt::Debug for VenueData {
 unsafe impl ::windows::core::RuntimeType for VenueData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.VenueData;{66f39187-60e3-4b2f-b527-4f53f1c3c677})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VenueData {
     type Vtable = IVenueData_Vtbl;
@@ -3059,6 +3131,9 @@ impl ::core::fmt::Debug for VisitMonitoringScope {
 unsafe impl ::windows::core::RuntimeType for VisitMonitoringScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitMonitoringScope;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
@@ -3092,6 +3167,9 @@ impl ::core::fmt::Debug for VisitStateChange {
 unsafe impl ::windows::core::RuntimeType for VisitStateChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

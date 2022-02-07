@@ -1,32 +1,10 @@
 use super::*;
 
-// pub trait DefaultType: Sized + Clone + PartialEq {
-//     type DefaultType: Sized + Clone + PartialEq;
-
-//     /// # Safety
-//     unsafe fn from_default(value: &Self::DefaultType) -> Result<Self> {
-//         let value = value as *const _ as *const Self;
-//         Ok((*value).clone())
-//     }
-// }
-
-// impl<T: Interface + Clone + PartialEq> DefaultType for T {
-//     type DefaultType = Option<T>;
-
-//     unsafe fn from_default(value: &Self::DefaultType) -> Result<Self> {
-//         let value = value as *const _ as *const Option<Self>;
-
-//         match &*value {
-//             Some(value) => Ok(value.clone()),
-//             None => Err(Error::OK),
-//         }
-//     }
-// }
-
 #[doc(hidden)]
 pub unsafe trait RuntimeType: Abi + Clone + PartialEq {
     const SIGNATURE: ConstBuffer;
-    type DefaultType;
+    type DefaultType: Clone + PartialEq;
+    fn from_default(from: &Self::DefaultType) -> Result<Self>;
 }
 
 macro_rules! primitive_runtime_types {
@@ -35,6 +13,9 @@ macro_rules! primitive_runtime_types {
             unsafe impl RuntimeType for $t {
                 const SIGNATURE: ConstBuffer = ConstBuffer::from_slice($s);
                 type DefaultType = Self;
+                fn from_default(from: &Self::DefaultType) -> Result<Self> {
+                    Ok(*from)
+                }
             }
             unsafe impl Abi for $t {
                 type Abi = Self;

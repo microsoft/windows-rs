@@ -75,6 +75,9 @@ impl ::core::fmt::Debug for CausalityRelation {
 unsafe impl ::windows::core::RuntimeType for CausalityRelation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityRelation;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
@@ -107,6 +110,9 @@ impl ::core::fmt::Debug for CausalitySource {
 unsafe impl ::windows::core::RuntimeType for CausalitySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySource;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
@@ -139,6 +145,9 @@ impl ::core::fmt::Debug for CausalitySynchronousWork {
 unsafe impl ::windows::core::RuntimeType for CausalitySynchronousWork {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySynchronousWork;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
@@ -171,6 +180,9 @@ impl ::core::fmt::Debug for CausalityTraceLevel {
 unsafe impl ::windows::core::RuntimeType for CausalityTraceLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityTraceLevel;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
@@ -232,6 +244,9 @@ impl ::core::fmt::Debug for ErrorDetails {
 unsafe impl ::windows::core::RuntimeType for ErrorDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.ErrorDetails;{378cbb01-2cc9-428f-8c55-2c990d463e8f})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ErrorDetails {
     type Vtable = IErrorDetails_Vtbl;
@@ -343,6 +358,9 @@ impl ::core::ops::Not for ErrorOptions {
 unsafe impl ::windows::core::RuntimeType for ErrorOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
@@ -430,6 +448,9 @@ impl ::core::fmt::Debug for FileLoggingSession {
 unsafe impl ::windows::core::RuntimeType for FileLoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.FileLoggingSession;{24c74216-fed2-404c-895f-1f9699cb02f7})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileLoggingSession {
     type Vtable = IFileLoggingSession_Vtbl;
@@ -648,6 +669,9 @@ impl ::core::fmt::Debug for IErrorReportingSettings {
 unsafe impl ::windows::core::RuntimeType for IErrorReportingSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IErrorReportingSettings {
     type Vtable = IErrorReportingSettings_Vtbl;
@@ -796,6 +820,9 @@ impl ::core::fmt::Debug for IFileLoggingSession {
 unsafe impl ::windows::core::RuntimeType for IFileLoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{24c74216-fed2-404c-895f-1f9699cb02f7}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IFileLoggingSession {
     type Vtable = IFileLoggingSession_Vtbl;
@@ -1037,6 +1064,9 @@ impl ::core::fmt::Debug for ILoggingChannel {
 unsafe impl ::windows::core::RuntimeType for ILoggingChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e9a50343-11d7-4f01-b5ca-cf495278c0a8}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ILoggingChannel {
     type Vtable = ILoggingChannel_Vtbl;
@@ -1413,6 +1443,9 @@ impl ::core::fmt::Debug for ILoggingSession {
 unsafe impl ::windows::core::RuntimeType for ILoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6221f306-9380-4ad7-baf5-41ea9310d768}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ILoggingSession {
     type Vtable = ILoggingSession_Vtbl;
@@ -1584,6 +1617,9 @@ impl ::core::fmt::Debug for ILoggingTarget {
 unsafe impl ::windows::core::RuntimeType for ILoggingTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{65f16c35-e388-4e26-b17a-f51cd3a83916}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ILoggingTarget {
     type Vtable = ILoggingTarget_Vtbl;
@@ -1652,6 +1688,9 @@ impl ::core::fmt::Debug for LogFileGeneratedEventArgs {
 unsafe impl ::windows::core::RuntimeType for LogFileGeneratedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs;{269e976f-0d38-4c1a-b53f-b395d881df84})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LogFileGeneratedEventArgs {
     type Vtable = ILogFileGeneratedEventArgs_Vtbl;
@@ -1865,6 +1904,9 @@ impl ::core::fmt::Debug for LoggingActivity {
 unsafe impl ::windows::core::RuntimeType for LoggingActivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingActivity;{bc032941-b766-4cb5-9848-97ac6ba6d60c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoggingActivity {
     type Vtable = ILoggingActivity_Vtbl;
@@ -2161,6 +2203,9 @@ impl ::core::fmt::Debug for LoggingChannel {
 unsafe impl ::windows::core::RuntimeType for LoggingChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannel;{e9a50343-11d7-4f01-b5ca-cf495278c0a8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoggingChannel {
     type Vtable = ILoggingChannel_Vtbl;
@@ -2333,6 +2378,9 @@ impl ::core::fmt::Debug for LoggingChannelOptions {
 unsafe impl ::windows::core::RuntimeType for LoggingChannelOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannelOptions;{c3e847ff-0ebb-4a53-8c54-dec24926cb2c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoggingChannelOptions {
     type Vtable = ILoggingChannelOptions_Vtbl;
@@ -2430,6 +2478,9 @@ impl ::core::fmt::Debug for LoggingFieldFormat {
 unsafe impl ::windows::core::RuntimeType for LoggingFieldFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingFieldFormat;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
@@ -3037,6 +3088,9 @@ impl ::core::fmt::Debug for LoggingFields {
 unsafe impl ::windows::core::RuntimeType for LoggingFields {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingFields;{d7f6b7af-762d-4579-83bd-52c23bc333bc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoggingFields {
     type Vtable = ILoggingFields_Vtbl;
@@ -3120,6 +3174,9 @@ impl ::core::fmt::Debug for LoggingLevel {
 unsafe impl ::windows::core::RuntimeType for LoggingLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingLevel;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
@@ -3156,6 +3213,9 @@ impl ::core::fmt::Debug for LoggingOpcode {
 unsafe impl ::windows::core::RuntimeType for LoggingOpcode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingOpcode;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
@@ -3278,6 +3338,9 @@ impl ::core::fmt::Debug for LoggingOptions {
 unsafe impl ::windows::core::RuntimeType for LoggingOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingOptions;{90bc7850-0192-4f5d-ac26-006adaca12d8})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoggingOptions {
     type Vtable = ILoggingOptions_Vtbl;
@@ -3401,6 +3464,9 @@ impl ::core::fmt::Debug for LoggingSession {
 unsafe impl ::windows::core::RuntimeType for LoggingSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingSession;{6221f306-9380-4ad7-baf5-41ea9310d768})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoggingSession {
     type Vtable = ILoggingSession_Vtbl;
@@ -3539,6 +3605,9 @@ impl ::core::fmt::Debug for RuntimeBrokerErrorSettings {
 unsafe impl ::windows::core::RuntimeType for RuntimeBrokerErrorSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings;{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RuntimeBrokerErrorSettings {
     type Vtable = IErrorReportingSettings_Vtbl;
@@ -3651,6 +3720,9 @@ impl ::core::fmt::Debug for TracingStatusChangedEventArgs {
 unsafe impl ::windows::core::RuntimeType for TracingStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs;{410b7711-ff3b-477f-9c9a-d2efda302dc3})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TracingStatusChangedEventArgs {
     type Vtable = ITracingStatusChangedEventArgs_Vtbl;

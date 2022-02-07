@@ -200,6 +200,9 @@ impl ::core::fmt::Debug for WiFiAccessStatus {
 unsafe impl ::windows::core::RuntimeType for WiFiAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiAccessStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
@@ -352,6 +355,9 @@ impl ::core::fmt::Debug for WiFiAdapter {
 unsafe impl ::windows::core::RuntimeType for WiFiAdapter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiAdapter;{a6c4e423-3d75-43a4-b9de-11e26b72d9b0})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WiFiAdapter {
     type Vtable = IWiFiAdapter_Vtbl;
@@ -517,6 +523,9 @@ impl ::core::fmt::Debug for WiFiAvailableNetwork {
 unsafe impl ::windows::core::RuntimeType for WiFiAvailableNetwork {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiAvailableNetwork;{26e96246-183e-4704-9826-71b4a2f0f668})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WiFiAvailableNetwork {
     type Vtable = IWiFiAvailableNetwork_Vtbl;
@@ -598,6 +607,9 @@ impl ::core::fmt::Debug for WiFiConnectionMethod {
 unsafe impl ::windows::core::RuntimeType for WiFiConnectionMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionMethod;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
@@ -631,6 +643,9 @@ impl ::core::fmt::Debug for WiFiConnectionResult {
 unsafe impl ::windows::core::RuntimeType for WiFiConnectionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiConnectionResult;{143bdfd9-c37d-40be-a5c8-857bce85a931})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WiFiConnectionResult {
     type Vtable = IWiFiConnectionResult_Vtbl;
@@ -716,6 +731,9 @@ impl ::core::fmt::Debug for WiFiConnectionStatus {
 unsafe impl ::windows::core::RuntimeType for WiFiConnectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
@@ -748,6 +766,9 @@ impl ::core::fmt::Debug for WiFiNetworkKind {
 unsafe impl ::windows::core::RuntimeType for WiFiNetworkKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiNetworkKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
@@ -791,6 +812,9 @@ impl ::core::fmt::Debug for WiFiNetworkReport {
 unsafe impl ::windows::core::RuntimeType for WiFiNetworkReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiNetworkReport;{9524ded2-5911-445e-8194-be4f1a704895})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WiFiNetworkReport {
     type Vtable = IWiFiNetworkReport_Vtbl;
@@ -880,6 +904,9 @@ impl ::core::fmt::Debug for WiFiPhyKind {
 unsafe impl ::windows::core::RuntimeType for WiFiPhyKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiPhyKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
@@ -911,6 +938,9 @@ impl ::core::fmt::Debug for WiFiReconnectionKind {
 unsafe impl ::windows::core::RuntimeType for WiFiReconnectionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiReconnectionKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
@@ -953,6 +983,9 @@ impl ::core::fmt::Debug for WiFiWpsConfigurationResult {
 unsafe impl ::windows::core::RuntimeType for WiFiWpsConfigurationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiWpsConfigurationResult;{67b49871-17ee-42d1-b14f-5a11f1226fb5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WiFiWpsConfigurationResult {
     type Vtable = IWiFiWpsConfigurationResult_Vtbl;
@@ -1034,6 +1067,9 @@ impl ::core::fmt::Debug for WiFiWpsConfigurationStatus {
 unsafe impl ::windows::core::RuntimeType for WiFiWpsConfigurationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsConfigurationStatus;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
@@ -1069,6 +1105,9 @@ impl ::core::fmt::Debug for WiFiWpsKind {
 unsafe impl ::windows::core::RuntimeType for WiFiWpsKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

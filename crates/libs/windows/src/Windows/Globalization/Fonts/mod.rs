@@ -128,6 +128,9 @@ impl ::core::fmt::Debug for LanguageFont {
 unsafe impl ::windows::core::RuntimeType for LanguageFont {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFont;{b12e5c3a-b76d-459b-beeb-901151cd77d1})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LanguageFont {
     type Vtable = ILanguageFont_Vtbl;
@@ -302,6 +305,9 @@ impl ::core::fmt::Debug for LanguageFontGroup {
 unsafe impl ::windows::core::RuntimeType for LanguageFontGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFontGroup;{f33a7fc3-3a5c-4aea-b9ff-b39fb242f7f6})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LanguageFontGroup {
     type Vtable = ILanguageFontGroup_Vtbl;

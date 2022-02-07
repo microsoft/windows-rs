@@ -175,6 +175,9 @@ impl ::core::fmt::Debug for ArcadeStick {
 unsafe impl ::windows::core::RuntimeType for ArcadeStick {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ArcadeStick;{b14a539d-befb-4c81-8051-15ecf3b13036})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ArcadeStick {
     type Vtable = IArcadeStick_Vtbl;
@@ -338,6 +341,9 @@ impl ::core::ops::Not for ArcadeStickButtons {
 unsafe impl ::windows::core::RuntimeType for ArcadeStickButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Gaming_Input'*"]
@@ -362,6 +368,9 @@ unsafe impl ::windows::core::Abi for ArcadeStickReading {
 unsafe impl ::windows::core::RuntimeType for ArcadeStickReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.ArcadeStickReading;u8;enum(Windows.Gaming.Input.ArcadeStickButtons;u4))");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for ArcadeStickReading {
     fn eq(&self, other: &Self) -> bool {
@@ -547,6 +556,9 @@ impl ::core::fmt::Debug for FlightStick {
 unsafe impl ::windows::core::RuntimeType for FlightStick {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.FlightStick;{b4a2c01c-b83b-4459-a1a9-97b03c33da7c})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FlightStick {
     type Vtable = IFlightStick_Vtbl;
@@ -700,6 +712,9 @@ impl ::core::ops::Not for FlightStickButtons {
 unsafe impl ::windows::core::RuntimeType for FlightStickButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Gaming_Input'*"]
@@ -729,6 +744,9 @@ unsafe impl ::windows::core::Abi for FlightStickReading {
 unsafe impl ::windows::core::RuntimeType for FlightStickReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.FlightStickReading;u8;enum(Windows.Gaming.Input.FlightStickButtons;u4);enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4);f8;f8;f8;f8)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for FlightStickReading {
     fn eq(&self, other: &Self) -> bool {
@@ -838,6 +856,9 @@ impl ::core::fmt::Debug for GameControllerButtonLabel {
 unsafe impl ::windows::core::RuntimeType for GameControllerButtonLabel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
@@ -870,6 +891,9 @@ impl ::core::fmt::Debug for GameControllerSwitchKind {
 unsafe impl ::windows::core::RuntimeType for GameControllerSwitchKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
@@ -908,6 +932,9 @@ impl ::core::fmt::Debug for GameControllerSwitchPosition {
 unsafe impl ::windows::core::RuntimeType for GameControllerSwitchPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
@@ -1092,6 +1119,9 @@ impl ::core::fmt::Debug for Gamepad {
 unsafe impl ::windows::core::RuntimeType for Gamepad {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Gamepad;{bc7bb43c-0a69-3903-9e9d-a50f86a45de5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Gamepad {
     type Vtable = IGamepad_Vtbl;
@@ -1261,6 +1291,9 @@ impl ::core::ops::Not for GamepadButtons {
 unsafe impl ::windows::core::RuntimeType for GamepadButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Gaming_Input'*"]
@@ -1291,6 +1324,9 @@ unsafe impl ::windows::core::Abi for GamepadReading {
 unsafe impl ::windows::core::RuntimeType for GamepadReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadReading;u8;enum(Windows.Gaming.Input.GamepadButtons;u4);f8;f8;f8;f8;f8;f8)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for GamepadReading {
     fn eq(&self, other: &Self) -> bool {
@@ -1328,6 +1364,9 @@ unsafe impl ::windows::core::Abi for GamepadVibration {
 unsafe impl ::windows::core::RuntimeType for GamepadVibration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadVibration;f8;f8;f8;f8)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for GamepadVibration {
     fn eq(&self, other: &Self) -> bool {
@@ -1389,6 +1428,9 @@ impl ::core::fmt::Debug for Headset {
 unsafe impl ::windows::core::RuntimeType for Headset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Headset;{3fd156ef-6925-3fa8-9181-029c5223ae3b})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Headset {
     type Vtable = IHeadset_Vtbl;
@@ -1702,6 +1744,9 @@ impl ::core::fmt::Debug for IGameController {
 unsafe impl ::windows::core::RuntimeType for IGameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1baf6522-5f64-42c5-8267-b9fe2215bfbd}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IGameController {
     type Vtable = IGameController_Vtbl;
@@ -1815,6 +1860,9 @@ impl ::core::fmt::Debug for IGameControllerBatteryInfo {
 unsafe impl ::windows::core::RuntimeType for IGameControllerBatteryInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{dcecc681-3963-4da6-955d-553f3b6f6161}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IGameControllerBatteryInfo {
     type Vtable = IGameControllerBatteryInfo_Vtbl;
@@ -2188,6 +2236,9 @@ impl ::core::ops::Not for OptionalUINavigationButtons {
 unsafe impl ::windows::core::RuntimeType for OptionalUINavigationButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
@@ -2408,6 +2459,9 @@ impl ::core::fmt::Debug for RacingWheel {
 unsafe impl ::windows::core::RuntimeType for RacingWheel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RacingWheel;{f546656f-e106-4c82-a90f-554012904b85})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RacingWheel {
     type Vtable = IRacingWheel_Vtbl;
@@ -2581,6 +2635,9 @@ impl ::core::ops::Not for RacingWheelButtons {
 unsafe impl ::windows::core::RuntimeType for RacingWheelButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RacingWheelButtons;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Gaming_Input'*"]
@@ -2611,6 +2668,9 @@ unsafe impl ::windows::core::Abi for RacingWheelReading {
 unsafe impl ::windows::core::RuntimeType for RacingWheelReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.RacingWheelReading;u8;enum(Windows.Gaming.Input.RacingWheelButtons;u4);i4;f8;f8;f8;f8;f8)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for RacingWheelReading {
     fn eq(&self, other: &Self) -> bool {
@@ -2870,6 +2930,9 @@ impl ::core::fmt::Debug for RawGameController {
 unsafe impl ::windows::core::RuntimeType for RawGameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RawGameController;{7cad6d91-a7e1-4f71-9a78-33e9c5dfea62})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RawGameController {
     type Vtable = IRawGameController_Vtbl;
@@ -3029,6 +3092,9 @@ impl ::core::ops::Not for RequiredUINavigationButtons {
 unsafe impl ::windows::core::RuntimeType for RequiredUINavigationButtons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
@@ -3208,6 +3274,9 @@ impl ::core::fmt::Debug for UINavigationController {
 unsafe impl ::windows::core::RuntimeType for UINavigationController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.UINavigationController;{e5aeefdd-f50e-4a55-8cdc-d33229548175})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UINavigationController {
     type Vtable = IUINavigationController_Vtbl;
@@ -3326,6 +3395,9 @@ unsafe impl ::windows::core::Abi for UINavigationReading {
 unsafe impl ::windows::core::RuntimeType for UINavigationReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.UINavigationReading;u8;enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4);enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4))");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for UINavigationReading {
     fn eq(&self, other: &Self) -> bool {

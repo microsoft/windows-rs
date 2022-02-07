@@ -38,6 +38,9 @@ unsafe impl ::windows::core::Abi for DisplayAdapterId {
 unsafe impl ::windows::core::RuntimeType for DisplayAdapterId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for DisplayAdapterId {
     fn eq(&self, other: &Self) -> bool {
@@ -72,6 +75,9 @@ unsafe impl ::windows::core::Abi for DisplayId {
 unsafe impl ::windows::core::RuntimeType for DisplayId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for DisplayId {
     fn eq(&self, other: &Self) -> bool {
@@ -147,6 +153,9 @@ impl ::core::fmt::Debug for IGeometrySource2D {
 unsafe impl ::windows::core::RuntimeType for IGeometrySource2D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IGeometrySource2D {
     type Vtable = IGeometrySource2D_Vtbl;
@@ -180,6 +189,9 @@ unsafe impl ::windows::core::Abi for PointInt32 {
 unsafe impl ::windows::core::RuntimeType for PointInt32 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for PointInt32 {
     fn eq(&self, other: &Self) -> bool {
@@ -217,6 +229,9 @@ unsafe impl ::windows::core::Abi for RectInt32 {
 unsafe impl ::windows::core::RuntimeType for RectInt32 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for RectInt32 {
     fn eq(&self, other: &Self) -> bool {
@@ -252,6 +267,9 @@ unsafe impl ::windows::core::Abi for SizeInt32 {
 unsafe impl ::windows::core::RuntimeType for SizeInt32 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
 }
 impl ::core::cmp::PartialEq for SizeInt32 {
     fn eq(&self, other: &Self) -> bool {

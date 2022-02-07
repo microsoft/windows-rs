@@ -51,6 +51,9 @@ impl ::core::fmt::Debug for FeatureElementKindPreview {
 unsafe impl ::windows::core::RuntimeType for FeatureElementKindPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.FeatureElementKindPreview;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
@@ -423,6 +426,9 @@ impl ::core::fmt::Debug for ILearningModelVariableDescriptorPreview {
 unsafe impl ::windows::core::RuntimeType for ILearningModelVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b13df682-fc30-492b-8ea0-ed1f53c0b038}");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ILearningModelVariableDescriptorPreview {
@@ -618,6 +624,9 @@ impl ::core::fmt::Debug for ImageVariableDescriptorPreview {
 unsafe impl ::windows::core::RuntimeType for ImageVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview;{7ae1fa72-029e-4dc5-a2f8-5fb763154150})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ImageVariableDescriptorPreview {
@@ -808,6 +817,9 @@ impl ::core::fmt::Debug for InferencingOptionsPreview {
 unsafe impl ::windows::core::RuntimeType for InferencingOptionsPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.InferencingOptionsPreview;{47bc8205-4d36-47a9-8f68-ffcb339dd0fc})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for InferencingOptionsPreview {
@@ -971,6 +983,9 @@ impl ::core::fmt::Debug for LearningModelBindingPreview {
 unsafe impl ::windows::core::RuntimeType for LearningModelBindingPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelBindingPreview;{93c901e8-6c78-4b4f-aec1-a6bb9e691624})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for LearningModelBindingPreview {
@@ -1200,6 +1215,9 @@ impl ::core::fmt::Debug for LearningModelDescriptionPreview {
 unsafe impl ::windows::core::RuntimeType for LearningModelDescriptionPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview;{f52c09c6-8611-40ad-8e59-de3fd7030a40})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for LearningModelDescriptionPreview {
@@ -1300,6 +1318,9 @@ impl ::core::fmt::Debug for LearningModelDeviceKindPreview {
 unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKindPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
@@ -1350,6 +1371,9 @@ impl ::core::fmt::Debug for LearningModelEvaluationResultPreview {
 unsafe impl ::windows::core::RuntimeType for LearningModelEvaluationResultPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview;{df25ea9f-9863-4088-8498-87a1f4686f92})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for LearningModelEvaluationResultPreview {
@@ -1449,6 +1473,9 @@ impl ::core::fmt::Debug for LearningModelFeatureKindPreview {
 unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKindPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
@@ -1545,6 +1572,9 @@ impl ::core::fmt::Debug for LearningModelPreview {
 unsafe impl ::windows::core::RuntimeType for LearningModelPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelPreview;{049c266a-93b4-478c-aeb8-70157bf0ff94})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for LearningModelPreview {
@@ -1670,6 +1700,9 @@ impl ::core::fmt::Debug for LearningModelVariableDescriptorPreview {
 unsafe impl ::windows::core::RuntimeType for LearningModelVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview;{b13df682-fc30-492b-8ea0-ed1f53c0b038})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for LearningModelVariableDescriptorPreview {
@@ -1857,6 +1890,9 @@ impl ::core::fmt::Debug for MapVariableDescriptorPreview {
 unsafe impl ::windows::core::RuntimeType for MapVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview;{3cb38370-c02b-4236-b3e8-6bdca49c3129})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for MapVariableDescriptorPreview {
@@ -2017,6 +2053,9 @@ impl ::core::fmt::Debug for SequenceVariableDescriptorPreview {
 unsafe impl ::windows::core::RuntimeType for SequenceVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview;{9cd8f292-98b2-4530-a1b6-2ded5fecbc26})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SequenceVariableDescriptorPreview {
@@ -2186,6 +2225,9 @@ impl ::core::fmt::Debug for TensorVariableDescriptorPreview {
 unsafe impl ::windows::core::RuntimeType for TensorVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview;{a80f501a-9aac-4233-9784-aceaf92510b5})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for TensorVariableDescriptorPreview {

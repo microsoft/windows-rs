@@ -228,6 +228,9 @@ impl ::core::fmt::Debug for DisplayMonitor {
 unsafe impl ::windows::core::RuntimeType for DisplayMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.DisplayMonitor;{1f6b15d4-1d01-4c51-87e2-6f954a772b59})");
     type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DisplayMonitor {
     type Vtable = IDisplayMonitor_Vtbl;
@@ -310,6 +313,9 @@ impl ::core::fmt::Debug for DisplayMonitorConnectionKind {
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorConnectionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
@@ -341,6 +347,9 @@ impl ::core::fmt::Debug for DisplayMonitorDescriptorKind {
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorDescriptorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
@@ -378,6 +387,9 @@ impl ::core::fmt::Debug for DisplayMonitorPhysicalConnectorKind {
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
@@ -410,6 +422,9 @@ impl ::core::fmt::Debug for DisplayMonitorUsageKind {
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorUsageKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
