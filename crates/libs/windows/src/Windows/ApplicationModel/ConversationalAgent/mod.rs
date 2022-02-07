@@ -262,7 +262,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurat
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration;{40d8be16-5217-581c-9ab2-ce9b2f2e8e00})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfiguration {
@@ -381,7 +381,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurat
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult;{4c89bc1b-8d12-5e48-a71c-7f6bc1cd66e0})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfigurationCreationResult {
@@ -844,7 +844,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector;{b5bf345f-a4d0-5b2b-8e65-b3c55ee756ff})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ActivationSignalDetector {
@@ -1126,7 +1126,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentDetectorManager 
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager;{de94fbb0-597a-5df8-8cfb-9dbb583ba3ff})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentDetectorManager {
@@ -1559,7 +1559,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession;{daaae09a-b7ba-57e5-ad13-df520f9b6fa7})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSession {
@@ -1661,7 +1661,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionInterrupt
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs;{9766591f-f63d-5d3e-9bf2-bd0760552686})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSessionInterruptedEventArgs {
@@ -1870,7 +1870,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSignal {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal;{20ed25f7-b120-51f2-8603-265d6a47f232})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSignal {
@@ -1946,7 +1946,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSignalDetectedEv
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs;{4d57eb8f-f88a-599b-91d3-d604876708bc})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSignalDetectedEventArgs {
@@ -2105,7 +2105,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChang
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs;{1c2c6e3e-2785-59a7-8e71-38adeef79928})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSystemStateChangedEventArgs {
@@ -2263,7 +2263,7 @@ unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityC
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs;{5129c9fb-4be8-5f14-af2b-88d62b1b4462})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityChangedEventArgs {
@@ -2381,7 +2381,7 @@ unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityI
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo;{b5affeb0-40f0-5398-b838-91979c2c6208})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityInfo {

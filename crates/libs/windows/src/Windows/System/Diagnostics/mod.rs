@@ -47,7 +47,7 @@ unsafe impl ::windows::core::RuntimeType for DiagnosticActionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticActionResult;{c265a296-e73b-4097-b28f-3442f03dd831})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for DiagnosticActionResult {
@@ -207,7 +207,7 @@ unsafe impl ::windows::core::RuntimeType for DiagnosticInvoker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticInvoker;{187b270a-02e3-4f86-84fc-fdd892b5940f})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for DiagnosticInvoker {
@@ -632,7 +632,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessCpuUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessCpuUsage;{0bbb2472-c8bf-423a-a810-b559ae4354e2})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ProcessCpuUsage {
@@ -727,7 +727,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessCpuUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessCpuUsageReport;{8a6d9cac-3987-4e2f-a119-6b5fa214f1b4})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ProcessCpuUsageReport {
@@ -910,7 +910,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessDiagnosticInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiagnosticInfo;{e830b04b-300e-4ee6-a0ab-5b5f5231b434})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ProcessDiagnosticInfo {
@@ -995,7 +995,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessDiskUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsage;{5ad78bfd-7e51-4e53-bfaa-5a6ee1aabbf8})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ProcessDiskUsage {
@@ -1120,7 +1120,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessDiskUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsageReport;{401627fd-535d-4c1f-81b8-da54e1be635e})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ProcessDiskUsageReport {
@@ -1205,7 +1205,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessMemoryUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsage;{f50b229b-827c-42b7-b07c-0e32627e6b3e})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ProcessMemoryUsage {
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessMemoryUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsageReport;{c2c77cba-1951-4685-8532-7e749ecf8eeb})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for ProcessMemoryUsageReport {
@@ -1463,7 +1463,7 @@ unsafe impl ::windows::core::RuntimeType for SystemCpuUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemCpuUsage;{6037b3ac-02d6-4234-8362-7fe3adc81f5f})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for SystemCpuUsage {
@@ -1567,7 +1567,7 @@ unsafe impl ::windows::core::RuntimeType for SystemCpuUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemCpuUsageReport;{2c26d0b2-9483-4f62-ab57-82b29d9719b8})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for SystemCpuUsageReport {
@@ -1691,7 +1691,7 @@ unsafe impl ::windows::core::RuntimeType for SystemDiagnosticInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemDiagnosticInfo;{a290fe05-dff3-407f-9a1b-0b2b317ca800})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for SystemDiagnosticInfo {
@@ -1776,7 +1776,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMemoryUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsage;{17ffc595-1702-49cf-aa27-2f0a32591404})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for SystemMemoryUsage {
@@ -1877,7 +1877,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMemoryUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsageReport;{38663c87-2a9f-403a-bd19-2cf3e8169500})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for SystemMemoryUsageReport {

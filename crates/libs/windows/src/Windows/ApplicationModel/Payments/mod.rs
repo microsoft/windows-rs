@@ -772,7 +772,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentAddress;{5f2264e9-6f3a-4166-a018-0a0b06bb32b5})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentAddress {
@@ -869,7 +869,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentCanMakePaymentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult;{7696fe55-d5d3-4d3d-b345-45591759c510})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentCanMakePaymentResult {
@@ -1043,7 +1043,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentCurrencyAmount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentCurrencyAmount;{e3a3e9e0-b41f-4987-bdcb-071331f2daa4})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentCurrencyAmount {
@@ -1205,7 +1205,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentDetails;{53bb2d7d-e0eb-4053-8eae-ce7c48e02945})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentDetails {
@@ -1345,7 +1345,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentDetailsModifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentDetailsModifier;{be1c7d65-4323-41d7-b305-dfcb765f69de})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentDetailsModifier {
@@ -1473,7 +1473,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentItem;{685ac88b-79b2-4b76-9e03-a876223dfe72})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentItem {
@@ -1593,7 +1593,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentMediator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMediator;{fb0ee829-ec0c-449a-83da-7ae3073365a2})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentMediator {
@@ -1707,7 +1707,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentMerchantInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMerchantInfo;{63445050-0e94-4ed6-aacb-e6012bd327a7})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentMerchantInfo {
@@ -1822,7 +1822,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentMethodData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMethodData;{d1d3caf4-de98-4129-b1b7-c3ad86237bf4})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentMethodData {
@@ -2006,7 +2006,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentOptions;{aaa30854-1f2b-4365-8251-01b58915a5bc})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentOptions {
@@ -2166,7 +2166,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequest;{b74942e1-ed7b-47eb-bc08-78cc5d6896b6})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentRequest {
@@ -2306,7 +2306,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestChangedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestChangedArgs;{c6145e44-cd8b-4be4-b555-27c99194c0c5})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentRequestChangedArgs {
@@ -2431,7 +2431,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestChangedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5078b9e1-f398-4f2c-a27e-94d371cf6c7d}");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 #[repr(C)]
@@ -2523,7 +2523,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestChangedResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestChangedResult;{df699e5c-16c4-47ad-9401-8440ec0757db})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentRequestChangedResult {
@@ -2686,7 +2686,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestSubmitResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestSubmitResult;{7b9c3912-30f2-4e90-b249-8ce7d78ffe56})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentRequestSubmitResult {
@@ -2820,7 +2820,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentResponse;{e1389457-8bd2-4888-9fa8-97985545108e})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentResponse {
@@ -2975,7 +2975,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentShippingOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentShippingOption;{13372ada-9753-4574-8966-93145a76c7f9})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentShippingOption {
@@ -3122,7 +3122,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentToken {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentToken;{bbcac013-ccd0-41f2-b2a1-0a2e4b5dce25})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for PaymentToken {

@@ -285,7 +285,7 @@ unsafe impl ::windows::core::RuntimeType for IDirect3DDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3DDevice {
@@ -403,7 +403,7 @@ unsafe impl ::windows::core::RuntimeType for IDirect3DSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3DSurface {

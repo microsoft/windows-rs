@@ -115,7 +115,7 @@ unsafe impl ::windows::core::RuntimeType for RequestingFocusOnKeyboardInputEvent
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs;{a1195f27-b1a7-41a2-879d-6a68687e5985})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for RequestingFocusOnKeyboardInputEventArgs {
@@ -241,7 +241,7 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestion;{5b5554b0-1527-437b-95c5-8d18d2b8af55})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for SearchSuggestion {
@@ -458,7 +458,7 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionManager;{3f0c50a1-cb9d-497b-b500-3c04ac959ad2})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for SearchSuggestionManager {
@@ -565,7 +565,7 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionsRequestedEventArgs
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs;{6fd519e5-9e7e-4ab4-8be3-c76b1bd4344a})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or_else(|| ::windows::core::Error::OK)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
 unsafe impl ::windows::core::Interface for SearchSuggestionsRequestedEventArgs {
