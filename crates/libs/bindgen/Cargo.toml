@@ -7,6 +7,10 @@ license = "MIT OR Apache-2.0"
 description = "Code gen support for the windows crate"
 repository = "https://github.com/microsoft/windows-rs"
 
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []
+
 [dependencies]
 tokens = { package = "windows-tokens", path = "../tokens", version = "0.32.0" }
 metadata = { package = "windows-metadata", path = "../metadata", version = "0.32.0" }
