@@ -8,10 +8,10 @@ struct KeyValuePair();
 
 #[allow(non_snake_case)]
 impl IKeyValuePair_Impl<i32, f32> for KeyValuePair {
-    fn Key(&mut self) -> Result<i32> {
+    fn Key(&self) -> Result<i32> {
         Ok(0)
     }
-    fn Value(&mut self) -> Result<f32> {
+    fn Value(&self) -> Result<f32> {
         Ok(0.0)
     }
 }
@@ -23,16 +23,16 @@ struct Iterator();
 
 #[allow(non_snake_case)]
 impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator {
-    fn GetMany(&mut self, _items: &mut [Option<IKeyValuePair<i32, f32>>]) -> Result<u32> {
+    fn GetMany(&self, _items: &mut [Option<IKeyValuePair<i32, f32>>]) -> Result<u32> {
         Ok(0)
     }
-    fn MoveNext(&mut self) -> Result<bool> {
+    fn MoveNext(&self) -> Result<bool> {
         Ok(true)
     }
-    fn Current(&mut self) -> Result<IKeyValuePair<i32, f32>> {
+    fn Current(&self) -> Result<IKeyValuePair<i32, f32>> {
         Ok(KeyValuePair().into())
     }
-    fn HasCurrent(&mut self) -> Result<bool> {
+    fn HasCurrent(&self) -> Result<bool> {
         Ok(true)
     }
 }
@@ -46,23 +46,23 @@ struct MapView();
 #[allow(non_snake_case)]
 impl IMapView_Impl<i32, f32> for MapView {
     // TODO: shouldn't require & for primtiive
-    fn HasKey(&mut self, _key: &i32) -> Result<bool> {
+    fn HasKey(&self, _key: &i32) -> Result<bool> {
         Ok(true)
     }
-    fn Lookup(&mut self, _key: &i32) -> Result<f32> {
+    fn Lookup(&self, _key: &i32) -> Result<f32> {
         Ok(0.0)
     }
-    fn Split(&mut self, _first: &mut Option<IMapView<i32, f32>>, _second: &mut Option<IMapView<i32, f32>>) -> Result<()> {
+    fn Split(&self, _first: &mut Option<IMapView<i32, f32>>, _second: &mut Option<IMapView<i32, f32>>) -> Result<()> {
         Ok(())
     }
-    fn Size(&mut self) -> Result<u32> {
+    fn Size(&self) -> Result<u32> {
         Ok(0)
     }
 }
 
 #[allow(non_snake_case)]
 impl IIterable_Impl<IKeyValuePair<i32, f32>> for MapView {
-    fn First(&mut self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
+    fn First(&self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
         Ok(Iterator().into())
     }
 }
@@ -75,31 +75,31 @@ struct Map();
 
 #[allow(non_snake_case)]
 impl IMap_Impl<i32, f32> for Map {
-    fn Clear(&mut self) -> Result<()> {
+    fn Clear(&self) -> Result<()> {
         Ok(())
     }
-    fn GetView(&mut self) -> Result<IMapView<i32, f32>> {
+    fn GetView(&self) -> Result<IMapView<i32, f32>> {
         Ok(MapView().into())
     }
-    fn HasKey(&mut self, _key: &i32) -> Result<bool> {
+    fn HasKey(&self, _key: &i32) -> Result<bool> {
         Ok(true)
     }
-    fn Insert(&mut self, _key: &i32, _value: &f32) -> Result<bool> {
+    fn Insert(&self, _key: &i32, _value: &f32) -> Result<bool> {
         Ok(true)
     }
-    fn Lookup(&mut self, _key: &i32) -> Result<f32> {
+    fn Lookup(&self, _key: &i32) -> Result<f32> {
         Ok(0.0)
     }
-    fn Remove(&mut self, _key: &i32) -> Result<()> {
+    fn Remove(&self, _key: &i32) -> Result<()> {
         Ok(())
     }
-    fn Size(&mut self) -> Result<u32> {
+    fn Size(&self) -> Result<u32> {
         Ok(0)
     }
 }
 
 impl IIterable_Impl<IKeyValuePair<i32, f32>> for Map {
-    fn First(&mut self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
+    fn First(&self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
         Ok(Iterator().into())
     }
 }

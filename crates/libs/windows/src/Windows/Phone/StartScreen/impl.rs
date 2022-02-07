@@ -1,6 +1,6 @@
 #[cfg(feature = "UI_Notifications")]
 pub trait IToastNotificationManagerStatics3_Impl: Sized {
-    fn CreateToastNotifierForSecondaryTile(&mut self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
+    fn CreateToastNotifierForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier>;
 }
 #[cfg(feature = "UI_Notifications")]
 impl ::windows::core::RuntimeName for IToastNotificationManagerStatics3 {

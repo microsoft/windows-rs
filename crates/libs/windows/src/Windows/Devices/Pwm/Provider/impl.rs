@@ -1,14 +1,14 @@
 pub trait IPwmControllerProvider_Impl: Sized {
-    fn PinCount(&mut self) -> ::windows::core::Result<i32>;
-    fn ActualFrequency(&mut self) -> ::windows::core::Result<f64>;
-    fn SetDesiredFrequency(&mut self, frequency: f64) -> ::windows::core::Result<f64>;
-    fn MaxFrequency(&mut self) -> ::windows::core::Result<f64>;
-    fn MinFrequency(&mut self) -> ::windows::core::Result<f64>;
-    fn AcquirePin(&mut self, pin: i32) -> ::windows::core::Result<()>;
-    fn ReleasePin(&mut self, pin: i32) -> ::windows::core::Result<()>;
-    fn EnablePin(&mut self, pin: i32) -> ::windows::core::Result<()>;
-    fn DisablePin(&mut self, pin: i32) -> ::windows::core::Result<()>;
-    fn SetPulseParameters(&mut self, pin: i32, dutycycle: f64, invertpolarity: bool) -> ::windows::core::Result<()>;
+    fn PinCount(&self) -> ::windows::core::Result<i32>;
+    fn ActualFrequency(&self) -> ::windows::core::Result<f64>;
+    fn SetDesiredFrequency(&self, frequency: f64) -> ::windows::core::Result<f64>;
+    fn MaxFrequency(&self) -> ::windows::core::Result<f64>;
+    fn MinFrequency(&self) -> ::windows::core::Result<f64>;
+    fn AcquirePin(&self, pin: i32) -> ::windows::core::Result<()>;
+    fn ReleasePin(&self, pin: i32) -> ::windows::core::Result<()>;
+    fn EnablePin(&self, pin: i32) -> ::windows::core::Result<()>;
+    fn DisablePin(&self, pin: i32) -> ::windows::core::Result<()>;
+    fn SetPulseParameters(&self, pin: i32, dutycycle: f64, invertpolarity: bool) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IPwmControllerProvider {
     const NAME: &'static str = "Windows.Devices.Pwm.Provider.IPwmControllerProvider";
@@ -120,7 +120,7 @@ impl IPwmControllerProvider_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPwmProvider_Impl: Sized {
-    fn GetControllers(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>;
+    fn GetControllers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IPwmProvider {

@@ -14,18 +14,18 @@ where
     T: ::windows::core::RuntimeType + 'static;
 
 impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Thing<T> {
-    fn GetAt(&mut self, index: u32) -> Result<T> {
+    fn GetAt(&self, index: u32) -> Result<T> {
         match self.0.get(index as usize) {
             Some(value) => T::from_default(value),
             None => Err(Error::new(E_BOUNDS, "".into())),
         }
     }
 
-    fn Size(&mut self) -> Result<u32> {
+    fn Size(&self) -> Result<u32> {
         Ok(self.0.len() as _)
     }
 
-    fn IndexOf(&mut self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
         match self.0.iter().position(|element| element == value) {
             Some(index) => {
                 *result = index as _;
@@ -35,13 +35,13 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Thing<T>
         }
     }
 
-    fn GetMany(&mut self, _startindex: u32, _items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, _startindex: u32, _items: &mut [T::DefaultType]) -> Result<u32> {
         panic!();
     }
 }
 
 impl<T: ::windows::core::RuntimeType + 'static> IIterable_Impl<T> for Thing<T> {
-    fn First(&mut self) -> Result<IIterator<T>> {
+    fn First(&self) -> Result<IIterator<T>> {
         todo!()
     }
 }

@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 pub trait IPerceptionFrameProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
-    fn FrameProviderInfo(&mut self) -> ::windows::core::Result<PerceptionFrameProviderInfo>;
-    fn Available(&mut self) -> ::windows::core::Result<bool>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IPropertySet>;
-    fn Start(&mut self) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, value: &::core::option::Option<PerceptionPropertyChangeRequest>) -> ::windows::core::Result<()>;
+    fn FrameProviderInfo(&self) -> ::windows::core::Result<PerceptionFrameProviderInfo>;
+    fn Available(&self) -> ::windows::core::Result<bool>;
+    fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IPropertySet>;
+    fn Start(&self) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, value: &::core::option::Option<PerceptionPropertyChangeRequest>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for IPerceptionFrameProvider {
@@ -81,7 +81,7 @@ impl IPerceptionFrameProvider_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait IPerceptionFrameProviderManager_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
-    fn GetFrameProvider(&mut self, frameproviderinfo: &::core::option::Option<PerceptionFrameProviderInfo>) -> ::windows::core::Result<IPerceptionFrameProvider>;
+    fn GetFrameProvider(&self, frameproviderinfo: &::core::option::Option<PerceptionFrameProviderInfo>) -> ::windows::core::Result<IPerceptionFrameProvider>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for IPerceptionFrameProviderManager {

@@ -1,8 +1,8 @@
 pub trait IAppBarOverrides_Impl: Sized {
-    fn OnClosed(&mut self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnClosed(&self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnOpened(&mut self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnOpened(&self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -32,10 +32,10 @@ impl IAppBarOverrides_Vtbl {
     }
 }
 pub trait IAppBarOverrides3_Impl: Sized {
-    fn OnClosing(&mut self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnClosing(&self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnOpening(&mut self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnOpening(&self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -65,10 +65,10 @@ impl IAppBarOverrides3_Vtbl {
     }
 }
 pub trait IComboBoxOverrides_Impl: Sized {
-    fn OnDropDownClosed(&mut self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnDropDownClosed(&self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnDropDownOpened(&mut self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnDropDownOpened(&self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -98,8 +98,8 @@ impl IComboBoxOverrides_Vtbl {
     }
 }
 pub trait ICommandBarElement_Impl: Sized {
-    fn IsCompact(&mut self) -> ::windows::core::Result<bool>;
-    fn SetIsCompact(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsCompact(&self) -> ::windows::core::Result<bool>;
+    fn SetIsCompact(&self, value: bool) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICommandBarElement {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ICommandBarElement";
@@ -134,9 +134,9 @@ impl ICommandBarElement_Vtbl {
     }
 }
 pub trait ICommandBarElement2_Impl: Sized {
-    fn IsInOverflow(&mut self) -> ::windows::core::Result<bool>;
-    fn DynamicOverflowOrder(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDynamicOverflowOrder(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn IsInOverflow(&self) -> ::windows::core::Result<bool>;
+    fn DynamicOverflowOrder(&self) -> ::windows::core::Result<i32>;
+    fn SetDynamicOverflowOrder(&self, value: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICommandBarElement2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ICommandBarElement2";
@@ -184,13 +184,13 @@ impl ICommandBarElement2_Vtbl {
     }
 }
 pub trait IContentControlOverrides_Impl: Sized {
-    fn OnContentChanged(&mut self, oldcontent: &::core::option::Option<::windows::core::IInspectable>, newcontent: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnContentChanged(&self, oldcontent: &::core::option::Option<::windows::core::IInspectable>, newcontent: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnContentTemplateChanged(&mut self, oldcontenttemplate: &::core::option::Option<super::DataTemplate>, newcontenttemplate: &::core::option::Option<super::DataTemplate>) -> ::windows::core::Result<()> {
+    fn OnContentTemplateChanged(&self, oldcontenttemplate: &::core::option::Option<super::DataTemplate>, newcontenttemplate: &::core::option::Option<super::DataTemplate>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnContentTemplateSelectorChanged(&mut self, oldcontenttemplateselector: &::core::option::Option<DataTemplateSelector>, newcontenttemplateselector: &::core::option::Option<DataTemplateSelector>) -> ::windows::core::Result<()> {
+    fn OnContentTemplateSelectorChanged(&self, oldcontenttemplateselector: &::core::option::Option<DataTemplateSelector>, newcontenttemplateselector: &::core::option::Option<DataTemplateSelector>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -226,10 +226,10 @@ impl IContentControlOverrides_Vtbl {
     }
 }
 pub trait IContentPresenterOverrides_Impl: Sized {
-    fn OnContentTemplateChanged(&mut self, oldcontenttemplate: &::core::option::Option<super::DataTemplate>, newcontenttemplate: &::core::option::Option<super::DataTemplate>) -> ::windows::core::Result<()> {
+    fn OnContentTemplateChanged(&self, oldcontenttemplate: &::core::option::Option<super::DataTemplate>, newcontenttemplate: &::core::option::Option<super::DataTemplate>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnContentTemplateSelectorChanged(&mut self, oldcontenttemplateselector: &::core::option::Option<DataTemplateSelector>, newcontenttemplateselector: &::core::option::Option<DataTemplateSelector>) -> ::windows::core::Result<()> {
+    fn OnContentTemplateSelectorChanged(&self, oldcontenttemplateselector: &::core::option::Option<DataTemplateSelector>, newcontenttemplateselector: &::core::option::Option<DataTemplateSelector>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -260,79 +260,79 @@ impl IContentPresenterOverrides_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Input")]
 pub trait IControlOverrides_Impl: Sized {
-    fn OnPointerEntered(&mut self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnPointerEntered(&self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnPointerPressed(&mut self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnPointerPressed(&self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnPointerMoved(&mut self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnPointerMoved(&self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnPointerReleased(&mut self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnPointerReleased(&self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnPointerExited(&mut self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnPointerExited(&self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnPointerCaptureLost(&mut self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnPointerCaptureLost(&self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnPointerCanceled(&mut self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnPointerCanceled(&self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnPointerWheelChanged(&mut self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnPointerWheelChanged(&self, e: &::core::option::Option<super::Input::PointerRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnTapped(&mut self, e: &::core::option::Option<super::Input::TappedRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnTapped(&self, e: &::core::option::Option<super::Input::TappedRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnDoubleTapped(&mut self, e: &::core::option::Option<super::Input::DoubleTappedRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnDoubleTapped(&self, e: &::core::option::Option<super::Input::DoubleTappedRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnHolding(&mut self, e: &::core::option::Option<super::Input::HoldingRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnHolding(&self, e: &::core::option::Option<super::Input::HoldingRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnRightTapped(&mut self, e: &::core::option::Option<super::Input::RightTappedRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnRightTapped(&self, e: &::core::option::Option<super::Input::RightTappedRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnManipulationStarting(&mut self, e: &::core::option::Option<super::Input::ManipulationStartingRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnManipulationStarting(&self, e: &::core::option::Option<super::Input::ManipulationStartingRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnManipulationInertiaStarting(&mut self, e: &::core::option::Option<super::Input::ManipulationInertiaStartingRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnManipulationInertiaStarting(&self, e: &::core::option::Option<super::Input::ManipulationInertiaStartingRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnManipulationStarted(&mut self, e: &::core::option::Option<super::Input::ManipulationStartedRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnManipulationStarted(&self, e: &::core::option::Option<super::Input::ManipulationStartedRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnManipulationDelta(&mut self, e: &::core::option::Option<super::Input::ManipulationDeltaRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnManipulationDelta(&self, e: &::core::option::Option<super::Input::ManipulationDeltaRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnManipulationCompleted(&mut self, e: &::core::option::Option<super::Input::ManipulationCompletedRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnManipulationCompleted(&self, e: &::core::option::Option<super::Input::ManipulationCompletedRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnKeyUp(&mut self, e: &::core::option::Option<super::Input::KeyRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnKeyUp(&self, e: &::core::option::Option<super::Input::KeyRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnKeyDown(&mut self, e: &::core::option::Option<super::Input::KeyRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnKeyDown(&self, e: &::core::option::Option<super::Input::KeyRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnGotFocus(&mut self, e: &::core::option::Option<super::RoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnGotFocus(&self, e: &::core::option::Option<super::RoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnLostFocus(&mut self, e: &::core::option::Option<super::RoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnLostFocus(&self, e: &::core::option::Option<super::RoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnDragEnter(&mut self, e: &::core::option::Option<super::DragEventArgs>) -> ::windows::core::Result<()> {
+    fn OnDragEnter(&self, e: &::core::option::Option<super::DragEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnDragLeave(&mut self, e: &::core::option::Option<super::DragEventArgs>) -> ::windows::core::Result<()> {
+    fn OnDragLeave(&self, e: &::core::option::Option<super::DragEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnDragOver(&mut self, e: &::core::option::Option<super::DragEventArgs>) -> ::windows::core::Result<()> {
+    fn OnDragOver(&self, e: &::core::option::Option<super::DragEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnDrop(&mut self, e: &::core::option::Option<super::DragEventArgs>) -> ::windows::core::Result<()> {
+    fn OnDrop(&self, e: &::core::option::Option<super::DragEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -503,13 +503,13 @@ impl IControlOverrides_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Input")]
 pub trait IControlOverrides6_Impl: Sized {
-    fn OnPreviewKeyDown(&mut self, e: &::core::option::Option<super::Input::KeyRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnPreviewKeyDown(&self, e: &::core::option::Option<super::Input::KeyRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnPreviewKeyUp(&mut self, e: &::core::option::Option<super::Input::KeyRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnPreviewKeyUp(&self, e: &::core::option::Option<super::Input::KeyRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnCharacterReceived(&mut self, e: &::core::option::Option<super::Input::CharacterReceivedRoutedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnCharacterReceived(&self, e: &::core::option::Option<super::Input::CharacterReceivedRoutedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -547,7 +547,7 @@ impl IControlOverrides6_Vtbl {
     }
 }
 pub trait IDataTemplateSelectorOverrides_Impl: Sized {
-    fn SelectTemplateCore(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, container: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::DataTemplate>;
+    fn SelectTemplateCore(&self, item: &::core::option::Option<::windows::core::IInspectable>, container: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::DataTemplate>;
 }
 impl ::windows::core::RuntimeName for IDataTemplateSelectorOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IDataTemplateSelectorOverrides";
@@ -576,7 +576,7 @@ impl IDataTemplateSelectorOverrides_Vtbl {
     }
 }
 pub trait IDataTemplateSelectorOverrides2_Impl: Sized {
-    fn SelectTemplateForItemCore(&mut self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::DataTemplate>;
+    fn SelectTemplateForItemCore(&self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::DataTemplate>;
 }
 impl ::windows::core::RuntimeName for IDataTemplateSelectorOverrides2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IDataTemplateSelectorOverrides2";
@@ -605,7 +605,7 @@ impl IDataTemplateSelectorOverrides2_Vtbl {
     }
 }
 pub trait IGroupStyleSelectorOverrides_Impl: Sized {
-    fn SelectGroupStyleCore(&mut self, group: &::core::option::Option<::windows::core::IInspectable>, level: u32) -> ::windows::core::Result<GroupStyle>;
+    fn SelectGroupStyleCore(&self, group: &::core::option::Option<::windows::core::IInspectable>, level: u32) -> ::windows::core::Result<GroupStyle>;
 }
 impl ::windows::core::RuntimeName for IGroupStyleSelectorOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IGroupStyleSelectorOverrides";
@@ -635,7 +635,7 @@ impl IGroupStyleSelectorOverrides_Vtbl {
 }
 #[cfg(all(feature = "UI_Input_Inking", feature = "UI_Xaml_Media"))]
 pub trait IInkToolbarCustomPenOverrides_Impl: Sized {
-    fn CreateInkDrawingAttributesCore(&mut self, brush: &::core::option::Option<super::Media::Brush>, strokewidth: f64) -> ::windows::core::Result<super::super::Input::Inking::InkDrawingAttributes>;
+    fn CreateInkDrawingAttributesCore(&self, brush: &::core::option::Option<super::Media::Brush>, strokewidth: f64) -> ::windows::core::Result<super::super::Input::Inking::InkDrawingAttributes>;
 }
 #[cfg(all(feature = "UI_Input_Inking", feature = "UI_Xaml_Media"))]
 impl ::windows::core::RuntimeName for IInkToolbarCustomPenOverrides {
@@ -667,7 +667,7 @@ impl IInkToolbarCustomPenOverrides_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IInsertionPanel_Impl: Sized {
-    fn GetInsertionIndexes(&mut self, position: &super::super::super::Foundation::Point, first: &mut i32, second: &mut i32) -> ::windows::core::Result<()>;
+    fn GetInsertionIndexes(&self, position: &super::super::super::Foundation::Point, first: &mut i32, second: &mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IInsertionPanel {
@@ -691,10 +691,10 @@ impl IInsertionPanel_Vtbl {
     }
 }
 pub trait IItemContainerMapping_Impl: Sized {
-    fn ItemFromContainer(&mut self, container: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn ContainerFromItem(&mut self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::DependencyObject>;
-    fn IndexFromContainer(&mut self, container: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
-    fn ContainerFromIndex(&mut self, index: i32) -> ::windows::core::Result<super::DependencyObject>;
+    fn ItemFromContainer(&self, container: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn ContainerFromItem(&self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::DependencyObject>;
+    fn IndexFromContainer(&self, container: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<i32>;
+    fn ContainerFromIndex(&self, index: i32) -> ::windows::core::Result<super::DependencyObject>;
 }
 impl ::windows::core::RuntimeName for IItemContainerMapping {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IItemContainerMapping";
@@ -762,30 +762,30 @@ impl IItemContainerMapping_Vtbl {
     }
 }
 pub trait IItemsControlOverrides_Impl: Sized {
-    fn IsItemItsOwnContainerOverride(&mut self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
-    fn GetContainerForItemOverride(&mut self) -> ::windows::core::Result<super::DependencyObject>;
-    fn ClearContainerForItemOverride(&mut self, element: &::core::option::Option<super::DependencyObject>, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn IsItemItsOwnContainerOverride(&self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
+    fn GetContainerForItemOverride(&self) -> ::windows::core::Result<super::DependencyObject>;
+    fn ClearContainerForItemOverride(&self, element: &::core::option::Option<super::DependencyObject>, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn PrepareContainerForItemOverride(&mut self, element: &::core::option::Option<super::DependencyObject>, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn PrepareContainerForItemOverride(&self, element: &::core::option::Option<super::DependencyObject>, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnItemsChanged(&mut self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnItemsChanged(&self, e: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnItemContainerStyleChanged(&mut self, olditemcontainerstyle: &::core::option::Option<super::Style>, newitemcontainerstyle: &::core::option::Option<super::Style>) -> ::windows::core::Result<()> {
+    fn OnItemContainerStyleChanged(&self, olditemcontainerstyle: &::core::option::Option<super::Style>, newitemcontainerstyle: &::core::option::Option<super::Style>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnItemContainerStyleSelectorChanged(&mut self, olditemcontainerstyleselector: &::core::option::Option<StyleSelector>, newitemcontainerstyleselector: &::core::option::Option<StyleSelector>) -> ::windows::core::Result<()> {
+    fn OnItemContainerStyleSelectorChanged(&self, olditemcontainerstyleselector: &::core::option::Option<StyleSelector>, newitemcontainerstyleselector: &::core::option::Option<StyleSelector>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnItemTemplateChanged(&mut self, olditemtemplate: &::core::option::Option<super::DataTemplate>, newitemtemplate: &::core::option::Option<super::DataTemplate>) -> ::windows::core::Result<()> {
+    fn OnItemTemplateChanged(&self, olditemtemplate: &::core::option::Option<super::DataTemplate>, newitemtemplate: &::core::option::Option<super::DataTemplate>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnItemTemplateSelectorChanged(&mut self, olditemtemplateselector: &::core::option::Option<DataTemplateSelector>, newitemtemplateselector: &::core::option::Option<DataTemplateSelector>) -> ::windows::core::Result<()> {
+    fn OnItemTemplateSelectorChanged(&self, olditemtemplateselector: &::core::option::Option<DataTemplateSelector>, newitemtemplateselector: &::core::option::Option<DataTemplateSelector>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnGroupStyleSelectorChanged(&mut self, oldgroupstyleselector: &::core::option::Option<GroupStyleSelector>, newgroupstyleselector: &::core::option::Option<GroupStyleSelector>) -> ::windows::core::Result<()> {
+    fn OnGroupStyleSelectorChanged(&self, oldgroupstyleselector: &::core::option::Option<GroupStyleSelector>, newgroupstyleselector: &::core::option::Option<GroupStyleSelector>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -878,7 +878,7 @@ impl IItemsControlOverrides_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 pub trait INavigate_Impl: Sized {
-    fn Navigate(&mut self, sourcepagetype: &super::Interop::TypeName) -> ::windows::core::Result<bool>;
+    fn Navigate(&self, sourcepagetype: &super::Interop::TypeName) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ::windows::core::RuntimeName for INavigate {
@@ -907,13 +907,13 @@ impl INavigate_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Navigation")]
 pub trait IPageOverrides_Impl: Sized {
-    fn OnNavigatedFrom(&mut self, e: &::core::option::Option<super::Navigation::NavigationEventArgs>) -> ::windows::core::Result<()> {
+    fn OnNavigatedFrom(&self, e: &::core::option::Option<super::Navigation::NavigationEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnNavigatedTo(&mut self, e: &::core::option::Option<super::Navigation::NavigationEventArgs>) -> ::windows::core::Result<()> {
+    fn OnNavigatedTo(&self, e: &::core::option::Option<super::Navigation::NavigationEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnNavigatingFrom(&mut self, e: &::core::option::Option<super::Navigation::NavigatingCancelEventArgs>) -> ::windows::core::Result<()> {
+    fn OnNavigatingFrom(&self, e: &::core::option::Option<super::Navigation::NavigatingCancelEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -951,9 +951,9 @@ impl IPageOverrides_Vtbl {
     }
 }
 pub trait IScrollAnchorProvider_Impl: Sized {
-    fn CurrentAnchor(&mut self) -> ::windows::core::Result<super::UIElement>;
-    fn RegisterAnchorCandidate(&mut self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
-    fn UnregisterAnchorCandidate(&mut self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn CurrentAnchor(&self) -> ::windows::core::Result<super::UIElement>;
+    fn RegisterAnchorCandidate(&self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn UnregisterAnchorCandidate(&self, element: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IScrollAnchorProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IScrollAnchorProvider";
@@ -994,19 +994,19 @@ impl IScrollAnchorProvider_Vtbl {
     }
 }
 pub trait ISemanticZoomInformation_Impl: Sized {
-    fn SemanticZoomOwner(&mut self) -> ::windows::core::Result<SemanticZoom>;
-    fn SetSemanticZoomOwner(&mut self, value: &::core::option::Option<SemanticZoom>) -> ::windows::core::Result<()>;
-    fn IsActiveView(&mut self) -> ::windows::core::Result<bool>;
-    fn SetIsActiveView(&mut self, value: bool) -> ::windows::core::Result<()>;
-    fn IsZoomedInView(&mut self) -> ::windows::core::Result<bool>;
-    fn SetIsZoomedInView(&mut self, value: bool) -> ::windows::core::Result<()>;
-    fn InitializeViewChange(&mut self) -> ::windows::core::Result<()>;
-    fn CompleteViewChange(&mut self) -> ::windows::core::Result<()>;
-    fn MakeVisible(&mut self, item: &::core::option::Option<SemanticZoomLocation>) -> ::windows::core::Result<()>;
-    fn StartViewChangeFrom(&mut self, source: &::core::option::Option<SemanticZoomLocation>, destination: &::core::option::Option<SemanticZoomLocation>) -> ::windows::core::Result<()>;
-    fn StartViewChangeTo(&mut self, source: &::core::option::Option<SemanticZoomLocation>, destination: &::core::option::Option<SemanticZoomLocation>) -> ::windows::core::Result<()>;
-    fn CompleteViewChangeFrom(&mut self, source: &::core::option::Option<SemanticZoomLocation>, destination: &::core::option::Option<SemanticZoomLocation>) -> ::windows::core::Result<()>;
-    fn CompleteViewChangeTo(&mut self, source: &::core::option::Option<SemanticZoomLocation>, destination: &::core::option::Option<SemanticZoomLocation>) -> ::windows::core::Result<()>;
+    fn SemanticZoomOwner(&self) -> ::windows::core::Result<SemanticZoom>;
+    fn SetSemanticZoomOwner(&self, value: &::core::option::Option<SemanticZoom>) -> ::windows::core::Result<()>;
+    fn IsActiveView(&self) -> ::windows::core::Result<bool>;
+    fn SetIsActiveView(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsZoomedInView(&self) -> ::windows::core::Result<bool>;
+    fn SetIsZoomedInView(&self, value: bool) -> ::windows::core::Result<()>;
+    fn InitializeViewChange(&self) -> ::windows::core::Result<()>;
+    fn CompleteViewChange(&self) -> ::windows::core::Result<()>;
+    fn MakeVisible(&self, item: &::core::option::Option<SemanticZoomLocation>) -> ::windows::core::Result<()>;
+    fn StartViewChangeFrom(&self, source: &::core::option::Option<SemanticZoomLocation>, destination: &::core::option::Option<SemanticZoomLocation>) -> ::windows::core::Result<()>;
+    fn StartViewChangeTo(&self, source: &::core::option::Option<SemanticZoomLocation>, destination: &::core::option::Option<SemanticZoomLocation>) -> ::windows::core::Result<()>;
+    fn CompleteViewChangeFrom(&self, source: &::core::option::Option<SemanticZoomLocation>, destination: &::core::option::Option<SemanticZoomLocation>) -> ::windows::core::Result<()>;
+    fn CompleteViewChangeTo(&self, source: &::core::option::Option<SemanticZoomLocation>, destination: &::core::option::Option<SemanticZoomLocation>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISemanticZoomInformation {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ISemanticZoomInformation";
@@ -1121,7 +1121,7 @@ impl ISemanticZoomInformation_Vtbl {
     }
 }
 pub trait IStyleSelectorOverrides_Impl: Sized {
-    fn SelectStyleCore(&mut self, item: &::core::option::Option<::windows::core::IInspectable>, container: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::Style>;
+    fn SelectStyleCore(&self, item: &::core::option::Option<::windows::core::IInspectable>, container: &::core::option::Option<super::DependencyObject>) -> ::windows::core::Result<super::Style>;
 }
 impl ::windows::core::RuntimeName for IStyleSelectorOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IStyleSelectorOverrides";
@@ -1150,16 +1150,16 @@ impl IStyleSelectorOverrides_Vtbl {
     }
 }
 pub trait IToggleSwitchOverrides_Impl: Sized {
-    fn OnToggled(&mut self) -> ::windows::core::Result<()> {
+    fn OnToggled(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnOnContentChanged(&mut self, oldcontent: &::core::option::Option<::windows::core::IInspectable>, newcontent: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnOnContentChanged(&self, oldcontent: &::core::option::Option<::windows::core::IInspectable>, newcontent: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnOffContentChanged(&mut self, oldcontent: &::core::option::Option<::windows::core::IInspectable>, newcontent: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnOffContentChanged(&self, oldcontent: &::core::option::Option<::windows::core::IInspectable>, newcontent: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnHeaderChanged(&mut self, oldcontent: &::core::option::Option<::windows::core::IInspectable>, newcontent: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
+    fn OnHeaderChanged(&self, oldcontent: &::core::option::Option<::windows::core::IInspectable>, newcontent: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -1202,13 +1202,13 @@ impl IToggleSwitchOverrides_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Controls_Primitives")]
 pub trait IVirtualizingPanelOverrides_Impl: Sized {
-    fn OnItemsChanged(&mut self, sender: &::core::option::Option<::windows::core::IInspectable>, args: &::core::option::Option<Primitives::ItemsChangedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnItemsChanged(&self, sender: &::core::option::Option<::windows::core::IInspectable>, args: &::core::option::Option<Primitives::ItemsChangedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnClearChildren(&mut self) -> ::windows::core::Result<()> {
+    fn OnClearChildren(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn BringIndexIntoView(&mut self, index: i32) -> ::windows::core::Result<()> {
+    fn BringIndexIntoView(&self, index: i32) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -1246,7 +1246,7 @@ impl IVirtualizingPanelOverrides_Vtbl {
     }
 }
 pub trait IVirtualizingStackPanelOverrides_Impl: Sized {
-    fn OnCleanUpVirtualizedItem(&mut self, e: &::core::option::Option<CleanUpVirtualizedItemEventArgs>) -> ::windows::core::Result<()> {
+    fn OnCleanUpVirtualizedItem(&self, e: &::core::option::Option<CleanUpVirtualizedItemEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }

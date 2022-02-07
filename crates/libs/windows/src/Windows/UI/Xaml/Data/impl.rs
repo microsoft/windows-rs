@@ -1,22 +1,22 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait ICollectionView_Impl: Sized + super::super::super::Foundation::Collections::IIterable_Impl<::windows::core::IInspectable> + super::super::super::Foundation::Collections::IObservableVector_Impl<::windows::core::IInspectable> + super::super::super::Foundation::Collections::IVector_Impl<::windows::core::IInspectable> {
-    fn CurrentItem(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn CurrentPosition(&mut self) -> ::windows::core::Result<i32>;
-    fn IsCurrentAfterLast(&mut self) -> ::windows::core::Result<bool>;
-    fn IsCurrentBeforeFirst(&mut self) -> ::windows::core::Result<bool>;
-    fn CollectionGroups(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>;
-    fn HasMoreItems(&mut self) -> ::windows::core::Result<bool>;
-    fn CurrentChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCurrentChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CurrentChanging(&mut self, handler: &::core::option::Option<CurrentChangingEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCurrentChanging(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn MoveCurrentTo(&mut self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
-    fn MoveCurrentToPosition(&mut self, index: i32) -> ::windows::core::Result<bool>;
-    fn MoveCurrentToFirst(&mut self) -> ::windows::core::Result<bool>;
-    fn MoveCurrentToLast(&mut self) -> ::windows::core::Result<bool>;
-    fn MoveCurrentToNext(&mut self) -> ::windows::core::Result<bool>;
-    fn MoveCurrentToPrevious(&mut self) -> ::windows::core::Result<bool>;
-    fn LoadMoreItemsAsync(&mut self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>>;
+    fn CurrentItem(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn CurrentPosition(&self) -> ::windows::core::Result<i32>;
+    fn IsCurrentAfterLast(&self) -> ::windows::core::Result<bool>;
+    fn IsCurrentBeforeFirst(&self) -> ::windows::core::Result<bool>;
+    fn CollectionGroups(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>;
+    fn HasMoreItems(&self) -> ::windows::core::Result<bool>;
+    fn CurrentChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCurrentChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CurrentChanging(&self, handler: &::core::option::Option<CurrentChangingEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCurrentChanging(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MoveCurrentTo(&self, item: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
+    fn MoveCurrentToPosition(&self, index: i32) -> ::windows::core::Result<bool>;
+    fn MoveCurrentToFirst(&self) -> ::windows::core::Result<bool>;
+    fn MoveCurrentToLast(&self) -> ::windows::core::Result<bool>;
+    fn MoveCurrentToNext(&self) -> ::windows::core::Result<bool>;
+    fn MoveCurrentToPrevious(&self) -> ::windows::core::Result<bool>;
+    fn LoadMoreItemsAsync(&self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ICollectionView {
@@ -241,7 +241,7 @@ impl ICollectionView_Vtbl {
     }
 }
 pub trait ICollectionViewFactory_Impl: Sized {
-    fn CreateView(&mut self) -> ::windows::core::Result<ICollectionView>;
+    fn CreateView(&self) -> ::windows::core::Result<ICollectionView>;
 }
 impl ::windows::core::RuntimeName for ICollectionViewFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Data.ICollectionViewFactory";
@@ -268,8 +268,8 @@ impl ICollectionViewFactory_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait ICollectionViewGroup_Impl: Sized {
-    fn Group(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn GroupItems(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>;
+    fn Group(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn GroupItems(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<::windows::core::IInspectable>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ICollectionViewGroup {
@@ -314,14 +314,14 @@ impl ICollectionViewGroup_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 pub trait ICustomProperty_Impl: Sized {
-    fn Type(&mut self) -> ::windows::core::Result<super::Interop::TypeName>;
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetValue(&mut self, target: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetValue(&mut self, target: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn GetIndexedValue(&mut self, target: &::core::option::Option<::windows::core::IInspectable>, index: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetIndexedValue(&mut self, target: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>, index: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn CanWrite(&mut self) -> ::windows::core::Result<bool>;
-    fn CanRead(&mut self) -> ::windows::core::Result<bool>;
+    fn Type(&self) -> ::windows::core::Result<super::Interop::TypeName>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetValue(&self, target: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetValue(&self, target: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn GetIndexedValue(&self, target: &::core::option::Option<::windows::core::IInspectable>, index: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetIndexedValue(&self, target: &::core::option::Option<::windows::core::IInspectable>, value: &::core::option::Option<::windows::core::IInspectable>, index: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn CanWrite(&self) -> ::windows::core::Result<bool>;
+    fn CanRead(&self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ::windows::core::RuntimeName for ICustomProperty {
@@ -430,10 +430,10 @@ impl ICustomProperty_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 pub trait ICustomPropertyProvider_Impl: Sized {
-    fn GetCustomProperty(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ICustomProperty>;
-    fn GetIndexedProperty(&mut self, name: &::windows::core::HSTRING, r#type: &super::Interop::TypeName) -> ::windows::core::Result<ICustomProperty>;
-    fn GetStringRepresentation(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Type(&mut self) -> ::windows::core::Result<super::Interop::TypeName>;
+    fn GetCustomProperty(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<ICustomProperty>;
+    fn GetIndexedProperty(&self, name: &::windows::core::HSTRING, r#type: &super::Interop::TypeName) -> ::windows::core::Result<ICustomProperty>;
+    fn GetStringRepresentation(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Type(&self) -> ::windows::core::Result<super::Interop::TypeName>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ::windows::core::RuntimeName for ICustomPropertyProvider {
@@ -504,7 +504,7 @@ impl ICustomPropertyProvider_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IItemsRangeInfo_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
-    fn RangesChanged(&mut self, visiblerange: &::core::option::Option<ItemIndexRange>, trackeditems: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>>) -> ::windows::core::Result<()>;
+    fn RangesChanged(&self, visiblerange: &::core::option::Option<ItemIndexRange>, trackeditems: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IItemsRangeInfo {
@@ -526,8 +526,8 @@ impl IItemsRangeInfo_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait INotifyPropertyChanged_Impl: Sized {
-    fn PropertyChanged(&mut self, handler: &::core::option::Option<PropertyChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemovePropertyChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PropertyChanged(&self, handler: &::core::option::Option<PropertyChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemovePropertyChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for INotifyPropertyChanged {
@@ -565,10 +565,10 @@ impl INotifyPropertyChanged_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait ISelectionInfo_Impl: Sized {
-    fn SelectRange(&mut self, itemindexrange: &::core::option::Option<ItemIndexRange>) -> ::windows::core::Result<()>;
-    fn DeselectRange(&mut self, itemindexrange: &::core::option::Option<ItemIndexRange>) -> ::windows::core::Result<()>;
-    fn IsSelected(&mut self, index: i32) -> ::windows::core::Result<bool>;
-    fn GetSelectedRanges(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>>;
+    fn SelectRange(&self, itemindexrange: &::core::option::Option<ItemIndexRange>) -> ::windows::core::Result<()>;
+    fn DeselectRange(&self, itemindexrange: &::core::option::Option<ItemIndexRange>) -> ::windows::core::Result<()>;
+    fn IsSelected(&self, index: i32) -> ::windows::core::Result<bool>;
+    fn GetSelectedRanges(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<ItemIndexRange>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ISelectionInfo {
@@ -625,8 +625,8 @@ impl ISelectionInfo_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ISupportIncrementalLoading_Impl: Sized {
-    fn LoadMoreItemsAsync(&mut self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>>;
-    fn HasMoreItems(&mut self) -> ::windows::core::Result<bool>;
+    fn LoadMoreItemsAsync(&self, count: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LoadMoreItemsResult>>;
+    fn HasMoreItems(&self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISupportIncrementalLoading {
@@ -671,8 +671,8 @@ impl ISupportIncrementalLoading_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 pub trait IValueConverter_Impl: Sized {
-    fn Convert(&mut self, value: &::core::option::Option<::windows::core::IInspectable>, targettype: &super::Interop::TypeName, parameter: &::core::option::Option<::windows::core::IInspectable>, language: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn ConvertBack(&mut self, value: &::core::option::Option<::windows::core::IInspectable>, targettype: &super::Interop::TypeName, parameter: &::core::option::Option<::windows::core::IInspectable>, language: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Convert(&self, value: &::core::option::Option<::windows::core::IInspectable>, targettype: &super::Interop::TypeName, parameter: &::core::option::Option<::windows::core::IInspectable>, language: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn ConvertBack(&self, value: &::core::option::Option<::windows::core::IInspectable>, targettype: &super::Interop::TypeName, parameter: &::core::option::Option<::windows::core::IInspectable>, language: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ::windows::core::RuntimeName for IValueConverter {

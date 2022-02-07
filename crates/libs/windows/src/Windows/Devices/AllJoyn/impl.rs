@@ -1,6 +1,6 @@
 #[cfg(feature = "deprecated")]
 pub trait IAllJoynAcceptSessionJoiner_Impl: Sized {
-    fn Accept(&mut self) -> ::windows::core::Result<()>;
+    fn Accept(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for IAllJoynAcceptSessionJoiner {
@@ -22,7 +22,7 @@ impl IAllJoynAcceptSessionJoiner_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 pub trait IAllJoynProducer_Impl: Sized {
-    fn SetBusObject(&mut self, busobject: &::core::option::Option<AllJoynBusObject>) -> ::windows::core::Result<()>;
+    fn SetBusObject(&self, busobject: &::core::option::Option<AllJoynBusObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for IAllJoynProducer {

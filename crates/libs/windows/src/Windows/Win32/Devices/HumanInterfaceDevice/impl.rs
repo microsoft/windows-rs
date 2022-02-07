@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput2A_Impl: Sized + IDirectInputA_Impl {
-    fn FindDevice(&mut self, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInput2A_Vtbl {
@@ -18,7 +18,7 @@ impl IDirectInput2A_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput2W_Impl: Sized + IDirectInputW_Impl {
-    fn FindDevice(&mut self, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInput2W_Vtbl {
@@ -36,7 +36,7 @@ impl IDirectInput2W_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput7A_Impl: Sized + IDirectInputA_Impl + IDirectInput2A_Impl {
-    fn CreateDeviceEx(&mut self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInput7A_Vtbl {
@@ -54,7 +54,7 @@ impl IDirectInput7A_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput7W_Impl: Sized + IDirectInputW_Impl + IDirectInput2W_Impl {
-    fn CreateDeviceEx(&mut self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInput7W_Vtbl {
@@ -72,14 +72,14 @@ impl IDirectInput7W_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput8A_Impl: Sized {
-    fn CreateDevice(&mut self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn EnumDevices(&mut self, param0: u32, param1: &LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
-    fn GetDeviceStatus(&mut self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RunControlPanel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::Result<()>;
-    fn FindDevice(&mut self, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn EnumDevicesBySemantics(&mut self, param0: super::super::Foundation::PSTR, param1: *mut DIACTIONFORMATA, param2: &LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()>;
-    fn ConfigureDevices(&mut self, param0: &LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn EnumDevices(&self, param0: u32, param1: &LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::Result<()>;
+    fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn EnumDevicesBySemantics(&self, param0: super::super::Foundation::PSTR, param1: *mut DIACTIONFORMATA, param2: &LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()>;
+    fn ConfigureDevices(&self, param0: &LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInput8A_Vtbl {
@@ -142,14 +142,14 @@ impl IDirectInput8A_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput8W_Impl: Sized {
-    fn CreateDevice(&mut self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn EnumDevices(&mut self, param0: u32, param1: &LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
-    fn GetDeviceStatus(&mut self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RunControlPanel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::Result<()>;
-    fn FindDevice(&mut self, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn EnumDevicesBySemantics(&mut self, param0: super::super::Foundation::PWSTR, param1: *mut DIACTIONFORMATW, param2: &LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()>;
-    fn ConfigureDevices(&mut self, param0: &LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn EnumDevices(&self, param0: u32, param1: &LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::Result<()>;
+    fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn EnumDevicesBySemantics(&self, param0: super::super::Foundation::PWSTR, param1: *mut DIACTIONFORMATW, param2: &LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()>;
+    fn ConfigureDevices(&self, param0: &LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInput8W_Vtbl {
@@ -212,11 +212,11 @@ impl IDirectInput8W_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputA_Impl: Sized {
-    fn CreateDevice(&mut self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn EnumDevices(&mut self, param0: u32, param1: &LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
-    fn GetDeviceStatus(&mut self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RunControlPanel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn EnumDevices(&self, param0: u32, param1: &LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputA_Vtbl {
@@ -261,15 +261,15 @@ impl IDirectInputA_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice2A_Impl: Sized + IDirectInputDeviceA_Impl {
-    fn CreateEffect(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn EnumEffects(&mut self, param0: &LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn GetEffectInfo(&mut self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetForceFeedbackState(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn SendForceFeedbackCommand(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn EnumCreatedEffectObjects(&mut self, param0: &LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn Escape(&mut self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
-    fn Poll(&mut self) -> ::windows::core::Result<()>;
-    fn SendDeviceData(&mut self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
+    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn EnumEffects(&self, param0: &LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn EnumCreatedEffectObjects(&self, param0: &LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
+    fn Poll(&self) -> ::windows::core::Result<()>;
+    fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice2A_Vtbl {
@@ -338,15 +338,15 @@ impl IDirectInputDevice2A_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice2W_Impl: Sized + IDirectInputDeviceW_Impl {
-    fn CreateEffect(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn EnumEffects(&mut self, param0: &LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn GetEffectInfo(&mut self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetForceFeedbackState(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn SendForceFeedbackCommand(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn EnumCreatedEffectObjects(&mut self, param0: &LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn Escape(&mut self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
-    fn Poll(&mut self) -> ::windows::core::Result<()>;
-    fn SendDeviceData(&mut self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
+    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn EnumEffects(&self, param0: &LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn EnumCreatedEffectObjects(&self, param0: &LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
+    fn Poll(&self) -> ::windows::core::Result<()>;
+    fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice2W_Vtbl {
@@ -415,8 +415,8 @@ impl IDirectInputDevice2W_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice7A_Impl: Sized + IDirectInputDeviceA_Impl + IDirectInputDevice2A_Impl {
-    fn EnumEffectsInFile(&mut self, param0: super::super::Foundation::PSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
-    fn WriteEffectToFile(&mut self, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
+    fn EnumEffectsInFile(&self, param0: super::super::Foundation::PSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
+    fn WriteEffectToFile(&self, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice7A_Vtbl {
@@ -443,8 +443,8 @@ impl IDirectInputDevice7A_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice7W_Impl: Sized + IDirectInputDeviceW_Impl + IDirectInputDevice2W_Impl {
-    fn EnumEffectsInFile(&mut self, param0: super::super::Foundation::PWSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
-    fn WriteEffectToFile(&mut self, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
+    fn EnumEffectsInFile(&self, param0: super::super::Foundation::PWSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
+    fn WriteEffectToFile(&self, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice7W_Vtbl {
@@ -471,35 +471,35 @@ impl IDirectInputDevice7W_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice8A_Impl: Sized {
-    fn GetCapabilities(&mut self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
-    fn EnumObjects(&mut self, param0: &LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
-    fn Acquire(&mut self) -> ::windows::core::Result<()>;
-    fn Unacquire(&mut self) -> ::windows::core::Result<()>;
-    fn GetDeviceState(&mut self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetDeviceData(&mut self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
-    fn SetDataFormat(&mut self, param0: *mut DIDATAFORMAT) -> ::windows::core::Result<()>;
-    fn SetEventNotification(&mut self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn SetCooperativeLevel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn GetObjectInfo(&mut self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn GetDeviceInfo(&mut self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::Result<()>;
-    fn RunControlPanel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn CreateEffect(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn EnumEffects(&mut self, param0: &LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn GetEffectInfo(&mut self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetForceFeedbackState(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn SendForceFeedbackCommand(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn EnumCreatedEffectObjects(&mut self, param0: &LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn Escape(&mut self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
-    fn Poll(&mut self) -> ::windows::core::Result<()>;
-    fn SendDeviceData(&mut self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
-    fn EnumEffectsInFile(&mut self, param0: super::super::Foundation::PSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
-    fn WriteEffectToFile(&mut self, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
-    fn BuildActionMap(&mut self, param0: *mut DIACTIONFORMATA, param1: super::super::Foundation::PSTR, param2: u32) -> ::windows::core::Result<()>;
-    fn SetActionMap(&mut self, param0: *mut DIACTIONFORMATA, param1: super::super::Foundation::PSTR, param2: u32) -> ::windows::core::Result<()>;
-    fn GetImageInfo(&mut self, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows::core::Result<()>;
+    fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
+    fn EnumObjects(&self, param0: &LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
+    fn Acquire(&self) -> ::windows::core::Result<()>;
+    fn Unacquire(&self) -> ::windows::core::Result<()>;
+    fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
+    fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::core::Result<()>;
+    fn SetEventNotification(&self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::Result<()>;
+    fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn EnumEffects(&self, param0: &LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn EnumCreatedEffectObjects(&self, param0: &LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
+    fn Poll(&self) -> ::windows::core::Result<()>;
+    fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
+    fn EnumEffectsInFile(&self, param0: super::super::Foundation::PSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
+    fn WriteEffectToFile(&self, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
+    fn BuildActionMap(&self, param0: *mut DIACTIONFORMATA, param1: super::super::Foundation::PSTR, param2: u32) -> ::windows::core::Result<()>;
+    fn SetActionMap(&self, param0: *mut DIACTIONFORMATA, param1: super::super::Foundation::PSTR, param2: u32) -> ::windows::core::Result<()>;
+    fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice8A_Vtbl {
@@ -688,35 +688,35 @@ impl IDirectInputDevice8A_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice8W_Impl: Sized {
-    fn GetCapabilities(&mut self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
-    fn EnumObjects(&mut self, param0: &LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
-    fn Acquire(&mut self) -> ::windows::core::Result<()>;
-    fn Unacquire(&mut self) -> ::windows::core::Result<()>;
-    fn GetDeviceState(&mut self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetDeviceData(&mut self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
-    fn SetDataFormat(&mut self, param0: *mut DIDATAFORMAT) -> ::windows::core::Result<()>;
-    fn SetEventNotification(&mut self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn SetCooperativeLevel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn GetObjectInfo(&mut self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn GetDeviceInfo(&mut self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::Result<()>;
-    fn RunControlPanel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn CreateEffect(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn EnumEffects(&mut self, param0: &LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn GetEffectInfo(&mut self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetForceFeedbackState(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn SendForceFeedbackCommand(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn EnumCreatedEffectObjects(&mut self, param0: &LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn Escape(&mut self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
-    fn Poll(&mut self) -> ::windows::core::Result<()>;
-    fn SendDeviceData(&mut self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
-    fn EnumEffectsInFile(&mut self, param0: super::super::Foundation::PWSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
-    fn WriteEffectToFile(&mut self, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
-    fn BuildActionMap(&mut self, param0: *mut DIACTIONFORMATW, param1: super::super::Foundation::PWSTR, param2: u32) -> ::windows::core::Result<()>;
-    fn SetActionMap(&mut self, param0: *mut DIACTIONFORMATW, param1: super::super::Foundation::PWSTR, param2: u32) -> ::windows::core::Result<()>;
-    fn GetImageInfo(&mut self, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows::core::Result<()>;
+    fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
+    fn EnumObjects(&self, param0: &LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
+    fn Acquire(&self) -> ::windows::core::Result<()>;
+    fn Unacquire(&self) -> ::windows::core::Result<()>;
+    fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
+    fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::core::Result<()>;
+    fn SetEventNotification(&self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::Result<()>;
+    fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn EnumEffects(&self, param0: &LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn EnumCreatedEffectObjects(&self, param0: &LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
+    fn Poll(&self) -> ::windows::core::Result<()>;
+    fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
+    fn EnumEffectsInFile(&self, param0: super::super::Foundation::PWSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
+    fn WriteEffectToFile(&self, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
+    fn BuildActionMap(&self, param0: *mut DIACTIONFORMATW, param1: super::super::Foundation::PWSTR, param2: u32) -> ::windows::core::Result<()>;
+    fn SetActionMap(&self, param0: *mut DIACTIONFORMATW, param1: super::super::Foundation::PWSTR, param2: u32) -> ::windows::core::Result<()>;
+    fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice8W_Vtbl {
@@ -905,21 +905,21 @@ impl IDirectInputDevice8W_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDeviceA_Impl: Sized {
-    fn GetCapabilities(&mut self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
-    fn EnumObjects(&mut self, param0: &LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
-    fn Acquire(&mut self) -> ::windows::core::Result<()>;
-    fn Unacquire(&mut self) -> ::windows::core::Result<()>;
-    fn GetDeviceState(&mut self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetDeviceData(&mut self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
-    fn SetDataFormat(&mut self, param0: *mut DIDATAFORMAT) -> ::windows::core::Result<()>;
-    fn SetEventNotification(&mut self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn SetCooperativeLevel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn GetObjectInfo(&mut self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn GetDeviceInfo(&mut self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::Result<()>;
-    fn RunControlPanel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
+    fn EnumObjects(&self, param0: &LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
+    fn Acquire(&self) -> ::windows::core::Result<()>;
+    fn Unacquire(&self) -> ::windows::core::Result<()>;
+    fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
+    fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::core::Result<()>;
+    fn SetEventNotification(&self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::Result<()>;
+    fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDeviceA_Vtbl {
@@ -1024,21 +1024,21 @@ impl IDirectInputDeviceA_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDeviceW_Impl: Sized {
-    fn GetCapabilities(&mut self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
-    fn EnumObjects(&mut self, param0: &LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
-    fn Acquire(&mut self) -> ::windows::core::Result<()>;
-    fn Unacquire(&mut self) -> ::windows::core::Result<()>;
-    fn GetDeviceState(&mut self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetDeviceData(&mut self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
-    fn SetDataFormat(&mut self, param0: *mut DIDATAFORMAT) -> ::windows::core::Result<()>;
-    fn SetEventNotification(&mut self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn SetCooperativeLevel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn GetObjectInfo(&mut self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn GetDeviceInfo(&mut self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::Result<()>;
-    fn RunControlPanel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::core::Result<()>;
+    fn EnumObjects(&self, param0: &LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, param0: *const ::windows::core::GUID, param1: *mut DIPROPHEADER) -> ::windows::core::Result<()>;
+    fn Acquire(&self) -> ::windows::core::Result<()>;
+    fn Unacquire(&self) -> ::windows::core::Result<()>;
+    fn GetDeviceState(&self, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
+    fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::core::Result<()>;
+    fn SetEventNotification(&self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::Result<()>;
+    fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDeviceW_Vtbl {
@@ -1143,16 +1143,16 @@ impl IDirectInputDeviceW_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputEffect_Impl: Sized {
-    fn Initialize(&mut self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetEffectGuid(&mut self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetParameters(&mut self, param0: *mut DIEFFECT, param1: u32) -> ::windows::core::Result<()>;
-    fn SetParameters(&mut self, param0: *mut DIEFFECT, param1: u32) -> ::windows::core::Result<()>;
-    fn Start(&mut self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
-    fn GetEffectStatus(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn Download(&mut self) -> ::windows::core::Result<()>;
-    fn Unload(&mut self) -> ::windows::core::Result<()>;
-    fn Escape(&mut self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetEffectGuid(&self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetParameters(&self, param0: *mut DIEFFECT, param1: u32) -> ::windows::core::Result<()>;
+    fn SetParameters(&self, param0: *mut DIEFFECT, param1: u32) -> ::windows::core::Result<()>;
+    fn Start(&self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn GetEffectStatus(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn Download(&self) -> ::windows::core::Result<()>;
+    fn Unload(&self) -> ::windows::core::Result<()>;
+    fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputEffect_Vtbl {
@@ -1226,17 +1226,17 @@ impl IDirectInputEffect_Vtbl {
     }
 }
 pub trait IDirectInputEffectDriver_Impl: Sized {
-    fn DeviceID(&mut self, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetVersions(&mut self, param0: *mut DIDRIVERVERSIONS) -> ::windows::core::Result<()>;
-    fn Escape(&mut self, param0: u32, param1: u32, param2: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
-    fn SetGain(&mut self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
-    fn SendForceFeedbackCommand(&mut self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
-    fn GetForceFeedbackState(&mut self, param0: u32, param1: *mut DIDEVICESTATE) -> ::windows::core::Result<()>;
-    fn DownloadEffect(&mut self, param0: u32, param1: u32, param2: *mut u32, param3: *mut DIEFFECT, param4: u32) -> ::windows::core::Result<()>;
-    fn DestroyEffect(&mut self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
-    fn StartEffect(&mut self, param0: u32, param1: u32, param2: u32, param3: u32) -> ::windows::core::Result<()>;
-    fn StopEffect(&mut self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
-    fn GetEffectStatus(&mut self, param0: u32, param1: u32, param2: *mut u32) -> ::windows::core::Result<()>;
+    fn DeviceID(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetVersions(&self, param0: *mut DIDRIVERVERSIONS) -> ::windows::core::Result<()>;
+    fn Escape(&self, param0: u32, param1: u32, param2: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
+    fn SetGain(&self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
+    fn SendForceFeedbackCommand(&self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
+    fn GetForceFeedbackState(&self, param0: u32, param1: *mut DIDEVICESTATE) -> ::windows::core::Result<()>;
+    fn DownloadEffect(&self, param0: u32, param1: u32, param2: *mut u32, param3: *mut DIEFFECT, param4: u32) -> ::windows::core::Result<()>;
+    fn DestroyEffect(&self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
+    fn StartEffect(&self, param0: u32, param1: u32, param2: u32, param3: u32) -> ::windows::core::Result<()>;
+    fn StopEffect(&self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
+    fn GetEffectStatus(&self, param0: u32, param1: u32, param2: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IDirectInputEffectDriver_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputEffectDriver_Impl, const OFFSET: isize>() -> IDirectInputEffectDriver_Vtbl {
@@ -1316,22 +1316,22 @@ impl IDirectInputEffectDriver_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait IDirectInputJoyConfig_Impl: Sized {
-    fn Acquire(&mut self) -> ::windows::core::Result<()>;
-    fn Unacquire(&mut self) -> ::windows::core::Result<()>;
-    fn SetCooperativeLevel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn SendNotify(&mut self) -> ::windows::core::Result<()>;
-    fn EnumTypes(&mut self, param0: &LPDIJOYTYPECALLBACK, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetTypeInfo(&mut self, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>;
-    fn SetTypeInfo(&mut self, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>;
-    fn DeleteType(&mut self, param0: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetConfig(&mut self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()>;
-    fn SetConfig(&mut self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()>;
-    fn DeleteConfig(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetUserValues(&mut self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::Result<()>;
-    fn SetUserValues(&mut self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::Result<()>;
-    fn AddNewHardware(&mut self, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OpenTypeKey(&mut self, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
-    fn OpenConfigKey(&mut self, param0: u32, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
+    fn Acquire(&self) -> ::windows::core::Result<()>;
+    fn Unacquire(&self) -> ::windows::core::Result<()>;
+    fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn SendNotify(&self) -> ::windows::core::Result<()>;
+    fn EnumTypes(&self, param0: &LPDIJOYTYPECALLBACK, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetTypeInfo(&self, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>;
+    fn SetTypeInfo(&self, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>;
+    fn DeleteType(&self, param0: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()>;
+    fn SetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()>;
+    fn DeleteConfig(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::Result<()>;
+    fn SetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::Result<()>;
+    fn AddNewHardware(&self, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OpenTypeKey(&self, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
+    fn OpenConfigKey(&self, param0: u32, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl IDirectInputJoyConfig_Vtbl {
@@ -1442,22 +1442,22 @@ impl IDirectInputJoyConfig_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait IDirectInputJoyConfig8_Impl: Sized {
-    fn Acquire(&mut self) -> ::windows::core::Result<()>;
-    fn Unacquire(&mut self) -> ::windows::core::Result<()>;
-    fn SetCooperativeLevel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn SendNotify(&mut self) -> ::windows::core::Result<()>;
-    fn EnumTypes(&mut self, param0: &LPDIJOYTYPECALLBACK, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetTypeInfo(&mut self, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>;
-    fn SetTypeInfo(&mut self, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32, param3: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn DeleteType(&mut self, param0: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetConfig(&mut self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()>;
-    fn SetConfig(&mut self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()>;
-    fn DeleteConfig(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetUserValues(&mut self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::Result<()>;
-    fn SetUserValues(&mut self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::Result<()>;
-    fn AddNewHardware(&mut self, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OpenTypeKey(&mut self, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
-    fn OpenAppStatusKey(&mut self, param0: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
+    fn Acquire(&self) -> ::windows::core::Result<()>;
+    fn Unacquire(&self) -> ::windows::core::Result<()>;
+    fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn SendNotify(&self) -> ::windows::core::Result<()>;
+    fn EnumTypes(&self, param0: &LPDIJOYTYPECALLBACK, param1: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetTypeInfo(&self, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::core::Result<()>;
+    fn SetTypeInfo(&self, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32, param3: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn DeleteType(&self, param0: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()>;
+    fn SetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::core::Result<()>;
+    fn DeleteConfig(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::Result<()>;
+    fn SetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::core::Result<()>;
+    fn AddNewHardware(&self, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OpenTypeKey(&self, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
+    fn OpenAppStatusKey(&self, param0: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl IDirectInputJoyConfig8_Vtbl {
@@ -1568,11 +1568,11 @@ impl IDirectInputJoyConfig8_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputW_Impl: Sized {
-    fn CreateDevice(&mut self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn EnumDevices(&mut self, param0: u32, param1: &LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
-    fn GetDeviceStatus(&mut self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RunControlPanel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn EnumDevices(&self, param0: u32, param1: &LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
+    fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputW_Vtbl {

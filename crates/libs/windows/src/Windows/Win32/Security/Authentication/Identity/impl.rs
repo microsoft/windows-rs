@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICcgDomainAuthCredentials_Impl: Sized {
-    fn GetPasswordCredentials(&mut self, plugininput: super::super::super::Foundation::PWSTR, domainname: *mut super::super::super::Foundation::PWSTR, username: *mut super::super::super::Foundation::PWSTR, password: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetPasswordCredentials(&self, plugininput: super::super::super::Foundation::PWSTR, domainname: *mut super::super::super::Foundation::PWSTR, username: *mut super::super::super::Foundation::PWSTR, password: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICcgDomainAuthCredentials_Vtbl {

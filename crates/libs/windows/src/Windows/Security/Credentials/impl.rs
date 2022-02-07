@@ -1,7 +1,7 @@
 pub trait IWebAccount_Impl: Sized {
-    fn WebAccountProvider(&mut self) -> ::windows::core::Result<WebAccountProvider>;
-    fn UserName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn State(&mut self) -> ::windows::core::Result<WebAccountState>;
+    fn WebAccountProvider(&self) -> ::windows::core::Result<WebAccountProvider>;
+    fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn State(&self) -> ::windows::core::Result<WebAccountState>;
 }
 impl ::windows::core::RuntimeName for IWebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccount";

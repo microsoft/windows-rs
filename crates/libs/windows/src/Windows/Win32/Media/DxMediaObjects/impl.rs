@@ -1,7 +1,7 @@
 pub trait IDMOQualityControl_Impl: Sized {
-    fn SetNow(&mut self, rtnow: i64) -> ::windows::core::Result<()>;
-    fn SetStatus(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetStatus(&mut self) -> ::windows::core::Result<u32>;
+    fn SetNow(&self, rtnow: i64) -> ::windows::core::Result<()>;
+    fn SetStatus(&self, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetStatus(&self) -> ::windows::core::Result<u32>;
 }
 impl IDMOQualityControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMOQualityControl_Impl, const OFFSET: isize>() -> IDMOQualityControl_Vtbl {
@@ -38,10 +38,10 @@ impl IDMOQualityControl_Vtbl {
     }
 }
 pub trait IDMOVideoOutputOptimizations_Impl: Sized {
-    fn QueryOperationModePreferences(&mut self, uloutputstreamindex: u32) -> ::windows::core::Result<u32>;
-    fn SetOperationMode(&mut self, uloutputstreamindex: u32, dwenabledfeatures: u32) -> ::windows::core::Result<()>;
-    fn GetCurrentOperationMode(&mut self, uloutputstreamindex: u32) -> ::windows::core::Result<u32>;
-    fn GetCurrentSampleRequirements(&mut self, uloutputstreamindex: u32) -> ::windows::core::Result<u32>;
+    fn QueryOperationModePreferences(&self, uloutputstreamindex: u32) -> ::windows::core::Result<u32>;
+    fn SetOperationMode(&self, uloutputstreamindex: u32, dwenabledfeatures: u32) -> ::windows::core::Result<()>;
+    fn GetCurrentOperationMode(&self, uloutputstreamindex: u32) -> ::windows::core::Result<u32>;
+    fn GetCurrentSampleRequirements(&self, uloutputstreamindex: u32) -> ::windows::core::Result<u32>;
 }
 impl IDMOVideoOutputOptimizations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMOVideoOutputOptimizations_Impl, const OFFSET: isize>() -> IDMOVideoOutputOptimizations_Vtbl {
@@ -97,10 +97,10 @@ impl IDMOVideoOutputOptimizations_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumDMO_Impl: Sized {
-    fn Next(&mut self, citemstofetch: u32, pclsid: *mut ::windows::core::GUID, names: *mut super::super::Foundation::PWSTR, pcitemsfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, citemstoskip: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumDMO>;
+    fn Next(&self, citemstofetch: u32, pclsid: *mut ::windows::core::GUID, names: *mut super::super::Foundation::PWSTR, pcitemsfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, citemstoskip: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumDMO>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumDMO_Vtbl {
@@ -144,9 +144,9 @@ impl IEnumDMO_Vtbl {
     }
 }
 pub trait IMediaBuffer_Impl: Sized {
-    fn SetLength(&mut self, cblength: u32) -> ::windows::core::Result<()>;
-    fn GetMaxLength(&mut self) -> ::windows::core::Result<u32>;
-    fn GetBufferAndLength(&mut self, ppbuffer: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()>;
+    fn SetLength(&self, cblength: u32) -> ::windows::core::Result<()>;
+    fn GetMaxLength(&self) -> ::windows::core::Result<u32>;
+    fn GetBufferAndLength(&self, ppbuffer: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IMediaBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBuffer_Impl, const OFFSET: isize>() -> IMediaBuffer_Vtbl {
@@ -184,27 +184,27 @@ impl IMediaBuffer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMediaObject_Impl: Sized {
-    fn GetStreamCount(&mut self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::Result<()>;
-    fn GetInputStreamInfo(&mut self, dwinputstreamindex: u32) -> ::windows::core::Result<u32>;
-    fn GetOutputStreamInfo(&mut self, dwoutputstreamindex: u32) -> ::windows::core::Result<u32>;
-    fn GetInputType(&mut self, dwinputstreamindex: u32, dwtypeindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE>;
-    fn GetOutputType(&mut self, dwoutputstreamindex: u32, dwtypeindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE>;
-    fn SetInputType(&mut self, dwinputstreamindex: u32, pmt: *const DMO_MEDIA_TYPE, dwflags: u32) -> ::windows::core::Result<()>;
-    fn SetOutputType(&mut self, dwoutputstreamindex: u32, pmt: *const DMO_MEDIA_TYPE, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetInputCurrentType(&mut self, dwinputstreamindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE>;
-    fn GetOutputCurrentType(&mut self, dwoutputstreamindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE>;
-    fn GetInputSizeInfo(&mut self, dwinputstreamindex: u32, pcbsize: *mut u32, pcbmaxlookahead: *mut u32, pcbalignment: *mut u32) -> ::windows::core::Result<()>;
-    fn GetOutputSizeInfo(&mut self, dwoutputstreamindex: u32, pcbsize: *mut u32, pcbalignment: *mut u32) -> ::windows::core::Result<()>;
-    fn GetInputMaxLatency(&mut self, dwinputstreamindex: u32) -> ::windows::core::Result<i64>;
-    fn SetInputMaxLatency(&mut self, dwinputstreamindex: u32, rtmaxlatency: i64) -> ::windows::core::Result<()>;
-    fn Flush(&mut self) -> ::windows::core::Result<()>;
-    fn Discontinuity(&mut self, dwinputstreamindex: u32) -> ::windows::core::Result<()>;
-    fn AllocateStreamingResources(&mut self) -> ::windows::core::Result<()>;
-    fn FreeStreamingResources(&mut self) -> ::windows::core::Result<()>;
-    fn GetInputStatus(&mut self, dwinputstreamindex: u32) -> ::windows::core::Result<u32>;
-    fn ProcessInput(&mut self, dwinputstreamindex: u32, pbuffer: &::core::option::Option<IMediaBuffer>, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()>;
-    fn ProcessOutput(&mut self, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn Lock(&mut self, block: i32) -> ::windows::core::Result<()>;
+    fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::Result<()>;
+    fn GetInputStreamInfo(&self, dwinputstreamindex: u32) -> ::windows::core::Result<u32>;
+    fn GetOutputStreamInfo(&self, dwoutputstreamindex: u32) -> ::windows::core::Result<u32>;
+    fn GetInputType(&self, dwinputstreamindex: u32, dwtypeindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE>;
+    fn GetOutputType(&self, dwoutputstreamindex: u32, dwtypeindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE>;
+    fn SetInputType(&self, dwinputstreamindex: u32, pmt: *const DMO_MEDIA_TYPE, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetOutputType(&self, dwoutputstreamindex: u32, pmt: *const DMO_MEDIA_TYPE, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetInputCurrentType(&self, dwinputstreamindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE>;
+    fn GetOutputCurrentType(&self, dwoutputstreamindex: u32) -> ::windows::core::Result<DMO_MEDIA_TYPE>;
+    fn GetInputSizeInfo(&self, dwinputstreamindex: u32, pcbsize: *mut u32, pcbmaxlookahead: *mut u32, pcbalignment: *mut u32) -> ::windows::core::Result<()>;
+    fn GetOutputSizeInfo(&self, dwoutputstreamindex: u32, pcbsize: *mut u32, pcbalignment: *mut u32) -> ::windows::core::Result<()>;
+    fn GetInputMaxLatency(&self, dwinputstreamindex: u32) -> ::windows::core::Result<i64>;
+    fn SetInputMaxLatency(&self, dwinputstreamindex: u32, rtmaxlatency: i64) -> ::windows::core::Result<()>;
+    fn Flush(&self) -> ::windows::core::Result<()>;
+    fn Discontinuity(&self, dwinputstreamindex: u32) -> ::windows::core::Result<()>;
+    fn AllocateStreamingResources(&self) -> ::windows::core::Result<()>;
+    fn FreeStreamingResources(&self) -> ::windows::core::Result<()>;
+    fn GetInputStatus(&self, dwinputstreamindex: u32) -> ::windows::core::Result<u32>;
+    fn ProcessInput(&self, dwinputstreamindex: u32, pbuffer: &::core::option::Option<IMediaBuffer>, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()>;
+    fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
+    fn Lock(&self, block: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMediaObject_Vtbl {
@@ -392,9 +392,9 @@ impl IMediaObject_Vtbl {
     }
 }
 pub trait IMediaObjectInPlace_Impl: Sized {
-    fn Process(&mut self, ulsize: u32, pdata: *mut u8, reftimestart: i64, dwflags: u32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IMediaObjectInPlace>;
-    fn GetLatency(&mut self) -> ::windows::core::Result<i64>;
+    fn Process(&self, ulsize: u32, pdata: *mut u8, reftimestart: i64, dwflags: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IMediaObjectInPlace>;
+    fn GetLatency(&self) -> ::windows::core::Result<i64>;
 }
 impl IMediaObjectInPlace_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaObjectInPlace_Impl, const OFFSET: isize>() -> IMediaObjectInPlace_Vtbl {

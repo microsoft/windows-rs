@@ -1,7 +1,7 @@
 #[cfg(feature = "deprecated")]
 pub trait IMediaEnginePlaybackSource_Impl: Sized {
-    fn CurrentItem(&mut self) -> ::windows::core::Result<MediaPlaybackItem>;
-    fn SetPlaybackSource(&mut self, source: &::core::option::Option<IMediaPlaybackSource>) -> ::windows::core::Result<()>;
+    fn CurrentItem(&self) -> ::windows::core::Result<MediaPlaybackItem>;
+    fn SetPlaybackSource(&self, source: &::core::option::Option<IMediaPlaybackSource>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for IMediaEnginePlaybackSource {

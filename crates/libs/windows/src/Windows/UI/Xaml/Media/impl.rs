@@ -1,6 +1,6 @@
 #[cfg(feature = "UI_Composition")]
 pub trait IBrushOverrides2_Impl: Sized {
-    fn PopulatePropertyInfoOverride(&mut self, propertyname: &::windows::core::HSTRING, animationpropertyinfo: &::core::option::Option<super::super::Composition::AnimationPropertyInfo>) -> ::windows::core::Result<()> {
+    fn PopulatePropertyInfoOverride(&self, propertyname: &::windows::core::HSTRING, animationpropertyinfo: &::core::option::Option<super::super::Composition::AnimationPropertyInfo>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -27,9 +27,9 @@ impl IBrushOverrides2_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IGeneralTransformOverrides_Impl: Sized {
-    fn InverseCore(&mut self) -> ::windows::core::Result<GeneralTransform>;
-    fn TryTransformCore(&mut self, inpoint: &super::super::super::Foundation::Point, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::core::Result<bool>;
-    fn TransformBoundsCore(&mut self, rect: &super::super::super::Foundation::Rect) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn InverseCore(&self) -> ::windows::core::Result<GeneralTransform>;
+    fn TryTransformCore(&self, inpoint: &super::super::super::Foundation::Point, outpoint: &mut super::super::super::Foundation::Point) -> ::windows::core::Result<bool>;
+    fn TransformBoundsCore(&self, rect: &super::super::super::Foundation::Rect) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IGeneralTransformOverrides {
@@ -86,10 +86,10 @@ impl IGeneralTransformOverrides_Vtbl {
     }
 }
 pub trait IXamlCompositionBrushBaseOverrides_Impl: Sized {
-    fn OnConnected(&mut self) -> ::windows::core::Result<()> {
+    fn OnConnected(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnDisconnected(&mut self) -> ::windows::core::Result<()> {
+    fn OnDisconnected(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -119,11 +119,11 @@ impl IXamlCompositionBrushBaseOverrides_Vtbl {
     }
 }
 pub trait IXamlLightOverrides_Impl: Sized {
-    fn GetId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OnConnected(&mut self, newelement: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()> {
+    fn GetId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OnConnected(&self, newelement: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnDisconnected(&mut self, oldelement: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()> {
+    fn OnDisconnected(&self, oldelement: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }

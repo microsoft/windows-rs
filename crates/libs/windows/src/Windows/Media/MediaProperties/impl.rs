@@ -1,9 +1,9 @@
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaEncodingProperties_Impl: Sized {
-    fn Properties(&mut self) -> ::windows::core::Result<MediaPropertySet>;
-    fn Type(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetSubtype(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Subtype(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&self) -> ::windows::core::Result<MediaPropertySet>;
+    fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetSubtype(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IMediaEncodingProperties {

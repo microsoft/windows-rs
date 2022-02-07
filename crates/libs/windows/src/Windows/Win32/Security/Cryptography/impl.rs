@@ -1,25 +1,25 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertSrvSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn CAErrorId(&mut self) -> ::windows::core::Result<i32>;
-    fn CAErrorString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn InitializeDefaults(&mut self, bserver: i16, bclient: i16) -> ::windows::core::Result<()>;
-    fn GetCASetupProperty(&mut self, propertyid: CASetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetCASetupProperty(&mut self, propertyid: CASetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn IsPropertyEditable(&mut self, propertyid: CASetupProperty) -> ::windows::core::Result<i16>;
-    fn GetSupportedCATypes(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetProviderNameList(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetKeyLengthList(&mut self, bstrprovidername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetHashAlgorithmList(&mut self, bstrprovidername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetPrivateKeyContainerList(&mut self, bstrprovidername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetExistingCACertificates(&mut self) -> ::windows::core::Result<ICertSrvSetupKeyInformationCollection>;
-    fn CAImportPFX(&mut self, bstrfilename: &super::super::Foundation::BSTR, bstrpasswd: &super::super::Foundation::BSTR, boverwriteexistingkey: i16) -> ::windows::core::Result<ICertSrvSetupKeyInformation>;
-    fn SetCADistinguishedName(&mut self, bstrcadn: &super::super::Foundation::BSTR, bignoreunicode: i16, boverwriteexistingkey: i16, boverwriteexistingcainds: i16) -> ::windows::core::Result<()>;
-    fn SetDatabaseInformation(&mut self, bstrdbdirectory: &super::super::Foundation::BSTR, bstrlogdirectory: &super::super::Foundation::BSTR, bstrsharedfolder: &super::super::Foundation::BSTR, bforceoverwrite: i16) -> ::windows::core::Result<()>;
-    fn SetParentCAInformation(&mut self, bstrcaconfiguration: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetWebCAInformation(&mut self, bstrcaconfiguration: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Install(&mut self) -> ::windows::core::Result<()>;
-    fn PreUnInstall(&mut self, bclientonly: i16) -> ::windows::core::Result<()>;
-    fn PostUnInstall(&mut self) -> ::windows::core::Result<()>;
+    fn CAErrorId(&self) -> ::windows::core::Result<i32>;
+    fn CAErrorString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InitializeDefaults(&self, bserver: i16, bclient: i16) -> ::windows::core::Result<()>;
+    fn GetCASetupProperty(&self, propertyid: CASetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetCASetupProperty(&self, propertyid: CASetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn IsPropertyEditable(&self, propertyid: CASetupProperty) -> ::windows::core::Result<i16>;
+    fn GetSupportedCATypes(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetProviderNameList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetKeyLengthList(&self, bstrprovidername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetHashAlgorithmList(&self, bstrprovidername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetPrivateKeyContainerList(&self, bstrprovidername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetExistingCACertificates(&self) -> ::windows::core::Result<ICertSrvSetupKeyInformationCollection>;
+    fn CAImportPFX(&self, bstrfilename: &super::super::Foundation::BSTR, bstrpasswd: &super::super::Foundation::BSTR, boverwriteexistingkey: i16) -> ::windows::core::Result<ICertSrvSetupKeyInformation>;
+    fn SetCADistinguishedName(&self, bstrcadn: &super::super::Foundation::BSTR, bignoreunicode: i16, boverwriteexistingkey: i16, boverwriteexistingcainds: i16) -> ::windows::core::Result<()>;
+    fn SetDatabaseInformation(&self, bstrdbdirectory: &super::super::Foundation::BSTR, bstrlogdirectory: &super::super::Foundation::BSTR, bstrsharedfolder: &super::super::Foundation::BSTR, bforceoverwrite: i16) -> ::windows::core::Result<()>;
+    fn SetParentCAInformation(&self, bstrcaconfiguration: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetWebCAInformation(&self, bstrcaconfiguration: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Install(&self) -> ::windows::core::Result<()>;
+    fn PreUnInstall(&self, bclientonly: i16) -> ::windows::core::Result<()>;
+    fn PostUnInstall(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertSrvSetup_Vtbl {
@@ -220,18 +220,18 @@ impl ICertSrvSetup_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertSrvSetupKeyInformation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ProviderName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetProviderName(&mut self, bstrval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Length(&mut self) -> ::windows::core::Result<i32>;
-    fn SetLength(&mut self, lval: i32) -> ::windows::core::Result<()>;
-    fn Existing(&mut self) -> ::windows::core::Result<i16>;
-    fn SetExisting(&mut self, bval: i16) -> ::windows::core::Result<()>;
-    fn ContainerName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetContainerName(&mut self, bstrval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn HashAlgorithm(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetHashAlgorithm(&mut self, bstrval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ExistingCACertificate(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetExistingCACertificate(&mut self, varval: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetProviderName(&self, bstrval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Length(&self) -> ::windows::core::Result<i32>;
+    fn SetLength(&self, lval: i32) -> ::windows::core::Result<()>;
+    fn Existing(&self) -> ::windows::core::Result<i16>;
+    fn SetExisting(&self, bval: i16) -> ::windows::core::Result<()>;
+    fn ContainerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetContainerName(&self, bstrval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn HashAlgorithm(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetHashAlgorithm(&self, bstrval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ExistingCACertificate(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetExistingCACertificate(&self, varval: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertSrvSetupKeyInformation_Vtbl {
@@ -354,10 +354,10 @@ impl ICertSrvSetupKeyInformation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertSrvSetupKeyInformationCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, pikeyinformation: &::core::option::Option<ICertSrvSetupKeyInformation>) -> ::windows::core::Result<()>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Add(&self, pikeyinformation: &::core::option::Option<ICertSrvSetupKeyInformation>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertSrvSetupKeyInformationCollection_Vtbl {
@@ -414,12 +414,12 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificateEnrollmentPolicyServerSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ErrorString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn InitializeInstallDefaults(&mut self) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, propertyid: CEPSetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProperty(&mut self, propertyid: CEPSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Install(&mut self) -> ::windows::core::Result<()>;
-    fn UnInstall(&mut self, pauthkeybasedrenewal: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ErrorString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InitializeInstallDefaults(&self) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, propertyid: CEPSetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetProperty(&self, propertyid: CEPSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Install(&self) -> ::windows::core::Result<()>;
+    fn UnInstall(&self, pauthkeybasedrenewal: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
@@ -482,13 +482,13 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificateEnrollmentServerSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ErrorString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn InitializeInstallDefaults(&mut self) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, propertyid: CESSetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProperty(&mut self, propertyid: CESSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetApplicationPoolCredentials(&mut self, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Install(&mut self) -> ::windows::core::Result<()>;
-    fn UnInstall(&mut self, pcaconfig: *const super::super::System::Com::VARIANT, pauthentication: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ErrorString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InitializeInstallDefaults(&self) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, propertyid: CESSetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetProperty(&self, propertyid: CESSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetApplicationPoolCredentials(&self, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Install(&self) -> ::windows::core::Result<()>;
+    fn UnInstall(&self, pcaconfig: *const super::super::System::Com::VARIANT, pauthentication: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificateEnrollmentServerSetup_Vtbl {
@@ -557,18 +557,18 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSCEPSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn MSCEPErrorId(&mut self) -> ::windows::core::Result<i32>;
-    fn MSCEPErrorString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn InitializeDefaults(&mut self) -> ::windows::core::Result<()>;
-    fn GetMSCEPSetupProperty(&mut self, propertyid: MSCEPSetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetMSCEPSetupProperty(&mut self, propertyid: MSCEPSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetAccountInformation(&mut self, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsMSCEPStoreEmpty(&mut self) -> ::windows::core::Result<i16>;
-    fn GetProviderNameList(&mut self, bexchange: i16) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetKeyLengthList(&mut self, bexchange: i16, bstrprovidername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Install(&mut self) -> ::windows::core::Result<()>;
-    fn PreUnInstall(&mut self) -> ::windows::core::Result<()>;
-    fn PostUnInstall(&mut self) -> ::windows::core::Result<()>;
+    fn MSCEPErrorId(&self) -> ::windows::core::Result<i32>;
+    fn MSCEPErrorString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InitializeDefaults(&self) -> ::windows::core::Result<()>;
+    fn GetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetAccountInformation(&self, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsMSCEPStoreEmpty(&self) -> ::windows::core::Result<i16>;
+    fn GetProviderNameList(&self, bexchange: i16) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetKeyLengthList(&self, bexchange: i16, bstrprovidername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Install(&self) -> ::windows::core::Result<()>;
+    fn PreUnInstall(&self) -> ::windows::core::Result<()>;
+    fn PostUnInstall(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSCEPSetup_Vtbl {

@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpAuthenticationProvider_Impl: Sized {
-    fn Begin_AuthenticateUser(&mut self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Finish_AuthenticateUser(&mut self, ppszcanonicalusername: *mut super::super::Foundation::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Begin_AuthenticateUser(&self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Finish_AuthenticateUser(&self, ppszcanonicalusername: *mut super::super::Foundation::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpAuthenticationProvider_Vtbl {
@@ -28,8 +28,8 @@ impl AsyncIFtpAuthenticationProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpAuthorizationProvider_Impl: Sized {
-    fn Begin_GetUserAccessPermission(&mut self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszvirtualpath: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Finish_GetUserAccessPermission(&mut self) -> ::windows::core::Result<FTP_ACCESS>;
+    fn Begin_GetUserAccessPermission(&self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszvirtualpath: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Finish_GetUserAccessPermission(&self) -> ::windows::core::Result<FTP_ACCESS>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpAuthorizationProvider_Vtbl {
@@ -62,8 +62,8 @@ impl AsyncIFtpAuthorizationProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpHomeDirectoryProvider_Impl: Sized {
-    fn Begin_GetUserHomeDirectoryData(&mut self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Finish_GetUserHomeDirectoryData(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Begin_GetUserHomeDirectoryData(&self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Finish_GetUserHomeDirectoryData(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpHomeDirectoryProvider_Vtbl {
@@ -96,8 +96,8 @@ impl AsyncIFtpHomeDirectoryProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpLogProvider_Impl: Sized {
-    fn Begin_Log(&mut self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::Result<()>;
-    fn Finish_Log(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::Result<()>;
+    fn Finish_Log(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpLogProvider_Vtbl {
@@ -124,8 +124,8 @@ impl AsyncIFtpLogProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpPostprocessProvider_Impl: Sized {
-    fn Begin_HandlePostprocess(&mut self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<()>;
-    fn Finish_HandlePostprocess(&mut self) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
+    fn Begin_HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<()>;
+    fn Finish_HandlePostprocess(&self) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpPostprocessProvider_Vtbl {
@@ -158,8 +158,8 @@ impl AsyncIFtpPostprocessProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpPreprocessProvider_Impl: Sized {
-    fn Begin_HandlePreprocess(&mut self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::Result<()>;
-    fn Finish_HandlePreprocess(&mut self) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
+    fn Begin_HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::Result<()>;
+    fn Finish_HandlePreprocess(&self) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpPreprocessProvider_Vtbl {
@@ -192,8 +192,8 @@ impl AsyncIFtpPreprocessProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIFtpRoleProvider_Impl: Sized {
-    fn Begin_IsUserInRole(&mut self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszrole: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Finish_IsUserInRole(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Begin_IsUserInRole(&self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszrole: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Finish_IsUserInRole(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpRoleProvider_Vtbl {
@@ -226,10 +226,10 @@ impl AsyncIFtpRoleProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIMSAdminBaseSinkW_Impl: Sized {
-    fn Begin_SinkNotify(&mut self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::Result<()>;
-    fn Finish_SinkNotify(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_ShutdownNotify(&mut self) -> ::windows::core::Result<()>;
-    fn Finish_ShutdownNotify(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::Result<()>;
+    fn Finish_SinkNotify(&self) -> ::windows::core::Result<()>;
+    fn Begin_ShutdownNotify(&self) -> ::windows::core::Result<()>;
+    fn Finish_ShutdownNotify(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIMSAdminBaseSinkW_Vtbl {
@@ -267,9 +267,9 @@ impl AsyncIMSAdminBaseSinkW_Vtbl {
     }
 }
 pub trait IADMEXT_Impl: Sized {
-    fn Initialize(&mut self) -> ::windows::core::Result<()>;
-    fn EnumDcomCLSIDs(&mut self, pclsiddcom: *mut ::windows::core::GUID, dwenumindex: u32) -> ::windows::core::Result<()>;
-    fn Terminate(&mut self) -> ::windows::core::Result<()>;
+    fn Initialize(&self) -> ::windows::core::Result<()>;
+    fn EnumDcomCLSIDs(&self, pclsiddcom: *mut ::windows::core::GUID, dwenumindex: u32) -> ::windows::core::Result<()>;
+    fn Terminate(&self) -> ::windows::core::Result<()>;
 }
 impl IADMEXT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IADMEXT_Impl, const OFFSET: isize>() -> IADMEXT_Vtbl {
@@ -301,7 +301,7 @@ impl IADMEXT_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpAuthenticationProvider_Impl: Sized {
-    fn AuthenticateUser(&mut self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, ppszcanonicalusername: *mut super::super::Foundation::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AuthenticateUser(&self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, ppszcanonicalusername: *mut super::super::Foundation::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFtpAuthenticationProvider_Vtbl {
@@ -319,7 +319,7 @@ impl IFtpAuthenticationProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpAuthorizationProvider_Impl: Sized {
-    fn GetUserAccessPermission(&mut self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszvirtualpath: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<FTP_ACCESS>;
+    fn GetUserAccessPermission(&self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszvirtualpath: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<FTP_ACCESS>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFtpAuthorizationProvider_Vtbl {
@@ -343,7 +343,7 @@ impl IFtpAuthorizationProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpHomeDirectoryProvider_Impl: Sized {
-    fn GetUserHomeDirectoryData(&mut self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetUserHomeDirectoryData(&self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFtpHomeDirectoryProvider_Vtbl {
@@ -367,7 +367,7 @@ impl IFtpHomeDirectoryProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpLogProvider_Impl: Sized {
-    fn Log(&mut self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::Result<()>;
+    fn Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFtpLogProvider_Vtbl {
@@ -385,7 +385,7 @@ impl IFtpLogProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpPostprocessProvider_Impl: Sized {
-    fn HandlePostprocess(&mut self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
+    fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFtpPostprocessProvider_Vtbl {
@@ -409,7 +409,7 @@ impl IFtpPostprocessProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpPreprocessProvider_Impl: Sized {
-    fn HandlePreprocess(&mut self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
+    fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFtpPreprocessProvider_Vtbl {
@@ -433,7 +433,7 @@ impl IFtpPreprocessProvider_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFtpProviderConstruct_Impl: Sized {
-    fn Construct(&mut self, configurationentries: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn Construct(&self, configurationentries: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IFtpProviderConstruct_Vtbl {
@@ -451,7 +451,7 @@ impl IFtpProviderConstruct_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFtpRoleProvider_Impl: Sized {
-    fn IsUserInRole(&mut self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszrole: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsUserInRole(&self, pszsessionid: super::super::Foundation::PWSTR, pszsitename: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszrole: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFtpRoleProvider_Vtbl {
@@ -475,12 +475,12 @@ impl IFtpRoleProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMSAdminBase2W_Impl: Sized + IMSAdminBaseW_Impl {
-    fn BackupWithPasswd(&mut self, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32, dwmdflags: u32, pszpasswd: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RestoreWithPasswd(&mut self, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32, dwmdflags: u32, pszpasswd: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Export(&mut self, pszpasswd: super::super::Foundation::PWSTR, pszfilename: super::super::Foundation::PWSTR, pszsourcepath: super::super::Foundation::PWSTR, dwmdflags: u32) -> ::windows::core::Result<()>;
-    fn Import(&mut self, pszpasswd: super::super::Foundation::PWSTR, pszfilename: super::super::Foundation::PWSTR, pszsourcepath: super::super::Foundation::PWSTR, pszdestpath: super::super::Foundation::PWSTR, dwmdflags: u32) -> ::windows::core::Result<()>;
-    fn RestoreHistory(&mut self, pszmdhistorylocation: super::super::Foundation::PWSTR, dwmdmajorversion: u32, dwmdminorversion: u32, dwmdflags: u32) -> ::windows::core::Result<()>;
-    fn EnumHistory(&mut self, pszmdhistorylocation: super::super::Foundation::PWSTR, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()>;
+    fn BackupWithPasswd(&self, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32, dwmdflags: u32, pszpasswd: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RestoreWithPasswd(&self, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32, dwmdflags: u32, pszpasswd: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Export(&self, pszpasswd: super::super::Foundation::PWSTR, pszfilename: super::super::Foundation::PWSTR, pszsourcepath: super::super::Foundation::PWSTR, dwmdflags: u32) -> ::windows::core::Result<()>;
+    fn Import(&self, pszpasswd: super::super::Foundation::PWSTR, pszfilename: super::super::Foundation::PWSTR, pszsourcepath: super::super::Foundation::PWSTR, pszdestpath: super::super::Foundation::PWSTR, dwmdflags: u32) -> ::windows::core::Result<()>;
+    fn RestoreHistory(&self, pszmdhistorylocation: super::super::Foundation::PWSTR, dwmdmajorversion: u32, dwmdminorversion: u32, dwmdflags: u32) -> ::windows::core::Result<()>;
+    fn EnumHistory(&self, pszmdhistorylocation: super::super::Foundation::PWSTR, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMSAdminBase2W_Vtbl {
@@ -531,7 +531,7 @@ impl IMSAdminBase2W_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMSAdminBase3W_Impl: Sized + IMSAdminBaseW_Impl + IMSAdminBase2W_Impl {
-    fn GetChildPaths(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, cchmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pcchmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetChildPaths(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, cchmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pcchmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMSAdminBase3W_Vtbl {
@@ -549,8 +549,8 @@ impl IMSAdminBase3W_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMSAdminBaseSinkW_Impl: Sized {
-    fn SinkNotify(&mut self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::Result<()>;
-    fn ShutdownNotify(&mut self) -> ::windows::core::Result<()>;
+    fn SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::Result<()>;
+    fn ShutdownNotify(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMSAdminBaseSinkW_Vtbl {
@@ -577,37 +577,37 @@ impl IMSAdminBaseSinkW_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMSAdminBaseW_Impl: Sized {
-    fn AddKey(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn DeleteKey(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn DeleteChildKeys(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn EnumKeys(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pszmdname: super::super::Foundation::PWSTR, dwmdenumobjectindex: u32) -> ::windows::core::Result<()>;
-    fn CopyKey(&mut self, hmdsourcehandle: u32, pszmdsourcepath: super::super::Foundation::PWSTR, hmddesthandle: u32, pszmddestpath: super::super::Foundation::PWSTR, bmdoverwriteflag: super::super::Foundation::BOOL, bmdcopyflag: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn RenameKey(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pszmdnewname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetData(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pmdrmddata: *mut METADATA_RECORD) -> ::windows::core::Result<()>;
-    fn GetData(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> ::windows::core::Result<()>;
-    fn DeleteData(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, dwmdidentifier: u32, dwmddatatype: u32) -> ::windows::core::Result<()>;
-    fn EnumData(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> ::windows::core::Result<()>;
-    fn GetAllData(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
-    fn DeleteAllData(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::core::Result<()>;
-    fn CopyData(&mut self, hmdsourcehandle: u32, pszmdsourcepath: super::super::Foundation::PWSTR, hmddesthandle: u32, pszmddestpath: super::super::Foundation::PWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetDataPaths(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
-    fn OpenKey(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows::core::Result<u32>;
-    fn CloseKey(&mut self, hmdhandle: u32) -> ::windows::core::Result<()>;
-    fn ChangePermissions(&mut self, hmdhandle: u32, dwmdtimeout: u32, dwmdaccessrequested: u32) -> ::windows::core::Result<()>;
-    fn SaveData(&mut self) -> ::windows::core::Result<()>;
-    fn GetHandleInfo(&mut self, hmdhandle: u32) -> ::windows::core::Result<METADATA_HANDLE_INFO>;
-    fn GetSystemChangeNumber(&mut self) -> ::windows::core::Result<u32>;
-    fn GetDataSetNumber(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
-    fn SetLastChangeTime(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetLastChangeTime(&mut self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn KeyExchangePhase1(&mut self) -> ::windows::core::Result<()>;
-    fn KeyExchangePhase2(&mut self) -> ::windows::core::Result<()>;
-    fn Backup(&mut self, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32, dwmdflags: u32) -> ::windows::core::Result<()>;
-    fn Restore(&mut self, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32, dwmdflags: u32) -> ::windows::core::Result<()>;
-    fn EnumBackups(&mut self, pszmdbackuplocation: super::super::Foundation::PWSTR, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()>;
-    fn DeleteBackup(&mut self, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32) -> ::windows::core::Result<()>;
-    fn UnmarshalInterface(&mut self) -> ::windows::core::Result<IMSAdminBaseW>;
-    fn GetServerGuid(&mut self) -> ::windows::core::Result<()>;
+    fn AddKey(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn DeleteKey(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn DeleteChildKeys(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn EnumKeys(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pszmdname: super::super::Foundation::PWSTR, dwmdenumobjectindex: u32) -> ::windows::core::Result<()>;
+    fn CopyKey(&self, hmdsourcehandle: u32, pszmdsourcepath: super::super::Foundation::PWSTR, hmddesthandle: u32, pszmddestpath: super::super::Foundation::PWSTR, bmdoverwriteflag: super::super::Foundation::BOOL, bmdcopyflag: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn RenameKey(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pszmdnewname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetData(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pmdrmddata: *mut METADATA_RECORD) -> ::windows::core::Result<()>;
+    fn GetData(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> ::windows::core::Result<()>;
+    fn DeleteData(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, dwmdidentifier: u32, dwmddatatype: u32) -> ::windows::core::Result<()>;
+    fn EnumData(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> ::windows::core::Result<()>;
+    fn GetAllData(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
+    fn DeleteAllData(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::core::Result<()>;
+    fn CopyData(&self, hmdsourcehandle: u32, pszmdsourcepath: super::super::Foundation::PWSTR, hmddesthandle: u32, pszmddestpath: super::super::Foundation::PWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetDataPaths(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
+    fn OpenKey(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, dwmdaccessrequested: u32, dwmdtimeout: u32) -> ::windows::core::Result<u32>;
+    fn CloseKey(&self, hmdhandle: u32) -> ::windows::core::Result<()>;
+    fn ChangePermissions(&self, hmdhandle: u32, dwmdtimeout: u32, dwmdaccessrequested: u32) -> ::windows::core::Result<()>;
+    fn SaveData(&self) -> ::windows::core::Result<()>;
+    fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows::core::Result<METADATA_HANDLE_INFO>;
+    fn GetSystemChangeNumber(&self) -> ::windows::core::Result<u32>;
+    fn GetDataSetNumber(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn SetLastChangeTime(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetLastChangeTime(&self, hmdhandle: u32, pszmdpath: super::super::Foundation::PWSTR, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn KeyExchangePhase1(&self) -> ::windows::core::Result<()>;
+    fn KeyExchangePhase2(&self) -> ::windows::core::Result<()>;
+    fn Backup(&self, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32, dwmdflags: u32) -> ::windows::core::Result<()>;
+    fn Restore(&self, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32, dwmdflags: u32) -> ::windows::core::Result<()>;
+    fn EnumBackups(&self, pszmdbackuplocation: super::super::Foundation::PWSTR, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()>;
+    fn DeleteBackup(&self, pszmdbackuplocation: super::super::Foundation::PWSTR, dwmdversion: u32) -> ::windows::core::Result<()>;
+    fn UnmarshalInterface(&self) -> ::windows::core::Result<IMSAdminBaseW>;
+    fn GetServerGuid(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMSAdminBaseW_Vtbl {
@@ -840,7 +840,7 @@ impl IMSAdminBaseW_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMSImpExpHelpW_Impl: Sized {
-    fn EnumeratePathsInFile(&mut self, pszfilename: super::super::Foundation::PWSTR, pszkeytype: super::super::Foundation::PWSTR, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
+    fn EnumeratePathsInFile(&self, pszfilename: super::super::Foundation::PWSTR, pszkeytype: super::super::Foundation::PWSTR, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMSImpExpHelpW_Vtbl {

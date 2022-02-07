@@ -1,14 +1,14 @@
 pub trait IDXCoreAdapter_Impl: Sized {
-    fn IsValid(&mut self) -> bool;
-    fn IsAttributeSupported(&mut self, attributeguid: *const ::windows::core::GUID) -> bool;
-    fn IsPropertySupported(&mut self, property: DXCoreAdapterProperty) -> bool;
-    fn GetProperty(&mut self, property: DXCoreAdapterProperty, buffersize: usize, propertydata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetPropertySize(&mut self, property: DXCoreAdapterProperty) -> ::windows::core::Result<usize>;
-    fn IsQueryStateSupported(&mut self, property: DXCoreAdapterState) -> bool;
-    fn QueryState(&mut self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, outputbuffersize: usize, outputbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn IsSetStateSupported(&mut self, property: DXCoreAdapterState) -> bool;
-    fn SetState(&mut self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, inputdatasize: usize, inputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetFactory(&mut self, riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn IsValid(&self) -> bool;
+    fn IsAttributeSupported(&self, attributeguid: *const ::windows::core::GUID) -> bool;
+    fn IsPropertySupported(&self, property: DXCoreAdapterProperty) -> bool;
+    fn GetProperty(&self, property: DXCoreAdapterProperty, buffersize: usize, propertydata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> ::windows::core::Result<usize>;
+    fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool;
+    fn QueryState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, outputbuffersize: usize, outputbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool;
+    fn SetState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, inputdatasize: usize, inputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetFactory(&self, riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IDXCoreAdapter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>() -> IDXCoreAdapter_Vtbl {
@@ -88,11 +88,11 @@ impl IDXCoreAdapter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXCoreAdapterFactory_Impl: Sized {
-    fn CreateAdapterList(&mut self, numattributes: u32, filterattributes: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetAdapterByLuid(&mut self, adapterluid: *const super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn IsNotificationTypeSupported(&mut self, notificationtype: DXCoreNotificationType) -> bool;
-    fn RegisterEventNotification(&mut self, dxcoreobject: &::core::option::Option<::windows::core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: &PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
-    fn UnregisterEventNotification(&mut self, eventcookie: u32) -> ::windows::core::Result<()>;
+    fn CreateAdapterList(&self, numattributes: u32, filterattributes: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetAdapterByLuid(&self, adapterluid: *const super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool;
+    fn RegisterEventNotification(&self, dxcoreobject: &::core::option::Option<::windows::core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: &PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
+    fn UnregisterEventNotification(&self, eventcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXCoreAdapterFactory_Vtbl {
@@ -142,12 +142,12 @@ impl IDXCoreAdapterFactory_Vtbl {
     }
 }
 pub trait IDXCoreAdapterList_Impl: Sized {
-    fn GetAdapter(&mut self, index: u32, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetAdapterCount(&mut self) -> u32;
-    fn IsStale(&mut self) -> bool;
-    fn GetFactory(&mut self, riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Sort(&mut self, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows::core::Result<()>;
-    fn IsAdapterPreferenceSupported(&mut self, preference: DXCoreAdapterPreference) -> bool;
+    fn GetAdapter(&self, index: u32, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetAdapterCount(&self) -> u32;
+    fn IsStale(&self) -> bool;
+    fn GetFactory(&self, riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Sort(&self, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows::core::Result<()>;
+    fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool;
 }
 impl IDXCoreAdapterList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapterList_Impl, const OFFSET: isize>() -> IDXCoreAdapterList_Vtbl {

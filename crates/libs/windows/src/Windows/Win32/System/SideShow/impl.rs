@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISideShowBulkCapabilities_Impl: Sized + ISideShowCapabilities_Impl {
-    fn GetCapabilities(&mut self, in_keycollection: &::core::option::Option<ISideShowKeyCollection>, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>;
+    fn GetCapabilities(&self, in_keycollection: &::core::option::Option<ISideShowKeyCollection>, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISideShowBulkCapabilities_Vtbl {
@@ -18,7 +18,7 @@ impl ISideShowBulkCapabilities_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISideShowCapabilities_Impl: Sized {
-    fn GetCapability(&mut self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISideShowCapabilities_Vtbl {
@@ -35,8 +35,8 @@ impl ISideShowCapabilities_Vtbl {
     }
 }
 pub trait ISideShowCapabilitiesCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, in_dwindex: u32) -> ::windows::core::Result<ISideShowCapabilities>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, in_dwindex: u32) -> ::windows::core::Result<ISideShowCapabilities>;
 }
 impl ISideShowCapabilitiesCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowCapabilitiesCollection_Impl, const OFFSET: isize>() -> ISideShowCapabilitiesCollection_Vtbl {
@@ -74,9 +74,9 @@ impl ISideShowCapabilitiesCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISideShowContent_Impl: Sized {
-    fn GetContent(&mut self, in_picapabilities: &::core::option::Option<ISideShowCapabilities>, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn ContentId(&mut self) -> ::windows::core::Result<u32>;
-    fn DifferentiateContent(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetContent(&self, in_picapabilities: &::core::option::Option<ISideShowCapabilities>, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn ContentId(&self) -> ::windows::core::Result<u32>;
+    fn DifferentiateContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISideShowContent_Vtbl {
@@ -120,11 +120,11 @@ impl ISideShowContent_Vtbl {
     }
 }
 pub trait ISideShowContentManager_Impl: Sized {
-    fn Add(&mut self, in_picontent: &::core::option::Option<ISideShowContent>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, in_contentid: u32) -> ::windows::core::Result<()>;
-    fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
-    fn SetEventSink(&mut self, in_pievents: &::core::option::Option<ISideShowEvents>) -> ::windows::core::Result<()>;
-    fn GetDeviceCapabilities(&mut self) -> ::windows::core::Result<ISideShowCapabilitiesCollection>;
+    fn Add(&self, in_picontent: &::core::option::Option<ISideShowContent>) -> ::windows::core::Result<()>;
+    fn Remove(&self, in_contentid: u32) -> ::windows::core::Result<()>;
+    fn RemoveAll(&self) -> ::windows::core::Result<()>;
+    fn SetEventSink(&self, in_pievents: &::core::option::Option<ISideShowEvents>) -> ::windows::core::Result<()>;
+    fn GetDeviceCapabilities(&self) -> ::windows::core::Result<ISideShowCapabilitiesCollection>;
 }
 impl ISideShowContentManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowContentManager_Impl, const OFFSET: isize>() -> ISideShowContentManager_Vtbl {
@@ -173,10 +173,10 @@ impl ISideShowContentManager_Vtbl {
     }
 }
 pub trait ISideShowEvents_Impl: Sized {
-    fn ContentMissing(&mut self, in_contentid: u32) -> ::windows::core::Result<ISideShowContent>;
-    fn ApplicationEvent(&mut self, in_picapabilities: &::core::option::Option<ISideShowCapabilities>, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::Result<()>;
-    fn DeviceAdded(&mut self, in_pidevice: &::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
-    fn DeviceRemoved(&mut self, in_pidevice: &::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
+    fn ContentMissing(&self, in_contentid: u32) -> ::windows::core::Result<ISideShowContent>;
+    fn ApplicationEvent(&self, in_picapabilities: &::core::option::Option<ISideShowCapabilities>, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::Result<()>;
+    fn DeviceAdded(&self, in_pidevice: &::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
+    fn DeviceRemoved(&self, in_pidevice: &::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
 }
 impl ISideShowEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowEvents_Impl, const OFFSET: isize>() -> ISideShowEvents_Vtbl {
@@ -220,11 +220,11 @@ impl ISideShowEvents_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ISideShowKeyCollection_Impl: Sized {
-    fn Add(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn GetAt(&mut self, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
-    fn GetCount(&mut self, pcelems: *const u32) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, dwindex: u32) -> ::windows::core::Result<()>;
+    fn Add(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn GetAt(&self, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ISideShowKeyCollection_Vtbl {
@@ -269,16 +269,16 @@ impl ISideShowKeyCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ISideShowNotification_Impl: Sized {
-    fn NotificationId(&mut self) -> ::windows::core::Result<u32>;
-    fn SetNotificationId(&mut self, in_notificationid: u32) -> ::windows::core::Result<()>;
-    fn Title(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetTitle(&mut self, in_pwsztitle: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Message(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetMessage(&mut self, in_pwszmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Image(&mut self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HICON>;
-    fn SetImage(&mut self, in_hicon: super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::Result<()>;
-    fn ExpirationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn SetExpirationTime(&mut self, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
+    fn NotificationId(&self) -> ::windows::core::Result<u32>;
+    fn SetNotificationId(&self, in_notificationid: u32) -> ::windows::core::Result<()>;
+    fn Title(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetTitle(&self, in_pwsztitle: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Message(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetMessage(&self, in_pwszmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Image(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HICON>;
+    fn SetImage(&self, in_hicon: super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::Result<()>;
+    fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
+    fn SetExpirationTime(&self, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ISideShowNotification_Vtbl {
@@ -382,9 +382,9 @@ impl ISideShowNotification_Vtbl {
     }
 }
 pub trait ISideShowNotificationManager_Impl: Sized {
-    fn Show(&mut self, in_pinotification: &::core::option::Option<ISideShowNotification>) -> ::windows::core::Result<()>;
-    fn Revoke(&mut self, in_notificationid: u32) -> ::windows::core::Result<()>;
-    fn RevokeAll(&mut self) -> ::windows::core::Result<()>;
+    fn Show(&self, in_pinotification: &::core::option::Option<ISideShowNotification>) -> ::windows::core::Result<()>;
+    fn Revoke(&self, in_notificationid: u32) -> ::windows::core::Result<()>;
+    fn RevokeAll(&self) -> ::windows::core::Result<()>;
 }
 impl ISideShowNotificationManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotificationManager_Impl, const OFFSET: isize>() -> ISideShowNotificationManager_Vtbl {
@@ -416,11 +416,11 @@ impl ISideShowNotificationManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ISideShowPropVariantCollection_Impl: Sized {
-    fn Add(&mut self, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn GetAt(&mut self, dwindex: u32, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn GetCount(&mut self, pcelems: *const u32) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, dwindex: u32) -> ::windows::core::Result<()>;
+    fn Add(&self, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn GetAt(&self, dwindex: u32, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ISideShowPropVariantCollection_Vtbl {
@@ -464,8 +464,8 @@ impl ISideShowPropVariantCollection_Vtbl {
     }
 }
 pub trait ISideShowSession_Impl: Sized {
-    fn RegisterContent(&mut self, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowContentManager>;
-    fn RegisterNotifications(&mut self, in_applicationid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowNotificationManager>;
+    fn RegisterContent(&self, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowContentManager>;
+    fn RegisterNotifications(&self, in_applicationid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowNotificationManager>;
 }
 impl ISideShowSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowSession_Impl, const OFFSET: isize>() -> ISideShowSession_Vtbl {

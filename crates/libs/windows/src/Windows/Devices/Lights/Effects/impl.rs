@@ -1,6 +1,6 @@
 pub trait ILampArrayEffect_Impl: Sized {
-    fn ZIndex(&mut self) -> ::windows::core::Result<i32>;
-    fn SetZIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn ZIndex(&self) -> ::windows::core::Result<i32>;
+    fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ILampArrayEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayEffect";

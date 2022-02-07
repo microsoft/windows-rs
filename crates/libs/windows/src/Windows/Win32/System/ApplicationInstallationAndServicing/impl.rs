@@ -1,10 +1,10 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAssemblyCache_Impl: Sized {
-    fn UninstallAssembly(&mut self, dwflags: u32, pszassemblyname: super::super::Foundation::PWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::Result<()>;
-    fn QueryAssemblyInfo(&mut self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: super::super::Foundation::PWSTR, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::Result<()>;
-    fn CreateAssemblyCacheItem(&mut self, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::core::option::Option<IAssemblyCacheItem>, pszassemblyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Reserved(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn InstallAssembly(&mut self, dwflags: u32, pszmanifestfilepath: super::super::Foundation::PWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::Result<()>;
+    fn UninstallAssembly(&self, dwflags: u32, pszassemblyname: super::super::Foundation::PWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::Result<()>;
+    fn QueryAssemblyInfo(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: super::super::Foundation::PWSTR, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::Result<()>;
+    fn CreateAssemblyCacheItem(&self, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::core::option::Option<IAssemblyCacheItem>, pszassemblyname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Reserved(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn InstallAssembly(&self, dwflags: u32, pszmanifestfilepath: super::super::Foundation::PWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAssemblyCache_Vtbl {
@@ -55,9 +55,9 @@ impl IAssemblyCache_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAssemblyCacheItem_Impl: Sized {
-    fn CreateStream(&mut self, dwflags: u32, pszstreamname: super::super::Foundation::PWSTR, dwformat: u32, dwformatflags: u32, ppistream: *mut ::core::option::Option<super::Com::IStream>, pulimaxsize: *mut u64) -> ::windows::core::Result<()>;
-    fn Commit(&mut self, dwflags: u32, puldisposition: *mut u32) -> ::windows::core::Result<()>;
-    fn AbortItem(&mut self) -> ::windows::core::Result<()>;
+    fn CreateStream(&self, dwflags: u32, pszstreamname: super::super::Foundation::PWSTR, dwformat: u32, dwformatflags: u32, ppistream: *mut ::core::option::Option<super::Com::IStream>, pulimaxsize: *mut u64) -> ::windows::core::Result<()>;
+    fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> ::windows::core::Result<()>;
+    fn AbortItem(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAssemblyCacheItem_Vtbl {
@@ -90,15 +90,15 @@ impl IAssemblyCacheItem_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAssemblyName_Impl: Sized {
-    fn SetProperty(&mut self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, cbproperty: u32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, pcbproperty: *mut u32) -> ::windows::core::Result<()>;
-    fn Finalize(&mut self) -> ::windows::core::Result<()>;
-    fn GetDisplayName(&mut self, szdisplayname: super::super::Foundation::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> ::windows::core::Result<()>;
-    fn Reserved(&mut self, refiid: *const ::windows::core::GUID, punkreserved1: &::core::option::Option<::windows::core::IUnknown>, punkreserved2: &::core::option::Option<::windows::core::IUnknown>, szreserved: super::super::Foundation::PWSTR, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetName(&mut self, lpcwbuffer: *mut u32, pwzname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetVersion(&mut self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> ::windows::core::Result<()>;
-    fn IsEqual(&mut self, pname: &::core::option::Option<IAssemblyName>, dwcmpflags: u32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IAssemblyName>;
+    fn SetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, cbproperty: u32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, pcbproperty: *mut u32) -> ::windows::core::Result<()>;
+    fn Finalize(&self) -> ::windows::core::Result<()>;
+    fn GetDisplayName(&self, szdisplayname: super::super::Foundation::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> ::windows::core::Result<()>;
+    fn Reserved(&self, refiid: *const ::windows::core::GUID, punkreserved1: &::core::option::Option<::windows::core::IUnknown>, punkreserved2: &::core::option::Option<::windows::core::IUnknown>, szreserved: super::super::Foundation::PWSTR, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetName(&self, lpcwbuffer: *mut u32, pwzname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> ::windows::core::Result<()>;
+    fn IsEqual(&self, pname: &::core::option::Option<IAssemblyName>, dwcmpflags: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IAssemblyName>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAssemblyName_Vtbl {
@@ -173,10 +173,10 @@ impl IAssemblyName_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMsmDependency_Impl: Sized {
-    fn Next(&mut self, cfetch: u32, rgmsmdependencies: *mut ::core::option::Option<IMsmDependency>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, cskip: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumMsmDependency>;
+    fn Next(&self, cfetch: u32, rgmsmdependencies: *mut ::core::option::Option<IMsmDependency>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, cskip: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumMsmDependency>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumMsmDependency_Vtbl {
@@ -221,10 +221,10 @@ impl IEnumMsmDependency_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMsmError_Impl: Sized {
-    fn Next(&mut self, cfetch: u32, rgmsmerrors: *mut ::core::option::Option<IMsmError>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, cskip: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumMsmError>;
+    fn Next(&self, cfetch: u32, rgmsmerrors: *mut ::core::option::Option<IMsmError>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, cskip: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumMsmError>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumMsmError_Vtbl {
@@ -269,10 +269,10 @@ impl IEnumMsmError_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumMsmString_Impl: Sized {
-    fn Next(&mut self, cfetch: u32, rgbstrstrings: *mut super::super::Foundation::BSTR, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, cskip: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumMsmString>;
+    fn Next(&self, cfetch: u32, rgbstrstrings: *mut super::super::Foundation::BSTR, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, cskip: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumMsmString>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumMsmString_Vtbl {
@@ -317,9 +317,9 @@ impl IEnumMsmString_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmDependencies_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Item(&mut self, item: i32) -> ::windows::core::Result<IMsmDependency>;
-    fn Count(&mut self, count: *mut i32) -> ::windows::core::Result<()>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, item: i32) -> ::windows::core::Result<IMsmDependency>;
+    fn Count(&self, count: *mut i32) -> ::windows::core::Result<()>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmDependencies_Vtbl {
@@ -364,9 +364,9 @@ impl IMsmDependencies_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmDependency_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Module(&mut self, module: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Language(&mut self, language: *mut i16) -> ::windows::core::Result<()>;
-    fn Version(&mut self, version: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Module(&self, module: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Language(&self, language: *mut i16) -> ::windows::core::Result<()>;
+    fn Version(&self, version: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmDependency_Vtbl {
@@ -399,13 +399,13 @@ impl IMsmDependency_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmError_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Type(&mut self, errortype: *mut msmErrorType) -> ::windows::core::Result<()>;
-    fn Path(&mut self, errorpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Language(&mut self, errorlanguage: *mut i16) -> ::windows::core::Result<()>;
-    fn DatabaseTable(&mut self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DatabaseKeys(&mut self) -> ::windows::core::Result<IMsmStrings>;
-    fn ModuleTable(&mut self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ModuleKeys(&mut self) -> ::windows::core::Result<IMsmStrings>;
+    fn Type(&self, errortype: *mut msmErrorType) -> ::windows::core::Result<()>;
+    fn Path(&self, errorpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Language(&self, errorlanguage: *mut i16) -> ::windows::core::Result<()>;
+    fn DatabaseTable(&self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DatabaseKeys(&self) -> ::windows::core::Result<IMsmStrings>;
+    fn ModuleTable(&self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ModuleKeys(&self) -> ::windows::core::Result<IMsmStrings>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmError_Vtbl {
@@ -474,9 +474,9 @@ impl IMsmError_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmErrors_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Item(&mut self, item: i32) -> ::windows::core::Result<IMsmError>;
-    fn Count(&mut self, count: *mut i32) -> ::windows::core::Result<()>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, item: i32) -> ::windows::core::Result<IMsmError>;
+    fn Count(&self, count: *mut i32) -> ::windows::core::Result<()>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmErrors_Vtbl {
@@ -521,7 +521,7 @@ impl IMsmErrors_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmGetFiles_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ModuleFiles(&mut self) -> ::windows::core::Result<IMsmStrings>;
+    fn ModuleFiles(&self) -> ::windows::core::Result<IMsmStrings>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmGetFiles_Vtbl {
@@ -545,19 +545,19 @@ impl IMsmGetFiles_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmMerge_Impl: Sized + super::Com::IDispatch_Impl {
-    fn OpenDatabase(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OpenModule(&mut self, path: &super::super::Foundation::BSTR, language: i16) -> ::windows::core::Result<()>;
-    fn CloseDatabase(&mut self, commit: i16) -> ::windows::core::Result<()>;
-    fn CloseModule(&mut self) -> ::windows::core::Result<()>;
-    fn OpenLog(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn CloseLog(&mut self) -> ::windows::core::Result<()>;
-    fn Log(&mut self, message: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Errors(&mut self) -> ::windows::core::Result<IMsmErrors>;
-    fn Dependencies(&mut self) -> ::windows::core::Result<IMsmDependencies>;
-    fn Merge(&mut self, feature: &super::super::Foundation::BSTR, redirectdir: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Connect(&mut self, feature: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ExtractCAB(&mut self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ExtractFiles(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OpenDatabase(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OpenModule(&self, path: &super::super::Foundation::BSTR, language: i16) -> ::windows::core::Result<()>;
+    fn CloseDatabase(&self, commit: i16) -> ::windows::core::Result<()>;
+    fn CloseModule(&self) -> ::windows::core::Result<()>;
+    fn OpenLog(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CloseLog(&self) -> ::windows::core::Result<()>;
+    fn Log(&self, message: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Errors(&self) -> ::windows::core::Result<IMsmErrors>;
+    fn Dependencies(&self) -> ::windows::core::Result<IMsmDependencies>;
+    fn Merge(&self, feature: &super::super::Foundation::BSTR, redirectdir: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Connect(&self, feature: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ExtractCAB(&self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ExtractFiles(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmMerge_Vtbl {
@@ -662,9 +662,9 @@ impl IMsmMerge_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMsmStrings_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Item(&mut self, item: i32, r#return: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Count(&mut self, count: *mut i32) -> ::windows::core::Result<()>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, item: i32, r#return: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Count(&self, count: *mut i32) -> ::windows::core::Result<()>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmStrings_Vtbl {
@@ -703,61 +703,61 @@ impl IMsmStrings_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMApplicationInfo_Impl: Sized {
-    fn ProductID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn InstanceID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn OfferID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn DefaultTask(&mut self, pdefaulttask: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AppTitle(&mut self, papptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IconPath(&mut self, pappiconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NotificationState(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn AppInstallType(&mut self) -> ::windows::core::Result<PM_APPLICATION_INSTALL_TYPE>;
-    fn State(&mut self) -> ::windows::core::Result<PM_APPLICATION_STATE>;
-    fn IsRevoked(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn UpdateAvailable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn InstallDate(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn IsUninstallable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsThemable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsTrial(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn InstallPath(&mut self, pinstallpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DataRoot(&mut self, pdataroot: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Genre(&mut self) -> ::windows::core::Result<PM_APP_GENRE>;
-    fn Publisher(&mut self, ppublisher: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Author(&mut self, pauthor: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Description(&mut self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Version(&mut self, pversion: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InvocationInfo(&mut self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AppPlatMajorVersion(&mut self) -> ::windows::core::Result<u8>;
-    fn AppPlatMinorVersion(&mut self) -> ::windows::core::Result<u8>;
-    fn PublisherID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IsMultiCore(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SID(&mut self, psid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AppPlatMajorVersionLightUp(&mut self) -> ::windows::core::Result<u8>;
-    fn AppPlatMinorVersionLightUp(&mut self) -> ::windows::core::Result<u8>;
-    fn set_UpdateAvailable(&mut self, isupdateavailable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn set_NotificationState(&mut self, isnotified: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn set_IconPath(&mut self, appiconpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn set_UninstallableState(&mut self, isuninstallable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn IsPinableOnKidZone(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsOriginallyPreInstalled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsInstallOnSD(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsOptoutOnSD(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsOptoutBackupRestore(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn set_EnterpriseDisabled(&mut self, isdisabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn set_EnterpriseUninstallable(&mut self, isuninstallable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn EnterpriseDisabled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn EnterpriseUninstallable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsVisibleOnAppList(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsInboxApp(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn StorageID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn StartAppBlob(&mut self, pblob: *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()>;
-    fn IsMovable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn DeploymentAppEnumerationHubFilter(&mut self) -> ::windows::core::Result<PM_TILE_HUBTYPE>;
-    fn ModifiedDate(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn IsOriginallyRestored(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn ShouldDeferMdilBind(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsFullyPreInstall(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn set_IsMdilMaintenanceNeeded(&mut self, fismdilmaintenanceneeded: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn set_Title(&mut self, apptitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn InstanceID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn OfferID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn DefaultTask(&self, pdefaulttask: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AppTitle(&self, papptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IconPath(&self, pappiconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NotificationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn AppInstallType(&self) -> ::windows::core::Result<PM_APPLICATION_INSTALL_TYPE>;
+    fn State(&self) -> ::windows::core::Result<PM_APPLICATION_STATE>;
+    fn IsRevoked(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn UpdateAvailable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn InstallDate(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn IsUninstallable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsThemable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsTrial(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn InstallPath(&self, pinstallpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DataRoot(&self, pdataroot: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Genre(&self) -> ::windows::core::Result<PM_APP_GENRE>;
+    fn Publisher(&self, ppublisher: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Author(&self, pauthor: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Description(&self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Version(&self, pversion: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AppPlatMajorVersion(&self) -> ::windows::core::Result<u8>;
+    fn AppPlatMinorVersion(&self) -> ::windows::core::Result<u8>;
+    fn PublisherID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn IsMultiCore(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SID(&self, psid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AppPlatMajorVersionLightUp(&self) -> ::windows::core::Result<u8>;
+    fn AppPlatMinorVersionLightUp(&self) -> ::windows::core::Result<u8>;
+    fn set_UpdateAvailable(&self, isupdateavailable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn set_NotificationState(&self, isnotified: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn set_IconPath(&self, appiconpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn set_UninstallableState(&self, isuninstallable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsPinableOnKidZone(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsOriginallyPreInstalled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsInstallOnSD(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsOptoutOnSD(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsOptoutBackupRestore(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn set_EnterpriseDisabled(&self, isdisabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn set_EnterpriseUninstallable(&self, isuninstallable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn EnterpriseDisabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn EnterpriseUninstallable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsVisibleOnAppList(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsInboxApp(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn StorageID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn StartAppBlob(&self, pblob: *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()>;
+    fn IsMovable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn DeploymentAppEnumerationHubFilter(&self) -> ::windows::core::Result<PM_TILE_HUBTYPE>;
+    fn ModifiedDate(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn IsOriginallyRestored(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn ShouldDeferMdilBind(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsFullyPreInstall(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn set_IsMdilMaintenanceNeeded(&self, fismdilmaintenanceneeded: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn set_Title(&self, apptitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMApplicationInfo_Vtbl {
@@ -1311,7 +1311,7 @@ impl IPMApplicationInfo_Vtbl {
     }
 }
 pub trait IPMApplicationInfoEnumerator_Impl: Sized {
-    fn Next(&mut self) -> ::windows::core::Result<IPMApplicationInfo>;
+    fn Next(&self) -> ::windows::core::Result<IPMApplicationInfo>;
 }
 impl IPMApplicationInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMApplicationInfoEnumerator_Impl, const OFFSET: isize>() -> IPMApplicationInfoEnumerator_Vtbl {
@@ -1334,20 +1334,20 @@ impl IPMApplicationInfoEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMBackgroundServiceAgentInfo_Impl: Sized {
-    fn ProductID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TaskID(&mut self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BSAID(&mut self) -> ::windows::core::Result<u32>;
-    fn BGSpecifier(&mut self, pbgspecifier: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BGName(&mut self, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BGSource(&mut self, pbgsource: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BGType(&mut self, pbgtype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsPeriodic(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsScheduled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsScheduleAllowed(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Description(&mut self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsLaunchOnBoot(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn set_IsScheduled(&mut self, isscheduled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn set_IsScheduleAllowed(&mut self, isscheduleallowed: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BSAID(&self) -> ::windows::core::Result<u32>;
+    fn BGSpecifier(&self, pbgspecifier: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BGName(&self, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BGSource(&self, pbgsource: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BGType(&self, pbgtype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsPeriodic(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsScheduled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsScheduleAllowed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Description(&self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsLaunchOnBoot(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn set_IsScheduled(&self, isscheduled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn set_IsScheduleAllowed(&self, isscheduleallowed: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMBackgroundServiceAgentInfo_Vtbl {
@@ -1481,7 +1481,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
     }
 }
 pub trait IPMBackgroundServiceAgentInfoEnumerator_Impl: Sized {
-    fn Next(&mut self) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo>;
+    fn Next(&self) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo>;
 }
 impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMBackgroundServiceAgentInfoEnumerator_Impl, const OFFSET: isize>() -> IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
@@ -1504,12 +1504,12 @@ impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMBackgroundWorkerInfo_Impl: Sized {
-    fn ProductID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TaskID(&mut self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BGName(&mut self, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MaxStartupLatency(&mut self) -> ::windows::core::Result<u32>;
-    fn ExpectedRuntime(&mut self) -> ::windows::core::Result<u32>;
-    fn IsBootWorker(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BGName(&self, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MaxStartupLatency(&self) -> ::windows::core::Result<u32>;
+    fn ExpectedRuntime(&self) -> ::windows::core::Result<u32>;
+    fn IsBootWorker(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMBackgroundWorkerInfo_Vtbl {
@@ -1583,7 +1583,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
     }
 }
 pub trait IPMBackgroundWorkerInfoEnumerator_Impl: Sized {
-    fn Next(&mut self) -> ::windows::core::Result<IPMBackgroundWorkerInfo>;
+    fn Next(&self) -> ::windows::core::Result<IPMBackgroundWorkerInfo>;
 }
 impl IPMBackgroundWorkerInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMBackgroundWorkerInfoEnumerator_Impl, const OFFSET: isize>() -> IPMBackgroundWorkerInfoEnumerator_Vtbl {
@@ -1606,41 +1606,41 @@ impl IPMBackgroundWorkerInfoEnumerator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPMDeploymentManager_Impl: Sized {
-    fn ReportDownloadBegin(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn ReportDownloadProgress(&mut self, productid: &::windows::core::GUID, usprogress: u16) -> ::windows::core::Result<()>;
-    fn ReportDownloadComplete(&mut self, productid: &::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn BeginInstall(&mut self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()>;
-    fn BeginUpdate(&mut self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()>;
-    fn BeginDeployPackage(&mut self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()>;
-    fn BeginUpdateDeployedPackageLegacy(&mut self, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> ::windows::core::Result<()>;
-    fn BeginUninstall(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn BeginEnterpriseAppInstall(&mut self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()>;
-    fn BeginEnterpriseAppUpdate(&mut self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()>;
-    fn BeginUpdateLicense(&mut self, productid: &::windows::core::GUID, offerid: &::windows::core::GUID, pblicense: *const u8, cblicense: u32) -> ::windows::core::Result<()>;
-    fn GetLicenseChallenge(&mut self, packagepath: &super::super::Foundation::BSTR, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()>;
-    fn GetLicenseChallengeByProductID(&mut self, productid: &::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> ::windows::core::Result<()>;
-    fn GetLicenseChallengeByProductID2(&mut self, productid: &::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()>;
-    fn RevokeLicense(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RebindMdilBinaries(&mut self, productid: &::windows::core::GUID, filenames: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn RebindAllMdilBinaries(&mut self, productid: &::windows::core::GUID, instanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RegenerateXbf(&mut self, productid: &::windows::core::GUID, assemblypaths: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn GenerateXbfForCurrentLocale(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn BeginProvision(&mut self, productid: &::windows::core::GUID, xmlpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn BeginDeprovision(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn ReindexSQLCEDatabases(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetApplicationsNeedMaintenance(&mut self, requiredmaintenanceoperations: u32) -> ::windows::core::Result<u32>;
-    fn UpdateChamberProfile(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn EnterprisePolicyIsApplicationAllowed(&mut self, productid: &::windows::core::GUID, publishername: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn BeginUpdateDeployedPackage(&mut self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()>;
-    fn ReportRestoreCancelled(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn ResolveResourceString(&mut self, resourcestring: super::super::Foundation::PWSTR, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn UpdateCapabilitiesForModernApps(&mut self) -> ::windows::core::Result<()>;
-    fn ReportDownloadStatusUpdate(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn BeginUninstallWithOptions(&mut self, productid: &::windows::core::GUID, removaloptions: u32) -> ::windows::core::Result<()>;
-    fn BindDeferredMdilBinaries(&mut self) -> ::windows::core::Result<()>;
-    fn GenerateXamlLightupXbfForCurrentLocale(&mut self, packagefamilyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddLicenseForAppx(&mut self, productid: &::windows::core::GUID, pblicense: *const u8, cblicense: u32, pbplayreadyheader: *const u8, cbplayreadyheader: u32) -> ::windows::core::Result<()>;
-    fn FixJunctionsForAppsOnSDCard(&mut self) -> ::windows::core::Result<()>;
+    fn ReportDownloadBegin(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ReportDownloadProgress(&self, productid: &::windows::core::GUID, usprogress: u16) -> ::windows::core::Result<()>;
+    fn ReportDownloadComplete(&self, productid: &::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn BeginInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()>;
+    fn BeginUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()>;
+    fn BeginDeployPackage(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()>;
+    fn BeginUpdateDeployedPackageLegacy(&self, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> ::windows::core::Result<()>;
+    fn BeginUninstall(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn BeginEnterpriseAppInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()>;
+    fn BeginEnterpriseAppUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()>;
+    fn BeginUpdateLicense(&self, productid: &::windows::core::GUID, offerid: &::windows::core::GUID, pblicense: *const u8, cblicense: u32) -> ::windows::core::Result<()>;
+    fn GetLicenseChallenge(&self, packagepath: &super::super::Foundation::BSTR, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLicenseChallengeByProductID(&self, productid: &::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLicenseChallengeByProductID2(&self, productid: &::windows::core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()>;
+    fn RevokeLicense(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RebindMdilBinaries(&self, productid: &::windows::core::GUID, filenames: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn RebindAllMdilBinaries(&self, productid: &::windows::core::GUID, instanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegenerateXbf(&self, productid: &::windows::core::GUID, assemblypaths: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn GenerateXbfForCurrentLocale(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn BeginProvision(&self, productid: &::windows::core::GUID, xmlpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BeginDeprovision(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ReindexSQLCEDatabases(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetApplicationsNeedMaintenance(&self, requiredmaintenanceoperations: u32) -> ::windows::core::Result<u32>;
+    fn UpdateChamberProfile(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn EnterprisePolicyIsApplicationAllowed(&self, productid: &::windows::core::GUID, publishername: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn BeginUpdateDeployedPackage(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()>;
+    fn ReportRestoreCancelled(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ResolveResourceString(&self, resourcestring: super::super::Foundation::PWSTR, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn UpdateCapabilitiesForModernApps(&self) -> ::windows::core::Result<()>;
+    fn ReportDownloadStatusUpdate(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn BeginUninstallWithOptions(&self, productid: &::windows::core::GUID, removaloptions: u32) -> ::windows::core::Result<()>;
+    fn BindDeferredMdilBinaries(&self) -> ::windows::core::Result<()>;
+    fn GenerateXamlLightupXbfForCurrentLocale(&self, packagefamilyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddLicenseForAppx(&self, productid: &::windows::core::GUID, pblicense: *const u8, cblicense: u32, pbplayreadyheader: *const u8, cbplayreadyheader: u32) -> ::windows::core::Result<()>;
+    fn FixJunctionsForAppsOnSDCard(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPMDeploymentManager_Vtbl {
@@ -1881,24 +1881,24 @@ impl IPMDeploymentManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMEnumerationManager_Impl: Sized {
-    fn AllApplications(&mut self, ppappenum: *mut ::core::option::Option<IPMApplicationInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
-    fn AllTiles(&mut self, pptileenum: *mut ::core::option::Option<IPMTileInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
-    fn AllTasks(&mut self, pptaskenum: *mut ::core::option::Option<IPMTaskInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
-    fn AllExtensions(&mut self, ppextensionenum: *mut ::core::option::Option<IPMExtensionInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
-    fn AllBackgroundServiceAgents(&mut self, ppbsaenum: *mut ::core::option::Option<IPMBackgroundServiceAgentInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
-    fn AllBackgroundWorkers(&mut self, ppbswenum: *mut ::core::option::Option<IPMBackgroundWorkerInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
-    fn ApplicationInfo(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<IPMApplicationInfo>;
-    fn TileInfo(&mut self, productid: &::windows::core::GUID, tileid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMTileInfo>;
-    fn TaskInfo(&mut self, productid: &::windows::core::GUID, taskid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMTaskInfo>;
-    fn TaskInfoEx(&mut self, productid: &::windows::core::GUID, taskid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IPMTaskInfo>;
-    fn BackgroundServiceAgentInfo(&mut self, bsaid: u32) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo>;
-    fn AllLiveTileJobs(&mut self) -> ::windows::core::Result<IPMLiveTileJobInfoEnumerator>;
-    fn LiveTileJob(&mut self, productid: &::windows::core::GUID, tileid: &super::super::Foundation::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> ::windows::core::Result<IPMLiveTileJobInfo>;
-    fn ApplicationInfoExternal(&mut self, productid: &::windows::core::GUID) -> ::windows::core::Result<IPMApplicationInfo>;
-    fn FileHandlerGenericLogo(&mut self, filetype: &super::super::Foundation::BSTR, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ApplicationInfoFromAccessClaims(&mut self, sysappid0: &super::super::Foundation::BSTR, sysappid1: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMApplicationInfo>;
-    fn StartTileEnumeratorBlob(&mut self, filter: &PM_ENUM_FILTER, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()>;
-    fn StartAppEnumeratorBlob(&mut self, filter: &PM_ENUM_FILTER, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()>;
+    fn AllApplications(&self, ppappenum: *mut ::core::option::Option<IPMApplicationInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
+    fn AllTiles(&self, pptileenum: *mut ::core::option::Option<IPMTileInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
+    fn AllTasks(&self, pptaskenum: *mut ::core::option::Option<IPMTaskInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
+    fn AllExtensions(&self, ppextensionenum: *mut ::core::option::Option<IPMExtensionInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
+    fn AllBackgroundServiceAgents(&self, ppbsaenum: *mut ::core::option::Option<IPMBackgroundServiceAgentInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
+    fn AllBackgroundWorkers(&self, ppbswenum: *mut ::core::option::Option<IPMBackgroundWorkerInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows::core::Result<()>;
+    fn ApplicationInfo(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<IPMApplicationInfo>;
+    fn TileInfo(&self, productid: &::windows::core::GUID, tileid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMTileInfo>;
+    fn TaskInfo(&self, productid: &::windows::core::GUID, taskid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMTaskInfo>;
+    fn TaskInfoEx(&self, productid: &::windows::core::GUID, taskid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IPMTaskInfo>;
+    fn BackgroundServiceAgentInfo(&self, bsaid: u32) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo>;
+    fn AllLiveTileJobs(&self) -> ::windows::core::Result<IPMLiveTileJobInfoEnumerator>;
+    fn LiveTileJob(&self, productid: &::windows::core::GUID, tileid: &super::super::Foundation::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> ::windows::core::Result<IPMLiveTileJobInfo>;
+    fn ApplicationInfoExternal(&self, productid: &::windows::core::GUID) -> ::windows::core::Result<IPMApplicationInfo>;
+    fn FileHandlerGenericLogo(&self, filetype: &super::super::Foundation::BSTR, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ApplicationInfoFromAccessClaims(&self, sysappid0: &super::super::Foundation::BSTR, sysappid1: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPMApplicationInfo>;
+    fn StartTileEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()>;
+    fn StartAppEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMEnumerationManager_Vtbl {
@@ -2075,7 +2075,7 @@ impl IPMEnumerationManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionCachedFileUpdaterInfo_Impl: Sized {
-    fn SupportsUpdates(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SupportsUpdates(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
@@ -2099,7 +2099,7 @@ impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionContractInfo_Impl: Sized {
-    fn InvocationInfo(&mut self, paumid: *mut super::super::Foundation::BSTR, pargs: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InvocationInfo(&self, paumid: *mut super::super::Foundation::BSTR, pargs: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionContractInfo_Vtbl {
@@ -2117,13 +2117,13 @@ impl IPMExtensionContractInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionFileExtensionInfo_Impl: Sized {
-    fn Name(&mut self, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DisplayName(&mut self, pdisplayname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Logo(&mut self, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ContentType(&mut self, filetype: &super::super::Foundation::BSTR, pcontenttype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FileType(&mut self, contenttype: &super::super::Foundation::BSTR, pfiletype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InvocationInfo(&mut self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AllFileTypes(&mut self, pcbtypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Name(&self, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DisplayName(&self, pdisplayname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Logo(&self, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ContentType(&self, filetype: &super::super::Foundation::BSTR, pcontenttype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FileType(&self, contenttype: &super::super::Foundation::BSTR, pfiletype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionFileExtensionInfo_Vtbl {
@@ -2180,8 +2180,8 @@ impl IPMExtensionFileExtensionInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionFileOpenPickerInfo_Impl: Sized {
-    fn AllFileTypes(&mut self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SupportsAllFileTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionFileOpenPickerInfo_Vtbl {
@@ -2214,8 +2214,8 @@ impl IPMExtensionFileOpenPickerInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionFileSavePickerInfo_Impl: Sized {
-    fn AllFileTypes(&mut self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SupportsAllFileTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionFileSavePickerInfo_Vtbl {
@@ -2248,12 +2248,12 @@ impl IPMExtensionFileSavePickerInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionInfo_Impl: Sized {
-    fn SupplierPID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SupplierTaskID(&mut self, psuppliertid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Title(&mut self, ptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IconPath(&mut self, piconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ExtraFile(&mut self, pfilepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InvocationInfo(&mut self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SupplierPID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SupplierTaskID(&self, psuppliertid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Title(&self, ptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IconPath(&self, piconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ExtraFile(&self, pfilepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionInfo_Vtbl {
@@ -2309,7 +2309,7 @@ impl IPMExtensionInfo_Vtbl {
     }
 }
 pub trait IPMExtensionInfoEnumerator_Impl: Sized {
-    fn Next(&mut self) -> ::windows::core::Result<IPMExtensionInfo>;
+    fn Next(&self) -> ::windows::core::Result<IPMExtensionInfo>;
 }
 impl IPMExtensionInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionInfoEnumerator_Impl, const OFFSET: isize>() -> IPMExtensionInfoEnumerator_Vtbl {
@@ -2332,8 +2332,8 @@ impl IPMExtensionInfoEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionProtocolInfo_Impl: Sized {
-    fn Protocol(&mut self, pprotocol: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InvocationInfo(&mut self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Protocol(&self, pprotocol: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionProtocolInfo_Vtbl {
@@ -2360,9 +2360,9 @@ impl IPMExtensionProtocolInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionShareTargetInfo_Impl: Sized {
-    fn AllFileTypes(&mut self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AllDataFormats(&mut self, pcdataformats: *mut u32, ppdataformats: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SupportsAllFileTypes(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionShareTargetInfo_Vtbl {
@@ -2401,30 +2401,30 @@ impl IPMExtensionShareTargetInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMLiveTileJobInfo_Impl: Sized {
-    fn ProductID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TileID(&mut self, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NextSchedule(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn set_NextSchedule(&mut self, ftnextschedule: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn StartSchedule(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn set_StartSchedule(&mut self, ftstartschedule: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn IntervalDuration(&mut self) -> ::windows::core::Result<u32>;
-    fn set_IntervalDuration(&mut self, ulintervalduration: u32) -> ::windows::core::Result<()>;
-    fn RunForever(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn set_RunForever(&mut self, frunforever: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn MaxRunCount(&mut self) -> ::windows::core::Result<u32>;
-    fn set_MaxRunCount(&mut self, ulmaxruncount: u32) -> ::windows::core::Result<()>;
-    fn RunCount(&mut self) -> ::windows::core::Result<u32>;
-    fn set_RunCount(&mut self, ulruncount: u32) -> ::windows::core::Result<()>;
-    fn RecurrenceType(&mut self) -> ::windows::core::Result<u32>;
-    fn set_RecurrenceType(&mut self, ulrecurrencetype: u32) -> ::windows::core::Result<()>;
-    fn TileXML(&mut self, ptilexml: *mut *mut u8, pcbtilexml: *mut u32) -> ::windows::core::Result<()>;
-    fn set_TileXML(&mut self, ptilexml: *const u8, cbtilexml: u32) -> ::windows::core::Result<()>;
-    fn UrlXML(&mut self, purlxml: *mut *mut u8, pcburlxml: *mut u32) -> ::windows::core::Result<()>;
-    fn set_UrlXML(&mut self, purlxml: *const u8, cburlxml: u32) -> ::windows::core::Result<()>;
-    fn AttemptCount(&mut self) -> ::windows::core::Result<u32>;
-    fn set_AttemptCount(&mut self, ulattemptcount: u32) -> ::windows::core::Result<()>;
-    fn DownloadState(&mut self) -> ::windows::core::Result<u32>;
-    fn set_DownloadState(&mut self, uldownloadstate: u32) -> ::windows::core::Result<()>;
+    fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TileID(&self, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NextSchedule(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn set_NextSchedule(&self, ftnextschedule: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn StartSchedule(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn set_StartSchedule(&self, ftstartschedule: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn IntervalDuration(&self) -> ::windows::core::Result<u32>;
+    fn set_IntervalDuration(&self, ulintervalduration: u32) -> ::windows::core::Result<()>;
+    fn RunForever(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn set_RunForever(&self, frunforever: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn MaxRunCount(&self) -> ::windows::core::Result<u32>;
+    fn set_MaxRunCount(&self, ulmaxruncount: u32) -> ::windows::core::Result<()>;
+    fn RunCount(&self) -> ::windows::core::Result<u32>;
+    fn set_RunCount(&self, ulruncount: u32) -> ::windows::core::Result<()>;
+    fn RecurrenceType(&self) -> ::windows::core::Result<u32>;
+    fn set_RecurrenceType(&self, ulrecurrencetype: u32) -> ::windows::core::Result<()>;
+    fn TileXML(&self, ptilexml: *mut *mut u8, pcbtilexml: *mut u32) -> ::windows::core::Result<()>;
+    fn set_TileXML(&self, ptilexml: *const u8, cbtilexml: u32) -> ::windows::core::Result<()>;
+    fn UrlXML(&self, purlxml: *mut *mut u8, pcburlxml: *mut u32) -> ::windows::core::Result<()>;
+    fn set_UrlXML(&self, purlxml: *const u8, cburlxml: u32) -> ::windows::core::Result<()>;
+    fn AttemptCount(&self) -> ::windows::core::Result<u32>;
+    fn set_AttemptCount(&self, ulattemptcount: u32) -> ::windows::core::Result<()>;
+    fn DownloadState(&self) -> ::windows::core::Result<u32>;
+    fn set_DownloadState(&self, uldownloadstate: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMLiveTileJobInfo_Vtbl {
@@ -2642,7 +2642,7 @@ impl IPMLiveTileJobInfo_Vtbl {
     }
 }
 pub trait IPMLiveTileJobInfoEnumerator_Impl: Sized {
-    fn Next(&mut self) -> ::windows::core::Result<IPMLiveTileJobInfo>;
+    fn Next(&self) -> ::windows::core::Result<IPMLiveTileJobInfo>;
 }
 impl IPMLiveTileJobInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMLiveTileJobInfoEnumerator_Impl, const OFFSET: isize>() -> IPMLiveTileJobInfoEnumerator_Vtbl {
@@ -2665,27 +2665,27 @@ impl IPMLiveTileJobInfoEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMTaskInfo_Impl: Sized {
-    fn ProductID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TaskID(&mut self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NavigationPage(&mut self, pnavigationpage: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TaskTransition(&mut self) -> ::windows::core::Result<PM_TASK_TRANSITION>;
-    fn RuntimeType(&mut self) -> ::windows::core::Result<PACKMAN_RUNTIME>;
-    fn ActivationPolicy(&mut self) -> ::windows::core::Result<PM_ACTIVATION_POLICY>;
-    fn TaskType(&mut self) -> ::windows::core::Result<PM_TASK_TYPE>;
-    fn InvocationInfo(&mut self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ImagePath(&mut self, pimagepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ImageParams(&mut self, pimageparams: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InstallRootFolder(&mut self, pinstallrootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DataRootFolder(&mut self, pdatarootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsSingleInstanceHost(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsInteropEnabled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn ApplicationState(&mut self) -> ::windows::core::Result<PM_APPLICATION_STATE>;
-    fn InstallType(&mut self) -> ::windows::core::Result<PM_APPLICATION_INSTALL_TYPE>;
-    fn Version(&mut self, ptargetmajorversion: *mut u8, ptargetminorversion: *mut u8) -> ::windows::core::Result<()>;
-    fn BitsPerPixel(&mut self) -> ::windows::core::Result<u16>;
-    fn SuppressesDehydration(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn BackgroundExecutionAbilities(&mut self, pbackgroundexecutionabilities: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsOptedForExtendedMem(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NavigationPage(&self, pnavigationpage: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TaskTransition(&self) -> ::windows::core::Result<PM_TASK_TRANSITION>;
+    fn RuntimeType(&self) -> ::windows::core::Result<PACKMAN_RUNTIME>;
+    fn ActivationPolicy(&self) -> ::windows::core::Result<PM_ACTIVATION_POLICY>;
+    fn TaskType(&self) -> ::windows::core::Result<PM_TASK_TYPE>;
+    fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ImagePath(&self, pimagepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ImageParams(&self, pimageparams: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InstallRootFolder(&self, pinstallrootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DataRootFolder(&self, pdatarootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsSingleInstanceHost(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsInteropEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn ApplicationState(&self) -> ::windows::core::Result<PM_APPLICATION_STATE>;
+    fn InstallType(&self) -> ::windows::core::Result<PM_APPLICATION_INSTALL_TYPE>;
+    fn Version(&self, ptargetmajorversion: *mut u8, ptargetminorversion: *mut u8) -> ::windows::core::Result<()>;
+    fn BitsPerPixel(&self) -> ::windows::core::Result<u16>;
+    fn SuppressesDehydration(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn BackgroundExecutionAbilities(&self, pbackgroundexecutionabilities: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsOptedForExtendedMem(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMTaskInfo_Vtbl {
@@ -2897,7 +2897,7 @@ impl IPMTaskInfo_Vtbl {
     }
 }
 pub trait IPMTaskInfoEnumerator_Impl: Sized {
-    fn Next(&mut self) -> ::windows::core::Result<IPMTaskInfo>;
+    fn Next(&self) -> ::windows::core::Result<IPMTaskInfo>;
 }
 impl IPMTaskInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMTaskInfoEnumerator_Impl, const OFFSET: isize>() -> IPMTaskInfoEnumerator_Vtbl {
@@ -2920,30 +2920,30 @@ impl IPMTaskInfoEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMTileInfo_Impl: Sized {
-    fn ProductID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn TileID(&mut self, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TemplateType(&mut self) -> ::windows::core::Result<TILE_TEMPLATE_TYPE>;
-    fn HubPinnedState(&mut self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn HubPosition(&mut self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<u32>;
-    fn IsNotified(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsDefault(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn TaskID(&mut self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TileType(&mut self) -> ::windows::core::Result<PM_STARTTILE_TYPE>;
-    fn IsThemable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn PropertyById(&mut self, propid: u32) -> ::windows::core::Result<IPMTilePropertyInfo>;
-    fn InvocationInfo(&mut self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PropertyEnum(&mut self) -> ::windows::core::Result<IPMTilePropertyEnumerator>;
-    fn HubTileSize(&mut self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<PM_TILE_SIZE>;
-    fn set_HubPosition(&mut self, hubtype: PM_TILE_HUBTYPE, position: u32) -> ::windows::core::Result<()>;
-    fn set_NotifiedState(&mut self, notified: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn set_HubPinnedState(&mut self, hubtype: PM_TILE_HUBTYPE, pinned: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn set_HubTileSize(&mut self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> ::windows::core::Result<()>;
-    fn set_InvocationInfo(&mut self, taskname: &super::super::Foundation::BSTR, taskparameters: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StartTileBlob(&mut self, pblob: *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()>;
-    fn IsRestoring(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsAutoRestoreDisabled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn set_IsRestoring(&mut self, restoring: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn set_IsAutoRestoreDisabled(&mut self, autorestoredisabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn TileID(&self, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TemplateType(&self) -> ::windows::core::Result<TILE_TEMPLATE_TYPE>;
+    fn HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn HubPosition(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<u32>;
+    fn IsNotified(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsDefault(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TileType(&self) -> ::windows::core::Result<PM_STARTTILE_TYPE>;
+    fn IsThemable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn PropertyById(&self, propid: u32) -> ::windows::core::Result<IPMTilePropertyInfo>;
+    fn InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PropertyEnum(&self) -> ::windows::core::Result<IPMTilePropertyEnumerator>;
+    fn HubTileSize(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<PM_TILE_SIZE>;
+    fn set_HubPosition(&self, hubtype: PM_TILE_HUBTYPE, position: u32) -> ::windows::core::Result<()>;
+    fn set_NotifiedState(&self, notified: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn set_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE, pinned: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn set_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> ::windows::core::Result<()>;
+    fn set_InvocationInfo(&self, taskname: &super::super::Foundation::BSTR, taskparameters: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StartTileBlob(&self, pblob: *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()>;
+    fn IsRestoring(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsAutoRestoreDisabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn set_IsRestoring(&self, restoring: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn set_IsAutoRestoreDisabled(&self, autorestoredisabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMTileInfo_Vtbl {
@@ -3179,7 +3179,7 @@ impl IPMTileInfo_Vtbl {
     }
 }
 pub trait IPMTileInfoEnumerator_Impl: Sized {
-    fn Next(&mut self) -> ::windows::core::Result<IPMTileInfo>;
+    fn Next(&self) -> ::windows::core::Result<IPMTileInfo>;
 }
 impl IPMTileInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMTileInfoEnumerator_Impl, const OFFSET: isize>() -> IPMTileInfoEnumerator_Vtbl {
@@ -3201,7 +3201,7 @@ impl IPMTileInfoEnumerator_Vtbl {
     }
 }
 pub trait IPMTilePropertyEnumerator_Impl: Sized {
-    fn Next(&mut self) -> ::windows::core::Result<IPMTilePropertyInfo>;
+    fn Next(&self) -> ::windows::core::Result<IPMTilePropertyInfo>;
 }
 impl IPMTilePropertyEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMTilePropertyEnumerator_Impl, const OFFSET: isize>() -> IPMTilePropertyEnumerator_Vtbl {
@@ -3224,9 +3224,9 @@ impl IPMTilePropertyEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMTilePropertyInfo_Impl: Sized {
-    fn PropertyID(&mut self) -> ::windows::core::Result<u32>;
-    fn PropertyValue(&mut self, ppropvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn set_Property(&mut self, propvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PropertyID(&self) -> ::windows::core::Result<u32>;
+    fn PropertyValue(&self, ppropvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn set_Property(&self, propvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPMTilePropertyInfo_Vtbl {
@@ -3265,13 +3265,13 @@ impl IPMTilePropertyInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IValidate_Impl: Sized {
-    fn OpenDatabase(&mut self, szdatabase: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OpenCUB(&mut self, szcubfile: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn CloseDatabase(&mut self) -> ::windows::core::Result<()>;
-    fn CloseCUB(&mut self) -> ::windows::core::Result<()>;
-    fn SetDisplay(&mut self, pdisplayfunction: &LPDISPLAYVAL, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetStatus(&mut self, pstatusfunction: &LPEVALCOMCALLBACK, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Validate(&mut self, wzices: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OpenDatabase(&self, szdatabase: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OpenCUB(&self, szcubfile: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CloseDatabase(&self) -> ::windows::core::Result<()>;
+    fn CloseCUB(&self) -> ::windows::core::Result<()>;
+    fn SetDisplay(&self, pdisplayfunction: &LPDISPLAYVAL, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetStatus(&self, pstatusfunction: &LPEVALCOMCALLBACK, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Validate(&self, wzices: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IValidate_Vtbl {

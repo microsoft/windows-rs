@@ -1,10 +1,10 @@
 #[cfg(feature = "Foundation")]
 pub trait IPropertyAnimation_Impl: Sized {
-    fn Type(&mut self) -> ::windows::core::Result<PropertyAnimationType>;
-    fn Delay(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Duration(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn Control1(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
-    fn Control2(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn Type(&self) -> ::windows::core::Result<PropertyAnimationType>;
+    fn Delay(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn Duration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn Control1(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
+    fn Control2(&self) -> ::windows::core::Result<super::super::super::Foundation::Point>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPropertyAnimation {

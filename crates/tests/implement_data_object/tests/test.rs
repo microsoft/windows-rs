@@ -17,49 +17,76 @@ struct Test {
 }
 
 impl IDataObject_Impl for Test {
-    fn GetData(&mut self, _: *const FORMATETC) -> Result<STGMEDIUM> {
-        self.GetData = true;
-        Ok(STGMEDIUM::default())
+    fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            writer.GetData = true;
+            Ok(STGMEDIUM::default())
+        }
     }
 
-    fn GetDataHere(&mut self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
-        self.GetDataHere = true;
-        Ok(())
+    fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            writer.GetDataHere = true;
+            Ok(())
+        }
     }
 
-    fn QueryGetData(&mut self, _: *const FORMATETC) -> Result<()> {
-        self.QueryGetData = true;
-        Ok(())
+    fn QueryGetData(&self, _: *const FORMATETC) -> Result<()> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            writer.QueryGetData = true;
+            Ok(())
+        }
     }
 
-    fn GetCanonicalFormatEtc(&mut self, _: *const FORMATETC) -> Result<FORMATETC> {
-        self.GetCanonicalFormatEtc = true;
-        Ok(FORMATETC::default())
+    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC) -> Result<FORMATETC> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            writer.GetCanonicalFormatEtc = true;
+            Ok(FORMATETC::default())
+        }
     }
 
-    fn SetData(&mut self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
-        self.SetData = true;
-        Ok(())
+    fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            writer.SetData = true;
+            Ok(())
+        }
     }
 
-    fn EnumFormatEtc(&mut self, _: u32) -> Result<IEnumFORMATETC> {
-        self.EnumFormatEtc = true;
-        Err(Error::OK)
+    fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            writer.EnumFormatEtc = true;
+            Err(Error::OK)
+        }
     }
 
-    fn DAdvise(&mut self, _: *const FORMATETC, _: u32, _: &Option<IAdviseSink>) -> Result<u32> {
-        self.DAdvise = true;
-        Ok(0)
+    fn DAdvise(&self, _: *const FORMATETC, _: u32, _: &Option<IAdviseSink>) -> Result<u32> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            writer.DAdvise = true;
+            Ok(0)
+        }
     }
 
-    fn DUnadvise(&mut self, _: u32) -> Result<()> {
-        self.DUnadvise = true;
-        Ok(())
+    fn DUnadvise(&self, _: u32) -> Result<()> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            writer.DUnadvise = true;
+            Ok(())
+        }
     }
 
-    fn EnumDAdvise(&mut self) -> Result<IEnumSTATDATA> {
-        self.EnumDAdvise = true;
-        Err(Error::OK)
+    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            writer.EnumDAdvise = true;
+            Err(Error::OK)
+        }
     }
 }
 

@@ -6,31 +6,31 @@ use windows::{core::*, Win32::System::Com::StructuredStorage::*, Win32::System::
 struct Object();
 
 impl IInitializeWithStream_Impl for Object {
-    fn Initialize(&mut self, _: &Option<IStream>, _: u32) -> Result<()> {
+    fn Initialize(&self, _: &Option<IStream>, _: u32) -> Result<()> {
         Ok(())
     }
 }
 
 impl IPropertyStore_Impl for Object {
-    fn GetCount(&mut self) -> Result<u32> {
+    fn GetCount(&self) -> Result<u32> {
         Ok(123)
     }
-    fn GetAt(&mut self, _: u32) -> Result<PROPERTYKEY> {
+    fn GetAt(&self, _: u32) -> Result<PROPERTYKEY> {
         todo!()
     }
-    fn GetValue(&mut self, _: *const PROPERTYKEY) -> Result<PROPVARIANT> {
+    fn GetValue(&self, _: *const PROPERTYKEY) -> Result<PROPVARIANT> {
         todo!()
     }
-    fn SetValue(&mut self, _: *const PROPERTYKEY, _: *const PROPVARIANT) -> Result<()> {
+    fn SetValue(&self, _: *const PROPERTYKEY, _: *const PROPVARIANT) -> Result<()> {
         todo!()
     }
-    fn Commit(&mut self) -> Result<()> {
+    fn Commit(&self) -> Result<()> {
         todo!()
     }
 }
 
 impl IPropertyStoreCapabilities_Impl for Object {
-    fn IsPropertyWritable(&mut self, _: *const PROPERTYKEY) -> Result<()> {
+    fn IsPropertyWritable(&self, _: *const PROPERTYKEY) -> Result<()> {
         Ok(())
     }
 }

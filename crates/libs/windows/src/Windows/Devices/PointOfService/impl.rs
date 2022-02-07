@@ -1,5 +1,5 @@
 pub trait ICashDrawerEventSourceEventArgs_Impl: Sized {
-    fn CashDrawer(&mut self) -> ::windows::core::Result<CashDrawer>;
+    fn CashDrawer(&self) -> ::windows::core::Result<CashDrawer>;
 }
 impl ::windows::core::RuntimeName for ICashDrawerEventSourceEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs";
@@ -28,25 +28,25 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
     }
 }
 pub trait ICommonClaimedPosPrinterStation_Impl: Sized {
-    fn SetCharactersPerLine(&mut self, value: u32) -> ::windows::core::Result<()>;
-    fn CharactersPerLine(&mut self) -> ::windows::core::Result<u32>;
-    fn SetLineHeight(&mut self, value: u32) -> ::windows::core::Result<()>;
-    fn LineHeight(&mut self) -> ::windows::core::Result<u32>;
-    fn SetLineSpacing(&mut self, value: u32) -> ::windows::core::Result<()>;
-    fn LineSpacing(&mut self) -> ::windows::core::Result<u32>;
-    fn LineWidth(&mut self) -> ::windows::core::Result<u32>;
-    fn SetIsLetterQuality(&mut self, value: bool) -> ::windows::core::Result<()>;
-    fn IsLetterQuality(&mut self) -> ::windows::core::Result<bool>;
-    fn IsPaperNearEnd(&mut self) -> ::windows::core::Result<bool>;
-    fn SetColorCartridge(&mut self, value: PosPrinterColorCartridge) -> ::windows::core::Result<()>;
-    fn ColorCartridge(&mut self) -> ::windows::core::Result<PosPrinterColorCartridge>;
-    fn IsCoverOpen(&mut self) -> ::windows::core::Result<bool>;
-    fn IsCartridgeRemoved(&mut self) -> ::windows::core::Result<bool>;
-    fn IsCartridgeEmpty(&mut self) -> ::windows::core::Result<bool>;
-    fn IsHeadCleaning(&mut self) -> ::windows::core::Result<bool>;
-    fn IsPaperEmpty(&mut self) -> ::windows::core::Result<bool>;
-    fn IsReadyToPrint(&mut self) -> ::windows::core::Result<bool>;
-    fn ValidateData(&mut self, data: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn SetCharactersPerLine(&self, value: u32) -> ::windows::core::Result<()>;
+    fn CharactersPerLine(&self) -> ::windows::core::Result<u32>;
+    fn SetLineHeight(&self, value: u32) -> ::windows::core::Result<()>;
+    fn LineHeight(&self) -> ::windows::core::Result<u32>;
+    fn SetLineSpacing(&self, value: u32) -> ::windows::core::Result<()>;
+    fn LineSpacing(&self) -> ::windows::core::Result<u32>;
+    fn LineWidth(&self) -> ::windows::core::Result<u32>;
+    fn SetIsLetterQuality(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsLetterQuality(&self) -> ::windows::core::Result<bool>;
+    fn IsPaperNearEnd(&self) -> ::windows::core::Result<bool>;
+    fn SetColorCartridge(&self, value: PosPrinterColorCartridge) -> ::windows::core::Result<()>;
+    fn ColorCartridge(&self) -> ::windows::core::Result<PosPrinterColorCartridge>;
+    fn IsCoverOpen(&self) -> ::windows::core::Result<bool>;
+    fn IsCartridgeRemoved(&self) -> ::windows::core::Result<bool>;
+    fn IsCartridgeEmpty(&self) -> ::windows::core::Result<bool>;
+    fn IsHeadCleaning(&self) -> ::windows::core::Result<bool>;
+    fn IsPaperEmpty(&self) -> ::windows::core::Result<bool>;
+    fn IsReadyToPrint(&self) -> ::windows::core::Result<bool>;
+    fn ValidateData(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for ICommonClaimedPosPrinterStation {
     const NAME: &'static str = "Windows.Devices.PointOfService.ICommonClaimedPosPrinterStation";
@@ -275,19 +275,19 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait ICommonPosPrintStationCapabilities_Impl: Sized {
-    fn IsPrinterPresent(&mut self) -> ::windows::core::Result<bool>;
-    fn IsDualColorSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn ColorCartridgeCapabilities(&mut self) -> ::windows::core::Result<PosPrinterColorCapabilities>;
-    fn CartridgeSensors(&mut self) -> ::windows::core::Result<PosPrinterCartridgeSensors>;
-    fn IsBoldSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsItalicSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsUnderlineSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsDoubleHighPrintSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsDoubleWidePrintSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsDoubleHighDoubleWidePrintSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsPaperEmptySensorSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsPaperNearEndSensorSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn SupportedCharactersPerLine(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
+    fn IsPrinterPresent(&self) -> ::windows::core::Result<bool>;
+    fn IsDualColorSupported(&self) -> ::windows::core::Result<bool>;
+    fn ColorCartridgeCapabilities(&self) -> ::windows::core::Result<PosPrinterColorCapabilities>;
+    fn CartridgeSensors(&self) -> ::windows::core::Result<PosPrinterCartridgeSensors>;
+    fn IsBoldSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsItalicSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsUnderlineSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsDoubleHighPrintSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsDoubleHighDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsPaperEmptySensorSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsPaperNearEndSensorSupported(&self) -> ::windows::core::Result<bool>;
+    fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ICommonPosPrintStationCapabilities {
@@ -475,15 +475,15 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait ICommonReceiptSlipCapabilities_Impl: Sized + ICommonPosPrintStationCapabilities_Impl {
-    fn IsBarcodeSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsBitmapSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsLeft90RotationSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsRight90RotationSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn Is180RotationSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn IsPrintAreaSupported(&mut self) -> ::windows::core::Result<bool>;
-    fn RuledLineCapabilities(&mut self) -> ::windows::core::Result<PosPrinterRuledLineCapabilities>;
-    fn SupportedBarcodeRotations(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>;
-    fn SupportedBitmapRotations(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>;
+    fn IsBarcodeSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsBitmapSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsLeft90RotationSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsRight90RotationSupported(&self) -> ::windows::core::Result<bool>;
+    fn Is180RotationSupported(&self) -> ::windows::core::Result<bool>;
+    fn IsPrintAreaSupported(&self) -> ::windows::core::Result<bool>;
+    fn RuledLineCapabilities(&self) -> ::windows::core::Result<PosPrinterRuledLineCapabilities>;
+    fn SupportedBarcodeRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>;
+    fn SupportedBitmapRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ICommonReceiptSlipCapabilities {
@@ -619,10 +619,10 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IPosPrinterJob_Impl: Sized {
-    fn Print(&mut self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PrintLine(&mut self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn PrintNewline(&mut self) -> ::windows::core::Result<()>;
-    fn ExecuteAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
+    fn Print(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PrintLine(&self, data: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn PrintNewline(&self) -> ::windows::core::Result<()>;
+    fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPosPrinterJob {
@@ -672,21 +672,21 @@ impl IPosPrinterJob_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
 pub trait IReceiptOrSlipJob_Impl: Sized + IPosPrinterJob_Impl {
-    fn SetBarcodeRotation(&mut self, value: PosPrinterRotation) -> ::windows::core::Result<()>;
-    fn SetPrintRotation(&mut self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()>;
-    fn SetPrintArea(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn SetBitmap(&mut self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
-    fn SetBitmapCustomWidthStandardAlign(&mut self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>;
-    fn SetCustomAlignedBitmap(&mut self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32) -> ::windows::core::Result<()>;
-    fn SetBitmapCustomWidthCustomAlign(&mut self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>;
-    fn PrintSavedBitmap(&mut self, bitmapnumber: u32) -> ::windows::core::Result<()>;
-    fn DrawRuledLine(&mut self, positionlist: &::windows::core::HSTRING, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()>;
-    fn PrintBarcode(&mut self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
-    fn PrintBarcodeCustomAlign(&mut self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()>;
-    fn PrintBitmap(&mut self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
-    fn PrintBitmapCustomWidthStandardAlign(&mut self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>;
-    fn PrintCustomAlignedBitmap(&mut self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32) -> ::windows::core::Result<()>;
-    fn PrintBitmapCustomWidthCustomAlign(&mut self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>;
+    fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows::core::Result<()>;
+    fn SetPrintRotation(&self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()>;
+    fn SetPrintArea(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn SetBitmap(&self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
+    fn SetBitmapCustomWidthStandardAlign(&self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>;
+    fn SetCustomAlignedBitmap(&self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32) -> ::windows::core::Result<()>;
+    fn SetBitmapCustomWidthCustomAlign(&self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>;
+    fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows::core::Result<()>;
+    fn DrawRuledLine(&self, positionlist: &::windows::core::HSTRING, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()>;
+    fn PrintBarcode(&self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
+    fn PrintBarcodeCustomAlign(&self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()>;
+    fn PrintBitmap(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
+    fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>;
+    fn PrintCustomAlignedBitmap(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32) -> ::windows::core::Result<()>;
+    fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
 impl ::windows::core::RuntimeName for IReceiptOrSlipJob {

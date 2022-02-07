@@ -1,21 +1,21 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IContactInformation_Impl: Sized {
-    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn FamilyName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFamilyName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GivenName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetGivenName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn HonorificPrefix(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetHonorificPrefix(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn HonorificSuffix(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetHonorificSuffix(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetDisplayPictureAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;
-    fn SetDisplayPictureAsync(&mut self, stream: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn DisplayPicture(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
-    fn GetPropertiesAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>;
-    fn ToVcardAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;
-    fn ToVcardWithOptionsAsync(&mut self, format: VCardFormat) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;
+    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn FamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFamilyName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GivenName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetGivenName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn HonorificPrefix(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetHonorificPrefix(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn HonorificSuffix(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetHonorificSuffix(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetDisplayPictureAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;
+    fn SetDisplayPictureAsync(&self, stream: &::core::option::Option<super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn DisplayPicture(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
+    fn GetPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>;
+    fn ToVcardAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;
+    fn ToVcardWithOptionsAsync(&self, format: VCardFormat) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IContactInformation {
@@ -207,8 +207,8 @@ impl IContactInformation_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IContactInformation2_Impl: Sized {
-    fn DisplayPictureDate(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn SetDisplayPictureDate(&mut self, returnvalue: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
+    fn DisplayPictureDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn SetDisplayPictureDate(&self, returnvalue: &super::super::Foundation::DateTime) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IContactInformation2 {

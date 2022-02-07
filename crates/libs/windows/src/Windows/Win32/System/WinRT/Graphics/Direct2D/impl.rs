@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Graphics_Direct2D")]
 pub trait IGeometrySource2DInterop_Impl: Sized {
-    fn GetGeometry(&mut self) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
-    fn TryGetGeometryUsingFactory(&mut self, factory: &::core::option::Option<super::super::super::super::Graphics::Direct2D::ID2D1Factory>) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
+    fn GetGeometry(&self) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
+    fn TryGetGeometryUsingFactory(&self, factory: &::core::option::Option<super::super::super::super::Graphics::Direct2D::ID2D1Factory>) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D")]
 impl IGeometrySource2DInterop_Vtbl {
@@ -40,12 +40,12 @@ impl IGeometrySource2DInterop_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Effects", feature = "Win32_Foundation"))]
 pub trait IGraphicsEffectD2D1Interop_Impl: Sized {
-    fn GetEffectId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetNamedPropertyMapping(&mut self, name: super::super::super::super::Foundation::PWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()>;
-    fn GetPropertyCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetProperty(&mut self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Foundation::IPropertyValue>;
-    fn GetSource(&mut self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource>;
-    fn GetSourceCount(&mut self) -> ::windows::core::Result<u32>;
+    fn GetEffectId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetNamedPropertyMapping(&self, name: super::super::super::super::Foundation::PWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()>;
+    fn GetPropertyCount(&self) -> ::windows::core::Result<u32>;
+    fn GetProperty(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Foundation::IPropertyValue>;
+    fn GetSource(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource>;
+    fn GetSourceCount(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Effects", feature = "Win32_Foundation"))]
 impl IGraphicsEffectD2D1Interop_Vtbl {

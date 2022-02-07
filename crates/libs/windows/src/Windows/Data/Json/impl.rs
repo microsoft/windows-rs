@@ -1,11 +1,11 @@
 pub trait IJsonValue_Impl: Sized {
-    fn ValueType(&mut self) -> ::windows::core::Result<JsonValueType>;
-    fn Stringify(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetString(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn GetNumber(&mut self) -> ::windows::core::Result<f64>;
-    fn GetBoolean(&mut self) -> ::windows::core::Result<bool>;
-    fn GetArray(&mut self) -> ::windows::core::Result<JsonArray>;
-    fn GetObject(&mut self) -> ::windows::core::Result<JsonObject>;
+    fn ValueType(&self) -> ::windows::core::Result<JsonValueType>;
+    fn Stringify(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetString(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetNumber(&self) -> ::windows::core::Result<f64>;
+    fn GetBoolean(&self) -> ::windows::core::Result<bool>;
+    fn GetArray(&self) -> ::windows::core::Result<JsonArray>;
+    fn GetObject(&self) -> ::windows::core::Result<JsonObject>;
 }
 impl ::windows::core::RuntimeName for IJsonValue {
     const NAME: &'static str = "Windows.Data.Json.IJsonValue";

@@ -1,6 +1,6 @@
 pub trait IPrintCustomOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
-    fn SetDisplayName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetDisplayName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IPrintCustomOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintCustomOptionDetails";
@@ -36,7 +36,7 @@ impl IPrintCustomOptionDetails_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPrintItemListOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
-    fn Items(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>;
+    fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IPrintItemListOptionDetails {
@@ -64,8 +64,8 @@ impl IPrintItemListOptionDetails_Vtbl {
     }
 }
 pub trait IPrintNumberOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
-    fn MinValue(&mut self) -> ::windows::core::Result<u32>;
-    fn MaxValue(&mut self) -> ::windows::core::Result<u32>;
+    fn MinValue(&self) -> ::windows::core::Result<u32>;
+    fn MaxValue(&self) -> ::windows::core::Result<u32>;
 }
 impl ::windows::core::RuntimeName for IPrintNumberOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintNumberOptionDetails";
@@ -107,14 +107,14 @@ impl IPrintNumberOptionDetails_Vtbl {
     }
 }
 pub trait IPrintOptionDetails_Impl: Sized {
-    fn OptionId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OptionType(&mut self) -> ::windows::core::Result<PrintOptionType>;
-    fn SetErrorText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ErrorText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetState(&mut self, value: PrintOptionStates) -> ::windows::core::Result<()>;
-    fn State(&mut self) -> ::windows::core::Result<PrintOptionStates>;
-    fn Value(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn TrySetValue(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
+    fn OptionId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OptionType(&self) -> ::windows::core::Result<PrintOptionType>;
+    fn SetErrorText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ErrorText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()>;
+    fn State(&self) -> ::windows::core::Result<PrintOptionStates>;
+    fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn TrySetValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IPrintOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails";
@@ -220,7 +220,7 @@ impl IPrintOptionDetails_Vtbl {
     }
 }
 pub trait IPrintTextOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
-    fn MaxCharacters(&mut self) -> ::windows::core::Result<u32>;
+    fn MaxCharacters(&self) -> ::windows::core::Result<u32>;
 }
 impl ::windows::core::RuntimeName for IPrintTextOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintTextOptionDetails";

@@ -1,5 +1,5 @@
 pub trait IAMWMBufferPass_Impl: Sized {
-    fn SetNotify(&mut self, pcallback: &::core::option::Option<IAMWMBufferPassCallback>) -> ::windows::core::Result<()>;
+    fn SetNotify(&self, pcallback: &::core::option::Option<IAMWMBufferPassCallback>) -> ::windows::core::Result<()>;
 }
 impl IAMWMBufferPass_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAMWMBufferPass_Impl, const OFFSET: isize>() -> IAMWMBufferPass_Vtbl {
@@ -16,7 +16,7 @@ impl IAMWMBufferPass_Vtbl {
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
 pub trait IAMWMBufferPassCallback_Impl: Sized {
-    fn Notify(&mut self, pnssbuffer3: &::core::option::Option<INSSBuffer3>, ppin: &::core::option::Option<super::DirectShow::IPin>, prtstart: *const i64, prtend: *const i64) -> ::windows::core::Result<()>;
+    fn Notify(&self, pnssbuffer3: &::core::option::Option<INSSBuffer3>, ppin: &::core::option::Option<super::DirectShow::IPin>, prtstart: *const i64, prtend: *const i64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
 impl IAMWMBufferPassCallback_Vtbl {
@@ -34,14 +34,14 @@ impl IAMWMBufferPassCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INSNetSourceCreator_Impl: Sized {
-    fn Initialize(&mut self) -> ::windows::core::Result<()>;
-    fn CreateNetSource(&mut self, pszstreamname: super::super::Foundation::PWSTR, pmonitor: &::core::option::Option<::windows::core::IUnknown>, pdata: *const u8, pusercontext: &::core::option::Option<::windows::core::IUnknown>, pcallback: &::core::option::Option<::windows::core::IUnknown>, qwcontext: u64) -> ::windows::core::Result<()>;
-    fn GetNetSourceProperties(&mut self, pszstreamname: super::super::Foundation::PWSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetNetSourceSharedNamespace(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetNetSourceAdminInterface(&mut self, pszstreamname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetNumProtocolsSupported(&mut self) -> ::windows::core::Result<u32>;
-    fn GetProtocolName(&mut self, dwprotocolnum: u32, pwszprotocolname: super::super::Foundation::PWSTR, pcchprotocolname: *mut u16) -> ::windows::core::Result<()>;
-    fn Shutdown(&mut self) -> ::windows::core::Result<()>;
+    fn Initialize(&self) -> ::windows::core::Result<()>;
+    fn CreateNetSource(&self, pszstreamname: super::super::Foundation::PWSTR, pmonitor: &::core::option::Option<::windows::core::IUnknown>, pdata: *const u8, pusercontext: &::core::option::Option<::windows::core::IUnknown>, pcallback: &::core::option::Option<::windows::core::IUnknown>, qwcontext: u64) -> ::windows::core::Result<()>;
+    fn GetNetSourceProperties(&self, pszstreamname: super::super::Foundation::PWSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetNetSourceSharedNamespace(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetNetSourceAdminInterface(&self, pszstreamname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetNumProtocolsSupported(&self) -> ::windows::core::Result<u32>;
+    fn GetProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: super::super::Foundation::PWSTR, pcchprotocolname: *mut u16) -> ::windows::core::Result<()>;
+    fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INSNetSourceCreator_Vtbl {
@@ -127,11 +127,11 @@ impl INSNetSourceCreator_Vtbl {
     }
 }
 pub trait INSSBuffer_Impl: Sized {
-    fn GetLength(&mut self) -> ::windows::core::Result<u32>;
-    fn SetLength(&mut self, dwlength: u32) -> ::windows::core::Result<()>;
-    fn GetMaxLength(&mut self) -> ::windows::core::Result<u32>;
-    fn GetBuffer(&mut self) -> ::windows::core::Result<*mut u8>;
-    fn GetBufferAndLength(&mut self, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLength(&self) -> ::windows::core::Result<u32>;
+    fn SetLength(&self, dwlength: u32) -> ::windows::core::Result<()>;
+    fn GetMaxLength(&self) -> ::windows::core::Result<u32>;
+    fn GetBuffer(&self) -> ::windows::core::Result<*mut u8>;
+    fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> ::windows::core::Result<()>;
 }
 impl INSSBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer_Impl, const OFFSET: isize>() -> INSSBuffer_Vtbl {
@@ -192,8 +192,8 @@ impl INSSBuffer_Vtbl {
     }
 }
 pub trait INSSBuffer2_Impl: Sized + INSSBuffer_Impl {
-    fn GetSampleProperties(&mut self, cbproperties: u32) -> ::windows::core::Result<u8>;
-    fn SetSampleProperties(&mut self, cbproperties: u32, pbproperties: *const u8) -> ::windows::core::Result<()>;
+    fn GetSampleProperties(&self, cbproperties: u32) -> ::windows::core::Result<u8>;
+    fn SetSampleProperties(&self, cbproperties: u32, pbproperties: *const u8) -> ::windows::core::Result<()>;
 }
 impl INSSBuffer2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer2_Impl, const OFFSET: isize>() -> INSSBuffer2_Vtbl {
@@ -224,8 +224,8 @@ impl INSSBuffer2_Vtbl {
     }
 }
 pub trait INSSBuffer3_Impl: Sized + INSSBuffer_Impl + INSSBuffer2_Impl {
-    fn SetProperty(&mut self, guidbufferproperty: &::windows::core::GUID, pvbufferproperty: *const ::core::ffi::c_void, dwbufferpropertysize: u32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, guidbufferproperty: &::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, guidbufferproperty: &::windows::core::GUID, pvbufferproperty: *const ::core::ffi::c_void, dwbufferpropertysize: u32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, guidbufferproperty: &::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::Result<()>;
 }
 impl INSSBuffer3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer3_Impl, const OFFSET: isize>() -> INSSBuffer3_Vtbl {
@@ -250,8 +250,8 @@ impl INSSBuffer3_Vtbl {
     }
 }
 pub trait INSSBuffer4_Impl: Sized + INSSBuffer_Impl + INSSBuffer2_Impl + INSSBuffer3_Impl {
-    fn GetPropertyCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetPropertyByIndex(&mut self, dwbufferpropertyindex: u32, pguidbufferproperty: *mut ::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPropertyCount(&self) -> ::windows::core::Result<u32>;
+    fn GetPropertyByIndex(&self, dwbufferpropertyindex: u32, pguidbufferproperty: *mut ::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::Result<()>;
 }
 impl INSSBuffer4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer4_Impl, const OFFSET: isize>() -> INSSBuffer4_Vtbl {
@@ -282,10 +282,10 @@ impl INSSBuffer4_Vtbl {
     }
 }
 pub trait IWMAddressAccess_Impl: Sized {
-    fn GetAccessEntryCount(&mut self, aetype: WM_AETYPE) -> ::windows::core::Result<u32>;
-    fn GetAccessEntry(&mut self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::core::Result<WM_ADDRESS_ACCESSENTRY>;
-    fn AddAccessEntry(&mut self, aetype: WM_AETYPE, paddraccessentry: *const WM_ADDRESS_ACCESSENTRY) -> ::windows::core::Result<()>;
-    fn RemoveAccessEntry(&mut self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::core::Result<()>;
+    fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> ::windows::core::Result<u32>;
+    fn GetAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::core::Result<WM_ADDRESS_ACCESSENTRY>;
+    fn AddAccessEntry(&self, aetype: WM_AETYPE, paddraccessentry: *const WM_ADDRESS_ACCESSENTRY) -> ::windows::core::Result<()>;
+    fn RemoveAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::core::Result<()>;
 }
 impl IWMAddressAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMAddressAccess_Impl, const OFFSET: isize>() -> IWMAddressAccess_Vtbl {
@@ -335,8 +335,8 @@ impl IWMAddressAccess_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMAddressAccess2_Impl: Sized + IWMAddressAccess_Impl {
-    fn GetAccessEntryEx(&mut self, aetype: WM_AETYPE, dwentrynum: u32, pbstraddress: *mut super::super::Foundation::BSTR, pbstrmask: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddAccessEntryEx(&mut self, aetype: WM_AETYPE, bstraddress: &super::super::Foundation::BSTR, bstrmask: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetAccessEntryEx(&self, aetype: WM_AETYPE, dwentrynum: u32, pbstraddress: *mut super::super::Foundation::BSTR, pbstrmask: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddAccessEntryEx(&self, aetype: WM_AETYPE, bstraddress: &super::super::Foundation::BSTR, bstrmask: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMAddressAccess2_Vtbl {
@@ -362,9 +362,9 @@ impl IWMAddressAccess2_Vtbl {
     }
 }
 pub trait IWMAuthorizer_Impl: Sized {
-    fn GetCertCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetCert(&mut self, dwindex: u32) -> ::windows::core::Result<*mut u8>;
-    fn GetSharedData(&mut self, dwcertindex: u32, pbshareddata: *const u8, pbcert: *const u8) -> ::windows::core::Result<*mut u8>;
+    fn GetCertCount(&self) -> ::windows::core::Result<u32>;
+    fn GetCert(&self, dwindex: u32) -> ::windows::core::Result<*mut u8>;
+    fn GetSharedData(&self, dwcertindex: u32, pbshareddata: *const u8, pbcert: *const u8) -> ::windows::core::Result<*mut u8>;
 }
 impl IWMAuthorizer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMAuthorizer_Impl, const OFFSET: isize>() -> IWMAuthorizer_Vtbl {
@@ -414,12 +414,12 @@ impl IWMAuthorizer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMBackupRestoreProps_Impl: Sized {
-    fn GetPropCount(&mut self) -> ::windows::core::Result<u16>;
-    fn GetPropByIndex(&mut self, windex: u16, pwszname: super::super::Foundation::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
-    fn GetPropByName(&mut self, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
-    fn SetProp(&mut self, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
-    fn RemoveProp(&mut self, pcwszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RemoveAllProps(&mut self) -> ::windows::core::Result<()>;
+    fn GetPropCount(&self) -> ::windows::core::Result<u16>;
+    fn GetPropByIndex(&self, windex: u16, pwszname: super::super::Foundation::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
+    fn GetPropByName(&self, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
+    fn SetProp(&self, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
+    fn RemoveProp(&self, pcwszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RemoveAllProps(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMBackupRestoreProps_Vtbl {
@@ -475,10 +475,10 @@ impl IWMBackupRestoreProps_Vtbl {
     }
 }
 pub trait IWMBandwidthSharing_Impl: Sized + IWMStreamList_Impl {
-    fn GetType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetType(&mut self, guidtype: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetBandwidth(&mut self, pdwbitrate: *mut u32, pmsbufferwindow: *mut u32) -> ::windows::core::Result<()>;
-    fn SetBandwidth(&mut self, dwbitrate: u32, msbufferwindow: u32) -> ::windows::core::Result<()>;
+    fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetType(&self, guidtype: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetBandwidth(&self, pdwbitrate: *mut u32, pmsbufferwindow: *mut u32) -> ::windows::core::Result<()>;
+    fn SetBandwidth(&self, dwbitrate: u32, msbufferwindow: u32) -> ::windows::core::Result<()>;
 }
 impl IWMBandwidthSharing_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMBandwidthSharing_Impl, const OFFSET: isize>() -> IWMBandwidthSharing_Vtbl {
@@ -521,8 +521,8 @@ impl IWMBandwidthSharing_Vtbl {
     }
 }
 pub trait IWMClientConnections_Impl: Sized {
-    fn GetClientCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetClientProperties(&mut self, dwclientnum: u32) -> ::windows::core::Result<WM_CLIENT_PROPERTIES>;
+    fn GetClientCount(&self) -> ::windows::core::Result<u32>;
+    fn GetClientProperties(&self, dwclientnum: u32) -> ::windows::core::Result<WM_CLIENT_PROPERTIES>;
 }
 impl IWMClientConnections_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMClientConnections_Impl, const OFFSET: isize>() -> IWMClientConnections_Vtbl {
@@ -560,7 +560,7 @@ impl IWMClientConnections_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMClientConnections2_Impl: Sized + IWMClientConnections_Impl {
-    fn GetClientInfo(&mut self, dwclientnum: u32, pwsznetworkaddress: super::super::Foundation::PWSTR, pcchnetworkaddress: *mut u32, pwszport: super::super::Foundation::PWSTR, pcchport: *mut u32, pwszdnsname: super::super::Foundation::PWSTR, pcchdnsname: *mut u32) -> ::windows::core::Result<()>;
+    fn GetClientInfo(&self, dwclientnum: u32, pwsznetworkaddress: super::super::Foundation::PWSTR, pcchnetworkaddress: *mut u32, pwszport: super::super::Foundation::PWSTR, pcchport: *mut u32, pwszdnsname: super::super::Foundation::PWSTR, pcchdnsname: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMClientConnections2_Vtbl {
@@ -578,9 +578,9 @@ impl IWMClientConnections2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 pub trait IWMCodecAMVideoAccelerator_Impl: Sized {
-    fn SetAcceleratorInterface(&mut self, piamva: &::core::option::Option<super::DirectShow::IAMVideoAccelerator>) -> ::windows::core::Result<()>;
-    fn NegotiateConnection(&mut self, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
-    fn SetPlayerNotify(&mut self, phook: &::core::option::Option<IWMPlayerTimestampHook>) -> ::windows::core::Result<()>;
+    fn SetAcceleratorInterface(&self, piamva: &::core::option::Option<super::DirectShow::IAMVideoAccelerator>) -> ::windows::core::Result<()>;
+    fn NegotiateConnection(&self, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
+    fn SetPlayerNotify(&self, phook: &::core::option::Option<IWMPlayerTimestampHook>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 impl IWMCodecAMVideoAccelerator_Vtbl {
@@ -612,9 +612,9 @@ impl IWMCodecAMVideoAccelerator_Vtbl {
     }
 }
 pub trait IWMCodecInfo_Impl: Sized {
-    fn GetCodecInfoCount(&mut self, guidtype: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
-    fn GetCodecFormatCount(&mut self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32) -> ::windows::core::Result<u32>;
-    fn GetCodecFormat(&mut self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32) -> ::windows::core::Result<IWMStreamConfig>;
+    fn GetCodecInfoCount(&self, guidtype: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
+    fn GetCodecFormatCount(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32) -> ::windows::core::Result<u32>;
+    fn GetCodecFormat(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32) -> ::windows::core::Result<IWMStreamConfig>;
 }
 impl IWMCodecInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecInfo_Impl, const OFFSET: isize>() -> IWMCodecInfo_Vtbl {
@@ -664,8 +664,8 @@ impl IWMCodecInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMCodecInfo2_Impl: Sized + IWMCodecInfo_Impl {
-    fn GetCodecName(&mut self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, wszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCodecFormatDesc(&mut self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::core::option::Option<IWMStreamConfig>, wszdesc: super::super::Foundation::PWSTR, pcchdesc: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCodecName(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, wszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCodecFormatDesc(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::core::option::Option<IWMStreamConfig>, wszdesc: super::super::Foundation::PWSTR, pcchdesc: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMCodecInfo2_Vtbl {
@@ -692,10 +692,10 @@ impl IWMCodecInfo2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMCodecInfo3_Impl: Sized + IWMCodecInfo_Impl + IWMCodecInfo2_Impl {
-    fn GetCodecFormatProp(&mut self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCodecProp(&mut self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
-    fn SetCodecEnumerationSetting(&mut self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
-    fn GetCodecEnumerationSetting(&mut self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCodecFormatProp(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCodecProp(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn SetCodecEnumerationSetting(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
+    fn GetCodecEnumerationSetting(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMCodecInfo3_Vtbl {
@@ -734,8 +734,8 @@ impl IWMCodecInfo3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 pub trait IWMCodecVideoAccelerator_Impl: Sized {
-    fn NegotiateConnection(&mut self, piamva: &::core::option::Option<super::DirectShow::IAMVideoAccelerator>, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
-    fn SetPlayerNotify(&mut self, phook: &::core::option::Option<IWMPlayerTimestampHook>) -> ::windows::core::Result<()>;
+    fn NegotiateConnection(&self, piamva: &::core::option::Option<super::DirectShow::IAMVideoAccelerator>, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
+    fn SetPlayerNotify(&self, phook: &::core::option::Option<IWMPlayerTimestampHook>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 impl IWMCodecVideoAccelerator_Vtbl {
@@ -762,7 +762,7 @@ impl IWMCodecVideoAccelerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMCredentialCallback_Impl: Sized {
-    fn AcquireCredentials(&mut self, pwszrealm: super::super::Foundation::PWSTR, pwszsite: super::super::Foundation::PWSTR, pwszuser: super::super::Foundation::PWSTR, cchuser: u32, pwszpassword: super::super::Foundation::PWSTR, cchpassword: u32, hrstatus: ::windows::core::HRESULT, pdwflags: *mut u32) -> ::windows::core::Result<()>;
+    fn AcquireCredentials(&self, pwszrealm: super::super::Foundation::PWSTR, pwszsite: super::super::Foundation::PWSTR, pwszuser: super::super::Foundation::PWSTR, cchuser: u32, pwszpassword: super::super::Foundation::PWSTR, cchpassword: u32, hrstatus: ::windows::core::HRESULT, pdwflags: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMCredentialCallback_Vtbl {
@@ -780,7 +780,7 @@ impl IWMCredentialCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMEditor_Impl: Sized {
-    fn GetDRMProperty(&mut self, pwstrname: super::super::Foundation::PWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
+    fn GetDRMProperty(&self, pwstrname: super::super::Foundation::PWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMEditor_Vtbl {
@@ -798,8 +798,8 @@ impl IWMDRMEditor_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMMessageParser_Impl: Sized {
-    fn ParseRegistrationReqMsg(&mut self, pbregistrationreqmsg: *const u8, cbregistrationreqmsg: u32, ppdevicecert: *mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> ::windows::core::Result<()>;
-    fn ParseLicenseRequestMsg(&mut self, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, ppdevicecert: *mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: *const u8, cbregistrationreqmsg: u32, ppdevicecert: *mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> ::windows::core::Result<()>;
+    fn ParseLicenseRequestMsg(&self, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, ppdevicecert: *mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMMessageParser_Vtbl {
@@ -826,14 +826,14 @@ impl IWMDRMMessageParser_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMReader_Impl: Sized {
-    fn AcquireLicense(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
-    fn CancelLicenseAcquisition(&mut self) -> ::windows::core::Result<()>;
-    fn Individualize(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
-    fn CancelIndividualization(&mut self) -> ::windows::core::Result<()>;
-    fn MonitorLicenseAcquisition(&mut self) -> ::windows::core::Result<()>;
-    fn CancelMonitorLicenseAcquisition(&mut self) -> ::windows::core::Result<()>;
-    fn SetDRMProperty(&mut self, pwstrname: super::super::Foundation::PWSTR, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
-    fn GetDRMProperty(&mut self, pwstrname: super::super::Foundation::PWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
+    fn AcquireLicense(&self, dwflags: u32) -> ::windows::core::Result<()>;
+    fn CancelLicenseAcquisition(&self) -> ::windows::core::Result<()>;
+    fn Individualize(&self, dwflags: u32) -> ::windows::core::Result<()>;
+    fn CancelIndividualization(&self) -> ::windows::core::Result<()>;
+    fn MonitorLicenseAcquisition(&self) -> ::windows::core::Result<()>;
+    fn CancelMonitorLicenseAcquisition(&self) -> ::windows::core::Result<()>;
+    fn SetDRMProperty(&self, pwstrname: super::super::Foundation::PWSTR, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
+    fn GetDRMProperty(&self, pwstrname: super::super::Foundation::PWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMReader_Vtbl {
@@ -896,10 +896,10 @@ impl IWMDRMReader_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMReader2_Impl: Sized + IWMDRMReader_Impl {
-    fn SetEvaluateOutputLevelLicenses(&mut self, fevaluate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetPlayOutputLevels(&mut self, pplayopl: *mut DRM_PLAY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCopyOutputLevels(&mut self, pcopyopl: *mut DRM_COPY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows::core::Result<()>;
-    fn TryNextLicense(&mut self) -> ::windows::core::Result<()>;
+    fn SetEvaluateOutputLevelLicenses(&self, fevaluate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetPlayOutputLevels(&self, pplayopl: *mut DRM_PLAY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCopyOutputLevels(&self, pcopyopl: *mut DRM_COPY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows::core::Result<()>;
+    fn TryNextLicense(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMReader2_Vtbl {
@@ -938,7 +938,7 @@ impl IWMDRMReader2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMReader3_Impl: Sized + IWMDRMReader_Impl + IWMDRMReader2_Impl {
-    fn GetInclusionList(&mut self, ppguids: *mut *mut ::windows::core::GUID, pcguids: *mut u32) -> ::windows::core::Result<()>;
+    fn GetInclusionList(&self, ppguids: *mut *mut ::windows::core::GUID, pcguids: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMReader3_Vtbl {
@@ -955,7 +955,7 @@ impl IWMDRMReader3_Vtbl {
     }
 }
 pub trait IWMDRMTranscryptionManager_Impl: Sized {
-    fn CreateTranscryptor(&mut self) -> ::windows::core::Result<IWMDRMTranscryptor>;
+    fn CreateTranscryptor(&self) -> ::windows::core::Result<IWMDRMTranscryptor>;
 }
 impl IWMDRMTranscryptionManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMTranscryptionManager_Impl, const OFFSET: isize>() -> IWMDRMTranscryptionManager_Vtbl {
@@ -978,10 +978,10 @@ impl IWMDRMTranscryptionManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMTranscryptor_Impl: Sized {
-    fn Initialize(&mut self, bstrfilename: &super::super::Foundation::BSTR, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Seek(&mut self, hnstime: u64) -> ::windows::core::Result<()>;
-    fn Read(&mut self, pbdata: *const u8, pcbdata: *const u32) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn Initialize(&self, bstrfilename: &super::super::Foundation::BSTR, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Seek(&self, hnstime: u64) -> ::windows::core::Result<()>;
+    fn Read(&self, pbdata: *const u8, pcbdata: *const u32) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMTranscryptor_Vtbl {
@@ -1020,10 +1020,10 @@ impl IWMDRMTranscryptor_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMTranscryptor2_Impl: Sized + IWMDRMTranscryptor_Impl {
-    fn SeekEx(&mut self, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn ZeroAdjustTimestamps(&mut self, fenable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetSeekStartTime(&mut self) -> ::windows::core::Result<u64>;
-    fn GetDuration(&mut self) -> ::windows::core::Result<u64>;
+    fn SeekEx(&self, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ZeroAdjustTimestamps(&self, fenable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetSeekStartTime(&self) -> ::windows::core::Result<u64>;
+    fn GetDuration(&self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMTranscryptor2_Vtbl {
@@ -1074,10 +1074,10 @@ impl IWMDRMTranscryptor2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMWriter_Impl: Sized {
-    fn GenerateKeySeed(&mut self, pwszkeyseed: super::super::Foundation::PWSTR, pcwchlength: *mut u32) -> ::windows::core::Result<()>;
-    fn GenerateKeyID(&mut self, pwszkeyid: super::super::Foundation::PWSTR, pcwchlength: *mut u32) -> ::windows::core::Result<()>;
-    fn GenerateSigningKeyPair(&mut self, pwszprivkey: super::super::Foundation::PWSTR, pcwchprivkeylength: *mut u32, pwszpubkey: super::super::Foundation::PWSTR, pcwchpubkeylength: *mut u32) -> ::windows::core::Result<()>;
-    fn SetDRMAttribute(&mut self, wstreamnum: u16, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
+    fn GenerateKeySeed(&self, pwszkeyseed: super::super::Foundation::PWSTR, pcwchlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GenerateKeyID(&self, pwszkeyid: super::super::Foundation::PWSTR, pcwchlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GenerateSigningKeyPair(&self, pwszprivkey: super::super::Foundation::PWSTR, pcwchprivkeylength: *mut u32, pwszpubkey: super::super::Foundation::PWSTR, pcwchpubkeylength: *mut u32) -> ::windows::core::Result<()>;
+    fn SetDRMAttribute(&self, wstreamnum: u16, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMWriter_Vtbl {
@@ -1116,7 +1116,7 @@ impl IWMDRMWriter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMWriter2_Impl: Sized + IWMDRMWriter_Impl {
-    fn SetWMDRMNetEncryption(&mut self, fsamplesencrypted: super::super::Foundation::BOOL, pbkeyid: *const u8, cbkeyid: u32) -> ::windows::core::Result<()>;
+    fn SetWMDRMNetEncryption(&self, fsamplesencrypted: super::super::Foundation::BOOL, pbkeyid: *const u8, cbkeyid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMWriter2_Vtbl {
@@ -1134,7 +1134,7 @@ impl IWMDRMWriter2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMWriter3_Impl: Sized + IWMDRMWriter_Impl + IWMDRMWriter2_Impl {
-    fn SetProtectStreamSamples(&mut self, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows::core::Result<()>;
+    fn SetProtectStreamSamples(&self, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMWriter3_Vtbl {
@@ -1151,12 +1151,12 @@ impl IWMDRMWriter3_Vtbl {
     }
 }
 pub trait IWMDeviceRegistration_Impl: Sized {
-    fn RegisterDevice(&mut self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: &DRM_VAL16) -> ::windows::core::Result<IWMRegisteredDevice>;
-    fn UnregisterDevice(&mut self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: &DRM_VAL16) -> ::windows::core::Result<()>;
-    fn GetRegistrationStats(&mut self, dwregistertype: u32) -> ::windows::core::Result<u32>;
-    fn GetFirstRegisteredDevice(&mut self, dwregistertype: u32) -> ::windows::core::Result<IWMRegisteredDevice>;
-    fn GetNextRegisteredDevice(&mut self) -> ::windows::core::Result<IWMRegisteredDevice>;
-    fn GetRegisteredDeviceByID(&mut self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: &DRM_VAL16) -> ::windows::core::Result<IWMRegisteredDevice>;
+    fn RegisterDevice(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: &DRM_VAL16) -> ::windows::core::Result<IWMRegisteredDevice>;
+    fn UnregisterDevice(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: &DRM_VAL16) -> ::windows::core::Result<()>;
+    fn GetRegistrationStats(&self, dwregistertype: u32) -> ::windows::core::Result<u32>;
+    fn GetFirstRegisteredDevice(&self, dwregistertype: u32) -> ::windows::core::Result<IWMRegisteredDevice>;
+    fn GetNextRegisteredDevice(&self) -> ::windows::core::Result<IWMRegisteredDevice>;
+    fn GetRegisteredDeviceByID(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: &DRM_VAL16) -> ::windows::core::Result<IWMRegisteredDevice>;
 }
 impl IWMDeviceRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDeviceRegistration_Impl, const OFFSET: isize>() -> IWMDeviceRegistration_Vtbl {
@@ -1235,7 +1235,7 @@ impl IWMDeviceRegistration_Vtbl {
     }
 }
 pub trait IWMGetSecureChannel_Impl: Sized {
-    fn GetPeerSecureChannelInterface(&mut self) -> ::windows::core::Result<IWMSecureChannel>;
+    fn GetPeerSecureChannelInterface(&self) -> ::windows::core::Result<IWMSecureChannel>;
 }
 impl IWMGetSecureChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMGetSecureChannel_Impl, const OFFSET: isize>() -> IWMGetSecureChannel_Vtbl {
@@ -1261,18 +1261,18 @@ impl IWMGetSecureChannel_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMHeaderInfo_Impl: Sized {
-    fn GetAttributeCount(&mut self, wstreamnum: u16) -> ::windows::core::Result<u16>;
-    fn GetAttributeByIndex(&mut self, windex: u16, pwstreamnum: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
-    fn GetAttributeByName(&mut self, pwstreamnum: *mut u16, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
-    fn SetAttribute(&mut self, wstreamnum: u16, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
-    fn GetMarkerCount(&mut self) -> ::windows::core::Result<u16>;
-    fn GetMarker(&mut self, windex: u16, pwszmarkername: super::super::Foundation::PWSTR, pcchmarkernamelen: *mut u16, pcnsmarkertime: *mut u64) -> ::windows::core::Result<()>;
-    fn AddMarker(&mut self, pwszmarkername: super::super::Foundation::PWSTR, cnsmarkertime: u64) -> ::windows::core::Result<()>;
-    fn RemoveMarker(&mut self, windex: u16) -> ::windows::core::Result<()>;
-    fn GetScriptCount(&mut self) -> ::windows::core::Result<u16>;
-    fn GetScript(&mut self, windex: u16, pwsztype: super::super::Foundation::PWSTR, pcchtypelen: *mut u16, pwszcommand: super::super::Foundation::PWSTR, pcchcommandlen: *mut u16, pcnsscripttime: *mut u64) -> ::windows::core::Result<()>;
-    fn AddScript(&mut self, pwsztype: super::super::Foundation::PWSTR, pwszcommand: super::super::Foundation::PWSTR, cnsscripttime: u64) -> ::windows::core::Result<()>;
-    fn RemoveScript(&mut self, windex: u16) -> ::windows::core::Result<()>;
+    fn GetAttributeCount(&self, wstreamnum: u16) -> ::windows::core::Result<u16>;
+    fn GetAttributeByIndex(&self, windex: u16, pwstreamnum: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
+    fn GetAttributeByName(&self, pwstreamnum: *mut u16, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
+    fn SetAttribute(&self, wstreamnum: u16, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
+    fn GetMarkerCount(&self) -> ::windows::core::Result<u16>;
+    fn GetMarker(&self, windex: u16, pwszmarkername: super::super::Foundation::PWSTR, pcchmarkernamelen: *mut u16, pcnsmarkertime: *mut u64) -> ::windows::core::Result<()>;
+    fn AddMarker(&self, pwszmarkername: super::super::Foundation::PWSTR, cnsmarkertime: u64) -> ::windows::core::Result<()>;
+    fn RemoveMarker(&self, windex: u16) -> ::windows::core::Result<()>;
+    fn GetScriptCount(&self) -> ::windows::core::Result<u16>;
+    fn GetScript(&self, windex: u16, pwsztype: super::super::Foundation::PWSTR, pcchtypelen: *mut u16, pwszcommand: super::super::Foundation::PWSTR, pcchcommandlen: *mut u16, pcnsscripttime: *mut u64) -> ::windows::core::Result<()>;
+    fn AddScript(&self, pwsztype: super::super::Foundation::PWSTR, pwszcommand: super::super::Foundation::PWSTR, cnsscripttime: u64) -> ::windows::core::Result<()>;
+    fn RemoveScript(&self, windex: u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMHeaderInfo_Vtbl {
@@ -1377,8 +1377,8 @@ impl IWMHeaderInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMHeaderInfo2_Impl: Sized + IWMHeaderInfo_Impl {
-    fn GetCodecInfoCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetCodecInfo(&mut self, windex: u32, pcchname: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows::core::Result<()>;
+    fn GetCodecInfoCount(&self) -> ::windows::core::Result<u32>;
+    fn GetCodecInfo(&self, windex: u32, pcchname: *mut u16, pwszname: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMHeaderInfo2_Vtbl {
@@ -1411,13 +1411,13 @@ impl IWMHeaderInfo2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMHeaderInfo3_Impl: Sized + IWMHeaderInfo_Impl + IWMHeaderInfo2_Impl {
-    fn GetAttributeCountEx(&mut self, wstreamnum: u16) -> ::windows::core::Result<u16>;
-    fn GetAttributeIndices(&mut self, wstreamnum: u16, pwszname: super::super::Foundation::PWSTR, pwlangindex: *const u16, pwindices: *mut u16, pwcount: *mut u16) -> ::windows::core::Result<()>;
-    fn GetAttributeByIndexEx(&mut self, wstreamnum: u16, windex: u16, pwszname: super::super::Foundation::PWSTR, pwnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pwlangindex: *mut u16, pvalue: *mut u8, pdwdatalength: *mut u32) -> ::windows::core::Result<()>;
-    fn ModifyAttribute(&mut self, wstreamnum: u16, windex: u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: *const u8, dwlength: u32) -> ::windows::core::Result<()>;
-    fn AddAttribute(&mut self, wstreamnum: u16, pszname: super::super::Foundation::PWSTR, pwindex: *mut u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: *const u8, dwlength: u32) -> ::windows::core::Result<()>;
-    fn DeleteAttribute(&mut self, wstreamnum: u16, windex: u16) -> ::windows::core::Result<()>;
-    fn AddCodecInfo(&mut self, pwszname: super::super::Foundation::PWSTR, pwszdescription: super::super::Foundation::PWSTR, codectype: WMT_CODEC_INFO_TYPE, cbcodecinfo: u16, pbcodecinfo: *const u8) -> ::windows::core::Result<()>;
+    fn GetAttributeCountEx(&self, wstreamnum: u16) -> ::windows::core::Result<u16>;
+    fn GetAttributeIndices(&self, wstreamnum: u16, pwszname: super::super::Foundation::PWSTR, pwlangindex: *const u16, pwindices: *mut u16, pwcount: *mut u16) -> ::windows::core::Result<()>;
+    fn GetAttributeByIndexEx(&self, wstreamnum: u16, windex: u16, pwszname: super::super::Foundation::PWSTR, pwnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pwlangindex: *mut u16, pvalue: *mut u8, pdwdatalength: *mut u32) -> ::windows::core::Result<()>;
+    fn ModifyAttribute(&self, wstreamnum: u16, windex: u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: *const u8, dwlength: u32) -> ::windows::core::Result<()>;
+    fn AddAttribute(&self, wstreamnum: u16, pszname: super::super::Foundation::PWSTR, pwindex: *mut u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: *const u8, dwlength: u32) -> ::windows::core::Result<()>;
+    fn DeleteAttribute(&self, wstreamnum: u16, windex: u16) -> ::windows::core::Result<()>;
+    fn AddCodecInfo(&self, pwszname: super::super::Foundation::PWSTR, pwszdescription: super::super::Foundation::PWSTR, codectype: WMT_CODEC_INFO_TYPE, cbcodecinfo: u16, pbcodecinfo: *const u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMHeaderInfo3_Vtbl {
@@ -1480,7 +1480,7 @@ impl IWMHeaderInfo3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMIStreamProps_Impl: Sized {
-    fn GetProperty(&mut self, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMIStreamProps_Vtbl {
@@ -1498,8 +1498,8 @@ impl IWMIStreamProps_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMImageInfo_Impl: Sized {
-    fn GetImageCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetImage(&mut self, windex: u32, pcchmimetype: *mut u16, pwszmimetype: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pimagetype: *mut u16, pcbimagedata: *mut u32, pbimagedata: *mut u8) -> ::windows::core::Result<()>;
+    fn GetImageCount(&self) -> ::windows::core::Result<u32>;
+    fn GetImage(&self, windex: u32, pcchmimetype: *mut u16, pwszmimetype: super::super::Foundation::PWSTR, pcchdescription: *mut u16, pwszdescription: super::super::Foundation::PWSTR, pimagetype: *mut u16, pcbimagedata: *mut u32, pbimagedata: *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMImageInfo_Vtbl {
@@ -1532,8 +1532,8 @@ impl IWMImageInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMIndexer_Impl: Sized {
-    fn StartIndexing(&mut self, pwszurl: super::super::Foundation::PWSTR, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn StartIndexing(&self, pwszurl: super::super::Foundation::PWSTR, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMIndexer_Vtbl {
@@ -1560,7 +1560,7 @@ impl IWMIndexer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMIndexer2_Impl: Sized + IWMIndexer_Impl {
-    fn Configure(&mut self, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const ::core::ffi::c_void, pvindextype: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Configure(&self, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const ::core::ffi::c_void, pvindextype: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMIndexer2_Vtbl {
@@ -1578,8 +1578,8 @@ impl IWMIndexer2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMInputMediaProps_Impl: Sized + IWMMediaProps_Impl {
-    fn GetConnectionName(&mut self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
-    fn GetGroupName(&mut self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
+    fn GetConnectionName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
+    fn GetGroupName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMInputMediaProps_Vtbl {
@@ -1606,9 +1606,9 @@ impl IWMInputMediaProps_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMLanguageList_Impl: Sized {
-    fn GetLanguageCount(&mut self) -> ::windows::core::Result<u16>;
-    fn GetLanguageDetails(&mut self, windex: u16, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::Result<()>;
-    fn AddLanguageByRFC1766String(&mut self, pwszlanguagestring: super::super::Foundation::PWSTR) -> ::windows::core::Result<u16>;
+    fn GetLanguageCount(&self) -> ::windows::core::Result<u16>;
+    fn GetLanguageDetails(&self, windex: u16, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::Result<()>;
+    fn AddLanguageByRFC1766String(&self, pwszlanguagestring: super::super::Foundation::PWSTR) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMLanguageList_Vtbl {
@@ -1652,8 +1652,8 @@ impl IWMLanguageList_Vtbl {
     }
 }
 pub trait IWMLicenseBackup_Impl: Sized {
-    fn BackupLicenses(&mut self, dwflags: u32, pcallback: &::core::option::Option<IWMStatusCallback>) -> ::windows::core::Result<()>;
-    fn CancelLicenseBackup(&mut self) -> ::windows::core::Result<()>;
+    fn BackupLicenses(&self, dwflags: u32, pcallback: &::core::option::Option<IWMStatusCallback>) -> ::windows::core::Result<()>;
+    fn CancelLicenseBackup(&self) -> ::windows::core::Result<()>;
 }
 impl IWMLicenseBackup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMLicenseBackup_Impl, const OFFSET: isize>() -> IWMLicenseBackup_Vtbl {
@@ -1678,8 +1678,8 @@ impl IWMLicenseBackup_Vtbl {
     }
 }
 pub trait IWMLicenseRestore_Impl: Sized {
-    fn RestoreLicenses(&mut self, dwflags: u32, pcallback: &::core::option::Option<IWMStatusCallback>) -> ::windows::core::Result<()>;
-    fn CancelLicenseRestore(&mut self) -> ::windows::core::Result<()>;
+    fn RestoreLicenses(&self, dwflags: u32, pcallback: &::core::option::Option<IWMStatusCallback>) -> ::windows::core::Result<()>;
+    fn CancelLicenseRestore(&self) -> ::windows::core::Result<()>;
 }
 impl IWMLicenseRestore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMLicenseRestore_Impl, const OFFSET: isize>() -> IWMLicenseRestore_Vtbl {
@@ -1704,8 +1704,8 @@ impl IWMLicenseRestore_Vtbl {
     }
 }
 pub trait IWMLicenseRevocationAgent_Impl: Sized {
-    fn GetLRBChallenge(&mut self, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> ::windows::core::Result<()>;
-    fn ProcessLRB(&mut self, psignedlrb: *const u8, dwsignedlrblength: u32, psignedack: *mut u8, pdwsignedacklength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLRBChallenge(&self, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> ::windows::core::Result<()>;
+    fn ProcessLRB(&self, psignedlrb: *const u8, dwsignedlrblength: u32, psignedack: *mut u8, pdwsignedacklength: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IWMLicenseRevocationAgent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMLicenseRevocationAgent_Impl, const OFFSET: isize>() -> IWMLicenseRevocationAgent_Vtbl {
@@ -1731,9 +1731,9 @@ impl IWMLicenseRevocationAgent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMMediaProps_Impl: Sized {
-    fn GetType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetMediaType(&mut self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::core::Result<()>;
-    fn SetMediaType(&mut self, ptype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()>;
+    fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::core::Result<()>;
+    fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMMediaProps_Vtbl {
@@ -1772,9 +1772,9 @@ impl IWMMediaProps_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMMetadataEditor_Impl: Sized {
-    fn Open(&mut self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn Flush(&mut self) -> ::windows::core::Result<()>;
+    fn Open(&self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn Flush(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMMetadataEditor_Vtbl {
@@ -1807,7 +1807,7 @@ impl IWMMetadataEditor_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMMetadataEditor2_Impl: Sized + IWMMetadataEditor_Impl {
-    fn OpenEx(&mut self, pwszfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, dwsharemode: u32) -> ::windows::core::Result<()>;
+    fn OpenEx(&self, pwszfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, dwsharemode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMMetadataEditor2_Vtbl {
@@ -1824,8 +1824,8 @@ impl IWMMetadataEditor2_Vtbl {
     }
 }
 pub trait IWMMutualExclusion_Impl: Sized + IWMStreamList_Impl {
-    fn GetType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetType(&mut self, guidtype: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetType(&self, guidtype: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IWMMutualExclusion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMMutualExclusion_Impl, const OFFSET: isize>() -> IWMMutualExclusion_Vtbl {
@@ -1857,16 +1857,16 @@ impl IWMMutualExclusion_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMMutualExclusion2_Impl: Sized + IWMStreamList_Impl + IWMMutualExclusion_Impl {
-    fn GetName(&mut self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
-    fn SetName(&mut self, pwszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetRecordCount(&mut self) -> ::windows::core::Result<u16>;
-    fn AddRecord(&mut self) -> ::windows::core::Result<()>;
-    fn RemoveRecord(&mut self, wrecordnumber: u16) -> ::windows::core::Result<()>;
-    fn GetRecordName(&mut self, wrecordnumber: u16, pwszrecordname: super::super::Foundation::PWSTR, pcchrecordname: *mut u16) -> ::windows::core::Result<()>;
-    fn SetRecordName(&mut self, wrecordnumber: u16, pwszrecordname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetStreamsForRecord(&mut self, wrecordnumber: u16, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::core::Result<()>;
-    fn AddStreamForRecord(&mut self, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::core::Result<()>;
-    fn RemoveStreamForRecord(&mut self, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::core::Result<()>;
+    fn GetName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
+    fn SetName(&self, pwszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetRecordCount(&self) -> ::windows::core::Result<u16>;
+    fn AddRecord(&self) -> ::windows::core::Result<()>;
+    fn RemoveRecord(&self, wrecordnumber: u16) -> ::windows::core::Result<()>;
+    fn GetRecordName(&self, wrecordnumber: u16, pwszrecordname: super::super::Foundation::PWSTR, pcchrecordname: *mut u16) -> ::windows::core::Result<()>;
+    fn SetRecordName(&self, wrecordnumber: u16, pwszrecordname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetStreamsForRecord(&self, wrecordnumber: u16, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::core::Result<()>;
+    fn AddStreamForRecord(&self, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::core::Result<()>;
+    fn RemoveStreamForRecord(&self, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMMutualExclusion2_Vtbl {
@@ -1947,8 +1947,8 @@ impl IWMMutualExclusion2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMOutputMediaProps_Impl: Sized + IWMMediaProps_Impl {
-    fn GetStreamGroupName(&mut self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
-    fn GetConnectionName(&mut self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
+    fn GetStreamGroupName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
+    fn GetConnectionName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMOutputMediaProps_Vtbl {
@@ -1974,8 +1974,8 @@ impl IWMOutputMediaProps_Vtbl {
     }
 }
 pub trait IWMPacketSize_Impl: Sized {
-    fn GetMaxPacketSize(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMaxPacketSize(&mut self, dwmaxpacketsize: u32) -> ::windows::core::Result<()>;
+    fn GetMaxPacketSize(&self) -> ::windows::core::Result<u32>;
+    fn SetMaxPacketSize(&self, dwmaxpacketsize: u32) -> ::windows::core::Result<()>;
 }
 impl IWMPacketSize_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPacketSize_Impl, const OFFSET: isize>() -> IWMPacketSize_Vtbl {
@@ -2006,8 +2006,8 @@ impl IWMPacketSize_Vtbl {
     }
 }
 pub trait IWMPacketSize2_Impl: Sized + IWMPacketSize_Impl {
-    fn GetMinPacketSize(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMinPacketSize(&mut self, dwminpacketsize: u32) -> ::windows::core::Result<()>;
+    fn GetMinPacketSize(&self) -> ::windows::core::Result<u32>;
+    fn SetMinPacketSize(&self, dwminpacketsize: u32) -> ::windows::core::Result<()>;
 }
 impl IWMPacketSize2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPacketSize2_Impl, const OFFSET: isize>() -> IWMPacketSize2_Vtbl {
@@ -2038,7 +2038,7 @@ impl IWMPacketSize2_Vtbl {
     }
 }
 pub trait IWMPlayerHook_Impl: Sized {
-    fn PreDecode(&mut self) -> ::windows::core::Result<()>;
+    fn PreDecode(&self) -> ::windows::core::Result<()>;
 }
 impl IWMPlayerHook_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPlayerHook_Impl, const OFFSET: isize>() -> IWMPlayerHook_Vtbl {
@@ -2054,7 +2054,7 @@ impl IWMPlayerHook_Vtbl {
     }
 }
 pub trait IWMPlayerTimestampHook_Impl: Sized {
-    fn MapTimestamp(&mut self, rtin: i64) -> ::windows::core::Result<i64>;
+    fn MapTimestamp(&self, rtin: i64) -> ::windows::core::Result<i64>;
 }
 impl IWMPlayerTimestampHook_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPlayerTimestampHook_Impl, const OFFSET: isize>() -> IWMPlayerTimestampHook_Vtbl {
@@ -2077,24 +2077,24 @@ impl IWMPlayerTimestampHook_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMProfile_Impl: Sized {
-    fn GetVersion(&mut self) -> ::windows::core::Result<WMT_VERSION>;
-    fn GetName(&mut self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::core::Result<()>;
-    fn SetName(&mut self, pwszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetDescription(&mut self, pwszdescription: super::super::Foundation::PWSTR, pcchdescription: *mut u32) -> ::windows::core::Result<()>;
-    fn SetDescription(&mut self, pwszdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetStreamCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetStream(&mut self, dwstreamindex: u32) -> ::windows::core::Result<IWMStreamConfig>;
-    fn GetStreamByNumber(&mut self, wstreamnum: u16) -> ::windows::core::Result<IWMStreamConfig>;
-    fn RemoveStream(&mut self, pconfig: &::core::option::Option<IWMStreamConfig>) -> ::windows::core::Result<()>;
-    fn RemoveStreamByNumber(&mut self, wstreamnum: u16) -> ::windows::core::Result<()>;
-    fn AddStream(&mut self, pconfig: &::core::option::Option<IWMStreamConfig>) -> ::windows::core::Result<()>;
-    fn ReconfigStream(&mut self, pconfig: &::core::option::Option<IWMStreamConfig>) -> ::windows::core::Result<()>;
-    fn CreateNewStream(&mut self, guidstreamtype: *const ::windows::core::GUID) -> ::windows::core::Result<IWMStreamConfig>;
-    fn GetMutualExclusionCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetMutualExclusion(&mut self, dwmeindex: u32) -> ::windows::core::Result<IWMMutualExclusion>;
-    fn RemoveMutualExclusion(&mut self, pme: &::core::option::Option<IWMMutualExclusion>) -> ::windows::core::Result<()>;
-    fn AddMutualExclusion(&mut self, pme: &::core::option::Option<IWMMutualExclusion>) -> ::windows::core::Result<()>;
-    fn CreateNewMutualExclusion(&mut self) -> ::windows::core::Result<IWMMutualExclusion>;
+    fn GetVersion(&self) -> ::windows::core::Result<WMT_VERSION>;
+    fn GetName(&self, pwszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> ::windows::core::Result<()>;
+    fn SetName(&self, pwszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetDescription(&self, pwszdescription: super::super::Foundation::PWSTR, pcchdescription: *mut u32) -> ::windows::core::Result<()>;
+    fn SetDescription(&self, pwszdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetStreamCount(&self) -> ::windows::core::Result<u32>;
+    fn GetStream(&self, dwstreamindex: u32) -> ::windows::core::Result<IWMStreamConfig>;
+    fn GetStreamByNumber(&self, wstreamnum: u16) -> ::windows::core::Result<IWMStreamConfig>;
+    fn RemoveStream(&self, pconfig: &::core::option::Option<IWMStreamConfig>) -> ::windows::core::Result<()>;
+    fn RemoveStreamByNumber(&self, wstreamnum: u16) -> ::windows::core::Result<()>;
+    fn AddStream(&self, pconfig: &::core::option::Option<IWMStreamConfig>) -> ::windows::core::Result<()>;
+    fn ReconfigStream(&self, pconfig: &::core::option::Option<IWMStreamConfig>) -> ::windows::core::Result<()>;
+    fn CreateNewStream(&self, guidstreamtype: *const ::windows::core::GUID) -> ::windows::core::Result<IWMStreamConfig>;
+    fn GetMutualExclusionCount(&self) -> ::windows::core::Result<u32>;
+    fn GetMutualExclusion(&self, dwmeindex: u32) -> ::windows::core::Result<IWMMutualExclusion>;
+    fn RemoveMutualExclusion(&self, pme: &::core::option::Option<IWMMutualExclusion>) -> ::windows::core::Result<()>;
+    fn AddMutualExclusion(&self, pme: &::core::option::Option<IWMMutualExclusion>) -> ::windows::core::Result<()>;
+    fn CreateNewMutualExclusion(&self) -> ::windows::core::Result<IWMMutualExclusion>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMProfile_Vtbl {
@@ -2265,7 +2265,7 @@ impl IWMProfile_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMProfile2_Impl: Sized + IWMProfile_Impl {
-    fn GetProfileID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetProfileID(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMProfile2_Vtbl {
@@ -2289,18 +2289,18 @@ impl IWMProfile2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMProfile3_Impl: Sized + IWMProfile_Impl + IWMProfile2_Impl {
-    fn GetStorageFormat(&mut self) -> ::windows::core::Result<WMT_STORAGE_FORMAT>;
-    fn SetStorageFormat(&mut self, nstorageformat: WMT_STORAGE_FORMAT) -> ::windows::core::Result<()>;
-    fn GetBandwidthSharingCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetBandwidthSharing(&mut self, dwbsindex: u32) -> ::windows::core::Result<IWMBandwidthSharing>;
-    fn RemoveBandwidthSharing(&mut self, pbs: &::core::option::Option<IWMBandwidthSharing>) -> ::windows::core::Result<()>;
-    fn AddBandwidthSharing(&mut self, pbs: &::core::option::Option<IWMBandwidthSharing>) -> ::windows::core::Result<()>;
-    fn CreateNewBandwidthSharing(&mut self) -> ::windows::core::Result<IWMBandwidthSharing>;
-    fn GetStreamPrioritization(&mut self) -> ::windows::core::Result<IWMStreamPrioritization>;
-    fn SetStreamPrioritization(&mut self, psp: &::core::option::Option<IWMStreamPrioritization>) -> ::windows::core::Result<()>;
-    fn RemoveStreamPrioritization(&mut self) -> ::windows::core::Result<()>;
-    fn CreateNewStreamPrioritization(&mut self) -> ::windows::core::Result<IWMStreamPrioritization>;
-    fn GetExpectedPacketCount(&mut self, msduration: u64) -> ::windows::core::Result<u64>;
+    fn GetStorageFormat(&self) -> ::windows::core::Result<WMT_STORAGE_FORMAT>;
+    fn SetStorageFormat(&self, nstorageformat: WMT_STORAGE_FORMAT) -> ::windows::core::Result<()>;
+    fn GetBandwidthSharingCount(&self) -> ::windows::core::Result<u32>;
+    fn GetBandwidthSharing(&self, dwbsindex: u32) -> ::windows::core::Result<IWMBandwidthSharing>;
+    fn RemoveBandwidthSharing(&self, pbs: &::core::option::Option<IWMBandwidthSharing>) -> ::windows::core::Result<()>;
+    fn AddBandwidthSharing(&self, pbs: &::core::option::Option<IWMBandwidthSharing>) -> ::windows::core::Result<()>;
+    fn CreateNewBandwidthSharing(&self) -> ::windows::core::Result<IWMBandwidthSharing>;
+    fn GetStreamPrioritization(&self) -> ::windows::core::Result<IWMStreamPrioritization>;
+    fn SetStreamPrioritization(&self, psp: &::core::option::Option<IWMStreamPrioritization>) -> ::windows::core::Result<()>;
+    fn RemoveStreamPrioritization(&self) -> ::windows::core::Result<()>;
+    fn CreateNewStreamPrioritization(&self) -> ::windows::core::Result<IWMStreamPrioritization>;
+    fn GetExpectedPacketCount(&self, msduration: u64) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMProfile3_Vtbl {
@@ -2429,12 +2429,12 @@ impl IWMProfile3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMProfileManager_Impl: Sized {
-    fn CreateEmptyProfile(&mut self, dwversion: WMT_VERSION) -> ::windows::core::Result<IWMProfile>;
-    fn LoadProfileByID(&mut self, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<IWMProfile>;
-    fn LoadProfileByData(&mut self, pwszprofile: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMProfile>;
-    fn SaveProfile(&mut self, piwmprofile: &::core::option::Option<IWMProfile>, pwszprofile: super::super::Foundation::PWSTR, pdwlength: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSystemProfileCount(&mut self) -> ::windows::core::Result<u32>;
-    fn LoadSystemProfile(&mut self, dwprofileindex: u32) -> ::windows::core::Result<IWMProfile>;
+    fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> ::windows::core::Result<IWMProfile>;
+    fn LoadProfileByID(&self, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<IWMProfile>;
+    fn LoadProfileByData(&self, pwszprofile: super::super::Foundation::PWSTR) -> ::windows::core::Result<IWMProfile>;
+    fn SaveProfile(&self, piwmprofile: &::core::option::Option<IWMProfile>, pwszprofile: super::super::Foundation::PWSTR, pdwlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSystemProfileCount(&self) -> ::windows::core::Result<u32>;
+    fn LoadSystemProfile(&self, dwprofileindex: u32) -> ::windows::core::Result<IWMProfile>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMProfileManager_Vtbl {
@@ -2515,8 +2515,8 @@ impl IWMProfileManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMProfileManager2_Impl: Sized + IWMProfileManager_Impl {
-    fn GetSystemProfileVersion(&mut self, pdwversion: *mut WMT_VERSION) -> ::windows::core::Result<()>;
-    fn SetSystemProfileVersion(&mut self, dwversion: WMT_VERSION) -> ::windows::core::Result<()>;
+    fn GetSystemProfileVersion(&self, pdwversion: *mut WMT_VERSION) -> ::windows::core::Result<()>;
+    fn SetSystemProfileVersion(&self, dwversion: WMT_VERSION) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMProfileManager2_Vtbl {
@@ -2542,8 +2542,8 @@ impl IWMProfileManager2_Vtbl {
     }
 }
 pub trait IWMProfileManagerLanguage_Impl: Sized {
-    fn GetUserLanguageID(&mut self, wlangid: *mut u16) -> ::windows::core::Result<()>;
-    fn SetUserLanguageID(&mut self, wlangid: u16) -> ::windows::core::Result<()>;
+    fn GetUserLanguageID(&self, wlangid: *mut u16) -> ::windows::core::Result<()>;
+    fn SetUserLanguageID(&self, wlangid: u16) -> ::windows::core::Result<()>;
 }
 impl IWMProfileManagerLanguage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfileManagerLanguage_Impl, const OFFSET: isize>() -> IWMProfileManagerLanguage_Vtbl {
@@ -2569,12 +2569,12 @@ impl IWMProfileManagerLanguage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMPropertyVault_Impl: Sized {
-    fn GetPropertyCount(&mut self, pdwcount: *const u32) -> ::windows::core::Result<()>;
-    fn GetPropertyByName(&mut self, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, pszname: super::super::Foundation::PWSTR, ptype: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
-    fn GetPropertyByIndex(&mut self, dwindex: u32, pszname: super::super::Foundation::PWSTR, pdwnamelen: *mut u32, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
-    fn CopyPropertiesFrom(&mut self, piwmpropertyvault: &::core::option::Option<IWMPropertyVault>) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn GetPropertyCount(&self, pdwcount: *const u32) -> ::windows::core::Result<()>;
+    fn GetPropertyByName(&self, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, pszname: super::super::Foundation::PWSTR, ptype: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
+    fn GetPropertyByIndex(&self, dwindex: u32, pszname: super::super::Foundation::PWSTR, pdwnamelen: *mut u32, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
+    fn CopyPropertiesFrom(&self, piwmpropertyvault: &::core::option::Option<IWMPropertyVault>) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMPropertyVault_Vtbl {
@@ -2624,7 +2624,7 @@ impl IWMPropertyVault_Vtbl {
     }
 }
 pub trait IWMProximityDetection_Impl: Sized {
-    fn StartDetection(&mut self, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn StartDetection(&self, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IWMProximityDetection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMProximityDetection_Impl, const OFFSET: isize>() -> IWMProximityDetection_Vtbl {
@@ -2641,17 +2641,17 @@ impl IWMProximityDetection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReader_Impl: Sized {
-    fn Open(&mut self, pwszurl: super::super::Foundation::PWSTR, pcallback: &::core::option::Option<IWMReaderCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn GetOutputCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetOutputProps(&mut self, dwoutputnum: u32) -> ::windows::core::Result<IWMOutputMediaProps>;
-    fn SetOutputProps(&mut self, dwoutputnum: u32, poutput: &::core::option::Option<IWMOutputMediaProps>) -> ::windows::core::Result<()>;
-    fn GetOutputFormatCount(&mut self, dwoutputnumber: u32) -> ::windows::core::Result<u32>;
-    fn GetOutputFormat(&mut self, dwoutputnumber: u32, dwformatnumber: u32) -> ::windows::core::Result<IWMOutputMediaProps>;
-    fn Start(&mut self, cnsstart: u64, cnsduration: u64, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
-    fn Pause(&mut self) -> ::windows::core::Result<()>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
+    fn Open(&self, pwszurl: super::super::Foundation::PWSTR, pcallback: &::core::option::Option<IWMReaderCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn GetOutputCount(&self) -> ::windows::core::Result<u32>;
+    fn GetOutputProps(&self, dwoutputnum: u32) -> ::windows::core::Result<IWMOutputMediaProps>;
+    fn SetOutputProps(&self, dwoutputnum: u32, poutput: &::core::option::Option<IWMOutputMediaProps>) -> ::windows::core::Result<()>;
+    fn GetOutputFormatCount(&self, dwoutputnumber: u32) -> ::windows::core::Result<u32>;
+    fn GetOutputFormat(&self, dwoutputnumber: u32, dwformatnumber: u32) -> ::windows::core::Result<IWMOutputMediaProps>;
+    fn Start(&self, cnsstart: u64, cnsduration: u64, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn Pause(&self) -> ::windows::core::Result<()>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMReader_Vtbl {
@@ -2756,8 +2756,8 @@ impl IWMReader_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderAccelerator_Impl: Sized {
-    fn GetCodecInterface(&mut self, dwoutputnum: u32, riid: *const ::windows::core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Notify(&mut self, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()>;
+    fn GetCodecInterface(&self, dwoutputnum: u32, riid: *const ::windows::core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Notify(&self, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMReaderAccelerator_Vtbl {
@@ -2784,26 +2784,26 @@ impl IWMReaderAccelerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderAdvanced_Impl: Sized {
-    fn SetUserProvidedClock(&mut self, fuserclock: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetUserProvidedClock(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn DeliverTime(&mut self, cnstime: u64) -> ::windows::core::Result<()>;
-    fn SetManualStreamSelection(&mut self, fselection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetManualStreamSelection(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetStreamsSelected(&mut self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::core::Result<()>;
-    fn GetStreamSelected(&mut self, wstreamnum: u16) -> ::windows::core::Result<WMT_STREAM_SELECTION>;
-    fn SetReceiveSelectionCallbacks(&mut self, fgetcallbacks: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetReceiveSelectionCallbacks(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetReceiveStreamSamples(&mut self, wstreamnum: u16, freceivestreamsamples: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetReceiveStreamSamples(&mut self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetAllocateForOutput(&mut self, dwoutputnum: u32, fallocate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetAllocateForOutput(&mut self, dwoutputnum: u32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetAllocateForStream(&mut self, wstreamnum: u16, fallocate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetAllocateForStream(&mut self, dwsreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetStatistics(&mut self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows::core::Result<()>;
-    fn SetClientInfo(&mut self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows::core::Result<()>;
-    fn GetMaxOutputSampleSize(&mut self, dwoutput: u32) -> ::windows::core::Result<u32>;
-    fn GetMaxStreamSampleSize(&mut self, wstream: u16) -> ::windows::core::Result<u32>;
-    fn NotifyLateDelivery(&mut self, cnslateness: u64) -> ::windows::core::Result<()>;
+    fn SetUserProvidedClock(&self, fuserclock: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetUserProvidedClock(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn DeliverTime(&self, cnstime: u64) -> ::windows::core::Result<()>;
+    fn SetManualStreamSelection(&self, fselection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetManualStreamSelection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::core::Result<()>;
+    fn GetStreamSelected(&self, wstreamnum: u16) -> ::windows::core::Result<WMT_STREAM_SELECTION>;
+    fn SetReceiveSelectionCallbacks(&self, fgetcallbacks: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetReceiveSelectionCallbacks(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetReceiveStreamSamples(&self, wstreamnum: u16, freceivestreamsamples: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetAllocateForOutput(&self, dwoutputnum: u32, fallocate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetAllocateForStream(&self, wstreamnum: u16, fallocate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetStatistics(&self, pstatistics: *mut WM_READER_STATISTICS) -> ::windows::core::Result<()>;
+    fn SetClientInfo(&self, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows::core::Result<()>;
+    fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> ::windows::core::Result<u32>;
+    fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::core::Result<u32>;
+    fn NotifyLateDelivery(&self, cnslateness: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMReaderAdvanced_Vtbl {
@@ -2992,21 +2992,21 @@ impl IWMReaderAdvanced_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced2_Impl: Sized + IWMReaderAdvanced_Impl {
-    fn SetPlayMode(&mut self, mode: WMT_PLAY_MODE) -> ::windows::core::Result<()>;
-    fn GetPlayMode(&mut self) -> ::windows::core::Result<WMT_PLAY_MODE>;
-    fn GetBufferProgress(&mut self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> ::windows::core::Result<()>;
-    fn GetDownloadProgress(&mut self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> ::windows::core::Result<()>;
-    fn GetSaveAsProgress(&mut self) -> ::windows::core::Result<u32>;
-    fn SaveFileAs(&mut self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetProtocolName(&mut self, pwszprotocol: super::super::Foundation::PWSTR, pcchprotocol: *mut u32) -> ::windows::core::Result<()>;
-    fn StartAtMarker(&mut self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetOutputSetting(&mut self, dwoutputnum: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
-    fn SetOutputSetting(&mut self, dwoutputnum: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
-    fn Preroll(&mut self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()>;
-    fn SetLogClientID(&mut self, flogclientid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetLogClientID(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn StopBuffering(&mut self) -> ::windows::core::Result<()>;
-    fn OpenStream(&mut self, pstream: &::core::option::Option<super::super::System::Com::IStream>, pcallback: &::core::option::Option<IWMReaderCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> ::windows::core::Result<()>;
+    fn GetPlayMode(&self) -> ::windows::core::Result<WMT_PLAY_MODE>;
+    fn GetBufferProgress(&self, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> ::windows::core::Result<()>;
+    fn GetDownloadProgress(&self, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> ::windows::core::Result<()>;
+    fn GetSaveAsProgress(&self) -> ::windows::core::Result<u32>;
+    fn SaveFileAs(&self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetProtocolName(&self, pwszprotocol: super::super::Foundation::PWSTR, pcchprotocol: *mut u32) -> ::windows::core::Result<()>;
+    fn StartAtMarker(&self, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetOutputSetting(&self, dwoutputnum: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
+    fn SetOutputSetting(&self, dwoutputnum: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
+    fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()>;
+    fn SetLogClientID(&self, flogclientid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetLogClientID(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn StopBuffering(&self) -> ::windows::core::Result<()>;
+    fn OpenStream(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>, pcallback: &::core::option::Option<IWMReaderCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMReaderAdvanced2_Vtbl {
@@ -3129,8 +3129,8 @@ impl IWMReaderAdvanced2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced3_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdvanced2_Impl {
-    fn StopNetStreaming(&mut self) -> ::windows::core::Result<()>;
-    fn StartAtPosition(&mut self, wstreamnum: u16, pvoffsetstart: *const ::core::ffi::c_void, pvduration: *const ::core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn StopNetStreaming(&self) -> ::windows::core::Result<()>;
+    fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const ::core::ffi::c_void, pvduration: *const ::core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMReaderAdvanced3_Vtbl {
@@ -3157,15 +3157,15 @@ impl IWMReaderAdvanced3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced4_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdvanced2_Impl + IWMReaderAdvanced3_Impl {
-    fn GetLanguageCount(&mut self, dwoutputnum: u32) -> ::windows::core::Result<u16>;
-    fn GetLanguage(&mut self, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::Result<()>;
-    fn GetMaxSpeedFactor(&mut self) -> ::windows::core::Result<f64>;
-    fn IsUsingFastCache(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn AddLogParam(&mut self, wsznamespace: super::super::Foundation::PWSTR, wszname: super::super::Foundation::PWSTR, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SendLogParams(&mut self) -> ::windows::core::Result<()>;
-    fn CanSaveFileAs(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn CancelSaveFileAs(&mut self) -> ::windows::core::Result<()>;
-    fn GetURL(&mut self, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLanguageCount(&self, dwoutputnum: u32) -> ::windows::core::Result<u16>;
+    fn GetLanguage(&self, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::Result<()>;
+    fn GetMaxSpeedFactor(&self) -> ::windows::core::Result<f64>;
+    fn IsUsingFastCache(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn AddLogParam(&self, wsznamespace: super::super::Foundation::PWSTR, wszname: super::super::Foundation::PWSTR, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SendLogParams(&self) -> ::windows::core::Result<()>;
+    fn CanSaveFileAs(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn CancelSaveFileAs(&self) -> ::windows::core::Result<()>;
+    fn GetURL(&self, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMReaderAdvanced4_Vtbl {
@@ -3258,7 +3258,7 @@ impl IWMReaderAdvanced4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced5_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdvanced2_Impl + IWMReaderAdvanced3_Impl + IWMReaderAdvanced4_Impl {
-    fn SetPlayerHook(&mut self, dwoutputnum: u32, phook: &::core::option::Option<IWMPlayerHook>) -> ::windows::core::Result<()>;
+    fn SetPlayerHook(&self, dwoutputnum: u32, phook: &::core::option::Option<IWMPlayerHook>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMReaderAdvanced5_Vtbl {
@@ -3276,7 +3276,7 @@ impl IWMReaderAdvanced5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced6_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdvanced2_Impl + IWMReaderAdvanced3_Impl + IWMReaderAdvanced4_Impl + IWMReaderAdvanced5_Impl {
-    fn SetProtectStreamSamples(&mut self, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows::core::Result<()>;
+    fn SetProtectStreamSamples(&self, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMReaderAdvanced6_Vtbl {
@@ -3293,8 +3293,8 @@ impl IWMReaderAdvanced6_Vtbl {
     }
 }
 pub trait IWMReaderAllocatorEx_Impl: Sized {
-    fn AllocateForStreamEx(&mut self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn AllocateForOutputEx(&mut self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AllocateForStreamEx(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AllocateForOutputEx(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IWMReaderAllocatorEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAllocatorEx_Impl, const OFFSET: isize>() -> IWMReaderAllocatorEx_Vtbl {
@@ -3319,7 +3319,7 @@ impl IWMReaderAllocatorEx_Vtbl {
     }
 }
 pub trait IWMReaderCallback_Impl: Sized + IWMStatusCallback_Impl {
-    fn OnSample(&mut self, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OnSample(&self, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IWMReaderCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderCallback_Impl, const OFFSET: isize>() -> IWMReaderCallback_Vtbl {
@@ -3336,12 +3336,12 @@ impl IWMReaderCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderCallbackAdvanced_Impl: Sized {
-    fn OnStreamSample(&mut self, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn OnTime(&mut self, cnscurrenttime: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn OnStreamSelection(&mut self, wstreamcount: u16, pstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn OnOutputPropsChanged(&mut self, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn AllocateForStream(&mut self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn AllocateForOutput(&mut self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OnStreamSample(&self, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OnTime(&self, cnscurrenttime: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OnStreamSelection(&self, wstreamcount: u16, pstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OnOutputPropsChanged(&self, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AllocateForStream(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AllocateForOutput(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMReaderCallbackAdvanced_Vtbl {
@@ -3392,39 +3392,39 @@ impl IWMReaderCallbackAdvanced_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderNetworkConfig_Impl: Sized {
-    fn GetBufferingTime(&mut self) -> ::windows::core::Result<u64>;
-    fn SetBufferingTime(&mut self, cnsbufferingtime: u64) -> ::windows::core::Result<()>;
-    fn GetUDPPortRanges(&mut self, prangearray: *mut WM_PORT_NUMBER_RANGE, pcranges: *mut u32) -> ::windows::core::Result<()>;
-    fn SetUDPPortRanges(&mut self, prangearray: *const WM_PORT_NUMBER_RANGE, cranges: u32) -> ::windows::core::Result<()>;
-    fn GetProxySettings(&mut self, pwszprotocol: super::super::Foundation::PWSTR) -> ::windows::core::Result<WMT_PROXY_SETTINGS>;
-    fn SetProxySettings(&mut self, pwszprotocol: super::super::Foundation::PWSTR, proxysetting: WMT_PROXY_SETTINGS) -> ::windows::core::Result<()>;
-    fn GetProxyHostName(&mut self, pwszprotocol: super::super::Foundation::PWSTR, pwszhostname: super::super::Foundation::PWSTR, pcchhostname: *mut u32) -> ::windows::core::Result<()>;
-    fn SetProxyHostName(&mut self, pwszprotocol: super::super::Foundation::PWSTR, pwszhostname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetProxyPort(&mut self, pwszprotocol: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
-    fn SetProxyPort(&mut self, pwszprotocol: super::super::Foundation::PWSTR, dwport: u32) -> ::windows::core::Result<()>;
-    fn GetProxyExceptionList(&mut self, pwszprotocol: super::super::Foundation::PWSTR, pwszexceptionlist: super::super::Foundation::PWSTR, pcchexceptionlist: *mut u32) -> ::windows::core::Result<()>;
-    fn SetProxyExceptionList(&mut self, pwszprotocol: super::super::Foundation::PWSTR, pwszexceptionlist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetProxyBypassForLocal(&mut self, pwszprotocol: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetProxyBypassForLocal(&mut self, pwszprotocol: super::super::Foundation::PWSTR, fbypassforlocal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetForceRerunAutoProxyDetection(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetForceRerunAutoProxyDetection(&mut self, fforcererundetection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetEnableMulticast(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetEnableMulticast(&mut self, fenablemulticast: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetEnableHTTP(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetEnableHTTP(&mut self, fenablehttp: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetEnableUDP(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetEnableUDP(&mut self, fenableudp: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetEnableTCP(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetEnableTCP(&mut self, fenabletcp: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn ResetProtocolRollover(&mut self) -> ::windows::core::Result<()>;
-    fn GetConnectionBandwidth(&mut self) -> ::windows::core::Result<u32>;
-    fn SetConnectionBandwidth(&mut self, dwconnectionbandwidth: u32) -> ::windows::core::Result<()>;
-    fn GetNumProtocolsSupported(&mut self) -> ::windows::core::Result<u32>;
-    fn GetSupportedProtocolName(&mut self, dwprotocolnum: u32, pwszprotocolname: super::super::Foundation::PWSTR, pcchprotocolname: *mut u32) -> ::windows::core::Result<()>;
-    fn AddLoggingUrl(&mut self, pwszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetLoggingUrl(&mut self, dwindex: u32, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::core::Result<()>;
-    fn GetLoggingUrlCount(&mut self) -> ::windows::core::Result<u32>;
-    fn ResetLoggingUrlList(&mut self) -> ::windows::core::Result<()>;
+    fn GetBufferingTime(&self) -> ::windows::core::Result<u64>;
+    fn SetBufferingTime(&self, cnsbufferingtime: u64) -> ::windows::core::Result<()>;
+    fn GetUDPPortRanges(&self, prangearray: *mut WM_PORT_NUMBER_RANGE, pcranges: *mut u32) -> ::windows::core::Result<()>;
+    fn SetUDPPortRanges(&self, prangearray: *const WM_PORT_NUMBER_RANGE, cranges: u32) -> ::windows::core::Result<()>;
+    fn GetProxySettings(&self, pwszprotocol: super::super::Foundation::PWSTR) -> ::windows::core::Result<WMT_PROXY_SETTINGS>;
+    fn SetProxySettings(&self, pwszprotocol: super::super::Foundation::PWSTR, proxysetting: WMT_PROXY_SETTINGS) -> ::windows::core::Result<()>;
+    fn GetProxyHostName(&self, pwszprotocol: super::super::Foundation::PWSTR, pwszhostname: super::super::Foundation::PWSTR, pcchhostname: *mut u32) -> ::windows::core::Result<()>;
+    fn SetProxyHostName(&self, pwszprotocol: super::super::Foundation::PWSTR, pwszhostname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetProxyPort(&self, pwszprotocol: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn SetProxyPort(&self, pwszprotocol: super::super::Foundation::PWSTR, dwport: u32) -> ::windows::core::Result<()>;
+    fn GetProxyExceptionList(&self, pwszprotocol: super::super::Foundation::PWSTR, pwszexceptionlist: super::super::Foundation::PWSTR, pcchexceptionlist: *mut u32) -> ::windows::core::Result<()>;
+    fn SetProxyExceptionList(&self, pwszprotocol: super::super::Foundation::PWSTR, pwszexceptionlist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetProxyBypassForLocal(&self, pwszprotocol: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetProxyBypassForLocal(&self, pwszprotocol: super::super::Foundation::PWSTR, fbypassforlocal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetForceRerunAutoProxyDetection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetForceRerunAutoProxyDetection(&self, fforcererundetection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetEnableMulticast(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetEnableMulticast(&self, fenablemulticast: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetEnableHTTP(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetEnableHTTP(&self, fenablehttp: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetEnableUDP(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetEnableUDP(&self, fenableudp: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetEnableTCP(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetEnableTCP(&self, fenabletcp: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ResetProtocolRollover(&self) -> ::windows::core::Result<()>;
+    fn GetConnectionBandwidth(&self) -> ::windows::core::Result<u32>;
+    fn SetConnectionBandwidth(&self, dwconnectionbandwidth: u32) -> ::windows::core::Result<()>;
+    fn GetNumProtocolsSupported(&self) -> ::windows::core::Result<u32>;
+    fn GetSupportedProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: super::super::Foundation::PWSTR, pcchprotocolname: *mut u32) -> ::windows::core::Result<()>;
+    fn AddLoggingUrl(&self, pwszurl: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetLoggingUrl(&self, dwindex: u32, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::core::Result<()>;
+    fn GetLoggingUrlCount(&self) -> ::windows::core::Result<u32>;
+    fn ResetLoggingUrlList(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMReaderNetworkConfig_Vtbl {
@@ -3709,19 +3709,19 @@ impl IWMReaderNetworkConfig_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderNetworkConfig2_Impl: Sized + IWMReaderNetworkConfig_Impl {
-    fn GetEnableContentCaching(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetEnableContentCaching(&mut self, fenablecontentcaching: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetEnableFastCache(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetEnableFastCache(&mut self, fenablefastcache: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetAcceleratedStreamingDuration(&mut self) -> ::windows::core::Result<u64>;
-    fn SetAcceleratedStreamingDuration(&mut self, cnsaccelduration: u64) -> ::windows::core::Result<()>;
-    fn GetAutoReconnectLimit(&mut self) -> ::windows::core::Result<u32>;
-    fn SetAutoReconnectLimit(&mut self, dwautoreconnectlimit: u32) -> ::windows::core::Result<()>;
-    fn GetEnableResends(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetEnableResends(&mut self, fenableresends: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetEnableThinning(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetEnableThinning(&mut self, fenablethinning: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetMaxNetPacketSize(&mut self) -> ::windows::core::Result<u32>;
+    fn GetEnableContentCaching(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetEnableContentCaching(&self, fenablecontentcaching: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetEnableFastCache(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetEnableFastCache(&self, fenablefastcache: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetAcceleratedStreamingDuration(&self) -> ::windows::core::Result<u64>;
+    fn SetAcceleratedStreamingDuration(&self, cnsaccelduration: u64) -> ::windows::core::Result<()>;
+    fn GetAutoReconnectLimit(&self) -> ::windows::core::Result<u32>;
+    fn SetAutoReconnectLimit(&self, dwautoreconnectlimit: u32) -> ::windows::core::Result<()>;
+    fn GetEnableResends(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetEnableResends(&self, fenableresends: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetEnableThinning(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetEnableThinning(&self, fenablethinning: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetMaxNetPacketSize(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMReaderNetworkConfig2_Vtbl {
@@ -3856,10 +3856,10 @@ impl IWMReaderNetworkConfig2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderPlaylistBurn_Impl: Sized {
-    fn InitPlaylistBurn(&mut self, cfiles: u32, ppwszfilenames: *const super::super::Foundation::PWSTR, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetInitResults(&mut self, cfiles: u32) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn EndPlaylistBurn(&mut self, hrburnresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn InitPlaylistBurn(&self, cfiles: u32, ppwszfilenames: *const super::super::Foundation::PWSTR, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetInitResults(&self, cfiles: u32) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn EndPlaylistBurn(&self, hrburnresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMReaderPlaylistBurn_Vtbl {
@@ -3903,9 +3903,9 @@ impl IWMReaderPlaylistBurn_Vtbl {
     }
 }
 pub trait IWMReaderStreamClock_Impl: Sized {
-    fn GetTime(&mut self, pcnsnow: *const u64) -> ::windows::core::Result<()>;
-    fn SetTimer(&mut self, cnswhen: u64, pvparam: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
-    fn KillTimer(&mut self, dwtimerid: u32) -> ::windows::core::Result<()>;
+    fn GetTime(&self, pcnsnow: *const u64) -> ::windows::core::Result<()>;
+    fn SetTimer(&self, cnswhen: u64, pvparam: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
+    fn KillTimer(&self, dwtimerid: u32) -> ::windows::core::Result<()>;
 }
 impl IWMReaderStreamClock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderStreamClock_Impl, const OFFSET: isize>() -> IWMReaderStreamClock_Vtbl {
@@ -3942,8 +3942,8 @@ impl IWMReaderStreamClock_Vtbl {
     }
 }
 pub trait IWMReaderTimecode_Impl: Sized {
-    fn GetTimecodeRangeCount(&mut self, wstreamnum: u16) -> ::windows::core::Result<u16>;
-    fn GetTimecodeRangeBounds(&mut self, wstreamnum: u16, wrangenum: u16, pstarttimecode: *mut u32, pendtimecode: *mut u32) -> ::windows::core::Result<()>;
+    fn GetTimecodeRangeCount(&self, wstreamnum: u16) -> ::windows::core::Result<u16>;
+    fn GetTimecodeRangeBounds(&self, wstreamnum: u16, wrangenum: u16, pstarttimecode: *mut u32, pendtimecode: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IWMReaderTimecode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderTimecode_Impl, const OFFSET: isize>() -> IWMReaderTimecode_Vtbl {
@@ -3974,7 +3974,7 @@ impl IWMReaderTimecode_Vtbl {
     }
 }
 pub trait IWMReaderTypeNegotiation_Impl: Sized {
-    fn TryOutputProps(&mut self, dwoutputnum: u32, poutput: &::core::option::Option<IWMOutputMediaProps>) -> ::windows::core::Result<()>;
+    fn TryOutputProps(&self, dwoutputnum: u32, poutput: &::core::option::Option<IWMOutputMediaProps>) -> ::windows::core::Result<()>;
 }
 impl IWMReaderTypeNegotiation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderTypeNegotiation_Impl, const OFFSET: isize>() -> IWMReaderTypeNegotiation_Vtbl {
@@ -3990,8 +3990,8 @@ impl IWMReaderTypeNegotiation_Vtbl {
     }
 }
 pub trait IWMRegisterCallback_Impl: Sized {
-    fn Advise(&mut self, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Unadvise(&mut self, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Advise(&self, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Unadvise(&self, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IWMRegisterCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMRegisterCallback_Impl, const OFFSET: isize>() -> IWMRegisterCallback_Vtbl {
@@ -4017,20 +4017,20 @@ impl IWMRegisterCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMRegisteredDevice_Impl: Sized {
-    fn GetDeviceSerialNumber(&mut self) -> ::windows::core::Result<DRM_VAL16>;
-    fn GetDeviceCertificate(&mut self) -> ::windows::core::Result<INSSBuffer>;
-    fn GetDeviceType(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAttributeCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAttributeByIndex(&mut self, dwindex: u32, pbstrname: *mut super::super::Foundation::BSTR, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetAttributeByName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetAttributeByName(&mut self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Approve(&mut self, fapprove: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn IsValid(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsApproved(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsWmdrmCompliant(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsOpened(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Open(&mut self) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn GetDeviceSerialNumber(&self) -> ::windows::core::Result<DRM_VAL16>;
+    fn GetDeviceCertificate(&self) -> ::windows::core::Result<INSSBuffer>;
+    fn GetDeviceType(&self) -> ::windows::core::Result<u32>;
+    fn GetAttributeCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAttributeByIndex(&self, dwindex: u32, pbstrname: *mut super::super::Foundation::BSTR, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetAttributeByName(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetAttributeByName(&self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Approve(&self, fapprove: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsValid(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsApproved(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsWmdrmCompliant(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsOpened(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Open(&self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMRegisteredDevice_Vtbl {
@@ -4182,8 +4182,8 @@ impl IWMRegisteredDevice_Vtbl {
     }
 }
 pub trait IWMSBufferAllocator_Impl: Sized {
-    fn AllocateBuffer(&mut self, dwmaxbuffersize: u32) -> ::windows::core::Result<INSSBuffer>;
-    fn AllocatePageSizeBuffer(&mut self, dwmaxbuffersize: u32) -> ::windows::core::Result<INSSBuffer>;
+    fn AllocateBuffer(&self, dwmaxbuffersize: u32) -> ::windows::core::Result<INSSBuffer>;
+    fn AllocatePageSizeBuffer(&self, dwmaxbuffersize: u32) -> ::windows::core::Result<INSSBuffer>;
 }
 impl IWMSBufferAllocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMSBufferAllocator_Impl, const OFFSET: isize>() -> IWMSBufferAllocator_Vtbl {
@@ -4221,17 +4221,17 @@ impl IWMSBufferAllocator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSInternalAdminNetSource_Impl: Sized {
-    fn Initialize(&mut self, psharednamespace: &::core::option::Option<::windows::core::IUnknown>, pnamespacenode: &::core::option::Option<::windows::core::IUnknown>, pnetsourcecreator: &::core::option::Option<INSNetSourceCreator>, fembeddedinserver: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetNetSourceCreator(&mut self) -> ::windows::core::Result<INSNetSourceCreator>;
-    fn SetCredentials(&mut self, bstrrealm: &super::super::Foundation::BSTR, bstrname: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetCredentials(&mut self, bstrrealm: &super::super::Foundation::BSTR, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn DeleteCredentials(&mut self, bstrrealm: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetCredentialFlags(&mut self) -> ::windows::core::Result<u32>;
-    fn SetCredentialFlags(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
-    fn FindProxyForURL(&mut self, bstrprotocol: &super::super::Foundation::BSTR, bstrhost: &super::super::Foundation::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()>;
-    fn RegisterProxyFailure(&mut self, hrparam: ::windows::core::HRESULT, dwproxycontext: u32) -> ::windows::core::Result<()>;
-    fn ShutdownProxyContext(&mut self, dwproxycontext: u32) -> ::windows::core::Result<()>;
-    fn IsUsingIE(&mut self, dwproxycontext: u32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Initialize(&self, psharednamespace: &::core::option::Option<::windows::core::IUnknown>, pnamespacenode: &::core::option::Option<::windows::core::IUnknown>, pnetsourcecreator: &::core::option::Option<INSNetSourceCreator>, fembeddedinserver: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetNetSourceCreator(&self) -> ::windows::core::Result<INSNetSourceCreator>;
+    fn SetCredentials(&self, bstrrealm: &super::super::Foundation::BSTR, bstrname: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetCredentials(&self, bstrrealm: &super::super::Foundation::BSTR, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn DeleteCredentials(&self, bstrrealm: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetCredentialFlags(&self) -> ::windows::core::Result<u32>;
+    fn SetCredentialFlags(&self, dwflags: u32) -> ::windows::core::Result<()>;
+    fn FindProxyForURL(&self, bstrprotocol: &super::super::Foundation::BSTR, bstrhost: &super::super::Foundation::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()>;
+    fn RegisterProxyFailure(&self, hrparam: ::windows::core::HRESULT, dwproxycontext: u32) -> ::windows::core::Result<()>;
+    fn ShutdownProxyContext(&self, dwproxycontext: u32) -> ::windows::core::Result<()>;
+    fn IsUsingIE(&self, dwproxycontext: u32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMSInternalAdminNetSource_Vtbl {
@@ -4330,10 +4330,10 @@ impl IWMSInternalAdminNetSource_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSInternalAdminNetSource2_Impl: Sized {
-    fn SetCredentialsEx(&mut self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL, bstrname: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetCredentialsEx(&mut self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn DeleteCredentialsEx(&mut self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn FindProxyForURLEx(&mut self, bstrprotocol: &super::super::Foundation::BSTR, bstrhost: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()>;
+    fn SetCredentialsEx(&self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL, bstrname: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetCredentialsEx(&self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn DeleteCredentialsEx(&self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn FindProxyForURLEx(&self, bstrprotocol: &super::super::Foundation::BSTR, bstrhost: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMSInternalAdminNetSource2_Vtbl {
@@ -4372,13 +4372,13 @@ impl IWMSInternalAdminNetSource2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSInternalAdminNetSource3_Impl: Sized + IWMSInternalAdminNetSource2_Impl {
-    fn GetNetSourceCreator2(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn FindProxyForURLEx2(&mut self, bstrprotocol: &super::super::Foundation::BSTR, bstrhost: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows::core::Result<()>;
-    fn RegisterProxyFailure2(&mut self, hrparam: ::windows::core::HRESULT, qwproxycontext: u64) -> ::windows::core::Result<()>;
-    fn ShutdownProxyContext2(&mut self, qwproxycontext: u64) -> ::windows::core::Result<()>;
-    fn IsUsingIE2(&mut self, qwproxycontext: u64) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetCredentialsEx2(&mut self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL, bstrname: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetCredentialsEx2(&mut self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetNetSourceCreator2(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn FindProxyForURLEx2(&self, bstrprotocol: &super::super::Foundation::BSTR, bstrhost: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows::core::Result<()>;
+    fn RegisterProxyFailure2(&self, hrparam: ::windows::core::HRESULT, qwproxycontext: u64) -> ::windows::core::Result<()>;
+    fn ShutdownProxyContext2(&self, qwproxycontext: u64) -> ::windows::core::Result<()>;
+    fn IsUsingIE2(&self, qwproxycontext: u64) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetCredentialsEx2(&self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL, bstrname: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetCredentialsEx2(&self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMSInternalAdminNetSource3_Vtbl {
@@ -4447,17 +4447,17 @@ impl IWMSInternalAdminNetSource3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSecureChannel_Impl: Sized + IWMAuthorizer_Impl {
-    fn WMSC_AddCertificate(&mut self, pcert: &::core::option::Option<IWMAuthorizer>) -> ::windows::core::Result<()>;
-    fn WMSC_AddSignature(&mut self, pbcertsig: *const u8, cbcertsig: u32) -> ::windows::core::Result<()>;
-    fn WMSC_Connect(&mut self, potherside: &::core::option::Option<IWMSecureChannel>) -> ::windows::core::Result<()>;
-    fn WMSC_IsConnected(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn WMSC_Disconnect(&mut self) -> ::windows::core::Result<()>;
-    fn WMSC_GetValidCertificate(&mut self, ppbcertificate: *mut *mut u8, pdwsignature: *mut u32) -> ::windows::core::Result<()>;
-    fn WMSC_Encrypt(&mut self, pbdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
-    fn WMSC_Decrypt(&mut self, pbdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
-    fn WMSC_Lock(&mut self) -> ::windows::core::Result<()>;
-    fn WMSC_Unlock(&mut self) -> ::windows::core::Result<()>;
-    fn WMSC_SetSharedData(&mut self, dwcertindex: u32, pbshareddata: *const u8) -> ::windows::core::Result<()>;
+    fn WMSC_AddCertificate(&self, pcert: &::core::option::Option<IWMAuthorizer>) -> ::windows::core::Result<()>;
+    fn WMSC_AddSignature(&self, pbcertsig: *const u8, cbcertsig: u32) -> ::windows::core::Result<()>;
+    fn WMSC_Connect(&self, potherside: &::core::option::Option<IWMSecureChannel>) -> ::windows::core::Result<()>;
+    fn WMSC_IsConnected(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn WMSC_Disconnect(&self) -> ::windows::core::Result<()>;
+    fn WMSC_GetValidCertificate(&self, ppbcertificate: *mut *mut u8, pdwsignature: *mut u32) -> ::windows::core::Result<()>;
+    fn WMSC_Encrypt(&self, pbdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
+    fn WMSC_Decrypt(&self, pbdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
+    fn WMSC_Lock(&self) -> ::windows::core::Result<()>;
+    fn WMSC_Unlock(&self) -> ::windows::core::Result<()>;
+    fn WMSC_SetSharedData(&self, dwcertindex: u32, pbshareddata: *const u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMSecureChannel_Vtbl {
@@ -4543,7 +4543,7 @@ impl IWMSecureChannel_Vtbl {
     }
 }
 pub trait IWMStatusCallback_Impl: Sized {
-    fn OnStatus(&mut self, status: WMT_STATUS, hr: ::windows::core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OnStatus(&self, status: WMT_STATUS, hr: ::windows::core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IWMStatusCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMStatusCallback_Impl, const OFFSET: isize>() -> IWMStatusCallback_Vtbl {
@@ -4560,17 +4560,17 @@ impl IWMStatusCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMStreamConfig_Impl: Sized {
-    fn GetStreamType(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetStreamNumber(&mut self) -> ::windows::core::Result<u16>;
-    fn SetStreamNumber(&mut self, wstreamnum: u16) -> ::windows::core::Result<()>;
-    fn GetStreamName(&mut self, pwszstreamname: super::super::Foundation::PWSTR, pcchstreamname: *mut u16) -> ::windows::core::Result<()>;
-    fn SetStreamName(&mut self, pwszstreamname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetConnectionName(&mut self, pwszinputname: super::super::Foundation::PWSTR, pcchinputname: *mut u16) -> ::windows::core::Result<()>;
-    fn SetConnectionName(&mut self, pwszinputname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetBitrate(&mut self) -> ::windows::core::Result<u32>;
-    fn SetBitrate(&mut self, pdwbitrate: u32) -> ::windows::core::Result<()>;
-    fn GetBufferWindow(&mut self) -> ::windows::core::Result<u32>;
-    fn SetBufferWindow(&mut self, msbufferwindow: u32) -> ::windows::core::Result<()>;
+    fn GetStreamType(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetStreamNumber(&self) -> ::windows::core::Result<u16>;
+    fn SetStreamNumber(&self, wstreamnum: u16) -> ::windows::core::Result<()>;
+    fn GetStreamName(&self, pwszstreamname: super::super::Foundation::PWSTR, pcchstreamname: *mut u16) -> ::windows::core::Result<()>;
+    fn SetStreamName(&self, pwszstreamname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetConnectionName(&self, pwszinputname: super::super::Foundation::PWSTR, pcchinputname: *mut u16) -> ::windows::core::Result<()>;
+    fn SetConnectionName(&self, pwszinputname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetBitrate(&self) -> ::windows::core::Result<u32>;
+    fn SetBitrate(&self, pdwbitrate: u32) -> ::windows::core::Result<()>;
+    fn GetBufferWindow(&self) -> ::windows::core::Result<u32>;
+    fn SetBufferWindow(&self, msbufferwindow: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMStreamConfig_Vtbl {
@@ -4675,12 +4675,12 @@ impl IWMStreamConfig_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMStreamConfig2_Impl: Sized + IWMStreamConfig_Impl {
-    fn GetTransportType(&mut self) -> ::windows::core::Result<WMT_TRANSPORT_TYPE>;
-    fn SetTransportType(&mut self, ntransporttype: WMT_TRANSPORT_TYPE) -> ::windows::core::Result<()>;
-    fn AddDataUnitExtension(&mut self, guidextensionsystemid: &::windows::core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: *const u8, cbextensionsysteminfo: u32) -> ::windows::core::Result<()>;
-    fn GetDataUnitExtensionCount(&mut self) -> ::windows::core::Result<u16>;
-    fn GetDataUnitExtension(&mut self, wdataunitextensionnumber: u16, pguidextensionsystemid: *mut ::windows::core::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> ::windows::core::Result<()>;
-    fn RemoveAllDataUnitExtensions(&mut self) -> ::windows::core::Result<()>;
+    fn GetTransportType(&self) -> ::windows::core::Result<WMT_TRANSPORT_TYPE>;
+    fn SetTransportType(&self, ntransporttype: WMT_TRANSPORT_TYPE) -> ::windows::core::Result<()>;
+    fn AddDataUnitExtension(&self, guidextensionsystemid: &::windows::core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: *const u8, cbextensionsysteminfo: u32) -> ::windows::core::Result<()>;
+    fn GetDataUnitExtensionCount(&self) -> ::windows::core::Result<u16>;
+    fn GetDataUnitExtension(&self, wdataunitextensionnumber: u16, pguidextensionsystemid: *mut ::windows::core::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> ::windows::core::Result<()>;
+    fn RemoveAllDataUnitExtensions(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMStreamConfig2_Vtbl {
@@ -4743,8 +4743,8 @@ impl IWMStreamConfig2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMStreamConfig3_Impl: Sized + IWMStreamConfig_Impl + IWMStreamConfig2_Impl {
-    fn GetLanguage(&mut self, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::Result<()>;
-    fn SetLanguage(&mut self, pwszlanguagestring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetLanguage(&self, pwszlanguagestring: super::super::Foundation::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::Result<()>;
+    fn SetLanguage(&self, pwszlanguagestring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMStreamConfig3_Vtbl {
@@ -4770,9 +4770,9 @@ impl IWMStreamConfig3_Vtbl {
     }
 }
 pub trait IWMStreamList_Impl: Sized {
-    fn GetStreams(&mut self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::core::Result<()>;
-    fn AddStream(&mut self, wstreamnum: u16) -> ::windows::core::Result<()>;
-    fn RemoveStream(&mut self, wstreamnum: u16) -> ::windows::core::Result<()>;
+    fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::core::Result<()>;
+    fn AddStream(&self, wstreamnum: u16) -> ::windows::core::Result<()>;
+    fn RemoveStream(&self, wstreamnum: u16) -> ::windows::core::Result<()>;
 }
 impl IWMStreamList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamList_Impl, const OFFSET: isize>() -> IWMStreamList_Vtbl {
@@ -4804,8 +4804,8 @@ impl IWMStreamList_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMStreamPrioritization_Impl: Sized {
-    fn GetPriorityRecords(&mut self, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> ::windows::core::Result<()>;
-    fn SetPriorityRecords(&mut self, precordarray: *const WM_STREAM_PRIORITY_RECORD, crecords: u16) -> ::windows::core::Result<()>;
+    fn GetPriorityRecords(&self, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> ::windows::core::Result<()>;
+    fn SetPriorityRecords(&self, precordarray: *const WM_STREAM_PRIORITY_RECORD, crecords: u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMStreamPrioritization_Vtbl {
@@ -4832,27 +4832,27 @@ impl IWMStreamPrioritization_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMSyncReader_Impl: Sized {
-    fn Open(&mut self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn SetRange(&mut self, cnsstarttime: u64, cnsduration: i64) -> ::windows::core::Result<()>;
-    fn SetRangeByFrame(&mut self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> ::windows::core::Result<()>;
-    fn GetNextSample(&mut self, wstreamnum: u16, ppsample: *mut ::core::option::Option<INSSBuffer>, pcnssampletime: *mut u64, pcnsduration: *mut u64, pdwflags: *mut u32, pdwoutputnum: *mut u32, pwstreamnum: *mut u16) -> ::windows::core::Result<()>;
-    fn SetStreamsSelected(&mut self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::core::Result<()>;
-    fn GetStreamSelected(&mut self, wstreamnum: u16) -> ::windows::core::Result<WMT_STREAM_SELECTION>;
-    fn SetReadStreamSamples(&mut self, wstreamnum: u16, fcompressed: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetReadStreamSamples(&mut self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetOutputSetting(&mut self, dwoutputnum: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
-    fn SetOutputSetting(&mut self, dwoutputnum: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
-    fn GetOutputCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetOutputProps(&mut self, dwoutputnum: u32) -> ::windows::core::Result<IWMOutputMediaProps>;
-    fn SetOutputProps(&mut self, dwoutputnum: u32, poutput: &::core::option::Option<IWMOutputMediaProps>) -> ::windows::core::Result<()>;
-    fn GetOutputFormatCount(&mut self, dwoutputnum: u32) -> ::windows::core::Result<u32>;
-    fn GetOutputFormat(&mut self, dwoutputnum: u32, dwformatnum: u32) -> ::windows::core::Result<IWMOutputMediaProps>;
-    fn GetOutputNumberForStream(&mut self, wstreamnum: u16) -> ::windows::core::Result<u32>;
-    fn GetStreamNumberForOutput(&mut self, dwoutputnum: u32) -> ::windows::core::Result<u16>;
-    fn GetMaxOutputSampleSize(&mut self, dwoutput: u32) -> ::windows::core::Result<u32>;
-    fn GetMaxStreamSampleSize(&mut self, wstream: u16) -> ::windows::core::Result<u32>;
-    fn OpenStream(&mut self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Open(&self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn SetRange(&self, cnsstarttime: u64, cnsduration: i64) -> ::windows::core::Result<()>;
+    fn SetRangeByFrame(&self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> ::windows::core::Result<()>;
+    fn GetNextSample(&self, wstreamnum: u16, ppsample: *mut ::core::option::Option<INSSBuffer>, pcnssampletime: *mut u64, pcnsduration: *mut u64, pdwflags: *mut u32, pdwoutputnum: *mut u32, pwstreamnum: *mut u16) -> ::windows::core::Result<()>;
+    fn SetStreamsSelected(&self, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows::core::Result<()>;
+    fn GetStreamSelected(&self, wstreamnum: u16) -> ::windows::core::Result<WMT_STREAM_SELECTION>;
+    fn SetReadStreamSamples(&self, wstreamnum: u16, fcompressed: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetReadStreamSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetOutputSetting(&self, dwoutputnum: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
+    fn SetOutputSetting(&self, dwoutputnum: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
+    fn GetOutputCount(&self) -> ::windows::core::Result<u32>;
+    fn GetOutputProps(&self, dwoutputnum: u32) -> ::windows::core::Result<IWMOutputMediaProps>;
+    fn SetOutputProps(&self, dwoutputnum: u32, poutput: &::core::option::Option<IWMOutputMediaProps>) -> ::windows::core::Result<()>;
+    fn GetOutputFormatCount(&self, dwoutputnum: u32) -> ::windows::core::Result<u32>;
+    fn GetOutputFormat(&self, dwoutputnum: u32, dwformatnum: u32) -> ::windows::core::Result<IWMOutputMediaProps>;
+    fn GetOutputNumberForStream(&self, wstreamnum: u16) -> ::windows::core::Result<u32>;
+    fn GetStreamNumberForOutput(&self, dwoutputnum: u32) -> ::windows::core::Result<u16>;
+    fn GetMaxOutputSampleSize(&self, dwoutput: u32) -> ::windows::core::Result<u32>;
+    fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::core::Result<u32>;
+    fn OpenStream(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMSyncReader_Vtbl {
@@ -5053,12 +5053,12 @@ impl IWMSyncReader_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMSyncReader2_Impl: Sized + IWMSyncReader_Impl {
-    fn SetRangeByTimecode(&mut self, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> ::windows::core::Result<()>;
-    fn SetRangeByFrameEx(&mut self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> ::windows::core::Result<u64>;
-    fn SetAllocateForOutput(&mut self, dwoutputnum: u32, pallocator: &::core::option::Option<IWMReaderAllocatorEx>) -> ::windows::core::Result<()>;
-    fn GetAllocateForOutput(&mut self, dwoutputnum: u32) -> ::windows::core::Result<IWMReaderAllocatorEx>;
-    fn SetAllocateForStream(&mut self, wstreamnum: u16, pallocator: &::core::option::Option<IWMReaderAllocatorEx>) -> ::windows::core::Result<()>;
-    fn GetAllocateForStream(&mut self, dwsreamnum: u16) -> ::windows::core::Result<IWMReaderAllocatorEx>;
+    fn SetRangeByTimecode(&self, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> ::windows::core::Result<()>;
+    fn SetRangeByFrameEx(&self, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> ::windows::core::Result<u64>;
+    fn SetAllocateForOutput(&self, dwoutputnum: u32, pallocator: &::core::option::Option<IWMReaderAllocatorEx>) -> ::windows::core::Result<()>;
+    fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::core::Result<IWMReaderAllocatorEx>;
+    fn SetAllocateForStream(&self, wstreamnum: u16, pallocator: &::core::option::Option<IWMReaderAllocatorEx>) -> ::windows::core::Result<()>;
+    fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::core::Result<IWMReaderAllocatorEx>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMSyncReader2_Vtbl {
@@ -5127,10 +5127,10 @@ impl IWMSyncReader2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMVideoMediaProps_Impl: Sized + IWMMediaProps_Impl {
-    fn GetMaxKeyFrameSpacing(&mut self) -> ::windows::core::Result<i64>;
-    fn SetMaxKeyFrameSpacing(&mut self, lltime: i64) -> ::windows::core::Result<()>;
-    fn GetQuality(&mut self) -> ::windows::core::Result<u32>;
-    fn SetQuality(&mut self, dwquality: u32) -> ::windows::core::Result<()>;
+    fn GetMaxKeyFrameSpacing(&self) -> ::windows::core::Result<i64>;
+    fn SetMaxKeyFrameSpacing(&self, lltime: i64) -> ::windows::core::Result<()>;
+    fn GetQuality(&self) -> ::windows::core::Result<u32>;
+    fn SetQuality(&self, dwquality: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMVideoMediaProps_Vtbl {
@@ -5181,8 +5181,8 @@ impl IWMVideoMediaProps_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWatermarkInfo_Impl: Sized {
-    fn GetWatermarkEntryCount(&mut self, wmettype: WMT_WATERMARK_ENTRY_TYPE) -> ::windows::core::Result<u32>;
-    fn GetWatermarkEntry(&mut self, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32) -> ::windows::core::Result<WMT_WATERMARK_ENTRY>;
+    fn GetWatermarkEntryCount(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE) -> ::windows::core::Result<u32>;
+    fn GetWatermarkEntry(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32) -> ::windows::core::Result<WMT_WATERMARK_ENTRY>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWatermarkInfo_Vtbl {
@@ -5221,19 +5221,19 @@ impl IWMWatermarkInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriter_Impl: Sized {
-    fn SetProfileByID(&mut self, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetProfile(&mut self, pprofile: &::core::option::Option<IWMProfile>) -> ::windows::core::Result<()>;
-    fn SetOutputFilename(&mut self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetInputCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetInputProps(&mut self, dwinputnum: u32) -> ::windows::core::Result<IWMInputMediaProps>;
-    fn SetInputProps(&mut self, dwinputnum: u32, pinput: &::core::option::Option<IWMInputMediaProps>) -> ::windows::core::Result<()>;
-    fn GetInputFormatCount(&mut self, dwinputnumber: u32) -> ::windows::core::Result<u32>;
-    fn GetInputFormat(&mut self, dwinputnumber: u32, dwformatnumber: u32) -> ::windows::core::Result<IWMInputMediaProps>;
-    fn BeginWriting(&mut self) -> ::windows::core::Result<()>;
-    fn EndWriting(&mut self) -> ::windows::core::Result<()>;
-    fn AllocateSample(&mut self, dwsamplesize: u32) -> ::windows::core::Result<INSSBuffer>;
-    fn WriteSample(&mut self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
-    fn Flush(&mut self) -> ::windows::core::Result<()>;
+    fn SetProfileByID(&self, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetProfile(&self, pprofile: &::core::option::Option<IWMProfile>) -> ::windows::core::Result<()>;
+    fn SetOutputFilename(&self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetInputCount(&self) -> ::windows::core::Result<u32>;
+    fn GetInputProps(&self, dwinputnum: u32) -> ::windows::core::Result<IWMInputMediaProps>;
+    fn SetInputProps(&self, dwinputnum: u32, pinput: &::core::option::Option<IWMInputMediaProps>) -> ::windows::core::Result<()>;
+    fn GetInputFormatCount(&self, dwinputnumber: u32) -> ::windows::core::Result<u32>;
+    fn GetInputFormat(&self, dwinputnumber: u32, dwformatnumber: u32) -> ::windows::core::Result<IWMInputMediaProps>;
+    fn BeginWriting(&self) -> ::windows::core::Result<()>;
+    fn EndWriting(&self) -> ::windows::core::Result<()>;
+    fn AllocateSample(&self, dwsamplesize: u32) -> ::windows::core::Result<INSSBuffer>;
+    fn WriteSample(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
+    fn Flush(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriter_Vtbl {
@@ -5356,17 +5356,17 @@ impl IWMWriter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterAdvanced_Impl: Sized {
-    fn GetSinkCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetSink(&mut self, dwsinknum: u32) -> ::windows::core::Result<IWMWriterSink>;
-    fn AddSink(&mut self, psink: &::core::option::Option<IWMWriterSink>) -> ::windows::core::Result<()>;
-    fn RemoveSink(&mut self, psink: &::core::option::Option<IWMWriterSink>) -> ::windows::core::Result<()>;
-    fn WriteStreamSample(&mut self, wstreamnum: u16, cnssampletime: u64, mssamplesendtime: u32, cnssampleduration: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
-    fn SetLiveSource(&mut self, fislivesource: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn IsRealTime(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetWriterTime(&mut self) -> ::windows::core::Result<u64>;
-    fn GetStatistics(&mut self, wstreamnum: u16) -> ::windows::core::Result<WM_WRITER_STATISTICS>;
-    fn SetSyncTolerance(&mut self, mswindow: u32) -> ::windows::core::Result<()>;
-    fn GetSyncTolerance(&mut self) -> ::windows::core::Result<u32>;
+    fn GetSinkCount(&self) -> ::windows::core::Result<u32>;
+    fn GetSink(&self, dwsinknum: u32) -> ::windows::core::Result<IWMWriterSink>;
+    fn AddSink(&self, psink: &::core::option::Option<IWMWriterSink>) -> ::windows::core::Result<()>;
+    fn RemoveSink(&self, psink: &::core::option::Option<IWMWriterSink>) -> ::windows::core::Result<()>;
+    fn WriteStreamSample(&self, wstreamnum: u16, cnssampletime: u64, mssamplesendtime: u32, cnssampleduration: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
+    fn SetLiveSource(&self, fislivesource: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetWriterTime(&self) -> ::windows::core::Result<u64>;
+    fn GetStatistics(&self, wstreamnum: u16) -> ::windows::core::Result<WM_WRITER_STATISTICS>;
+    fn SetSyncTolerance(&self, mswindow: u32) -> ::windows::core::Result<()>;
+    fn GetSyncTolerance(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterAdvanced_Vtbl {
@@ -5483,8 +5483,8 @@ impl IWMWriterAdvanced_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterAdvanced2_Impl: Sized + IWMWriterAdvanced_Impl {
-    fn GetInputSetting(&mut self, dwinputnum: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
-    fn SetInputSetting(&mut self, dwinputnum: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
+    fn GetInputSetting(&self, dwinputnum: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
+    fn SetInputSetting(&self, dwinputnum: u32, pszname: super::super::Foundation::PWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterAdvanced2_Vtbl {
@@ -5511,8 +5511,8 @@ impl IWMWriterAdvanced2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterAdvanced3_Impl: Sized + IWMWriterAdvanced_Impl + IWMWriterAdvanced2_Impl {
-    fn GetStatisticsEx(&mut self, wstreamnum: u16) -> ::windows::core::Result<WM_WRITER_STATISTICS_EX>;
-    fn SetNonBlocking(&mut self) -> ::windows::core::Result<()>;
+    fn GetStatisticsEx(&self, wstreamnum: u16) -> ::windows::core::Result<WM_WRITER_STATISTICS_EX>;
+    fn SetNonBlocking(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterAdvanced3_Vtbl {
@@ -5545,7 +5545,7 @@ impl IWMWriterAdvanced3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterFileSink_Impl: Sized + IWMWriterSink_Impl {
-    fn Open(&mut self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Open(&self, pwszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterFileSink_Vtbl {
@@ -5563,13 +5563,13 @@ impl IWMWriterFileSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterFileSink2_Impl: Sized + IWMWriterSink_Impl + IWMWriterFileSink_Impl {
-    fn Start(&mut self, cnsstarttime: u64) -> ::windows::core::Result<()>;
-    fn Stop(&mut self, cnsstoptime: u64) -> ::windows::core::Result<()>;
-    fn IsStopped(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetFileDuration(&mut self) -> ::windows::core::Result<u64>;
-    fn GetFileSize(&mut self) -> ::windows::core::Result<u64>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn IsClosed(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Start(&self, cnsstarttime: u64) -> ::windows::core::Result<()>;
+    fn Stop(&self, cnsstoptime: u64) -> ::windows::core::Result<()>;
+    fn IsStopped(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetFileDuration(&self) -> ::windows::core::Result<u64>;
+    fn GetFileSize(&self) -> ::windows::core::Result<u64>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn IsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterFileSink2_Vtbl {
@@ -5650,14 +5650,14 @@ impl IWMWriterFileSink2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterFileSink3_Impl: Sized + IWMWriterSink_Impl + IWMWriterFileSink_Impl + IWMWriterFileSink2_Impl {
-    fn SetAutoIndexing(&mut self, fdoautoindexing: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetAutoIndexing(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetControlStream(&mut self, wstreamnumber: u16, fshouldcontrolstartandstop: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetMode(&mut self) -> ::windows::core::Result<u32>;
-    fn OnDataUnitEx(&mut self, pfilesinkdataunit: *const WMT_FILESINK_DATA_UNIT) -> ::windows::core::Result<()>;
-    fn SetUnbufferedIO(&mut self, funbufferedio: super::super::Foundation::BOOL, frestrictmemusage: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetUnbufferedIO(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn CompleteOperations(&mut self) -> ::windows::core::Result<()>;
+    fn SetAutoIndexing(&self, fdoautoindexing: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetAutoIndexing(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetControlStream(&self, wstreamnumber: u16, fshouldcontrolstartandstop: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetMode(&self) -> ::windows::core::Result<u32>;
+    fn OnDataUnitEx(&self, pfilesinkdataunit: *const WMT_FILESINK_DATA_UNIT) -> ::windows::core::Result<()>;
+    fn SetUnbufferedIO(&self, funbufferedio: super::super::Foundation::BOOL, frestrictmemusage: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetUnbufferedIO(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn CompleteOperations(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterFileSink3_Vtbl {
@@ -5738,14 +5738,14 @@ impl IWMWriterFileSink3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterNetworkSink_Impl: Sized + IWMWriterSink_Impl {
-    fn SetMaximumClients(&mut self, dwmaxclients: u32) -> ::windows::core::Result<()>;
-    fn GetMaximumClients(&mut self) -> ::windows::core::Result<u32>;
-    fn SetNetworkProtocol(&mut self, protocol: WMT_NET_PROTOCOL) -> ::windows::core::Result<()>;
-    fn GetNetworkProtocol(&mut self) -> ::windows::core::Result<WMT_NET_PROTOCOL>;
-    fn GetHostURL(&mut self, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::core::Result<()>;
-    fn Open(&mut self, pdwportnum: *mut u32) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn SetMaximumClients(&self, dwmaxclients: u32) -> ::windows::core::Result<()>;
+    fn GetMaximumClients(&self) -> ::windows::core::Result<u32>;
+    fn SetNetworkProtocol(&self, protocol: WMT_NET_PROTOCOL) -> ::windows::core::Result<()>;
+    fn GetNetworkProtocol(&self) -> ::windows::core::Result<WMT_NET_PROTOCOL>;
+    fn GetHostURL(&self, pwszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32) -> ::windows::core::Result<()>;
+    fn Open(&self, pdwportnum: *mut u32) -> ::windows::core::Result<()>;
+    fn Disconnect(&self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterNetworkSink_Vtbl {
@@ -5820,15 +5820,15 @@ impl IWMWriterNetworkSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterPostView_Impl: Sized {
-    fn SetPostViewCallback(&mut self, pcallback: &::core::option::Option<IWMWriterPostViewCallback>, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetReceivePostViewSamples(&mut self, wstreamnum: u16, freceivepostviewsamples: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetReceivePostViewSamples(&mut self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetPostViewProps(&mut self, wstreamnumber: u16) -> ::windows::core::Result<IWMMediaProps>;
-    fn SetPostViewProps(&mut self, wstreamnumber: u16, poutput: &::core::option::Option<IWMMediaProps>) -> ::windows::core::Result<()>;
-    fn GetPostViewFormatCount(&mut self, wstreamnumber: u16) -> ::windows::core::Result<u32>;
-    fn GetPostViewFormat(&mut self, wstreamnumber: u16, dwformatnumber: u32) -> ::windows::core::Result<IWMMediaProps>;
-    fn SetAllocateForPostView(&mut self, wstreamnumber: u16, fallocate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetAllocateForPostView(&mut self, wstreamnumber: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetPostViewCallback(&self, pcallback: &::core::option::Option<IWMWriterPostViewCallback>, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetReceivePostViewSamples(&self, wstreamnum: u16, freceivepostviewsamples: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetReceivePostViewSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetPostViewProps(&self, wstreamnumber: u16) -> ::windows::core::Result<IWMMediaProps>;
+    fn SetPostViewProps(&self, wstreamnumber: u16, poutput: &::core::option::Option<IWMMediaProps>) -> ::windows::core::Result<()>;
+    fn GetPostViewFormatCount(&self, wstreamnumber: u16) -> ::windows::core::Result<u32>;
+    fn GetPostViewFormat(&self, wstreamnumber: u16, dwformatnumber: u32) -> ::windows::core::Result<IWMMediaProps>;
+    fn SetAllocateForPostView(&self, wstreamnumber: u16, fallocate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetAllocateForPostView(&self, wstreamnumber: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterPostView_Vtbl {
@@ -5926,8 +5926,8 @@ impl IWMWriterPostView_Vtbl {
     }
 }
 pub trait IWMWriterPostViewCallback_Impl: Sized + IWMStatusCallback_Impl {
-    fn OnPostViewSample(&mut self, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn AllocateForPostView(&mut self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OnPostViewSample(&self, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AllocateForPostView(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IWMWriterPostViewCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterPostViewCallback_Impl, const OFFSET: isize>() -> IWMWriterPostViewCallback_Vtbl {
@@ -5952,11 +5952,11 @@ impl IWMWriterPostViewCallback_Vtbl {
     }
 }
 pub trait IWMWriterPreprocess_Impl: Sized {
-    fn GetMaxPreprocessingPasses(&mut self, dwinputnum: u32, dwflags: u32) -> ::windows::core::Result<u32>;
-    fn SetNumPreprocessingPasses(&mut self, dwinputnum: u32, dwflags: u32, dwnumpasses: u32) -> ::windows::core::Result<()>;
-    fn BeginPreprocessingPass(&mut self, dwinputnum: u32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn PreprocessSample(&mut self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
-    fn EndPreprocessingPass(&mut self, dwinputnum: u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetMaxPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32) -> ::windows::core::Result<u32>;
+    fn SetNumPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32, dwnumpasses: u32) -> ::windows::core::Result<()>;
+    fn BeginPreprocessingPass(&self, dwinputnum: u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn PreprocessSample(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
+    fn EndPreprocessingPass(&self, dwinputnum: u32, dwflags: u32) -> ::windows::core::Result<()>;
 }
 impl IWMWriterPreprocess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterPreprocess_Impl, const OFFSET: isize>() -> IWMWriterPreprocess_Vtbl {
@@ -6006,9 +6006,9 @@ impl IWMWriterPreprocess_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterPushSink_Impl: Sized + IWMWriterSink_Impl {
-    fn Connect(&mut self, pwszurl: super::super::Foundation::PWSTR, pwsztemplateurl: super::super::Foundation::PWSTR, fautodestroy: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self) -> ::windows::core::Result<()>;
-    fn EndSession(&mut self) -> ::windows::core::Result<()>;
+    fn Connect(&self, pwszurl: super::super::Foundation::PWSTR, pwsztemplateurl: super::super::Foundation::PWSTR, fautodestroy: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Disconnect(&self) -> ::windows::core::Result<()>;
+    fn EndSession(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterPushSink_Vtbl {
@@ -6041,11 +6041,11 @@ impl IWMWriterPushSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterSink_Impl: Sized {
-    fn OnHeader(&mut self, pheader: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
-    fn IsRealTime(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn AllocateDataUnit(&mut self, cbdataunit: u32) -> ::windows::core::Result<INSSBuffer>;
-    fn OnDataUnit(&mut self, pdataunit: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
-    fn OnEndWriting(&mut self) -> ::windows::core::Result<()>;
+    fn OnHeader(&self, pheader: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
+    fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn AllocateDataUnit(&self, cbdataunit: u32) -> ::windows::core::Result<INSSBuffer>;
+    fn OnDataUnit(&self, pdataunit: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
+    fn OnEndWriting(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterSink_Vtbl {

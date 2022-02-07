@@ -1,5 +1,5 @@
 pub trait IUserDataAccountProviderOperation_Impl: Sized {
-    fn Kind(&mut self) -> ::windows::core::Result<UserDataAccountProviderOperationKind>;
+    fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind>;
 }
 impl ::windows::core::RuntimeName for IUserDataAccountProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation";

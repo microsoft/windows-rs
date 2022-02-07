@@ -1,15 +1,15 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait AsyncIAdviseSink_Impl: Sized {
-    fn Begin_OnDataChange(&mut self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM);
-    fn Finish_OnDataChange(&mut self);
-    fn Begin_OnViewChange(&mut self, dwaspect: u32, lindex: i32);
-    fn Finish_OnViewChange(&mut self);
-    fn Begin_OnRename(&mut self, pmk: &::core::option::Option<IMoniker>);
-    fn Finish_OnRename(&mut self);
-    fn Begin_OnSave(&mut self);
-    fn Finish_OnSave(&mut self);
-    fn Begin_OnClose(&mut self);
-    fn Finish_OnClose(&mut self);
+    fn Begin_OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM);
+    fn Finish_OnDataChange(&self);
+    fn Begin_OnViewChange(&self, dwaspect: u32, lindex: i32);
+    fn Finish_OnViewChange(&self);
+    fn Begin_OnRename(&self, pmk: &::core::option::Option<IMoniker>);
+    fn Finish_OnRename(&self);
+    fn Begin_OnSave(&self);
+    fn Finish_OnSave(&self);
+    fn Begin_OnClose(&self);
+    fn Finish_OnClose(&self);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl AsyncIAdviseSink_Vtbl {
@@ -84,8 +84,8 @@ impl AsyncIAdviseSink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait AsyncIAdviseSink2_Impl: Sized + AsyncIAdviseSink_Impl {
-    fn Begin_OnLinkSrcChange(&mut self, pmk: &::core::option::Option<IMoniker>);
-    fn Finish_OnLinkSrcChange(&mut self);
+    fn Begin_OnLinkSrcChange(&self, pmk: &::core::option::Option<IMoniker>);
+    fn Finish_OnLinkSrcChange(&self);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl AsyncIAdviseSink2_Vtbl {
@@ -111,8 +111,8 @@ impl AsyncIAdviseSink2_Vtbl {
     }
 }
 pub trait AsyncIMultiQI_Impl: Sized {
-    fn Begin_QueryMultipleInterfaces(&mut self, cmqis: u32, pmqis: *mut MULTI_QI) -> ::windows::core::Result<()>;
-    fn Finish_QueryMultipleInterfaces(&mut self, pmqis: *mut MULTI_QI) -> ::windows::core::Result<()>;
+    fn Begin_QueryMultipleInterfaces(&self, cmqis: u32, pmqis: *mut MULTI_QI) -> ::windows::core::Result<()>;
+    fn Finish_QueryMultipleInterfaces(&self, pmqis: *mut MULTI_QI) -> ::windows::core::Result<()>;
 }
 impl AsyncIMultiQI_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIMultiQI_Impl, const OFFSET: isize>() -> AsyncIMultiQI_Vtbl {
@@ -137,10 +137,10 @@ impl AsyncIMultiQI_Vtbl {
     }
 }
 pub trait AsyncIPipeByte_Impl: Sized {
-    fn Begin_Pull(&mut self, crequest: u32) -> ::windows::core::Result<()>;
-    fn Finish_Pull(&mut self, buf: *mut u8, pcreturned: *mut u32) -> ::windows::core::Result<()>;
-    fn Begin_Push(&mut self, buf: *const u8, csent: u32) -> ::windows::core::Result<()>;
-    fn Finish_Push(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_Pull(&self, crequest: u32) -> ::windows::core::Result<()>;
+    fn Finish_Pull(&self, buf: *mut u8, pcreturned: *mut u32) -> ::windows::core::Result<()>;
+    fn Begin_Push(&self, buf: *const u8, csent: u32) -> ::windows::core::Result<()>;
+    fn Finish_Push(&self) -> ::windows::core::Result<()>;
 }
 impl AsyncIPipeByte_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIPipeByte_Impl, const OFFSET: isize>() -> AsyncIPipeByte_Vtbl {
@@ -177,10 +177,10 @@ impl AsyncIPipeByte_Vtbl {
     }
 }
 pub trait AsyncIPipeDouble_Impl: Sized {
-    fn Begin_Pull(&mut self, crequest: u32) -> ::windows::core::Result<()>;
-    fn Finish_Pull(&mut self, buf: *mut f64, pcreturned: *mut u32) -> ::windows::core::Result<()>;
-    fn Begin_Push(&mut self, buf: *const f64, csent: u32) -> ::windows::core::Result<()>;
-    fn Finish_Push(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_Pull(&self, crequest: u32) -> ::windows::core::Result<()>;
+    fn Finish_Pull(&self, buf: *mut f64, pcreturned: *mut u32) -> ::windows::core::Result<()>;
+    fn Begin_Push(&self, buf: *const f64, csent: u32) -> ::windows::core::Result<()>;
+    fn Finish_Push(&self) -> ::windows::core::Result<()>;
 }
 impl AsyncIPipeDouble_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIPipeDouble_Impl, const OFFSET: isize>() -> AsyncIPipeDouble_Vtbl {
@@ -217,10 +217,10 @@ impl AsyncIPipeDouble_Vtbl {
     }
 }
 pub trait AsyncIPipeLong_Impl: Sized {
-    fn Begin_Pull(&mut self, crequest: u32) -> ::windows::core::Result<()>;
-    fn Finish_Pull(&mut self, buf: *mut i32, pcreturned: *mut u32) -> ::windows::core::Result<()>;
-    fn Begin_Push(&mut self, buf: *const i32, csent: u32) -> ::windows::core::Result<()>;
-    fn Finish_Push(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_Pull(&self, crequest: u32) -> ::windows::core::Result<()>;
+    fn Finish_Pull(&self, buf: *mut i32, pcreturned: *mut u32) -> ::windows::core::Result<()>;
+    fn Begin_Push(&self, buf: *const i32, csent: u32) -> ::windows::core::Result<()>;
+    fn Finish_Push(&self) -> ::windows::core::Result<()>;
 }
 impl AsyncIPipeLong_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIPipeLong_Impl, const OFFSET: isize>() -> AsyncIPipeLong_Vtbl {
@@ -257,12 +257,12 @@ impl AsyncIPipeLong_Vtbl {
     }
 }
 pub trait AsyncIUnknown_Impl: Sized {
-    fn Begin_QueryInterface(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Finish_QueryInterface(&mut self, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Begin_AddRef(&mut self) -> ::windows::core::Result<()>;
-    fn Finish_AddRef(&mut self) -> u32;
-    fn Begin_Release(&mut self) -> ::windows::core::Result<()>;
-    fn Finish_Release(&mut self) -> u32;
+    fn Begin_QueryInterface(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Finish_QueryInterface(&self, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Begin_AddRef(&self) -> ::windows::core::Result<()>;
+    fn Finish_AddRef(&self) -> u32;
+    fn Begin_Release(&self) -> ::windows::core::Result<()>;
+    fn Finish_Release(&self) -> u32;
 }
 impl AsyncIUnknown_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIUnknown_Impl, const OFFSET: isize>() -> AsyncIUnknown_Vtbl {
@@ -311,7 +311,7 @@ impl AsyncIUnknown_Vtbl {
     }
 }
 pub trait IActivationFilter_Impl: Sized {
-    fn HandleActivation(&mut self, dwactivationtype: u32, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID>;
+    fn HandleActivation(&self, dwactivationtype: u32, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl IActivationFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivationFilter_Impl, const OFFSET: isize>() -> IActivationFilter_Vtbl {
@@ -333,8 +333,8 @@ impl IActivationFilter_Vtbl {
     }
 }
 pub trait IAddrExclusionControl_Impl: Sized {
-    fn GetCurrentAddrExclusionList(&mut self, riid: *const ::windows::core::GUID, ppenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn UpdateAddrExclusionList(&mut self, penumerator: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetCurrentAddrExclusionList(&self, riid: *const ::windows::core::GUID, ppenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn UpdateAddrExclusionList(&self, penumerator: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IAddrExclusionControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddrExclusionControl_Impl, const OFFSET: isize>() -> IAddrExclusionControl_Vtbl {
@@ -359,8 +359,8 @@ impl IAddrExclusionControl_Vtbl {
     }
 }
 pub trait IAddrTrackingControl_Impl: Sized {
-    fn EnableCOMDynamicAddrTracking(&mut self) -> ::windows::core::Result<()>;
-    fn DisableCOMDynamicAddrTracking(&mut self) -> ::windows::core::Result<()>;
+    fn EnableCOMDynamicAddrTracking(&self) -> ::windows::core::Result<()>;
+    fn DisableCOMDynamicAddrTracking(&self) -> ::windows::core::Result<()>;
 }
 impl IAddrTrackingControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddrTrackingControl_Impl, const OFFSET: isize>() -> IAddrTrackingControl_Vtbl {
@@ -386,11 +386,11 @@ impl IAddrTrackingControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IAdviseSink_Impl: Sized {
-    fn OnDataChange(&mut self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM);
-    fn OnViewChange(&mut self, dwaspect: u32, lindex: i32);
-    fn OnRename(&mut self, pmk: &::core::option::Option<IMoniker>);
-    fn OnSave(&mut self);
-    fn OnClose(&mut self);
+    fn OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM);
+    fn OnViewChange(&self, dwaspect: u32, lindex: i32);
+    fn OnRename(&self, pmk: &::core::option::Option<IMoniker>);
+    fn OnSave(&self);
+    fn OnClose(&self);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IAdviseSink_Vtbl {
@@ -435,7 +435,7 @@ impl IAdviseSink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IAdviseSink2_Impl: Sized + IAdviseSink_Impl {
-    fn OnLinkSrcChange(&mut self, pmk: &::core::option::Option<IMoniker>);
+    fn OnLinkSrcChange(&self, pmk: &::core::option::Option<IMoniker>);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IAdviseSink2_Vtbl {
@@ -461,9 +461,9 @@ impl IAgileObject_Vtbl {
     }
 }
 pub trait IAsyncManager_Impl: Sized {
-    fn CompleteCall(&mut self, result: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn GetCallContext(&mut self, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetState(&mut self) -> ::windows::core::Result<u32>;
+    fn CompleteCall(&self, result: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn GetCallContext(&self, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetState(&self) -> ::windows::core::Result<u32>;
 }
 impl IAsyncManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsyncManager_Impl, const OFFSET: isize>() -> IAsyncManager_Vtbl {
@@ -500,9 +500,9 @@ impl IAsyncManager_Vtbl {
     }
 }
 pub trait IAsyncRpcChannelBuffer_Impl: Sized + IRpcChannelBuffer_Impl + IRpcChannelBuffer2_Impl {
-    fn Send(&mut self, pmsg: *mut RPCOLEMESSAGE, psync: &::core::option::Option<ISynchronize>, pulstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn Receive(&mut self, pmsg: *mut RPCOLEMESSAGE, pulstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDestCtxEx(&mut self, pmsg: *const RPCOLEMESSAGE, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Send(&self, pmsg: *mut RPCOLEMESSAGE, psync: &::core::option::Option<ISynchronize>, pulstatus: *mut u32) -> ::windows::core::Result<()>;
+    fn Receive(&self, pmsg: *mut RPCOLEMESSAGE, pulstatus: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDestCtxEx(&self, pmsg: *const RPCOLEMESSAGE, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IAsyncRpcChannelBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAsyncRpcChannelBuffer_Impl, const OFFSET: isize>() -> IAsyncRpcChannelBuffer_Vtbl {
@@ -534,7 +534,7 @@ impl IAsyncRpcChannelBuffer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAuthenticate_Impl: Sized {
-    fn Authenticate(&mut self, phwnd: *mut super::super::Foundation::HWND, pszusername: *mut super::super::Foundation::PWSTR, pszpassword: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Authenticate(&self, phwnd: *mut super::super::Foundation::HWND, pszusername: *mut super::super::Foundation::PWSTR, pszpassword: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAuthenticate_Vtbl {
@@ -552,7 +552,7 @@ impl IAuthenticate_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAuthenticateEx_Impl: Sized + IAuthenticate_Impl {
-    fn AuthenticateEx(&mut self, phwnd: *mut super::super::Foundation::HWND, pszusername: *mut super::super::Foundation::PWSTR, pszpassword: *mut super::super::Foundation::PWSTR, pauthinfo: *const AUTHENTICATEINFO) -> ::windows::core::Result<()>;
+    fn AuthenticateEx(&self, phwnd: *mut super::super::Foundation::HWND, pszusername: *mut super::super::Foundation::PWSTR, pszpassword: *mut super::super::Foundation::PWSTR, pauthinfo: *const AUTHENTICATEINFO) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAuthenticateEx_Vtbl {
@@ -570,16 +570,16 @@ impl IAuthenticateEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBindCtx_Impl: Sized {
-    fn RegisterObjectBound(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn RevokeObjectBound(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn ReleaseBoundObjects(&mut self) -> ::windows::core::Result<()>;
-    fn SetBindOptions(&mut self, pbindopts: *const BIND_OPTS) -> ::windows::core::Result<()>;
-    fn GetBindOptions(&mut self, pbindopts: *mut BIND_OPTS) -> ::windows::core::Result<()>;
-    fn GetRunningObjectTable(&mut self) -> ::windows::core::Result<IRunningObjectTable>;
-    fn RegisterObjectParam(&mut self, pszkey: super::super::Foundation::PWSTR, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetObjectParam(&mut self, pszkey: super::super::Foundation::PWSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn EnumObjectParam(&mut self) -> ::windows::core::Result<IEnumString>;
-    fn RevokeObjectParam(&mut self, pszkey: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RegisterObjectBound(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn RevokeObjectBound(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ReleaseBoundObjects(&self) -> ::windows::core::Result<()>;
+    fn SetBindOptions(&self, pbindopts: *const BIND_OPTS) -> ::windows::core::Result<()>;
+    fn GetBindOptions(&self, pbindopts: *mut BIND_OPTS) -> ::windows::core::Result<()>;
+    fn GetRunningObjectTable(&self) -> ::windows::core::Result<IRunningObjectTable>;
+    fn RegisterObjectParam(&self, pszkey: super::super::Foundation::PWSTR, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetObjectParam(&self, pszkey: super::super::Foundation::PWSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn EnumObjectParam(&self) -> ::windows::core::Result<IEnumString>;
+    fn RevokeObjectParam(&self, pszkey: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBindCtx_Vtbl {
@@ -672,9 +672,9 @@ impl IBindCtx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBindHost_Impl: Sized {
-    fn CreateMoniker(&mut self, szname: super::super::Foundation::PWSTR, pbc: &::core::option::Option<IBindCtx>, ppmk: *mut ::core::option::Option<IMoniker>, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn MonikerBindToStorage(&mut self, pmk: &::core::option::Option<IMoniker>, pbc: &::core::option::Option<IBindCtx>, pbsc: &::core::option::Option<IBindStatusCallback>, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn MonikerBindToObject(&mut self, pmk: &::core::option::Option<IMoniker>, pbc: &::core::option::Option<IBindCtx>, pbsc: &::core::option::Option<IBindStatusCallback>, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateMoniker(&self, szname: super::super::Foundation::PWSTR, pbc: &::core::option::Option<IBindCtx>, ppmk: *mut ::core::option::Option<IMoniker>, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn MonikerBindToStorage(&self, pmk: &::core::option::Option<IMoniker>, pbc: &::core::option::Option<IBindCtx>, pbsc: &::core::option::Option<IBindStatusCallback>, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn MonikerBindToObject(&self, pmk: &::core::option::Option<IMoniker>, pbc: &::core::option::Option<IBindCtx>, pbsc: &::core::option::Option<IBindStatusCallback>, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBindHost_Vtbl {
@@ -707,14 +707,14 @@ impl IBindHost_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IBindStatusCallback_Impl: Sized {
-    fn OnStartBinding(&mut self, dwreserved: u32, pib: &::core::option::Option<IBinding>) -> ::windows::core::Result<()>;
-    fn GetPriority(&mut self) -> ::windows::core::Result<i32>;
-    fn OnLowResource(&mut self, reserved: u32) -> ::windows::core::Result<()>;
-    fn OnProgress(&mut self, ulprogress: u32, ulprogressmax: u32, ulstatuscode: u32, szstatustext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OnStopBinding(&mut self, hresult: ::windows::core::HRESULT, szerror: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetBindInfo(&mut self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> ::windows::core::Result<()>;
-    fn OnDataAvailable(&mut self, grfbscf: u32, dwsize: u32, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) -> ::windows::core::Result<()>;
-    fn OnObjectAvailable(&mut self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnStartBinding(&self, dwreserved: u32, pib: &::core::option::Option<IBinding>) -> ::windows::core::Result<()>;
+    fn GetPriority(&self) -> ::windows::core::Result<i32>;
+    fn OnLowResource(&self, reserved: u32) -> ::windows::core::Result<()>;
+    fn OnProgress(&self, ulprogress: u32, ulprogressmax: u32, ulstatuscode: u32, szstatustext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnStopBinding(&self, hresult: ::windows::core::HRESULT, szerror: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> ::windows::core::Result<()>;
+    fn OnDataAvailable(&self, grfbscf: u32, dwsize: u32, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) -> ::windows::core::Result<()>;
+    fn OnObjectAvailable(&self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 impl IBindStatusCallback_Vtbl {
@@ -783,7 +783,7 @@ impl IBindStatusCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IBindStatusCallbackEx_Impl: Sized + IBindStatusCallback_Impl {
-    fn GetBindInfoEx(&mut self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
+    fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 impl IBindStatusCallbackEx_Vtbl {
@@ -801,12 +801,12 @@ impl IBindStatusCallbackEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBinding_Impl: Sized {
-    fn Abort(&mut self) -> ::windows::core::Result<()>;
-    fn Suspend(&mut self) -> ::windows::core::Result<()>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn SetPriority(&mut self, npriority: i32) -> ::windows::core::Result<()>;
-    fn GetPriority(&mut self) -> ::windows::core::Result<i32>;
-    fn GetBindResult(&mut self, pclsidprotocol: *mut ::windows::core::GUID, pdwresult: *mut u32, pszresult: *mut super::super::Foundation::PWSTR, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
+    fn Abort(&self) -> ::windows::core::Result<()>;
+    fn Suspend(&self) -> ::windows::core::Result<()>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
+    fn SetPriority(&self, npriority: i32) -> ::windows::core::Result<()>;
+    fn GetPriority(&self) -> ::windows::core::Result<i32>;
+    fn GetBindResult(&self, pclsidprotocol: *mut ::windows::core::GUID, pdwresult: *mut u32, pszresult: *mut super::super::Foundation::PWSTR, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBinding_Vtbl {
@@ -862,8 +862,8 @@ impl IBinding_Vtbl {
     }
 }
 pub trait IBlockingLock_Impl: Sized {
-    fn Lock(&mut self, dwtimeout: u32) -> ::windows::core::Result<()>;
-    fn Unlock(&mut self) -> ::windows::core::Result<()>;
+    fn Lock(&self, dwtimeout: u32) -> ::windows::core::Result<()>;
+    fn Unlock(&self) -> ::windows::core::Result<()>;
 }
 impl IBlockingLock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBlockingLock_Impl, const OFFSET: isize>() -> IBlockingLock_Vtbl {
@@ -884,7 +884,7 @@ impl IBlockingLock_Vtbl {
     }
 }
 pub trait ICallFactory_Impl: Sized {
-    fn CreateCall(&mut self, riid: *const ::windows::core::GUID, pctrlunk: &::core::option::Option<::windows::core::IUnknown>, riid2: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn CreateCall(&self, riid: *const ::windows::core::GUID, pctrlunk: &::core::option::Option<::windows::core::IUnknown>, riid2: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl ICallFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallFactory_Impl, const OFFSET: isize>() -> ICallFactory_Vtbl {
@@ -906,8 +906,8 @@ impl ICallFactory_Vtbl {
     }
 }
 pub trait ICancelMethodCalls_Impl: Sized {
-    fn Cancel(&mut self, ulseconds: u32) -> ::windows::core::Result<()>;
-    fn TestCancel(&mut self) -> ::windows::core::Result<()>;
+    fn Cancel(&self, ulseconds: u32) -> ::windows::core::Result<()>;
+    fn TestCancel(&self) -> ::windows::core::Result<()>;
 }
 impl ICancelMethodCalls_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICancelMethodCalls_Impl, const OFFSET: isize>() -> ICancelMethodCalls_Vtbl {
@@ -933,12 +933,12 @@ impl ICancelMethodCalls_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICatInformation_Impl: Sized {
-    fn EnumCategories(&mut self, lcid: u32) -> ::windows::core::Result<IEnumCATEGORYINFO>;
-    fn GetCategoryDesc(&mut self, rcatid: *const ::windows::core::GUID, lcid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn EnumClassesOfCategories(&mut self, cimplemented: u32, rgcatidimpl: *const ::windows::core::GUID, crequired: u32, rgcatidreq: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumGUID>;
-    fn IsClassOfCategories(&mut self, rclsid: *const ::windows::core::GUID, cimplemented: u32, rgcatidimpl: *const ::windows::core::GUID, crequired: u32, rgcatidreq: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn EnumImplCategoriesOfClass(&mut self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumGUID>;
-    fn EnumReqCategoriesOfClass(&mut self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumGUID>;
+    fn EnumCategories(&self, lcid: u32) -> ::windows::core::Result<IEnumCATEGORYINFO>;
+    fn GetCategoryDesc(&self, rcatid: *const ::windows::core::GUID, lcid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn EnumClassesOfCategories(&self, cimplemented: u32, rgcatidimpl: *const ::windows::core::GUID, crequired: u32, rgcatidreq: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumGUID>;
+    fn IsClassOfCategories(&self, rclsid: *const ::windows::core::GUID, cimplemented: u32, rgcatidimpl: *const ::windows::core::GUID, crequired: u32, rgcatidreq: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn EnumImplCategoriesOfClass(&self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumGUID>;
+    fn EnumReqCategoriesOfClass(&self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumGUID>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICatInformation_Vtbl {
@@ -1018,12 +1018,12 @@ impl ICatInformation_Vtbl {
     }
 }
 pub trait ICatRegister_Impl: Sized {
-    fn RegisterCategories(&mut self, ccategories: u32, rgcategoryinfo: *const CATEGORYINFO) -> ::windows::core::Result<()>;
-    fn UnRegisterCategories(&mut self, ccategories: u32, rgcatid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RegisterClassImplCategories(&mut self, rclsid: *const ::windows::core::GUID, ccategories: u32, rgcatid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UnRegisterClassImplCategories(&mut self, rclsid: *const ::windows::core::GUID, ccategories: u32, rgcatid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RegisterClassReqCategories(&mut self, rclsid: *const ::windows::core::GUID, ccategories: u32, rgcatid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UnRegisterClassReqCategories(&mut self, rclsid: *const ::windows::core::GUID, ccategories: u32, rgcatid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegisterCategories(&self, ccategories: u32, rgcategoryinfo: *const CATEGORYINFO) -> ::windows::core::Result<()>;
+    fn UnRegisterCategories(&self, ccategories: u32, rgcatid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegisterClassImplCategories(&self, rclsid: *const ::windows::core::GUID, ccategories: u32, rgcatid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UnRegisterClassImplCategories(&self, rclsid: *const ::windows::core::GUID, ccategories: u32, rgcatid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RegisterClassReqCategories(&self, rclsid: *const ::windows::core::GUID, ccategories: u32, rgcatid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UnRegisterClassReqCategories(&self, rclsid: *const ::windows::core::GUID, ccategories: u32, rgcatid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl ICatRegister_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICatRegister_Impl, const OFFSET: isize>() -> ICatRegister_Vtbl {
@@ -1072,12 +1072,12 @@ impl ICatRegister_Vtbl {
     }
 }
 pub trait IChannelHook_Impl: Sized {
-    fn ClientGetSize(&mut self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32);
-    fn ClientFillBuffer(&mut self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32, pdatabuffer: *const ::core::ffi::c_void);
-    fn ClientNotify(&mut self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, cbdatasize: u32, pdatabuffer: *const ::core::ffi::c_void, ldatarep: u32, hrfault: ::windows::core::HRESULT);
-    fn ServerNotify(&mut self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, cbdatasize: u32, pdatabuffer: *const ::core::ffi::c_void, ldatarep: u32);
-    fn ServerGetSize(&mut self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, hrfault: ::windows::core::HRESULT, pdatasize: *mut u32);
-    fn ServerFillBuffer(&mut self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32, pdatabuffer: *const ::core::ffi::c_void, hrfault: ::windows::core::HRESULT);
+    fn ClientGetSize(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32);
+    fn ClientFillBuffer(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32, pdatabuffer: *const ::core::ffi::c_void);
+    fn ClientNotify(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, cbdatasize: u32, pdatabuffer: *const ::core::ffi::c_void, ldatarep: u32, hrfault: ::windows::core::HRESULT);
+    fn ServerNotify(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, cbdatasize: u32, pdatabuffer: *const ::core::ffi::c_void, ldatarep: u32);
+    fn ServerGetSize(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, hrfault: ::windows::core::HRESULT, pdatasize: *mut u32);
+    fn ServerFillBuffer(&self, uextent: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pdatasize: *mut u32, pdatabuffer: *const ::core::ffi::c_void, hrfault: ::windows::core::HRESULT);
 }
 impl IChannelHook_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChannelHook_Impl, const OFFSET: isize>() -> IChannelHook_Vtbl {
@@ -1126,7 +1126,7 @@ impl IChannelHook_Vtbl {
     }
 }
 pub trait IClassActivator_Impl: Sized {
-    fn GetClassObject(&mut self, rclsid: *const ::windows::core::GUID, dwclasscontext: u32, locale: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetClassObject(&self, rclsid: *const ::windows::core::GUID, dwclasscontext: u32, locale: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IClassActivator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClassActivator_Impl, const OFFSET: isize>() -> IClassActivator_Vtbl {
@@ -1143,8 +1143,8 @@ impl IClassActivator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IClassFactory_Impl: Sized {
-    fn CreateInstance(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn LockServer(&mut self, flock: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn CreateInstance(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn LockServer(&self, flock: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IClassFactory_Vtbl {
@@ -1171,9 +1171,9 @@ impl IClassFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IClientSecurity_Impl: Sized {
-    fn QueryBlanket(&mut self, pproxy: &::core::option::Option<::windows::core::IUnknown>, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut RPC_C_AUTHN_LEVEL, pimplevel: *mut RPC_C_IMP_LEVEL, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows::core::Result<()>;
-    fn SetBlanket(&mut self, pproxy: &::core::option::Option<::windows::core::IUnknown>, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: super::super::Foundation::PWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows::core::Result<()>;
-    fn CopyProxy(&mut self, pproxy: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn QueryBlanket(&self, pproxy: &::core::option::Option<::windows::core::IUnknown>, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut RPC_C_AUTHN_LEVEL, pimplevel: *mut RPC_C_IMP_LEVEL, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows::core::Result<()>;
+    fn SetBlanket(&self, pproxy: &::core::option::Option<::windows::core::IUnknown>, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: super::super::Foundation::PWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows::core::Result<()>;
+    fn CopyProxy(&self, pproxy: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IClientSecurity_Vtbl {
@@ -1211,10 +1211,10 @@ impl IClientSecurity_Vtbl {
     }
 }
 pub trait IComThreadingInfo_Impl: Sized {
-    fn GetCurrentApartmentType(&mut self) -> ::windows::core::Result<APTTYPE>;
-    fn GetCurrentThreadType(&mut self) -> ::windows::core::Result<THDTYPE>;
-    fn GetCurrentLogicalThreadId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetCurrentLogicalThreadId(&mut self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetCurrentApartmentType(&self) -> ::windows::core::Result<APTTYPE>;
+    fn GetCurrentThreadType(&self) -> ::windows::core::Result<THDTYPE>;
+    fn GetCurrentLogicalThreadId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetCurrentLogicalThreadId(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IComThreadingInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComThreadingInfo_Impl, const OFFSET: isize>() -> IComThreadingInfo_Vtbl {
@@ -1269,11 +1269,11 @@ impl IComThreadingInfo_Vtbl {
     }
 }
 pub trait IConnectionPoint_Impl: Sized {
-    fn GetConnectionInterface(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetConnectionPointContainer(&mut self) -> ::windows::core::Result<IConnectionPointContainer>;
-    fn Advise(&mut self, punksink: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
-    fn Unadvise(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
-    fn EnumConnections(&mut self) -> ::windows::core::Result<IEnumConnections>;
+    fn GetConnectionInterface(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetConnectionPointContainer(&self) -> ::windows::core::Result<IConnectionPointContainer>;
+    fn Advise(&self, punksink: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
+    fn Unadvise(&self, dwcookie: u32) -> ::windows::core::Result<()>;
+    fn EnumConnections(&self) -> ::windows::core::Result<IEnumConnections>;
 }
 impl IConnectionPoint_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionPoint_Impl, const OFFSET: isize>() -> IConnectionPoint_Vtbl {
@@ -1340,8 +1340,8 @@ impl IConnectionPoint_Vtbl {
     }
 }
 pub trait IConnectionPointContainer_Impl: Sized {
-    fn EnumConnectionPoints(&mut self) -> ::windows::core::Result<IEnumConnectionPoints>;
-    fn FindConnectionPoint(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<IConnectionPoint>;
+    fn EnumConnectionPoints(&self) -> ::windows::core::Result<IEnumConnectionPoints>;
+    fn FindConnectionPoint(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<IConnectionPoint>;
 }
 impl IConnectionPointContainer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionPointContainer_Impl, const OFFSET: isize>() -> IConnectionPointContainer_Vtbl {
@@ -1378,7 +1378,7 @@ impl IConnectionPointContainer_Vtbl {
     }
 }
 pub trait IContextCallback_Impl: Sized {
-    fn ContextCallback(&mut self, pfncallback: &PFNCONTEXTCALL, pparam: *const ComCallData, riid: *const ::windows::core::GUID, imethod: i32, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ContextCallback(&self, pfncallback: &PFNCONTEXTCALL, pparam: *const ComCallData, riid: *const ::windows::core::GUID, imethod: i32, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IContextCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContextCallback_Impl, const OFFSET: isize>() -> IContextCallback_Vtbl {
@@ -1394,10 +1394,10 @@ impl IContextCallback_Vtbl {
     }
 }
 pub trait IDataAdviseHolder_Impl: Sized {
-    fn Advise(&mut self, pdataobject: &::core::option::Option<IDataObject>, pfetc: *const FORMATETC, advf: u32, padvise: &::core::option::Option<IAdviseSink>) -> ::windows::core::Result<u32>;
-    fn Unadvise(&mut self, dwconnection: u32) -> ::windows::core::Result<()>;
-    fn EnumAdvise(&mut self) -> ::windows::core::Result<IEnumSTATDATA>;
-    fn SendOnDataChange(&mut self, pdataobject: &::core::option::Option<IDataObject>, dwreserved: u32, advf: u32) -> ::windows::core::Result<()>;
+    fn Advise(&self, pdataobject: &::core::option::Option<IDataObject>, pfetc: *const FORMATETC, advf: u32, padvise: &::core::option::Option<IAdviseSink>) -> ::windows::core::Result<u32>;
+    fn Unadvise(&self, dwconnection: u32) -> ::windows::core::Result<()>;
+    fn EnumAdvise(&self) -> ::windows::core::Result<IEnumSTATDATA>;
+    fn SendOnDataChange(&self, pdataobject: &::core::option::Option<IDataObject>, dwreserved: u32, advf: u32) -> ::windows::core::Result<()>;
 }
 impl IDataAdviseHolder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataAdviseHolder_Impl, const OFFSET: isize>() -> IDataAdviseHolder_Vtbl {
@@ -1447,15 +1447,15 @@ impl IDataAdviseHolder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IDataObject_Impl: Sized {
-    fn GetData(&mut self, pformatetcin: *const FORMATETC) -> ::windows::core::Result<STGMEDIUM>;
-    fn GetDataHere(&mut self, pformatetc: *const FORMATETC, pmedium: *mut STGMEDIUM) -> ::windows::core::Result<()>;
-    fn QueryGetData(&mut self, pformatetc: *const FORMATETC) -> ::windows::core::Result<()>;
-    fn GetCanonicalFormatEtc(&mut self, pformatectin: *const FORMATETC) -> ::windows::core::Result<FORMATETC>;
-    fn SetData(&mut self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn EnumFormatEtc(&mut self, dwdirection: u32) -> ::windows::core::Result<IEnumFORMATETC>;
-    fn DAdvise(&mut self, pformatetc: *const FORMATETC, advf: u32, padvsink: &::core::option::Option<IAdviseSink>) -> ::windows::core::Result<u32>;
-    fn DUnadvise(&mut self, dwconnection: u32) -> ::windows::core::Result<()>;
-    fn EnumDAdvise(&mut self) -> ::windows::core::Result<IEnumSTATDATA>;
+    fn GetData(&self, pformatetcin: *const FORMATETC) -> ::windows::core::Result<STGMEDIUM>;
+    fn GetDataHere(&self, pformatetc: *const FORMATETC, pmedium: *mut STGMEDIUM) -> ::windows::core::Result<()>;
+    fn QueryGetData(&self, pformatetc: *const FORMATETC) -> ::windows::core::Result<()>;
+    fn GetCanonicalFormatEtc(&self, pformatectin: *const FORMATETC) -> ::windows::core::Result<FORMATETC>;
+    fn SetData(&self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn EnumFormatEtc(&self, dwdirection: u32) -> ::windows::core::Result<IEnumFORMATETC>;
+    fn DAdvise(&self, pformatetc: *const FORMATETC, advf: u32, padvsink: &::core::option::Option<IAdviseSink>) -> ::windows::core::Result<u32>;
+    fn DUnadvise(&self, dwconnection: u32) -> ::windows::core::Result<()>;
+    fn EnumDAdvise(&self) -> ::windows::core::Result<IEnumSTATDATA>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IDataObject_Vtbl {
@@ -1554,10 +1554,10 @@ impl IDataObject_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IDispatch_Impl: Sized {
-    fn GetTypeInfoCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetTypeInfo(&mut self, itinfo: u32, lcid: u32) -> ::windows::core::Result<ITypeInfo>;
-    fn GetIDsOfNames(&mut self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()>;
-    fn Invoke(&mut self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
+    fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32>;
+    fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<ITypeInfo>;
+    fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()>;
+    fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IDispatch_Vtbl {
@@ -1607,10 +1607,10 @@ impl IDispatch_Vtbl {
     }
 }
 pub trait IEnumCATEGORYINFO_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut CATEGORYINFO, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumCATEGORYINFO>;
+    fn Next(&self, celt: u32, rgelt: *mut CATEGORYINFO, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumCATEGORYINFO>;
 }
 impl IEnumCATEGORYINFO_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCATEGORYINFO_Impl, const OFFSET: isize>() -> IEnumCATEGORYINFO_Vtbl {
@@ -1653,10 +1653,10 @@ impl IEnumCATEGORYINFO_Vtbl {
     }
 }
 pub trait IEnumConnectionPoints_Impl: Sized {
-    fn Next(&mut self, cconnections: u32, ppcp: *mut ::core::option::Option<IConnectionPoint>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, cconnections: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumConnectionPoints>;
+    fn Next(&self, cconnections: u32, ppcp: *mut ::core::option::Option<IConnectionPoint>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, cconnections: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumConnectionPoints>;
 }
 impl IEnumConnectionPoints_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumConnectionPoints_Impl, const OFFSET: isize>() -> IEnumConnectionPoints_Vtbl {
@@ -1699,10 +1699,10 @@ impl IEnumConnectionPoints_Vtbl {
     }
 }
 pub trait IEnumConnections_Impl: Sized {
-    fn Next(&mut self, cconnections: u32, rgcd: *mut CONNECTDATA, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, cconnections: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumConnections>;
+    fn Next(&self, cconnections: u32, rgcd: *mut CONNECTDATA, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, cconnections: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumConnections>;
 }
 impl IEnumConnections_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumConnections_Impl, const OFFSET: isize>() -> IEnumConnections_Vtbl {
@@ -1745,10 +1745,10 @@ impl IEnumConnections_Vtbl {
     }
 }
 pub trait IEnumFORMATETC_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut FORMATETC, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumFORMATETC>;
+    fn Next(&self, celt: u32, rgelt: *mut FORMATETC, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumFORMATETC>;
 }
 impl IEnumFORMATETC_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumFORMATETC_Impl, const OFFSET: isize>() -> IEnumFORMATETC_Vtbl {
@@ -1791,10 +1791,10 @@ impl IEnumFORMATETC_Vtbl {
     }
 }
 pub trait IEnumGUID_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumGUID>;
+    fn Next(&self, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&self, celt: u32) -> ::windows::core::HRESULT;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumGUID>;
 }
 impl IEnumGUID_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumGUID_Impl, const OFFSET: isize>() -> IEnumGUID_Vtbl {
@@ -1837,10 +1837,10 @@ impl IEnumGUID_Vtbl {
     }
 }
 pub trait IEnumMoniker_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IMoniker>, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumMoniker>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IMoniker>, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&self, celt: u32) -> ::windows::core::HRESULT;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumMoniker>;
 }
 impl IEnumMoniker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumMoniker_Impl, const OFFSET: isize>() -> IEnumMoniker_Vtbl {
@@ -1883,10 +1883,10 @@ impl IEnumMoniker_Vtbl {
     }
 }
 pub trait IEnumSTATDATA_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut STATDATA, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumSTATDATA>;
+    fn Next(&self, celt: u32, rgelt: *mut STATDATA, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumSTATDATA>;
 }
 impl IEnumSTATDATA_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATDATA_Impl, const OFFSET: isize>() -> IEnumSTATDATA_Vtbl {
@@ -1930,10 +1930,10 @@ impl IEnumSTATDATA_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumString_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut super::super::Foundation::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumString>;
+    fn Next(&self, celt: u32, rgelt: *mut super::super::Foundation::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&self, celt: u32) -> ::windows::core::HRESULT;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumString>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumString_Vtbl {
@@ -1977,10 +1977,10 @@ impl IEnumString_Vtbl {
     }
 }
 pub trait IEnumUnknown_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<::windows::core::IUnknown>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumUnknown>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<::windows::core::IUnknown>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumUnknown>;
 }
 impl IEnumUnknown_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumUnknown_Impl, const OFFSET: isize>() -> IEnumUnknown_Vtbl {
@@ -2024,11 +2024,11 @@ impl IEnumUnknown_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IErrorInfo_Impl: Sized {
-    fn GetGUID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetSource(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetHelpFile(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetHelpContext(&mut self) -> ::windows::core::Result<u32>;
+    fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetSource(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetHelpFile(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetHelpContext(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IErrorInfo_Vtbl {
@@ -2103,7 +2103,7 @@ impl IErrorInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IErrorLog_Impl: Sized {
-    fn AddError(&mut self, pszpropname: super::super::Foundation::PWSTR, pexcepinfo: *const EXCEPINFO) -> ::windows::core::Result<()>;
+    fn AddError(&self, pszpropname: super::super::Foundation::PWSTR, pexcepinfo: *const EXCEPINFO) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IErrorLog_Vtbl {
@@ -2121,8 +2121,8 @@ impl IErrorLog_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IExternalConnection_Impl: Sized {
-    fn AddConnection(&mut self, extconn: u32, reserved: u32) -> u32;
-    fn ReleaseConnection(&mut self, extconn: u32, reserved: u32, flastreleasecloses: super::super::Foundation::BOOL) -> u32;
+    fn AddConnection(&self, extconn: u32, reserved: u32) -> u32;
+    fn ReleaseConnection(&self, extconn: u32, reserved: u32, flastreleasecloses: super::super::Foundation::BOOL) -> u32;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IExternalConnection_Vtbl {
@@ -2157,7 +2157,7 @@ impl IFastRundown_Vtbl {
     }
 }
 pub trait IForegroundTransfer_Impl: Sized {
-    fn AllowForegroundTransfer(&mut self, lpvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AllowForegroundTransfer(&self, lpvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IForegroundTransfer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IForegroundTransfer_Impl, const OFFSET: isize>() -> IForegroundTransfer_Vtbl {
@@ -2173,9 +2173,9 @@ impl IForegroundTransfer_Vtbl {
     }
 }
 pub trait IGlobalInterfaceTable_Impl: Sized {
-    fn RegisterInterfaceInGlobal(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
-    fn RevokeInterfaceFromGlobal(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
-    fn GetInterfaceFromGlobal(&mut self, dwcookie: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RegisterInterfaceInGlobal(&self, punk: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
+    fn RevokeInterfaceFromGlobal(&self, dwcookie: u32) -> ::windows::core::Result<()>;
+    fn GetInterfaceFromGlobal(&self, dwcookie: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IGlobalInterfaceTable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalInterfaceTable_Impl, const OFFSET: isize>() -> IGlobalInterfaceTable_Vtbl {
@@ -2212,8 +2212,8 @@ impl IGlobalInterfaceTable_Vtbl {
     }
 }
 pub trait IGlobalOptions_Impl: Sized {
-    fn Set(&mut self, dwproperty: GLOBALOPT_PROPERTIES, dwvalue: usize) -> ::windows::core::Result<()>;
-    fn Query(&mut self, dwproperty: GLOBALOPT_PROPERTIES) -> ::windows::core::Result<usize>;
+    fn Set(&self, dwproperty: GLOBALOPT_PROPERTIES, dwvalue: usize) -> ::windows::core::Result<()>;
+    fn Query(&self, dwproperty: GLOBALOPT_PROPERTIES) -> ::windows::core::Result<usize>;
 }
 impl IGlobalOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGlobalOptions_Impl, const OFFSET: isize>() -> IGlobalOptions_Vtbl {
@@ -2240,10 +2240,10 @@ impl IGlobalOptions_Vtbl {
     }
 }
 pub trait IInitializeSpy_Impl: Sized {
-    fn PreInitialize(&mut self, dwcoinit: u32, dwcurthreadaptrefs: u32) -> ::windows::core::Result<()>;
-    fn PostInitialize(&mut self, hrcoinit: ::windows::core::HRESULT, dwcoinit: u32, dwnewthreadaptrefs: u32) -> ::windows::core::Result<()>;
-    fn PreUninitialize(&mut self, dwcurthreadaptrefs: u32) -> ::windows::core::Result<()>;
-    fn PostUninitialize(&mut self, dwnewthreadaptrefs: u32) -> ::windows::core::Result<()>;
+    fn PreInitialize(&self, dwcoinit: u32, dwcurthreadaptrefs: u32) -> ::windows::core::Result<()>;
+    fn PostInitialize(&self, hrcoinit: ::windows::core::HRESULT, dwcoinit: u32, dwnewthreadaptrefs: u32) -> ::windows::core::Result<()>;
+    fn PreUninitialize(&self, dwcurthreadaptrefs: u32) -> ::windows::core::Result<()>;
+    fn PostUninitialize(&self, dwnewthreadaptrefs: u32) -> ::windows::core::Result<()>;
 }
 impl IInitializeSpy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInitializeSpy_Impl, const OFFSET: isize>() -> IInitializeSpy_Vtbl {
@@ -2280,7 +2280,7 @@ impl IInitializeSpy_Vtbl {
     }
 }
 pub trait IInternalUnknown_Impl: Sized {
-    fn QueryInternalInterface(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn QueryInternalInterface(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IInternalUnknown_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternalUnknown_Impl, const OFFSET: isize>() -> IInternalUnknown_Vtbl {
@@ -2297,9 +2297,9 @@ impl IInternalUnknown_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMachineGlobalObjectTable_Impl: Sized {
-    fn RegisterObject(&mut self, clsid: *const ::windows::core::GUID, identifier: super::super::Foundation::PWSTR, object: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<*mut MachineGlobalObjectTableRegistrationToken__>;
-    fn GetObject(&mut self, clsid: *const ::windows::core::GUID, identifier: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn RevokeObject(&mut self, token: *const MachineGlobalObjectTableRegistrationToken__) -> ::windows::core::Result<()>;
+    fn RegisterObject(&self, clsid: *const ::windows::core::GUID, identifier: super::super::Foundation::PWSTR, object: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<*mut MachineGlobalObjectTableRegistrationToken__>;
+    fn GetObject(&self, clsid: *const ::windows::core::GUID, identifier: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RevokeObject(&self, token: *const MachineGlobalObjectTableRegistrationToken__) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMachineGlobalObjectTable_Vtbl {
@@ -2337,12 +2337,12 @@ impl IMachineGlobalObjectTable_Vtbl {
     }
 }
 pub trait IMalloc_Impl: Sized {
-    fn Alloc(&mut self, cb: usize) -> *mut ::core::ffi::c_void;
-    fn Realloc(&mut self, pv: *const ::core::ffi::c_void, cb: usize) -> *mut ::core::ffi::c_void;
-    fn Free(&mut self, pv: *const ::core::ffi::c_void);
-    fn GetSize(&mut self, pv: *const ::core::ffi::c_void) -> usize;
-    fn DidAlloc(&mut self, pv: *const ::core::ffi::c_void) -> i32;
-    fn HeapMinimize(&mut self);
+    fn Alloc(&self, cb: usize) -> *mut ::core::ffi::c_void;
+    fn Realloc(&self, pv: *const ::core::ffi::c_void, cb: usize) -> *mut ::core::ffi::c_void;
+    fn Free(&self, pv: *const ::core::ffi::c_void);
+    fn GetSize(&self, pv: *const ::core::ffi::c_void) -> usize;
+    fn DidAlloc(&self, pv: *const ::core::ffi::c_void) -> i32;
+    fn HeapMinimize(&self);
 }
 impl IMalloc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMalloc_Impl, const OFFSET: isize>() -> IMalloc_Vtbl {
@@ -2392,18 +2392,18 @@ impl IMalloc_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMallocSpy_Impl: Sized {
-    fn PreAlloc(&mut self, cbrequest: usize) -> usize;
-    fn PostAlloc(&mut self, pactual: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-    fn PreFree(&mut self, prequest: *const ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL) -> *mut ::core::ffi::c_void;
-    fn PostFree(&mut self, fspyed: super::super::Foundation::BOOL);
-    fn PreRealloc(&mut self, prequest: *const ::core::ffi::c_void, cbrequest: usize, ppnewrequest: *mut *mut ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL) -> usize;
-    fn PostRealloc(&mut self, pactual: *const ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL) -> *mut ::core::ffi::c_void;
-    fn PreGetSize(&mut self, prequest: *const ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL) -> *mut ::core::ffi::c_void;
-    fn PostGetSize(&mut self, cbactual: usize, fspyed: super::super::Foundation::BOOL) -> usize;
-    fn PreDidAlloc(&mut self, prequest: *const ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL) -> *mut ::core::ffi::c_void;
-    fn PostDidAlloc(&mut self, prequest: *const ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL, factual: i32) -> i32;
-    fn PreHeapMinimize(&mut self);
-    fn PostHeapMinimize(&mut self);
+    fn PreAlloc(&self, cbrequest: usize) -> usize;
+    fn PostAlloc(&self, pactual: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+    fn PreFree(&self, prequest: *const ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL) -> *mut ::core::ffi::c_void;
+    fn PostFree(&self, fspyed: super::super::Foundation::BOOL);
+    fn PreRealloc(&self, prequest: *const ::core::ffi::c_void, cbrequest: usize, ppnewrequest: *mut *mut ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL) -> usize;
+    fn PostRealloc(&self, pactual: *const ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL) -> *mut ::core::ffi::c_void;
+    fn PreGetSize(&self, prequest: *const ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL) -> *mut ::core::ffi::c_void;
+    fn PostGetSize(&self, cbactual: usize, fspyed: super::super::Foundation::BOOL) -> usize;
+    fn PreDidAlloc(&self, prequest: *const ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL) -> *mut ::core::ffi::c_void;
+    fn PostDidAlloc(&self, prequest: *const ::core::ffi::c_void, fspyed: super::super::Foundation::BOOL, factual: i32) -> i32;
+    fn PreHeapMinimize(&self);
+    fn PostHeapMinimize(&self);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMallocSpy_Vtbl {
@@ -2490,21 +2490,21 @@ impl IMallocSpy_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMoniker_Impl: Sized + IPersist_Impl + IPersistStream_Impl {
-    fn BindToObject(&mut self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>, riidresult: *const ::windows::core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn BindToStorage(&mut self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Reduce(&mut self, pbc: &::core::option::Option<IBindCtx>, dwreducehowfar: u32, ppmktoleft: *mut ::core::option::Option<IMoniker>, ppmkreduced: *mut ::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
-    fn ComposeWith(&mut self, pmkright: &::core::option::Option<IMoniker>, fonlyifnotgeneric: super::super::Foundation::BOOL) -> ::windows::core::Result<IMoniker>;
-    fn Enum(&mut self, fforward: super::super::Foundation::BOOL) -> ::windows::core::Result<IEnumMoniker>;
-    fn IsEqual(&mut self, pmkothermoniker: &::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
-    fn Hash(&mut self) -> ::windows::core::Result<u32>;
-    fn IsRunning(&mut self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>, pmknewlyrunning: &::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
-    fn GetTimeOfLastChange(&mut self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn Inverse(&mut self) -> ::windows::core::Result<IMoniker>;
-    fn CommonPrefixWith(&mut self, pmkother: &::core::option::Option<IMoniker>) -> ::windows::core::Result<IMoniker>;
-    fn RelativePathTo(&mut self, pmkother: &::core::option::Option<IMoniker>) -> ::windows::core::Result<IMoniker>;
-    fn GetDisplayName(&mut self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn ParseDisplayName(&mut self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>, pszdisplayname: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmkout: *mut ::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
-    fn IsSystemMoniker(&mut self) -> ::windows::core::Result<u32>;
+    fn BindToObject(&self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>, riidresult: *const ::windows::core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn BindToStorage(&self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Reduce(&self, pbc: &::core::option::Option<IBindCtx>, dwreducehowfar: u32, ppmktoleft: *mut ::core::option::Option<IMoniker>, ppmkreduced: *mut ::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
+    fn ComposeWith(&self, pmkright: &::core::option::Option<IMoniker>, fonlyifnotgeneric: super::super::Foundation::BOOL) -> ::windows::core::Result<IMoniker>;
+    fn Enum(&self, fforward: super::super::Foundation::BOOL) -> ::windows::core::Result<IEnumMoniker>;
+    fn IsEqual(&self, pmkothermoniker: &::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
+    fn Hash(&self) -> ::windows::core::Result<u32>;
+    fn IsRunning(&self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>, pmknewlyrunning: &::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
+    fn GetTimeOfLastChange(&self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn Inverse(&self) -> ::windows::core::Result<IMoniker>;
+    fn CommonPrefixWith(&self, pmkother: &::core::option::Option<IMoniker>) -> ::windows::core::Result<IMoniker>;
+    fn RelativePathTo(&self, pmkother: &::core::option::Option<IMoniker>) -> ::windows::core::Result<IMoniker>;
+    fn GetDisplayName(&self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn ParseDisplayName(&self, pbc: &::core::option::Option<IBindCtx>, pmktoleft: &::core::option::Option<IMoniker>, pszdisplayname: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmkout: *mut ::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
+    fn IsSystemMoniker(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMoniker_Vtbl {
@@ -2662,7 +2662,7 @@ impl IMoniker_Vtbl {
     }
 }
 pub trait IMultiQI_Impl: Sized {
-    fn QueryMultipleInterfaces(&mut self, cmqis: u32, pmqis: *mut MULTI_QI) -> ::windows::core::Result<()>;
+    fn QueryMultipleInterfaces(&self, cmqis: u32, pmqis: *mut MULTI_QI) -> ::windows::core::Result<()>;
 }
 impl IMultiQI_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultiQI_Impl, const OFFSET: isize>() -> IMultiQI_Vtbl {
@@ -2688,8 +2688,8 @@ impl INoMarshal_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOplockStorage_Impl: Sized {
-    fn CreateStorageEx(&mut self, pwcsname: super::super::Foundation::PWSTR, grfmode: u32, stgfmt: u32, grfattrs: u32, riid: *const ::windows::core::GUID, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn OpenStorageEx(&mut self, pwcsname: super::super::Foundation::PWSTR, grfmode: u32, stgfmt: u32, grfattrs: u32, riid: *const ::windows::core::GUID, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateStorageEx(&self, pwcsname: super::super::Foundation::PWSTR, grfmode: u32, stgfmt: u32, grfattrs: u32, riid: *const ::windows::core::GUID, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OpenStorageEx(&self, pwcsname: super::super::Foundation::PWSTR, grfmode: u32, stgfmt: u32, grfattrs: u32, riid: *const ::windows::core::GUID, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IOplockStorage_Vtbl {
@@ -2715,8 +2715,8 @@ impl IOplockStorage_Vtbl {
     }
 }
 pub trait IPSFactoryBuffer_Impl: Sized {
-    fn CreateProxy(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppproxy: *mut ::core::option::Option<IRpcProxyBuffer>, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateStub(&mut self, riid: *const ::windows::core::GUID, punkserver: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IRpcStubBuffer>;
+    fn CreateProxy(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppproxy: *mut ::core::option::Option<IRpcProxyBuffer>, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateStub(&self, riid: *const ::windows::core::GUID, punkserver: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IRpcStubBuffer>;
 }
 impl IPSFactoryBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPSFactoryBuffer_Impl, const OFFSET: isize>() -> IPSFactoryBuffer_Vtbl {
@@ -2747,7 +2747,7 @@ impl IPSFactoryBuffer_Vtbl {
     }
 }
 pub trait IPersist_Impl: Sized {
-    fn GetClassID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl IPersist_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPersist_Impl, const OFFSET: isize>() -> IPersist_Vtbl {
@@ -2770,11 +2770,11 @@ impl IPersist_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistFile_Impl: Sized + IPersist_Impl {
-    fn IsDirty(&mut self) -> ::windows::core::Result<()>;
-    fn Load(&mut self, pszfilename: super::super::Foundation::PWSTR, dwmode: u32) -> ::windows::core::Result<()>;
-    fn Save(&mut self, pszfilename: super::super::Foundation::PWSTR, fremember: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveCompleted(&mut self, pszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetCurFile(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn Load(&self, pszfilename: super::super::Foundation::PWSTR, dwmode: u32) -> ::windows::core::Result<()>;
+    fn Save(&self, pszfilename: super::super::Foundation::PWSTR, fremember: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveCompleted(&self, pszfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetCurFile(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPersistFile_Vtbl {
@@ -2825,11 +2825,11 @@ impl IPersistFile_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistMemory_Impl: Sized + IPersist_Impl {
-    fn IsDirty(&mut self) -> ::windows::core::Result<()>;
-    fn Load(&mut self, pmem: *const ::core::ffi::c_void, cbsize: u32) -> ::windows::core::Result<()>;
-    fn Save(&mut self, pmem: *mut ::core::ffi::c_void, fcleardirty: super::super::Foundation::BOOL, cbsize: u32) -> ::windows::core::Result<()>;
-    fn GetSizeMax(&mut self) -> ::windows::core::Result<u32>;
-    fn InitNew(&mut self) -> ::windows::core::Result<()>;
+    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn Load(&self, pmem: *const ::core::ffi::c_void, cbsize: u32) -> ::windows::core::Result<()>;
+    fn Save(&self, pmem: *mut ::core::ffi::c_void, fcleardirty: super::super::Foundation::BOOL, cbsize: u32) -> ::windows::core::Result<()>;
+    fn GetSizeMax(&self) -> ::windows::core::Result<u32>;
+    fn InitNew(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPersistMemory_Vtbl {
@@ -2880,10 +2880,10 @@ impl IPersistMemory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistStream_Impl: Sized + IPersist_Impl {
-    fn IsDirty(&mut self) -> ::windows::core::Result<()>;
-    fn Load(&mut self, pstm: &::core::option::Option<IStream>) -> ::windows::core::Result<()>;
-    fn Save(&mut self, pstm: &::core::option::Option<IStream>, fcleardirty: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetSizeMax(&mut self) -> ::windows::core::Result<u64>;
+    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn Load(&self, pstm: &::core::option::Option<IStream>) -> ::windows::core::Result<()>;
+    fn Save(&self, pstm: &::core::option::Option<IStream>, fcleardirty: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetSizeMax(&self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPersistStream_Vtbl {
@@ -2928,11 +2928,11 @@ impl IPersistStream_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistStreamInit_Impl: Sized + IPersist_Impl {
-    fn IsDirty(&mut self) -> ::windows::core::Result<()>;
-    fn Load(&mut self, pstm: &::core::option::Option<IStream>) -> ::windows::core::Result<()>;
-    fn Save(&mut self, pstm: &::core::option::Option<IStream>, fcleardirty: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetSizeMax(&mut self) -> ::windows::core::Result<u64>;
-    fn InitNew(&mut self) -> ::windows::core::Result<()>;
+    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn Load(&self, pstm: &::core::option::Option<IStream>) -> ::windows::core::Result<()>;
+    fn Save(&self, pstm: &::core::option::Option<IStream>, fcleardirty: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetSizeMax(&self) -> ::windows::core::Result<u64>;
+    fn InitNew(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPersistStreamInit_Vtbl {
@@ -2982,8 +2982,8 @@ impl IPersistStreamInit_Vtbl {
     }
 }
 pub trait IPipeByte_Impl: Sized {
-    fn Pull(&mut self, buf: *mut u8, crequest: u32, pcreturned: *mut u32) -> ::windows::core::Result<()>;
-    fn Push(&mut self, buf: *const u8, csent: u32) -> ::windows::core::Result<()>;
+    fn Pull(&self, buf: *mut u8, crequest: u32, pcreturned: *mut u32) -> ::windows::core::Result<()>;
+    fn Push(&self, buf: *const u8, csent: u32) -> ::windows::core::Result<()>;
 }
 impl IPipeByte_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPipeByte_Impl, const OFFSET: isize>() -> IPipeByte_Vtbl {
@@ -3004,8 +3004,8 @@ impl IPipeByte_Vtbl {
     }
 }
 pub trait IPipeDouble_Impl: Sized {
-    fn Pull(&mut self, buf: *mut f64, crequest: u32, pcreturned: *mut u32) -> ::windows::core::Result<()>;
-    fn Push(&mut self, buf: *const f64, csent: u32) -> ::windows::core::Result<()>;
+    fn Pull(&self, buf: *mut f64, crequest: u32, pcreturned: *mut u32) -> ::windows::core::Result<()>;
+    fn Push(&self, buf: *const f64, csent: u32) -> ::windows::core::Result<()>;
 }
 impl IPipeDouble_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPipeDouble_Impl, const OFFSET: isize>() -> IPipeDouble_Vtbl {
@@ -3026,8 +3026,8 @@ impl IPipeDouble_Vtbl {
     }
 }
 pub trait IPipeLong_Impl: Sized {
-    fn Pull(&mut self, buf: *mut i32, crequest: u32, pcreturned: *mut u32) -> ::windows::core::Result<()>;
-    fn Push(&mut self, buf: *const i32, csent: u32) -> ::windows::core::Result<()>;
+    fn Pull(&self, buf: *mut i32, crequest: u32, pcreturned: *mut u32) -> ::windows::core::Result<()>;
+    fn Push(&self, buf: *const i32, csent: u32) -> ::windows::core::Result<()>;
 }
 impl IPipeLong_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPipeLong_Impl, const OFFSET: isize>() -> IPipeLong_Vtbl {
@@ -3048,7 +3048,7 @@ impl IPipeLong_Vtbl {
     }
 }
 pub trait IProcessInitControl_Impl: Sized {
-    fn ResetInitializerTimeout(&mut self, dwsecondsremaining: u32) -> ::windows::core::Result<()>;
+    fn ResetInitializerTimeout(&self, dwsecondsremaining: u32) -> ::windows::core::Result<()>;
 }
 impl IProcessInitControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessInitControl_Impl, const OFFSET: isize>() -> IProcessInitControl_Vtbl {
@@ -3064,8 +3064,8 @@ impl IProcessInitControl_Vtbl {
     }
 }
 pub trait IProcessLock_Impl: Sized {
-    fn AddRefOnProcess(&mut self) -> u32;
-    fn ReleaseRefOnProcess(&mut self) -> u32;
+    fn AddRefOnProcess(&self) -> u32;
+    fn ReleaseRefOnProcess(&self) -> u32;
 }
 impl IProcessLock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProcessLock_Impl, const OFFSET: isize>() -> IProcessLock_Vtbl {
@@ -3091,7 +3091,7 @@ impl IProcessLock_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IProgressNotify_Impl: Sized {
-    fn OnProgress(&mut self, dwprogresscurrent: u32, dwprogressmaximum: u32, faccurate: super::super::Foundation::BOOL, fowner: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnProgress(&self, dwprogresscurrent: u32, dwprogressmaximum: u32, faccurate: super::super::Foundation::BOOL, fowner: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IProgressNotify_Vtbl {
@@ -3108,7 +3108,7 @@ impl IProgressNotify_Vtbl {
     }
 }
 pub trait IROTData_Impl: Sized {
-    fn GetComparisonData(&mut self, pbdata: *mut u8, cbmax: u32, pcbdata: *mut u32) -> ::windows::core::Result<()>;
+    fn GetComparisonData(&self, pbdata: *mut u8, cbmax: u32, pcbdata: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IROTData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IROTData_Impl, const OFFSET: isize>() -> IROTData_Vtbl {
@@ -3124,7 +3124,7 @@ impl IROTData_Vtbl {
     }
 }
 pub trait IReleaseMarshalBuffers_Impl: Sized {
-    fn ReleaseMarshalBuffer(&mut self, pmsg: *mut RPCOLEMESSAGE, dwflags: u32, pchnl: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ReleaseMarshalBuffer(&self, pmsg: *mut RPCOLEMESSAGE, dwflags: u32, pchnl: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IReleaseMarshalBuffers_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReleaseMarshalBuffers_Impl, const OFFSET: isize>() -> IReleaseMarshalBuffers_Vtbl {
@@ -3140,11 +3140,11 @@ impl IReleaseMarshalBuffers_Vtbl {
     }
 }
 pub trait IRpcChannelBuffer_Impl: Sized {
-    fn GetBuffer(&mut self, pmessage: *mut RPCOLEMESSAGE, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SendReceive(&mut self, pmessage: *mut RPCOLEMESSAGE, pstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn FreeBuffer(&mut self, pmessage: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()>;
-    fn GetDestCtx(&mut self, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn IsConnected(&mut self) -> ::windows::core::Result<()>;
+    fn GetBuffer(&self, pmessage: *mut RPCOLEMESSAGE, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SendReceive(&self, pmessage: *mut RPCOLEMESSAGE, pstatus: *mut u32) -> ::windows::core::Result<()>;
+    fn FreeBuffer(&self, pmessage: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()>;
+    fn GetDestCtx(&self, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn IsConnected(&self) -> ::windows::core::Result<()>;
 }
 impl IRpcChannelBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRpcChannelBuffer_Impl, const OFFSET: isize>() -> IRpcChannelBuffer_Vtbl {
@@ -3187,7 +3187,7 @@ impl IRpcChannelBuffer_Vtbl {
     }
 }
 pub trait IRpcChannelBuffer2_Impl: Sized + IRpcChannelBuffer_Impl {
-    fn GetProtocolVersion(&mut self) -> ::windows::core::Result<u32>;
+    fn GetProtocolVersion(&self) -> ::windows::core::Result<u32>;
 }
 impl IRpcChannelBuffer2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRpcChannelBuffer2_Impl, const OFFSET: isize>() -> IRpcChannelBuffer2_Vtbl {
@@ -3209,13 +3209,13 @@ impl IRpcChannelBuffer2_Vtbl {
     }
 }
 pub trait IRpcChannelBuffer3_Impl: Sized + IRpcChannelBuffer_Impl + IRpcChannelBuffer2_Impl {
-    fn Send(&mut self, pmsg: *mut RPCOLEMESSAGE, pulstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn Receive(&mut self, pmsg: *mut RPCOLEMESSAGE, ulsize: u32, pulstatus: *mut u32) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self, pmsg: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()>;
-    fn GetCallContext(&mut self, pmsg: *const RPCOLEMESSAGE, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetDestCtxEx(&mut self, pmsg: *const RPCOLEMESSAGE, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetState(&mut self, pmsg: *const RPCOLEMESSAGE) -> ::windows::core::Result<u32>;
-    fn RegisterAsync(&mut self, pmsg: *mut RPCOLEMESSAGE, pasyncmgr: &::core::option::Option<IAsyncManager>) -> ::windows::core::Result<()>;
+    fn Send(&self, pmsg: *mut RPCOLEMESSAGE, pulstatus: *mut u32) -> ::windows::core::Result<()>;
+    fn Receive(&self, pmsg: *mut RPCOLEMESSAGE, ulsize: u32, pulstatus: *mut u32) -> ::windows::core::Result<()>;
+    fn Cancel(&self, pmsg: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()>;
+    fn GetCallContext(&self, pmsg: *const RPCOLEMESSAGE, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetDestCtxEx(&self, pmsg: *const RPCOLEMESSAGE, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetState(&self, pmsg: *const RPCOLEMESSAGE) -> ::windows::core::Result<u32>;
+    fn RegisterAsync(&self, pmsg: *mut RPCOLEMESSAGE, pasyncmgr: &::core::option::Option<IAsyncManager>) -> ::windows::core::Result<()>;
 }
 impl IRpcChannelBuffer3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRpcChannelBuffer3_Impl, const OFFSET: isize>() -> IRpcChannelBuffer3_Vtbl {
@@ -3276,8 +3276,8 @@ impl IRpcChannelBuffer3_Vtbl {
     }
 }
 pub trait IRpcHelper_Impl: Sized {
-    fn GetDCOMProtocolVersion(&mut self) -> ::windows::core::Result<u32>;
-    fn GetIIDFromOBJREF(&mut self, pobjref: *const ::core::ffi::c_void) -> ::windows::core::Result<*mut ::windows::core::GUID>;
+    fn GetDCOMProtocolVersion(&self) -> ::windows::core::Result<u32>;
+    fn GetIIDFromOBJREF(&self, pobjref: *const ::core::ffi::c_void) -> ::windows::core::Result<*mut ::windows::core::GUID>;
 }
 impl IRpcHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRpcHelper_Impl, const OFFSET: isize>() -> IRpcHelper_Vtbl {
@@ -3314,8 +3314,8 @@ impl IRpcHelper_Vtbl {
     }
 }
 pub trait IRpcOptions_Impl: Sized {
-    fn Set(&mut self, pprx: &::core::option::Option<::windows::core::IUnknown>, dwproperty: RPCOPT_PROPERTIES, dwvalue: usize) -> ::windows::core::Result<()>;
-    fn Query(&mut self, pprx: &::core::option::Option<::windows::core::IUnknown>, dwproperty: RPCOPT_PROPERTIES) -> ::windows::core::Result<usize>;
+    fn Set(&self, pprx: &::core::option::Option<::windows::core::IUnknown>, dwproperty: RPCOPT_PROPERTIES, dwvalue: usize) -> ::windows::core::Result<()>;
+    fn Query(&self, pprx: &::core::option::Option<::windows::core::IUnknown>, dwproperty: RPCOPT_PROPERTIES) -> ::windows::core::Result<usize>;
 }
 impl IRpcOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRpcOptions_Impl, const OFFSET: isize>() -> IRpcOptions_Vtbl {
@@ -3342,8 +3342,8 @@ impl IRpcOptions_Vtbl {
     }
 }
 pub trait IRpcProxyBuffer_Impl: Sized {
-    fn Connect(&mut self, prpcchannelbuffer: &::core::option::Option<IRpcChannelBuffer>) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self);
+    fn Connect(&self, prpcchannelbuffer: &::core::option::Option<IRpcChannelBuffer>) -> ::windows::core::Result<()>;
+    fn Disconnect(&self);
 }
 impl IRpcProxyBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRpcProxyBuffer_Impl, const OFFSET: isize>() -> IRpcProxyBuffer_Vtbl {
@@ -3368,13 +3368,13 @@ impl IRpcProxyBuffer_Vtbl {
     }
 }
 pub trait IRpcStubBuffer_Impl: Sized {
-    fn Connect(&mut self, punkserver: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self);
-    fn Invoke(&mut self, _prpcmsg: *mut RPCOLEMESSAGE, _prpcchannelbuffer: &::core::option::Option<IRpcChannelBuffer>) -> ::windows::core::Result<()>;
-    fn IsIIDSupported(&mut self, riid: *const ::windows::core::GUID) -> ::core::option::Option<IRpcStubBuffer>;
-    fn CountRefs(&mut self) -> u32;
-    fn DebugServerQueryInterface(&mut self, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn DebugServerRelease(&mut self, pv: *const ::core::ffi::c_void);
+    fn Connect(&self, punkserver: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Disconnect(&self);
+    fn Invoke(&self, _prpcmsg: *mut RPCOLEMESSAGE, _prpcchannelbuffer: &::core::option::Option<IRpcChannelBuffer>) -> ::windows::core::Result<()>;
+    fn IsIIDSupported(&self, riid: *const ::windows::core::GUID) -> ::core::option::Option<IRpcStubBuffer>;
+    fn CountRefs(&self) -> u32;
+    fn DebugServerQueryInterface(&self, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn DebugServerRelease(&self, pv: *const ::core::ffi::c_void);
 }
 impl IRpcStubBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRpcStubBuffer_Impl, const OFFSET: isize>() -> IRpcStubBuffer_Vtbl {
@@ -3429,7 +3429,7 @@ impl IRpcStubBuffer_Vtbl {
     }
 }
 pub trait IRpcSyntaxNegotiate_Impl: Sized {
-    fn NegotiateSyntax(&mut self, pmsg: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()>;
+    fn NegotiateSyntax(&self, pmsg: *mut RPCOLEMESSAGE) -> ::windows::core::Result<()>;
 }
 impl IRpcSyntaxNegotiate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRpcSyntaxNegotiate_Impl, const OFFSET: isize>() -> IRpcSyntaxNegotiate_Vtbl {
@@ -3446,11 +3446,11 @@ impl IRpcSyntaxNegotiate_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRunnableObject_Impl: Sized {
-    fn GetRunningClass(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Run(&mut self, pbc: &::core::option::Option<IBindCtx>) -> ::windows::core::Result<()>;
-    fn IsRunning(&mut self) -> super::super::Foundation::BOOL;
-    fn LockRunning(&mut self, flock: super::super::Foundation::BOOL, flastunlockcloses: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetContainedObject(&mut self, fcontained: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetRunningClass(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Run(&self, pbc: &::core::option::Option<IBindCtx>) -> ::windows::core::Result<()>;
+    fn IsRunning(&self) -> super::super::Foundation::BOOL;
+    fn LockRunning(&self, flock: super::super::Foundation::BOOL, flastunlockcloses: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetContainedObject(&self, fcontained: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRunnableObject_Vtbl {
@@ -3501,13 +3501,13 @@ impl IRunnableObject_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRunningObjectTable_Impl: Sized {
-    fn Register(&mut self, grfflags: u32, punkobject: &::core::option::Option<::windows::core::IUnknown>, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<u32>;
-    fn Revoke(&mut self, dwregister: u32) -> ::windows::core::Result<()>;
-    fn IsRunning(&mut self, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
-    fn GetObject(&mut self, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn NoteChangeTime(&mut self, dwregister: u32, pfiletime: *const super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn GetTimeOfLastChange(&mut self, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn EnumRunning(&mut self) -> ::windows::core::Result<IEnumMoniker>;
+    fn Register(&self, grfflags: u32, punkobject: &::core::option::Option<::windows::core::IUnknown>, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<u32>;
+    fn Revoke(&self, dwregister: u32) -> ::windows::core::Result<()>;
+    fn IsRunning(&self, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<()>;
+    fn GetObject(&self, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn NoteChangeTime(&self, dwregister: u32, pfiletime: *const super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn GetTimeOfLastChange(&self, pmkobjectname: &::core::option::Option<IMoniker>) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn EnumRunning(&self) -> ::windows::core::Result<IEnumMoniker>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRunningObjectTable_Vtbl {
@@ -3587,8 +3587,8 @@ impl IRunningObjectTable_Vtbl {
     }
 }
 pub trait ISequentialStream_Impl: Sized {
-    fn Read(&mut self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()>;
-    fn Write(&mut self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32>;
+    fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()>;
+    fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32>;
 }
 impl ISequentialStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISequentialStream_Impl, const OFFSET: isize>() -> ISequentialStream_Vtbl {
@@ -3616,10 +3616,10 @@ impl ISequentialStream_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IServerSecurity_Impl: Sized {
-    fn QueryBlanket(&mut self, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut u32, pimplevel: *mut u32, pprivs: *mut *mut ::core::ffi::c_void, pcapabilities: *mut u32) -> ::windows::core::Result<()>;
-    fn ImpersonateClient(&mut self) -> ::windows::core::Result<()>;
-    fn RevertToSelf(&mut self) -> ::windows::core::Result<()>;
-    fn IsImpersonating(&mut self) -> super::super::Foundation::BOOL;
+    fn QueryBlanket(&self, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut u32, pimplevel: *mut u32, pprivs: *mut *mut ::core::ffi::c_void, pcapabilities: *mut u32) -> ::windows::core::Result<()>;
+    fn ImpersonateClient(&self) -> ::windows::core::Result<()>;
+    fn RevertToSelf(&self) -> ::windows::core::Result<()>;
+    fn IsImpersonating(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IServerSecurity_Vtbl {
@@ -3657,7 +3657,7 @@ impl IServerSecurity_Vtbl {
     }
 }
 pub trait IServiceProvider_Impl: Sized {
-    fn QueryService(&mut self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn QueryService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IServiceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceProvider_Impl, const OFFSET: isize>() -> IServiceProvider_Vtbl {
@@ -3673,7 +3673,7 @@ impl IServiceProvider_Vtbl {
     }
 }
 pub trait IStdMarshalInfo_Impl: Sized {
-    fn GetClassForHandler(&mut self, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetClassForHandler(&self, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IStdMarshalInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStdMarshalInfo_Impl, const OFFSET: isize>() -> IStdMarshalInfo_Vtbl {
@@ -3690,15 +3690,15 @@ impl IStdMarshalInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IStream_Impl: Sized + ISequentialStream_Impl {
-    fn Seek(&mut self, dlibmove: i64, dworigin: STREAM_SEEK) -> ::windows::core::Result<u64>;
-    fn SetSize(&mut self, libnewsize: u64) -> ::windows::core::Result<()>;
-    fn CopyTo(&mut self, pstm: &::core::option::Option<IStream>, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()>;
-    fn Commit(&mut self, grfcommitflags: StructuredStorage::STGC) -> ::windows::core::Result<()>;
-    fn Revert(&mut self) -> ::windows::core::Result<()>;
-    fn LockRegion(&mut self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
-    fn UnlockRegion(&mut self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
-    fn Stat(&mut self, pstatstg: *mut STATSTG, grfstatflag: u32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IStream>;
+    fn Seek(&self, dlibmove: i64, dworigin: STREAM_SEEK) -> ::windows::core::Result<u64>;
+    fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()>;
+    fn CopyTo(&self, pstm: &::core::option::Option<IStream>, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()>;
+    fn Commit(&self, grfcommitflags: StructuredStorage::STGC) -> ::windows::core::Result<()>;
+    fn Revert(&self) -> ::windows::core::Result<()>;
+    fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
+    fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
+    fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IStream_Vtbl {
@@ -3778,7 +3778,7 @@ impl IStream_Vtbl {
     }
 }
 pub trait ISupportErrorInfo_Impl: Sized {
-    fn InterfaceSupportsErrorInfo(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn InterfaceSupportsErrorInfo(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl ISupportErrorInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISupportErrorInfo_Impl, const OFFSET: isize>() -> ISupportErrorInfo_Vtbl {
@@ -3794,8 +3794,8 @@ impl ISupportErrorInfo_Vtbl {
     }
 }
 pub trait ISurrogate_Impl: Sized {
-    fn LoadDllServer(&mut self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn FreeSurrogate(&mut self) -> ::windows::core::Result<()>;
+    fn LoadDllServer(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn FreeSurrogate(&self) -> ::windows::core::Result<()>;
 }
 impl ISurrogate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISurrogate_Impl, const OFFSET: isize>() -> ISurrogate_Vtbl {
@@ -3821,11 +3821,11 @@ impl ISurrogate_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISurrogateService_Impl: Sized {
-    fn Init(&mut self, rguidprocessid: *const ::windows::core::GUID, pprocesslock: &::core::option::Option<IProcessLock>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn ApplicationLaunch(&mut self, rguidapplid: *const ::windows::core::GUID, apptype: ApplicationType) -> ::windows::core::Result<()>;
-    fn ApplicationFree(&mut self, rguidapplid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn CatalogRefresh(&mut self, ulreserved: u32) -> ::windows::core::Result<()>;
-    fn ProcessShutdown(&mut self, shutdowntype: ShutdownType) -> ::windows::core::Result<()>;
+    fn Init(&self, rguidprocessid: *const ::windows::core::GUID, pprocesslock: &::core::option::Option<IProcessLock>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn ApplicationLaunch(&self, rguidapplid: *const ::windows::core::GUID, apptype: ApplicationType) -> ::windows::core::Result<()>;
+    fn ApplicationFree(&self, rguidapplid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn CatalogRefresh(&self, ulreserved: u32) -> ::windows::core::Result<()>;
+    fn ProcessShutdown(&self, shutdowntype: ShutdownType) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISurrogateService_Vtbl {
@@ -3875,9 +3875,9 @@ impl ISurrogateService_Vtbl {
     }
 }
 pub trait ISynchronize_Impl: Sized {
-    fn Wait(&mut self, dwflags: u32, dwmilliseconds: u32) -> ::windows::core::Result<()>;
-    fn Signal(&mut self) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn Wait(&self, dwflags: u32, dwmilliseconds: u32) -> ::windows::core::Result<()>;
+    fn Signal(&self) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
 }
 impl ISynchronize_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISynchronize_Impl, const OFFSET: isize>() -> ISynchronize_Vtbl {
@@ -3908,8 +3908,8 @@ impl ISynchronize_Vtbl {
     }
 }
 pub trait ISynchronizeContainer_Impl: Sized {
-    fn AddSynchronize(&mut self, psync: &::core::option::Option<ISynchronize>) -> ::windows::core::Result<()>;
-    fn WaitMultiple(&mut self, dwflags: u32, dwtimeout: u32) -> ::windows::core::Result<ISynchronize>;
+    fn AddSynchronize(&self, psync: &::core::option::Option<ISynchronize>) -> ::windows::core::Result<()>;
+    fn WaitMultiple(&self, dwflags: u32, dwtimeout: u32) -> ::windows::core::Result<ISynchronize>;
 }
 impl ISynchronizeContainer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISynchronizeContainer_Impl, const OFFSET: isize>() -> ISynchronizeContainer_Vtbl {
@@ -3941,7 +3941,7 @@ impl ISynchronizeContainer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISynchronizeEvent_Impl: Sized + ISynchronizeHandle_Impl {
-    fn SetEventHandle(&mut self, ph: *const super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn SetEventHandle(&self, ph: *const super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISynchronizeEvent_Vtbl {
@@ -3959,7 +3959,7 @@ impl ISynchronizeEvent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISynchronizeHandle_Impl: Sized {
-    fn GetHandle(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn GetHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISynchronizeHandle_Vtbl {
@@ -3982,7 +3982,7 @@ impl ISynchronizeHandle_Vtbl {
     }
 }
 pub trait ISynchronizeMutex_Impl: Sized + ISynchronize_Impl {
-    fn ReleaseMutex(&mut self) -> ::windows::core::Result<()>;
+    fn ReleaseMutex(&self) -> ::windows::core::Result<()>;
 }
 impl ISynchronizeMutex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISynchronizeMutex_Impl, const OFFSET: isize>() -> ISynchronizeMutex_Vtbl {
@@ -3998,7 +3998,7 @@ impl ISynchronizeMutex_Vtbl {
     }
 }
 pub trait ITimeAndNoticeControl_Impl: Sized {
-    fn SuppressChanges(&mut self, res1: u32, res2: u32) -> ::windows::core::Result<()>;
+    fn SuppressChanges(&self, res1: u32, res2: u32) -> ::windows::core::Result<()>;
 }
 impl ITimeAndNoticeControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimeAndNoticeControl_Impl, const OFFSET: isize>() -> ITimeAndNoticeControl_Vtbl {
@@ -4015,8 +4015,8 @@ impl ITimeAndNoticeControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait ITypeComp_Impl: Sized {
-    fn Bind(&mut self, szname: super::super::Foundation::PWSTR, lhashval: u32, wflags: u16, pptinfo: *mut ::core::option::Option<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> ::windows::core::Result<()>;
-    fn BindType(&mut self, szname: super::super::Foundation::PWSTR, lhashval: u32, pptinfo: *mut ::core::option::Option<ITypeInfo>, pptcomp: *mut ::core::option::Option<ITypeComp>) -> ::windows::core::Result<()>;
+    fn Bind(&self, szname: super::super::Foundation::PWSTR, lhashval: u32, wflags: u16, pptinfo: *mut ::core::option::Option<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> ::windows::core::Result<()>;
+    fn BindType(&self, szname: super::super::Foundation::PWSTR, lhashval: u32, pptinfo: *mut ::core::option::Option<ITypeInfo>, pptcomp: *mut ::core::option::Option<ITypeComp>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ITypeComp_Vtbl {
@@ -4043,25 +4043,25 @@ impl ITypeComp_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait ITypeInfo_Impl: Sized {
-    fn GetTypeAttr(&mut self) -> ::windows::core::Result<*mut TYPEATTR>;
-    fn GetTypeComp(&mut self) -> ::windows::core::Result<ITypeComp>;
-    fn GetFuncDesc(&mut self, index: u32) -> ::windows::core::Result<*mut FUNCDESC>;
-    fn GetVarDesc(&mut self, index: u32) -> ::windows::core::Result<*mut VARDESC>;
-    fn GetNames(&mut self, memid: i32, rgbstrnames: *mut super::super::Foundation::BSTR, cmaxnames: u32, pcnames: *mut u32) -> ::windows::core::Result<()>;
-    fn GetRefTypeOfImplType(&mut self, index: u32) -> ::windows::core::Result<u32>;
-    fn GetImplTypeFlags(&mut self, index: u32) -> ::windows::core::Result<i32>;
-    fn GetIDsOfNames(&mut self, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, pmemid: *mut i32) -> ::windows::core::Result<()>;
-    fn Invoke(&mut self, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDocumentation(&mut self, memid: i32, pbstrname: *mut super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetDllEntry(&mut self, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut super::super::Foundation::BSTR, pbstrname: *mut super::super::Foundation::BSTR, pwordinal: *mut u16) -> ::windows::core::Result<()>;
-    fn GetRefTypeInfo(&mut self, hreftype: u32) -> ::windows::core::Result<ITypeInfo>;
-    fn AddressOfMember(&mut self, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateInstance(&mut self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetMops(&mut self, memid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetContainingTypeLib(&mut self, pptlib: *mut ::core::option::Option<ITypeLib>, pindex: *mut u32) -> ::windows::core::Result<()>;
-    fn ReleaseTypeAttr(&mut self, ptypeattr: *const TYPEATTR);
-    fn ReleaseFuncDesc(&mut self, pfuncdesc: *const FUNCDESC);
-    fn ReleaseVarDesc(&mut self, pvardesc: *const VARDESC);
+    fn GetTypeAttr(&self) -> ::windows::core::Result<*mut TYPEATTR>;
+    fn GetTypeComp(&self) -> ::windows::core::Result<ITypeComp>;
+    fn GetFuncDesc(&self, index: u32) -> ::windows::core::Result<*mut FUNCDESC>;
+    fn GetVarDesc(&self, index: u32) -> ::windows::core::Result<*mut VARDESC>;
+    fn GetNames(&self, memid: i32, rgbstrnames: *mut super::super::Foundation::BSTR, cmaxnames: u32, pcnames: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRefTypeOfImplType(&self, index: u32) -> ::windows::core::Result<u32>;
+    fn GetImplTypeFlags(&self, index: u32) -> ::windows::core::Result<i32>;
+    fn GetIDsOfNames(&self, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, pmemid: *mut i32) -> ::windows::core::Result<()>;
+    fn Invoke(&self, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: u16, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDocumentation(&self, memid: i32, pbstrname: *mut super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetDllEntry(&self, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut super::super::Foundation::BSTR, pbstrname: *mut super::super::Foundation::BSTR, pwordinal: *mut u16) -> ::windows::core::Result<()>;
+    fn GetRefTypeInfo(&self, hreftype: u32) -> ::windows::core::Result<ITypeInfo>;
+    fn AddressOfMember(&self, memid: i32, invkind: INVOKEKIND, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateInstance(&self, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetMops(&self, memid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetContainingTypeLib(&self, pptlib: *mut ::core::option::Option<ITypeLib>, pindex: *mut u32) -> ::windows::core::Result<()>;
+    fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR);
+    fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC);
+    fn ReleaseVarDesc(&self, pvardesc: *const VARDESC);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ITypeInfo_Vtbl {
@@ -4238,21 +4238,21 @@ impl ITypeInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait ITypeInfo2_Impl: Sized + ITypeInfo_Impl {
-    fn GetTypeKind(&mut self) -> ::windows::core::Result<TYPEKIND>;
-    fn GetTypeFlags(&mut self) -> ::windows::core::Result<u32>;
-    fn GetFuncIndexOfMemId(&mut self, memid: i32, invkind: INVOKEKIND) -> ::windows::core::Result<u32>;
-    fn GetVarIndexOfMemId(&mut self, memid: i32) -> ::windows::core::Result<u32>;
-    fn GetCustData(&mut self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
-    fn GetFuncCustData(&mut self, index: u32, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
-    fn GetParamCustData(&mut self, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
-    fn GetVarCustData(&mut self, index: u32, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
-    fn GetImplTypeCustData(&mut self, index: u32, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
-    fn GetDocumentation2(&mut self, memid: i32, lcid: u32, pbstrhelpstring: *mut super::super::Foundation::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetAllCustData(&mut self) -> ::windows::core::Result<CUSTDATA>;
-    fn GetAllFuncCustData(&mut self, index: u32) -> ::windows::core::Result<CUSTDATA>;
-    fn GetAllParamCustData(&mut self, indexfunc: u32, indexparam: u32) -> ::windows::core::Result<CUSTDATA>;
-    fn GetAllVarCustData(&mut self, index: u32) -> ::windows::core::Result<CUSTDATA>;
-    fn GetAllImplTypeCustData(&mut self, index: u32) -> ::windows::core::Result<CUSTDATA>;
+    fn GetTypeKind(&self) -> ::windows::core::Result<TYPEKIND>;
+    fn GetTypeFlags(&self) -> ::windows::core::Result<u32>;
+    fn GetFuncIndexOfMemId(&self, memid: i32, invkind: INVOKEKIND) -> ::windows::core::Result<u32>;
+    fn GetVarIndexOfMemId(&self, memid: i32) -> ::windows::core::Result<u32>;
+    fn GetCustData(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
+    fn GetFuncCustData(&self, index: u32, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
+    fn GetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
+    fn GetVarCustData(&self, index: u32, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
+    fn GetImplTypeCustData(&self, index: u32, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
+    fn GetDocumentation2(&self, memid: i32, lcid: u32, pbstrhelpstring: *mut super::super::Foundation::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetAllCustData(&self) -> ::windows::core::Result<CUSTDATA>;
+    fn GetAllFuncCustData(&self, index: u32) -> ::windows::core::Result<CUSTDATA>;
+    fn GetAllParamCustData(&self, indexfunc: u32, indexparam: u32) -> ::windows::core::Result<CUSTDATA>;
+    fn GetAllVarCustData(&self, index: u32) -> ::windows::core::Result<CUSTDATA>;
+    fn GetAllImplTypeCustData(&self, index: u32) -> ::windows::core::Result<CUSTDATA>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ITypeInfo2_Vtbl {
@@ -4441,16 +4441,16 @@ impl ITypeInfo2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITypeLib_Impl: Sized {
-    fn GetTypeInfoCount(&mut self) -> u32;
-    fn GetTypeInfo(&mut self, index: u32) -> ::windows::core::Result<ITypeInfo>;
-    fn GetTypeInfoType(&mut self, index: u32) -> ::windows::core::Result<TYPEKIND>;
-    fn GetTypeInfoOfGuid(&mut self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<ITypeInfo>;
-    fn GetLibAttr(&mut self) -> ::windows::core::Result<*mut TLIBATTR>;
-    fn GetTypeComp(&mut self) -> ::windows::core::Result<ITypeComp>;
-    fn GetDocumentation(&mut self, index: i32, pbstrname: *mut super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsName(&mut self, sznamebuf: super::super::Foundation::PWSTR, lhashval: u32, pfname: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn FindName(&mut self, sznamebuf: super::super::Foundation::PWSTR, lhashval: u32, pptinfo: *mut ::core::option::Option<ITypeInfo>, rgmemid: *mut i32, pcfound: *mut u16) -> ::windows::core::Result<()>;
-    fn ReleaseTLibAttr(&mut self, ptlibattr: *const TLIBATTR);
+    fn GetTypeInfoCount(&self) -> u32;
+    fn GetTypeInfo(&self, index: u32) -> ::windows::core::Result<ITypeInfo>;
+    fn GetTypeInfoType(&self, index: u32) -> ::windows::core::Result<TYPEKIND>;
+    fn GetTypeInfoOfGuid(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<ITypeInfo>;
+    fn GetLibAttr(&self) -> ::windows::core::Result<*mut TLIBATTR>;
+    fn GetTypeComp(&self) -> ::windows::core::Result<ITypeComp>;
+    fn GetDocumentation(&self, index: i32, pbstrname: *mut super::super::Foundation::BSTR, pbstrdocstring: *mut super::super::Foundation::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsName(&self, sznamebuf: super::super::Foundation::PWSTR, lhashval: u32, pfname: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn FindName(&self, sznamebuf: super::super::Foundation::PWSTR, lhashval: u32, pptinfo: *mut ::core::option::Option<ITypeInfo>, rgmemid: *mut i32, pcfound: *mut u16) -> ::windows::core::Result<()>;
+    fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITypeLib_Vtbl {
@@ -4555,10 +4555,10 @@ impl ITypeLib_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait ITypeLib2_Impl: Sized + ITypeLib_Impl {
-    fn GetCustData(&mut self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
-    fn GetLibStatistics(&mut self, pcuniquenames: *mut u32, pcchuniquenames: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDocumentation2(&mut self, index: i32, lcid: u32, pbstrhelpstring: *mut super::super::Foundation::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetAllCustData(&mut self) -> ::windows::core::Result<CUSTDATA>;
+    fn GetCustData(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<VARIANT>;
+    fn GetLibStatistics(&self, pcuniquenames: *mut u32, pcchuniquenames: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDocumentation2(&self, index: i32, lcid: u32, pbstrhelpstring: *mut super::super::Foundation::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetAllCustData(&self) -> ::windows::core::Result<CUSTDATA>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ITypeLib2_Vtbl {
@@ -4609,14 +4609,14 @@ impl ITypeLib2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITypeLibRegistration_Impl: Sized {
-    fn GetGuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetVersion(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetLcid(&mut self) -> ::windows::core::Result<u32>;
-    fn GetWin32Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetWin64Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetDisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetFlags(&mut self) -> ::windows::core::Result<u32>;
-    fn GetHelpDir(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetVersion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetLcid(&self) -> ::windows::core::Result<u32>;
+    fn GetWin32Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetWin64Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetFlags(&self) -> ::windows::core::Result<u32>;
+    fn GetHelpDir(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ITypeLibRegistration_Vtbl {
@@ -4726,7 +4726,7 @@ impl ITypeLibRegistration_Vtbl {
     }
 }
 pub trait ITypeLibRegistrationReader_Impl: Sized {
-    fn EnumTypeLibRegistrations(&mut self) -> ::windows::core::Result<IEnumUnknown>;
+    fn EnumTypeLibRegistrations(&self) -> ::windows::core::Result<IEnumUnknown>;
 }
 impl ITypeLibRegistrationReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITypeLibRegistrationReader_Impl, const OFFSET: isize>() -> ITypeLibRegistrationReader_Vtbl {
@@ -4749,31 +4749,31 @@ impl ITypeLibRegistrationReader_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUri_Impl: Sized {
-    fn GetPropertyBSTR(&mut self, uriprop: Uri_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetPropertyLength(&mut self, uriprop: Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetPropertyDWORD(&mut self, uriprop: Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn HasProperty(&mut self, uriprop: Uri_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetAbsoluteUri(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetAuthority(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetDisplayUri(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetDomain(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetExtension(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetFragment(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetHost(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPassword(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPathAndQuery(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetQuery(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetRawUri(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetSchemeName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetUserInfo(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetUserName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetHostType(&mut self) -> ::windows::core::Result<u32>;
-    fn GetPort(&mut self) -> ::windows::core::Result<u32>;
-    fn GetScheme(&mut self) -> ::windows::core::Result<u32>;
-    fn GetZone(&mut self) -> ::windows::core::Result<u32>;
-    fn GetProperties(&mut self) -> ::windows::core::Result<u32>;
-    fn IsEqual(&mut self, puri: &::core::option::Option<IUri>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetPropertyBSTR(&self, uriprop: Uri_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetPropertyLength(&self, uriprop: Uri_PROPERTY, pcchproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetPropertyDWORD(&self, uriprop: Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn HasProperty(&self, uriprop: Uri_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetAbsoluteUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetAuthority(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDisplayUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDomain(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetExtension(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetFragment(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetHost(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPassword(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPathAndQuery(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetQuery(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetRawUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetSchemeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetUserInfo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetUserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetHostType(&self) -> ::windows::core::Result<u32>;
+    fn GetPort(&self) -> ::windows::core::Result<u32>;
+    fn GetScheme(&self) -> ::windows::core::Result<u32>;
+    fn GetZone(&self) -> ::windows::core::Result<u32>;
+    fn GetProperties(&self) -> ::windows::core::Result<u32>;
+    fn IsEqual(&self, puri: &::core::option::Option<IUri>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUri_Vtbl {
@@ -5070,29 +5070,29 @@ impl IUri_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUriBuilder_Impl: Sized {
-    fn CreateUriSimple(&mut self, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
-    fn CreateUri(&mut self, dwcreateflags: u32, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
-    fn CreateUriWithFlags(&mut self, dwcreateflags: u32, dwuribuilderflags: u32, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
-    fn GetIUri(&mut self) -> ::windows::core::Result<IUri>;
-    fn SetIUri(&mut self, piuri: &::core::option::Option<IUri>) -> ::windows::core::Result<()>;
-    fn GetFragment(&mut self, pcchfragment: *mut u32, ppwzfragment: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetHost(&mut self, pcchhost: *mut u32, ppwzhost: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetPassword(&mut self, pcchpassword: *mut u32, ppwzpassword: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetPath(&mut self, pcchpath: *mut u32, ppwzpath: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetPort(&mut self, pfhasport: *mut super::super::Foundation::BOOL, pdwport: *mut u32) -> ::windows::core::Result<()>;
-    fn GetQuery(&mut self, pcchquery: *mut u32, ppwzquery: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetSchemeName(&mut self, pcchschemename: *mut u32, ppwzschemename: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetUserName(&mut self, pcchusername: *mut u32, ppwzusername: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetFragment(&mut self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetHost(&mut self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetPassword(&mut self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetPath(&mut self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetPort(&mut self, fhasport: super::super::Foundation::BOOL, dwnewvalue: u32) -> ::windows::core::Result<()>;
-    fn SetQuery(&mut self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetSchemeName(&mut self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetUserName(&mut self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RemoveProperties(&mut self, dwpropertymask: u32) -> ::windows::core::Result<()>;
-    fn HasBeenModified(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn CreateUriSimple(&self, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
+    fn CreateUri(&self, dwcreateflags: u32, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
+    fn CreateUriWithFlags(&self, dwcreateflags: u32, dwuribuilderflags: u32, dwallowencodingpropertymask: u32, dwreserved: usize) -> ::windows::core::Result<IUri>;
+    fn GetIUri(&self) -> ::windows::core::Result<IUri>;
+    fn SetIUri(&self, piuri: &::core::option::Option<IUri>) -> ::windows::core::Result<()>;
+    fn GetFragment(&self, pcchfragment: *mut u32, ppwzfragment: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetHost(&self, pcchhost: *mut u32, ppwzhost: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetPassword(&self, pcchpassword: *mut u32, ppwzpassword: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetPath(&self, pcchpath: *mut u32, ppwzpath: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetPort(&self, pfhasport: *mut super::super::Foundation::BOOL, pdwport: *mut u32) -> ::windows::core::Result<()>;
+    fn GetQuery(&self, pcchquery: *mut u32, ppwzquery: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSchemeName(&self, pcchschemename: *mut u32, ppwzschemename: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetUserName(&self, pcchusername: *mut u32, ppwzusername: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetFragment(&self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetHost(&self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetPassword(&self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetPath(&self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetPort(&self, fhasport: super::super::Foundation::BOOL, dwnewvalue: u32) -> ::windows::core::Result<()>;
+    fn SetQuery(&self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetSchemeName(&self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetUserName(&self, pwznewvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RemoveProperties(&self, dwpropertymask: u32) -> ::windows::core::Result<()>;
+    fn HasBeenModified(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUriBuilder_Vtbl {
@@ -5275,7 +5275,7 @@ impl IUriBuilder_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUrlMon_Impl: Sized {
-    fn AsyncGetClassBits(&mut self, rclsid: *const ::windows::core::GUID, psztype: super::super::Foundation::PWSTR, pszext: super::super::Foundation::PWSTR, dwfileversionms: u32, dwfileversionls: u32, pszcodebase: super::super::Foundation::PWSTR, pbc: &::core::option::Option<IBindCtx>, dwclasscontext: u32, riid: *const ::windows::core::GUID, flags: u32) -> ::windows::core::Result<()>;
+    fn AsyncGetClassBits(&self, rclsid: *const ::windows::core::GUID, psztype: super::super::Foundation::PWSTR, pszext: super::super::Foundation::PWSTR, dwfileversionms: u32, dwfileversionls: u32, pszcodebase: super::super::Foundation::PWSTR, pbc: &::core::option::Option<IBindCtx>, dwclasscontext: u32, riid: *const ::windows::core::GUID, flags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUrlMon_Vtbl {
@@ -5292,8 +5292,8 @@ impl IUrlMon_Vtbl {
     }
 }
 pub trait IWaitMultiple_Impl: Sized {
-    fn WaitMultiple(&mut self, timeout: u32) -> ::windows::core::Result<ISynchronize>;
-    fn AddSynchronize(&mut self, psync: &::core::option::Option<ISynchronize>) -> ::windows::core::Result<()>;
+    fn WaitMultiple(&self, timeout: u32) -> ::windows::core::Result<ISynchronize>;
+    fn AddSynchronize(&self, psync: &::core::option::Option<ISynchronize>) -> ::windows::core::Result<()>;
 }
 impl IWaitMultiple_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWaitMultiple_Impl, const OFFSET: isize>() -> IWaitMultiple_Vtbl {

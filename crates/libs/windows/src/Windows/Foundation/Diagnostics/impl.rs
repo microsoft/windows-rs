@@ -1,6 +1,6 @@
 pub trait IErrorReportingSettings_Impl: Sized {
-    fn SetErrorOptions(&mut self, value: ErrorOptions) -> ::windows::core::Result<()>;
-    fn GetErrorOptions(&mut self) -> ::windows::core::Result<ErrorOptions>;
+    fn SetErrorOptions(&self, value: ErrorOptions) -> ::windows::core::Result<()>;
+    fn GetErrorOptions(&self) -> ::windows::core::Result<ErrorOptions>;
 }
 impl ::windows::core::RuntimeName for IErrorReportingSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.IErrorReportingSettings";
@@ -36,13 +36,13 @@ impl IErrorReportingSettings_Vtbl {
 }
 #[cfg(feature = "Storage")]
 pub trait IFileLoggingSession_Impl: Sized + super::IClosable_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AddLoggingChannel(&mut self, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<()>;
-    fn AddLoggingChannelWithLevel(&mut self, loggingchannel: &::core::option::Option<ILoggingChannel>, maxlevel: LoggingLevel) -> ::windows::core::Result<()>;
-    fn RemoveLoggingChannel(&mut self, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<()>;
-    fn CloseAndSaveToFileAsync(&mut self) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>;
-    fn LogFileGenerated(&mut self, handler: &::core::option::Option<super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>) -> ::windows::core::Result<super::EventRegistrationToken>;
-    fn RemoveLogFileGenerated(&mut self, token: &super::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AddLoggingChannel(&self, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<()>;
+    fn AddLoggingChannelWithLevel(&self, loggingchannel: &::core::option::Option<ILoggingChannel>, maxlevel: LoggingLevel) -> ::windows::core::Result<()>;
+    fn RemoveLoggingChannel(&self, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<()>;
+    fn CloseAndSaveToFileAsync(&self) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>;
+    fn LogFileGenerated(&self, handler: &::core::option::Option<super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>) -> ::windows::core::Result<super::EventRegistrationToken>;
+    fn RemoveLogFileGenerated(&self, token: &super::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Storage")]
 impl ::windows::core::RuntimeName for IFileLoggingSession {
@@ -123,15 +123,15 @@ impl IFileLoggingSession_Vtbl {
     }
 }
 pub trait ILoggingChannel_Impl: Sized + super::IClosable_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Enabled(&mut self) -> ::windows::core::Result<bool>;
-    fn Level(&mut self) -> ::windows::core::Result<LoggingLevel>;
-    fn LogMessage(&mut self, eventstring: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LogMessageWithLevel(&mut self, eventstring: &::windows::core::HSTRING, level: LoggingLevel) -> ::windows::core::Result<()>;
-    fn LogValuePair(&mut self, value1: &::windows::core::HSTRING, value2: i32) -> ::windows::core::Result<()>;
-    fn LogValuePairWithLevel(&mut self, value1: &::windows::core::HSTRING, value2: i32, level: LoggingLevel) -> ::windows::core::Result<()>;
-    fn LoggingEnabled(&mut self, handler: &::core::option::Option<super::TypedEventHandler<ILoggingChannel, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::EventRegistrationToken>;
-    fn RemoveLoggingEnabled(&mut self, token: &super::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Enabled(&self) -> ::windows::core::Result<bool>;
+    fn Level(&self) -> ::windows::core::Result<LoggingLevel>;
+    fn LogMessage(&self, eventstring: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LogMessageWithLevel(&self, eventstring: &::windows::core::HSTRING, level: LoggingLevel) -> ::windows::core::Result<()>;
+    fn LogValuePair(&self, value1: &::windows::core::HSTRING, value2: i32) -> ::windows::core::Result<()>;
+    fn LogValuePairWithLevel(&self, value1: &::windows::core::HSTRING, value2: i32, level: LoggingLevel) -> ::windows::core::Result<()>;
+    fn LoggingEnabled(&self, handler: &::core::option::Option<super::TypedEventHandler<ILoggingChannel, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::EventRegistrationToken>;
+    fn RemoveLoggingEnabled(&self, token: &super::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ILoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingChannel";
@@ -230,11 +230,11 @@ impl ILoggingChannel_Vtbl {
 }
 #[cfg(feature = "Storage")]
 pub trait ILoggingSession_Impl: Sized + super::IClosable_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SaveToFileAsync(&mut self, folder: &::core::option::Option<super::super::Storage::IStorageFolder>, filename: &::windows::core::HSTRING) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>;
-    fn AddLoggingChannel(&mut self, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<()>;
-    fn AddLoggingChannelWithLevel(&mut self, loggingchannel: &::core::option::Option<ILoggingChannel>, maxlevel: LoggingLevel) -> ::windows::core::Result<()>;
-    fn RemoveLoggingChannel(&mut self, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SaveToFileAsync(&self, folder: &::core::option::Option<super::super::Storage::IStorageFolder>, filename: &::windows::core::HSTRING) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>>;
+    fn AddLoggingChannel(&self, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<()>;
+    fn AddLoggingChannelWithLevel(&self, loggingchannel: &::core::option::Option<ILoggingChannel>, maxlevel: LoggingLevel) -> ::windows::core::Result<()>;
+    fn RemoveLoggingChannel(&self, loggingchannel: &::core::option::Option<ILoggingChannel>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Storage")]
 impl ::windows::core::RuntimeName for ILoggingSession {
@@ -296,17 +296,17 @@ impl ILoggingSession_Vtbl {
     }
 }
 pub trait ILoggingTarget_Impl: Sized {
-    fn IsEnabled(&mut self) -> ::windows::core::Result<bool>;
-    fn IsEnabledWithLevel(&mut self, level: LoggingLevel) -> ::windows::core::Result<bool>;
-    fn IsEnabledWithLevelAndKeywords(&mut self, level: LoggingLevel, keywords: i64) -> ::windows::core::Result<bool>;
-    fn LogEvent(&mut self, eventname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn LogEventWithFields(&mut self, eventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>) -> ::windows::core::Result<()>;
-    fn LogEventWithFieldsAndLevel(&mut self, eventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>, level: LoggingLevel) -> ::windows::core::Result<()>;
-    fn LogEventWithFieldsAndOptions(&mut self, eventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>, level: LoggingLevel, options: &::core::option::Option<LoggingOptions>) -> ::windows::core::Result<()>;
-    fn StartActivity(&mut self, starteventname: &::windows::core::HSTRING) -> ::windows::core::Result<LoggingActivity>;
-    fn StartActivityWithFields(&mut self, starteventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>) -> ::windows::core::Result<LoggingActivity>;
-    fn StartActivityWithFieldsAndLevel(&mut self, starteventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>, level: LoggingLevel) -> ::windows::core::Result<LoggingActivity>;
-    fn StartActivityWithFieldsAndOptions(&mut self, starteventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>, level: LoggingLevel, options: &::core::option::Option<LoggingOptions>) -> ::windows::core::Result<LoggingActivity>;
+    fn IsEnabled(&self) -> ::windows::core::Result<bool>;
+    fn IsEnabledWithLevel(&self, level: LoggingLevel) -> ::windows::core::Result<bool>;
+    fn IsEnabledWithLevelAndKeywords(&self, level: LoggingLevel, keywords: i64) -> ::windows::core::Result<bool>;
+    fn LogEvent(&self, eventname: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LogEventWithFields(&self, eventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>) -> ::windows::core::Result<()>;
+    fn LogEventWithFieldsAndLevel(&self, eventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>, level: LoggingLevel) -> ::windows::core::Result<()>;
+    fn LogEventWithFieldsAndOptions(&self, eventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>, level: LoggingLevel, options: &::core::option::Option<LoggingOptions>) -> ::windows::core::Result<()>;
+    fn StartActivity(&self, starteventname: &::windows::core::HSTRING) -> ::windows::core::Result<LoggingActivity>;
+    fn StartActivityWithFields(&self, starteventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>) -> ::windows::core::Result<LoggingActivity>;
+    fn StartActivityWithFieldsAndLevel(&self, starteventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>, level: LoggingLevel) -> ::windows::core::Result<LoggingActivity>;
+    fn StartActivityWithFieldsAndOptions(&self, starteventname: &::windows::core::HSTRING, fields: &::core::option::Option<LoggingFields>, level: LoggingLevel, options: &::core::option::Option<LoggingOptions>) -> ::windows::core::Result<LoggingActivity>;
 }
 impl ::windows::core::RuntimeName for ILoggingTarget {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingTarget";

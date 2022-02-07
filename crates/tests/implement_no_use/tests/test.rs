@@ -7,13 +7,13 @@
 struct Test(&'static str);
 
 impl windows::Foundation::IStringable_Impl for Test {
-    fn ToString(&mut self) -> windows::core::Result<windows::core::HSTRING> {
+    fn ToString(&self) -> windows::core::Result<windows::core::HSTRING> {
         Ok(self.0.into())
     }
 }
 
 impl windows::Foundation::IClosable_Impl for Test {
-    fn Close(&mut self) -> windows::core::Result<()> {
+    fn Close(&self) -> windows::core::Result<()> {
         Ok(())
     }
 }

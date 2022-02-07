@@ -1,8 +1,8 @@
 pub trait IEnumNetCfgBindingInterface_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumNetCfgBindingInterface>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgBindingInterface>;
 }
 impl IEnumNetCfgBindingInterface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumNetCfgBindingInterface_Impl, const OFFSET: isize>() -> IEnumNetCfgBindingInterface_Vtbl {
@@ -45,10 +45,10 @@ impl IEnumNetCfgBindingInterface_Vtbl {
     }
 }
 pub trait IEnumNetCfgBindingPath_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumNetCfgBindingPath>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgBindingPath>;
 }
 impl IEnumNetCfgBindingPath_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumNetCfgBindingPath_Impl, const OFFSET: isize>() -> IEnumNetCfgBindingPath_Vtbl {
@@ -91,10 +91,10 @@ impl IEnumNetCfgBindingPath_Vtbl {
     }
 }
 pub trait IEnumNetCfgComponent_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumNetCfgComponent>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgComponent>;
 }
 impl IEnumNetCfgComponent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumNetCfgComponent_Impl, const OFFSET: isize>() -> IEnumNetCfgComponent_Vtbl {
@@ -138,13 +138,13 @@ impl IEnumNetCfgComponent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfg_Impl: Sized {
-    fn Initialize(&mut self, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Uninitialize(&mut self) -> ::windows::core::Result<()>;
-    fn Apply(&mut self) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn EnumComponents(&mut self, pguidclass: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumNetCfgComponent>;
-    fn FindComponent(&mut self, pszwinfid: super::super::Foundation::PWSTR) -> ::windows::core::Result<INetCfgComponent>;
-    fn QueryNetCfgClass(&mut self, pguidclass: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Uninitialize(&self) -> ::windows::core::Result<()>;
+    fn Apply(&self) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn EnumComponents(&self, pguidclass: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumNetCfgComponent>;
+    fn FindComponent(&self, pszwinfid: super::super::Foundation::PWSTR) -> ::windows::core::Result<INetCfgComponent>;
+    fn QueryNetCfgClass(&self, pguidclass: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfg_Vtbl {
@@ -213,9 +213,9 @@ impl INetCfg_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgBindingInterface_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetUpperComponent(&mut self) -> ::windows::core::Result<INetCfgComponent>;
-    fn GetLowerComponent(&mut self) -> ::windows::core::Result<INetCfgComponent>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetUpperComponent(&self) -> ::windows::core::Result<INetCfgComponent>;
+    fn GetLowerComponent(&self) -> ::windows::core::Result<INetCfgComponent>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgBindingInterface_Vtbl {
@@ -266,14 +266,14 @@ impl INetCfgBindingInterface_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgBindingPath_Impl: Sized {
-    fn IsSamePathAs(&mut self, ppath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn IsSubPathOf(&mut self, ppath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn IsEnabled(&mut self) -> ::windows::core::Result<()>;
-    fn Enable(&mut self, fenable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetPathToken(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetOwner(&mut self) -> ::windows::core::Result<INetCfgComponent>;
-    fn GetDepth(&mut self) -> ::windows::core::Result<u32>;
-    fn EnumBindingInterfaces(&mut self) -> ::windows::core::Result<IEnumNetCfgBindingInterface>;
+    fn IsSamePathAs(&self, ppath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn IsSubPathOf(&self, ppath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn IsEnabled(&self) -> ::windows::core::Result<()>;
+    fn Enable(&self, fenable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetPathToken(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetOwner(&self) -> ::windows::core::Result<INetCfgComponent>;
+    fn GetDepth(&self) -> ::windows::core::Result<u32>;
+    fn EnumBindingInterfaces(&self) -> ::windows::core::Result<IEnumNetCfgBindingInterface>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgBindingPath_Vtbl {
@@ -360,8 +360,8 @@ impl INetCfgBindingPath_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgClass_Impl: Sized {
-    fn FindComponent(&mut self, pszwinfid: super::super::Foundation::PWSTR) -> ::windows::core::Result<INetCfgComponent>;
-    fn EnumComponents(&mut self) -> ::windows::core::Result<IEnumNetCfgComponent>;
+    fn FindComponent(&self, pszwinfid: super::super::Foundation::PWSTR) -> ::windows::core::Result<INetCfgComponent>;
+    fn EnumComponents(&self) -> ::windows::core::Result<IEnumNetCfgComponent>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgClass_Vtbl {
@@ -400,9 +400,9 @@ impl INetCfgClass_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgClassSetup_Impl: Sized {
-    fn SelectAndInstall(&mut self, hwndparent: super::super::Foundation::HWND, pobotoken: *const OBO_TOKEN) -> ::windows::core::Result<INetCfgComponent>;
-    fn Install(&mut self, pszwinfid: super::super::Foundation::PWSTR, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR) -> ::windows::core::Result<INetCfgComponent>;
-    fn DeInstall(&mut self, pcomponent: &::core::option::Option<INetCfgComponent>, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SelectAndInstall(&self, hwndparent: super::super::Foundation::HWND, pobotoken: *const OBO_TOKEN) -> ::windows::core::Result<INetCfgComponent>;
+    fn Install(&self, pszwinfid: super::super::Foundation::PWSTR, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR) -> ::windows::core::Result<INetCfgComponent>;
+    fn DeInstall(&self, pcomponent: &::core::option::Option<INetCfgComponent>, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgClassSetup_Vtbl {
@@ -447,7 +447,7 @@ impl INetCfgClassSetup_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgClassSetup2_Impl: Sized + INetCfgClassSetup_Impl {
-    fn UpdateNonEnumeratedComponent(&mut self, picomp: &::core::option::Option<INetCfgComponent>, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::core::Result<()>;
+    fn UpdateNonEnumeratedComponent(&self, picomp: &::core::option::Option<INetCfgComponent>, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgClassSetup2_Vtbl {
@@ -468,18 +468,18 @@ impl INetCfgClassSetup2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait INetCfgComponent_Impl: Sized {
-    fn GetDisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetDisplayName(&mut self, pszwdisplayname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetHelpText(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetCharacteristics(&mut self) -> ::windows::core::Result<u32>;
-    fn GetInstanceGuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetPnpDevNodeId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetClassGuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetBindName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetDeviceStatus(&mut self) -> ::windows::core::Result<u32>;
-    fn OpenParamKey(&mut self) -> ::windows::core::Result<super::super::System::Registry::HKEY>;
-    fn RaisePropertyUi(&mut self, hwndparent: super::super::Foundation::HWND, dwflags: u32, punkcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetDisplayName(&self, pszwdisplayname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetHelpText(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetCharacteristics(&self) -> ::windows::core::Result<u32>;
+    fn GetInstanceGuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetPnpDevNodeId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetClassGuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetBindName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetDeviceStatus(&self) -> ::windows::core::Result<u32>;
+    fn OpenParamKey(&self) -> ::windows::core::Result<super::super::System::Registry::HKEY>;
+    fn RaisePropertyUi(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32, punkcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl INetCfgComponent_Vtbl {
@@ -626,14 +626,14 @@ impl INetCfgComponent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentBindings_Impl: Sized {
-    fn BindTo(&mut self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
-    fn UnbindFrom(&mut self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
-    fn SupportsBindingInterface(&mut self, dwflags: u32, pszwinterfacename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn IsBoundTo(&mut self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
-    fn IsBindableTo(&mut self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
-    fn EnumBindingPaths(&mut self, dwflags: u32) -> ::windows::core::Result<IEnumNetCfgBindingPath>;
-    fn MoveBefore(&mut self, pncbitemsrc: &::core::option::Option<INetCfgBindingPath>, pncbitemdest: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn MoveAfter(&mut self, pncbitemsrc: &::core::option::Option<INetCfgBindingPath>, pncbitemdest: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn BindTo(&self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
+    fn UnbindFrom(&self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
+    fn SupportsBindingInterface(&self, dwflags: u32, pszwinterfacename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn IsBoundTo(&self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
+    fn IsBindableTo(&self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
+    fn EnumBindingPaths(&self, dwflags: u32) -> ::windows::core::Result<IEnumNetCfgBindingPath>;
+    fn MoveBefore(&self, pncbitemsrc: &::core::option::Option<INetCfgBindingPath>, pncbitemdest: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn MoveAfter(&self, pncbitemsrc: &::core::option::Option<INetCfgBindingPath>, pncbitemdest: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgComponentBindings_Vtbl {
@@ -702,10 +702,10 @@ impl INetCfgComponentBindings_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentControl_Impl: Sized {
-    fn Initialize(&mut self, picomp: &::core::option::Option<INetCfgComponent>, pinetcfg: &::core::option::Option<INetCfg>, finstalling: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn ApplyRegistryChanges(&mut self) -> ::windows::core::Result<()>;
-    fn ApplyPnpChanges(&mut self, picallback: &::core::option::Option<INetCfgPnpReconfigCallback>) -> ::windows::core::Result<()>;
-    fn CancelChanges(&mut self) -> ::windows::core::Result<()>;
+    fn Initialize(&self, picomp: &::core::option::Option<INetCfgComponent>, pinetcfg: &::core::option::Option<INetCfg>, finstalling: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ApplyRegistryChanges(&self) -> ::windows::core::Result<()>;
+    fn ApplyPnpChanges(&self, picallback: &::core::option::Option<INetCfgPnpReconfigCallback>) -> ::windows::core::Result<()>;
+    fn CancelChanges(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgComponentControl_Vtbl {
@@ -743,8 +743,8 @@ impl INetCfgComponentControl_Vtbl {
     }
 }
 pub trait INetCfgComponentNotifyBinding_Impl: Sized {
-    fn QueryBindingPath(&mut self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn NotifyBindingPath(&mut self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn QueryBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn NotifyBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
 }
 impl INetCfgComponentNotifyBinding_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetCfgComponentNotifyBinding_Impl, const OFFSET: isize>() -> INetCfgComponentNotifyBinding_Vtbl {
@@ -769,10 +769,10 @@ impl INetCfgComponentNotifyBinding_Vtbl {
     }
 }
 pub trait INetCfgComponentNotifyGlobal_Impl: Sized {
-    fn GetSupportedNotifications(&mut self) -> ::windows::core::Result<u32>;
-    fn SysQueryBindingPath(&mut self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn SysNotifyBindingPath(&mut self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn SysNotifyComponent(&mut self, dwchangeflag: u32, picomp: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
+    fn GetSupportedNotifications(&self) -> ::windows::core::Result<u32>;
+    fn SysQueryBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn SysNotifyBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn SysNotifyComponent(&self, dwchangeflag: u32, picomp: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
 }
 impl INetCfgComponentNotifyGlobal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetCfgComponentNotifyGlobal_Impl, const OFFSET: isize>() -> INetCfgComponentNotifyGlobal_Vtbl {
@@ -816,12 +816,12 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentPropertyUi_Impl: Sized {
-    fn QueryPropertyUi(&mut self, punkreserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetContext(&mut self, punkreserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn MergePropPages(&mut self, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: super::super::Foundation::HWND, pszstartpage: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ValidateProperties(&mut self, hwndsheet: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn ApplyProperties(&mut self) -> ::windows::core::Result<()>;
-    fn CancelProperties(&mut self) -> ::windows::core::Result<()>;
+    fn QueryPropertyUi(&self, punkreserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetContext(&self, punkreserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn MergePropPages(&self, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: super::super::Foundation::HWND, pszstartpage: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ValidateProperties(&self, hwndsheet: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn ApplyProperties(&self) -> ::windows::core::Result<()>;
+    fn CancelProperties(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgComponentPropertyUi_Vtbl {
@@ -872,10 +872,10 @@ impl INetCfgComponentPropertyUi_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentSetup_Impl: Sized {
-    fn Install(&mut self, dwsetupflags: u32) -> ::windows::core::Result<()>;
-    fn Upgrade(&mut self, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::core::Result<()>;
-    fn ReadAnswerFile(&mut self, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Removing(&mut self) -> ::windows::core::Result<()>;
+    fn Install(&self, dwsetupflags: u32) -> ::windows::core::Result<()>;
+    fn Upgrade(&self, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::core::Result<()>;
+    fn ReadAnswerFile(&self, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersections: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Removing(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgComponentSetup_Vtbl {
@@ -914,8 +914,8 @@ impl INetCfgComponentSetup_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentSysPrep_Impl: Sized {
-    fn SaveAdapterParameters(&mut self, pncsp: &::core::option::Option<INetCfgSysPrep>, pszwanswersections: super::super::Foundation::PWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RestoreAdapterParameters(&mut self, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersection: super::super::Foundation::PWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SaveAdapterParameters(&self, pncsp: &::core::option::Option<INetCfgSysPrep>, pszwanswersections: super::super::Foundation::PWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RestoreAdapterParameters(&self, pszwanswerfile: super::super::Foundation::PWSTR, pszwanswersection: super::super::Foundation::PWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgComponentSysPrep_Vtbl {
@@ -941,9 +941,9 @@ impl INetCfgComponentSysPrep_Vtbl {
     }
 }
 pub trait INetCfgComponentUpperEdge_Impl: Sized {
-    fn GetInterfaceIdsForAdapter(&mut self, padapter: &::core::option::Option<INetCfgComponent>, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn AddInterfacesToAdapter(&mut self, padapter: &::core::option::Option<INetCfgComponent>, dwnuminterfaces: u32) -> ::windows::core::Result<()>;
-    fn RemoveInterfacesFromAdapter(&mut self, padapter: &::core::option::Option<INetCfgComponent>, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetInterfaceIdsForAdapter(&self, padapter: &::core::option::Option<INetCfgComponent>, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn AddInterfacesToAdapter(&self, padapter: &::core::option::Option<INetCfgComponent>, dwnuminterfaces: u32) -> ::windows::core::Result<()>;
+    fn RemoveInterfacesFromAdapter(&self, padapter: &::core::option::Option<INetCfgComponent>, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl INetCfgComponentUpperEdge_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetCfgComponentUpperEdge_Impl, const OFFSET: isize>() -> INetCfgComponentUpperEdge_Vtbl {
@@ -975,9 +975,9 @@ impl INetCfgComponentUpperEdge_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgLock_Impl: Sized {
-    fn AcquireWriteLock(&mut self, cmstimeout: u32, pszwclientdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn ReleaseWriteLock(&mut self) -> ::windows::core::Result<()>;
-    fn IsWriteLocked(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn AcquireWriteLock(&self, cmstimeout: u32, pszwclientdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn ReleaseWriteLock(&self) -> ::windows::core::Result<()>;
+    fn IsWriteLocked(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgLock_Vtbl {
@@ -1022,7 +1022,7 @@ impl INetCfgLock_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgPnpReconfigCallback_Impl: Sized {
-    fn SendPnpReconfig(&mut self, layer: NCPNP_RECONFIG_LAYER, pszwupper: super::super::Foundation::PWSTR, pszwlower: super::super::Foundation::PWSTR, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::Result<()>;
+    fn SendPnpReconfig(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: super::super::Foundation::PWSTR, pszwlower: super::super::Foundation::PWSTR, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgPnpReconfigCallback_Vtbl {
@@ -1040,10 +1040,10 @@ impl INetCfgPnpReconfigCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgSysPrep_Impl: Sized {
-    fn HrSetupSetFirstDword(&mut self, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, dwvalue: u32) -> ::windows::core::Result<()>;
-    fn HrSetupSetFirstString(&mut self, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, pwszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn HrSetupSetFirstStringAsBool(&mut self, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, fvalue: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn HrSetupSetFirstMultiSzField(&mut self, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, pmszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn HrSetupSetFirstDword(&self, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, dwvalue: u32) -> ::windows::core::Result<()>;
+    fn HrSetupSetFirstString(&self, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, pwszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn HrSetupSetFirstStringAsBool(&self, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, fvalue: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn HrSetupSetFirstMultiSzField(&self, pwszsection: super::super::Foundation::PWSTR, pwszkey: super::super::Foundation::PWSTR, pmszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetCfgSysPrep_Vtbl {
@@ -1081,7 +1081,7 @@ impl INetCfgSysPrep_Vtbl {
     }
 }
 pub trait INetLanConnectionUiInfo_Impl: Sized {
-    fn GetDeviceGuid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetDeviceGuid(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl INetLanConnectionUiInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetLanConnectionUiInfo_Impl, const OFFSET: isize>() -> INetLanConnectionUiInfo_Vtbl {
@@ -1104,7 +1104,7 @@ impl INetLanConnectionUiInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetRasConnectionIpUiInfo_Impl: Sized {
-    fn GetUiInfo(&mut self) -> ::windows::core::Result<RASCON_IPUI>;
+    fn GetUiInfo(&self) -> ::windows::core::Result<RASCON_IPUI>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetRasConnectionIpUiInfo_Vtbl {
@@ -1128,8 +1128,8 @@ impl INetRasConnectionIpUiInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IProvisioningDomain_Impl: Sized {
-    fn Add(&mut self, pszwpathtofolder: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Query(&mut self, pszwdomain: super::super::Foundation::PWSTR, pszwlanguage: super::super::Foundation::PWSTR, pszwxpathquery: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
+    fn Add(&self, pszwpathtofolder: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Query(&self, pszwdomain: super::super::Foundation::PWSTR, pszwlanguage: super::super::Foundation::PWSTR, pszwxpathquery: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IProvisioningDomain_Vtbl {
@@ -1158,7 +1158,7 @@ impl IProvisioningDomain_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IProvisioningProfileWireless_Impl: Sized {
-    fn CreateProfile(&mut self, bstrxmlwirelessconfigprofile: &super::super::Foundation::BSTR, bstrxmlconnectionconfigprofile: &super::super::Foundation::BSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
+    fn CreateProfile(&self, bstrxmlwirelessconfigprofile: &super::super::Foundation::BSTR, bstrxmlconnectionconfigprofile: &super::super::Foundation::BSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IProvisioningProfileWireless_Vtbl {

@@ -1,11 +1,11 @@
 pub trait IUIAnimationInterpolator_Impl: Sized {
-    fn SetInitialValueAndVelocity(&mut self, initialvalue: f64, initialvelocity: f64) -> ::windows::core::Result<()>;
-    fn SetDuration(&mut self, duration: f64) -> ::windows::core::Result<()>;
-    fn GetDuration(&mut self) -> ::windows::core::Result<f64>;
-    fn GetFinalValue(&mut self) -> ::windows::core::Result<f64>;
-    fn InterpolateValue(&mut self, offset: f64) -> ::windows::core::Result<f64>;
-    fn InterpolateVelocity(&mut self, offset: f64) -> ::windows::core::Result<f64>;
-    fn GetDependencies(&mut self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()>;
+    fn SetInitialValueAndVelocity(&self, initialvalue: f64, initialvelocity: f64) -> ::windows::core::Result<()>;
+    fn SetDuration(&self, duration: f64) -> ::windows::core::Result<()>;
+    fn GetDuration(&self) -> ::windows::core::Result<f64>;
+    fn GetFinalValue(&self) -> ::windows::core::Result<f64>;
+    fn InterpolateValue(&self, offset: f64) -> ::windows::core::Result<f64>;
+    fn InterpolateVelocity(&self, offset: f64) -> ::windows::core::Result<f64>;
+    fn GetDependencies(&self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationInterpolator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationInterpolator_Impl, const OFFSET: isize>() -> IUIAnimationInterpolator_Vtbl {
@@ -84,15 +84,15 @@ impl IUIAnimationInterpolator_Vtbl {
     }
 }
 pub trait IUIAnimationInterpolator2_Impl: Sized {
-    fn GetDimension(&mut self) -> ::windows::core::Result<u32>;
-    fn SetInitialValueAndVelocity(&mut self, initialvalue: *const f64, initialvelocity: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn SetDuration(&mut self, duration: f64) -> ::windows::core::Result<()>;
-    fn GetDuration(&mut self) -> ::windows::core::Result<f64>;
-    fn GetFinalValue(&mut self, value: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn InterpolateValue(&mut self, offset: f64, value: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn InterpolateVelocity(&mut self, offset: f64, velocity: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn GetPrimitiveInterpolation(&mut self, interpolation: &::core::option::Option<IUIAnimationPrimitiveInterpolation>, cdimension: u32) -> ::windows::core::Result<()>;
-    fn GetDependencies(&mut self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()>;
+    fn GetDimension(&self) -> ::windows::core::Result<u32>;
+    fn SetInitialValueAndVelocity(&self, initialvalue: *const f64, initialvelocity: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn SetDuration(&self, duration: f64) -> ::windows::core::Result<()>;
+    fn GetDuration(&self) -> ::windows::core::Result<f64>;
+    fn GetFinalValue(&self, value: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn InterpolateValue(&self, offset: f64, value: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn InterpolateVelocity(&self, offset: f64, velocity: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetPrimitiveInterpolation(&self, interpolation: &::core::option::Option<IUIAnimationPrimitiveInterpolation>, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetDependencies(&self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationInterpolator2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationInterpolator2_Impl, const OFFSET: isize>() -> IUIAnimationInterpolator2_Vtbl {
@@ -171,7 +171,7 @@ impl IUIAnimationInterpolator2_Vtbl {
     }
 }
 pub trait IUIAnimationLoopIterationChangeHandler2_Impl: Sized {
-    fn OnLoopIterationChanged(&mut self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, id: usize, newiterationcount: u32, olditerationcount: u32) -> ::windows::core::Result<()>;
+    fn OnLoopIterationChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, id: usize, newiterationcount: u32, olditerationcount: u32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationLoopIterationChangeHandler2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationLoopIterationChangeHandler2_Impl, const OFFSET: isize>() -> IUIAnimationLoopIterationChangeHandler2_Vtbl {
@@ -187,25 +187,25 @@ impl IUIAnimationLoopIterationChangeHandler2_Vtbl {
     }
 }
 pub trait IUIAnimationManager_Impl: Sized {
-    fn CreateAnimationVariable(&mut self, initialvalue: f64) -> ::windows::core::Result<IUIAnimationVariable>;
-    fn ScheduleTransition(&mut self, variable: &::core::option::Option<IUIAnimationVariable>, transition: &::core::option::Option<IUIAnimationTransition>, timenow: f64) -> ::windows::core::Result<()>;
-    fn CreateStoryboard(&mut self) -> ::windows::core::Result<IUIAnimationStoryboard>;
-    fn FinishAllStoryboards(&mut self, completiondeadline: f64) -> ::windows::core::Result<()>;
-    fn AbandonAllStoryboards(&mut self) -> ::windows::core::Result<()>;
-    fn Update(&mut self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
-    fn GetVariableFromTag(&mut self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationVariable>;
-    fn GetStoryboardFromTag(&mut self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard>;
-    fn GetStatus(&mut self) -> ::windows::core::Result<UI_ANIMATION_MANAGER_STATUS>;
-    fn SetAnimationMode(&mut self, mode: UI_ANIMATION_MODE) -> ::windows::core::Result<()>;
-    fn Pause(&mut self) -> ::windows::core::Result<()>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn SetManagerEventHandler(&mut self, handler: &::core::option::Option<IUIAnimationManagerEventHandler>) -> ::windows::core::Result<()>;
-    fn SetCancelPriorityComparison(&mut self, comparison: &::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
-    fn SetTrimPriorityComparison(&mut self, comparison: &::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
-    fn SetCompressPriorityComparison(&mut self, comparison: &::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
-    fn SetConcludePriorityComparison(&mut self, comparison: &::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
-    fn SetDefaultLongestAcceptableDelay(&mut self, delay: f64) -> ::windows::core::Result<()>;
-    fn Shutdown(&mut self) -> ::windows::core::Result<()>;
+    fn CreateAnimationVariable(&self, initialvalue: f64) -> ::windows::core::Result<IUIAnimationVariable>;
+    fn ScheduleTransition(&self, variable: &::core::option::Option<IUIAnimationVariable>, transition: &::core::option::Option<IUIAnimationTransition>, timenow: f64) -> ::windows::core::Result<()>;
+    fn CreateStoryboard(&self) -> ::windows::core::Result<IUIAnimationStoryboard>;
+    fn FinishAllStoryboards(&self, completiondeadline: f64) -> ::windows::core::Result<()>;
+    fn AbandonAllStoryboards(&self) -> ::windows::core::Result<()>;
+    fn Update(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
+    fn GetVariableFromTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationVariable>;
+    fn GetStoryboardFromTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard>;
+    fn GetStatus(&self) -> ::windows::core::Result<UI_ANIMATION_MANAGER_STATUS>;
+    fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> ::windows::core::Result<()>;
+    fn Pause(&self) -> ::windows::core::Result<()>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
+    fn SetManagerEventHandler(&self, handler: &::core::option::Option<IUIAnimationManagerEventHandler>) -> ::windows::core::Result<()>;
+    fn SetCancelPriorityComparison(&self, comparison: &::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
+    fn SetTrimPriorityComparison(&self, comparison: &::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
+    fn SetCompressPriorityComparison(&self, comparison: &::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
+    fn SetConcludePriorityComparison(&self, comparison: &::core::option::Option<IUIAnimationPriorityComparison>) -> ::windows::core::Result<()>;
+    fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()>;
+    fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationManager_Impl, const OFFSET: isize>() -> IUIAnimationManager_Vtbl {
@@ -369,27 +369,27 @@ impl IUIAnimationManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAnimationManager2_Impl: Sized {
-    fn CreateAnimationVectorVariable(&mut self, initialvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationVariable2>;
-    fn CreateAnimationVariable(&mut self, initialvalue: f64) -> ::windows::core::Result<IUIAnimationVariable2>;
-    fn ScheduleTransition(&mut self, variable: &::core::option::Option<IUIAnimationVariable2>, transition: &::core::option::Option<IUIAnimationTransition2>, timenow: f64) -> ::windows::core::Result<()>;
-    fn CreateStoryboard(&mut self) -> ::windows::core::Result<IUIAnimationStoryboard2>;
-    fn FinishAllStoryboards(&mut self, completiondeadline: f64) -> ::windows::core::Result<()>;
-    fn AbandonAllStoryboards(&mut self) -> ::windows::core::Result<()>;
-    fn Update(&mut self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
-    fn GetVariableFromTag(&mut self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationVariable2>;
-    fn GetStoryboardFromTag(&mut self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard2>;
-    fn EstimateNextEventTime(&mut self) -> ::windows::core::Result<f64>;
-    fn GetStatus(&mut self) -> ::windows::core::Result<UI_ANIMATION_MANAGER_STATUS>;
-    fn SetAnimationMode(&mut self, mode: UI_ANIMATION_MODE) -> ::windows::core::Result<()>;
-    fn Pause(&mut self) -> ::windows::core::Result<()>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn SetManagerEventHandler(&mut self, handler: &::core::option::Option<IUIAnimationManagerEventHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetCancelPriorityComparison(&mut self, comparison: &::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
-    fn SetTrimPriorityComparison(&mut self, comparison: &::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
-    fn SetCompressPriorityComparison(&mut self, comparison: &::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
-    fn SetConcludePriorityComparison(&mut self, comparison: &::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
-    fn SetDefaultLongestAcceptableDelay(&mut self, delay: f64) -> ::windows::core::Result<()>;
-    fn Shutdown(&mut self) -> ::windows::core::Result<()>;
+    fn CreateAnimationVectorVariable(&self, initialvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationVariable2>;
+    fn CreateAnimationVariable(&self, initialvalue: f64) -> ::windows::core::Result<IUIAnimationVariable2>;
+    fn ScheduleTransition(&self, variable: &::core::option::Option<IUIAnimationVariable2>, transition: &::core::option::Option<IUIAnimationTransition2>, timenow: f64) -> ::windows::core::Result<()>;
+    fn CreateStoryboard(&self) -> ::windows::core::Result<IUIAnimationStoryboard2>;
+    fn FinishAllStoryboards(&self, completiondeadline: f64) -> ::windows::core::Result<()>;
+    fn AbandonAllStoryboards(&self) -> ::windows::core::Result<()>;
+    fn Update(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
+    fn GetVariableFromTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationVariable2>;
+    fn GetStoryboardFromTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard2>;
+    fn EstimateNextEventTime(&self) -> ::windows::core::Result<f64>;
+    fn GetStatus(&self) -> ::windows::core::Result<UI_ANIMATION_MANAGER_STATUS>;
+    fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> ::windows::core::Result<()>;
+    fn Pause(&self) -> ::windows::core::Result<()>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
+    fn SetManagerEventHandler(&self, handler: &::core::option::Option<IUIAnimationManagerEventHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetCancelPriorityComparison(&self, comparison: &::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
+    fn SetTrimPriorityComparison(&self, comparison: &::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
+    fn SetCompressPriorityComparison(&self, comparison: &::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
+    fn SetConcludePriorityComparison(&self, comparison: &::core::option::Option<IUIAnimationPriorityComparison2>) -> ::windows::core::Result<()>;
+    fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()>;
+    fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAnimationManager2_Vtbl {
@@ -577,7 +577,7 @@ impl IUIAnimationManager2_Vtbl {
     }
 }
 pub trait IUIAnimationManagerEventHandler_Impl: Sized {
-    fn OnManagerStatusChanged(&mut self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()>;
+    fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationManagerEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationManagerEventHandler_Impl, const OFFSET: isize>() -> IUIAnimationManagerEventHandler_Vtbl {
@@ -593,7 +593,7 @@ impl IUIAnimationManagerEventHandler_Vtbl {
     }
 }
 pub trait IUIAnimationManagerEventHandler2_Impl: Sized {
-    fn OnManagerStatusChanged(&mut self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()>;
+    fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationManagerEventHandler2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationManagerEventHandler2_Impl, const OFFSET: isize>() -> IUIAnimationManagerEventHandler2_Vtbl {
@@ -609,8 +609,8 @@ impl IUIAnimationManagerEventHandler2_Vtbl {
     }
 }
 pub trait IUIAnimationPrimitiveInterpolation_Impl: Sized {
-    fn AddCubic(&mut self, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::Result<()>;
-    fn AddSinusoidal(&mut self, dimension: u32, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows::core::Result<()>;
+    fn AddCubic(&self, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::Result<()>;
+    fn AddSinusoidal(&self, dimension: u32, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationPrimitiveInterpolation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationPrimitiveInterpolation_Impl, const OFFSET: isize>() -> IUIAnimationPrimitiveInterpolation_Vtbl {
@@ -635,7 +635,7 @@ impl IUIAnimationPrimitiveInterpolation_Vtbl {
     }
 }
 pub trait IUIAnimationPriorityComparison_Impl: Sized {
-    fn HasPriority(&mut self, scheduledstoryboard: &::core::option::Option<IUIAnimationStoryboard>, newstoryboard: &::core::option::Option<IUIAnimationStoryboard>, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::Result<()>;
+    fn HasPriority(&self, scheduledstoryboard: &::core::option::Option<IUIAnimationStoryboard>, newstoryboard: &::core::option::Option<IUIAnimationStoryboard>, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationPriorityComparison_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationPriorityComparison_Impl, const OFFSET: isize>() -> IUIAnimationPriorityComparison_Vtbl {
@@ -651,7 +651,7 @@ impl IUIAnimationPriorityComparison_Vtbl {
     }
 }
 pub trait IUIAnimationPriorityComparison2_Impl: Sized {
-    fn HasPriority(&mut self, scheduledstoryboard: &::core::option::Option<IUIAnimationStoryboard2>, newstoryboard: &::core::option::Option<IUIAnimationStoryboard2>, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::Result<()>;
+    fn HasPriority(&self, scheduledstoryboard: &::core::option::Option<IUIAnimationStoryboard2>, newstoryboard: &::core::option::Option<IUIAnimationStoryboard2>, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationPriorityComparison2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationPriorityComparison2_Impl, const OFFSET: isize>() -> IUIAnimationPriorityComparison2_Vtbl {
@@ -667,23 +667,23 @@ impl IUIAnimationPriorityComparison2_Vtbl {
     }
 }
 pub trait IUIAnimationStoryboard_Impl: Sized {
-    fn AddTransition(&mut self, variable: &::core::option::Option<IUIAnimationVariable>, transition: &::core::option::Option<IUIAnimationTransition>) -> ::windows::core::Result<()>;
-    fn AddKeyframeAtOffset(&mut self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
-    fn AddKeyframeAfterTransition(&mut self, transition: &::core::option::Option<IUIAnimationTransition>) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
-    fn AddTransitionAtKeyframe(&mut self, variable: &::core::option::Option<IUIAnimationVariable>, transition: &::core::option::Option<IUIAnimationTransition>, startkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
-    fn AddTransitionBetweenKeyframes(&mut self, variable: &::core::option::Option<IUIAnimationVariable>, transition: &::core::option::Option<IUIAnimationTransition>, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
-    fn RepeatBetweenKeyframes(&mut self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, repetitioncount: i32) -> ::windows::core::Result<()>;
-    fn HoldVariable(&mut self, variable: &::core::option::Option<IUIAnimationVariable>) -> ::windows::core::Result<()>;
-    fn SetLongestAcceptableDelay(&mut self, delay: f64) -> ::windows::core::Result<()>;
-    fn Schedule(&mut self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT>;
-    fn Conclude(&mut self) -> ::windows::core::Result<()>;
-    fn Finish(&mut self, completiondeadline: f64) -> ::windows::core::Result<()>;
-    fn Abandon(&mut self) -> ::windows::core::Result<()>;
-    fn SetTag(&mut self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
-    fn GetTag(&mut self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
-    fn GetStatus(&mut self) -> ::windows::core::Result<UI_ANIMATION_STORYBOARD_STATUS>;
-    fn GetElapsedTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetStoryboardEventHandler(&mut self, handler: &::core::option::Option<IUIAnimationStoryboardEventHandler>) -> ::windows::core::Result<()>;
+    fn AddTransition(&self, variable: &::core::option::Option<IUIAnimationVariable>, transition: &::core::option::Option<IUIAnimationTransition>) -> ::windows::core::Result<()>;
+    fn AddKeyframeAtOffset(&self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
+    fn AddKeyframeAfterTransition(&self, transition: &::core::option::Option<IUIAnimationTransition>) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
+    fn AddTransitionAtKeyframe(&self, variable: &::core::option::Option<IUIAnimationVariable>, transition: &::core::option::Option<IUIAnimationTransition>, startkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
+    fn AddTransitionBetweenKeyframes(&self, variable: &::core::option::Option<IUIAnimationVariable>, transition: &::core::option::Option<IUIAnimationTransition>, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
+    fn RepeatBetweenKeyframes(&self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, repetitioncount: i32) -> ::windows::core::Result<()>;
+    fn HoldVariable(&self, variable: &::core::option::Option<IUIAnimationVariable>) -> ::windows::core::Result<()>;
+    fn SetLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()>;
+    fn Schedule(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT>;
+    fn Conclude(&self) -> ::windows::core::Result<()>;
+    fn Finish(&self, completiondeadline: f64) -> ::windows::core::Result<()>;
+    fn Abandon(&self) -> ::windows::core::Result<()>;
+    fn SetTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
+    fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStatus(&self) -> ::windows::core::Result<UI_ANIMATION_STORYBOARD_STATUS>;
+    fn GetElapsedTime(&self) -> ::windows::core::Result<f64>;
+    fn SetStoryboardEventHandler(&self, handler: &::core::option::Option<IUIAnimationStoryboardEventHandler>) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationStoryboard_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationStoryboard_Impl, const OFFSET: isize>() -> IUIAnimationStoryboard_Vtbl {
@@ -829,24 +829,24 @@ impl IUIAnimationStoryboard_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIAnimationStoryboard2_Impl: Sized {
-    fn AddTransition(&mut self, variable: &::core::option::Option<IUIAnimationVariable2>, transition: &::core::option::Option<IUIAnimationTransition2>) -> ::windows::core::Result<()>;
-    fn AddKeyframeAtOffset(&mut self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
-    fn AddKeyframeAfterTransition(&mut self, transition: &::core::option::Option<IUIAnimationTransition2>) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
-    fn AddTransitionAtKeyframe(&mut self, variable: &::core::option::Option<IUIAnimationVariable2>, transition: &::core::option::Option<IUIAnimationTransition2>, startkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
-    fn AddTransitionBetweenKeyframes(&mut self, variable: &::core::option::Option<IUIAnimationVariable2>, transition: &::core::option::Option<IUIAnimationTransition2>, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
-    fn RepeatBetweenKeyframes(&mut self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: &::core::option::Option<IUIAnimationLoopIterationChangeHandler2>, id: usize, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn HoldVariable(&mut self, variable: &::core::option::Option<IUIAnimationVariable2>) -> ::windows::core::Result<()>;
-    fn SetLongestAcceptableDelay(&mut self, delay: f64) -> ::windows::core::Result<()>;
-    fn SetSkipDuration(&mut self, secondsduration: f64) -> ::windows::core::Result<()>;
-    fn Schedule(&mut self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT>;
-    fn Conclude(&mut self) -> ::windows::core::Result<()>;
-    fn Finish(&mut self, completiondeadline: f64) -> ::windows::core::Result<()>;
-    fn Abandon(&mut self) -> ::windows::core::Result<()>;
-    fn SetTag(&mut self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
-    fn GetTag(&mut self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
-    fn GetStatus(&mut self) -> ::windows::core::Result<UI_ANIMATION_STORYBOARD_STATUS>;
-    fn GetElapsedTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetStoryboardEventHandler(&mut self, handler: &::core::option::Option<IUIAnimationStoryboardEventHandler2>, fregisterstatuschangefornextanimationevent: super::super::Foundation::BOOL, fregisterupdatefornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddTransition(&self, variable: &::core::option::Option<IUIAnimationVariable2>, transition: &::core::option::Option<IUIAnimationTransition2>) -> ::windows::core::Result<()>;
+    fn AddKeyframeAtOffset(&self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
+    fn AddKeyframeAfterTransition(&self, transition: &::core::option::Option<IUIAnimationTransition2>) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME>;
+    fn AddTransitionAtKeyframe(&self, variable: &::core::option::Option<IUIAnimationVariable2>, transition: &::core::option::Option<IUIAnimationTransition2>, startkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
+    fn AddTransitionBetweenKeyframes(&self, variable: &::core::option::Option<IUIAnimationVariable2>, transition: &::core::option::Option<IUIAnimationTransition2>, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows::core::Result<()>;
+    fn RepeatBetweenKeyframes(&self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: &::core::option::Option<IUIAnimationLoopIterationChangeHandler2>, id: usize, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn HoldVariable(&self, variable: &::core::option::Option<IUIAnimationVariable2>) -> ::windows::core::Result<()>;
+    fn SetLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()>;
+    fn SetSkipDuration(&self, secondsduration: f64) -> ::windows::core::Result<()>;
+    fn Schedule(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_SCHEDULING_RESULT>;
+    fn Conclude(&self) -> ::windows::core::Result<()>;
+    fn Finish(&self, completiondeadline: f64) -> ::windows::core::Result<()>;
+    fn Abandon(&self) -> ::windows::core::Result<()>;
+    fn SetTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
+    fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStatus(&self) -> ::windows::core::Result<UI_ANIMATION_STORYBOARD_STATUS>;
+    fn GetElapsedTime(&self) -> ::windows::core::Result<f64>;
+    fn SetStoryboardEventHandler(&self, handler: &::core::option::Option<IUIAnimationStoryboardEventHandler2>, fregisterstatuschangefornextanimationevent: super::super::Foundation::BOOL, fregisterupdatefornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAnimationStoryboard2_Vtbl {
@@ -998,8 +998,8 @@ impl IUIAnimationStoryboard2_Vtbl {
     }
 }
 pub trait IUIAnimationStoryboardEventHandler_Impl: Sized {
-    fn OnStoryboardStatusChanged(&mut self, storyboard: &::core::option::Option<IUIAnimationStoryboard>, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::Result<()>;
-    fn OnStoryboardUpdated(&mut self, storyboard: &::core::option::Option<IUIAnimationStoryboard>) -> ::windows::core::Result<()>;
+    fn OnStoryboardStatusChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard>, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::Result<()>;
+    fn OnStoryboardUpdated(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard>) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationStoryboardEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationStoryboardEventHandler_Impl, const OFFSET: isize>() -> IUIAnimationStoryboardEventHandler_Vtbl {
@@ -1024,8 +1024,8 @@ impl IUIAnimationStoryboardEventHandler_Vtbl {
     }
 }
 pub trait IUIAnimationStoryboardEventHandler2_Impl: Sized {
-    fn OnStoryboardStatusChanged(&mut self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::Result<()>;
-    fn OnStoryboardUpdated(&mut self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>) -> ::windows::core::Result<()>;
+    fn OnStoryboardStatusChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::Result<()>;
+    fn OnStoryboardUpdated(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationStoryboardEventHandler2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationStoryboardEventHandler2_Impl, const OFFSET: isize>() -> IUIAnimationStoryboardEventHandler2_Vtbl {
@@ -1050,13 +1050,13 @@ impl IUIAnimationStoryboardEventHandler2_Vtbl {
     }
 }
 pub trait IUIAnimationTimer_Impl: Sized {
-    fn SetTimerUpdateHandler(&mut self, updatehandler: &::core::option::Option<IUIAnimationTimerUpdateHandler>, idlebehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> ::windows::core::Result<()>;
-    fn SetTimerEventHandler(&mut self, handler: &::core::option::Option<IUIAnimationTimerEventHandler>) -> ::windows::core::Result<()>;
-    fn Enable(&mut self) -> ::windows::core::Result<()>;
-    fn Disable(&mut self) -> ::windows::core::Result<()>;
-    fn IsEnabled(&mut self) -> ::windows::core::Result<()>;
-    fn GetTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetFrameRateThreshold(&mut self, framespersecond: u32) -> ::windows::core::Result<()>;
+    fn SetTimerUpdateHandler(&self, updatehandler: &::core::option::Option<IUIAnimationTimerUpdateHandler>, idlebehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> ::windows::core::Result<()>;
+    fn SetTimerEventHandler(&self, handler: &::core::option::Option<IUIAnimationTimerEventHandler>) -> ::windows::core::Result<()>;
+    fn Enable(&self) -> ::windows::core::Result<()>;
+    fn Disable(&self) -> ::windows::core::Result<()>;
+    fn IsEnabled(&self) -> ::windows::core::Result<()>;
+    fn GetTime(&self) -> ::windows::core::Result<f64>;
+    fn SetFrameRateThreshold(&self, framespersecond: u32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationTimer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTimer_Impl, const OFFSET: isize>() -> IUIAnimationTimer_Vtbl {
@@ -1117,7 +1117,7 @@ impl IUIAnimationTimer_Vtbl {
     }
 }
 pub trait IUIAnimationTimerClientEventHandler_Impl: Sized {
-    fn OnTimerClientStatusChanged(&mut self, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows::core::Result<()>;
+    fn OnTimerClientStatusChanged(&self, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationTimerClientEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTimerClientEventHandler_Impl, const OFFSET: isize>() -> IUIAnimationTimerClientEventHandler_Vtbl {
@@ -1133,9 +1133,9 @@ impl IUIAnimationTimerClientEventHandler_Vtbl {
     }
 }
 pub trait IUIAnimationTimerEventHandler_Impl: Sized {
-    fn OnPreUpdate(&mut self) -> ::windows::core::Result<()>;
-    fn OnPostUpdate(&mut self) -> ::windows::core::Result<()>;
-    fn OnRenderingTooSlow(&mut self, framespersecond: u32) -> ::windows::core::Result<()>;
+    fn OnPreUpdate(&self) -> ::windows::core::Result<()>;
+    fn OnPostUpdate(&self) -> ::windows::core::Result<()>;
+    fn OnRenderingTooSlow(&self, framespersecond: u32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationTimerEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTimerEventHandler_Impl, const OFFSET: isize>() -> IUIAnimationTimerEventHandler_Vtbl {
@@ -1166,9 +1166,9 @@ impl IUIAnimationTimerEventHandler_Vtbl {
     }
 }
 pub trait IUIAnimationTimerUpdateHandler_Impl: Sized {
-    fn OnUpdate(&mut self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
-    fn SetTimerClientEventHandler(&mut self, handler: &::core::option::Option<IUIAnimationTimerClientEventHandler>) -> ::windows::core::Result<()>;
-    fn ClearTimerClientEventHandler(&mut self) -> ::windows::core::Result<()>;
+    fn OnUpdate(&self, timenow: f64) -> ::windows::core::Result<UI_ANIMATION_UPDATE_RESULT>;
+    fn SetTimerClientEventHandler(&self, handler: &::core::option::Option<IUIAnimationTimerClientEventHandler>) -> ::windows::core::Result<()>;
+    fn ClearTimerClientEventHandler(&self) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationTimerUpdateHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTimerUpdateHandler_Impl, const OFFSET: isize>() -> IUIAnimationTimerUpdateHandler_Vtbl {
@@ -1205,10 +1205,10 @@ impl IUIAnimationTimerUpdateHandler_Vtbl {
     }
 }
 pub trait IUIAnimationTransition_Impl: Sized {
-    fn SetInitialValue(&mut self, value: f64) -> ::windows::core::Result<()>;
-    fn SetInitialVelocity(&mut self, velocity: f64) -> ::windows::core::Result<()>;
-    fn IsDurationKnown(&mut self) -> ::windows::core::Result<()>;
-    fn GetDuration(&mut self) -> ::windows::core::Result<f64>;
+    fn SetInitialValue(&self, value: f64) -> ::windows::core::Result<()>;
+    fn SetInitialVelocity(&self, velocity: f64) -> ::windows::core::Result<()>;
+    fn IsDurationKnown(&self) -> ::windows::core::Result<()>;
+    fn GetDuration(&self) -> ::windows::core::Result<f64>;
 }
 impl IUIAnimationTransition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransition_Impl, const OFFSET: isize>() -> IUIAnimationTransition_Vtbl {
@@ -1251,13 +1251,13 @@ impl IUIAnimationTransition_Vtbl {
     }
 }
 pub trait IUIAnimationTransition2_Impl: Sized {
-    fn GetDimension(&mut self) -> ::windows::core::Result<u32>;
-    fn SetInitialValue(&mut self, value: f64) -> ::windows::core::Result<()>;
-    fn SetInitialVectorValue(&mut self, value: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn SetInitialVelocity(&mut self, velocity: f64) -> ::windows::core::Result<()>;
-    fn SetInitialVectorVelocity(&mut self, velocity: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn IsDurationKnown(&mut self) -> ::windows::core::Result<()>;
-    fn GetDuration(&mut self) -> ::windows::core::Result<f64>;
+    fn GetDimension(&self) -> ::windows::core::Result<u32>;
+    fn SetInitialValue(&self, value: f64) -> ::windows::core::Result<()>;
+    fn SetInitialVectorValue(&self, value: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn SetInitialVelocity(&self, velocity: f64) -> ::windows::core::Result<()>;
+    fn SetInitialVectorVelocity(&self, velocity: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn IsDurationKnown(&self) -> ::windows::core::Result<()>;
+    fn GetDuration(&self) -> ::windows::core::Result<f64>;
 }
 impl IUIAnimationTransition2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransition2_Impl, const OFFSET: isize>() -> IUIAnimationTransition2_Vtbl {
@@ -1324,7 +1324,7 @@ impl IUIAnimationTransition2_Vtbl {
     }
 }
 pub trait IUIAnimationTransitionFactory_Impl: Sized {
-    fn CreateTransition(&mut self, interpolator: &::core::option::Option<IUIAnimationInterpolator>) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateTransition(&self, interpolator: &::core::option::Option<IUIAnimationInterpolator>) -> ::windows::core::Result<IUIAnimationTransition>;
 }
 impl IUIAnimationTransitionFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransitionFactory_Impl, const OFFSET: isize>() -> IUIAnimationTransitionFactory_Vtbl {
@@ -1346,7 +1346,7 @@ impl IUIAnimationTransitionFactory_Vtbl {
     }
 }
 pub trait IUIAnimationTransitionFactory2_Impl: Sized {
-    fn CreateTransition(&mut self, interpolator: &::core::option::Option<IUIAnimationInterpolator2>) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateTransition(&self, interpolator: &::core::option::Option<IUIAnimationInterpolator2>) -> ::windows::core::Result<IUIAnimationTransition2>;
 }
 impl IUIAnimationTransitionFactory2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransitionFactory2_Impl, const OFFSET: isize>() -> IUIAnimationTransitionFactory2_Vtbl {
@@ -1368,18 +1368,18 @@ impl IUIAnimationTransitionFactory2_Vtbl {
     }
 }
 pub trait IUIAnimationTransitionLibrary_Impl: Sized {
-    fn CreateInstantaneousTransition(&mut self, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateConstantTransition(&mut self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateDiscreteTransition(&mut self, delay: f64, finalvalue: f64, hold: f64) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateLinearTransition(&mut self, duration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateLinearTransitionFromSpeed(&mut self, speed: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateSinusoidalTransitionFromVelocity(&mut self, duration: f64, period: f64) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateSinusoidalTransitionFromRange(&mut self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateAccelerateDecelerateTransition(&mut self, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateReversalTransition(&mut self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateCubicTransition(&mut self, duration: f64, finalvalue: f64, finalvelocity: f64) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateSmoothStopTransition(&mut self, maximumduration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
-    fn CreateParabolicTransitionFromAcceleration(&mut self, finalvalue: f64, finalvelocity: f64, acceleration: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateInstantaneousTransition(&self, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateConstantTransition(&self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateDiscreteTransition(&self, delay: f64, finalvalue: f64, hold: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateLinearTransition(&self, duration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateLinearTransitionFromSpeed(&self, speed: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateSinusoidalTransitionFromVelocity(&self, duration: f64, period: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateSinusoidalTransitionFromRange(&self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateAccelerateDecelerateTransition(&self, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateReversalTransition(&self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateCubicTransition(&self, duration: f64, finalvalue: f64, finalvelocity: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateSmoothStopTransition(&self, maximumduration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition>;
+    fn CreateParabolicTransitionFromAcceleration(&self, finalvalue: f64, finalvelocity: f64, acceleration: f64) -> ::windows::core::Result<IUIAnimationTransition>;
 }
 impl IUIAnimationTransitionLibrary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransitionLibrary_Impl, const OFFSET: isize>() -> IUIAnimationTransitionLibrary_Vtbl {
@@ -1536,25 +1536,25 @@ impl IUIAnimationTransitionLibrary_Vtbl {
     }
 }
 pub trait IUIAnimationTransitionLibrary2_Impl: Sized {
-    fn CreateInstantaneousTransition(&mut self, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateInstantaneousVectorTransition(&mut self, finalvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateConstantTransition(&mut self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateDiscreteTransition(&mut self, delay: f64, finalvalue: f64, hold: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateDiscreteVectorTransition(&mut self, delay: f64, finalvalue: *const f64, cdimension: u32, hold: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateLinearTransition(&mut self, duration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateLinearVectorTransition(&mut self, duration: f64, finalvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateLinearTransitionFromSpeed(&mut self, speed: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateLinearVectorTransitionFromSpeed(&mut self, speed: f64, finalvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateSinusoidalTransitionFromVelocity(&mut self, duration: f64, period: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateSinusoidalTransitionFromRange(&mut self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateAccelerateDecelerateTransition(&mut self, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateReversalTransition(&mut self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateCubicTransition(&mut self, duration: f64, finalvalue: f64, finalvelocity: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateCubicVectorTransition(&mut self, duration: f64, finalvalue: *const f64, finalvelocity: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateSmoothStopTransition(&mut self, maximumduration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateParabolicTransitionFromAcceleration(&mut self, finalvalue: f64, finalvelocity: f64, acceleration: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateCubicBezierLinearTransition(&mut self, duration: f64, finalvalue: f64, x1: f64, y1: f64, x2: f64, y2: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
-    fn CreateCubicBezierLinearVectorTransition(&mut self, duration: f64, finalvalue: *const f64, cdimension: u32, x1: f64, y1: f64, x2: f64, y2: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateInstantaneousTransition(&self, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateInstantaneousVectorTransition(&self, finalvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateConstantTransition(&self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateDiscreteTransition(&self, delay: f64, finalvalue: f64, hold: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateDiscreteVectorTransition(&self, delay: f64, finalvalue: *const f64, cdimension: u32, hold: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateLinearTransition(&self, duration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateLinearVectorTransition(&self, duration: f64, finalvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateLinearTransitionFromSpeed(&self, speed: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateLinearVectorTransitionFromSpeed(&self, speed: f64, finalvalue: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateSinusoidalTransitionFromVelocity(&self, duration: f64, period: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateSinusoidalTransitionFromRange(&self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateAccelerateDecelerateTransition(&self, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateReversalTransition(&self, duration: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateCubicTransition(&self, duration: f64, finalvalue: f64, finalvelocity: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateCubicVectorTransition(&self, duration: f64, finalvalue: *const f64, finalvelocity: *const f64, cdimension: u32) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateSmoothStopTransition(&self, maximumduration: f64, finalvalue: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateParabolicTransitionFromAcceleration(&self, finalvalue: f64, finalvelocity: f64, acceleration: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateCubicBezierLinearTransition(&self, duration: f64, finalvalue: f64, x1: f64, y1: f64, x2: f64, y2: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
+    fn CreateCubicBezierLinearVectorTransition(&self, duration: f64, finalvalue: *const f64, cdimension: u32, x1: f64, y1: f64, x2: f64, y2: f64) -> ::windows::core::Result<IUIAnimationTransition2>;
 }
 impl IUIAnimationTransitionLibrary2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationTransitionLibrary2_Impl, const OFFSET: isize>() -> IUIAnimationTransitionLibrary2_Vtbl {
@@ -1795,20 +1795,20 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
     }
 }
 pub trait IUIAnimationVariable_Impl: Sized {
-    fn GetValue(&mut self) -> ::windows::core::Result<f64>;
-    fn GetFinalValue(&mut self) -> ::windows::core::Result<f64>;
-    fn GetPreviousValue(&mut self) -> ::windows::core::Result<f64>;
-    fn GetIntegerValue(&mut self) -> ::windows::core::Result<i32>;
-    fn GetFinalIntegerValue(&mut self) -> ::windows::core::Result<i32>;
-    fn GetPreviousIntegerValue(&mut self) -> ::windows::core::Result<i32>;
-    fn GetCurrentStoryboard(&mut self) -> ::windows::core::Result<IUIAnimationStoryboard>;
-    fn SetLowerBound(&mut self, bound: f64) -> ::windows::core::Result<()>;
-    fn SetUpperBound(&mut self, bound: f64) -> ::windows::core::Result<()>;
-    fn SetRoundingMode(&mut self, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::Result<()>;
-    fn SetTag(&mut self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
-    fn GetTag(&mut self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
-    fn SetVariableChangeHandler(&mut self, handler: &::core::option::Option<IUIAnimationVariableChangeHandler>) -> ::windows::core::Result<()>;
-    fn SetVariableIntegerChangeHandler(&mut self, handler: &::core::option::Option<IUIAnimationVariableIntegerChangeHandler>) -> ::windows::core::Result<()>;
+    fn GetValue(&self) -> ::windows::core::Result<f64>;
+    fn GetFinalValue(&self) -> ::windows::core::Result<f64>;
+    fn GetPreviousValue(&self) -> ::windows::core::Result<f64>;
+    fn GetIntegerValue(&self) -> ::windows::core::Result<i32>;
+    fn GetFinalIntegerValue(&self) -> ::windows::core::Result<i32>;
+    fn GetPreviousIntegerValue(&self) -> ::windows::core::Result<i32>;
+    fn GetCurrentStoryboard(&self) -> ::windows::core::Result<IUIAnimationStoryboard>;
+    fn SetLowerBound(&self, bound: f64) -> ::windows::core::Result<()>;
+    fn SetUpperBound(&self, bound: f64) -> ::windows::core::Result<()>;
+    fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::Result<()>;
+    fn SetTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
+    fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
+    fn SetVariableChangeHandler(&self, handler: &::core::option::Option<IUIAnimationVariableChangeHandler>) -> ::windows::core::Result<()>;
+    fn SetVariableIntegerChangeHandler(&self, handler: &::core::option::Option<IUIAnimationVariableIntegerChangeHandler>) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariable_Impl, const OFFSET: isize>() -> IUIAnimationVariable_Vtbl {
@@ -1948,32 +1948,32 @@ impl IUIAnimationVariable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectComposition"))]
 pub trait IUIAnimationVariable2_Impl: Sized {
-    fn GetDimension(&mut self) -> ::windows::core::Result<u32>;
-    fn GetValue(&mut self) -> ::windows::core::Result<f64>;
-    fn GetVectorValue(&mut self, value: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn GetCurve(&mut self, animation: &::core::option::Option<super::super::Graphics::DirectComposition::IDCompositionAnimation>) -> ::windows::core::Result<()>;
-    fn GetVectorCurve(&mut self, animation: *const ::core::option::Option<super::super::Graphics::DirectComposition::IDCompositionAnimation>, cdimension: u32) -> ::windows::core::Result<()>;
-    fn GetFinalValue(&mut self) -> ::windows::core::Result<f64>;
-    fn GetFinalVectorValue(&mut self, finalvalue: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn GetPreviousValue(&mut self) -> ::windows::core::Result<f64>;
-    fn GetPreviousVectorValue(&mut self, previousvalue: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn GetIntegerValue(&mut self) -> ::windows::core::Result<i32>;
-    fn GetIntegerVectorValue(&mut self, value: *mut i32, cdimension: u32) -> ::windows::core::Result<()>;
-    fn GetFinalIntegerValue(&mut self) -> ::windows::core::Result<i32>;
-    fn GetFinalIntegerVectorValue(&mut self, finalvalue: *mut i32, cdimension: u32) -> ::windows::core::Result<()>;
-    fn GetPreviousIntegerValue(&mut self) -> ::windows::core::Result<i32>;
-    fn GetPreviousIntegerVectorValue(&mut self, previousvalue: *mut i32, cdimension: u32) -> ::windows::core::Result<()>;
-    fn GetCurrentStoryboard(&mut self) -> ::windows::core::Result<IUIAnimationStoryboard2>;
-    fn SetLowerBound(&mut self, bound: f64) -> ::windows::core::Result<()>;
-    fn SetLowerBoundVector(&mut self, bound: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn SetUpperBound(&mut self, bound: f64) -> ::windows::core::Result<()>;
-    fn SetUpperBoundVector(&mut self, bound: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
-    fn SetRoundingMode(&mut self, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::Result<()>;
-    fn SetTag(&mut self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
-    fn GetTag(&mut self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
-    fn SetVariableChangeHandler(&mut self, handler: &::core::option::Option<IUIAnimationVariableChangeHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetVariableIntegerChangeHandler(&mut self, handler: &::core::option::Option<IUIAnimationVariableIntegerChangeHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetVariableCurveChangeHandler(&mut self, handler: &::core::option::Option<IUIAnimationVariableCurveChangeHandler2>) -> ::windows::core::Result<()>;
+    fn GetDimension(&self) -> ::windows::core::Result<u32>;
+    fn GetValue(&self) -> ::windows::core::Result<f64>;
+    fn GetVectorValue(&self, value: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetCurve(&self, animation: &::core::option::Option<super::super::Graphics::DirectComposition::IDCompositionAnimation>) -> ::windows::core::Result<()>;
+    fn GetVectorCurve(&self, animation: *const ::core::option::Option<super::super::Graphics::DirectComposition::IDCompositionAnimation>, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetFinalValue(&self) -> ::windows::core::Result<f64>;
+    fn GetFinalVectorValue(&self, finalvalue: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetPreviousValue(&self) -> ::windows::core::Result<f64>;
+    fn GetPreviousVectorValue(&self, previousvalue: *mut f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetIntegerValue(&self) -> ::windows::core::Result<i32>;
+    fn GetIntegerVectorValue(&self, value: *mut i32, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetFinalIntegerValue(&self) -> ::windows::core::Result<i32>;
+    fn GetFinalIntegerVectorValue(&self, finalvalue: *mut i32, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetPreviousIntegerValue(&self) -> ::windows::core::Result<i32>;
+    fn GetPreviousIntegerVectorValue(&self, previousvalue: *mut i32, cdimension: u32) -> ::windows::core::Result<()>;
+    fn GetCurrentStoryboard(&self) -> ::windows::core::Result<IUIAnimationStoryboard2>;
+    fn SetLowerBound(&self, bound: f64) -> ::windows::core::Result<()>;
+    fn SetLowerBoundVector(&self, bound: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn SetUpperBound(&self, bound: f64) -> ::windows::core::Result<()>;
+    fn SetUpperBoundVector(&self, bound: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::Result<()>;
+    fn SetTag(&self, object: &::core::option::Option<::windows::core::IUnknown>, id: u32) -> ::windows::core::Result<()>;
+    fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()>;
+    fn SetVariableChangeHandler(&self, handler: &::core::option::Option<IUIAnimationVariableChangeHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetVariableIntegerChangeHandler(&self, handler: &::core::option::Option<IUIAnimationVariableIntegerChangeHandler2>, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetVariableCurveChangeHandler(&self, handler: &::core::option::Option<IUIAnimationVariableCurveChangeHandler2>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectComposition"))]
 impl IUIAnimationVariable2_Vtbl {
@@ -2191,7 +2191,7 @@ impl IUIAnimationVariable2_Vtbl {
     }
 }
 pub trait IUIAnimationVariableChangeHandler_Impl: Sized {
-    fn OnValueChanged(&mut self, storyboard: &::core::option::Option<IUIAnimationStoryboard>, variable: &::core::option::Option<IUIAnimationVariable>, newvalue: f64, previousvalue: f64) -> ::windows::core::Result<()>;
+    fn OnValueChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard>, variable: &::core::option::Option<IUIAnimationVariable>, newvalue: f64, previousvalue: f64) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableChangeHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableChangeHandler_Impl, const OFFSET: isize>() -> IUIAnimationVariableChangeHandler_Vtbl {
@@ -2207,7 +2207,7 @@ impl IUIAnimationVariableChangeHandler_Vtbl {
     }
 }
 pub trait IUIAnimationVariableChangeHandler2_Impl: Sized {
-    fn OnValueChanged(&mut self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, variable: &::core::option::Option<IUIAnimationVariable2>, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
+    fn OnValueChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, variable: &::core::option::Option<IUIAnimationVariable2>, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableChangeHandler2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableChangeHandler2_Impl, const OFFSET: isize>() -> IUIAnimationVariableChangeHandler2_Vtbl {
@@ -2223,7 +2223,7 @@ impl IUIAnimationVariableChangeHandler2_Vtbl {
     }
 }
 pub trait IUIAnimationVariableCurveChangeHandler2_Impl: Sized {
-    fn OnCurveChanged(&mut self, variable: &::core::option::Option<IUIAnimationVariable2>) -> ::windows::core::Result<()>;
+    fn OnCurveChanged(&self, variable: &::core::option::Option<IUIAnimationVariable2>) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableCurveChangeHandler2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableCurveChangeHandler2_Impl, const OFFSET: isize>() -> IUIAnimationVariableCurveChangeHandler2_Vtbl {
@@ -2239,7 +2239,7 @@ impl IUIAnimationVariableCurveChangeHandler2_Vtbl {
     }
 }
 pub trait IUIAnimationVariableIntegerChangeHandler_Impl: Sized {
-    fn OnIntegerValueChanged(&mut self, storyboard: &::core::option::Option<IUIAnimationStoryboard>, variable: &::core::option::Option<IUIAnimationVariable>, newvalue: i32, previousvalue: i32) -> ::windows::core::Result<()>;
+    fn OnIntegerValueChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard>, variable: &::core::option::Option<IUIAnimationVariable>, newvalue: i32, previousvalue: i32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableIntegerChangeHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableIntegerChangeHandler_Impl, const OFFSET: isize>() -> IUIAnimationVariableIntegerChangeHandler_Vtbl {
@@ -2255,7 +2255,7 @@ impl IUIAnimationVariableIntegerChangeHandler_Vtbl {
     }
 }
 pub trait IUIAnimationVariableIntegerChangeHandler2_Impl: Sized {
-    fn OnIntegerValueChanged(&mut self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, variable: &::core::option::Option<IUIAnimationVariable2>, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> ::windows::core::Result<()>;
+    fn OnIntegerValueChanged(&self, storyboard: &::core::option::Option<IUIAnimationStoryboard2>, variable: &::core::option::Option<IUIAnimationVariable2>, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> ::windows::core::Result<()>;
 }
 impl IUIAnimationVariableIntegerChangeHandler2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAnimationVariableIntegerChangeHandler2_Impl, const OFFSET: isize>() -> IUIAnimationVariableIntegerChangeHandler2_Vtbl {

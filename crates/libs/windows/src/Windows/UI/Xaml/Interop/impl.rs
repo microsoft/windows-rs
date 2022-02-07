@@ -1,5 +1,5 @@
 pub trait IBindableIterable_Impl: Sized {
-    fn First(&mut self) -> ::windows::core::Result<IBindableIterator>;
+    fn First(&self) -> ::windows::core::Result<IBindableIterator>;
 }
 impl ::windows::core::RuntimeName for IBindableIterable {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableIterable";
@@ -25,9 +25,9 @@ impl IBindableIterable_Vtbl {
     }
 }
 pub trait IBindableIterator_Impl: Sized {
-    fn Current(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn HasCurrent(&mut self) -> ::windows::core::Result<bool>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<bool>;
+    fn Current(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn HasCurrent(&self) -> ::windows::core::Result<bool>;
+    fn MoveNext(&self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IBindableIterator {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableIterator";
@@ -83,8 +83,8 @@ impl IBindableIterator_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IBindableObservableVector_Impl: Sized + IBindableIterable_Impl + IBindableVector_Impl {
-    fn VectorChanged(&mut self, handler: &::core::option::Option<BindableVectorChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveVectorChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn VectorChanged(&self, handler: &::core::option::Option<BindableVectorChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveVectorChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IBindableObservableVector {
@@ -121,16 +121,16 @@ impl IBindableObservableVector_Vtbl {
     }
 }
 pub trait IBindableVector_Impl: Sized + IBindableIterable_Impl {
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn GetView(&mut self) -> ::windows::core::Result<IBindableVectorView>;
-    fn IndexOf(&mut self, value: &::core::option::Option<::windows::core::IInspectable>, index: &mut u32) -> ::windows::core::Result<bool>;
-    fn SetAt(&mut self, index: u32, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn InsertAt(&mut self, index: u32, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn Append(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
-    fn RemoveAtEnd(&mut self) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Size(&self) -> ::windows::core::Result<u32>;
+    fn GetView(&self) -> ::windows::core::Result<IBindableVectorView>;
+    fn IndexOf(&self, value: &::core::option::Option<::windows::core::IInspectable>, index: &mut u32) -> ::windows::core::Result<bool>;
+    fn SetAt(&self, index: u32, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn InsertAt(&self, index: u32, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn Append(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn RemoveAtEnd(&self) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IBindableVector {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableVector";
@@ -234,9 +234,9 @@ impl IBindableVector_Vtbl {
     }
 }
 pub trait IBindableVectorView_Impl: Sized + IBindableIterable_Impl {
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn IndexOf(&mut self, value: &::core::option::Option<::windows::core::IInspectable>, index: &mut u32) -> ::windows::core::Result<bool>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn Size(&self) -> ::windows::core::Result<u32>;
+    fn IndexOf(&self, value: &::core::option::Option<::windows::core::IInspectable>, index: &mut u32) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IBindableVectorView {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableVectorView";
@@ -292,8 +292,8 @@ impl IBindableVectorView_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait INotifyCollectionChanged_Impl: Sized {
-    fn CollectionChanged(&mut self, handler: &::core::option::Option<NotifyCollectionChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveCollectionChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CollectionChanged(&self, handler: &::core::option::Option<NotifyCollectionChangedEventHandler>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveCollectionChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for INotifyCollectionChanged {

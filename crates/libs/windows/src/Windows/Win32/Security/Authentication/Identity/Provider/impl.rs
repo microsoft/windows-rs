@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait AsyncIAssociatedIdentityProvider_Impl: Sized {
-    fn Begin_AssociateIdentity(&mut self, hwndparent: super::super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn Finish_AssociateIdentity(&mut self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Begin_DisassociateIdentity(&mut self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Finish_DisassociateIdentity(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_ChangeCredential(&mut self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Finish_ChangeCredential(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_AssociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn Finish_AssociateIdentity(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn Begin_DisassociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Finish_DisassociateIdentity(&self) -> ::windows::core::Result<()>;
+    fn Begin_ChangeCredential(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Finish_ChangeCredential(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl AsyncIAssociatedIdentityProvider_Vtbl {
@@ -62,16 +62,16 @@ impl AsyncIAssociatedIdentityProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait AsyncIConnectedIdentityProvider_Impl: Sized {
-    fn Begin_ConnectIdentity(&mut self, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::Result<()>;
-    fn Finish_ConnectIdentity(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_DisconnectIdentity(&mut self) -> ::windows::core::Result<()>;
-    fn Finish_DisconnectIdentity(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_IsConnected(&mut self) -> ::windows::core::Result<()>;
-    fn Finish_IsConnected(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::BOOL>;
-    fn Begin_GetUrl(&mut self, identifier: IDENTITY_URL, context: &::core::option::Option<super::super::super::super::System::Com::IBindCtx>) -> ::windows::core::Result<()>;
-    fn Finish_GetUrl(&mut self, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Begin_GetAccountState(&mut self) -> ::windows::core::Result<()>;
-    fn Finish_GetAccountState(&mut self) -> ::windows::core::Result<ACCOUNT_STATE>;
+    fn Begin_ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::Result<()>;
+    fn Finish_ConnectIdentity(&self) -> ::windows::core::Result<()>;
+    fn Begin_DisconnectIdentity(&self) -> ::windows::core::Result<()>;
+    fn Finish_DisconnectIdentity(&self) -> ::windows::core::Result<()>;
+    fn Begin_IsConnected(&self) -> ::windows::core::Result<()>;
+    fn Finish_IsConnected(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BOOL>;
+    fn Begin_GetUrl(&self, identifier: IDENTITY_URL, context: &::core::option::Option<super::super::super::super::System::Com::IBindCtx>) -> ::windows::core::Result<()>;
+    fn Finish_GetUrl(&self, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Begin_GetAccountState(&self) -> ::windows::core::Result<()>;
+    fn Finish_GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl AsyncIConnectedIdentityProvider_Vtbl {
@@ -158,8 +158,8 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIIdentityAdvise_Impl: Sized {
-    fn Begin_IdentityUpdated(&mut self, dwidentityupdateevents: u32, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Finish_IdentityUpdated(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_IdentityUpdated(&self, dwidentityupdateevents: u32, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Finish_IdentityUpdated(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIIdentityAdvise_Vtbl {
@@ -186,10 +186,10 @@ impl AsyncIIdentityAdvise_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait AsyncIIdentityAuthentication_Impl: Sized {
-    fn Begin_SetIdentityCredential(&mut self, credbuffer: *const u8, credbufferlength: u32) -> ::windows::core::Result<()>;
-    fn Finish_SetIdentityCredential(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_ValidateIdentityCredential(&mut self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
-    fn Finish_ValidateIdentityCredential(&mut self, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
+    fn Begin_SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> ::windows::core::Result<()>;
+    fn Finish_SetIdentityCredential(&self) -> ::windows::core::Result<()>;
+    fn Begin_ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
+    fn Finish_ValidateIdentityCredential(&self, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl AsyncIIdentityAuthentication_Vtbl {
@@ -228,22 +228,22 @@ impl AsyncIIdentityAuthentication_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait AsyncIIdentityProvider_Impl: Sized {
-    fn Begin_GetIdentityEnum(&mut self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn Finish_GetIdentityEnum(&mut self) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown>;
-    fn Begin_Create(&mut self, lpszusername: super::super::super::super::Foundation::PWSTR, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn Finish_Create(&mut self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Begin_Import(&mut self, ppropertystore: &::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
-    fn Finish_Import(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_Delete(&mut self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn Finish_Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_FindByUniqueID(&mut self, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Finish_FindByUniqueID(&mut self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Begin_GetProviderPropertyStore(&mut self) -> ::windows::core::Result<()>;
-    fn Finish_GetProviderPropertyStore(&mut self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Begin_Advise(&mut self, pidentityadvise: &::core::option::Option<IIdentityAdvise>, dwidentityupdateevents: u32) -> ::windows::core::Result<()>;
-    fn Finish_Advise(&mut self) -> ::windows::core::Result<u32>;
-    fn Begin_UnAdvise(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
-    fn Finish_UnAdvise(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn Finish_GetIdentityEnum(&self) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown>;
+    fn Begin_Create(&self, lpszusername: super::super::super::super::Foundation::PWSTR, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn Finish_Create(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn Begin_Import(&self, ppropertystore: &::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
+    fn Finish_Import(&self) -> ::windows::core::Result<()>;
+    fn Begin_Delete(&self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn Finish_Delete(&self) -> ::windows::core::Result<()>;
+    fn Begin_FindByUniqueID(&self, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Finish_FindByUniqueID(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn Begin_GetProviderPropertyStore(&self) -> ::windows::core::Result<()>;
+    fn Finish_GetProviderPropertyStore(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn Begin_Advise(&self, pidentityadvise: &::core::option::Option<IIdentityAdvise>, dwidentityupdateevents: u32) -> ::windows::core::Result<()>;
+    fn Finish_Advise(&self) -> ::windows::core::Result<u32>;
+    fn Begin_UnAdvise(&self, dwcookie: u32) -> ::windows::core::Result<()>;
+    fn Finish_UnAdvise(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl AsyncIIdentityProvider_Vtbl {
@@ -384,18 +384,18 @@ impl AsyncIIdentityProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait AsyncIIdentityStore_Impl: Sized {
-    fn Begin_GetCount(&mut self) -> ::windows::core::Result<()>;
-    fn Finish_GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn Begin_GetAt(&mut self, dwprovider: u32, pprovguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Finish_GetAt(&mut self, pprovguid: *mut ::windows::core::GUID, ppidentityprovider: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Begin_AddToCache(&mut self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Finish_AddToCache(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_ConvertToSid(&mut self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID, cbsid: u16, psid: *mut u8) -> ::windows::core::Result<()>;
-    fn Finish_ConvertToSid(&mut self, psid: *mut u8, pcbrequiredsid: *mut u16) -> ::windows::core::Result<()>;
-    fn Begin_EnumerateIdentities(&mut self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn Finish_EnumerateIdentities(&mut self) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown>;
-    fn Begin_Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Finish_Reset(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_GetCount(&self) -> ::windows::core::Result<()>;
+    fn Finish_GetCount(&self) -> ::windows::core::Result<u32>;
+    fn Begin_GetAt(&self, dwprovider: u32, pprovguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Finish_GetAt(&self, pprovguid: *mut ::windows::core::GUID, ppidentityprovider: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Begin_AddToCache(&self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Finish_AddToCache(&self) -> ::windows::core::Result<()>;
+    fn Begin_ConvertToSid(&self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID, cbsid: u16, psid: *mut u8) -> ::windows::core::Result<()>;
+    fn Finish_ConvertToSid(&self, psid: *mut u8, pcbrequiredsid: *mut u16) -> ::windows::core::Result<()>;
+    fn Begin_EnumerateIdentities(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn Finish_EnumerateIdentities(&self) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown>;
+    fn Begin_Reset(&self) -> ::windows::core::Result<()>;
+    fn Finish_Reset(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl AsyncIIdentityStore_Vtbl {
@@ -494,10 +494,10 @@ impl AsyncIIdentityStore_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait AsyncIIdentityStoreEx_Impl: Sized {
-    fn Begin_CreateConnectedIdentity(&mut self, localname: super::super::super::super::Foundation::PWSTR, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Finish_CreateConnectedIdentity(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_DeleteConnectedIdentity(&mut self, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Finish_DeleteConnectedIdentity(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_CreateConnectedIdentity(&self, localname: super::super::super::super::Foundation::PWSTR, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Finish_CreateConnectedIdentity(&self) -> ::windows::core::Result<()>;
+    fn Begin_DeleteConnectedIdentity(&self, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Finish_DeleteConnectedIdentity(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIIdentityStoreEx_Vtbl {
@@ -536,9 +536,9 @@ impl AsyncIIdentityStoreEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IAssociatedIdentityProvider_Impl: Sized {
-    fn AssociateIdentity(&mut self, hwndparent: super::super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn DisassociateIdentity(&mut self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ChangeCredential(&mut self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AssociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn DisassociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ChangeCredential(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IAssociatedIdentityProvider_Vtbl {
@@ -577,11 +577,11 @@ impl IAssociatedIdentityProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IConnectedIdentityProvider_Impl: Sized {
-    fn ConnectIdentity(&mut self, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::Result<()>;
-    fn DisconnectIdentity(&mut self) -> ::windows::core::Result<()>;
-    fn IsConnected(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::BOOL>;
-    fn GetUrl(&mut self, identifier: IDENTITY_URL, context: &::core::option::Option<super::super::super::super::System::Com::IBindCtx>, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetAccountState(&mut self) -> ::windows::core::Result<ACCOUNT_STATE>;
+    fn ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::Result<()>;
+    fn DisconnectIdentity(&self) -> ::windows::core::Result<()>;
+    fn IsConnected(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BOOL>;
+    fn GetUrl(&self, identifier: IDENTITY_URL, context: &::core::option::Option<super::super::super::super::System::Com::IBindCtx>, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IConnectedIdentityProvider_Vtbl {
@@ -638,7 +638,7 @@ impl IConnectedIdentityProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IIdentityAdvise_Impl: Sized {
-    fn IdentityUpdated(&mut self, dwidentityupdateevents: IdentityUpdateEvent, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn IdentityUpdated(&self, dwidentityupdateevents: IdentityUpdateEvent, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IIdentityAdvise_Vtbl {
@@ -656,8 +656,8 @@ impl IIdentityAdvise_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IIdentityAuthentication_Impl: Sized {
-    fn SetIdentityCredential(&mut self, credbuffer: *const u8, credbufferlength: u32) -> ::windows::core::Result<()>;
-    fn ValidateIdentityCredential(&mut self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
+    fn SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> ::windows::core::Result<()>;
+    fn ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IIdentityAuthentication_Vtbl {
@@ -684,14 +684,14 @@ impl IIdentityAuthentication_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IIdentityProvider_Impl: Sized {
-    fn GetIdentityEnum(&mut self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown>;
-    fn Create(&mut self, lpszusername: super::super::super::super::Foundation::PWSTR, pppropertystore: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn Import(&mut self, ppropertystore: &::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
-    fn Delete(&mut self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn FindByUniqueID(&mut self, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn GetProviderPropertyStore(&mut self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Advise(&mut self, pidentityadvise: &::core::option::Option<IIdentityAdvise>, dwidentityupdateevents: IdentityUpdateEvent) -> ::windows::core::Result<u32>;
-    fn UnAdvise(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
+    fn GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown>;
+    fn Create(&self, lpszusername: super::super::super::super::Foundation::PWSTR, pppropertystore: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn Import(&self, ppropertystore: &::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
+    fn Delete(&self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn FindByUniqueID(&self, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn GetProviderPropertyStore(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn Advise(&self, pidentityadvise: &::core::option::Option<IIdentityAdvise>, dwidentityupdateevents: IdentityUpdateEvent) -> ::windows::core::Result<u32>;
+    fn UnAdvise(&self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IIdentityProvider_Vtbl {
@@ -778,12 +778,12 @@ impl IIdentityProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IIdentityStore_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, dwprovider: u32, pprovguid: *mut ::windows::core::GUID, ppidentityprovider: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn AddToCache(&mut self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn ConvertToSid(&mut self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID, cbsid: u16, psid: *mut u8, pcbrequiredsid: *mut u16) -> ::windows::core::Result<()>;
-    fn EnumerateIdentities(&mut self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, dwprovider: u32, pprovguid: *mut ::windows::core::GUID, ppidentityprovider: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AddToCache(&self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ConvertToSid(&self, lpszuniqueid: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID, cbsid: u16, psid: *mut u8, pcbrequiredsid: *mut u16) -> ::windows::core::Result<()>;
+    fn EnumerateIdentities(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IIdentityStore_Vtbl {
@@ -846,8 +846,8 @@ impl IIdentityStore_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IIdentityStoreEx_Impl: Sized {
-    fn CreateConnectedIdentity(&mut self, localname: super::super::super::super::Foundation::PWSTR, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn DeleteConnectedIdentity(&mut self, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn CreateConnectedIdentity(&self, localname: super::super::super::super::Foundation::PWSTR, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn DeleteConnectedIdentity(&self, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IIdentityStoreEx_Vtbl {

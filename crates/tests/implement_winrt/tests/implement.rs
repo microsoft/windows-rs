@@ -59,13 +59,13 @@ impl Drop for Thing {
 }
 
 impl IStringable_Impl for Thing {
-    fn ToString(&mut self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING> {
         Ok(HSTRING::from(&self.value))
     }
 }
 
 impl IClosable_Impl for Thing {
-    fn Close(&mut self) -> Result<()> {
+    fn Close(&self) -> Result<()> {
         self.sender.send(format!("close: {}", self.value)).unwrap();
         Ok(())
     }

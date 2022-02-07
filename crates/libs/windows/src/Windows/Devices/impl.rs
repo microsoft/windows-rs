@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
 pub trait ILowLevelDevicesAggregateProvider_Impl: Sized {
-    fn AdcControllerProvider(&mut self) -> ::windows::core::Result<Adc::Provider::IAdcControllerProvider>;
-    fn PwmControllerProvider(&mut self) -> ::windows::core::Result<Pwm::Provider::IPwmControllerProvider>;
-    fn GpioControllerProvider(&mut self) -> ::windows::core::Result<Gpio::Provider::IGpioControllerProvider>;
-    fn I2cControllerProvider(&mut self) -> ::windows::core::Result<I2c::Provider::II2cControllerProvider>;
-    fn SpiControllerProvider(&mut self) -> ::windows::core::Result<Spi::Provider::ISpiControllerProvider>;
+    fn AdcControllerProvider(&self) -> ::windows::core::Result<Adc::Provider::IAdcControllerProvider>;
+    fn PwmControllerProvider(&self) -> ::windows::core::Result<Pwm::Provider::IPwmControllerProvider>;
+    fn GpioControllerProvider(&self) -> ::windows::core::Result<Gpio::Provider::IGpioControllerProvider>;
+    fn I2cControllerProvider(&self) -> ::windows::core::Result<I2c::Provider::II2cControllerProvider>;
+    fn SpiControllerProvider(&self) -> ::windows::core::Result<Spi::Provider::ISpiControllerProvider>;
 }
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
 impl ::windows::core::RuntimeName for ILowLevelDevicesAggregateProvider {

@@ -1,15 +1,15 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAPO_Impl: Sized {
-    fn GetRegistrationProperties(&mut self) -> ::windows::core::Result<*mut XAPO_REGISTRATION_PROPERTIES>;
-    fn IsInputFormatSupported(&mut self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<*mut super::WAVEFORMATEX>;
-    fn IsOutputFormatSupported(&mut self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<*mut super::WAVEFORMATEX>;
-    fn Initialize(&mut self, pdata: *const ::core::ffi::c_void, databytesize: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self);
-    fn LockForProcess(&mut self, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> ::windows::core::Result<()>;
-    fn UnlockForProcess(&mut self);
-    fn Process(&mut self, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: super::super::super::Foundation::BOOL);
-    fn CalcInputFrames(&mut self, outputframecount: u32) -> u32;
-    fn CalcOutputFrames(&mut self, inputframecount: u32) -> u32;
+    fn GetRegistrationProperties(&self) -> ::windows::core::Result<*mut XAPO_REGISTRATION_PROPERTIES>;
+    fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<*mut super::WAVEFORMATEX>;
+    fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<*mut super::WAVEFORMATEX>;
+    fn Initialize(&self, pdata: *const ::core::ffi::c_void, databytesize: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self);
+    fn LockForProcess(&self, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> ::windows::core::Result<()>;
+    fn UnlockForProcess(&self);
+    fn Process(&self, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: super::super::super::Foundation::BOOL);
+    fn CalcInputFrames(&self, outputframecount: u32) -> u32;
+    fn CalcOutputFrames(&self, inputframecount: u32) -> u32;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXAPO_Vtbl {
@@ -101,10 +101,10 @@ impl IXAPO_Vtbl {
     }
 }
 pub trait IXAPOHrtfParameters_Impl: Sized {
-    fn SetSourcePosition(&mut self, position: *const HrtfPosition) -> ::windows::core::Result<()>;
-    fn SetSourceOrientation(&mut self, orientation: *const HrtfOrientation) -> ::windows::core::Result<()>;
-    fn SetSourceGain(&mut self, gain: f32) -> ::windows::core::Result<()>;
-    fn SetEnvironment(&mut self, environment: HrtfEnvironment) -> ::windows::core::Result<()>;
+    fn SetSourcePosition(&self, position: *const HrtfPosition) -> ::windows::core::Result<()>;
+    fn SetSourceOrientation(&self, orientation: *const HrtfOrientation) -> ::windows::core::Result<()>;
+    fn SetSourceGain(&self, gain: f32) -> ::windows::core::Result<()>;
+    fn SetEnvironment(&self, environment: HrtfEnvironment) -> ::windows::core::Result<()>;
 }
 impl IXAPOHrtfParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXAPOHrtfParameters_Impl, const OFFSET: isize>() -> IXAPOHrtfParameters_Vtbl {
@@ -141,8 +141,8 @@ impl IXAPOHrtfParameters_Vtbl {
     }
 }
 pub trait IXAPOParameters_Impl: Sized {
-    fn SetParameters(&mut self, pparameters: *const ::core::ffi::c_void, parameterbytesize: u32);
-    fn GetParameters(&mut self, pparameters: *mut ::core::ffi::c_void, parameterbytesize: u32);
+    fn SetParameters(&self, pparameters: *const ::core::ffi::c_void, parameterbytesize: u32);
+    fn GetParameters(&self, pparameters: *mut ::core::ffi::c_void, parameterbytesize: u32);
 }
 impl IXAPOParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXAPOParameters_Impl, const OFFSET: isize>() -> IXAPOParameters_Vtbl {
@@ -168,16 +168,16 @@ impl IXAPOParameters_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2_Impl: Sized {
-    fn RegisterForCallbacks(&mut self, pcallback: &::core::option::Option<IXAudio2EngineCallback>) -> ::windows::core::Result<()>;
-    fn UnregisterForCallbacks(&mut self, pcallback: &::core::option::Option<IXAudio2EngineCallback>);
-    fn CreateSourceVoice(&mut self, ppsourcevoice: *mut ::core::option::Option<IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: &::core::option::Option<IXAudio2VoiceCallback>, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()>;
-    fn CreateSubmixVoice(&mut self, ppsubmixvoice: *mut ::core::option::Option<IXAudio2SubmixVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()>;
-    fn CreateMasteringVoice(&mut self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: super::super::super::Foundation::PWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<()>;
-    fn StartEngine(&mut self) -> ::windows::core::Result<()>;
-    fn StopEngine(&mut self);
-    fn CommitChanges(&mut self, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetPerformanceData(&mut self, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA);
-    fn SetDebugConfiguration(&mut self, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *mut ::core::ffi::c_void);
+    fn RegisterForCallbacks(&self, pcallback: &::core::option::Option<IXAudio2EngineCallback>) -> ::windows::core::Result<()>;
+    fn UnregisterForCallbacks(&self, pcallback: &::core::option::Option<IXAudio2EngineCallback>);
+    fn CreateSourceVoice(&self, ppsourcevoice: *mut ::core::option::Option<IXAudio2SourceVoice>, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: &::core::option::Option<IXAudio2VoiceCallback>, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()>;
+    fn CreateSubmixVoice(&self, ppsubmixvoice: *mut ::core::option::Option<IXAudio2SubmixVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()>;
+    fn CreateMasteringVoice(&self, ppmasteringvoice: *mut ::core::option::Option<IXAudio2MasteringVoice>, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: super::super::super::Foundation::PWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<()>;
+    fn StartEngine(&self) -> ::windows::core::Result<()>;
+    fn StopEngine(&self);
+    fn CommitChanges(&self, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetPerformanceData(&self, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA);
+    fn SetDebugConfiguration(&self, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *mut ::core::ffi::c_void);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXAudio2_Vtbl {
@@ -251,9 +251,9 @@ impl IXAudio2_Vtbl {
     }
 }
 pub trait IXAudio2EngineCallback_Impl: Sized {
-    fn OnProcessingPassStart(&mut self);
-    fn OnProcessingPassEnd(&mut self);
-    fn OnCriticalError(&mut self, error: ::windows::core::HRESULT);
+    fn OnProcessingPassStart(&self);
+    fn OnProcessingPassEnd(&self);
+    fn OnCriticalError(&self, error: ::windows::core::HRESULT);
 }
 impl IXAudio2EngineCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXAudio2EngineCallback_Impl, const OFFSET: isize>() -> IXAudio2EngineCallback_Vtbl {
@@ -283,8 +283,8 @@ impl IXAudio2EngineCallback_Vtbl {
     }
 }
 pub trait IXAudio2Extension_Impl: Sized {
-    fn GetProcessingQuantum(&mut self, quantumnumerator: *mut u32, quantumdenominator: *mut u32);
-    fn GetProcessor(&mut self, processor: *mut u32);
+    fn GetProcessingQuantum(&self, quantumnumerator: *mut u32, quantumdenominator: *mut u32);
+    fn GetProcessor(&self, processor: *mut u32);
 }
 impl IXAudio2Extension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXAudio2Extension_Impl, const OFFSET: isize>() -> IXAudio2Extension_Vtbl {
@@ -310,7 +310,7 @@ impl IXAudio2Extension_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2MasteringVoice_Impl: Sized + IXAudio2Voice_Impl {
-    fn GetChannelMask(&mut self) -> ::windows::core::Result<u32>;
+    fn GetChannelMask(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXAudio2MasteringVoice_Vtbl {
@@ -334,16 +334,16 @@ impl IXAudio2MasteringVoice_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2SourceVoice_Impl: Sized + IXAudio2Voice_Impl {
-    fn Start(&mut self, flags: u32, operationset: u32) -> ::windows::core::Result<()>;
-    fn Stop(&mut self, flags: u32, operationset: u32) -> ::windows::core::Result<()>;
-    fn SubmitSourceBuffer(&mut self, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> ::windows::core::Result<()>;
-    fn FlushSourceBuffers(&mut self) -> ::windows::core::Result<()>;
-    fn Discontinuity(&mut self) -> ::windows::core::Result<()>;
-    fn ExitLoop(&mut self, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetState(&mut self, pvoicestate: *mut XAUDIO2_VOICE_STATE, flags: u32);
-    fn SetFrequencyRatio(&mut self, ratio: f32, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetFrequencyRatio(&mut self, pratio: *mut f32);
-    fn SetSourceSampleRate(&mut self, newsourcesamplerate: u32) -> ::windows::core::Result<()>;
+    fn Start(&self, flags: u32, operationset: u32) -> ::windows::core::Result<()>;
+    fn Stop(&self, flags: u32, operationset: u32) -> ::windows::core::Result<()>;
+    fn SubmitSourceBuffer(&self, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> ::windows::core::Result<()>;
+    fn FlushSourceBuffers(&self) -> ::windows::core::Result<()>;
+    fn Discontinuity(&self) -> ::windows::core::Result<()>;
+    fn ExitLoop(&self, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetState(&self, pvoicestate: *mut XAUDIO2_VOICE_STATE, flags: u32);
+    fn SetFrequencyRatio(&self, ratio: f32, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetFrequencyRatio(&self, pratio: *mut f32);
+    fn SetSourceSampleRate(&self, newsourcesamplerate: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXAudio2SourceVoice_Vtbl {
@@ -429,25 +429,25 @@ impl IXAudio2SubmixVoice_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXAudio2Voice_Impl: Sized {
-    fn GetVoiceDetails(&mut self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS);
-    fn SetOutputVoices(&mut self, psendlist: *const XAUDIO2_VOICE_SENDS) -> ::windows::core::Result<()>;
-    fn SetEffectChain(&mut self, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()>;
-    fn EnableEffect(&mut self, effectindex: u32, operationset: u32) -> ::windows::core::Result<()>;
-    fn DisableEffect(&mut self, effectindex: u32, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetEffectState(&mut self, effectindex: u32, penabled: *mut super::super::super::Foundation::BOOL);
-    fn SetEffectParameters(&mut self, effectindex: u32, pparameters: *const ::core::ffi::c_void, parametersbytesize: u32, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetEffectParameters(&mut self, effectindex: u32, pparameters: *mut ::core::ffi::c_void, parametersbytesize: u32) -> ::windows::core::Result<()>;
-    fn SetFilterParameters(&mut self, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetFilterParameters(&mut self, pparameters: *mut XAUDIO2_FILTER_PARAMETERS);
-    fn SetOutputFilterParameters(&mut self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetOutputFilterParameters(&mut self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, pparameters: *mut XAUDIO2_FILTER_PARAMETERS);
-    fn SetVolume(&mut self, volume: f32, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetVolume(&mut self, pvolume: *mut f32);
-    fn SetChannelVolumes(&mut self, channels: u32, pvolumes: *const f32, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetChannelVolumes(&mut self, channels: u32, pvolumes: *mut f32);
-    fn SetOutputMatrix(&mut self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()>;
-    fn GetOutputMatrix(&mut self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32);
-    fn DestroyVoice(&mut self);
+    fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS);
+    fn SetOutputVoices(&self, psendlist: *const XAUDIO2_VOICE_SENDS) -> ::windows::core::Result<()>;
+    fn SetEffectChain(&self, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows::core::Result<()>;
+    fn EnableEffect(&self, effectindex: u32, operationset: u32) -> ::windows::core::Result<()>;
+    fn DisableEffect(&self, effectindex: u32, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetEffectState(&self, effectindex: u32, penabled: *mut super::super::super::Foundation::BOOL);
+    fn SetEffectParameters(&self, effectindex: u32, pparameters: *const ::core::ffi::c_void, parametersbytesize: u32, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetEffectParameters(&self, effectindex: u32, pparameters: *mut ::core::ffi::c_void, parametersbytesize: u32) -> ::windows::core::Result<()>;
+    fn SetFilterParameters(&self, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetFilterParameters(&self, pparameters: *mut XAUDIO2_FILTER_PARAMETERS);
+    fn SetOutputFilterParameters(&self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetOutputFilterParameters(&self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, pparameters: *mut XAUDIO2_FILTER_PARAMETERS);
+    fn SetVolume(&self, volume: f32, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetVolume(&self, pvolume: *mut f32);
+    fn SetChannelVolumes(&self, channels: u32, pvolumes: *const f32, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetChannelVolumes(&self, channels: u32, pvolumes: *mut f32);
+    fn SetOutputMatrix(&self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows::core::Result<()>;
+    fn GetOutputMatrix(&self, pdestinationvoice: &::core::option::Option<IXAudio2Voice>, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32);
+    fn DestroyVoice(&self);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXAudio2Voice_Vtbl {
@@ -574,13 +574,13 @@ impl IXAudio2Voice_Vtbl {
     }
 }
 pub trait IXAudio2VoiceCallback_Impl: Sized {
-    fn OnVoiceProcessingPassStart(&mut self, bytesrequired: u32);
-    fn OnVoiceProcessingPassEnd(&mut self);
-    fn OnStreamEnd(&mut self);
-    fn OnBufferStart(&mut self, pbuffercontext: *mut ::core::ffi::c_void);
-    fn OnBufferEnd(&mut self, pbuffercontext: *mut ::core::ffi::c_void);
-    fn OnLoopEnd(&mut self, pbuffercontext: *mut ::core::ffi::c_void);
-    fn OnVoiceError(&mut self, pbuffercontext: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT);
+    fn OnVoiceProcessingPassStart(&self, bytesrequired: u32);
+    fn OnVoiceProcessingPassEnd(&self);
+    fn OnStreamEnd(&self);
+    fn OnBufferStart(&self, pbuffercontext: *mut ::core::ffi::c_void);
+    fn OnBufferEnd(&self, pbuffercontext: *mut ::core::ffi::c_void);
+    fn OnLoopEnd(&self, pbuffercontext: *mut ::core::ffi::c_void);
+    fn OnVoiceError(&self, pbuffercontext: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT);
 }
 impl IXAudio2VoiceCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXAudio2VoiceCallback_Impl, const OFFSET: isize>() -> IXAudio2VoiceCallback_Vtbl {

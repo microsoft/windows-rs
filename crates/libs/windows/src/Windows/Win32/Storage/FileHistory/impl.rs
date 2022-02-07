@@ -1,19 +1,19 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFhConfigMgr_Impl: Sized {
-    fn LoadConfiguration(&mut self) -> ::windows::core::Result<()>;
-    fn CreateDefaultConfiguration(&mut self, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveConfiguration(&mut self) -> ::windows::core::Result<()>;
-    fn AddRemoveExcludeRule(&mut self, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetIncludeExcludeRules(&mut self, include: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows::core::Result<IFhScopeIterator>;
-    fn GetLocalPolicy(&mut self, localpolicytype: FH_LOCAL_POLICY_TYPE) -> ::windows::core::Result<u64>;
-    fn SetLocalPolicy(&mut self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows::core::Result<()>;
-    fn GetBackupStatus(&mut self) -> ::windows::core::Result<FH_BACKUP_STATUS>;
-    fn SetBackupStatus(&mut self, backupstatus: FH_BACKUP_STATUS) -> ::windows::core::Result<()>;
-    fn GetDefaultTarget(&mut self) -> ::windows::core::Result<IFhTarget>;
-    fn ValidateTarget(&mut self, targeturl: &super::super::Foundation::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>;
-    fn ProvisionAndSetNewTarget(&mut self, targeturl: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ChangeDefaultTargetRecommendation(&mut self, recommend: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn QueryProtectionStatus(&mut self, protectionstate: *mut u32, protecteduntiltime: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LoadConfiguration(&self) -> ::windows::core::Result<()>;
+    fn CreateDefaultConfiguration(&self, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveConfiguration(&self) -> ::windows::core::Result<()>;
+    fn AddRemoveExcludeRule(&self, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetIncludeExcludeRules(&self, include: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY) -> ::windows::core::Result<IFhScopeIterator>;
+    fn GetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE) -> ::windows::core::Result<u64>;
+    fn SetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows::core::Result<()>;
+    fn GetBackupStatus(&self) -> ::windows::core::Result<FH_BACKUP_STATUS>;
+    fn SetBackupStatus(&self, backupstatus: FH_BACKUP_STATUS) -> ::windows::core::Result<()>;
+    fn GetDefaultTarget(&self) -> ::windows::core::Result<IFhTarget>;
+    fn ValidateTarget(&self, targeturl: &super::super::Foundation::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>;
+    fn ProvisionAndSetNewTarget(&self, targeturl: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ChangeDefaultTargetRecommendation(&self, recommend: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn QueryProtectionStatus(&self, protectionstate: *mut u32, protecteduntiltime: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFhConfigMgr_Vtbl {
@@ -142,11 +142,11 @@ impl IFhConfigMgr_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFhReassociation_Impl: Sized {
-    fn ValidateTarget(&mut self, targeturl: &super::super::Foundation::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>;
-    fn ScanTargetForConfigurations(&mut self, targeturl: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetConfigurationDetails(&mut self, index: u32, username: *mut super::super::Foundation::BSTR, pcname: *mut super::super::Foundation::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn SelectConfiguration(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn PerformReassociation(&mut self, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ValidateTarget(&self, targeturl: &super::super::Foundation::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT>;
+    fn ScanTargetForConfigurations(&self, targeturl: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetConfigurationDetails(&self, index: u32, username: *mut super::super::Foundation::BSTR, pcname: *mut super::super::Foundation::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn SelectConfiguration(&self, index: u32) -> ::windows::core::Result<()>;
+    fn PerformReassociation(&self, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFhReassociation_Vtbl {
@@ -197,8 +197,8 @@ impl IFhReassociation_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFhScopeIterator_Impl: Sized {
-    fn MoveToNextItem(&mut self) -> ::windows::core::Result<()>;
-    fn GetItem(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn MoveToNextItem(&self) -> ::windows::core::Result<()>;
+    fn GetItem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFhScopeIterator_Vtbl {
@@ -231,8 +231,8 @@ impl IFhScopeIterator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFhTarget_Impl: Sized {
-    fn GetStringProperty(&mut self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetNumericalProperty(&mut self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<u64>;
+    fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFhTarget_Vtbl {

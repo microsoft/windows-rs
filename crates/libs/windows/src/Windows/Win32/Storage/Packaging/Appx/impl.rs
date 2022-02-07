@@ -1,6 +1,6 @@
 pub trait IAppxBlockMapBlock_Impl: Sized {
-    fn GetHash(&mut self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn GetCompressedSize(&mut self) -> ::windows::core::Result<u32>;
+    fn GetHash(&self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn GetCompressedSize(&self) -> ::windows::core::Result<u32>;
 }
 impl IAppxBlockMapBlock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBlockMapBlock_Impl, const OFFSET: isize>() -> IAppxBlockMapBlock_Vtbl {
@@ -32,9 +32,9 @@ impl IAppxBlockMapBlock_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBlockMapBlocksEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxBlockMapBlock>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxBlockMapBlock>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBlockMapBlocksEnumerator_Vtbl {
@@ -85,11 +85,11 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBlockMapFile_Impl: Sized {
-    fn GetBlocks(&mut self) -> ::windows::core::Result<IAppxBlockMapBlocksEnumerator>;
-    fn GetLocalFileHeaderSize(&mut self) -> ::windows::core::Result<u32>;
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetUncompressedSize(&mut self) -> ::windows::core::Result<u64>;
-    fn ValidateFileHash(&mut self, filestream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetBlocks(&self) -> ::windows::core::Result<IAppxBlockMapBlocksEnumerator>;
+    fn GetLocalFileHeaderSize(&self) -> ::windows::core::Result<u32>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetUncompressedSize(&self) -> ::windows::core::Result<u64>;
+    fn ValidateFileHash(&self, filestream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBlockMapFile_Vtbl {
@@ -164,9 +164,9 @@ impl IAppxBlockMapFile_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBlockMapFilesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxBlockMapFile>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxBlockMapFile>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBlockMapFilesEnumerator_Vtbl {
@@ -217,10 +217,10 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBlockMapReader_Impl: Sized {
-    fn GetFile(&mut self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxBlockMapFile>;
-    fn GetFiles(&mut self) -> ::windows::core::Result<IAppxBlockMapFilesEnumerator>;
-    fn GetHashMethod(&mut self) -> ::windows::core::Result<super::super::super::System::Com::IUri>;
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
+    fn GetFile(&self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxBlockMapFile>;
+    fn GetFiles(&self) -> ::windows::core::Result<IAppxBlockMapFilesEnumerator>;
+    fn GetHashMethod(&self) -> ::windows::core::Result<super::super::super::System::Com::IUri>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBlockMapReader_Vtbl {
@@ -283,9 +283,9 @@ impl IAppxBlockMapReader_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleFactory_Impl: Sized {
-    fn CreateBundleWriter(&mut self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, bundleversion: u64) -> ::windows::core::Result<IAppxBundleWriter>;
-    fn CreateBundleReader(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxBundleReader>;
-    fn CreateBundleManifestReader(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxBundleManifestReader>;
+    fn CreateBundleWriter(&self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, bundleversion: u64) -> ::windows::core::Result<IAppxBundleWriter>;
+    fn CreateBundleReader(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxBundleReader>;
+    fn CreateBundleManifestReader(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxBundleManifestReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleFactory_Vtbl {
@@ -336,9 +336,9 @@ impl IAppxBundleFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestOptionalBundleInfo_Impl: Sized {
-    fn GetPackageId(&mut self) -> ::windows::core::Result<IAppxManifestPackageId>;
-    fn GetFileName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetPackageInfoItems(&mut self) -> ::windows::core::Result<IAppxBundleManifestPackageInfoEnumerator>;
+    fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId>;
+    fn GetFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPackageInfoItems(&self) -> ::windows::core::Result<IAppxBundleManifestPackageInfoEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
@@ -389,9 +389,9 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestOptionalBundleInfoEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxBundleManifestOptionalBundleInfo>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxBundleManifestOptionalBundleInfo>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
@@ -442,12 +442,12 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfo_Impl: Sized {
-    fn GetPackageType(&mut self) -> ::windows::core::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE>;
-    fn GetPackageId(&mut self) -> ::windows::core::Result<IAppxManifestPackageId>;
-    fn GetFileName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetOffset(&mut self) -> ::windows::core::Result<u64>;
-    fn GetSize(&mut self) -> ::windows::core::Result<u64>;
-    fn GetResources(&mut self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator>;
+    fn GetPackageType(&self) -> ::windows::core::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE>;
+    fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId>;
+    fn GetFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetOffset(&self) -> ::windows::core::Result<u64>;
+    fn GetSize(&self) -> ::windows::core::Result<u64>;
+    fn GetResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfo_Vtbl {
@@ -534,9 +534,9 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfo2_Impl: Sized {
-    fn GetIsPackageReference(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn GetIsNonQualifiedResourcePackage(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn GetIsDefaultApplicablePackage(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsPackageReference(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsNonQualifiedResourcePackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsDefaultApplicablePackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfo2_Vtbl {
@@ -586,7 +586,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
     }
 }
 pub trait IAppxBundleManifestPackageInfo3_Impl: Sized {
-    fn GetTargetDeviceFamilies(&mut self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator>;
+    fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator>;
 }
 impl IAppxBundleManifestPackageInfo3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestPackageInfo3_Impl, const OFFSET: isize>() -> IAppxBundleManifestPackageInfo3_Vtbl {
@@ -609,7 +609,7 @@ impl IAppxBundleManifestPackageInfo3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfo4_Impl: Sized {
-    fn GetIsStub(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsStub(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfo4_Vtbl {
@@ -633,9 +633,9 @@ impl IAppxBundleManifestPackageInfo4_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleManifestPackageInfoEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxBundleManifestPackageInfo>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxBundleManifestPackageInfo>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
@@ -686,9 +686,9 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleManifestReader_Impl: Sized {
-    fn GetPackageId(&mut self) -> ::windows::core::Result<IAppxManifestPackageId>;
-    fn GetPackageInfoItems(&mut self) -> ::windows::core::Result<IAppxBundleManifestPackageInfoEnumerator>;
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
+    fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId>;
+    fn GetPackageInfoItems(&self) -> ::windows::core::Result<IAppxBundleManifestPackageInfoEnumerator>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleManifestReader_Vtbl {
@@ -738,7 +738,7 @@ impl IAppxBundleManifestReader_Vtbl {
     }
 }
 pub trait IAppxBundleManifestReader2_Impl: Sized {
-    fn GetOptionalBundles(&mut self) -> ::windows::core::Result<IAppxBundleManifestOptionalBundleInfoEnumerator>;
+    fn GetOptionalBundles(&self) -> ::windows::core::Result<IAppxBundleManifestOptionalBundleInfoEnumerator>;
 }
 impl IAppxBundleManifestReader2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxBundleManifestReader2_Impl, const OFFSET: isize>() -> IAppxBundleManifestReader2_Vtbl {
@@ -761,11 +761,11 @@ impl IAppxBundleManifestReader2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxBundleReader_Impl: Sized {
-    fn GetFootprintFile(&mut self, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE) -> ::windows::core::Result<IAppxFile>;
-    fn GetBlockMap(&mut self) -> ::windows::core::Result<IAppxBlockMapReader>;
-    fn GetManifest(&mut self) -> ::windows::core::Result<IAppxBundleManifestReader>;
-    fn GetPayloadPackages(&mut self) -> ::windows::core::Result<IAppxFilesEnumerator>;
-    fn GetPayloadPackage(&mut self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxFile>;
+    fn GetFootprintFile(&self, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE) -> ::windows::core::Result<IAppxFile>;
+    fn GetBlockMap(&self) -> ::windows::core::Result<IAppxBlockMapReader>;
+    fn GetManifest(&self) -> ::windows::core::Result<IAppxBundleManifestReader>;
+    fn GetPayloadPackages(&self) -> ::windows::core::Result<IAppxFilesEnumerator>;
+    fn GetPayloadPackage(&self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxFile>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxBundleReader_Vtbl {
@@ -840,8 +840,8 @@ impl IAppxBundleReader_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBundleWriter_Impl: Sized {
-    fn AddPayloadPackage(&mut self, filename: super::super::super::Foundation::PWSTR, packagestream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn AddPayloadPackage(&self, filename: super::super::super::Foundation::PWSTR, packagestream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBundleWriter_Vtbl {
@@ -868,7 +868,7 @@ impl IAppxBundleWriter_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBundleWriter2_Impl: Sized {
-    fn AddExternalPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBundleWriter2_Vtbl {
@@ -889,8 +889,8 @@ impl IAppxBundleWriter2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBundleWriter3_Impl: Sized {
-    fn AddPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Close(&mut self, hashmethodstring: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddPackageReference(&self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&self, hashmethodstring: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBundleWriter3_Vtbl {
@@ -917,9 +917,9 @@ impl IAppxBundleWriter3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxBundleWriter4_Impl: Sized {
-    fn AddPayloadPackage(&mut self, filename: super::super::super::Foundation::PWSTR, packagestream: &::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn AddPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn AddExternalPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddPayloadPackage(&self, filename: super::super::super::Foundation::PWSTR, packagestream: &::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddPackageReference(&self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxBundleWriter4_Vtbl {
@@ -952,8 +952,8 @@ impl IAppxBundleWriter4_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxContentGroup_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetFiles(&mut self) -> ::windows::core::Result<IAppxContentGroupFilesEnumerator>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetFiles(&self) -> ::windows::core::Result<IAppxContentGroupFilesEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxContentGroup_Vtbl {
@@ -992,9 +992,9 @@ impl IAppxContentGroup_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxContentGroupFilesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxContentGroupFilesEnumerator_Vtbl {
@@ -1044,8 +1044,8 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
     }
 }
 pub trait IAppxContentGroupMapReader_Impl: Sized {
-    fn GetRequiredGroup(&mut self) -> ::windows::core::Result<IAppxContentGroup>;
-    fn GetAutomaticGroups(&mut self) -> ::windows::core::Result<IAppxContentGroupsEnumerator>;
+    fn GetRequiredGroup(&self) -> ::windows::core::Result<IAppxContentGroup>;
+    fn GetAutomaticGroups(&self) -> ::windows::core::Result<IAppxContentGroupsEnumerator>;
 }
 impl IAppxContentGroupMapReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxContentGroupMapReader_Impl, const OFFSET: isize>() -> IAppxContentGroupMapReader_Vtbl {
@@ -1083,9 +1083,9 @@ impl IAppxContentGroupMapReader_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxContentGroupMapWriter_Impl: Sized {
-    fn AddAutomaticGroup(&mut self, groupname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddAutomaticFile(&mut self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn AddAutomaticGroup(&self, groupname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddAutomaticFile(&self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxContentGroupMapWriter_Vtbl {
@@ -1118,9 +1118,9 @@ impl IAppxContentGroupMapWriter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxContentGroupsEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxContentGroup>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxContentGroup>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxContentGroupsEnumerator_Vtbl {
@@ -1171,8 +1171,8 @@ impl IAppxContentGroupsEnumerator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptedBundleWriter_Impl: Sized {
-    fn AddPayloadPackageEncrypted(&mut self, filename: super::super::super::Foundation::PWSTR, packagestream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn AddPayloadPackageEncrypted(&self, filename: super::super::super::Foundation::PWSTR, packagestream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptedBundleWriter_Vtbl {
@@ -1199,7 +1199,7 @@ impl IAppxEncryptedBundleWriter_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptedBundleWriter2_Impl: Sized {
-    fn AddExternalPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptedBundleWriter2_Vtbl {
@@ -1220,8 +1220,8 @@ impl IAppxEncryptedBundleWriter2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptedBundleWriter3_Impl: Sized {
-    fn AddPayloadPackageEncrypted(&mut self, filename: super::super::super::Foundation::PWSTR, packagestream: &::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn AddExternalPackageReference(&mut self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddPayloadPackageEncrypted(&self, filename: super::super::super::Foundation::PWSTR, packagestream: &::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: super::super::super::Foundation::PWSTR, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptedBundleWriter3_Vtbl {
@@ -1248,8 +1248,8 @@ impl IAppxEncryptedBundleWriter3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptedPackageWriter_Impl: Sized {
-    fn AddPayloadFileEncrypted(&mut self, filename: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn AddPayloadFileEncrypted(&self, filename: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptedPackageWriter_Vtbl {
@@ -1276,7 +1276,7 @@ impl IAppxEncryptedPackageWriter_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptedPackageWriter2_Impl: Sized {
-    fn AddPayloadFilesEncrypted(&mut self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::Result<()>;
+    fn AddPayloadFilesEncrypted(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptedPackageWriter2_Vtbl {
@@ -1294,14 +1294,14 @@ impl IAppxEncryptedPackageWriter2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptionFactory_Impl: Sized {
-    fn EncryptPackage(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
-    fn DecryptPackage(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>;
-    fn CreateEncryptedPackageWriter(&mut self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, manifeststream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>;
-    fn CreateEncryptedPackageReader(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxPackageReader>;
-    fn EncryptBundle(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
-    fn DecryptBundle(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>;
-    fn CreateEncryptedBundleWriter(&mut self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter>;
-    fn CreateEncryptedBundleReader(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxBundleReader>;
+    fn EncryptPackage(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
+    fn DecryptPackage(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>;
+    fn CreateEncryptedPackageWriter(&self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, manifeststream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>;
+    fn CreateEncryptedPackageReader(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxPackageReader>;
+    fn EncryptBundle(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
+    fn DecryptBundle(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>;
+    fn CreateEncryptedBundleWriter(&self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter>;
+    fn CreateEncryptedBundleReader(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<IAppxBundleReader>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptionFactory_Vtbl {
@@ -1388,7 +1388,7 @@ impl IAppxEncryptionFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptionFactory2_Impl: Sized {
-    fn CreateEncryptedPackageWriter(&mut self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, manifeststream: &::core::option::Option<super::super::super::System::Com::IStream>, contentgroupmapstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>;
+    fn CreateEncryptedPackageWriter(&self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, manifeststream: &::core::option::Option<super::super::super::System::Com::IStream>, contentgroupmapstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptionFactory2_Vtbl {
@@ -1415,10 +1415,10 @@ impl IAppxEncryptionFactory2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptionFactory3_Impl: Sized {
-    fn EncryptPackage(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
-    fn CreateEncryptedPackageWriter(&mut self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, manifeststream: &::core::option::Option<super::super::super::System::Com::IStream>, contentgroupmapstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>;
-    fn EncryptBundle(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
-    fn CreateEncryptedBundleWriter(&mut self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter>;
+    fn EncryptPackage(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
+    fn CreateEncryptedPackageWriter(&self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, manifeststream: &::core::option::Option<super::super::super::System::Com::IStream>, contentgroupmapstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedPackageWriter>;
+    fn EncryptBundle(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<()>;
+    fn CreateEncryptedBundleWriter(&self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::Result<IAppxEncryptedBundleWriter>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptionFactory3_Vtbl {
@@ -1469,7 +1469,7 @@ impl IAppxEncryptionFactory3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxEncryptionFactory4_Impl: Sized {
-    fn EncryptPackage(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::core::Result<()>;
+    fn EncryptPackage(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxEncryptionFactory4_Vtbl {
@@ -1487,11 +1487,11 @@ impl IAppxEncryptionFactory4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxFactory_Impl: Sized {
-    fn CreatePackageWriter(&mut self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_PACKAGE_SETTINGS) -> ::windows::core::Result<IAppxPackageWriter>;
-    fn CreatePackageReader(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxPackageReader>;
-    fn CreateManifestReader(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxManifestReader>;
-    fn CreateBlockMapReader(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxBlockMapReader>;
-    fn CreateValidatedBlockMapReader(&mut self, blockmapstream: &::core::option::Option<super::super::super::System::Com::IStream>, signaturefilename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxBlockMapReader>;
+    fn CreatePackageWriter(&self, outputstream: &::core::option::Option<super::super::super::System::Com::IStream>, settings: *const APPX_PACKAGE_SETTINGS) -> ::windows::core::Result<IAppxPackageWriter>;
+    fn CreatePackageReader(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxPackageReader>;
+    fn CreateManifestReader(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxManifestReader>;
+    fn CreateBlockMapReader(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxBlockMapReader>;
+    fn CreateValidatedBlockMapReader(&self, blockmapstream: &::core::option::Option<super::super::super::System::Com::IStream>, signaturefilename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxBlockMapReader>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxFactory_Vtbl {
@@ -1566,9 +1566,9 @@ impl IAppxFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxFactory2_Impl: Sized {
-    fn CreateContentGroupMapReader(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxContentGroupMapReader>;
-    fn CreateSourceContentGroupMapReader(&mut self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxSourceContentGroupMapReader>;
-    fn CreateContentGroupMapWriter(&mut self, stream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxContentGroupMapWriter>;
+    fn CreateContentGroupMapReader(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxContentGroupMapReader>;
+    fn CreateSourceContentGroupMapReader(&self, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxSourceContentGroupMapReader>;
+    fn CreateContentGroupMapWriter(&self, stream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IAppxContentGroupMapWriter>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory2_Vtbl {
@@ -1619,11 +1619,11 @@ impl IAppxFactory2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxFile_Impl: Sized {
-    fn GetCompressionOption(&mut self) -> ::windows::core::Result<APPX_COMPRESSION_OPTION>;
-    fn GetContentType(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetSize(&mut self) -> ::windows::core::Result<u64>;
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
+    fn GetCompressionOption(&self) -> ::windows::core::Result<APPX_COMPRESSION_OPTION>;
+    fn GetContentType(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetSize(&self) -> ::windows::core::Result<u64>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxFile_Vtbl {
@@ -1698,9 +1698,9 @@ impl IAppxFile_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxFilesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxFile>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxFile>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxFilesEnumerator_Vtbl {
@@ -1751,8 +1751,8 @@ impl IAppxFilesEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestApplication_Impl: Sized {
-    fn GetStringValue(&mut self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetAppUserModelId(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetStringValue(&self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetAppUserModelId(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestApplication_Vtbl {
@@ -1791,9 +1791,9 @@ impl IAppxManifestApplication_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestApplicationsEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestApplication>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestApplication>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestApplicationsEnumerator_Vtbl {
@@ -1844,9 +1844,9 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestCapabilitiesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestCapabilitiesEnumerator_Vtbl {
@@ -1897,9 +1897,9 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDeviceCapabilitiesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
@@ -1950,9 +1950,9 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDriverConstraint_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetMinVersion(&mut self) -> ::windows::core::Result<u64>;
-    fn GetMinDate(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetMinVersion(&self) -> ::windows::core::Result<u64>;
+    fn GetMinDate(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDriverConstraint_Vtbl {
@@ -2003,9 +2003,9 @@ impl IAppxManifestDriverConstraint_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDriverConstraintsEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestDriverConstraint>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestDriverConstraint>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
@@ -2056,9 +2056,9 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestDriverDependenciesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestDriverDependency>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestDriverDependency>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
@@ -2108,7 +2108,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
     }
 }
 pub trait IAppxManifestDriverDependency_Impl: Sized {
-    fn GetDriverConstraints(&mut self) -> ::windows::core::Result<IAppxManifestDriverConstraintsEnumerator>;
+    fn GetDriverConstraints(&self) -> ::windows::core::Result<IAppxManifestDriverConstraintsEnumerator>;
 }
 impl IAppxManifestDriverDependency_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestDriverDependency_Impl, const OFFSET: isize>() -> IAppxManifestDriverDependency_Vtbl {
@@ -2131,9 +2131,9 @@ impl IAppxManifestDriverDependency_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestHostRuntimeDependenciesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestHostRuntimeDependency>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestHostRuntimeDependency>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
@@ -2184,9 +2184,9 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestHostRuntimeDependency_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetPublisher(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetMinVersion(&mut self) -> ::windows::core::Result<u64>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetMinVersion(&self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestHostRuntimeDependency_Vtbl {
@@ -2237,7 +2237,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestHostRuntimeDependency2_Impl: Sized {
-    fn GetPackageFamilyName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPackageFamilyName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestHostRuntimeDependency2_Vtbl {
@@ -2261,9 +2261,9 @@ impl IAppxManifestHostRuntimeDependency2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestMainPackageDependenciesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestMainPackageDependency>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestMainPackageDependency>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
@@ -2314,9 +2314,9 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestMainPackageDependency_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetPublisher(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetPackageFamilyName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPackageFamilyName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestMainPackageDependency_Vtbl {
@@ -2367,9 +2367,9 @@ impl IAppxManifestMainPackageDependency_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestOSPackageDependenciesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestOSPackageDependency>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestOSPackageDependency>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
@@ -2420,8 +2420,8 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestOSPackageDependency_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetVersion(&mut self) -> ::windows::core::Result<u64>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetVersion(&self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestOSPackageDependency_Vtbl {
@@ -2460,8 +2460,8 @@ impl IAppxManifestOSPackageDependency_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestOptionalPackageInfo_Impl: Sized {
-    fn GetIsOptionalPackage(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn GetMainPackageName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetIsOptionalPackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetMainPackageName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestOptionalPackageInfo_Vtbl {
@@ -2500,9 +2500,9 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageDependenciesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestPackageDependency>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestPackageDependency>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
@@ -2553,9 +2553,9 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageDependency_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetPublisher(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetMinVersion(&mut self) -> ::windows::core::Result<u64>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetMinVersion(&self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageDependency_Vtbl {
@@ -2606,7 +2606,7 @@ impl IAppxManifestPackageDependency_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageDependency2_Impl: Sized + IAppxManifestPackageDependency_Impl {
-    fn GetMaxMajorVersionTested(&mut self) -> ::windows::core::Result<u16>;
+    fn GetMaxMajorVersionTested(&self) -> ::windows::core::Result<u16>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageDependency2_Vtbl {
@@ -2633,7 +2633,7 @@ impl IAppxManifestPackageDependency2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageDependency3_Impl: Sized {
-    fn GetIsOptional(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsOptional(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageDependency3_Vtbl {
@@ -2657,14 +2657,14 @@ impl IAppxManifestPackageDependency3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageId_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetArchitecture(&mut self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE>;
-    fn GetPublisher(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetVersion(&mut self) -> ::windows::core::Result<u64>;
-    fn GetResourceId(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn ComparePublisher(&mut self, other: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn GetPackageFullName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetPackageFamilyName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetArchitecture(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE>;
+    fn GetPublisher(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetVersion(&self) -> ::windows::core::Result<u64>;
+    fn GetResourceId(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn ComparePublisher(&self, other: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetPackageFullName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPackageFamilyName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageId_Vtbl {
@@ -2775,7 +2775,7 @@ impl IAppxManifestPackageId_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestPackageId2_Impl: Sized + IAppxManifestPackageId_Impl {
-    fn GetArchitecture2(&mut self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE2>;
+    fn GetArchitecture2(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE2>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestPackageId2_Vtbl {
@@ -2799,8 +2799,8 @@ impl IAppxManifestPackageId2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestProperties_Impl: Sized {
-    fn GetBoolValue(&mut self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn GetStringValue(&mut self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetBoolValue(&self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetStringValue(&self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestProperties_Vtbl {
@@ -2839,9 +2839,9 @@ impl IAppxManifestProperties_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestQualifiedResource_Impl: Sized {
-    fn GetLanguage(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetScale(&mut self) -> ::windows::core::Result<u32>;
-    fn GetDXFeatureLevel(&mut self) -> ::windows::core::Result<DX_FEATURE_LEVEL>;
+    fn GetLanguage(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetScale(&self) -> ::windows::core::Result<u32>;
+    fn GetDXFeatureLevel(&self) -> ::windows::core::Result<DX_FEATURE_LEVEL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestQualifiedResource_Vtbl {
@@ -2892,9 +2892,9 @@ impl IAppxManifestQualifiedResource_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestQualifiedResourcesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestQualifiedResource>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestQualifiedResource>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
@@ -2945,15 +2945,15 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxManifestReader_Impl: Sized {
-    fn GetPackageId(&mut self) -> ::windows::core::Result<IAppxManifestPackageId>;
-    fn GetProperties(&mut self) -> ::windows::core::Result<IAppxManifestProperties>;
-    fn GetPackageDependencies(&mut self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator>;
-    fn GetCapabilities(&mut self) -> ::windows::core::Result<APPX_CAPABILITIES>;
-    fn GetResources(&mut self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator>;
-    fn GetDeviceCapabilities(&mut self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator>;
-    fn GetPrerequisite(&mut self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<u64>;
-    fn GetApplications(&mut self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator>;
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
+    fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId>;
+    fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties>;
+    fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator>;
+    fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES>;
+    fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator>;
+    fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator>;
+    fn GetPrerequisite(&self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<u64>;
+    fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxManifestReader_Vtbl {
@@ -3076,7 +3076,7 @@ impl IAppxManifestReader_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxManifestReader2_Impl: Sized + IAppxManifestReader_Impl {
-    fn GetQualifiedResources(&mut self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator>;
+    fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxManifestReader2_Vtbl {
@@ -3100,8 +3100,8 @@ impl IAppxManifestReader2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxManifestReader3_Impl: Sized + IAppxManifestReader_Impl + IAppxManifestReader2_Impl {
-    fn GetCapabilitiesByCapabilityClass(&mut self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator>;
-    fn GetTargetDeviceFamilies(&mut self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator>;
+    fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator>;
+    fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxManifestReader3_Vtbl {
@@ -3140,7 +3140,7 @@ impl IAppxManifestReader3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxManifestReader4_Impl: Sized + IAppxManifestReader_Impl + IAppxManifestReader2_Impl + IAppxManifestReader3_Impl {
-    fn GetOptionalPackageInfo(&mut self) -> ::windows::core::Result<IAppxManifestOptionalPackageInfo>;
+    fn GetOptionalPackageInfo(&self) -> ::windows::core::Result<IAppxManifestOptionalPackageInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxManifestReader4_Vtbl {
@@ -3163,7 +3163,7 @@ impl IAppxManifestReader4_Vtbl {
     }
 }
 pub trait IAppxManifestReader5_Impl: Sized {
-    fn GetMainPackageDependencies(&mut self) -> ::windows::core::Result<IAppxManifestMainPackageDependenciesEnumerator>;
+    fn GetMainPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestMainPackageDependenciesEnumerator>;
 }
 impl IAppxManifestReader5_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestReader5_Impl, const OFFSET: isize>() -> IAppxManifestReader5_Vtbl {
@@ -3186,7 +3186,7 @@ impl IAppxManifestReader5_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestReader6_Impl: Sized {
-    fn GetIsNonQualifiedResourcePackage(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetIsNonQualifiedResourcePackage(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestReader6_Vtbl {
@@ -3212,9 +3212,9 @@ impl IAppxManifestReader6_Vtbl {
     }
 }
 pub trait IAppxManifestReader7_Impl: Sized {
-    fn GetDriverDependencies(&mut self) -> ::windows::core::Result<IAppxManifestDriverDependenciesEnumerator>;
-    fn GetOSPackageDependencies(&mut self) -> ::windows::core::Result<IAppxManifestOSPackageDependenciesEnumerator>;
-    fn GetHostRuntimeDependencies(&mut self) -> ::windows::core::Result<IAppxManifestHostRuntimeDependenciesEnumerator>;
+    fn GetDriverDependencies(&self) -> ::windows::core::Result<IAppxManifestDriverDependenciesEnumerator>;
+    fn GetOSPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestOSPackageDependenciesEnumerator>;
+    fn GetHostRuntimeDependencies(&self) -> ::windows::core::Result<IAppxManifestHostRuntimeDependenciesEnumerator>;
 }
 impl IAppxManifestReader7_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxManifestReader7_Impl, const OFFSET: isize>() -> IAppxManifestReader7_Vtbl {
@@ -3264,9 +3264,9 @@ impl IAppxManifestReader7_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestResourcesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestResourcesEnumerator_Vtbl {
@@ -3317,9 +3317,9 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestTargetDeviceFamiliesEnumerator_Impl: Sized {
-    fn GetCurrent(&mut self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamily>;
-    fn GetHasCurrent(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamily>;
+    fn GetHasCurrent(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn MoveNext(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
@@ -3370,9 +3370,9 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxManifestTargetDeviceFamily_Impl: Sized {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetMinVersion(&mut self) -> ::windows::core::Result<u64>;
-    fn GetMaxVersionTested(&mut self) -> ::windows::core::Result<u64>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetMinVersion(&self) -> ::windows::core::Result<u64>;
+    fn GetMaxVersionTested(&self) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxManifestTargetDeviceFamily_Vtbl {
@@ -3423,12 +3423,12 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxPackageEditor_Impl: Sized {
-    fn SetWorkingDirectory(&mut self, workingdirectory: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn CreateDeltaPackage(&mut self, updatedpackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, baselinepackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, deltapackagestream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn CreateDeltaPackageUsingBaselineBlockMap(&mut self, updatedpackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, baselineblockmapstream: &::core::option::Option<super::super::super::System::Com::IStream>, baselinepackagefullname: super::super::super::Foundation::PWSTR, deltapackagestream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn UpdatePackage(&mut self, baselinepackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, deltapackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::core::Result<()>;
-    fn UpdateEncryptedPackage(&mut self, baselineencryptedpackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, deltapackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>;
-    fn UpdatePackageManifest(&mut self, packagestream: &::core::option::Option<super::super::super::System::Com::IStream>, updatedmanifeststream: &::core::option::Option<super::super::super::System::Com::IStream>, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::core::Result<()>;
+    fn SetWorkingDirectory(&self, workingdirectory: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CreateDeltaPackage(&self, updatedpackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, baselinepackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, deltapackagestream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn CreateDeltaPackageUsingBaselineBlockMap(&self, updatedpackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, baselineblockmapstream: &::core::option::Option<super::super::super::System::Com::IStream>, baselinepackagefullname: super::super::super::Foundation::PWSTR, deltapackagestream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn UpdatePackage(&self, baselinepackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, deltapackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::core::Result<()>;
+    fn UpdateEncryptedPackage(&self, baselineencryptedpackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, deltapackagestream: &::core::option::Option<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::Result<()>;
+    fn UpdatePackageManifest(&self, packagestream: &::core::option::Option<super::super::super::System::Com::IStream>, updatedmanifeststream: &::core::option::Option<super::super::super::System::Com::IStream>, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxPackageEditor_Vtbl {
@@ -3479,11 +3479,11 @@ impl IAppxPackageEditor_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxPackageReader_Impl: Sized {
-    fn GetBlockMap(&mut self) -> ::windows::core::Result<IAppxBlockMapReader>;
-    fn GetFootprintFile(&mut self, r#type: APPX_FOOTPRINT_FILE_TYPE) -> ::windows::core::Result<IAppxFile>;
-    fn GetPayloadFile(&mut self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxFile>;
-    fn GetPayloadFiles(&mut self) -> ::windows::core::Result<IAppxFilesEnumerator>;
-    fn GetManifest(&mut self) -> ::windows::core::Result<IAppxManifestReader>;
+    fn GetBlockMap(&self) -> ::windows::core::Result<IAppxBlockMapReader>;
+    fn GetFootprintFile(&self, r#type: APPX_FOOTPRINT_FILE_TYPE) -> ::windows::core::Result<IAppxFile>;
+    fn GetPayloadFile(&self, filename: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IAppxFile>;
+    fn GetPayloadFiles(&self) -> ::windows::core::Result<IAppxFilesEnumerator>;
+    fn GetManifest(&self) -> ::windows::core::Result<IAppxManifestReader>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxPackageReader_Vtbl {
@@ -3558,8 +3558,8 @@ impl IAppxPackageReader_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxPackageWriter_Impl: Sized {
-    fn AddPayloadFile(&mut self, filename: super::super::super::Foundation::PWSTR, contenttype: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Close(&mut self, manifest: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddPayloadFile(&self, filename: super::super::super::Foundation::PWSTR, contenttype: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&self, manifest: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxPackageWriter_Vtbl {
@@ -3586,7 +3586,7 @@ impl IAppxPackageWriter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxPackageWriter2_Impl: Sized {
-    fn Close(&mut self, manifest: &::core::option::Option<super::super::super::System::Com::IStream>, contentgroupmap: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Close(&self, manifest: &::core::option::Option<super::super::super::System::Com::IStream>, contentgroupmap: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageWriter2_Vtbl {
@@ -3604,7 +3604,7 @@ impl IAppxPackageWriter2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAppxPackageWriter3_Impl: Sized {
-    fn AddPayloadFiles(&mut self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::Result<()>;
+    fn AddPayloadFiles(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAppxPackageWriter3_Vtbl {
@@ -3622,8 +3622,8 @@ impl IAppxPackageWriter3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAppxPackagingDiagnosticEventSink_Impl: Sized {
-    fn ReportContextChange(&mut self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: super::super::super::Foundation::PSTR, contextmessage: super::super::super::Foundation::PWSTR, detailsmessage: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ReportError(&mut self, errormessage: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ReportContextChange(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: super::super::super::Foundation::PSTR, contextmessage: super::super::super::Foundation::PWSTR, detailsmessage: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ReportError(&self, errormessage: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAppxPackagingDiagnosticEventSink_Vtbl {
@@ -3649,7 +3649,7 @@ impl IAppxPackagingDiagnosticEventSink_Vtbl {
     }
 }
 pub trait IAppxPackagingDiagnosticEventSinkManager_Impl: Sized {
-    fn SetSinkForProcess(&mut self, sink: &::core::option::Option<IAppxPackagingDiagnosticEventSink>) -> ::windows::core::Result<()>;
+    fn SetSinkForProcess(&self, sink: &::core::option::Option<IAppxPackagingDiagnosticEventSink>) -> ::windows::core::Result<()>;
 }
 impl IAppxPackagingDiagnosticEventSinkManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxPackagingDiagnosticEventSinkManager_Impl, const OFFSET: isize>() -> IAppxPackagingDiagnosticEventSinkManager_Vtbl {
@@ -3665,8 +3665,8 @@ impl IAppxPackagingDiagnosticEventSinkManager_Vtbl {
     }
 }
 pub trait IAppxSourceContentGroupMapReader_Impl: Sized {
-    fn GetRequiredGroup(&mut self) -> ::windows::core::Result<IAppxContentGroup>;
-    fn GetAutomaticGroups(&mut self) -> ::windows::core::Result<IAppxContentGroupsEnumerator>;
+    fn GetRequiredGroup(&self) -> ::windows::core::Result<IAppxContentGroup>;
+    fn GetAutomaticGroups(&self) -> ::windows::core::Result<IAppxContentGroupsEnumerator>;
 }
 impl IAppxSourceContentGroupMapReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppxSourceContentGroupMapReader_Impl, const OFFSET: isize>() -> IAppxSourceContentGroupMapReader_Vtbl {

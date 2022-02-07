@@ -1,11 +1,11 @@
 #[cfg(feature = "Foundation")]
 pub trait IAccessoryNotificationTriggerDetails_Impl: Sized {
-    fn TimeCreated(&mut self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
-    fn AppDisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AppId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AccessoryNotificationType(&mut self) -> ::windows::core::Result<AccessoryNotificationType>;
-    fn StartedProcessing(&mut self) -> ::windows::core::Result<bool>;
-    fn SetStartedProcessing(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn TimeCreated(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime>;
+    fn AppDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AppId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AccessoryNotificationType(&self) -> ::windows::core::Result<AccessoryNotificationType>;
+    fn StartedProcessing(&self) -> ::windows::core::Result<bool>;
+    fn SetStartedProcessing(&self, value: bool) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IAccessoryNotificationTriggerDetails {

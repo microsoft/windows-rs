@@ -1,9 +1,9 @@
 #[cfg(feature = "deprecated")]
 pub trait ILearningModelVariableDescriptorPreview_Impl: Sized {
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Description(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ModelFeatureKind(&mut self) -> ::windows::core::Result<LearningModelFeatureKindPreview>;
-    fn IsRequired(&mut self) -> ::windows::core::Result<bool>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ModelFeatureKind(&self) -> ::windows::core::Result<LearningModelFeatureKindPreview>;
+    fn IsRequired(&self) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for ILearningModelVariableDescriptorPreview {

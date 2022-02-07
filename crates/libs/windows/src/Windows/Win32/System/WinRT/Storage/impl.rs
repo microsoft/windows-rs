@@ -1,5 +1,5 @@
 pub trait IOplockBreakingHandler_Impl: Sized {
-    fn OplockBreaking(&mut self) -> ::windows::core::Result<()>;
+    fn OplockBreaking(&self) -> ::windows::core::Result<()>;
 }
 impl IOplockBreakingHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOplockBreakingHandler_Impl, const OFFSET: isize>() -> IOplockBreakingHandler_Vtbl {
@@ -15,7 +15,7 @@ impl IOplockBreakingHandler_Vtbl {
     }
 }
 pub trait IRandomAccessStreamFileAccessMode_Impl: Sized {
-    fn GetMode(&mut self) -> ::windows::core::Result<u32>;
+    fn GetMode(&self) -> ::windows::core::Result<u32>;
 }
 impl IRandomAccessStreamFileAccessMode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRandomAccessStreamFileAccessMode_Impl, const OFFSET: isize>() -> IRandomAccessStreamFileAccessMode_Vtbl {
@@ -38,7 +38,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStorageFolderHandleAccess_Impl: Sized {
-    fn Create(&mut self, filename: super::super::super::Foundation::PWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: &::core::option::Option<IOplockBreakingHandler>) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
+    fn Create(&self, filename: super::super::super::Foundation::PWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: &::core::option::Option<IOplockBreakingHandler>) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IStorageFolderHandleAccess_Vtbl {
@@ -62,7 +62,7 @@ impl IStorageFolderHandleAccess_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStorageItemHandleAccess_Impl: Sized {
-    fn Create(&mut self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: &::core::option::Option<IOplockBreakingHandler>) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
+    fn Create(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: &::core::option::Option<IOplockBreakingHandler>) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IStorageItemHandleAccess_Vtbl {
@@ -85,7 +85,7 @@ impl IStorageItemHandleAccess_Vtbl {
     }
 }
 pub trait IUnbufferedFileHandleOplockCallback_Impl: Sized {
-    fn OnBrokenCallback(&mut self) -> ::windows::core::Result<()>;
+    fn OnBrokenCallback(&self) -> ::windows::core::Result<()>;
 }
 impl IUnbufferedFileHandleOplockCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnbufferedFileHandleOplockCallback_Impl, const OFFSET: isize>() -> IUnbufferedFileHandleOplockCallback_Vtbl {
@@ -101,8 +101,8 @@ impl IUnbufferedFileHandleOplockCallback_Vtbl {
     }
 }
 pub trait IUnbufferedFileHandleProvider_Impl: Sized {
-    fn OpenUnbufferedFileHandle(&mut self, oplockbreakcallback: &::core::option::Option<IUnbufferedFileHandleOplockCallback>) -> ::windows::core::Result<usize>;
-    fn CloseUnbufferedFileHandle(&mut self) -> ::windows::core::Result<()>;
+    fn OpenUnbufferedFileHandle(&self, oplockbreakcallback: &::core::option::Option<IUnbufferedFileHandleOplockCallback>) -> ::windows::core::Result<usize>;
+    fn CloseUnbufferedFileHandle(&self) -> ::windows::core::Result<()>;
 }
 impl IUnbufferedFileHandleProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnbufferedFileHandleProvider_Impl, const OFFSET: isize>() -> IUnbufferedFileHandleProvider_Vtbl {

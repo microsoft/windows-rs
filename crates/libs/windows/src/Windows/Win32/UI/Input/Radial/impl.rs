@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadialControllerConfigurationInterop_Impl: Sized {
-    fn GetForWindow(&mut self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IRadialControllerConfigurationInterop {
@@ -25,7 +25,7 @@ impl IRadialControllerConfigurationInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadialControllerIndependentInputSourceInterop_Impl: Sized {
-    fn CreateForWindow(&mut self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSourceInterop {
@@ -50,7 +50,7 @@ impl IRadialControllerIndependentInputSourceInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadialControllerInterop_Impl: Sized {
-    fn CreateForWindow(&mut self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IRadialControllerInterop {

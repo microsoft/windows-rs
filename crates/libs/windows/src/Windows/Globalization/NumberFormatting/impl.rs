@@ -1,7 +1,7 @@
 pub trait INumberFormatter_Impl: Sized {
-    fn FormatInt(&mut self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormatUInt(&mut self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormatDouble(&mut self, value: f64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatInt(&self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatUInt(&self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatDouble(&self, value: f64) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for INumberFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter";
@@ -56,9 +56,9 @@ impl INumberFormatter_Vtbl {
     }
 }
 pub trait INumberFormatter2_Impl: Sized {
-    fn FormatInt(&mut self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormatUInt(&mut self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FormatDouble(&mut self, value: f64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatInt(&self, value: i64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatUInt(&self, value: u64) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FormatDouble(&self, value: f64) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for INumberFormatter2 {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter2";
@@ -114,20 +114,20 @@ impl INumberFormatter2_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait INumberFormatterOptions_Impl: Sized {
-    fn Languages(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
-    fn GeographicRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IntegerDigits(&mut self) -> ::windows::core::Result<i32>;
-    fn SetIntegerDigits(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn FractionDigits(&mut self) -> ::windows::core::Result<i32>;
-    fn SetFractionDigits(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn IsGrouped(&mut self) -> ::windows::core::Result<bool>;
-    fn SetIsGrouped(&mut self, value: bool) -> ::windows::core::Result<()>;
-    fn IsDecimalPointAlwaysDisplayed(&mut self) -> ::windows::core::Result<bool>;
-    fn SetIsDecimalPointAlwaysDisplayed(&mut self, value: bool) -> ::windows::core::Result<()>;
-    fn NumeralSystem(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNumeralSystem(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ResolvedLanguage(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ResolvedGeographicRegion(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>;
+    fn GeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IntegerDigits(&self) -> ::windows::core::Result<i32>;
+    fn SetIntegerDigits(&self, value: i32) -> ::windows::core::Result<()>;
+    fn FractionDigits(&self) -> ::windows::core::Result<i32>;
+    fn SetFractionDigits(&self, value: i32) -> ::windows::core::Result<()>;
+    fn IsGrouped(&self) -> ::windows::core::Result<bool>;
+    fn SetIsGrouped(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows::core::Result<bool>;
+    fn SetIsDecimalPointAlwaysDisplayed(&self, value: bool) -> ::windows::core::Result<()>;
+    fn NumeralSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNumeralSystem(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ResolvedGeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for INumberFormatterOptions {
@@ -293,9 +293,9 @@ impl INumberFormatterOptions_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait INumberParser_Impl: Sized {
-    fn ParseInt(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>;
-    fn ParseUInt(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>;
-    fn ParseDouble(&mut self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
+    fn ParseInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>>;
+    fn ParseUInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>>;
+    fn ParseDouble(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for INumberParser {
@@ -352,12 +352,12 @@ impl INumberParser_Vtbl {
     }
 }
 pub trait INumberRounder_Impl: Sized {
-    fn RoundInt32(&mut self, value: i32) -> ::windows::core::Result<i32>;
-    fn RoundUInt32(&mut self, value: u32) -> ::windows::core::Result<u32>;
-    fn RoundInt64(&mut self, value: i64) -> ::windows::core::Result<i64>;
-    fn RoundUInt64(&mut self, value: u64) -> ::windows::core::Result<u64>;
-    fn RoundSingle(&mut self, value: f32) -> ::windows::core::Result<f32>;
-    fn RoundDouble(&mut self, value: f64) -> ::windows::core::Result<f64>;
+    fn RoundInt32(&self, value: i32) -> ::windows::core::Result<i32>;
+    fn RoundUInt32(&self, value: u32) -> ::windows::core::Result<u32>;
+    fn RoundInt64(&self, value: i64) -> ::windows::core::Result<i64>;
+    fn RoundUInt64(&self, value: u64) -> ::windows::core::Result<u64>;
+    fn RoundSingle(&self, value: f32) -> ::windows::core::Result<f32>;
+    fn RoundDouble(&self, value: f64) -> ::windows::core::Result<f64>;
 }
 impl ::windows::core::RuntimeName for INumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounder";
@@ -451,8 +451,8 @@ impl INumberRounder_Vtbl {
     }
 }
 pub trait INumberRounderOption_Impl: Sized {
-    fn NumberRounder(&mut self) -> ::windows::core::Result<INumberRounder>;
-    fn SetNumberRounder(&mut self, value: &::core::option::Option<INumberRounder>) -> ::windows::core::Result<()>;
+    fn NumberRounder(&self) -> ::windows::core::Result<INumberRounder>;
+    fn SetNumberRounder(&self, value: &::core::option::Option<INumberRounder>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for INumberRounderOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounderOption";
@@ -487,8 +487,8 @@ impl INumberRounderOption_Vtbl {
     }
 }
 pub trait ISignedZeroOption_Impl: Sized {
-    fn IsZeroSigned(&mut self) -> ::windows::core::Result<bool>;
-    fn SetIsZeroSigned(&mut self, value: bool) -> ::windows::core::Result<()>;
+    fn IsZeroSigned(&self) -> ::windows::core::Result<bool>;
+    fn SetIsZeroSigned(&self, value: bool) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISignedZeroOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignedZeroOption";
@@ -523,8 +523,8 @@ impl ISignedZeroOption_Vtbl {
     }
 }
 pub trait ISignificantDigitsOption_Impl: Sized {
-    fn SignificantDigits(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSignificantDigits(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn SignificantDigits(&self) -> ::windows::core::Result<i32>;
+    fn SetSignificantDigits(&self, value: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISignificantDigitsOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignificantDigitsOption";

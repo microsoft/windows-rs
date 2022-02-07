@@ -17,7 +17,7 @@ use windows::{
 struct MyApp();
 
 impl IApplicationOverrides_Impl for MyApp {
-    fn OnLaunched(&mut self, _: &Option<LaunchActivatedEventArgs>) -> Result<()> {
+    fn OnLaunched(&self, _: &Option<LaunchActivatedEventArgs>) -> Result<()> {
         let window = Window::Current()?;
         window.SetContent(TextBox::new()?)?;
         window.Activate()

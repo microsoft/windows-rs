@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSMan_Impl: Sized + super::Com::IDispatch_Impl {
-    fn CreateSession(&mut self, connection: &super::super::Foundation::BSTR, flags: i32, connectionoptions: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn CreateConnectionOptions(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn CommandLine(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CreateSession(&self, connection: &super::super::Foundation::BSTR, flags: i32, connectionoptions: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn CreateConnectionOptions(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn CommandLine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Error(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSMan_Vtbl {
@@ -66,9 +66,9 @@ impl IWSMan_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptions_Impl: Sized + super::Com::IDispatch_Impl {
-    fn UserName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetUserName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetPassword(&mut self, password: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn UserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetUserName(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPassword(&self, password: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptions_Vtbl {
@@ -107,8 +107,8 @@ impl IWSManConnectionOptions_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptionsEx_Impl: Sized + super::Com::IDispatch_Impl + IWSManConnectionOptions_Impl {
-    fn CertificateThumbprint(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCertificateThumbprint(&mut self, thumbprint: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CertificateThumbprint(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetCertificateThumbprint(&self, thumbprint: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptionsEx_Vtbl {
@@ -141,14 +141,14 @@ impl IWSManConnectionOptionsEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManConnectionOptionsEx2_Impl: Sized + super::Com::IDispatch_Impl + IWSManConnectionOptions_Impl + IWSManConnectionOptionsEx_Impl {
-    fn SetProxy(&mut self, accesstype: i32, authenticationmechanism: i32, username: &super::super::Foundation::BSTR, password: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ProxyIEConfig(&mut self) -> ::windows::core::Result<i32>;
-    fn ProxyWinHttpConfig(&mut self) -> ::windows::core::Result<i32>;
-    fn ProxyAutoDetect(&mut self) -> ::windows::core::Result<i32>;
-    fn ProxyNoProxyServer(&mut self) -> ::windows::core::Result<i32>;
-    fn ProxyAuthenticationUseNegotiate(&mut self) -> ::windows::core::Result<i32>;
-    fn ProxyAuthenticationUseBasic(&mut self) -> ::windows::core::Result<i32>;
-    fn ProxyAuthenticationUseDigest(&mut self) -> ::windows::core::Result<i32>;
+    fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &super::super::Foundation::BSTR, password: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ProxyIEConfig(&self) -> ::windows::core::Result<i32>;
+    fn ProxyWinHttpConfig(&self) -> ::windows::core::Result<i32>;
+    fn ProxyAutoDetect(&self) -> ::windows::core::Result<i32>;
+    fn ProxyNoProxyServer(&self) -> ::windows::core::Result<i32>;
+    fn ProxyAuthenticationUseNegotiate(&self) -> ::windows::core::Result<i32>;
+    fn ProxyAuthenticationUseBasic(&self) -> ::windows::core::Result<i32>;
+    fn ProxyAuthenticationUseDigest(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManConnectionOptionsEx2_Vtbl {
@@ -253,9 +253,9 @@ impl IWSManConnectionOptionsEx2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEnumerator_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ReadItem(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn AtEndOfStream(&mut self) -> ::windows::core::Result<i16>;
-    fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ReadItem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn AtEndOfStream(&self) -> ::windows::core::Result<i16>;
+    fn Error(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManEnumerator_Vtbl {
@@ -306,26 +306,26 @@ impl IWSManEnumerator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEx_Impl: Sized + super::Com::IDispatch_Impl + IWSMan_Impl {
-    fn CreateResourceLocator(&mut self, strresourcelocator: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn SessionFlagUTF8(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagCredUsernamePassword(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagSkipCACheck(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagSkipCNCheck(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagUseDigest(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagUseNegotiate(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagUseBasic(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagUseKerberos(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagNoEncryption(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagEnableSPNServerPort(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagUseNoAuthentication(&mut self) -> ::windows::core::Result<i32>;
-    fn EnumerationFlagNonXmlText(&mut self) -> ::windows::core::Result<i32>;
-    fn EnumerationFlagReturnEPR(&mut self) -> ::windows::core::Result<i32>;
-    fn EnumerationFlagReturnObjectAndEPR(&mut self) -> ::windows::core::Result<i32>;
-    fn GetErrorMessage(&mut self, errornumber: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn EnumerationFlagHierarchyDeep(&mut self) -> ::windows::core::Result<i32>;
-    fn EnumerationFlagHierarchyShallow(&mut self) -> ::windows::core::Result<i32>;
-    fn EnumerationFlagHierarchyDeepBasePropsOnly(&mut self) -> ::windows::core::Result<i32>;
-    fn EnumerationFlagReturnObject(&mut self) -> ::windows::core::Result<i32>;
+    fn CreateResourceLocator(&self, strresourcelocator: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn SessionFlagUTF8(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagCredUsernamePassword(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagSkipCACheck(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagSkipCNCheck(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseDigest(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseNegotiate(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseBasic(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseKerberos(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagNoEncryption(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagEnableSPNServerPort(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseNoAuthentication(&self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagNonXmlText(&self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagReturnEPR(&self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagReturnObjectAndEPR(&self) -> ::windows::core::Result<i32>;
+    fn GetErrorMessage(&self, errornumber: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn EnumerationFlagHierarchyDeep(&self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagHierarchyShallow(&self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagHierarchyDeepBasePropsOnly(&self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagReturnObject(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManEx_Vtbl {
@@ -580,7 +580,7 @@ impl IWSManEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEx2_Impl: Sized + super::Com::IDispatch_Impl + IWSMan_Impl + IWSManEx_Impl {
-    fn SessionFlagUseClientCertificate(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseClientCertificate(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManEx2_Vtbl {
@@ -604,13 +604,13 @@ impl IWSManEx2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManEx3_Impl: Sized + super::Com::IDispatch_Impl + IWSMan_Impl + IWSManEx_Impl + IWSManEx2_Impl {
-    fn SessionFlagUTF16(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagUseCredSsp(&mut self) -> ::windows::core::Result<i32>;
-    fn EnumerationFlagAssociationInstance(&mut self) -> ::windows::core::Result<i32>;
-    fn EnumerationFlagAssociatedInstance(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagSkipRevocationCheck(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagAllowNegotiateImplicitCredentials(&mut self) -> ::windows::core::Result<i32>;
-    fn SessionFlagUseSsl(&mut self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUTF16(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseCredSsp(&self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagAssociationInstance(&self) -> ::windows::core::Result<i32>;
+    fn EnumerationFlagAssociatedInstance(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagSkipRevocationCheck(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagAllowNegotiateImplicitCredentials(&self) -> ::windows::core::Result<i32>;
+    fn SessionFlagUseSsl(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManEx3_Vtbl {
@@ -709,7 +709,7 @@ impl IWSManEx3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManInternal_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ConfigSDDL(&mut self, session: &::core::option::Option<super::Com::IDispatch>, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ConfigSDDL(&self, session: &::core::option::Option<super::Com::IDispatch>, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManInternal_Vtbl {
@@ -733,19 +733,19 @@ impl IWSManInternal_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManResourceLocator_Impl: Sized + super::Com::IDispatch_Impl {
-    fn SetResourceURI(&mut self, uri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ResourceURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn AddSelector(&mut self, resourceselname: &super::super::Foundation::BSTR, selvalue: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ClearSelectors(&mut self) -> ::windows::core::Result<()>;
-    fn FragmentPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFragmentPath(&mut self, text: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FragmentDialect(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFragmentDialect(&mut self, text: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddOption(&mut self, optionname: &super::super::Foundation::BSTR, optionvalue: &super::Com::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetMustUnderstandOptions(&mut self, mustunderstand: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn MustUnderstandOptions(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn ClearOptions(&mut self) -> ::windows::core::Result<()>;
-    fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetResourceURI(&self, uri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ResourceURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn AddSelector(&self, resourceselname: &super::super::Foundation::BSTR, selvalue: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ClearSelectors(&self) -> ::windows::core::Result<()>;
+    fn FragmentPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFragmentPath(&self, text: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FragmentDialect(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFragmentDialect(&self, text: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddOption(&self, optionname: &super::super::Foundation::BSTR, optionvalue: &super::Com::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetMustUnderstandOptions(&self, mustunderstand: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn MustUnderstandOptions(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn ClearOptions(&self) -> ::windows::core::Result<()>;
+    fn Error(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManResourceLocator_Vtbl {
@@ -877,18 +877,18 @@ impl IWSManResourceLocatorInternal_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManSession_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Get(&mut self, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Put(&mut self, resourceuri: &super::Com::VARIANT, resource: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Create(&mut self, resourceuri: &super::Com::VARIANT, resource: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Delete(&mut self, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<()>;
-    fn Invoke2(&mut self, actionuri: &super::super::Foundation::BSTR, resourceuri: &super::Com::VARIANT, parameters: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Enumerate(&mut self, resourceuri: &super::Com::VARIANT, filter: &super::super::Foundation::BSTR, dialect: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn Identify(&mut self, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Error(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn BatchItems(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBatchItems(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn Timeout(&mut self) -> ::windows::core::Result<i32>;
-    fn SetTimeout(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn Get(&self, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Put(&self, resourceuri: &super::Com::VARIANT, resource: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Create(&self, resourceuri: &super::Com::VARIANT, resource: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Delete(&self, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<()>;
+    fn Invoke2(&self, actionuri: &super::super::Foundation::BSTR, resourceuri: &super::Com::VARIANT, parameters: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Enumerate(&self, resourceuri: &super::Com::VARIANT, filter: &super::super::Foundation::BSTR, dialect: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Identify(&self, flags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Error(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn BatchItems(&self) -> ::windows::core::Result<i32>;
+    fn SetBatchItems(&self, value: i32) -> ::windows::core::Result<()>;
+    fn Timeout(&self) -> ::windows::core::Result<i32>;
+    fn SetTimeout(&self, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSManSession_Vtbl {

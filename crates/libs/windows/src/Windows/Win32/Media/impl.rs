@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IReferenceClock_Impl: Sized {
-    fn GetTime(&mut self) -> ::windows::core::Result<i64>;
-    fn AdviseTime(&mut self, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE) -> ::windows::core::Result<usize>;
-    fn AdvisePeriodic(&mut self, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE) -> ::windows::core::Result<usize>;
-    fn Unadvise(&mut self, dwadvisecookie: usize) -> ::windows::core::Result<()>;
+    fn GetTime(&self) -> ::windows::core::Result<i64>;
+    fn AdviseTime(&self, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE) -> ::windows::core::Result<usize>;
+    fn AdvisePeriodic(&self, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE) -> ::windows::core::Result<usize>;
+    fn Unadvise(&self, dwadvisecookie: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IReferenceClock_Vtbl {
@@ -70,8 +70,8 @@ impl IReferenceClock2_Vtbl {
     }
 }
 pub trait IReferenceClockTimerControl_Impl: Sized {
-    fn SetDefaultTimerResolution(&mut self, timerresolution: i64) -> ::windows::core::Result<()>;
-    fn GetDefaultTimerResolution(&mut self) -> ::windows::core::Result<i64>;
+    fn SetDefaultTimerResolution(&self, timerresolution: i64) -> ::windows::core::Result<()>;
+    fn GetDefaultTimerResolution(&self) -> ::windows::core::Result<i64>;
 }
 impl IReferenceClockTimerControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceClockTimerControl_Impl, const OFFSET: isize>() -> IReferenceClockTimerControl_Vtbl {

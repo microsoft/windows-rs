@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioInputNode_Impl: Sized + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
-    fn OutgoingConnections(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>;
-    fn AddOutgoingConnection(&mut self, destination: &::core::option::Option<IAudioNode>) -> ::windows::core::Result<()>;
-    fn AddOutgoingConnectionWithGain(&mut self, destination: &::core::option::Option<IAudioNode>, gain: f64) -> ::windows::core::Result<()>;
-    fn RemoveOutgoingConnection(&mut self, destination: &::core::option::Option<IAudioNode>) -> ::windows::core::Result<()>;
+    fn OutgoingConnections(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>>;
+    fn AddOutgoingConnection(&self, destination: &::core::option::Option<IAudioNode>) -> ::windows::core::Result<()>;
+    fn AddOutgoingConnectionWithGain(&self, destination: &::core::option::Option<IAudioNode>, gain: f64) -> ::windows::core::Result<()>;
+    fn RemoveOutgoingConnection(&self, destination: &::core::option::Option<IAudioNode>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IAudioInputNode {
@@ -53,7 +53,7 @@ impl IAudioInputNode_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioInputNode2_Impl: Sized + IAudioInputNode_Impl + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
-    fn Emitter(&mut self) -> ::windows::core::Result<AudioNodeEmitter>;
+    fn Emitter(&self) -> ::windows::core::Result<AudioNodeEmitter>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IAudioInputNode2 {
@@ -82,17 +82,17 @@ impl IAudioInputNode2_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioNode_Impl: Sized + super::super::Foundation::IClosable_Impl {
-    fn EffectDefinitions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
-    fn SetOutgoingGain(&mut self, value: f64) -> ::windows::core::Result<()>;
-    fn OutgoingGain(&mut self) -> ::windows::core::Result<f64>;
-    fn EncodingProperties(&mut self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
-    fn ConsumeInput(&mut self) -> ::windows::core::Result<bool>;
-    fn SetConsumeInput(&mut self, value: bool) -> ::windows::core::Result<()>;
-    fn Start(&mut self) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn DisableEffectsByDefinition(&mut self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<()>;
-    fn EnableEffectsByDefinition(&mut self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<()>;
+    fn EffectDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>>;
+    fn SetOutgoingGain(&self, value: f64) -> ::windows::core::Result<()>;
+    fn OutgoingGain(&self) -> ::windows::core::Result<f64>;
+    fn EncodingProperties(&self) -> ::windows::core::Result<super::MediaProperties::AudioEncodingProperties>;
+    fn ConsumeInput(&self) -> ::windows::core::Result<bool>;
+    fn SetConsumeInput(&self, value: bool) -> ::windows::core::Result<()>;
+    fn Start(&self) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn DisableEffectsByDefinition(&self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<()>;
+    fn EnableEffectsByDefinition(&self, definition: &::core::option::Option<super::Effects::IAudioEffectDefinition>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IAudioNode {
@@ -205,8 +205,8 @@ impl IAudioNode_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 pub trait IAudioNodeWithListener_Impl: Sized + IAudioNode_Impl + super::super::Foundation::IClosable_Impl {
-    fn SetListener(&mut self, value: &::core::option::Option<AudioNodeListener>) -> ::windows::core::Result<()>;
-    fn Listener(&mut self) -> ::windows::core::Result<AudioNodeListener>;
+    fn SetListener(&self, value: &::core::option::Option<AudioNodeListener>) -> ::windows::core::Result<()>;
+    fn Listener(&self) -> ::windows::core::Result<AudioNodeListener>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Media_Effects", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IAudioNodeWithListener {

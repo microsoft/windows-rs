@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWaaSAssessor_Impl: Sized {
-    fn GetOSUpdateAssessment(&mut self) -> ::windows::core::Result<OSUpdateAssessment>;
+    fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWaaSAssessor_Vtbl {

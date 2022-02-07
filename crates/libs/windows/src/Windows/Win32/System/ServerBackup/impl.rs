@@ -1,6 +1,6 @@
 pub trait IWsbApplicationAsync_Impl: Sized {
-    fn QueryStatus(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn Abort(&mut self) -> ::windows::core::Result<()>;
+    fn QueryStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn Abort(&self) -> ::windows::core::Result<()>;
 }
 impl IWsbApplicationAsync_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWsbApplicationAsync_Impl, const OFFSET: isize>() -> IWsbApplicationAsync_Vtbl {
@@ -32,7 +32,7 @@ impl IWsbApplicationAsync_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWsbApplicationBackupSupport_Impl: Sized {
-    fn CheckConsistency(&mut self, wszwritermetadata: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcomponentlogicalpath: super::super::Foundation::PWSTR, cvolumes: u32, rgwszsourcevolumepath: *const super::super::Foundation::PWSTR, rgwszsnapshotvolumepath: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<IWsbApplicationAsync>;
+    fn CheckConsistency(&self, wszwritermetadata: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcomponentlogicalpath: super::super::Foundation::PWSTR, cvolumes: u32, rgwszsourcevolumepath: *const super::super::Foundation::PWSTR, rgwszsnapshotvolumepath: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<IWsbApplicationAsync>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWsbApplicationBackupSupport_Vtbl {
@@ -56,10 +56,10 @@ impl IWsbApplicationBackupSupport_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWsbApplicationRestoreSupport_Impl: Sized {
-    fn PreRestore(&mut self, wszwritermetadata: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcomponentlogicalpath: super::super::Foundation::PWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
-    fn PostRestore(&mut self, wszwritermetadata: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcomponentlogicalpath: super::super::Foundation::PWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
-    fn OrderComponents(&mut self, ccomponents: u32, rgcomponentname: *const super::super::Foundation::PWSTR, rgcomponentlogicalpaths: *const super::super::Foundation::PWSTR, prgcomponentname: *mut *mut super::super::Foundation::PWSTR, prgcomponentlogicalpath: *mut *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn IsRollForwardSupported(&mut self) -> ::windows::core::Result<u8>;
+    fn PreRestore(&self, wszwritermetadata: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcomponentlogicalpath: super::super::Foundation::PWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
+    fn PostRestore(&self, wszwritermetadata: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcomponentlogicalpath: super::super::Foundation::PWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
+    fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const super::super::Foundation::PWSTR, rgcomponentlogicalpaths: *const super::super::Foundation::PWSTR, prgcomponentname: *mut *mut super::super::Foundation::PWSTR, prgcomponentlogicalpath: *mut *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn IsRollForwardSupported(&self) -> ::windows::core::Result<u8>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWsbApplicationRestoreSupport_Vtbl {

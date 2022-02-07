@@ -1,5 +1,5 @@
 pub trait IUserActivityContentInfo_Impl: Sized {
-    fn ToJson(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ToJson(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IUserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.IUserActivityContentInfo";

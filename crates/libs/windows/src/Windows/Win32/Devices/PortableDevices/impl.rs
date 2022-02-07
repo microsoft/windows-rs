@@ -1,5 +1,5 @@
 pub trait IConnectionRequestCallback_Impl: Sized {
-    fn OnComplete(&mut self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnComplete(&self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl IConnectionRequestCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionRequestCallback_Impl, const OFFSET: isize>() -> IConnectionRequestCallback_Vtbl {
@@ -15,10 +15,10 @@ impl IConnectionRequestCallback_Vtbl {
     }
 }
 pub trait IEnumPortableDeviceConnectors_Impl: Sized {
-    fn Next(&mut self, crequested: u32, pconnectors: *mut ::core::option::Option<IPortableDeviceConnector>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, cconnectors: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumPortableDeviceConnectors>;
+    fn Next(&self, crequested: u32, pconnectors: *mut ::core::option::Option<IPortableDeviceConnector>, pcfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, cconnectors: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumPortableDeviceConnectors>;
 }
 impl IEnumPortableDeviceConnectors_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumPortableDeviceConnectors_Impl, const OFFSET: isize>() -> IEnumPortableDeviceConnectors_Vtbl {
@@ -62,11 +62,11 @@ impl IEnumPortableDeviceConnectors_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumPortableDeviceObjectIDs_Impl: Sized {
-    fn Next(&mut self, cobjects: u32, pobjids: *mut super::super::Foundation::PWSTR, pcfetched: *mut u32) -> ::windows::core::HRESULT;
-    fn Skip(&mut self, cobjects: u32) -> ::windows::core::HRESULT;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumPortableDeviceObjectIDs>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn Next(&self, cobjects: u32, pobjids: *mut super::super::Foundation::PWSTR, pcfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&self, cobjects: u32) -> ::windows::core::HRESULT;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumPortableDeviceObjectIDs>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumPortableDeviceObjectIDs_Vtbl {
@@ -116,8 +116,8 @@ impl IEnumPortableDeviceObjectIDs_Vtbl {
     }
 }
 pub trait IMediaRadioManager_Impl: Sized {
-    fn GetRadioInstances(&mut self) -> ::windows::core::Result<IRadioInstanceCollection>;
-    fn OnSystemRadioStateChange(&mut self, sysradiostate: SYSTEM_RADIO_STATE, utimeoutsec: u32) -> ::windows::core::Result<()>;
+    fn GetRadioInstances(&self) -> ::windows::core::Result<IRadioInstanceCollection>;
+    fn OnSystemRadioStateChange(&self, sysradiostate: SYSTEM_RADIO_STATE, utimeoutsec: u32) -> ::windows::core::Result<()>;
 }
 impl IMediaRadioManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaRadioManager_Impl, const OFFSET: isize>() -> IMediaRadioManager_Vtbl {
@@ -149,9 +149,9 @@ impl IMediaRadioManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMediaRadioManagerNotifySink_Impl: Sized {
-    fn OnInstanceAdd(&mut self, pradioinstance: &::core::option::Option<IRadioInstance>) -> ::windows::core::Result<()>;
-    fn OnInstanceRemove(&mut self, bstrradioinstanceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OnInstanceRadioChange(&mut self, bstrradioinstanceid: &super::super::Foundation::BSTR, radiostate: DEVICE_RADIO_STATE) -> ::windows::core::Result<()>;
+    fn OnInstanceAdd(&self, pradioinstance: &::core::option::Option<IRadioInstance>) -> ::windows::core::Result<()>;
+    fn OnInstanceRemove(&self, bstrradioinstanceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OnInstanceRadioChange(&self, bstrradioinstanceid: &super::super::Foundation::BSTR, radiostate: DEVICE_RADIO_STATE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMediaRadioManagerNotifySink_Vtbl {
@@ -184,15 +184,15 @@ impl IMediaRadioManagerNotifySink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPortableDevice_Impl: Sized {
-    fn Open(&mut self, pszpnpdeviceid: super::super::Foundation::PWSTR, pclientinfo: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
-    fn SendCommand(&mut self, dwflags: u32, pparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn Content(&mut self) -> ::windows::core::Result<IPortableDeviceContent>;
-    fn Capabilities(&mut self) -> ::windows::core::Result<IPortableDeviceCapabilities>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn Advise(&mut self, dwflags: u32, pcallback: &::core::option::Option<IPortableDeviceEventCallback>, pparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Unadvise(&mut self, pszcookie: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetPnPDeviceID(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Open(&self, pszpnpdeviceid: super::super::Foundation::PWSTR, pclientinfo: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
+    fn SendCommand(&self, dwflags: u32, pparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn Content(&self) -> ::windows::core::Result<IPortableDeviceContent>;
+    fn Capabilities(&self) -> ::windows::core::Result<IPortableDeviceCapabilities>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn Advise(&self, dwflags: u32, pcallback: &::core::option::Option<IPortableDeviceEventCallback>, pparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Unadvise(&self, pszcookie: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetPnPDeviceID(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPortableDevice_Vtbl {
@@ -291,17 +291,17 @@ impl IPortableDevice_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IPortableDeviceCapabilities_Impl: Sized {
-    fn GetSupportedCommands(&mut self) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
-    fn GetCommandOptions(&mut self, command: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn GetFunctionalCategories(&mut self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn GetFunctionalObjects(&mut self, category: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn GetSupportedContentTypes(&mut self, category: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn GetSupportedFormats(&mut self, contenttype: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn GetSupportedFormatProperties(&mut self, format: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
-    fn GetFixedPropertyAttributes(&mut self, format: *const ::windows::core::GUID, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn GetSupportedEvents(&mut self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn GetEventOptions(&mut self, event: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn GetSupportedCommands(&self) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
+    fn GetCommandOptions(&self, command: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn GetFunctionalCategories(&self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn GetFunctionalObjects(&self, category: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn GetSupportedContentTypes(&self, category: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn GetSupportedFormats(&self, contenttype: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn GetSupportedFormatProperties(&self, format: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
+    fn GetFixedPropertyAttributes(&self, format: *const ::windows::core::GUID, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn GetSupportedEvents(&self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn GetEventOptions(&self, event: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValues>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IPortableDeviceCapabilities_Vtbl {
@@ -442,12 +442,12 @@ impl IPortableDeviceCapabilities_Vtbl {
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub trait IPortableDeviceConnector_Impl: Sized {
-    fn Connect(&mut self, pcallback: &::core::option::Option<IConnectionRequestCallback>) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self, pcallback: &::core::option::Option<IConnectionRequestCallback>) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self, pcallback: &::core::option::Option<IConnectionRequestCallback>) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, ppropertykey: *const super::Properties::DEVPROPKEY, ppropertytype: *mut u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, ppropertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
-    fn GetPnPID(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Connect(&self, pcallback: &::core::option::Option<IConnectionRequestCallback>) -> ::windows::core::Result<()>;
+    fn Disconnect(&self, pcallback: &::core::option::Option<IConnectionRequestCallback>) -> ::windows::core::Result<()>;
+    fn Cancel(&self, pcallback: &::core::option::Option<IConnectionRequestCallback>) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, ppropertykey: *const super::Properties::DEVPROPKEY, ppropertytype: *mut u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, ppropertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
+    fn GetPnPID(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 impl IPortableDeviceConnector_Vtbl {
@@ -504,16 +504,16 @@ impl IPortableDeviceConnector_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPortableDeviceContent_Impl: Sized {
-    fn EnumObjects(&mut self, dwflags: u32, pszparentobjectid: super::super::Foundation::PWSTR, pfilter: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IEnumPortableDeviceObjectIDs>;
-    fn Properties(&mut self) -> ::windows::core::Result<IPortableDeviceProperties>;
-    fn Transfer(&mut self) -> ::windows::core::Result<IPortableDeviceResources>;
-    fn CreateObjectWithPropertiesOnly(&mut self, pvalues: &::core::option::Option<IPortableDeviceValues>, ppszobjectid: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn CreateObjectWithPropertiesAndData(&mut self, pvalues: &::core::option::Option<IPortableDeviceValues>, ppdata: *mut ::core::option::Option<super::super::System::Com::IStream>, pdwoptimalwritebuffersize: *mut u32, ppszcookie: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Delete(&mut self, dwoptions: u32, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, ppresults: *mut ::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<()>;
-    fn GetObjectIDsFromPersistentUniqueIDs(&mut self, ppersistentuniqueids: &::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn Move(&mut self, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, pszdestinationfolderobjectid: super::super::Foundation::PWSTR, ppresults: *mut ::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<()>;
-    fn Copy(&mut self, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, pszdestinationfolderobjectid: super::super::Foundation::PWSTR, ppresults: *mut ::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<()>;
+    fn EnumObjects(&self, dwflags: u32, pszparentobjectid: super::super::Foundation::PWSTR, pfilter: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IEnumPortableDeviceObjectIDs>;
+    fn Properties(&self) -> ::windows::core::Result<IPortableDeviceProperties>;
+    fn Transfer(&self) -> ::windows::core::Result<IPortableDeviceResources>;
+    fn CreateObjectWithPropertiesOnly(&self, pvalues: &::core::option::Option<IPortableDeviceValues>, ppszobjectid: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CreateObjectWithPropertiesAndData(&self, pvalues: &::core::option::Option<IPortableDeviceValues>, ppdata: *mut ::core::option::Option<super::super::System::Com::IStream>, pdwoptimalwritebuffersize: *mut u32, ppszcookie: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Delete(&self, dwoptions: u32, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, ppresults: *mut ::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<()>;
+    fn GetObjectIDsFromPersistentUniqueIDs(&self, ppersistentuniqueids: &::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Move(&self, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, pszdestinationfolderobjectid: super::super::Foundation::PWSTR, ppresults: *mut ::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<()>;
+    fn Copy(&self, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, pszdestinationfolderobjectid: super::super::Foundation::PWSTR, ppresults: *mut ::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPortableDeviceContent_Vtbl {
@@ -612,7 +612,7 @@ impl IPortableDeviceContent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPortableDeviceContent2_Impl: Sized + IPortableDeviceContent_Impl {
-    fn UpdateObjectWithPropertiesAndData(&mut self, pszobjectid: super::super::Foundation::PWSTR, pproperties: &::core::option::Option<IPortableDeviceValues>, ppdata: *mut ::core::option::Option<super::super::System::Com::IStream>, pdwoptimalwritebuffersize: *mut u32) -> ::windows::core::Result<()>;
+    fn UpdateObjectWithPropertiesAndData(&self, pszobjectid: super::super::Foundation::PWSTR, pproperties: &::core::option::Option<IPortableDeviceValues>, ppdata: *mut ::core::option::Option<super::super::System::Com::IStream>, pdwoptimalwritebuffersize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPortableDeviceContent2_Vtbl {
@@ -633,8 +633,8 @@ impl IPortableDeviceContent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPortableDeviceDataStream_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
-    fn GetObjectID(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn GetObjectID(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPortableDeviceDataStream_Vtbl {
@@ -667,7 +667,7 @@ impl IPortableDeviceDataStream_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPortableDeviceDispatchFactory_Impl: Sized {
-    fn GetDeviceDispatch(&mut self, pszpnpdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn GetDeviceDispatch(&self, pszpnpdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPortableDeviceDispatchFactory_Vtbl {
@@ -690,7 +690,7 @@ impl IPortableDeviceDispatchFactory_Vtbl {
     }
 }
 pub trait IPortableDeviceEventCallback_Impl: Sized {
-    fn OnEvent(&mut self, peventparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
+    fn OnEvent(&self, peventparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
 }
 impl IPortableDeviceEventCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceEventCallback_Impl, const OFFSET: isize>() -> IPortableDeviceEventCallback_Vtbl {
@@ -707,11 +707,11 @@ impl IPortableDeviceEventCallback_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IPortableDeviceKeyCollection_Impl: Sized {
-    fn GetCount(&mut self, pcelems: *const u32) -> ::windows::core::Result<()>;
-    fn GetAt(&mut self, dwindex: u32, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
-    fn Add(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, dwindex: u32) -> ::windows::core::Result<()>;
+    fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()>;
+    fn GetAt(&self, dwindex: u32, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn Add(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IPortableDeviceKeyCollection_Vtbl {
@@ -756,13 +756,13 @@ impl IPortableDeviceKeyCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPortableDeviceManager_Impl: Sized {
-    fn GetDevices(&mut self, ppnpdeviceids: *mut super::super::Foundation::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows::core::Result<()>;
-    fn RefreshDeviceList(&mut self) -> ::windows::core::Result<()>;
-    fn GetDeviceFriendlyName(&mut self, pszpnpdeviceid: super::super::Foundation::PWSTR, pdevicefriendlyname: super::super::Foundation::PWSTR, pcchdevicefriendlyname: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDeviceDescription(&mut self, pszpnpdeviceid: super::super::Foundation::PWSTR, pdevicedescription: super::super::Foundation::PWSTR, pcchdevicedescription: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDeviceManufacturer(&mut self, pszpnpdeviceid: super::super::Foundation::PWSTR, pdevicemanufacturer: super::super::Foundation::PWSTR, pcchdevicemanufacturer: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDeviceProperty(&mut self, pszpnpdeviceid: super::super::Foundation::PWSTR, pszdevicepropertyname: super::super::Foundation::PWSTR, pdata: *mut u8, pcbdata: *mut u32, pdwtype: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPrivateDevices(&mut self, ppnpdeviceids: *mut super::super::Foundation::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDevices(&self, ppnpdeviceids: *mut super::super::Foundation::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows::core::Result<()>;
+    fn RefreshDeviceList(&self) -> ::windows::core::Result<()>;
+    fn GetDeviceFriendlyName(&self, pszpnpdeviceid: super::super::Foundation::PWSTR, pdevicefriendlyname: super::super::Foundation::PWSTR, pcchdevicefriendlyname: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDeviceDescription(&self, pszpnpdeviceid: super::super::Foundation::PWSTR, pdevicedescription: super::super::Foundation::PWSTR, pcchdevicedescription: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDeviceManufacturer(&self, pszpnpdeviceid: super::super::Foundation::PWSTR, pdevicemanufacturer: super::super::Foundation::PWSTR, pcchdevicemanufacturer: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDeviceProperty(&self, pszpnpdeviceid: super::super::Foundation::PWSTR, pszdevicepropertyname: super::super::Foundation::PWSTR, pdata: *mut u8, pcbdata: *mut u32, pdwtype: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPrivateDevices(&self, ppnpdeviceids: *mut super::super::Foundation::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPortableDeviceManager_Vtbl {
@@ -819,13 +819,13 @@ impl IPortableDeviceManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPortableDevicePropVariantCollection_Impl: Sized {
-    fn GetCount(&mut self, pcelems: *const u32) -> ::windows::core::Result<()>;
-    fn GetAt(&mut self, dwindex: u32, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn Add(&mut self, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn GetType(&mut self) -> ::windows::core::Result<u16>;
-    fn ChangeType(&mut self, vt: u16) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, dwindex: u32) -> ::windows::core::Result<()>;
+    fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()>;
+    fn GetAt(&self, dwindex: u32, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn Add(&self, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetType(&self) -> ::windows::core::Result<u16>;
+    fn ChangeType(&self, vt: u16) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPortableDevicePropVariantCollection_Vtbl {
@@ -888,12 +888,12 @@ impl IPortableDevicePropVariantCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IPortableDeviceProperties_Impl: Sized {
-    fn GetSupportedProperties(&mut self, pszobjectid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
-    fn GetPropertyAttributes(&mut self, pszobjectid: super::super::Foundation::PWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn GetValues(&mut self, pszobjectid: super::super::Foundation::PWSTR, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn SetValues(&mut self, pszobjectid: super::super::Foundation::PWSTR, pvalues: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn Delete(&mut self, pszobjectid: super::super::Foundation::PWSTR, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn GetSupportedProperties(&self, pszobjectid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
+    fn GetPropertyAttributes(&self, pszobjectid: super::super::Foundation::PWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn GetValues(&self, pszobjectid: super::super::Foundation::PWSTR, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn SetValues(&self, pszobjectid: super::super::Foundation::PWSTR, pvalues: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn Delete(&self, pszobjectid: super::super::Foundation::PWSTR, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IPortableDeviceProperties_Vtbl {
@@ -968,11 +968,11 @@ impl IPortableDeviceProperties_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPortableDevicePropertiesBulk_Impl: Sized {
-    fn QueueGetValuesByObjectList(&mut self, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>, pcallback: &::core::option::Option<IPortableDevicePropertiesBulkCallback>) -> ::windows::core::Result<::windows::core::GUID>;
-    fn QueueGetValuesByObjectFormat(&mut self, pguidobjectformat: *const ::windows::core::GUID, pszparentobjectid: super::super::Foundation::PWSTR, dwdepth: u32, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>, pcallback: &::core::option::Option<IPortableDevicePropertiesBulkCallback>) -> ::windows::core::Result<::windows::core::GUID>;
-    fn QueueSetValuesByObjectList(&mut self, pobjectvalues: &::core::option::Option<IPortableDeviceValuesCollection>, pcallback: &::core::option::Option<IPortableDevicePropertiesBulkCallback>) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Start(&mut self, pcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self, pcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn QueueGetValuesByObjectList(&self, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>, pcallback: &::core::option::Option<IPortableDevicePropertiesBulkCallback>) -> ::windows::core::Result<::windows::core::GUID>;
+    fn QueueGetValuesByObjectFormat(&self, pguidobjectformat: *const ::windows::core::GUID, pszparentobjectid: super::super::Foundation::PWSTR, dwdepth: u32, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>, pcallback: &::core::option::Option<IPortableDevicePropertiesBulkCallback>) -> ::windows::core::Result<::windows::core::GUID>;
+    fn QueueSetValuesByObjectList(&self, pobjectvalues: &::core::option::Option<IPortableDeviceValuesCollection>, pcallback: &::core::option::Option<IPortableDevicePropertiesBulkCallback>) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Start(&self, pcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Cancel(&self, pcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPortableDevicePropertiesBulk_Vtbl {
@@ -1034,9 +1034,9 @@ impl IPortableDevicePropertiesBulk_Vtbl {
     }
 }
 pub trait IPortableDevicePropertiesBulkCallback_Impl: Sized {
-    fn OnStart(&mut self, pcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnProgress(&mut self, pcontext: *const ::windows::core::GUID, presults: &::core::option::Option<IPortableDeviceValuesCollection>) -> ::windows::core::Result<()>;
-    fn OnEnd(&mut self, pcontext: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnStart(&self, pcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnProgress(&self, pcontext: *const ::windows::core::GUID, presults: &::core::option::Option<IPortableDeviceValuesCollection>) -> ::windows::core::Result<()>;
+    fn OnEnd(&self, pcontext: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl IPortableDevicePropertiesBulkCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDevicePropertiesBulkCallback_Impl, const OFFSET: isize>() -> IPortableDevicePropertiesBulkCallback_Vtbl {
@@ -1068,12 +1068,12 @@ impl IPortableDevicePropertiesBulkCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IPortableDeviceResources_Impl: Sized {
-    fn GetSupportedResources(&mut self, pszobjectid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
-    fn GetResourceAttributes(&mut self, pszobjectid: super::super::Foundation::PWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn GetStream(&mut self, pszobjectid: super::super::Foundation::PWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, dwmode: u32, pdwoptimalbuffersize: *mut u32, ppstream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Delete(&mut self, pszobjectid: super::super::Foundation::PWSTR, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn CreateResource(&mut self, presourceattributes: &::core::option::Option<IPortableDeviceValues>, ppdata: *mut ::core::option::Option<super::super::System::Com::IStream>, pdwoptimalwritebuffersize: *mut u32, ppszcookie: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSupportedResources(&self, pszobjectid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
+    fn GetResourceAttributes(&self, pszobjectid: super::super::Foundation::PWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn GetStream(&self, pszobjectid: super::super::Foundation::PWSTR, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, dwmode: u32, pdwoptimalbuffersize: *mut u32, ppstream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Delete(&self, pszobjectid: super::super::Foundation::PWSTR, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn CreateResource(&self, presourceattributes: &::core::option::Option<IPortableDeviceValues>, ppdata: *mut ::core::option::Option<super::super::System::Com::IStream>, pdwoptimalwritebuffersize: *mut u32, ppszcookie: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IPortableDeviceResources_Vtbl {
@@ -1136,17 +1136,17 @@ impl IPortableDeviceResources_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPortableDeviceService_Impl: Sized {
-    fn Open(&mut self, pszpnpserviceid: super::super::Foundation::PWSTR, pclientinfo: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
-    fn Capabilities(&mut self) -> ::windows::core::Result<IPortableDeviceServiceCapabilities>;
-    fn Content(&mut self) -> ::windows::core::Result<IPortableDeviceContent2>;
-    fn Methods(&mut self) -> ::windows::core::Result<IPortableDeviceServiceMethods>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn GetServiceObjectID(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetPnPServiceID(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Advise(&mut self, dwflags: u32, pcallback: &::core::option::Option<IPortableDeviceEventCallback>, pparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Unadvise(&mut self, pszcookie: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SendCommand(&mut self, dwflags: u32, pparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn Open(&self, pszpnpserviceid: super::super::Foundation::PWSTR, pclientinfo: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
+    fn Capabilities(&self) -> ::windows::core::Result<IPortableDeviceServiceCapabilities>;
+    fn Content(&self) -> ::windows::core::Result<IPortableDeviceContent2>;
+    fn Methods(&self) -> ::windows::core::Result<IPortableDeviceServiceMethods>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn GetServiceObjectID(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetPnPServiceID(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Advise(&self, dwflags: u32, pcallback: &::core::option::Option<IPortableDeviceEventCallback>, pparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Unadvise(&self, pszcookie: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SendCommand(&self, dwflags: u32, pparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IPortableDeviceValues>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPortableDeviceService_Vtbl {
@@ -1269,8 +1269,8 @@ impl IPortableDeviceService_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPortableDeviceServiceActivation_Impl: Sized {
-    fn OpenAsync(&mut self, pszpnpserviceid: super::super::Foundation::PWSTR, pclientinfo: &::core::option::Option<IPortableDeviceValues>, pcallback: &::core::option::Option<IPortableDeviceServiceOpenCallback>) -> ::windows::core::Result<()>;
-    fn CancelOpenAsync(&mut self) -> ::windows::core::Result<()>;
+    fn OpenAsync(&self, pszpnpserviceid: super::super::Foundation::PWSTR, pclientinfo: &::core::option::Option<IPortableDeviceValues>, pcallback: &::core::option::Option<IPortableDeviceServiceOpenCallback>) -> ::windows::core::Result<()>;
+    fn CancelOpenAsync(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPortableDeviceServiceActivation_Vtbl {
@@ -1297,22 +1297,22 @@ impl IPortableDeviceServiceActivation_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IPortableDeviceServiceCapabilities_Impl: Sized {
-    fn GetSupportedMethods(&mut self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn GetSupportedMethodsByFormat(&mut self, format: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn GetMethodAttributes(&mut self, method: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn GetMethodParameterAttributes(&mut self, method: *const ::windows::core::GUID, parameter: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn GetSupportedFormats(&mut self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn GetFormatAttributes(&mut self, format: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn GetSupportedFormatProperties(&mut self, format: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
-    fn GetFormatPropertyAttributes(&mut self, format: *const ::windows::core::GUID, property: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn GetSupportedEvents(&mut self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn GetEventAttributes(&mut self, event: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn GetEventParameterAttributes(&mut self, event: *const ::windows::core::GUID, parameter: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn GetInheritedServices(&mut self, dwinheritancetype: u32) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn GetFormatRenderingProfiles(&mut self, format: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValuesCollection>;
-    fn GetSupportedCommands(&mut self) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
-    fn GetCommandOptions(&mut self, command: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn GetSupportedMethods(&self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn GetSupportedMethodsByFormat(&self, format: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn GetMethodAttributes(&self, method: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn GetMethodParameterAttributes(&self, method: *const ::windows::core::GUID, parameter: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn GetSupportedFormats(&self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn GetFormatAttributes(&self, format: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn GetSupportedFormatProperties(&self, format: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
+    fn GetFormatPropertyAttributes(&self, format: *const ::windows::core::GUID, property: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn GetSupportedEvents(&self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn GetEventAttributes(&self, event: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn GetEventParameterAttributes(&self, event: *const ::windows::core::GUID, parameter: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn GetInheritedServices(&self, dwinheritancetype: u32) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn GetFormatRenderingProfiles(&self, format: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValuesCollection>;
+    fn GetSupportedCommands(&self) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
+    fn GetCommandOptions(&self, command: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IPortableDeviceServiceCapabilities_Vtbl {
@@ -1513,8 +1513,8 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPortableDeviceServiceManager_Impl: Sized {
-    fn GetDeviceServices(&mut self, pszpnpdeviceid: super::super::Foundation::PWSTR, guidservicecategory: *const ::windows::core::GUID, pservices: *mut super::super::Foundation::PWSTR, pcservices: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDeviceForService(&mut self, pszpnpserviceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetDeviceServices(&self, pszpnpdeviceid: super::super::Foundation::PWSTR, guidservicecategory: *const ::windows::core::GUID, pservices: *mut super::super::Foundation::PWSTR, pcservices: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDeviceForService(&self, pszpnpserviceid: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPortableDeviceServiceManager_Vtbl {
@@ -1546,7 +1546,7 @@ impl IPortableDeviceServiceManager_Vtbl {
     }
 }
 pub trait IPortableDeviceServiceMethodCallback_Impl: Sized {
-    fn OnComplete(&mut self, hrstatus: ::windows::core::HRESULT, presults: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
+    fn OnComplete(&self, hrstatus: ::windows::core::HRESULT, presults: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
 }
 impl IPortableDeviceServiceMethodCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceMethodCallback_Impl, const OFFSET: isize>() -> IPortableDeviceServiceMethodCallback_Vtbl {
@@ -1562,9 +1562,9 @@ impl IPortableDeviceServiceMethodCallback_Vtbl {
     }
 }
 pub trait IPortableDeviceServiceMethods_Impl: Sized {
-    fn Invoke(&mut self, method: *const ::windows::core::GUID, pparameters: &::core::option::Option<IPortableDeviceValues>, ppresults: *mut ::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
-    fn InvokeAsync(&mut self, method: *const ::windows::core::GUID, pparameters: &::core::option::Option<IPortableDeviceValues>, pcallback: &::core::option::Option<IPortableDeviceServiceMethodCallback>) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self, pcallback: &::core::option::Option<IPortableDeviceServiceMethodCallback>) -> ::windows::core::Result<()>;
+    fn Invoke(&self, method: *const ::windows::core::GUID, pparameters: &::core::option::Option<IPortableDeviceValues>, ppresults: *mut ::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
+    fn InvokeAsync(&self, method: *const ::windows::core::GUID, pparameters: &::core::option::Option<IPortableDeviceValues>, pcallback: &::core::option::Option<IPortableDeviceServiceMethodCallback>) -> ::windows::core::Result<()>;
+    fn Cancel(&self, pcallback: &::core::option::Option<IPortableDeviceServiceMethodCallback>) -> ::windows::core::Result<()>;
 }
 impl IPortableDeviceServiceMethods_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceMethods_Impl, const OFFSET: isize>() -> IPortableDeviceServiceMethods_Vtbl {
@@ -1595,7 +1595,7 @@ impl IPortableDeviceServiceMethods_Vtbl {
     }
 }
 pub trait IPortableDeviceServiceOpenCallback_Impl: Sized {
-    fn OnComplete(&mut self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnComplete(&self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl IPortableDeviceServiceOpenCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceOpenCallback_Impl, const OFFSET: isize>() -> IPortableDeviceServiceOpenCallback_Vtbl {
@@ -1611,8 +1611,8 @@ impl IPortableDeviceServiceOpenCallback_Vtbl {
     }
 }
 pub trait IPortableDeviceUnitsStream_Impl: Sized {
-    fn SeekInUnits(&mut self, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32) -> ::windows::core::Result<u64>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn SeekInUnits(&self, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32) -> ::windows::core::Result<u64>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 impl IPortableDeviceUnitsStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>() -> IPortableDeviceUnitsStream_Vtbl {
@@ -1644,46 +1644,46 @@ impl IPortableDeviceUnitsStream_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IPortableDeviceValues_Impl: Sized {
-    fn GetCount(&mut self, pcelt: *const u32) -> ::windows::core::Result<()>;
-    fn GetAt(&mut self, index: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn SetValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn GetValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetStringValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetStringValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetUnsignedIntegerValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: u32) -> ::windows::core::Result<()>;
-    fn GetUnsignedIntegerValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<u32>;
-    fn SetSignedIntegerValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: i32) -> ::windows::core::Result<()>;
-    fn GetSignedIntegerValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<i32>;
-    fn SetUnsignedLargeIntegerValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: u64) -> ::windows::core::Result<()>;
-    fn GetUnsignedLargeIntegerValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<u64>;
-    fn SetSignedLargeIntegerValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: i64) -> ::windows::core::Result<()>;
-    fn GetSignedLargeIntegerValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<i64>;
-    fn SetFloatValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: f32) -> ::windows::core::Result<()>;
-    fn GetFloatValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<f32>;
-    fn SetErrorValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn GetErrorValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn SetKeyValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
-    fn GetKeyValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>;
-    fn SetBoolValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetBoolValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetIUnknownValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetIUnknownValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn SetGuidValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetGuidValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetBufferValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *const u8, cbvalue: u32) -> ::windows::core::Result<()>;
-    fn GetBufferValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppvalue: *mut *mut u8, pcbvalue: *mut u32) -> ::windows::core::Result<()>;
-    fn SetIPortableDeviceValuesValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
-    fn GetIPortableDeviceValuesValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn SetIPortableDevicePropVariantCollectionValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<()>;
-    fn GetIPortableDevicePropVariantCollectionValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
-    fn SetIPortableDeviceKeyCollectionValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &::core::option::Option<IPortableDeviceKeyCollection>) -> ::windows::core::Result<()>;
-    fn GetIPortableDeviceKeyCollectionValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
-    fn SetIPortableDeviceValuesCollectionValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &::core::option::Option<IPortableDeviceValuesCollection>) -> ::windows::core::Result<()>;
-    fn GetIPortableDeviceValuesCollectionValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValuesCollection>;
-    fn RemoveValue(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
-    fn CopyValuesFromPropertyStore(&mut self, pstore: &::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
-    fn CopyValuesToPropertyStore(&mut self, pstore: &::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn GetCount(&self, pcelt: *const u32) -> ::windows::core::Result<()>;
+    fn GetAt(&self, index: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn SetValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetStringValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetStringValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetUnsignedIntegerValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: u32) -> ::windows::core::Result<()>;
+    fn GetUnsignedIntegerValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<u32>;
+    fn SetSignedIntegerValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: i32) -> ::windows::core::Result<()>;
+    fn GetSignedIntegerValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<i32>;
+    fn SetUnsignedLargeIntegerValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: u64) -> ::windows::core::Result<()>;
+    fn GetUnsignedLargeIntegerValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<u64>;
+    fn SetSignedLargeIntegerValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: i64) -> ::windows::core::Result<()>;
+    fn GetSignedLargeIntegerValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<i64>;
+    fn SetFloatValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: f32) -> ::windows::core::Result<()>;
+    fn GetFloatValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<f32>;
+    fn SetErrorValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn GetErrorValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn SetKeyValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn GetKeyValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>;
+    fn SetBoolValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetBoolValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetIUnknownValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetIUnknownValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn SetGuidValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, value: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetGuidValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetBufferValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *const u8, cbvalue: u32) -> ::windows::core::Result<()>;
+    fn GetBufferValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppvalue: *mut *mut u8, pcbvalue: *mut u32) -> ::windows::core::Result<()>;
+    fn SetIPortableDeviceValuesValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
+    fn GetIPortableDeviceValuesValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn SetIPortableDevicePropVariantCollectionValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<()>;
+    fn GetIPortableDevicePropVariantCollectionValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
+    fn SetIPortableDeviceKeyCollectionValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &::core::option::Option<IPortableDeviceKeyCollection>) -> ::windows::core::Result<()>;
+    fn GetIPortableDeviceKeyCollectionValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceKeyCollection>;
+    fn SetIPortableDeviceValuesCollectionValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: &::core::option::Option<IPortableDeviceValuesCollection>) -> ::windows::core::Result<()>;
+    fn GetIPortableDeviceValuesCollectionValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValuesCollection>;
+    fn RemoveValue(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn CopyValuesFromPropertyStore(&self, pstore: &::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
+    fn CopyValuesToPropertyStore(&self, pstore: &::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IPortableDeviceValues_Vtbl {
@@ -2033,11 +2033,11 @@ impl IPortableDeviceValues_Vtbl {
     }
 }
 pub trait IPortableDeviceValuesCollection_Impl: Sized {
-    fn GetCount(&mut self, pcelems: *const u32) -> ::windows::core::Result<()>;
-    fn GetAt(&mut self, dwindex: u32) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn Add(&mut self, pvalues: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, dwindex: u32) -> ::windows::core::Result<()>;
+    fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()>;
+    fn GetAt(&self, dwindex: u32) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn Add(&self, pvalues: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()>;
 }
 impl IPortableDeviceValuesCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceValuesCollection_Impl, const OFFSET: isize>() -> IPortableDeviceValuesCollection_Vtbl {
@@ -2087,8 +2087,8 @@ impl IPortableDeviceValuesCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPortableDeviceWebControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetDeviceFromId(&mut self, deviceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn GetDeviceFromIdAsync(&mut self, deviceid: &super::super::Foundation::BSTR, pcompletionhandler: &::core::option::Option<super::super::System::Com::IDispatch>, perrorhandler: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn GetDeviceFromId(&self, deviceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn GetDeviceFromIdAsync(&self, deviceid: &super::super::Foundation::BSTR, pcompletionhandler: &::core::option::Option<super::super::System::Com::IDispatch>, perrorhandler: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPortableDeviceWebControl_Vtbl {
@@ -2121,13 +2121,13 @@ impl IPortableDeviceWebControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRadioInstance_Impl: Sized {
-    fn GetRadioManagerSignature(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetInstanceSignature(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetFriendlyName(&mut self, lcid: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetRadioState(&mut self) -> ::windows::core::Result<DEVICE_RADIO_STATE>;
-    fn SetRadioState(&mut self, radiostate: DEVICE_RADIO_STATE, utimeoutsec: u32) -> ::windows::core::Result<()>;
-    fn IsMultiComm(&mut self) -> super::super::Foundation::BOOL;
-    fn IsAssociatingDevice(&mut self) -> super::super::Foundation::BOOL;
+    fn GetRadioManagerSignature(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetInstanceSignature(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetFriendlyName(&self, lcid: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetRadioState(&self) -> ::windows::core::Result<DEVICE_RADIO_STATE>;
+    fn SetRadioState(&self, radiostate: DEVICE_RADIO_STATE, utimeoutsec: u32) -> ::windows::core::Result<()>;
+    fn IsMultiComm(&self) -> super::super::Foundation::BOOL;
+    fn IsAssociatingDevice(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRadioInstance_Vtbl {
@@ -2207,8 +2207,8 @@ impl IRadioInstance_Vtbl {
     }
 }
 pub trait IRadioInstanceCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, uindex: u32) -> ::windows::core::Result<IRadioInstance>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, uindex: u32) -> ::windows::core::Result<IRadioInstance>;
 }
 impl IRadioInstanceCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadioInstanceCollection_Impl, const OFFSET: isize>() -> IRadioInstanceCollection_Vtbl {
@@ -2245,10 +2245,10 @@ impl IRadioInstanceCollection_Vtbl {
     }
 }
 pub trait IWpdSerializer_Impl: Sized {
-    fn GetIPortableDeviceValuesFromBuffer(&mut self, pbuffer: *const u8, dwinputbufferlength: u32) -> ::windows::core::Result<IPortableDeviceValues>;
-    fn WriteIPortableDeviceValuesToBuffer(&mut self, dwoutputbufferlength: u32, presults: &::core::option::Option<IPortableDeviceValues>, pbuffer: *mut u8, pdwbyteswritten: *mut u32) -> ::windows::core::Result<()>;
-    fn GetBufferFromIPortableDeviceValues(&mut self, psource: &::core::option::Option<IPortableDeviceValues>, ppbuffer: *mut *mut u8, pdwbuffersize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSerializedSize(&mut self, psource: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<u32>;
+    fn GetIPortableDeviceValuesFromBuffer(&self, pbuffer: *const u8, dwinputbufferlength: u32) -> ::windows::core::Result<IPortableDeviceValues>;
+    fn WriteIPortableDeviceValuesToBuffer(&self, dwoutputbufferlength: u32, presults: &::core::option::Option<IPortableDeviceValues>, pbuffer: *mut u8, pdwbyteswritten: *mut u32) -> ::windows::core::Result<()>;
+    fn GetBufferFromIPortableDeviceValues(&self, psource: &::core::option::Option<IPortableDeviceValues>, ppbuffer: *mut *mut u8, pdwbuffersize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSerializedSize(&self, psource: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<u32>;
 }
 impl IWpdSerializer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWpdSerializer_Impl, const OFFSET: isize>() -> IWpdSerializer_Vtbl {

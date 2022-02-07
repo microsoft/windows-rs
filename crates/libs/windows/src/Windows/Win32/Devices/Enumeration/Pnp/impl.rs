@@ -1,6 +1,6 @@
 pub trait IUPnPAddressFamilyControl_Impl: Sized {
-    fn SetAddressFamily(&mut self, dwflags: i32) -> ::windows::core::Result<()>;
-    fn GetAddressFamily(&mut self) -> ::windows::core::Result<i32>;
+    fn SetAddressFamily(&self, dwflags: i32) -> ::windows::core::Result<()>;
+    fn GetAddressFamily(&self) -> ::windows::core::Result<i32>;
 }
 impl IUPnPAddressFamilyControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPAddressFamilyControl_Impl, const OFFSET: isize>() -> IUPnPAddressFamilyControl_Vtbl {
@@ -31,7 +31,7 @@ impl IUPnPAddressFamilyControl_Vtbl {
     }
 }
 pub trait IUPnPAsyncResult_Impl: Sized {
-    fn AsyncOperationComplete(&mut self, ullrequestid: u64) -> ::windows::core::Result<()>;
+    fn AsyncOperationComplete(&self, ullrequestid: u64) -> ::windows::core::Result<()>;
 }
 impl IUPnPAsyncResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPAsyncResult_Impl, const OFFSET: isize>() -> IUPnPAsyncResult_Vtbl {
@@ -48,13 +48,13 @@ impl IUPnPAsyncResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPDescriptionDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ReadyState(&mut self) -> ::windows::core::Result<i32>;
-    fn Load(&mut self, bstrurl: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LoadAsync(&mut self, bstrurl: &super::super::super::Foundation::BSTR, punkcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn LoadResult(&mut self) -> ::windows::core::Result<i32>;
-    fn Abort(&mut self) -> ::windows::core::Result<()>;
-    fn RootDevice(&mut self) -> ::windows::core::Result<IUPnPDevice>;
-    fn DeviceByUDN(&mut self, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
+    fn ReadyState(&self) -> ::windows::core::Result<i32>;
+    fn Load(&self, bstrurl: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LoadAsync(&self, bstrurl: &super::super::super::Foundation::BSTR, punkcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn LoadResult(&self) -> ::windows::core::Result<i32>;
+    fn Abort(&self) -> ::windows::core::Result<()>;
+    fn RootDevice(&self) -> ::windows::core::Result<IUPnPDevice>;
+    fn DeviceByUDN(&self, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPDescriptionDocument_Vtbl {
@@ -134,7 +134,7 @@ impl IUPnPDescriptionDocument_Vtbl {
     }
 }
 pub trait IUPnPDescriptionDocumentCallback_Impl: Sized {
-    fn LoadComplete(&mut self, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn LoadComplete(&self, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl IUPnPDescriptionDocumentCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDescriptionDocumentCallback_Impl, const OFFSET: isize>() -> IUPnPDescriptionDocumentCallback_Vtbl {
@@ -151,25 +151,25 @@ impl IUPnPDescriptionDocumentCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPDevice_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn IsRootDevice(&mut self) -> ::windows::core::Result<i16>;
-    fn RootDevice(&mut self) -> ::windows::core::Result<IUPnPDevice>;
-    fn ParentDevice(&mut self) -> ::windows::core::Result<IUPnPDevice>;
-    fn HasChildren(&mut self) -> ::windows::core::Result<i16>;
-    fn Children(&mut self) -> ::windows::core::Result<IUPnPDevices>;
-    fn UniqueDeviceName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn FriendlyName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Type(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn PresentationURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn ManufacturerName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn ManufacturerURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn ModelName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn ModelNumber(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Description(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn ModelURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn UPC(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SerialNumber(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn IconURL(&mut self, bstrencodingformat: &super::super::super::Foundation::BSTR, lsizex: i32, lsizey: i32, lbitdepth: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Services(&mut self) -> ::windows::core::Result<IUPnPServices>;
+    fn IsRootDevice(&self) -> ::windows::core::Result<i16>;
+    fn RootDevice(&self) -> ::windows::core::Result<IUPnPDevice>;
+    fn ParentDevice(&self) -> ::windows::core::Result<IUPnPDevice>;
+    fn HasChildren(&self) -> ::windows::core::Result<i16>;
+    fn Children(&self) -> ::windows::core::Result<IUPnPDevices>;
+    fn UniqueDeviceName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn FriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn Type(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn PresentationURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn ManufacturerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn ManufacturerURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn ModelName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn ModelNumber(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn ModelURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn UPC(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn SerialNumber(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn IconURL(&self, bstrencodingformat: &super::super::super::Foundation::BSTR, lsizex: i32, lsizey: i32, lbitdepth: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn Services(&self) -> ::windows::core::Result<IUPnPServices>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPDevice_Vtbl {
@@ -412,8 +412,8 @@ impl IUPnPDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IUPnPDeviceControl_Impl: Sized {
-    fn Initialize(&mut self, bstrxmldesc: &super::super::super::Foundation::BSTR, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, bstrinitstring: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetServiceObject(&mut self, bstrudn: &super::super::super::Foundation::BSTR, bstrserviceid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::IDispatch>;
+    fn Initialize(&self, bstrxmldesc: &super::super::super::Foundation::BSTR, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, bstrinitstring: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetServiceObject(&self, bstrudn: &super::super::super::Foundation::BSTR, bstrserviceid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IUPnPDeviceControl_Vtbl {
@@ -446,7 +446,7 @@ impl IUPnPDeviceControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPDeviceControlHttpHeaders_Impl: Sized {
-    fn GetAdditionalResponseHeaders(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetAdditionalResponseHeaders(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPDeviceControlHttpHeaders_Vtbl {
@@ -473,7 +473,7 @@ impl IUPnPDeviceControlHttpHeaders_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPDeviceDocumentAccess_Impl: Sized {
-    fn GetDocumentURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetDocumentURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPDeviceDocumentAccess_Vtbl {
@@ -497,7 +497,7 @@ impl IUPnPDeviceDocumentAccess_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPDeviceDocumentAccessEx_Impl: Sized {
-    fn GetDocument(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetDocument(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPDeviceDocumentAccessEx_Vtbl {
@@ -521,11 +521,11 @@ impl IUPnPDeviceDocumentAccessEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPDeviceFinder_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn FindByType(&mut self, bstrtypeuri: &super::super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<IUPnPDevices>;
-    fn CreateAsyncFind(&mut self, bstrtypeuri: &super::super::super::Foundation::BSTR, dwflags: u32, punkdevicefindercallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<i32>;
-    fn StartAsyncFind(&mut self, lfinddata: i32) -> ::windows::core::Result<()>;
-    fn CancelAsyncFind(&mut self, lfinddata: i32) -> ::windows::core::Result<()>;
-    fn FindByUDN(&mut self, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
+    fn FindByType(&self, bstrtypeuri: &super::super::super::Foundation::BSTR, dwflags: u32) -> ::windows::core::Result<IUPnPDevices>;
+    fn CreateAsyncFind(&self, bstrtypeuri: &super::super::super::Foundation::BSTR, dwflags: u32, punkdevicefindercallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<i32>;
+    fn StartAsyncFind(&self, lfinddata: i32) -> ::windows::core::Result<()>;
+    fn CancelAsyncFind(&self, lfinddata: i32) -> ::windows::core::Result<()>;
+    fn FindByUDN(&self, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPDeviceFinder_Vtbl {
@@ -588,7 +588,7 @@ impl IUPnPDeviceFinder_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUPnPDeviceFinderAddCallbackWithInterface_Impl: Sized {
-    fn DeviceAddedWithInterface(&mut self, lfinddata: i32, pdevice: &::core::option::Option<IUPnPDevice>, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn DeviceAddedWithInterface(&self, lfinddata: i32, pdevice: &::core::option::Option<IUPnPDevice>, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
@@ -606,9 +606,9 @@ impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IUPnPDeviceFinderCallback_Impl: Sized {
-    fn DeviceAdded(&mut self, lfinddata: i32, pdevice: &::core::option::Option<IUPnPDevice>) -> ::windows::core::Result<()>;
-    fn DeviceRemoved(&mut self, lfinddata: i32, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SearchComplete(&mut self, lfinddata: i32) -> ::windows::core::Result<()>;
+    fn DeviceAdded(&self, lfinddata: i32, pdevice: &::core::option::Option<IUPnPDevice>) -> ::windows::core::Result<()>;
+    fn DeviceRemoved(&self, lfinddata: i32, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SearchComplete(&self, lfinddata: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IUPnPDeviceFinderCallback_Vtbl {
@@ -641,8 +641,8 @@ impl IUPnPDeviceFinderCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPDeviceProvider_Impl: Sized {
-    fn Start(&mut self, bstrinitstring: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Start(&self, bstrinitstring: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPDeviceProvider_Vtbl {
@@ -665,9 +665,9 @@ impl IUPnPDeviceProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPDevices_Vtbl {
@@ -718,8 +718,8 @@ impl IUPnPDevices_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPEventSink_Impl: Sized {
-    fn OnStateChanged(&mut self, cchanges: u32, rgdispidchanges: *const i32) -> ::windows::core::Result<()>;
-    fn OnStateChangedSafe(&mut self, varsadispidchanges: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OnStateChanged(&self, cchanges: u32, rgdispidchanges: *const i32) -> ::windows::core::Result<()>;
+    fn OnStateChangedSafe(&self, varsadispidchanges: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPEventSink_Vtbl {
@@ -745,8 +745,8 @@ impl IUPnPEventSink_Vtbl {
     }
 }
 pub trait IUPnPEventSource_Impl: Sized {
-    fn Advise(&mut self, pessubscriber: &::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
-    fn Unadvise(&mut self, pessubscriber: &::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
+    fn Advise(&self, pessubscriber: &::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
+    fn Unadvise(&self, pessubscriber: &::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
 }
 impl IUPnPEventSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPEventSource_Impl, const OFFSET: isize>() -> IUPnPEventSource_Vtbl {
@@ -772,7 +772,7 @@ impl IUPnPEventSource_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPHttpHeaderControl_Impl: Sized {
-    fn AddRequestHeaders(&mut self, bstrhttpheaders: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddRequestHeaders(&self, bstrhttpheaders: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPHttpHeaderControl_Vtbl {
@@ -790,12 +790,12 @@ impl IUPnPHttpHeaderControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPRegistrar_Impl: Sized {
-    fn RegisterDevice(&mut self, bstrxmldesc: &super::super::super::Foundation::BSTR, bstrprogiddevicecontrolclass: &super::super::super::Foundation::BSTR, bstrinitstring: &super::super::super::Foundation::BSTR, bstrcontainerid: &super::super::super::Foundation::BSTR, bstrresourcepath: &super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn RegisterRunningDevice(&mut self, bstrxmldesc: &super::super::super::Foundation::BSTR, punkdevicecontrol: &::core::option::Option<::windows::core::IUnknown>, bstrinitstring: &super::super::super::Foundation::BSTR, bstrresourcepath: &super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn RegisterDeviceProvider(&mut self, bstrprovidername: &super::super::super::Foundation::BSTR, bstrprogidproviderclass: &super::super::super::Foundation::BSTR, bstrinitstring: &super::super::super::Foundation::BSTR, bstrcontainerid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetUniqueDeviceName(&mut self, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, bstrtemplateudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn UnregisterDevice(&mut self, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, fpermanent: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn UnregisterDeviceProvider(&mut self, bstrprovidername: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RegisterDevice(&self, bstrxmldesc: &super::super::super::Foundation::BSTR, bstrprogiddevicecontrolclass: &super::super::super::Foundation::BSTR, bstrinitstring: &super::super::super::Foundation::BSTR, bstrcontainerid: &super::super::super::Foundation::BSTR, bstrresourcepath: &super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn RegisterRunningDevice(&self, bstrxmldesc: &super::super::super::Foundation::BSTR, punkdevicecontrol: &::core::option::Option<::windows::core::IUnknown>, bstrinitstring: &super::super::super::Foundation::BSTR, bstrresourcepath: &super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn RegisterDeviceProvider(&self, bstrprovidername: &super::super::super::Foundation::BSTR, bstrprogidproviderclass: &super::super::super::Foundation::BSTR, bstrinitstring: &super::super::super::Foundation::BSTR, bstrcontainerid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetUniqueDeviceName(&self, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, bstrtemplateudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn UnregisterDevice(&self, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, fpermanent: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn UnregisterDeviceProvider(&self, bstrprovidername: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPRegistrar_Vtbl {
@@ -864,9 +864,9 @@ impl IUPnPRegistrar_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPRemoteEndpointInfo_Impl: Sized {
-    fn GetDwordValue(&mut self, bstrvaluename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<u32>;
-    fn GetStringValue(&mut self, bstrvaluename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn GetGuidValue(&mut self, bstrvaluename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetDwordValue(&self, bstrvaluename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<u32>;
+    fn GetStringValue(&self, bstrvaluename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetGuidValue(&self, bstrvaluename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPRemoteEndpointInfo_Vtbl {
@@ -917,8 +917,8 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPReregistrar_Impl: Sized {
-    fn ReregisterDevice(&mut self, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, bstrxmldesc: &super::super::super::Foundation::BSTR, bstrprogiddevicecontrolclass: &super::super::super::Foundation::BSTR, bstrinitstring: &super::super::super::Foundation::BSTR, bstrcontainerid: &super::super::super::Foundation::BSTR, bstrresourcepath: &super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
-    fn ReregisterRunningDevice(&mut self, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, bstrxmldesc: &super::super::super::Foundation::BSTR, punkdevicecontrol: &::core::option::Option<::windows::core::IUnknown>, bstrinitstring: &super::super::super::Foundation::BSTR, bstrresourcepath: &super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
+    fn ReregisterDevice(&self, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, bstrxmldesc: &super::super::super::Foundation::BSTR, bstrprogiddevicecontrolclass: &super::super::super::Foundation::BSTR, bstrinitstring: &super::super::super::Foundation::BSTR, bstrcontainerid: &super::super::super::Foundation::BSTR, bstrresourcepath: &super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
+    fn ReregisterRunningDevice(&self, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, bstrxmldesc: &super::super::super::Foundation::BSTR, punkdevicecontrol: &::core::option::Option<::windows::core::IUnknown>, bstrinitstring: &super::super::super::Foundation::BSTR, bstrresourcepath: &super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPReregistrar_Vtbl {
@@ -945,12 +945,12 @@ impl IUPnPReregistrar_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPService_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn QueryStateVariable(&mut self, bstrvariablename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn InvokeAction(&mut self, bstractionname: &super::super::super::Foundation::BSTR, vinactionargs: &super::super::super::System::Com::VARIANT, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ServiceTypeIdentifier(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn AddCallback(&mut self, punkcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn LastTransportStatus(&mut self) -> ::windows::core::Result<i32>;
+    fn QueryStateVariable(&self, bstrvariablename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn InvokeAction(&self, bstractionname: &super::super::super::Foundation::BSTR, vinactionargs: &super::super::super::System::Com::VARIANT, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ServiceTypeIdentifier(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn AddCallback(&self, punkcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn LastTransportStatus(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPService_Vtbl {
@@ -1025,15 +1025,15 @@ impl IUPnPService_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPServiceAsync_Impl: Sized {
-    fn BeginInvokeAction(&mut self, bstractionname: &super::super::super::Foundation::BSTR, vinactionargs: &super::super::super::System::Com::VARIANT, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
-    fn EndInvokeAction(&mut self, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn BeginQueryStateVariable(&mut self, bstrvariablename: &super::super::super::Foundation::BSTR, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
-    fn EndQueryStateVariable(&mut self, ullrequestid: u64, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn BeginSubscribeToEvents(&mut self, punkcallback: &::core::option::Option<::windows::core::IUnknown>, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
-    fn EndSubscribeToEvents(&mut self, ullrequestid: u64) -> ::windows::core::Result<()>;
-    fn BeginSCPDDownload(&mut self, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
-    fn EndSCPDDownload(&mut self, ullrequestid: u64) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn CancelAsyncOperation(&mut self, ullrequestid: u64) -> ::windows::core::Result<()>;
+    fn BeginInvokeAction(&self, bstractionname: &super::super::super::Foundation::BSTR, vinactionargs: &super::super::super::System::Com::VARIANT, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
+    fn EndInvokeAction(&self, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn BeginQueryStateVariable(&self, bstrvariablename: &super::super::super::Foundation::BSTR, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
+    fn EndQueryStateVariable(&self, ullrequestid: u64, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn BeginSubscribeToEvents(&self, punkcallback: &::core::option::Option<::windows::core::IUnknown>, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
+    fn EndSubscribeToEvents(&self, ullrequestid: u64) -> ::windows::core::Result<()>;
+    fn BeginSCPDDownload(&self, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
+    fn EndSCPDDownload(&self, ullrequestid: u64) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn CancelAsyncOperation(&self, ullrequestid: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPServiceAsync_Vtbl {
@@ -1132,8 +1132,8 @@ impl IUPnPServiceAsync_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPServiceCallback_Impl: Sized {
-    fn StateVariableChanged(&mut self, pus: &::core::option::Option<IUPnPService>, pcwszstatevarname: super::super::super::Foundation::PWSTR, vavalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ServiceInstanceDied(&mut self, pus: &::core::option::Option<IUPnPService>) -> ::windows::core::Result<()>;
+    fn StateVariableChanged(&self, pus: &::core::option::Option<IUPnPService>, pcwszstatevarname: super::super::super::Foundation::PWSTR, vavalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ServiceInstanceDied(&self, pus: &::core::option::Option<IUPnPService>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPServiceCallback_Vtbl {
@@ -1160,8 +1160,8 @@ impl IUPnPServiceCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPServiceDocumentAccess_Impl: Sized {
-    fn GetDocumentURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn GetDocument(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetDocumentURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetDocument(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPServiceDocumentAccess_Vtbl {
@@ -1199,7 +1199,7 @@ impl IUPnPServiceDocumentAccess_Vtbl {
     }
 }
 pub trait IUPnPServiceEnumProperty_Impl: Sized {
-    fn SetServiceEnumProperty(&mut self, dwmask: u32) -> ::windows::core::Result<()>;
+    fn SetServiceEnumProperty(&self, dwmask: u32) -> ::windows::core::Result<()>;
 }
 impl IUPnPServiceEnumProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceEnumProperty_Impl, const OFFSET: isize>() -> IUPnPServiceEnumProperty_Vtbl {
@@ -1216,9 +1216,9 @@ impl IUPnPServiceEnumProperty_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPServices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, bstrserviceid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPService>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, bstrserviceid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPService>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPServices_Vtbl {

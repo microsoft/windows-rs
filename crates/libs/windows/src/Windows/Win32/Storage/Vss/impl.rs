@@ -1,8 +1,8 @@
 pub trait IVssAdmin_Impl: Sized {
-    fn RegisterProvider(&mut self, pproviderid: &::windows::core::GUID, classid: &::windows::core::GUID, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UnregisterProvider(&mut self, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn QueryProviders(&mut self) -> ::windows::core::Result<IVssEnumObject>;
-    fn AbortAllSnapshotsInProgress(&mut self) -> ::windows::core::Result<()>;
+    fn RegisterProvider(&self, pproviderid: &::windows::core::GUID, classid: &::windows::core::GUID, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UnregisterProvider(&self, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn QueryProviders(&self) -> ::windows::core::Result<IVssEnumObject>;
+    fn AbortAllSnapshotsInProgress(&self) -> ::windows::core::Result<()>;
 }
 impl IVssAdmin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdmin_Impl, const OFFSET: isize>() -> IVssAdmin_Vtbl {
@@ -45,9 +45,9 @@ impl IVssAdmin_Vtbl {
     }
 }
 pub trait IVssAdminEx_Impl: Sized + IVssAdmin_Impl {
-    fn GetProviderCapability(&mut self, pproviderid: &::windows::core::GUID) -> ::windows::core::Result<u64>;
-    fn GetProviderContext(&mut self, providerid: &::windows::core::GUID) -> ::windows::core::Result<i32>;
-    fn SetProviderContext(&mut self, providerid: &::windows::core::GUID, lcontext: i32) -> ::windows::core::Result<()>;
+    fn GetProviderCapability(&self, pproviderid: &::windows::core::GUID) -> ::windows::core::Result<u64>;
+    fn GetProviderContext(&self, providerid: &::windows::core::GUID) -> ::windows::core::Result<i32>;
+    fn SetProviderContext(&self, providerid: &::windows::core::GUID, lcontext: i32) -> ::windows::core::Result<()>;
 }
 impl IVssAdminEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdminEx_Impl, const OFFSET: isize>() -> IVssAdminEx_Vtbl {
@@ -90,9 +90,9 @@ impl IVssAdminEx_Vtbl {
     }
 }
 pub trait IVssAsync_Impl: Sized {
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn Wait(&mut self, dwmilliseconds: u32) -> ::windows::core::Result<()>;
-    fn QueryStatus(&mut self, phrresult: *mut ::windows::core::HRESULT, preserved: *mut i32) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Wait(&self, dwmilliseconds: u32) -> ::windows::core::Result<()>;
+    fn QueryStatus(&self, phrresult: *mut ::windows::core::HRESULT, preserved: *mut i32) -> ::windows::core::Result<()>;
 }
 impl IVssAsync_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssAsync_Impl, const OFFSET: isize>() -> IVssAsync_Vtbl {
@@ -124,44 +124,44 @@ impl IVssAsync_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssComponent_Impl: Sized {
-    fn GetLogicalPath(&mut self, pbstrpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetComponentType(&mut self, pct: *mut VSS_COMPONENT_TYPE) -> ::windows::core::Result<()>;
-    fn GetComponentName(&mut self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetBackupSucceeded(&mut self, pbsucceeded: *mut bool) -> ::windows::core::Result<()>;
-    fn GetAlternateLocationMappingCount(&mut self, pcmappings: *mut u32) -> ::windows::core::Result<()>;
-    fn GetAlternateLocationMapping(&mut self, imapping: u32) -> ::windows::core::Result<IVssWMFiledesc>;
-    fn SetBackupMetadata(&mut self, wszdata: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetBackupMetadata(&mut self, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddPartialFile(&mut self, wszpath: super::super::Foundation::PWSTR, wszfilename: super::super::Foundation::PWSTR, wszranges: super::super::Foundation::PWSTR, wszmetadata: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetPartialFileCount(&mut self, pcpartialfiles: *mut u32) -> ::windows::core::Result<()>;
-    fn GetPartialFile(&mut self, ipartialfile: u32, pbstrpath: *mut super::super::Foundation::BSTR, pbstrfilename: *mut super::super::Foundation::BSTR, pbstrrange: *mut super::super::Foundation::BSTR, pbstrmetadata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsSelectedForRestore(&mut self, pbselectedforrestore: *mut bool) -> ::windows::core::Result<()>;
-    fn GetAdditionalRestores(&mut self, pbadditionalrestores: *mut bool) -> ::windows::core::Result<()>;
-    fn GetNewTargetCount(&mut self, pcnewtarget: *mut u32) -> ::windows::core::Result<()>;
-    fn GetNewTarget(&mut self, inewtarget: u32) -> ::windows::core::Result<IVssWMFiledesc>;
-    fn AddDirectedTarget(&mut self, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilename: super::super::Foundation::PWSTR, wszsourcerangelist: super::super::Foundation::PWSTR, wszdestinationpath: super::super::Foundation::PWSTR, wszdestinationfilename: super::super::Foundation::PWSTR, wszdestinationrangelist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetDirectedTargetCount(&mut self, pcdirectedtarget: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDirectedTarget(&mut self, idirectedtarget: u32, pbstrsourcepath: *mut super::super::Foundation::BSTR, pbstrsourcefilename: *mut super::super::Foundation::BSTR, pbstrsourcerangelist: *mut super::super::Foundation::BSTR, pbstrdestinationpath: *mut super::super::Foundation::BSTR, pbstrdestinationfilename: *mut super::super::Foundation::BSTR, pbstrdestinationrangelist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetRestoreMetadata(&mut self, wszrestoremetadata: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetRestoreMetadata(&mut self, pbstrrestoremetadata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetRestoreTarget(&mut self, target: VSS_RESTORE_TARGET) -> ::windows::core::Result<()>;
-    fn GetRestoreTarget(&mut self, ptarget: *mut VSS_RESTORE_TARGET) -> ::windows::core::Result<()>;
-    fn SetPreRestoreFailureMsg(&mut self, wszprerestorefailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetPreRestoreFailureMsg(&mut self, pbstrprerestorefailuremsg: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetPostRestoreFailureMsg(&mut self, wszpostrestorefailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetPostRestoreFailureMsg(&mut self, pbstrpostrestorefailuremsg: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetBackupStamp(&mut self, wszbackupstamp: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetBackupStamp(&mut self, pbstrbackupstamp: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetPreviousBackupStamp(&mut self, pbstrbackupstamp: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetBackupOptions(&mut self, pbstrbackupoptions: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetRestoreOptions(&mut self, pbstrrestoreoptions: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetRestoreSubcomponentCount(&mut self, pcrestoresubcomponent: *mut u32) -> ::windows::core::Result<()>;
-    fn GetRestoreSubcomponent(&mut self, icomponent: u32, pbstrlogicalpath: *mut super::super::Foundation::BSTR, pbstrcomponentname: *mut super::super::Foundation::BSTR, pbrepair: *mut bool) -> ::windows::core::Result<()>;
-    fn GetFileRestoreStatus(&mut self, pstatus: *mut VSS_FILE_RESTORE_STATUS) -> ::windows::core::Result<()>;
-    fn AddDifferencedFilesByLastModifyTime(&mut self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: super::super::Foundation::BOOL, ftlastmodifytime: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn AddDifferencedFilesByLastModifyLSN(&mut self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetDifferencedFilesCount(&mut self, pcdifferencedfiles: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDifferencedFile(&mut self, idifferencedfile: u32, pbstrpath: *mut super::super::Foundation::BSTR, pbstrfilespec: *mut super::super::Foundation::BSTR, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut super::super::Foundation::BSTR, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn GetLogicalPath(&self, pbstrpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetComponentType(&self, pct: *mut VSS_COMPONENT_TYPE) -> ::windows::core::Result<()>;
+    fn GetComponentName(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetBackupSucceeded(&self, pbsucceeded: *mut bool) -> ::windows::core::Result<()>;
+    fn GetAlternateLocationMappingCount(&self, pcmappings: *mut u32) -> ::windows::core::Result<()>;
+    fn GetAlternateLocationMapping(&self, imapping: u32) -> ::windows::core::Result<IVssWMFiledesc>;
+    fn SetBackupMetadata(&self, wszdata: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetBackupMetadata(&self, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddPartialFile(&self, wszpath: super::super::Foundation::PWSTR, wszfilename: super::super::Foundation::PWSTR, wszranges: super::super::Foundation::PWSTR, wszmetadata: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetPartialFileCount(&self, pcpartialfiles: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPartialFile(&self, ipartialfile: u32, pbstrpath: *mut super::super::Foundation::BSTR, pbstrfilename: *mut super::super::Foundation::BSTR, pbstrrange: *mut super::super::Foundation::BSTR, pbstrmetadata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsSelectedForRestore(&self, pbselectedforrestore: *mut bool) -> ::windows::core::Result<()>;
+    fn GetAdditionalRestores(&self, pbadditionalrestores: *mut bool) -> ::windows::core::Result<()>;
+    fn GetNewTargetCount(&self, pcnewtarget: *mut u32) -> ::windows::core::Result<()>;
+    fn GetNewTarget(&self, inewtarget: u32) -> ::windows::core::Result<IVssWMFiledesc>;
+    fn AddDirectedTarget(&self, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilename: super::super::Foundation::PWSTR, wszsourcerangelist: super::super::Foundation::PWSTR, wszdestinationpath: super::super::Foundation::PWSTR, wszdestinationfilename: super::super::Foundation::PWSTR, wszdestinationrangelist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetDirectedTargetCount(&self, pcdirectedtarget: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDirectedTarget(&self, idirectedtarget: u32, pbstrsourcepath: *mut super::super::Foundation::BSTR, pbstrsourcefilename: *mut super::super::Foundation::BSTR, pbstrsourcerangelist: *mut super::super::Foundation::BSTR, pbstrdestinationpath: *mut super::super::Foundation::BSTR, pbstrdestinationfilename: *mut super::super::Foundation::BSTR, pbstrdestinationrangelist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRestoreMetadata(&self, wszrestoremetadata: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetRestoreMetadata(&self, pbstrrestoremetadata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetRestoreTarget(&self, target: VSS_RESTORE_TARGET) -> ::windows::core::Result<()>;
+    fn GetRestoreTarget(&self, ptarget: *mut VSS_RESTORE_TARGET) -> ::windows::core::Result<()>;
+    fn SetPreRestoreFailureMsg(&self, wszprerestorefailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetPreRestoreFailureMsg(&self, pbstrprerestorefailuremsg: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetPostRestoreFailureMsg(&self, wszpostrestorefailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetPostRestoreFailureMsg(&self, pbstrpostrestorefailuremsg: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetBackupStamp(&self, wszbackupstamp: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetBackupStamp(&self, pbstrbackupstamp: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetPreviousBackupStamp(&self, pbstrbackupstamp: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetBackupOptions(&self, pbstrbackupoptions: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetRestoreOptions(&self, pbstrrestoreoptions: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetRestoreSubcomponentCount(&self, pcrestoresubcomponent: *mut u32) -> ::windows::core::Result<()>;
+    fn GetRestoreSubcomponent(&self, icomponent: u32, pbstrlogicalpath: *mut super::super::Foundation::BSTR, pbstrcomponentname: *mut super::super::Foundation::BSTR, pbrepair: *mut bool) -> ::windows::core::Result<()>;
+    fn GetFileRestoreStatus(&self, pstatus: *mut VSS_FILE_RESTORE_STATUS) -> ::windows::core::Result<()>;
+    fn AddDifferencedFilesByLastModifyTime(&self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: super::super::Foundation::BOOL, ftlastmodifytime: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn AddDifferencedFilesByLastModifyLSN(&self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDifferencedFile(&self, idifferencedfile: u32, pbstrpath: *mut super::super::Foundation::BSTR, pbstrfilespec: *mut super::super::Foundation::BSTR, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut super::super::Foundation::BSTR, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssComponent_Vtbl {
@@ -416,13 +416,13 @@ impl IVssComponent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssComponentEx_Impl: Sized + IVssComponent_Impl {
-    fn SetPrepareForBackupFailureMsg(&mut self, wszfailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetPostSnapshotFailureMsg(&mut self, wszfailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetPrepareForBackupFailureMsg(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPostSnapshotFailureMsg(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetAuthoritativeRestore(&mut self) -> ::windows::core::Result<bool>;
-    fn GetRollForward(&mut self, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetRestoreName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPrepareForBackupFailureMsg(&self, wszfailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetPostSnapshotFailureMsg(&self, wszfailuremsg: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetPrepareForBackupFailureMsg(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPostSnapshotFailureMsg(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetAuthoritativeRestore(&self) -> ::windows::core::Result<bool>;
+    fn GetRollForward(&self, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetRestoreName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssComponentEx_Vtbl {
@@ -503,8 +503,8 @@ impl IVssComponentEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssComponentEx2_Impl: Sized + IVssComponent_Impl + IVssComponentEx_Impl {
-    fn SetFailure(&mut self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn GetFailure(&mut self, phr: *mut ::windows::core::HRESULT, phrapplication: *mut ::windows::core::HRESULT, pbstrapplicationmessage: *mut super::super::Foundation::BSTR, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
+    fn SetFailure(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn GetFailure(&self, phr: *mut ::windows::core::HRESULT, phrapplication: *mut ::windows::core::HRESULT, pbstrapplicationmessage: *mut super::super::Foundation::BSTR, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssComponentEx2_Vtbl {
@@ -531,13 +531,13 @@ impl IVssComponentEx2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssCreateExpressWriterMetadata_Impl: Sized {
-    fn AddExcludeFiles(&mut self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8) -> ::windows::core::Result<()>;
-    fn AddComponent(&mut self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcaption: super::super::Foundation::PWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>;
-    fn AddFilesToFileGroup(&mut self, wszlogicalpath: super::super::Foundation::PWSTR, wszgroupname: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
-    fn SetRestoreMethod(&mut self, method: VSS_RESTOREMETHOD_ENUM, wszservice: super::super::Foundation::PWSTR, wszuserprocedure: super::super::Foundation::PWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>;
-    fn AddComponentDependency(&mut self, wszforlogicalpath: super::super::Foundation::PWSTR, wszforcomponentname: super::super::Foundation::PWSTR, onwriterid: &::windows::core::GUID, wszonlogicalpath: super::super::Foundation::PWSTR, wszoncomponentname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetBackupSchema(&mut self, dwschemamask: u32) -> ::windows::core::Result<()>;
-    fn SaveAsXML(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn AddExcludeFiles(&self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8) -> ::windows::core::Result<()>;
+    fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcaption: super::super::Foundation::PWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>;
+    fn AddFilesToFileGroup(&self, wszlogicalpath: super::super::Foundation::PWSTR, wszgroupname: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
+    fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: super::super::Foundation::PWSTR, wszuserprocedure: super::super::Foundation::PWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>;
+    fn AddComponentDependency(&self, wszforlogicalpath: super::super::Foundation::PWSTR, wszforcomponentname: super::super::Foundation::PWSTR, onwriterid: &::windows::core::GUID, wszonlogicalpath: super::super::Foundation::PWSTR, wszoncomponentname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetBackupSchema(&self, dwschemamask: u32) -> ::windows::core::Result<()>;
+    fn SaveAsXML(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssCreateExpressWriterMetadata_Vtbl {
@@ -614,18 +614,18 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IVssCreateWriterMetadata_Impl: Sized {
-    fn AddIncludeFiles(&mut self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddExcludeFiles(&mut self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8) -> ::windows::core::Result<()>;
-    fn AddComponent(&mut self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcaption: super::super::Foundation::PWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>;
-    fn AddDatabaseFiles(&mut self, wszlogicalpath: super::super::Foundation::PWSTR, wszdatabasename: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
-    fn AddDatabaseLogFiles(&mut self, wszlogicalpath: super::super::Foundation::PWSTR, wszdatabasename: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
-    fn AddFilesToFileGroup(&mut self, wszlogicalpath: super::super::Foundation::PWSTR, wszgroupname: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
-    fn SetRestoreMethod(&mut self, method: VSS_RESTOREMETHOD_ENUM, wszservice: super::super::Foundation::PWSTR, wszuserprocedure: super::super::Foundation::PWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>;
-    fn AddAlternateLocationMapping(&mut self, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilespec: super::super::Foundation::PWSTR, brecursive: u8, wszdestination: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddComponentDependency(&mut self, wszforlogicalpath: super::super::Foundation::PWSTR, wszforcomponentname: super::super::Foundation::PWSTR, onwriterid: &::windows::core::GUID, wszonlogicalpath: super::super::Foundation::PWSTR, wszoncomponentname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetBackupSchema(&mut self, dwschemamask: u32) -> ::windows::core::Result<()>;
-    fn GetDocument(&mut self) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument>;
-    fn SaveAsXML(&mut self, pbstrxml: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddIncludeFiles(&self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddExcludeFiles(&self, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8) -> ::windows::core::Result<()>;
+    fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcaption: super::super::Foundation::PWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows::core::Result<()>;
+    fn AddDatabaseFiles(&self, wszlogicalpath: super::super::Foundation::PWSTR, wszdatabasename: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
+    fn AddDatabaseLogFiles(&self, wszlogicalpath: super::super::Foundation::PWSTR, wszdatabasename: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
+    fn AddFilesToFileGroup(&self, wszlogicalpath: super::super::Foundation::PWSTR, wszgroupname: super::super::Foundation::PWSTR, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: u8, wszalternatelocation: super::super::Foundation::PWSTR, dwbackuptypemask: u32) -> ::windows::core::Result<()>;
+    fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: super::super::Foundation::PWSTR, wszuserprocedure: super::super::Foundation::PWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows::core::Result<()>;
+    fn AddAlternateLocationMapping(&self, wszsourcepath: super::super::Foundation::PWSTR, wszsourcefilespec: super::super::Foundation::PWSTR, brecursive: u8, wszdestination: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddComponentDependency(&self, wszforlogicalpath: super::super::Foundation::PWSTR, wszforcomponentname: super::super::Foundation::PWSTR, onwriterid: &::windows::core::GUID, wszonlogicalpath: super::super::Foundation::PWSTR, wszoncomponentname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetBackupSchema(&self, dwschemamask: u32) -> ::windows::core::Result<()>;
+    fn GetDocument(&self) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument>;
+    fn SaveAsXML(&self, pbstrxml: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVssCreateWriterMetadata_Vtbl {
@@ -730,12 +730,12 @@ impl IVssCreateWriterMetadata_Vtbl {
     }
 }
 pub trait IVssDifferentialSoftwareSnapshotMgmt_Impl: Sized {
-    fn AddDiffArea(&mut self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows::core::Result<()>;
-    fn ChangeDiffAreaMaximumSize(&mut self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows::core::Result<()>;
-    fn QueryVolumesSupportedForDiffAreas(&mut self, pwszoriginalvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject>;
-    fn QueryDiffAreasForVolume(&mut self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject>;
-    fn QueryDiffAreasOnVolume(&mut self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject>;
-    fn QueryDiffAreasForSnapshot(&mut self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<IVssEnumMgmtObject>;
+    fn AddDiffArea(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows::core::Result<()>;
+    fn ChangeDiffAreaMaximumSize(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows::core::Result<()>;
+    fn QueryVolumesSupportedForDiffAreas(&self, pwszoriginalvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject>;
+    fn QueryDiffAreasForVolume(&self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject>;
+    fn QueryDiffAreasOnVolume(&self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject>;
+    fn QueryDiffAreasForSnapshot(&self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<IVssEnumMgmtObject>;
 }
 impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssDifferentialSoftwareSnapshotMgmt_Impl, const OFFSET: isize>() -> IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
@@ -809,10 +809,10 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssDifferentialSoftwareSnapshotMgmt2_Impl: Sized + IVssDifferentialSoftwareSnapshotMgmt_Impl {
-    fn ChangeDiffAreaMaximumSizeEx(&mut self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn MigrateDiffAreas(&mut self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, pwsznewdiffareavolumename: *const u16) -> ::windows::core::Result<()>;
-    fn QueryMigrationStatus(&mut self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16) -> ::windows::core::Result<IVssAsync>;
-    fn SetSnapshotPriority(&mut self, idsnapshot: &::windows::core::GUID, priority: u8) -> ::windows::core::Result<()>;
+    fn ChangeDiffAreaMaximumSizeEx(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn MigrateDiffAreas(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, pwsznewdiffareavolumename: *const u16) -> ::windows::core::Result<()>;
+    fn QueryMigrationStatus(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16) -> ::windows::core::Result<IVssAsync>;
+    fn SetSnapshotPriority(&self, idsnapshot: &::windows::core::GUID, priority: u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
@@ -857,11 +857,11 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssDifferentialSoftwareSnapshotMgmt3_Impl: Sized + IVssDifferentialSoftwareSnapshotMgmt_Impl + IVssDifferentialSoftwareSnapshotMgmt2_Impl {
-    fn SetVolumeProtectLevel(&mut self, pwszvolumename: *const u16, protectionlevel: VSS_PROTECTION_LEVEL) -> ::windows::core::Result<()>;
-    fn GetVolumeProtectLevel(&mut self, pwszvolumename: *const u16) -> ::windows::core::Result<VSS_VOLUME_PROTECTION_INFO>;
-    fn ClearVolumeProtectFault(&mut self, pwszvolumename: *const u16) -> ::windows::core::Result<()>;
-    fn DeleteUnusedDiffAreas(&mut self, pwszdiffareavolumename: *const u16) -> ::windows::core::Result<()>;
-    fn QuerySnapshotDeltaBitmap(&mut self, idsnapshotolder: &::windows::core::GUID, idsnapshotyounger: &::windows::core::GUID, pcblocksizeperbit: *mut u32, pcbitmaplength: *mut u32, ppbbitmap: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn SetVolumeProtectLevel(&self, pwszvolumename: *const u16, protectionlevel: VSS_PROTECTION_LEVEL) -> ::windows::core::Result<()>;
+    fn GetVolumeProtectLevel(&self, pwszvolumename: *const u16) -> ::windows::core::Result<VSS_VOLUME_PROTECTION_INFO>;
+    fn ClearVolumeProtectFault(&self, pwszvolumename: *const u16) -> ::windows::core::Result<()>;
+    fn DeleteUnusedDiffAreas(&self, pwszdiffareavolumename: *const u16) -> ::windows::core::Result<()>;
+    fn QuerySnapshotDeltaBitmap(&self, idsnapshotolder: &::windows::core::GUID, idsnapshotyounger: &::windows::core::GUID, pcblocksizeperbit: *mut u32, pcbitmaplength: *mut u32, ppbbitmap: *mut *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
@@ -911,10 +911,10 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
     }
 }
 pub trait IVssEnumMgmtObject_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self, ppenum: *mut ::core::option::Option<IVssEnumMgmtObject>) -> ::windows::core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self, ppenum: *mut ::core::option::Option<IVssEnumMgmtObject>) -> ::windows::core::Result<()>;
 }
 impl IVssEnumMgmtObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssEnumMgmtObject_Impl, const OFFSET: isize>() -> IVssEnumMgmtObject_Vtbl {
@@ -951,10 +951,10 @@ impl IVssEnumMgmtObject_Vtbl {
     }
 }
 pub trait IVssEnumObject_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self, ppenum: *mut ::core::option::Option<IVssEnumObject>) -> ::windows::core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self, ppenum: *mut ::core::option::Option<IVssEnumObject>) -> ::windows::core::Result<()>;
 }
 impl IVssEnumObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssEnumObject_Impl, const OFFSET: isize>() -> IVssEnumObject_Vtbl {
@@ -992,10 +992,10 @@ impl IVssEnumObject_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssExpressWriter_Impl: Sized {
-    fn CreateMetadata(&mut self, writerid: &::windows::core::GUID, writername: super::super::Foundation::PWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32) -> ::windows::core::Result<IVssCreateExpressWriterMetadata>;
-    fn LoadMetadata(&mut self, metadata: super::super::Foundation::PWSTR, reserved: u32) -> ::windows::core::Result<()>;
-    fn Register(&mut self) -> ::windows::core::Result<()>;
-    fn Unregister(&mut self, writerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn CreateMetadata(&self, writerid: &::windows::core::GUID, writername: super::super::Foundation::PWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32) -> ::windows::core::Result<IVssCreateExpressWriterMetadata>;
+    fn LoadMetadata(&self, metadata: super::super::Foundation::PWSTR, reserved: u32) -> ::windows::core::Result<()>;
+    fn Register(&self) -> ::windows::core::Result<()>;
+    fn Unregister(&self, writerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssExpressWriter_Vtbl {
@@ -1040,14 +1040,14 @@ impl IVssExpressWriter_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IVssFileShareSnapshotProvider_Impl: Sized {
-    fn SetContext(&mut self, lcontext: i32) -> ::windows::core::Result<()>;
-    fn GetSnapshotProperties(&mut self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<VSS_SNAPSHOT_PROP>;
-    fn Query(&mut self, queriedobjectid: &::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> ::windows::core::Result<IVssEnumObject>;
-    fn DeleteSnapshots(&mut self, sourceobjectid: &::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: super::super::Foundation::BOOL, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn BeginPrepareSnapshot(&mut self, snapshotsetid: &::windows::core::GUID, snapshotid: &::windows::core::GUID, pwszsharepath: *const u16, lnewcontext: i32, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn IsPathSupported(&mut self, pwszsharepath: *const u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsPathSnapshotted(&mut self, pwszsharepath: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows::core::Result<()>;
-    fn SetSnapshotProperty(&mut self, snapshotid: &::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetContext(&self, lcontext: i32) -> ::windows::core::Result<()>;
+    fn GetSnapshotProperties(&self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<VSS_SNAPSHOT_PROP>;
+    fn Query(&self, queriedobjectid: &::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> ::windows::core::Result<IVssEnumObject>;
+    fn DeleteSnapshots(&self, sourceobjectid: &::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: super::super::Foundation::BOOL, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn BeginPrepareSnapshot(&self, snapshotsetid: &::windows::core::GUID, snapshotid: &::windows::core::GUID, pwszsharepath: *const u16, lnewcontext: i32, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn IsPathSupported(&self, pwszsharepath: *const u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsPathSnapshotted(&self, pwszsharepath: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows::core::Result<()>;
+    fn SetSnapshotProperty(&self, snapshotid: &::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IVssFileShareSnapshotProvider_Vtbl {
@@ -1128,12 +1128,12 @@ impl IVssFileShareSnapshotProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
 pub trait IVssHardwareSnapshotProvider_Impl: Sized {
-    fn AreLunsSupported(&mut self, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn FillInLunInfo(&mut self, wszdevicename: *const u16, pluninfo: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn BeginPrepareSnapshot(&mut self, snapshotsetid: &::windows::core::GUID, snapshotid: &::windows::core::GUID, lcontext: i32, lluncount: i32, rgdevicenames: *const *const u16, rgluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()>;
-    fn GetTargetLuns(&mut self, lluncount: i32, rgdevicenames: *const *const u16, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, rgdestinationluns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()>;
-    fn LocateLuns(&mut self, lluncount: i32, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()>;
-    fn OnLunEmpty(&mut self, wszdevicename: *const u16, pinformation: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()>;
+    fn AreLunsSupported(&self, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn FillInLunInfo(&self, wszdevicename: *const u16, pluninfo: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn BeginPrepareSnapshot(&self, snapshotsetid: &::windows::core::GUID, snapshotid: &::windows::core::GUID, lcontext: i32, lluncount: i32, rgdevicenames: *const *const u16, rgluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()>;
+    fn GetTargetLuns(&self, lluncount: i32, rgdevicenames: *const *const u16, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, rgdestinationluns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()>;
+    fn LocateLuns(&self, lluncount: i32, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()>;
+    fn OnLunEmpty(&self, wszdevicename: *const u16, pinformation: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
 impl IVssHardwareSnapshotProvider_Vtbl {
@@ -1184,10 +1184,10 @@ impl IVssHardwareSnapshotProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
 pub trait IVssHardwareSnapshotProviderEx_Impl: Sized + IVssHardwareSnapshotProvider_Impl {
-    fn GetProviderCapabilities(&mut self) -> ::windows::core::Result<u64>;
-    fn OnLunStateChange(&mut self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn ResyncLuns(&mut self, psourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, ptargetluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows::core::Result<IVssAsync>;
-    fn OnReuseLuns(&mut self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows::core::Result<()>;
+    fn GetProviderCapabilities(&self) -> ::windows::core::Result<u64>;
+    fn OnLunStateChange(&self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn ResyncLuns(&self, psourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, ptargetluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows::core::Result<IVssAsync>;
+    fn OnReuseLuns(&self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
 impl IVssHardwareSnapshotProviderEx_Vtbl {
@@ -1237,13 +1237,13 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
     }
 }
 pub trait IVssProviderCreateSnapshotSet_Impl: Sized {
-    fn EndPrepareSnapshots(&mut self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn PreCommitSnapshots(&mut self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn CommitSnapshots(&mut self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn PostCommitSnapshots(&mut self, snapshotsetid: &::windows::core::GUID, lsnapshotscount: i32) -> ::windows::core::Result<()>;
-    fn PreFinalCommitSnapshots(&mut self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn PostFinalCommitSnapshots(&mut self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn AbortSnapshots(&mut self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn EndPrepareSnapshots(&self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn PreCommitSnapshots(&self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn CommitSnapshots(&self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn PostCommitSnapshots(&self, snapshotsetid: &::windows::core::GUID, lsnapshotscount: i32) -> ::windows::core::Result<()>;
+    fn PreFinalCommitSnapshots(&self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn PostFinalCommitSnapshots(&self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn AbortSnapshots(&self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IVssProviderCreateSnapshotSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>() -> IVssProviderCreateSnapshotSet_Vtbl {
@@ -1299,8 +1299,8 @@ impl IVssProviderCreateSnapshotSet_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssProviderNotifications_Impl: Sized {
-    fn OnLoad(&mut self, pcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn OnUnload(&mut self, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnLoad(&self, pcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssProviderNotifications_Vtbl {
@@ -1326,9 +1326,9 @@ impl IVssProviderNotifications_Vtbl {
     }
 }
 pub trait IVssSnapshotMgmt_Impl: Sized {
-    fn GetProviderMgmtInterface(&mut self, providerid: &::windows::core::GUID, interfaceid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn QueryVolumesSupportedForSnapshots(&mut self, providerid: &::windows::core::GUID, lcontext: i32) -> ::windows::core::Result<IVssEnumMgmtObject>;
-    fn QuerySnapshotsByVolume(&mut self, pwszvolumename: *const u16, providerid: &::windows::core::GUID) -> ::windows::core::Result<IVssEnumObject>;
+    fn GetProviderMgmtInterface(&self, providerid: &::windows::core::GUID, interfaceid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn QueryVolumesSupportedForSnapshots(&self, providerid: &::windows::core::GUID, lcontext: i32) -> ::windows::core::Result<IVssEnumMgmtObject>;
+    fn QuerySnapshotsByVolume(&self, pwszvolumename: *const u16, providerid: &::windows::core::GUID) -> ::windows::core::Result<IVssEnumObject>;
 }
 impl IVssSnapshotMgmt_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssSnapshotMgmt_Impl, const OFFSET: isize>() -> IVssSnapshotMgmt_Vtbl {
@@ -1377,7 +1377,7 @@ impl IVssSnapshotMgmt_Vtbl {
     }
 }
 pub trait IVssSnapshotMgmt2_Impl: Sized {
-    fn GetMinDiffAreaSize(&mut self) -> ::windows::core::Result<i64>;
+    fn GetMinDiffAreaSize(&self) -> ::windows::core::Result<i64>;
 }
 impl IVssSnapshotMgmt2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssSnapshotMgmt2_Impl, const OFFSET: isize>() -> IVssSnapshotMgmt2_Vtbl {
@@ -1400,16 +1400,16 @@ impl IVssSnapshotMgmt2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IVssSoftwareSnapshotProvider_Impl: Sized {
-    fn SetContext(&mut self, lcontext: i32) -> ::windows::core::Result<()>;
-    fn GetSnapshotProperties(&mut self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<VSS_SNAPSHOT_PROP>;
-    fn Query(&mut self, queriedobjectid: &::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> ::windows::core::Result<IVssEnumObject>;
-    fn DeleteSnapshots(&mut self, sourceobjectid: &::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: super::super::Foundation::BOOL, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn BeginPrepareSnapshot(&mut self, snapshotsetid: &::windows::core::GUID, snapshotid: &::windows::core::GUID, pwszvolumename: *const u16, lnewcontext: i32) -> ::windows::core::Result<()>;
-    fn IsVolumeSupported(&mut self, pwszvolumename: *const u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsVolumeSnapshotted(&mut self, pwszvolumename: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows::core::Result<()>;
-    fn SetSnapshotProperty(&mut self, snapshotid: &::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn RevertToSnapshot(&mut self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn QueryRevertStatus(&mut self, pwszvolume: *const u16) -> ::windows::core::Result<IVssAsync>;
+    fn SetContext(&self, lcontext: i32) -> ::windows::core::Result<()>;
+    fn GetSnapshotProperties(&self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<VSS_SNAPSHOT_PROP>;
+    fn Query(&self, queriedobjectid: &::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> ::windows::core::Result<IVssEnumObject>;
+    fn DeleteSnapshots(&self, sourceobjectid: &::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: super::super::Foundation::BOOL, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn BeginPrepareSnapshot(&self, snapshotsetid: &::windows::core::GUID, snapshotid: &::windows::core::GUID, pwszvolumename: *const u16, lnewcontext: i32) -> ::windows::core::Result<()>;
+    fn IsVolumeSupported(&self, pwszvolumename: *const u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsVolumeSnapshotted(&self, pwszvolumename: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows::core::Result<()>;
+    fn SetSnapshotProperty(&self, snapshotid: &::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RevertToSnapshot(&self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn QueryRevertStatus(&self, pwszvolume: *const u16) -> ::windows::core::Result<IVssAsync>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IVssSoftwareSnapshotProvider_Vtbl {
@@ -1508,9 +1508,9 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssWMDependency_Impl: Sized {
-    fn GetWriterId(&mut self, pwriterid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetLogicalPath(&mut self, pbstrlogicalpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetComponentName(&mut self, pbstrcomponentname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetWriterId(&self, pwriterid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetLogicalPath(&self, pbstrlogicalpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetComponentName(&self, pbstrcomponentname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssWMDependency_Vtbl {
@@ -1543,11 +1543,11 @@ impl IVssWMDependency_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssWMFiledesc_Impl: Sized {
-    fn GetPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetFilespec(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetRecursive(&mut self) -> ::windows::core::Result<bool>;
-    fn GetAlternateLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetBackupTypeMask(&mut self) -> ::windows::core::Result<u32>;
+    fn GetPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetFilespec(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetRecursive(&self) -> ::windows::core::Result<bool>;
+    fn GetAlternateLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetBackupTypeMask(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssWMFiledesc_Vtbl {
@@ -1621,9 +1621,9 @@ impl IVssWMFiledesc_Vtbl {
     }
 }
 pub trait IVssWriterComponents_Impl: Sized {
-    fn GetComponentCount(&mut self, pccomponents: *mut u32) -> ::windows::core::Result<()>;
-    fn GetWriterInfo(&mut self, pidinstance: *mut ::windows::core::GUID, pidwriter: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetComponent(&mut self, icomponent: u32) -> ::windows::core::Result<IVssComponent>;
+    fn GetComponentCount(&self, pccomponents: *mut u32) -> ::windows::core::Result<()>;
+    fn GetWriterInfo(&self, pidinstance: *mut ::windows::core::GUID, pidwriter: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetComponent(&self, icomponent: u32) -> ::windows::core::Result<IVssComponent>;
 }
 impl IVssWriterComponents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterComponents_Impl, const OFFSET: isize>() -> IVssWriterComponents_Vtbl {
@@ -1660,28 +1660,28 @@ impl IVssWriterComponents_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssWriterImpl_Impl: Sized {
-    fn Initialize(&mut self, writerid: &::windows::core::GUID, wszwritername: super::super::Foundation::PWSTR, wszwriterinstancename: super::super::Foundation::PWSTR, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows::core::Result<()>;
-    fn Subscribe(&mut self, dwsubscribetimeout: u32, dweventflags: u32) -> ::windows::core::Result<()>;
-    fn Unsubscribe(&mut self) -> ::windows::core::Result<()>;
-    fn Uninitialize(&mut self);
-    fn GetCurrentVolumeArray(&mut self) -> *mut super::super::Foundation::PWSTR;
-    fn GetCurrentVolumeCount(&mut self) -> u32;
-    fn GetSnapshotDeviceName(&mut self, wszoriginalvolume: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetCurrentSnapshotSetId(&mut self) -> ::windows::core::GUID;
-    fn GetContext(&mut self) -> i32;
-    fn GetCurrentLevel(&mut self) -> VSS_APPLICATION_LEVEL;
-    fn IsPathAffected(&mut self, wszpath: super::super::Foundation::PWSTR) -> bool;
-    fn IsBootableSystemStateBackedUp(&mut self) -> bool;
-    fn AreComponentsSelected(&mut self) -> bool;
-    fn GetBackupType(&mut self) -> VSS_BACKUP_TYPE;
-    fn GetRestoreType(&mut self) -> VSS_RESTORE_TYPE;
-    fn SetWriterFailure(&mut self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn IsPartialFileSupportEnabled(&mut self) -> bool;
-    fn InstallAlternateWriter(&mut self, idwriter: &::windows::core::GUID, clsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetIdentityInformation(&mut self) -> *mut IVssExamineWriterMetadata;
-    fn SetWriterFailureEx(&mut self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetSessionId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn IsWriterShuttingDown(&mut self) -> bool;
+    fn Initialize(&self, writerid: &::windows::core::GUID, wszwritername: super::super::Foundation::PWSTR, wszwriterinstancename: super::super::Foundation::PWSTR, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows::core::Result<()>;
+    fn Subscribe(&self, dwsubscribetimeout: u32, dweventflags: u32) -> ::windows::core::Result<()>;
+    fn Unsubscribe(&self) -> ::windows::core::Result<()>;
+    fn Uninitialize(&self);
+    fn GetCurrentVolumeArray(&self) -> *mut super::super::Foundation::PWSTR;
+    fn GetCurrentVolumeCount(&self) -> u32;
+    fn GetSnapshotDeviceName(&self, wszoriginalvolume: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetCurrentSnapshotSetId(&self) -> ::windows::core::GUID;
+    fn GetContext(&self) -> i32;
+    fn GetCurrentLevel(&self) -> VSS_APPLICATION_LEVEL;
+    fn IsPathAffected(&self, wszpath: super::super::Foundation::PWSTR) -> bool;
+    fn IsBootableSystemStateBackedUp(&self) -> bool;
+    fn AreComponentsSelected(&self) -> bool;
+    fn GetBackupType(&self) -> VSS_BACKUP_TYPE;
+    fn GetRestoreType(&self) -> VSS_RESTORE_TYPE;
+    fn SetWriterFailure(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn IsPartialFileSupportEnabled(&self) -> bool;
+    fn InstallAlternateWriter(&self, idwriter: &::windows::core::GUID, clsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetIdentityInformation(&self) -> *mut IVssExamineWriterMetadata;
+    fn SetWriterFailureEx(&self, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSessionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn IsWriterShuttingDown(&self) -> bool;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IVssWriterImpl_Vtbl {

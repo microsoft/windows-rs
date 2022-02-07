@@ -12,7 +12,7 @@ impl IPrintDocumentSource_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IPrintTaskOptionsCore_Impl: Sized {
-    fn GetPageDescription(&mut self, jobpagenumber: u32) -> ::windows::core::Result<PrintPageDescription>;
+    fn GetPageDescription(&self, jobpagenumber: u32) -> ::windows::core::Result<PrintPageDescription>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPrintTaskOptionsCore {
@@ -43,30 +43,30 @@ impl IPrintTaskOptionsCore_Vtbl {
     }
 }
 pub trait IPrintTaskOptionsCoreProperties_Impl: Sized {
-    fn SetMediaSize(&mut self, value: PrintMediaSize) -> ::windows::core::Result<()>;
-    fn MediaSize(&mut self) -> ::windows::core::Result<PrintMediaSize>;
-    fn SetMediaType(&mut self, value: PrintMediaType) -> ::windows::core::Result<()>;
-    fn MediaType(&mut self) -> ::windows::core::Result<PrintMediaType>;
-    fn SetOrientation(&mut self, value: PrintOrientation) -> ::windows::core::Result<()>;
-    fn Orientation(&mut self) -> ::windows::core::Result<PrintOrientation>;
-    fn SetPrintQuality(&mut self, value: PrintQuality) -> ::windows::core::Result<()>;
-    fn PrintQuality(&mut self) -> ::windows::core::Result<PrintQuality>;
-    fn SetColorMode(&mut self, value: PrintColorMode) -> ::windows::core::Result<()>;
-    fn ColorMode(&mut self) -> ::windows::core::Result<PrintColorMode>;
-    fn SetDuplex(&mut self, value: PrintDuplex) -> ::windows::core::Result<()>;
-    fn Duplex(&mut self) -> ::windows::core::Result<PrintDuplex>;
-    fn SetCollation(&mut self, value: PrintCollation) -> ::windows::core::Result<()>;
-    fn Collation(&mut self) -> ::windows::core::Result<PrintCollation>;
-    fn SetStaple(&mut self, value: PrintStaple) -> ::windows::core::Result<()>;
-    fn Staple(&mut self) -> ::windows::core::Result<PrintStaple>;
-    fn SetHolePunch(&mut self, value: PrintHolePunch) -> ::windows::core::Result<()>;
-    fn HolePunch(&mut self) -> ::windows::core::Result<PrintHolePunch>;
-    fn SetBinding(&mut self, value: PrintBinding) -> ::windows::core::Result<()>;
-    fn Binding(&mut self) -> ::windows::core::Result<PrintBinding>;
-    fn MinCopies(&mut self) -> ::windows::core::Result<u32>;
-    fn MaxCopies(&mut self) -> ::windows::core::Result<u32>;
-    fn SetNumberOfCopies(&mut self, value: u32) -> ::windows::core::Result<()>;
-    fn NumberOfCopies(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::core::Result<()>;
+    fn MediaSize(&self) -> ::windows::core::Result<PrintMediaSize>;
+    fn SetMediaType(&self, value: PrintMediaType) -> ::windows::core::Result<()>;
+    fn MediaType(&self) -> ::windows::core::Result<PrintMediaType>;
+    fn SetOrientation(&self, value: PrintOrientation) -> ::windows::core::Result<()>;
+    fn Orientation(&self) -> ::windows::core::Result<PrintOrientation>;
+    fn SetPrintQuality(&self, value: PrintQuality) -> ::windows::core::Result<()>;
+    fn PrintQuality(&self) -> ::windows::core::Result<PrintQuality>;
+    fn SetColorMode(&self, value: PrintColorMode) -> ::windows::core::Result<()>;
+    fn ColorMode(&self) -> ::windows::core::Result<PrintColorMode>;
+    fn SetDuplex(&self, value: PrintDuplex) -> ::windows::core::Result<()>;
+    fn Duplex(&self) -> ::windows::core::Result<PrintDuplex>;
+    fn SetCollation(&self, value: PrintCollation) -> ::windows::core::Result<()>;
+    fn Collation(&self) -> ::windows::core::Result<PrintCollation>;
+    fn SetStaple(&self, value: PrintStaple) -> ::windows::core::Result<()>;
+    fn Staple(&self) -> ::windows::core::Result<PrintStaple>;
+    fn SetHolePunch(&self, value: PrintHolePunch) -> ::windows::core::Result<()>;
+    fn HolePunch(&self) -> ::windows::core::Result<PrintHolePunch>;
+    fn SetBinding(&self, value: PrintBinding) -> ::windows::core::Result<()>;
+    fn Binding(&self) -> ::windows::core::Result<PrintBinding>;
+    fn MinCopies(&self) -> ::windows::core::Result<u32>;
+    fn MaxCopies(&self) -> ::windows::core::Result<u32>;
+    fn SetNumberOfCopies(&self, value: u32) -> ::windows::core::Result<()>;
+    fn NumberOfCopies(&self) -> ::windows::core::Result<u32>;
 }
 impl ::windows::core::RuntimeName for IPrintTaskOptionsCoreProperties {
     const NAME: &'static str = "Windows.Graphics.Printing.IPrintTaskOptionsCoreProperties";
@@ -318,7 +318,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPrintTaskOptionsCoreUIConfiguration_Impl: Sized {
-    fn DisplayedOptions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn DisplayedOptions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IPrintTaskOptionsCoreUIConfiguration {

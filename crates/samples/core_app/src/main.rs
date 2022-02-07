@@ -16,7 +16,7 @@ struct CoreApp();
 
 #[allow(non_snake_case)]
 impl IFrameworkViewSource_Impl for CoreApp {
-    fn CreateView(&mut self) -> Result<IFrameworkView> {
+    fn CreateView(&self) -> Result<IFrameworkView> {
         // TODO: need self query `self.into()` to support implementing both IFrameworkViewSource and IFrameworkView on the same object.
         Ok(CoreAppView().into())
     }
@@ -27,19 +27,19 @@ struct CoreAppView();
 
 #[allow(non_snake_case)]
 impl IFrameworkView_Impl for CoreAppView {
-    fn Initialize(&mut self, _: &Option<CoreApplicationView>) -> Result<()> {
+    fn Initialize(&self, _: &Option<CoreApplicationView>) -> Result<()> {
         Ok(())
     }
 
-    fn Load(&mut self, _: &HSTRING) -> Result<()> {
+    fn Load(&self, _: &HSTRING) -> Result<()> {
         Ok(())
     }
 
-    fn Uninitialize(&mut self) -> Result<()> {
+    fn Uninitialize(&self) -> Result<()> {
         Ok(())
     }
 
-    fn Run(&mut self) -> Result<()> {
+    fn Run(&self) -> Result<()> {
         let window = CoreWindow::GetForCurrentThread()?;
         window.Activate()?;
 
@@ -49,7 +49,7 @@ impl IFrameworkView_Impl for CoreAppView {
         Ok(())
     }
 
-    fn SetWindow(&mut self, _: &Option<CoreWindow>) -> Result<()> {
+    fn SetWindow(&self, _: &Option<CoreWindow>) -> Result<()> {
         Ok(())
     }
 }

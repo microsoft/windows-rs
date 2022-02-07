@@ -12,7 +12,7 @@ struct Test();
 
 #[allow(non_snake_case)]
 impl IXamlType2_Impl for Test {
-    fn BoxedType(&mut self) -> Result<IXamlType> {
+    fn BoxedType(&self) -> Result<IXamlType> {
         Err(Error::OK)
     }
 }
@@ -20,58 +20,58 @@ impl IXamlType2_Impl for Test {
 // Note: IXamlType_Impl is required by IXamlType2_Impl (since IXamlType2 requires IXamlType).
 #[allow(non_snake_case)]
 impl IXamlType_Impl for Test {
-    fn BaseType(&mut self) -> Result<IXamlType> {
+    fn BaseType(&self) -> Result<IXamlType> {
         todo!()
     }
-    fn ContentProperty(&mut self) -> Result<IXamlMember> {
+    fn ContentProperty(&self) -> Result<IXamlMember> {
         todo!()
     }
-    fn FullName(&mut self) -> Result<HSTRING> {
+    fn FullName(&self) -> Result<HSTRING> {
         todo!()
     }
-    fn IsArray(&mut self) -> Result<bool> {
+    fn IsArray(&self) -> Result<bool> {
         todo!()
     }
-    fn IsCollection(&mut self) -> Result<bool> {
+    fn IsCollection(&self) -> Result<bool> {
         todo!()
     }
-    fn IsConstructible(&mut self) -> Result<bool> {
+    fn IsConstructible(&self) -> Result<bool> {
         todo!()
     }
-    fn IsDictionary(&mut self) -> Result<bool> {
+    fn IsDictionary(&self) -> Result<bool> {
         todo!()
     }
-    fn IsMarkupExtension(&mut self) -> Result<bool> {
+    fn IsMarkupExtension(&self) -> Result<bool> {
         todo!()
     }
-    fn IsBindable(&mut self) -> Result<bool> {
+    fn IsBindable(&self) -> Result<bool> {
         todo!()
     }
-    fn ItemType(&mut self) -> Result<IXamlType> {
+    fn ItemType(&self) -> Result<IXamlType> {
         todo!()
     }
-    fn KeyType(&mut self) -> Result<IXamlType> {
+    fn KeyType(&self) -> Result<IXamlType> {
         todo!()
     }
-    fn UnderlyingType(&mut self) -> Result<TypeName> {
+    fn UnderlyingType(&self) -> Result<TypeName> {
         todo!()
     }
-    fn ActivateInstance(&mut self) -> Result<IInspectable> {
+    fn ActivateInstance(&self) -> Result<IInspectable> {
         todo!()
     }
-    fn CreateFromString(&mut self, _: &HSTRING) -> Result<IInspectable> {
+    fn CreateFromString(&self, _: &HSTRING) -> Result<IInspectable> {
         todo!()
     }
-    fn GetMember(&mut self, _: &HSTRING) -> Result<IXamlMember> {
+    fn GetMember(&self, _: &HSTRING) -> Result<IXamlMember> {
         todo!()
     }
-    fn AddToVector(&mut self, _: &Option<IInspectable>, _: &Option<IInspectable>) -> Result<()> {
+    fn AddToVector(&self, _: &Option<IInspectable>, _: &Option<IInspectable>) -> Result<()> {
         todo!()
     }
-    fn AddToMap(&mut self, _: &Option<IInspectable>, _: &Option<IInspectable>, _: &Option<IInspectable>) -> Result<()> {
+    fn AddToMap(&self, _: &Option<IInspectable>, _: &Option<IInspectable>, _: &Option<IInspectable>) -> Result<()> {
         todo!()
     }
-    fn RunInitializer(&mut self) -> Result<()> {
+    fn RunInitializer(&self) -> Result<()> {
         todo!()
     }
 }

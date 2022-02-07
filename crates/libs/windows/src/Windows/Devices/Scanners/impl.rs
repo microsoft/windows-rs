@@ -1,8 +1,8 @@
 pub trait IImageScannerFormatConfiguration_Impl: Sized {
-    fn DefaultFormat(&mut self) -> ::windows::core::Result<ImageScannerFormat>;
-    fn Format(&mut self) -> ::windows::core::Result<ImageScannerFormat>;
-    fn SetFormat(&mut self, value: ImageScannerFormat) -> ::windows::core::Result<()>;
-    fn IsFormatSupported(&mut self, value: ImageScannerFormat) -> ::windows::core::Result<bool>;
+    fn DefaultFormat(&self) -> ::windows::core::Result<ImageScannerFormat>;
+    fn Format(&self) -> ::windows::core::Result<ImageScannerFormat>;
+    fn SetFormat(&self, value: ImageScannerFormat) -> ::windows::core::Result<()>;
+    fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IImageScannerFormatConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.IImageScannerFormatConfiguration";
@@ -64,35 +64,35 @@ impl IImageScannerFormatConfiguration_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IImageScannerSourceConfiguration_Impl: Sized + IImageScannerFormatConfiguration_Impl {
-    fn MinScanArea(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn MaxScanArea(&mut self) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn SelectedScanRegion(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn SetSelectedScanRegion(&mut self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn AutoCroppingMode(&mut self) -> ::windows::core::Result<ImageScannerAutoCroppingMode>;
-    fn SetAutoCroppingMode(&mut self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<()>;
-    fn IsAutoCroppingModeSupported(&mut self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<bool>;
-    fn MinResolution(&mut self) -> ::windows::core::Result<ImageScannerResolution>;
-    fn MaxResolution(&mut self) -> ::windows::core::Result<ImageScannerResolution>;
-    fn OpticalResolution(&mut self) -> ::windows::core::Result<ImageScannerResolution>;
-    fn DesiredResolution(&mut self) -> ::windows::core::Result<ImageScannerResolution>;
-    fn SetDesiredResolution(&mut self, value: &ImageScannerResolution) -> ::windows::core::Result<()>;
-    fn ActualResolution(&mut self) -> ::windows::core::Result<ImageScannerResolution>;
-    fn DefaultColorMode(&mut self) -> ::windows::core::Result<ImageScannerColorMode>;
-    fn ColorMode(&mut self) -> ::windows::core::Result<ImageScannerColorMode>;
-    fn SetColorMode(&mut self, value: ImageScannerColorMode) -> ::windows::core::Result<()>;
-    fn IsColorModeSupported(&mut self, value: ImageScannerColorMode) -> ::windows::core::Result<bool>;
-    fn MinBrightness(&mut self) -> ::windows::core::Result<i32>;
-    fn MaxBrightness(&mut self) -> ::windows::core::Result<i32>;
-    fn BrightnessStep(&mut self) -> ::windows::core::Result<u32>;
-    fn DefaultBrightness(&mut self) -> ::windows::core::Result<i32>;
-    fn Brightness(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBrightness(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn MinContrast(&mut self) -> ::windows::core::Result<i32>;
-    fn MaxContrast(&mut self) -> ::windows::core::Result<i32>;
-    fn ContrastStep(&mut self) -> ::windows::core::Result<u32>;
-    fn DefaultContrast(&mut self) -> ::windows::core::Result<i32>;
-    fn Contrast(&mut self) -> ::windows::core::Result<i32>;
-    fn SetContrast(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn MinScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn MaxScanArea(&self) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn SelectedScanRegion(&self) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn SetSelectedScanRegion(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
+    fn AutoCroppingMode(&self) -> ::windows::core::Result<ImageScannerAutoCroppingMode>;
+    fn SetAutoCroppingMode(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<()>;
+    fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows::core::Result<bool>;
+    fn MinResolution(&self) -> ::windows::core::Result<ImageScannerResolution>;
+    fn MaxResolution(&self) -> ::windows::core::Result<ImageScannerResolution>;
+    fn OpticalResolution(&self) -> ::windows::core::Result<ImageScannerResolution>;
+    fn DesiredResolution(&self) -> ::windows::core::Result<ImageScannerResolution>;
+    fn SetDesiredResolution(&self, value: &ImageScannerResolution) -> ::windows::core::Result<()>;
+    fn ActualResolution(&self) -> ::windows::core::Result<ImageScannerResolution>;
+    fn DefaultColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode>;
+    fn ColorMode(&self) -> ::windows::core::Result<ImageScannerColorMode>;
+    fn SetColorMode(&self, value: ImageScannerColorMode) -> ::windows::core::Result<()>;
+    fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows::core::Result<bool>;
+    fn MinBrightness(&self) -> ::windows::core::Result<i32>;
+    fn MaxBrightness(&self) -> ::windows::core::Result<i32>;
+    fn BrightnessStep(&self) -> ::windows::core::Result<u32>;
+    fn DefaultBrightness(&self) -> ::windows::core::Result<i32>;
+    fn Brightness(&self) -> ::windows::core::Result<i32>;
+    fn SetBrightness(&self, value: i32) -> ::windows::core::Result<()>;
+    fn MinContrast(&self) -> ::windows::core::Result<i32>;
+    fn MaxContrast(&self) -> ::windows::core::Result<i32>;
+    fn ContrastStep(&self) -> ::windows::core::Result<u32>;
+    fn DefaultContrast(&self) -> ::windows::core::Result<i32>;
+    fn Contrast(&self) -> ::windows::core::Result<i32>;
+    fn SetContrast(&self, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IImageScannerSourceConfiguration {

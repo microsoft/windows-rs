@@ -1,8 +1,8 @@
 pub trait IContactField_Impl: Sized {
-    fn Type(&mut self) -> ::windows::core::Result<ContactFieldType>;
-    fn Category(&mut self) -> ::windows::core::Result<ContactFieldCategory>;
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Value(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Type(&self) -> ::windows::core::Result<ContactFieldType>;
+    fn Category(&self) -> ::windows::core::Result<ContactFieldCategory>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactField";
@@ -70,9 +70,9 @@ impl IContactField_Vtbl {
     }
 }
 pub trait IContactFieldFactory_Impl: Sized {
-    fn CreateField_Default(&mut self, value: &::windows::core::HSTRING, r#type: ContactFieldType) -> ::windows::core::Result<ContactField>;
-    fn CreateField_Category(&mut self, value: &::windows::core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::core::Result<ContactField>;
-    fn CreateField_Custom(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::core::Result<ContactField>;
+    fn CreateField_Default(&self, value: &::windows::core::HSTRING, r#type: ContactFieldType) -> ::windows::core::Result<ContactField>;
+    fn CreateField_Category(&self, value: &::windows::core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::core::Result<ContactField>;
+    fn CreateField_Custom(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows::core::Result<ContactField>;
 }
 impl ::windows::core::RuntimeName for IContactFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactFieldFactory";
@@ -128,9 +128,9 @@ impl IContactFieldFactory_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IContactInstantMessageFieldFactory_Impl: Sized {
-    fn CreateInstantMessage_Default(&mut self, username: &::windows::core::HSTRING) -> ::windows::core::Result<ContactInstantMessageField>;
-    fn CreateInstantMessage_Category(&mut self, username: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactInstantMessageField>;
-    fn CreateInstantMessage_All(&mut self, username: &::windows::core::HSTRING, category: ContactFieldCategory, service: &::windows::core::HSTRING, displaytext: &::windows::core::HSTRING, verb: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_Default(&self, username: &::windows::core::HSTRING) -> ::windows::core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_Category(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_All(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory, service: &::windows::core::HSTRING, displaytext: &::windows::core::HSTRING, verb: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<ContactInstantMessageField>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IContactInstantMessageFieldFactory {
@@ -187,9 +187,9 @@ impl IContactInstantMessageFieldFactory_Vtbl {
     }
 }
 pub trait IContactLocationFieldFactory_Impl: Sized {
-    fn CreateLocation_Default(&mut self, unstructuredaddress: &::windows::core::HSTRING) -> ::windows::core::Result<ContactLocationField>;
-    fn CreateLocation_Category(&mut self, unstructuredaddress: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactLocationField>;
-    fn CreateLocation_All(&mut self, unstructuredaddress: &::windows::core::HSTRING, category: ContactFieldCategory, street: &::windows::core::HSTRING, city: &::windows::core::HSTRING, region: &::windows::core::HSTRING, country: &::windows::core::HSTRING, postalcode: &::windows::core::HSTRING) -> ::windows::core::Result<ContactLocationField>;
+    fn CreateLocation_Default(&self, unstructuredaddress: &::windows::core::HSTRING) -> ::windows::core::Result<ContactLocationField>;
+    fn CreateLocation_Category(&self, unstructuredaddress: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactLocationField>;
+    fn CreateLocation_All(&self, unstructuredaddress: &::windows::core::HSTRING, category: ContactFieldCategory, street: &::windows::core::HSTRING, city: &::windows::core::HSTRING, region: &::windows::core::HSTRING, country: &::windows::core::HSTRING, postalcode: &::windows::core::HSTRING) -> ::windows::core::Result<ContactLocationField>;
 }
 impl ::windows::core::RuntimeName for IContactLocationFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactLocationFieldFactory";

@@ -1,7 +1,7 @@
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAudioEffectDefinition_Impl: Sized {
-    fn ActivatableClassId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IAudioEffectDefinition {
@@ -46,12 +46,12 @@ impl IAudioEffectDefinition_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
 pub trait IBasicAudioEffect_Impl: Sized + super::IMediaExtension_Impl {
-    fn UseInputFrameForOutput(&mut self) -> ::windows::core::Result<bool>;
-    fn SupportedEncodingProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
-    fn SetEncodingProperties(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<()>;
-    fn ProcessFrame(&mut self, context: &::core::option::Option<ProcessAudioFrameContext>) -> ::windows::core::Result<()>;
-    fn Close(&mut self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
-    fn DiscardQueuedFrames(&mut self) -> ::windows::core::Result<()>;
+    fn UseInputFrameForOutput(&self) -> ::windows::core::Result<bool>;
+    fn SupportedEncodingProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
+    fn SetEncodingProperties(&self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<()>;
+    fn ProcessFrame(&self, context: &::core::option::Option<ProcessAudioFrameContext>) -> ::windows::core::Result<()>;
+    fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
+    fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IBasicAudioEffect {
@@ -120,14 +120,14 @@ impl IBasicAudioEffect_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IBasicVideoEffect_Impl: Sized + super::IMediaExtension_Impl {
-    fn IsReadOnly(&mut self) -> ::windows::core::Result<bool>;
-    fn SupportedMemoryTypes(&mut self) -> ::windows::core::Result<MediaMemoryTypes>;
-    fn TimeIndependent(&mut self) -> ::windows::core::Result<bool>;
-    fn SupportedEncodingProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
-    fn SetEncodingProperties(&mut self, encodingproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
-    fn ProcessFrame(&mut self, context: &::core::option::Option<ProcessVideoFrameContext>) -> ::windows::core::Result<()>;
-    fn Close(&mut self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
-    fn DiscardQueuedFrames(&mut self) -> ::windows::core::Result<()>;
+    fn IsReadOnly(&self) -> ::windows::core::Result<bool>;
+    fn SupportedMemoryTypes(&self) -> ::windows::core::Result<MediaMemoryTypes>;
+    fn TimeIndependent(&self) -> ::windows::core::Result<bool>;
+    fn SupportedEncodingProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
+    fn SetEncodingProperties(&self, encodingproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
+    fn ProcessFrame(&self, context: &::core::option::Option<ProcessVideoFrameContext>) -> ::windows::core::Result<()>;
+    fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
+    fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IBasicVideoEffect {
@@ -222,11 +222,11 @@ impl IBasicVideoEffect_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IVideoCompositor_Impl: Sized + super::IMediaExtension_Impl {
-    fn TimeIndependent(&mut self) -> ::windows::core::Result<bool>;
-    fn SetEncodingProperties(&mut self, backgroundproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
-    fn CompositeFrame(&mut self, context: &::core::option::Option<CompositeVideoFrameContext>) -> ::windows::core::Result<()>;
-    fn Close(&mut self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
-    fn DiscardQueuedFrames(&mut self) -> ::windows::core::Result<()>;
+    fn TimeIndependent(&self) -> ::windows::core::Result<bool>;
+    fn SetEncodingProperties(&self, backgroundproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
+    fn CompositeFrame(&self, context: &::core::option::Option<CompositeVideoFrameContext>) -> ::windows::core::Result<()>;
+    fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
+    fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IVideoCompositor {
@@ -282,8 +282,8 @@ impl IVideoCompositor_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVideoCompositorDefinition_Impl: Sized {
-    fn ActivatableClassId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVideoCompositorDefinition {
@@ -328,8 +328,8 @@ impl IVideoCompositorDefinition_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVideoEffectDefinition_Impl: Sized {
-    fn ActivatableClassId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn ActivatableClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVideoEffectDefinition {

@@ -1,6 +1,6 @@
 #[cfg(feature = "ApplicationModel_Background")]
 pub trait IXamlRenderingBackgroundTaskOverrides_Impl: Sized {
-    fn OnRun(&mut self, taskinstance: &::core::option::Option<super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance>) -> ::windows::core::Result<()> {
+    fn OnRun(&self, taskinstance: &::core::option::Option<super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }

@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEffectivePermission_Impl: Sized {
-    fn GetEffectivePermission(&mut self, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetEffectivePermission(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: super::super::super::Foundation::PWSTR, psd: *mut super::super::SECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEffectivePermission_Vtbl {
@@ -19,7 +19,7 @@ impl IEffectivePermission_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEffectivePermission2_Impl: Sized {
     fn ComputeEffectivePermissionWithSecondarySecurity(
-        &mut self,
+        &self,
         psid: super::super::super::Foundation::PSID,
         pdevicesid: super::super::super::Foundation::PSID,
         pszservername: super::super::super::Foundation::PWSTR,
@@ -88,13 +88,13 @@ impl IEffectivePermission2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub trait ISecurityInformation_Impl: Sized {
-    fn GetObjectInformation(&mut self, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::Result<()>;
-    fn GetSecurity(&mut self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetSecurity(&mut self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::core::Result<()>;
-    fn GetAccessRights(&mut self, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()>;
-    fn MapGeneric(&mut self, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::Result<()>;
-    fn GetInheritTypes(&mut self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::Result<()>;
-    fn PropertySheetPageCallback(&mut self, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()>;
+    fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::Result<()>;
+    fn GetSecurity(&self, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut *mut super::super::SECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetSecurity(&self, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: *mut super::super::SECURITY_DESCRIPTOR) -> ::windows::core::Result<()>;
+    fn GetAccessRights(&self, pguidobjecttype: *const ::windows::core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows::core::Result<()>;
+    fn MapGeneric(&self, pguidobjecttype: *const ::windows::core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows::core::Result<()>;
+    fn GetInheritTypes(&self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows::core::Result<()>;
+    fn PropertySheetPageCallback(&self, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ISecurityInformation_Vtbl {
@@ -151,8 +151,8 @@ impl ISecurityInformation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISecurityInformation2_Impl: Sized {
-    fn IsDaclCanonical(&mut self, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL;
-    fn LookupSids(&mut self, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn IsDaclCanonical(&self, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL;
+    fn LookupSids(&self, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISecurityInformation2_Vtbl {
@@ -179,8 +179,8 @@ impl ISecurityInformation2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISecurityInformation3_Impl: Sized {
-    fn GetFullResourceName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn OpenElevatedEditor(&mut self, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()>;
+    fn GetFullResourceName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn OpenElevatedEditor(&self, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISecurityInformation3_Vtbl {
@@ -213,7 +213,7 @@ impl ISecurityInformation3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISecurityInformation4_Impl: Sized {
-    fn GetSecondarySecurity(&mut self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISecurityInformation4_Vtbl {
@@ -231,7 +231,7 @@ impl ISecurityInformation4_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISecurityObjectTypeInfo_Impl: Sized {
-    fn GetInheritSource(&mut self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::Result<()>;
+    fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISecurityObjectTypeInfo_Vtbl {

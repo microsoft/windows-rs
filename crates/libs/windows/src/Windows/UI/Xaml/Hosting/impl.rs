@@ -1,5 +1,5 @@
 pub trait IXamlUIPresenterHost_Impl: Sized {
-    fn ResolveFileResource(&mut self, path: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ResolveFileResource(&self, path: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IXamlUIPresenterHost {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.IXamlUIPresenterHost";
@@ -28,7 +28,7 @@ impl IXamlUIPresenterHost_Vtbl {
     }
 }
 pub trait IXamlUIPresenterHost2_Impl: Sized {
-    fn GetGenericXamlFilePath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetGenericXamlFilePath(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IXamlUIPresenterHost2 {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.IXamlUIPresenterHost2";
@@ -57,7 +57,7 @@ impl IXamlUIPresenterHost2_Vtbl {
     }
 }
 pub trait IXamlUIPresenterHost3_Impl: Sized {
-    fn ResolveDictionaryResource(&mut self, dictionary: &::core::option::Option<super::ResourceDictionary>, dictionarykey: &::core::option::Option<::windows::core::IInspectable>, suggestedvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn ResolveDictionaryResource(&self, dictionary: &::core::option::Option<super::ResourceDictionary>, dictionarykey: &::core::option::Option<::windows::core::IInspectable>, suggestedvalue: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 impl ::windows::core::RuntimeName for IXamlUIPresenterHost3 {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.IXamlUIPresenterHost3";

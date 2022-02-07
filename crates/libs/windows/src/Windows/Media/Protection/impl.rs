@@ -1,6 +1,6 @@
 pub trait IMediaProtectionServiceRequest_Impl: Sized {
-    fn ProtectionSystem(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Type(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn ProtectionSystem(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Type(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl ::windows::core::RuntimeName for IMediaProtectionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionServiceRequest";

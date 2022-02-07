@@ -1,9 +1,9 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportCacheable_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Dirty(&mut self) -> ::windows::core::Result<i16>;
-    fn Discard(&mut self) -> ::windows::core::Result<()>;
-    fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Commit(&mut self) -> ::windows::core::Result<()>;
+    fn Dirty(&self) -> ::windows::core::Result<i16>;
+    fn Discard(&self) -> ::windows::core::Result<()>;
+    fn Refresh(&self) -> ::windows::core::Result<()>;
+    fn Commit(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportCacheable_Vtbl {
@@ -48,18 +48,18 @@ impl IWdsTransportCacheable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportClient_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Session(&mut self) -> ::windows::core::Result<IWdsTransportSession>;
-    fn Id(&mut self) -> ::windows::core::Result<u32>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn MacAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn IpAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn PercentCompletion(&mut self) -> ::windows::core::Result<u32>;
-    fn JoinDuration(&mut self) -> ::windows::core::Result<u32>;
-    fn CpuUtilization(&mut self) -> ::windows::core::Result<u32>;
-    fn MemoryUtilization(&mut self) -> ::windows::core::Result<u32>;
-    fn NetworkUtilization(&mut self) -> ::windows::core::Result<u32>;
-    fn UserIdentity(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Disconnect(&mut self, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()>;
+    fn Session(&self) -> ::windows::core::Result<IWdsTransportSession>;
+    fn Id(&self) -> ::windows::core::Result<u32>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn MacAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn IpAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PercentCompletion(&self) -> ::windows::core::Result<u32>;
+    fn JoinDuration(&self) -> ::windows::core::Result<u32>;
+    fn CpuUtilization(&self) -> ::windows::core::Result<u32>;
+    fn MemoryUtilization(&self) -> ::windows::core::Result<u32>;
+    fn NetworkUtilization(&self) -> ::windows::core::Result<u32>;
+    fn UserIdentity(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Disconnect(&self, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportClient_Vtbl {
@@ -212,9 +212,9 @@ impl IWdsTransportClient_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportCollection_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<u32>;
-    fn Item(&mut self, ulindex: u32) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&self) -> ::windows::core::Result<u32>;
+    fn Item(&self, ulindex: u32) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportCollection_Vtbl {
@@ -265,15 +265,15 @@ impl IWdsTransportCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportConfigurationManager_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ServicePolicy(&mut self) -> ::windows::core::Result<IWdsTransportServicePolicy>;
-    fn DiagnosticsPolicy(&mut self) -> ::windows::core::Result<IWdsTransportDiagnosticsPolicy>;
-    fn WdsTransportServicesRunning(&mut self, brealtimestatus: i16) -> ::windows::core::Result<i16>;
-    fn EnableWdsTransportServices(&mut self) -> ::windows::core::Result<()>;
-    fn DisableWdsTransportServices(&mut self) -> ::windows::core::Result<()>;
-    fn StartWdsTransportServices(&mut self) -> ::windows::core::Result<()>;
-    fn StopWdsTransportServices(&mut self) -> ::windows::core::Result<()>;
-    fn RestartWdsTransportServices(&mut self) -> ::windows::core::Result<()>;
-    fn NotifyWdsTransportServices(&mut self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::Result<()>;
+    fn ServicePolicy(&self) -> ::windows::core::Result<IWdsTransportServicePolicy>;
+    fn DiagnosticsPolicy(&self) -> ::windows::core::Result<IWdsTransportDiagnosticsPolicy>;
+    fn WdsTransportServicesRunning(&self, brealtimestatus: i16) -> ::windows::core::Result<i16>;
+    fn EnableWdsTransportServices(&self) -> ::windows::core::Result<()>;
+    fn DisableWdsTransportServices(&self) -> ::windows::core::Result<()>;
+    fn StartWdsTransportServices(&self) -> ::windows::core::Result<()>;
+    fn StopWdsTransportServices(&self) -> ::windows::core::Result<()>;
+    fn RestartWdsTransportServices(&self) -> ::windows::core::Result<()>;
+    fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportConfigurationManager_Vtbl {
@@ -360,7 +360,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportConfigurationManager2_Impl: Sized + super::Com::IDispatch_Impl + IWdsTransportConfigurationManager_Impl {
-    fn MulticastSessionPolicy(&mut self) -> ::windows::core::Result<IWdsTransportMulticastSessionPolicy>;
+    fn MulticastSessionPolicy(&self) -> ::windows::core::Result<IWdsTransportMulticastSessionPolicy>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportConfigurationManager2_Vtbl {
@@ -387,11 +387,11 @@ impl IWdsTransportConfigurationManager2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportContent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Namespace(&mut self) -> ::windows::core::Result<IWdsTransportNamespace>;
-    fn Id(&mut self) -> ::windows::core::Result<u32>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RetrieveSessions(&mut self) -> ::windows::core::Result<IWdsTransportCollection>;
-    fn Terminate(&mut self) -> ::windows::core::Result<()>;
+    fn Namespace(&self) -> ::windows::core::Result<IWdsTransportNamespace>;
+    fn Id(&self) -> ::windows::core::Result<u32>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RetrieveSessions(&self) -> ::windows::core::Result<IWdsTransportCollection>;
+    fn Terminate(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportContent_Vtbl {
@@ -460,10 +460,10 @@ impl IWdsTransportContent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportContentProvider_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn FilePath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn InitializationRoutine(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn FilePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InitializationRoutine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportContentProvider_Vtbl {
@@ -526,10 +526,10 @@ impl IWdsTransportContentProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportDiagnosticsPolicy_Impl: Sized + super::Com::IDispatch_Impl + IWdsTransportCacheable_Impl {
-    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
-    fn SetEnabled(&mut self, benabled: i16) -> ::windows::core::Result<()>;
-    fn Components(&mut self) -> ::windows::core::Result<u32>;
-    fn SetComponents(&mut self, ulcomponents: u32) -> ::windows::core::Result<()>;
+    fn Enabled(&self) -> ::windows::core::Result<i16>;
+    fn SetEnabled(&self, benabled: i16) -> ::windows::core::Result<()>;
+    fn Components(&self) -> ::windows::core::Result<u32>;
+    fn SetComponents(&self, ulcomponents: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportDiagnosticsPolicy_Vtbl {
@@ -580,7 +580,7 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportManager_Impl: Sized + super::Com::IDispatch_Impl {
-    fn GetWdsTransportServer(&mut self, bszservername: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportServer>;
+    fn GetWdsTransportServer(&self, bszservername: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportServer>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportManager_Vtbl {
@@ -604,14 +604,14 @@ impl IWdsTransportManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportMulticastSessionPolicy_Impl: Sized + super::Com::IDispatch_Impl + IWdsTransportCacheable_Impl {
-    fn SlowClientHandling(&mut self) -> ::windows::core::Result<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>;
-    fn SetSlowClientHandling(&mut self, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> ::windows::core::Result<()>;
-    fn AutoDisconnectThreshold(&mut self) -> ::windows::core::Result<u32>;
-    fn SetAutoDisconnectThreshold(&mut self, ulthreshold: u32) -> ::windows::core::Result<()>;
-    fn MultistreamStreamCount(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMultistreamStreamCount(&mut self, ulstreamcount: u32) -> ::windows::core::Result<()>;
-    fn SlowClientFallback(&mut self) -> ::windows::core::Result<i16>;
-    fn SetSlowClientFallback(&mut self, bclientfallback: i16) -> ::windows::core::Result<()>;
+    fn SlowClientHandling(&self) -> ::windows::core::Result<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>;
+    fn SetSlowClientHandling(&self, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> ::windows::core::Result<()>;
+    fn AutoDisconnectThreshold(&self) -> ::windows::core::Result<u32>;
+    fn SetAutoDisconnectThreshold(&self, ulthreshold: u32) -> ::windows::core::Result<()>;
+    fn MultistreamStreamCount(&self) -> ::windows::core::Result<u32>;
+    fn SetMultistreamStreamCount(&self, ulstreamcount: u32) -> ::windows::core::Result<()>;
+    fn SlowClientFallback(&self) -> ::windows::core::Result<i16>;
+    fn SetSlowClientFallback(&self, bclientfallback: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportMulticastSessionPolicy_Vtbl {
@@ -698,27 +698,27 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportNamespace_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Type(&mut self) -> ::windows::core::Result<WDSTRANSPORT_NAMESPACE_TYPE>;
-    fn Id(&mut self) -> ::windows::core::Result<u32>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bszname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FriendlyName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFriendlyName(&mut self, bszfriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bszdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ContentProvider(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetContentProvider(&mut self, bszcontentprovider: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Configuration(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetConfiguration(&mut self, bszconfiguration: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Registered(&mut self) -> ::windows::core::Result<i16>;
-    fn Tombstoned(&mut self) -> ::windows::core::Result<i16>;
-    fn TombstoneTime(&mut self) -> ::windows::core::Result<f64>;
-    fn TransmissionStarted(&mut self) -> ::windows::core::Result<i16>;
-    fn Register(&mut self) -> ::windows::core::Result<()>;
-    fn Deregister(&mut self, bterminatesessions: i16) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IWdsTransportNamespace>;
-    fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn RetrieveContents(&mut self) -> ::windows::core::Result<IWdsTransportCollection>;
+    fn Type(&self) -> ::windows::core::Result<WDSTRANSPORT_NAMESPACE_TYPE>;
+    fn Id(&self) -> ::windows::core::Result<u32>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetName(&self, bszname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFriendlyName(&self, bszfriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bszdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ContentProvider(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetContentProvider(&self, bszcontentprovider: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Configuration(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetConfiguration(&self, bszconfiguration: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Registered(&self) -> ::windows::core::Result<i16>;
+    fn Tombstoned(&self) -> ::windows::core::Result<i16>;
+    fn TombstoneTime(&self) -> ::windows::core::Result<f64>;
+    fn TransmissionStarted(&self) -> ::windows::core::Result<i16>;
+    fn Register(&self) -> ::windows::core::Result<()>;
+    fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace>;
+    fn Refresh(&self) -> ::windows::core::Result<()>;
+    fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportNamespace_Vtbl {
@@ -948,9 +948,9 @@ impl IWdsTransportNamespaceAutoCast_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportNamespaceManager_Impl: Sized + super::Com::IDispatch_Impl {
-    fn CreateNamespace(&mut self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: &super::super::Foundation::BSTR, bszcontentprovider: &super::super::Foundation::BSTR, bszconfiguration: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportNamespace>;
-    fn RetrieveNamespace(&mut self, bsznamespacename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportNamespace>;
-    fn RetrieveNamespaces(&mut self, bszcontentprovider: &super::super::Foundation::BSTR, bsznamespacename: &super::super::Foundation::BSTR, bincludetombstones: i16) -> ::windows::core::Result<IWdsTransportCollection>;
+    fn CreateNamespace(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: &super::super::Foundation::BSTR, bszcontentprovider: &super::super::Foundation::BSTR, bszconfiguration: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportNamespace>;
+    fn RetrieveNamespace(&self, bsznamespacename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWdsTransportNamespace>;
+    fn RetrieveNamespaces(&self, bszcontentprovider: &super::super::Foundation::BSTR, bsznamespacename: &super::super::Foundation::BSTR, bincludetombstones: i16) -> ::windows::core::Result<IWdsTransportCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportNamespaceManager_Vtbl {
@@ -1001,7 +1001,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportNamespaceScheduledCast_Impl: Sized + super::Com::IDispatch_Impl + IWdsTransportNamespace_Impl {
-    fn StartTransmission(&mut self) -> ::windows::core::Result<()>;
+    fn StartTransmission(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportNamespaceScheduledCast_Vtbl {
@@ -1019,10 +1019,10 @@ impl IWdsTransportNamespaceScheduledCast_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportNamespaceScheduledCastAutoStart_Impl: Sized + super::Com::IDispatch_Impl + IWdsTransportNamespace_Impl + IWdsTransportNamespaceScheduledCast_Impl {
-    fn MinimumClients(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMinimumClients(&mut self, ulminimumclients: u32) -> ::windows::core::Result<()>;
-    fn StartTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetStartTime(&mut self, starttime: f64) -> ::windows::core::Result<()>;
+    fn MinimumClients(&self) -> ::windows::core::Result<u32>;
+    fn SetMinimumClients(&self, ulminimumclients: u32) -> ::windows::core::Result<()>;
+    fn StartTime(&self) -> ::windows::core::Result<f64>;
+    fn SetStartTime(&self, starttime: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
@@ -1084,11 +1084,11 @@ impl IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportServer_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetupManager(&mut self) -> ::windows::core::Result<IWdsTransportSetupManager>;
-    fn ConfigurationManager(&mut self) -> ::windows::core::Result<IWdsTransportConfigurationManager>;
-    fn NamespaceManager(&mut self) -> ::windows::core::Result<IWdsTransportNamespaceManager>;
-    fn DisconnectClient(&mut self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetupManager(&self) -> ::windows::core::Result<IWdsTransportSetupManager>;
+    fn ConfigurationManager(&self) -> ::windows::core::Result<IWdsTransportConfigurationManager>;
+    fn NamespaceManager(&self) -> ::windows::core::Result<IWdsTransportNamespaceManager>;
+    fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportServer_Vtbl {
@@ -1157,7 +1157,7 @@ impl IWdsTransportServer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportServer2_Impl: Sized + super::Com::IDispatch_Impl + IWdsTransportServer_Impl {
-    fn TftpManager(&mut self) -> ::windows::core::Result<IWdsTransportTftpManager>;
+    fn TftpManager(&self) -> ::windows::core::Result<IWdsTransportTftpManager>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportServer2_Vtbl {
@@ -1181,18 +1181,18 @@ impl IWdsTransportServer2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportServicePolicy_Impl: Sized + super::Com::IDispatch_Impl + IWdsTransportCacheable_Impl {
-    fn IpAddressSource(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>;
-    fn SetIpAddressSource(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()>;
-    fn StartIpAddress(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetStartIpAddress(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn EndIpAddress(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEndIpAddress(&mut self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StartPort(&mut self) -> ::windows::core::Result<u32>;
-    fn SetStartPort(&mut self, ulstartport: u32) -> ::windows::core::Result<()>;
-    fn EndPort(&mut self) -> ::windows::core::Result<u32>;
-    fn SetEndPort(&mut self, ulendport: u32) -> ::windows::core::Result<()>;
-    fn NetworkProfile(&mut self) -> ::windows::core::Result<WDSTRANSPORT_NETWORK_PROFILE_TYPE>;
-    fn SetNetworkProfile(&mut self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::Result<()>;
+    fn IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>;
+    fn SetIpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()>;
+    fn StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetStartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetEndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StartPort(&self) -> ::windows::core::Result<u32>;
+    fn SetStartPort(&self, ulstartport: u32) -> ::windows::core::Result<()>;
+    fn EndPort(&self) -> ::windows::core::Result<u32>;
+    fn SetEndPort(&self, ulendport: u32) -> ::windows::core::Result<()>;
+    fn NetworkProfile(&self) -> ::windows::core::Result<WDSTRANSPORT_NETWORK_PROFILE_TYPE>;
+    fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportServicePolicy_Vtbl {
@@ -1315,12 +1315,12 @@ impl IWdsTransportServicePolicy_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportServicePolicy2_Impl: Sized + super::Com::IDispatch_Impl + IWdsTransportCacheable_Impl + IWdsTransportServicePolicy_Impl {
-    fn UdpPortPolicy(&mut self) -> ::windows::core::Result<WDSTRANSPORT_UDP_PORT_POLICY>;
-    fn SetUdpPortPolicy(&mut self, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> ::windows::core::Result<()>;
-    fn TftpMaximumBlockSize(&mut self) -> ::windows::core::Result<u32>;
-    fn SetTftpMaximumBlockSize(&mut self, ultftpmaximumblocksize: u32) -> ::windows::core::Result<()>;
-    fn EnableTftpVariableWindowExtension(&mut self) -> ::windows::core::Result<i16>;
-    fn SetEnableTftpVariableWindowExtension(&mut self, benabletftpvariablewindowextension: i16) -> ::windows::core::Result<()>;
+    fn UdpPortPolicy(&self) -> ::windows::core::Result<WDSTRANSPORT_UDP_PORT_POLICY>;
+    fn SetUdpPortPolicy(&self, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> ::windows::core::Result<()>;
+    fn TftpMaximumBlockSize(&self) -> ::windows::core::Result<u32>;
+    fn SetTftpMaximumBlockSize(&self, ultftpmaximumblocksize: u32) -> ::windows::core::Result<()>;
+    fn EnableTftpVariableWindowExtension(&self) -> ::windows::core::Result<i16>;
+    fn SetEnableTftpVariableWindowExtension(&self, benabletftpvariablewindowextension: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportServicePolicy2_Vtbl {
@@ -1389,14 +1389,14 @@ impl IWdsTransportServicePolicy2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportSession_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Content(&mut self) -> ::windows::core::Result<IWdsTransportContent>;
-    fn Id(&mut self) -> ::windows::core::Result<u32>;
-    fn NetworkInterfaceName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn NetworkInterfaceAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn TransferRate(&mut self) -> ::windows::core::Result<u32>;
-    fn MasterClientId(&mut self) -> ::windows::core::Result<u32>;
-    fn RetrieveClients(&mut self) -> ::windows::core::Result<IWdsTransportCollection>;
-    fn Terminate(&mut self) -> ::windows::core::Result<()>;
+    fn Content(&self) -> ::windows::core::Result<IWdsTransportContent>;
+    fn Id(&self) -> ::windows::core::Result<u32>;
+    fn NetworkInterfaceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn NetworkInterfaceAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn TransferRate(&self) -> ::windows::core::Result<u32>;
+    fn MasterClientId(&self) -> ::windows::core::Result<u32>;
+    fn RetrieveClients(&self) -> ::windows::core::Result<IWdsTransportCollection>;
+    fn Terminate(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportSession_Vtbl {
@@ -1501,11 +1501,11 @@ impl IWdsTransportSession_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportSetupManager_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Version(&mut self) -> ::windows::core::Result<u64>;
-    fn InstalledFeatures(&mut self) -> ::windows::core::Result<u32>;
-    fn Protocols(&mut self) -> ::windows::core::Result<u32>;
-    fn RegisterContentProvider(&mut self, bszname: &super::super::Foundation::BSTR, bszdescription: &super::super::Foundation::BSTR, bszfilepath: &super::super::Foundation::BSTR, bszinitializationroutine: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DeregisterContentProvider(&mut self, bszname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Version(&self) -> ::windows::core::Result<u64>;
+    fn InstalledFeatures(&self) -> ::windows::core::Result<u32>;
+    fn Protocols(&self) -> ::windows::core::Result<u32>;
+    fn RegisterContentProvider(&self, bszname: &super::super::Foundation::BSTR, bszdescription: &super::super::Foundation::BSTR, bszfilepath: &super::super::Foundation::BSTR, bszinitializationroutine: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeregisterContentProvider(&self, bszname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportSetupManager_Vtbl {
@@ -1568,8 +1568,8 @@ impl IWdsTransportSetupManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportSetupManager2_Impl: Sized + super::Com::IDispatch_Impl + IWdsTransportSetupManager_Impl {
-    fn TftpCapabilities(&mut self) -> ::windows::core::Result<u32>;
-    fn ContentProviders(&mut self) -> ::windows::core::Result<IWdsTransportCollection>;
+    fn TftpCapabilities(&self) -> ::windows::core::Result<u32>;
+    fn ContentProviders(&self) -> ::windows::core::Result<IWdsTransportCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportSetupManager2_Vtbl {
@@ -1608,13 +1608,13 @@ impl IWdsTransportSetupManager2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportTftpClient_Impl: Sized + super::Com::IDispatch_Impl {
-    fn FileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn IpAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Timeout(&mut self) -> ::windows::core::Result<u32>;
-    fn CurrentFileOffset(&mut self) -> ::windows::core::Result<u64>;
-    fn FileSize(&mut self) -> ::windows::core::Result<u64>;
-    fn BlockSize(&mut self) -> ::windows::core::Result<u32>;
-    fn WindowSize(&mut self) -> ::windows::core::Result<u32>;
+    fn FileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn IpAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Timeout(&self) -> ::windows::core::Result<u32>;
+    fn CurrentFileOffset(&self) -> ::windows::core::Result<u64>;
+    fn FileSize(&self) -> ::windows::core::Result<u64>;
+    fn BlockSize(&self) -> ::windows::core::Result<u32>;
+    fn WindowSize(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportTftpClient_Vtbl {
@@ -1713,7 +1713,7 @@ impl IWdsTransportTftpClient_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportTftpManager_Impl: Sized + super::Com::IDispatch_Impl {
-    fn RetrieveTftpClients(&mut self) -> ::windows::core::Result<IWdsTransportCollection>;
+    fn RetrieveTftpClients(&self) -> ::windows::core::Result<IWdsTransportCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportTftpManager_Vtbl {

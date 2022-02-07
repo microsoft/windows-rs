@@ -1,17 +1,17 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageFile_Impl: Sized + Streams::IInputStreamReference_Impl + Streams::IRandomAccessStreamReference_Impl + IStorageItem_Impl {
-    fn FileType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn ContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OpenAsync(&mut self, accessmode: FileAccessMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
-    fn OpenTransactedWriteAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>;
-    fn CopyOverloadDefaultNameAndOptions(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CopyOverloadDefaultOptions(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CopyOverload(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CopyAndReplaceAsync(&mut self, filetoreplace: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn MoveOverloadDefaultNameAndOptions(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn MoveOverloadDefaultOptions(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn MoveOverload(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn MoveAndReplaceAsync(&mut self, filetoreplace: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn FileType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn OpenAsync(&self, accessmode: FileAccessMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
+    fn OpenTransactedWriteAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>;
+    fn CopyOverloadDefaultNameAndOptions(&self, destinationfolder: &::core::option::Option<IStorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CopyOverloadDefaultOptions(&self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CopyOverload(&self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CopyAndReplaceAsync(&self, filetoreplace: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn MoveOverloadDefaultNameAndOptions(&self, destinationfolder: &::core::option::Option<IStorageFolder>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn MoveOverloadDefaultOptions(&self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn MoveOverload(&self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn MoveAndReplaceAsync(&self, filetoreplace: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageFile {
@@ -186,8 +186,8 @@ impl IStorageFile_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IStorageFile2_Impl: Sized {
-    fn OpenWithOptionsAsync(&mut self, accessmode: FileAccessMode, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
-    fn OpenTransactedWriteWithOptionsAsync(&mut self, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>;
+    fn OpenWithOptionsAsync(&self, accessmode: FileAccessMode, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>>;
+    fn OpenTransactedWriteWithOptionsAsync(&self, options: StorageOpenOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageStreamTransaction>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageFile2 {
@@ -231,7 +231,7 @@ impl IStorageFile2_Vtbl {
     }
 }
 pub trait IStorageFilePropertiesWithAvailability_Impl: Sized {
-    fn IsAvailable(&mut self) -> ::windows::core::Result<bool>;
+    fn IsAvailable(&self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IStorageFilePropertiesWithAvailability {
     const NAME: &'static str = "Windows.Storage.IStorageFilePropertiesWithAvailability";
@@ -261,16 +261,16 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
 pub trait IStorageFolder_Impl: Sized + IStorageItem_Impl {
-    fn CreateFileAsyncOverloadDefaultOptions(&mut self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CreateFileAsync(&mut self, desiredname: &::windows::core::HSTRING, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn CreateFolderAsyncOverloadDefaultOptions(&mut self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn CreateFolderAsync(&mut self, desiredname: &::windows::core::HSTRING, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn GetFileAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
-    fn GetFolderAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn GetItemAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
-    fn GetFilesAsyncOverloadDefaultOptionsStartAndCount(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>>;
-    fn GetFoldersAsyncOverloadDefaultOptionsStartAndCount(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>;
-    fn GetItemsAsyncOverloadDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>>;
+    fn CreateFileAsyncOverloadDefaultOptions(&self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CreateFileAsync(&self, desiredname: &::windows::core::HSTRING, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn CreateFolderAsyncOverloadDefaultOptions(&self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn CreateFolderAsync(&self, desiredname: &::windows::core::HSTRING, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn GetFileAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
+    fn GetFolderAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn GetItemAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
+    fn GetFilesAsyncOverloadDefaultOptionsStartAndCount(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>>;
+    fn GetFoldersAsyncOverloadDefaultOptionsStartAndCount(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>;
+    fn GetItemsAsyncOverloadDefaultStartAndCount(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
 impl ::windows::core::RuntimeName for IStorageFolder {
@@ -419,7 +419,7 @@ impl IStorageFolder_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IStorageFolder2_Impl: Sized {
-    fn TryGetItemAsync(&mut self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
+    fn TryGetItemAsync(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<IStorageItem>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageFolder2 {
@@ -448,16 +448,16 @@ impl IStorageFolder2_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties"))]
 pub trait IStorageItem_Impl: Sized {
-    fn RenameAsyncOverloadDefaultOptions(&mut self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn RenameAsync(&mut self, desiredname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn DeleteAsyncOverloadDefaultOptions(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn DeleteAsync(&mut self, option: StorageDeleteOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
-    fn GetBasicPropertiesAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::BasicProperties>>;
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Path(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Attributes(&mut self) -> ::windows::core::Result<FileAttributes>;
-    fn DateCreated(&mut self) -> ::windows::core::Result<super::Foundation::DateTime>;
-    fn IsOfType(&mut self, r#type: StorageItemTypes) -> ::windows::core::Result<bool>;
+    fn RenameAsyncOverloadDefaultOptions(&self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn RenameAsync(&self, desiredname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn DeleteAsyncOverloadDefaultOptions(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn DeleteAsync(&self, option: StorageDeleteOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
+    fn GetBasicPropertiesAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::BasicProperties>>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Attributes(&self) -> ::windows::core::Result<FileAttributes>;
+    fn DateCreated(&self) -> ::windows::core::Result<super::Foundation::DateTime>;
+    fn IsOfType(&self, r#type: StorageItemTypes) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties"))]
 impl ::windows::core::RuntimeName for IStorageItem {
@@ -606,8 +606,8 @@ impl IStorageItem_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties"))]
 pub trait IStorageItem2_Impl: Sized + IStorageItem_Impl {
-    fn GetParentAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
-    fn IsEqual(&mut self, item: &::core::option::Option<IStorageItem>) -> ::windows::core::Result<bool>;
+    fn GetParentAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
+    fn IsEqual(&self, item: &::core::option::Option<IStorageItem>) -> ::windows::core::Result<bool>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties"))]
 impl ::windows::core::RuntimeName for IStorageItem2 {
@@ -652,13 +652,13 @@ impl IStorageItem2_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemProperties_Impl: Sized {
-    fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&mut self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
-    fn GetThumbnailAsyncOverloadDefaultOptions(&mut self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
-    fn GetThumbnailAsync(&mut self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
-    fn DisplayName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn DisplayType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn FolderRelativeId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Properties(&mut self) -> ::windows::core::Result<FileProperties::StorageItemContentProperties>;
+    fn GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn GetThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn DisplayType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn FolderRelativeId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Properties(&self) -> ::windows::core::Result<FileProperties::StorageItemContentProperties>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageItemProperties {
@@ -768,9 +768,9 @@ impl IStorageItemProperties_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemProperties2_Impl: Sized + IStorageItemProperties_Impl {
-    fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&mut self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
-    fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&mut self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
-    fn GetScaledImageAsThumbnailAsync(&mut self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(&self, mode: FileProperties::ThumbnailMode) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
+    fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageItemProperties2 {
@@ -828,7 +828,7 @@ impl IStorageItemProperties2_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemPropertiesWithProvider_Impl: Sized + IStorageItemProperties_Impl {
-    fn Provider(&mut self) -> ::windows::core::Result<StorageProvider>;
+    fn Provider(&self) -> ::windows::core::Result<StorageProvider>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageItemPropertiesWithProvider {
@@ -859,7 +859,7 @@ impl IStorageItemPropertiesWithProvider_Vtbl {
     }
 }
 pub trait IStreamedFileDataRequest_Impl: Sized {
-    fn FailAndClose(&mut self, failuremode: StreamedFileFailureMode) -> ::windows::core::Result<()>;
+    fn FailAndClose(&self, failuremode: StreamedFileFailureMode) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IStreamedFileDataRequest {
     const NAME: &'static str = "Windows.Storage.IStreamedFileDataRequest";
