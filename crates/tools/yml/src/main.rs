@@ -103,7 +103,16 @@ jobs:
 
 fn build_yml() {
     let root = std::path::PathBuf::from(metadata::workspace_dir());
-    let mut yml = r#"name: Build
+    let mut yml = r#"################################################################################
+##
+## Automatically generated file; do not edit.
+##
+## To update this file, update the generator in crates/tools/yml and run
+## `cargo run -p tool_yml`.
+##
+################################################################################
+
+name: Build
 
 on:
   pull_request:
@@ -149,17 +158,28 @@ jobs:
       shell: bash
       run: git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.generator }}` are out-of-date. Please run `cargo run -p tool_${{ matrix.generator }}`'; exit 1)
 
-  cargo_sys:
-    name: Check windows-sys
+  cargo_sys_stable:
+    name: Check windows-sys (stable)
     runs-on: windows-latest
     strategy:
       matrix:
-        rust: [1.46.0, stable, nightly]
+        rust: [1.46.0, stable]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Update toolchain
       run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+    - name: Run cargo check
+      run: cargo check -p windows-sys --features all_stable_features
+
+  cargo_sys_nightly:
+    name: Check windows-sys (nightly)
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Update toolchain
+      run: rustup update --no-self-update nightly && rustup default nightly
     - name: Run cargo check
       run: cargo check -p windows-sys --all-features
 

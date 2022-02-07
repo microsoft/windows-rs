@@ -1,3 +1,12 @@
+################################################################################
+##
+## Automatically generated file; do not edit.
+##
+## To update this file, update the generator in crates/tools/yml and run
+## `cargo run -p tool_yml`.
+##
+################################################################################
+
 name: Build
 
 on:
