@@ -15,7 +15,7 @@ where
 
 #[allow(non_snake_case)]
 impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
-    fn Current(&mut self) -> Result<T> {
+    fn Current(&self) -> Result<T> {
         let owner = unsafe { Iterable::to_impl(&self.owner) };
 
         if owner.0.len() > self.current {
@@ -25,18 +25,21 @@ impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
         }
     }
 
-    fn HasCurrent(&mut self) -> Result<bool> {
+    fn HasCurrent(&self) -> Result<bool> {
         let owner = unsafe { Iterable::to_impl(&self.owner) };
         Ok(owner.0.len() > self.current)
     }
 
-    fn MoveNext(&mut self) -> Result<bool> {
-        let owner = unsafe { Iterable::to_impl(&self.owner) };
-        self.current += 1;
-        Ok(owner.0.len() > self.current)
+    fn MoveNext(&self) -> Result<bool> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            let owner = Iterable::to_impl(&writer.owner);
+            writer.current += 1;
+            Ok(owner.0.len() > writer.current)
+        }
     }
 
-    fn GetMany(&mut self, _items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, _items: &mut [T::DefaultType]) -> Result<u32> {
         panic!(); // TODO: arrays still need some work.
     }
 }
@@ -50,7 +53,7 @@ where
 
 #[allow(non_snake_case)]
 impl<T: RuntimeType + 'static> IIterable_Impl<T> for Iterable<T> {
-    fn First(&mut self) -> Result<IIterator<T>> {
+    fn First(&self) -> Result<IIterator<T>> {
         Ok(Iterator::<T> { owner: self.cast()?, current: 0 }.into())
     }
 }

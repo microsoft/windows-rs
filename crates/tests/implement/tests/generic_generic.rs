@@ -12,25 +12,25 @@ where
 
 #[allow(non_snake_case)]
 impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Thing<T> {
-    fn GetAt(&mut self, index: u32) -> Result<T> {
+    fn GetAt(&self, index: u32) -> Result<T> {
         self.0.get(index as usize).cloned().ok_or_else(|| panic!())
     }
 
-    fn Size(&mut self) -> Result<u32> {
+    fn Size(&self) -> Result<u32> {
         panic!();
     }
 
-    fn IndexOf(&mut self, _value: &T::DefaultType, _index: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, _value: &T::DefaultType, _index: &mut u32) -> Result<bool> {
         panic!();
     }
 
-    fn GetMany(&mut self, _startindex: u32, _items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, _startindex: u32, _items: &mut [T::DefaultType]) -> Result<u32> {
         panic!();
     }
 }
 
 impl<T: ::windows::core::RuntimeType + 'static> IIterable_Impl<T> for Thing<T> {
-    fn First(&mut self) -> Result<IIterator<T>> {
+    fn First(&self) -> Result<IIterator<T>> {
         todo!()
     }
 }

@@ -11,26 +11,26 @@ struct Thing();
 
 #[allow(non_snake_case)]
 impl IVectorView_Impl<i32> for Thing {
-    fn GetAt(&mut self, index: u32) -> Result<i32> {
+    fn GetAt(&self, index: u32) -> Result<i32> {
         Ok(index as _)
     }
 
-    fn Size(&mut self) -> Result<u32> {
+    fn Size(&self) -> Result<u32> {
         Ok(123)
     }
 
-    fn IndexOf(&mut self, value: &i32, index: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: &i32, index: &mut u32) -> Result<bool> {
         *index = *value as _;
         Ok(true)
     }
 
-    fn GetMany(&mut self, _startindex: u32, _items: &mut [i32]) -> Result<u32> {
+    fn GetMany(&self, _startindex: u32, _items: &mut [i32]) -> Result<u32> {
         panic!();
     }
 }
 
 impl IIterable_Impl<i32> for Thing {
-    fn First(&mut self) -> Result<IIterator<i32>> {
+    fn First(&self) -> Result<IIterator<i32>> {
         panic!();
     }
 }

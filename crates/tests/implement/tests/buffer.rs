@@ -7,8 +7,11 @@ struct TestBuffer(Vec<u8>);
 
 #[allow(non_snake_case)]
 impl IBufferByteAccess_Impl for TestBuffer {
-    fn Buffer(&mut self) -> Result<*mut u8> {
-        Ok(self.0.as_mut_ptr())
+    fn Buffer(&self) -> Result<*mut u8> {
+        unsafe {
+            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
+            Ok(writer.0.as_mut_ptr())
+        }
     }
 }
 

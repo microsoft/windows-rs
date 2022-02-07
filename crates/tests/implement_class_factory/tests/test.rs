@@ -9,13 +9,13 @@ use windows::Win32::System::Com::*;
 struct Object();
 
 impl IStringable_Impl for Object {
-    fn ToString(&mut self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING> {
         Ok("Object".into())
     }
 }
 
 impl IClosable_Impl for Object {
-    fn Close(&mut self) -> Result<()> {
+    fn Close(&self) -> Result<()> {
         Ok(())
     }
 }
@@ -24,14 +24,14 @@ impl IClosable_Impl for Object {
 struct Factory();
 
 impl IClassFactory_Impl for Factory {
-    fn CreateInstance(&mut self, outer: &Option<IUnknown>, iid: *const GUID, object: *mut RawPtr) -> Result<()> {
+    fn CreateInstance(&self, outer: &Option<IUnknown>, iid: *const GUID, object: *mut RawPtr) -> Result<()> {
         assert!(outer.is_none());
         let unknown: IInspectable = Object().into();
         // TODO: https://github.com/microsoft/windows-rs/issues/1441
         unsafe { unknown.query(&*iid, object).ok() }
     }
 
-    fn LockServer(&mut self, lock: BOOL) -> Result<()> {
+    fn LockServer(&self, lock: BOOL) -> Result<()> {
         assert!(lock.as_bool());
         Ok(())
     }

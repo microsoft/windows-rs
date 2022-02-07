@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
-use std::sync::RwLock;
 use std::convert::TryInto;
+use std::sync::RwLock;
 use windows::core::*;
 use windows::Foundation::Collections::*;
 use windows::Foundation::*;
