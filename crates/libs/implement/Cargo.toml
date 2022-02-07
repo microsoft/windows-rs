@@ -7,6 +7,10 @@ license = "MIT OR Apache-2.0"
 description = "Macros for the windows crate"
 repository = "https://github.com/microsoft/windows-rs"
 
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+targets = []
+
 [lib]
 proc-macro = true
 
