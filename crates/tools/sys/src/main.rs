@@ -76,6 +76,8 @@ use_raw_dylib = []
     )
     .unwrap();
 
+    let mut all_features = Vec::new();
+
     // Skip the root Windows tree while writing features
     for tree in trees.iter().skip(1) {
         // TODO: don't include parent features automatically
@@ -88,7 +90,10 @@ use_raw_dylib = []
         } else {
             file.write_all(format!("{} = []\n", feature).as_bytes()).unwrap();
         }
+        all_features.push(format!("\"{}\"", feature));
     }
+
+    file.write_all(format!("all_stable_features = [{}]\n", all_features.join(", ")).as_bytes()).unwrap();
 }
 
 fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a metadata::TypeTree, trees: &mut Vec<&'a metadata::TypeTree>) {
