@@ -65,7 +65,7 @@ jobs:
     - name: Update toolchain
       run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
     - name: Run cargo check
-      run: cargo check -p windows-sys --features all_stable_features
+      run: cd crates/libs/sys && cargo check --features all_stable_features
 
   cargo_sys_nightly:
     name: Check windows-sys (nightly)
