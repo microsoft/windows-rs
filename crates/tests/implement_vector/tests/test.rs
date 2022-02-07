@@ -1,5 +1,6 @@
 #![allow(non_snake_case)]
 
+use std::convert::TryInto;
 use windows::core::*;
 use windows::Foundation::Collections::*;
 use windows::Foundation::*;

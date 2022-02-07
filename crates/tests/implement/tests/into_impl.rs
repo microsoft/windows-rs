@@ -36,7 +36,7 @@ impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
         Ok(owner.0.len() > self.current)
     }
 
-    fn GetMany(&mut self, _items: &mut [<T as DefaultType>::DefaultType]) -> Result<u32> {
+    fn GetMany(&mut self, _items: &mut [T::DefaultType]) -> Result<u32> {
         panic!(); // TODO: arrays still need some work.
     }
 }

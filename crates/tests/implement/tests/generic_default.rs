@@ -16,7 +16,7 @@ where
 impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Thing<T> {
     fn GetAt(&mut self, index: u32) -> Result<T> {
         match self.0.get(index as usize) {
-            Some(value) => unsafe { <T as DefaultType>::from_default(value) },
+            Some(value) => T::from_default(value),
             None => Err(Error::new(E_BOUNDS, "".into())),
         }
     }

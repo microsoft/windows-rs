@@ -122,6 +122,7 @@ jobs:
         cargo clippy -p test_implement_no_use &&
         cargo clippy -p test_implement_null_result &&
         cargo clippy -p test_implement_properties &&
+        cargo clippy -p test_implement_vector &&
         cargo clippy -p test_implement_winrt &&
         cargo clippy -p test_interop &&
         cargo clippy -p test_lib &&
