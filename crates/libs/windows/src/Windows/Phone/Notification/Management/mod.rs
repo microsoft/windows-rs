@@ -419,9 +419,10 @@ impl ::core::ops::Not for AccessoryNotificationType {
 }
 unsafe impl ::windows::core::RuntimeType for AccessoryNotificationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.AccessoryNotificationType;u4)");
-}
-impl ::windows::core::DefaultType for AccessoryNotificationType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -533,6 +534,10 @@ impl ::core::fmt::Debug for AlarmNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for AlarmNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.AlarmNotificationTriggerDetails;{38f5fa30-c738-4da2-908c-775d83c36abb})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AlarmNotificationTriggerDetails {
     type Vtable = IAlarmNotificationTriggerDetails_Vtbl;
@@ -642,6 +647,10 @@ impl ::core::fmt::Debug for AppNotificationInfo {
 }
 unsafe impl ::windows::core::RuntimeType for AppNotificationInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.AppNotificationInfo;{2157bea5-e286-45d3-9bea-f790fc216e0e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppNotificationInfo {
     type Vtable = IAppNotificationInfo_Vtbl;
@@ -729,6 +738,10 @@ impl ::core::fmt::Debug for BinaryId {
 }
 unsafe impl ::windows::core::RuntimeType for BinaryId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.BinaryId;{4f0da531-5595-44b4-9181-ce4efa3fc168})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BinaryId {
     type Vtable = IBinaryId_Vtbl;
@@ -811,9 +824,10 @@ impl ::core::fmt::Debug for CalendarChangedEvent {
 }
 unsafe impl ::windows::core::RuntimeType for CalendarChangedEvent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.CalendarChangedEvent;i4)");
-}
-impl ::windows::core::DefaultType for CalendarChangedEvent {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -900,6 +914,10 @@ impl ::core::fmt::Debug for CalendarChangedNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for CalendarChangedNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.CalendarChangedNotificationTriggerDetails;{4b8a3bfc-279d-42ab-9c68-3e87977bf216})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CalendarChangedNotificationTriggerDetails {
     type Vtable = ICalendarChangedNotificationTriggerDetails_Vtbl;
@@ -1119,6 +1137,10 @@ impl ::core::fmt::Debug for CortanaTileNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for CortanaTileNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.CortanaTileNotificationTriggerDetails;{dc0f01d5-1489-46bb-b73b-7f90067ecf27})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CortanaTileNotificationTriggerDetails {
     type Vtable = ICortanaTileNotificationTriggerDetails_Vtbl;
@@ -1228,6 +1250,10 @@ impl ::core::fmt::Debug for EmailAccountInfo {
 }
 unsafe impl ::windows::core::RuntimeType for EmailAccountInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailAccountInfo;{dfbc02ab-bda0-4568-927e-b2ede35818a1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailAccountInfo {
     type Vtable = IEmailAccountInfo_Vtbl;
@@ -1315,6 +1341,10 @@ impl ::core::fmt::Debug for EmailFolderInfo {
 }
 unsafe impl ::windows::core::RuntimeType for EmailFolderInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailFolderInfo;{c207150e-e237-46d6-90e6-4f529eeac1e2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailFolderInfo {
     type Vtable = IEmailFolderInfo_Vtbl;
@@ -1490,6 +1520,10 @@ impl ::core::fmt::Debug for EmailNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for EmailNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailNotificationTriggerDetails;{f3b82612-46cf-4e70-8e0d-7b2e04ab492b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailNotificationTriggerDetails {
     type Vtable = IEmailNotificationTriggerDetails_Vtbl;
@@ -1661,6 +1695,10 @@ impl ::core::fmt::Debug for EmailReadNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for EmailReadNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailReadNotificationTriggerDetails;{f5b7a087-06f3-4e3e-8c42-325e67010413})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EmailReadNotificationTriggerDetails {
     type Vtable = IEmailReadNotificationTriggerDetails_Vtbl;
@@ -1966,6 +2004,10 @@ impl ::core::fmt::Debug for IAccessoryNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for IAccessoryNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6968a7d4-e3ca-49cb-8c87-2c11cdff9646}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IAccessoryNotificationTriggerDetails {
     type Vtable = IAccessoryNotificationTriggerDetails_Vtbl;
@@ -2479,6 +2521,10 @@ impl ::core::fmt::Debug for MediaControlsTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for MediaControlsTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.MediaControlsTriggerDetails;{fab4648b-ae45-4548-91ca-4ab0548e33b5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MediaControlsTriggerDetails {
     type Vtable = IMediaControlsTriggerDetails_Vtbl;
@@ -2630,6 +2676,10 @@ impl ::core::fmt::Debug for MediaMetadata {
 }
 unsafe impl ::windows::core::RuntimeType for MediaMetadata {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.MediaMetadata;{9b50ddf7-bb6c-4330-b3cd-0704a54cdb80})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MediaMetadata {
     type Vtable = IMediaMetadata_Vtbl;
@@ -2708,9 +2758,10 @@ impl ::core::fmt::Debug for PhoneCallAudioEndpoint {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallAudioEndpoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallAudioEndpoint;i4)");
-}
-impl ::windows::core::DefaultType for PhoneCallAudioEndpoint {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -2834,6 +2885,10 @@ impl ::core::fmt::Debug for PhoneCallDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneCallDetails;{0c1b6f53-f071-483e-bf33-ebd44b724447})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PhoneCallDetails {
     type Vtable = IPhoneCallDetails_Vtbl;
@@ -2911,9 +2966,10 @@ impl ::core::fmt::Debug for PhoneCallDirection {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallDirection;i4)");
-}
-impl ::windows::core::DefaultType for PhoneCallDirection {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -2947,9 +3003,10 @@ impl ::core::fmt::Debug for PhoneCallState {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallState;i4)");
-}
-impl ::windows::core::DefaultType for PhoneCallState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -2980,9 +3037,10 @@ impl ::core::fmt::Debug for PhoneCallTransport {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallTransport;i4)");
-}
-impl ::windows::core::DefaultType for PhoneCallTransport {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -3063,6 +3121,10 @@ impl ::core::fmt::Debug for PhoneLineDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneLineDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneLineDetails;{47eb32dc-33ed-49b9-995c-a296bac82b77})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PhoneLineDetails {
     type Vtable = IPhoneLineDetails_Vtbl;
@@ -3141,9 +3203,10 @@ impl ::core::fmt::Debug for PhoneLineRegistrationState {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneLineRegistrationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneLineRegistrationState;i4)");
-}
-impl ::windows::core::DefaultType for PhoneLineRegistrationState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -3174,9 +3237,10 @@ impl ::core::fmt::Debug for PhoneMediaType {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneMediaType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneMediaType;i4)");
-}
-impl ::windows::core::DefaultType for PhoneMediaType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -3271,6 +3335,10 @@ impl ::core::fmt::Debug for PhoneNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneNotificationTriggerDetails;{ccc2fdf7-09c3-4118-91bc-ca6323a8d383})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PhoneNotificationTriggerDetails {
     type Vtable = IPhoneNotificationTriggerDetails_Vtbl;
@@ -3373,9 +3441,10 @@ impl ::core::fmt::Debug for PhoneNotificationType {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneNotificationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneNotificationType;i4)");
-}
-impl ::windows::core::DefaultType for PhoneNotificationType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -3443,9 +3512,10 @@ impl ::core::ops::Not for PlaybackCapability {
 }
 unsafe impl ::windows::core::RuntimeType for PlaybackCapability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackCapability;u4)");
-}
-impl ::windows::core::DefaultType for PlaybackCapability {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -3484,9 +3554,10 @@ impl ::core::fmt::Debug for PlaybackCommand {
 }
 unsafe impl ::windows::core::RuntimeType for PlaybackCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackCommand;i4)");
-}
-impl ::windows::core::DefaultType for PlaybackCommand {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -3520,9 +3591,10 @@ impl ::core::fmt::Debug for PlaybackStatus {
 }
 unsafe impl ::windows::core::RuntimeType for PlaybackStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackStatus;i4)");
-}
-impl ::windows::core::DefaultType for PlaybackStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -3659,6 +3731,10 @@ impl ::core::fmt::Debug for ReminderNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for ReminderNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.ReminderNotificationTriggerDetails;{5bddaa5d-9f61-4bf0-9feb-10502bc0b0c2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ReminderNotificationTriggerDetails {
     type Vtable = IReminderNotificationTriggerDetails_Vtbl;
@@ -3759,9 +3835,10 @@ impl ::core::fmt::Debug for ReminderState {
 }
 unsafe impl ::windows::core::RuntimeType for ReminderState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.ReminderState;i4)");
-}
-impl ::windows::core::DefaultType for ReminderState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -3810,6 +3887,10 @@ impl ::core::fmt::Debug for SpeedDialEntry {
 }
 unsafe impl ::windows::core::RuntimeType for SpeedDialEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.SpeedDialEntry;{9240b6db-872c-46dc-b62a-be4541b166f8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SpeedDialEntry {
     type Vtable = ISpeedDialEntry_Vtbl;
@@ -3897,6 +3978,10 @@ impl ::core::fmt::Debug for TextResponse {
 }
 unsafe impl ::windows::core::RuntimeType for TextResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.TextResponse;{e9cb74c3-2457-4cdb-8110-72f5e8e883e8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TextResponse {
     type Vtable = ITextResponse_Vtbl;
@@ -4062,6 +4147,10 @@ impl ::core::fmt::Debug for ToastNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for ToastNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.ToastNotificationTriggerDetails;{c9314895-4e6d-4e9d-afec-9e921b875ae8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ToastNotificationTriggerDetails {
     type Vtable = IToastNotificationTriggerDetails_Vtbl;
@@ -4163,9 +4252,10 @@ impl ::core::fmt::Debug for VibrateState {
 }
 unsafe impl ::windows::core::RuntimeType for VibrateState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.VibrateState;i4)");
-}
-impl ::windows::core::DefaultType for VibrateState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
@@ -4230,6 +4320,10 @@ impl ::core::fmt::Debug for VolumeInfo {
 }
 unsafe impl ::windows::core::RuntimeType for VolumeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.VolumeInfo;{944dd118-7704-4481-b92e-d3ed3ece6322})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VolumeInfo {
     type Vtable = IVolumeInfo_Vtbl;

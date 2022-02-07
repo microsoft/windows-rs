@@ -29,9 +29,10 @@ impl ::core::fmt::Debug for AccessibilityView {
 }
 unsafe impl ::windows::core::RuntimeType for AccessibilityView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AccessibilityView;i4)");
-}
-impl ::windows::core::DefaultType for AccessibilityView {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -189,6 +190,10 @@ impl ::core::fmt::Debug for AppBarAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for AppBarAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AppBarAutomationPeer;{8b4acfeb-89fa-4f13-84be-35ca5b7c9590})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppBarAutomationPeer {
     type Vtable = IAppBarAutomationPeer_Vtbl;
@@ -443,6 +448,10 @@ impl ::core::fmt::Debug for AppBarButtonAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for AppBarButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AppBarButtonAutomationPeer;{443262b2-4f6d-4b76-9d2e-3eff777e8864})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppBarButtonAutomationPeer {
     type Vtable = IAppBarButtonAutomationPeer_Vtbl;
@@ -690,6 +699,10 @@ impl ::core::fmt::Debug for AppBarToggleButtonAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for AppBarToggleButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AppBarToggleButtonAutomationPeer;{8464efad-9655-4aff-9550-63ae9ec8fe9c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppBarToggleButtonAutomationPeer {
     type Vtable = IAppBarToggleButtonAutomationPeer_Vtbl;
@@ -908,6 +921,10 @@ impl ::core::fmt::Debug for AutoSuggestBoxAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for AutoSuggestBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AutoSuggestBoxAutomationPeer;{2f32c302-f99b-491d-9726-a5e181643efa})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AutoSuggestBoxAutomationPeer {
     type Vtable = IAutoSuggestBoxAutomationPeer_Vtbl;
@@ -1112,9 +1129,10 @@ impl ::core::fmt::Debug for AutomationControlType {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationControlType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationControlType;i4)");
-}
-impl ::windows::core::DefaultType for AutomationControlType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -1173,9 +1191,10 @@ impl ::core::fmt::Debug for AutomationEvents {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationEvents {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationEvents;i4)");
-}
-impl ::windows::core::DefaultType for AutomationEvents {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -1214,9 +1233,10 @@ impl ::core::fmt::Debug for AutomationHeadingLevel {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationHeadingLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationHeadingLevel;i4)");
-}
-impl ::windows::core::DefaultType for AutomationHeadingLevel {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -1251,9 +1271,10 @@ impl ::core::fmt::Debug for AutomationLandmarkType {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationLandmarkType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationLandmarkType;i4)");
-}
-impl ::windows::core::DefaultType for AutomationLandmarkType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -1285,9 +1306,10 @@ impl ::core::fmt::Debug for AutomationLiveSetting {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationLiveSetting {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationLiveSetting;i4)");
-}
-impl ::windows::core::DefaultType for AutomationLiveSetting {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -1321,9 +1343,10 @@ impl ::core::fmt::Debug for AutomationNavigationDirection {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationNavigationDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationNavigationDirection;i4)");
-}
-impl ::windows::core::DefaultType for AutomationNavigationDirection {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -1357,9 +1380,10 @@ impl ::core::fmt::Debug for AutomationNotificationKind {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationNotificationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationNotificationKind;i4)");
-}
-impl ::windows::core::DefaultType for AutomationNotificationKind {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -1393,9 +1417,10 @@ impl ::core::fmt::Debug for AutomationNotificationProcessing {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationNotificationProcessing {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationNotificationProcessing;i4)");
-}
-impl ::windows::core::DefaultType for AutomationNotificationProcessing {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -1427,9 +1452,10 @@ impl ::core::fmt::Debug for AutomationOrientation {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationOrientation;i4)");
-}
-impl ::windows::core::DefaultType for AutomationOrientation {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -1907,6 +1933,10 @@ impl ::core::fmt::Debug for AutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AutomationPeer;{35aac87a-62ee-4d3e-a24c-2bc8432d68b7})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AutomationPeer {
     type Vtable = IAutomationPeer_Vtbl;
@@ -2071,6 +2101,10 @@ impl ::core::fmt::Debug for AutomationPeerAnnotation {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationPeerAnnotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation;{0c456061-52cf-43fa-82f8-07f137351e5a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AutomationPeerAnnotation {
     type Vtable = IAutomationPeerAnnotation_Vtbl;
@@ -2174,9 +2208,10 @@ impl ::core::fmt::Debug for AutomationStructureChangeType {
 }
 unsafe impl ::windows::core::RuntimeType for AutomationStructureChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.AutomationStructureChangeType;i4)");
-}
-impl ::windows::core::DefaultType for AutomationStructureChangeType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -2229,6 +2264,10 @@ impl ::core::fmt::Debug for ButtonAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ButtonAutomationPeer;{fb77efbe-39ec-4508-8ac3-51a1424027d7})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ButtonAutomationPeer {
     type Vtable = IButtonAutomationPeer_Vtbl;
@@ -2407,6 +2446,10 @@ impl ::core::fmt::Debug for ButtonBaseAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ButtonBaseAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ButtonBaseAutomationPeer;{a4f3b5b6-7585-4e0b-96d2-08cf6f28befa})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ButtonBaseAutomationPeer {
     type Vtable = IButtonBaseAutomationPeer_Vtbl;
@@ -2592,6 +2635,10 @@ impl ::core::fmt::Debug for CalendarDatePickerAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for CalendarDatePickerAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.CalendarDatePickerAutomationPeer;{40d8938e-db5e-4b03-beba-d10f62419787})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CalendarDatePickerAutomationPeer {
     type Vtable = ICalendarDatePickerAutomationPeer_Vtbl;
@@ -2799,6 +2846,10 @@ impl ::core::fmt::Debug for CaptureElementAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for CaptureElementAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.CaptureElementAutomationPeer;{dcc44ee0-fa45-45c6-8bb7-320d808f5958})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CaptureElementAutomationPeer {
     type Vtable = ICaptureElementAutomationPeer_Vtbl;
@@ -2954,6 +3005,10 @@ impl ::core::fmt::Debug for CheckBoxAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for CheckBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.CheckBoxAutomationPeer;{eb15bc42-c0a9-46c6-ac24-b83de429c733})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CheckBoxAutomationPeer {
     type Vtable = ICheckBoxAutomationPeer_Vtbl;
@@ -3175,6 +3230,10 @@ impl ::core::fmt::Debug for ColorPickerSliderAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ColorPickerSliderAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ColorPickerSliderAutomationPeer;{a514215a-7293-4577-924c-47d4e0bf9b90})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ColorPickerSliderAutomationPeer {
     type Vtable = IColorPickerSliderAutomationPeer_Vtbl;
@@ -3396,6 +3455,10 @@ impl ::core::fmt::Debug for ColorSpectrumAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ColorSpectrumAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ColorSpectrumAutomationPeer;{15d5ba03-010d-4ff7-9087-f4dd09f831b7})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ColorSpectrumAutomationPeer {
     type Vtable = IColorSpectrumAutomationPeer_Vtbl;
@@ -3671,6 +3734,10 @@ impl ::core::fmt::Debug for ComboBoxAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ComboBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ComboBoxAutomationPeer;{7eb40d0b-75c5-4263-ba6a-d4a54fb0f239})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ComboBoxAutomationPeer {
     type Vtable = IComboBoxAutomationPeer_Vtbl;
@@ -3996,6 +4063,10 @@ impl ::core::fmt::Debug for ComboBoxItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ComboBoxItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ComboBoxItemAutomationPeer;{12ddc76e-9552-446a-82ee-938cc371800f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ComboBoxItemAutomationPeer {
     type Vtable = IComboBoxItemAutomationPeer_Vtbl;
@@ -4155,6 +4226,10 @@ impl ::core::fmt::Debug for ComboBoxItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ComboBoxItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ComboBoxItemDataAutomationPeer;{4fef6df2-289c-4c04-831b-5a668c6d7104})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ComboBoxItemDataAutomationPeer {
     type Vtable = IComboBoxItemDataAutomationPeer_Vtbl;
@@ -4408,6 +4483,10 @@ impl ::core::fmt::Debug for DatePickerAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for DatePickerAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.DatePickerAutomationPeer;{d07d357f-a0b9-45dc-991a-76c505e7d0f5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DatePickerAutomationPeer {
     type Vtable = IDatePickerAutomationPeer_Vtbl;
@@ -4540,6 +4619,10 @@ impl ::core::fmt::Debug for DatePickerFlyoutPresenterAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for DatePickerFlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.DatePickerFlyoutPresenterAutomationPeer;{752aed38-c2bf-4880-82b2-a6c05e90c135})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DatePickerFlyoutPresenterAutomationPeer {
     type Vtable = IDatePickerFlyoutPresenterAutomationPeer_Vtbl;
@@ -4695,6 +4778,10 @@ impl ::core::fmt::Debug for FlipViewAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for FlipViewAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.FlipViewAutomationPeer;{8ec0353a-4284-4b00-aef8-a2688ea5e3c4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FlipViewAutomationPeer {
     type Vtable = IFlipViewAutomationPeer_Vtbl;
@@ -4942,6 +5029,10 @@ impl ::core::fmt::Debug for FlipViewItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for FlipViewItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.FlipViewItemAutomationPeer;{c83034de-fa08-4bd3-aeb2-d2e5bfa04df9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FlipViewItemAutomationPeer {
     type Vtable = IFlipViewItemAutomationPeer_Vtbl;
@@ -5101,6 +5192,10 @@ impl ::core::fmt::Debug for FlipViewItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for FlipViewItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.FlipViewItemDataAutomationPeer;{b0986175-00bc-4118-8a6f-16ee9c15d968})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FlipViewItemDataAutomationPeer {
     type Vtable = IFlipViewItemDataAutomationPeer_Vtbl;
@@ -5354,6 +5449,10 @@ impl ::core::fmt::Debug for FlyoutPresenterAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for FlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.FlyoutPresenterAutomationPeer;{a01840b4-5fca-456f-98ea-300eb40b585e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FlyoutPresenterAutomationPeer {
     type Vtable = IFlyoutPresenterAutomationPeer_Vtbl;
@@ -5534,6 +5633,10 @@ impl ::core::fmt::Debug for FrameworkElementAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for FrameworkElementAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer;{b90ad781-bfeb-4451-bd47-9f3a63ebd24a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FrameworkElementAutomationPeer {
     type Vtable = IFrameworkElementAutomationPeer_Vtbl;
@@ -5669,6 +5772,10 @@ impl ::core::fmt::Debug for GridViewAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for GridViewAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.GridViewAutomationPeer;{1c4401a4-d951-49ca-8f82-c7f3c60681b0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GridViewAutomationPeer {
     type Vtable = IGridViewAutomationPeer_Vtbl;
@@ -5962,6 +6069,10 @@ impl ::core::fmt::Debug for GridViewHeaderItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for GridViewHeaderItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.GridViewHeaderItemAutomationPeer;{e3dcef3a-e08a-48e7-b23a-2be5b66e474e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GridViewHeaderItemAutomationPeer {
     type Vtable = IGridViewHeaderItemAutomationPeer_Vtbl;
@@ -6137,6 +6248,10 @@ impl ::core::fmt::Debug for GridViewItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for GridViewItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.GridViewItemAutomationPeer;{93ef2d07-346c-4166-a4ba-bc6a181e7f33})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GridViewItemAutomationPeer {
     type Vtable = IGridViewItemAutomationPeer_Vtbl;
@@ -6296,6 +6411,10 @@ impl ::core::fmt::Debug for GridViewItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for GridViewItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.GridViewItemDataAutomationPeer;{f3f4868f-29d4-4094-8c54-ea61a88294a4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GridViewItemDataAutomationPeer {
     type Vtable = IGridViewItemDataAutomationPeer_Vtbl;
@@ -6549,6 +6668,10 @@ impl ::core::fmt::Debug for GroupItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for GroupItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.GroupItemAutomationPeer;{1914fe6d-0740-4236-9ee1-38cf19c1c388})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GroupItemAutomationPeer {
     type Vtable = IGroupItemAutomationPeer_Vtbl;
@@ -6704,6 +6827,10 @@ impl ::core::fmt::Debug for HubAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for HubAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.HubAutomationPeer;{4ddee056-4ebc-4620-a05d-903e3c9a4ead})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HubAutomationPeer {
     type Vtable = IHubAutomationPeer_Vtbl;
@@ -6865,6 +6992,10 @@ impl ::core::fmt::Debug for HubSectionAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for HubSectionAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.HubSectionAutomationPeer;{16d91ff7-7431-4d82-83ce-cfa3192b0f18})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HubSectionAutomationPeer {
     type Vtable = IHubSectionAutomationPeer_Vtbl;
@@ -7052,6 +7183,10 @@ impl ::core::fmt::Debug for HyperlinkButtonAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for HyperlinkButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.HyperlinkButtonAutomationPeer;{aa7afcb1-0edf-46d9-aa9e-0eb21d140097})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HyperlinkButtonAutomationPeer {
     type Vtable = IHyperlinkButtonAutomationPeer_Vtbl;
@@ -10054,6 +10189,10 @@ impl ::core::fmt::Debug for ImageAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ImageAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ImageAutomationPeer;{9b0bbf8c-60a2-48bf-ab2c-1a52a451d2d4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ImageAutomationPeer {
     type Vtable = IImageAutomationPeer_Vtbl;
@@ -10186,6 +10325,10 @@ impl ::core::fmt::Debug for InkToolbarAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for InkToolbarAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.InkToolbarAutomationPeer;{123baaa4-f2e8-4bcb-9382-5dfdd11fe45f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InkToolbarAutomationPeer {
     type Vtable = IInkToolbarAutomationPeer_Vtbl;
@@ -10361,6 +10504,10 @@ impl ::core::fmt::Debug for ItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ItemAutomationPeer;{953c34f6-3b31-47a7-b3bf-25d3ae99c317})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ItemAutomationPeer {
     type Vtable = IItemAutomationPeer_Vtbl;
@@ -10539,6 +10686,10 @@ impl ::core::fmt::Debug for ItemsControlAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ItemsControlAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ItemsControlAutomationPeer;{96e76bf1-37f7-4088-925d-65268e83e34d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ItemsControlAutomationPeer {
     type Vtable = IItemsControlAutomationPeer_Vtbl;
@@ -10720,6 +10871,10 @@ impl ::core::fmt::Debug for ListBoxAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ListBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListBoxAutomationPeer;{8cd0d608-b402-4a6e-bd9a-343f8845eb32})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListBoxAutomationPeer {
     type Vtable = IListBoxAutomationPeer_Vtbl;
@@ -10967,6 +11122,10 @@ impl ::core::fmt::Debug for ListBoxItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ListBoxItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListBoxItemAutomationPeer;{1bc6e1c6-2997-42df-99eb-92bc1dd149fb})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListBoxItemAutomationPeer {
     type Vtable = IListBoxItemAutomationPeer_Vtbl;
@@ -11126,6 +11285,10 @@ impl ::core::fmt::Debug for ListBoxItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ListBoxItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListBoxItemDataAutomationPeer;{fd7d5fee-fde0-482a-8084-dcebba5b9806})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListBoxItemDataAutomationPeer {
     type Vtable = IListBoxItemDataAutomationPeer_Vtbl;
@@ -11356,6 +11519,10 @@ impl ::core::fmt::Debug for ListPickerFlyoutPresenterAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ListPickerFlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListPickerFlyoutPresenterAutomationPeer;{56dfdc58-2395-4060-8047-8ea463698a24})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListPickerFlyoutPresenterAutomationPeer {
     type Vtable = IListPickerFlyoutPresenterAutomationPeer_Vtbl;
@@ -11511,6 +11678,10 @@ impl ::core::fmt::Debug for ListViewAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ListViewAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewAutomationPeer;{73cecc87-c0dc-4260-9148-75e9864a7230})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListViewAutomationPeer {
     type Vtable = IListViewAutomationPeer_Vtbl;
@@ -11822,6 +11993,10 @@ impl ::core::fmt::Debug for ListViewBaseAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ListViewBaseAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewBaseAutomationPeer;{87ec7649-b83d-4e55-9afd-bd835e748f5c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListViewBaseAutomationPeer {
     type Vtable = IListViewBaseAutomationPeer_Vtbl;
@@ -12072,6 +12247,10 @@ impl ::core::fmt::Debug for ListViewBaseHeaderItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ListViewBaseHeaderItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewBaseHeaderItemAutomationPeer;{7cb8b732-c1f0-4a3c-bc14-85dd48dedb85})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListViewBaseHeaderItemAutomationPeer {
     type Vtable = IListViewBaseHeaderItemAutomationPeer_Vtbl;
@@ -12227,6 +12406,10 @@ impl ::core::fmt::Debug for ListViewHeaderItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ListViewHeaderItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewHeaderItemAutomationPeer;{67ab1e4b-ad61-4c88-ba45-0f3a8d061f8f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListViewHeaderItemAutomationPeer {
     type Vtable = IListViewHeaderItemAutomationPeer_Vtbl;
@@ -12402,6 +12585,10 @@ impl ::core::fmt::Debug for ListViewItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ListViewItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewItemAutomationPeer;{ca114e70-a16d-4d09-a1cf-1856ef98a9ec})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListViewItemAutomationPeer {
     type Vtable = IListViewItemAutomationPeer_Vtbl;
@@ -12561,6 +12748,10 @@ impl ::core::fmt::Debug for ListViewItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ListViewItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ListViewItemDataAutomationPeer;{15a8d7fd-d7a5-4a6c-963c-6f7ce464671a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ListViewItemDataAutomationPeer {
     type Vtable = IListViewItemDataAutomationPeer_Vtbl;
@@ -12915,6 +13106,10 @@ impl ::core::fmt::Debug for LoopingSelectorAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for LoopingSelectorAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.LoopingSelectorAutomationPeer;{50b406ca-bae9-4816-8a3a-0cb4f96478a2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoopingSelectorAutomationPeer {
     type Vtable = ILoopingSelectorAutomationPeer_Vtbl;
@@ -13194,6 +13389,10 @@ impl ::core::fmt::Debug for LoopingSelectorItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for LoopingSelectorItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.LoopingSelectorItemAutomationPeer;{d3fa68bf-04cf-4f4c-8d3e-4780a19d4788})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoopingSelectorItemAutomationPeer {
     type Vtable = ILoopingSelectorItemAutomationPeer_Vtbl;
@@ -13385,6 +13584,10 @@ impl ::core::fmt::Debug for LoopingSelectorItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for LoopingSelectorItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.LoopingSelectorItemDataAutomationPeer;{ef567e32-7cd2-4d32-9590-1f588d5ef38d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LoopingSelectorItemDataAutomationPeer {
     type Vtable = ILoopingSelectorItemDataAutomationPeer_Vtbl;
@@ -13683,6 +13886,10 @@ impl ::core::fmt::Debug for MapControlAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for MapControlAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MapControlAutomationPeer;{425beee4-f2e8-4bcb-9382-5dfdd11fe45f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MapControlAutomationPeer {
     type Vtable = IMapControlAutomationPeer_Vtbl;
@@ -13916,6 +14123,10 @@ impl ::core::fmt::Debug for MediaElementAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for MediaElementAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MediaElementAutomationPeer;{ba0b9fc2-a6e2-41a5-b17a-d1594613efba})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MediaElementAutomationPeer {
     type Vtable = IMediaElementAutomationPeer_Vtbl;
@@ -14071,6 +14282,10 @@ impl ::core::fmt::Debug for MediaPlayerElementAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for MediaPlayerElementAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MediaPlayerElementAutomationPeer;{02bed209-3f65-4fdd-b5ca-c4750d4e6ea4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MediaPlayerElementAutomationPeer {
     type Vtable = IMediaPlayerElementAutomationPeer_Vtbl;
@@ -14226,6 +14441,10 @@ impl ::core::fmt::Debug for MediaTransportControlsAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for MediaTransportControlsAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MediaTransportControlsAutomationPeer;{a3ad8d93-79f8-4958-a3c8-980defb83d15})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MediaTransportControlsAutomationPeer {
     type Vtable = IMediaTransportControlsAutomationPeer_Vtbl;
@@ -14381,6 +14600,10 @@ impl ::core::fmt::Debug for MenuBarAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for MenuBarAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MenuBarAutomationPeer;{4b6adcf1-f274-5592-85a8-7b099e99b320})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MenuBarAutomationPeer {
     type Vtable = IMenuBarAutomationPeer_Vtbl;
@@ -14563,6 +14786,10 @@ impl ::core::fmt::Debug for MenuBarItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for MenuBarItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MenuBarItemAutomationPeer;{0fce49b4-cff5-5c4b-98ee-e75fdddf799a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MenuBarItemAutomationPeer {
     type Vtable = IMenuBarItemAutomationPeer_Vtbl;
@@ -14776,6 +15003,10 @@ impl ::core::fmt::Debug for MenuFlyoutItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for MenuFlyoutItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MenuFlyoutItemAutomationPeer;{1fc19462-21df-456e-aa11-8fac6b4b2af6})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MenuFlyoutItemAutomationPeer {
     type Vtable = IMenuFlyoutItemAutomationPeer_Vtbl;
@@ -14957,6 +15188,10 @@ impl ::core::fmt::Debug for MenuFlyoutPresenterAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for MenuFlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.MenuFlyoutPresenterAutomationPeer;{e244a871-fcbb-48fc-8a93-41ea134b53ce})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MenuFlyoutPresenterAutomationPeer {
     type Vtable = IMenuFlyoutPresenterAutomationPeer_Vtbl;
@@ -15158,6 +15393,10 @@ impl ::core::fmt::Debug for NavigationViewItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for NavigationViewItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.NavigationViewItemAutomationPeer;{309847a5-9971-4d8d-a81c-085c7086a1b9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for NavigationViewItemAutomationPeer {
     type Vtable = INavigationViewItemAutomationPeer_Vtbl;
@@ -15333,6 +15572,10 @@ impl ::core::fmt::Debug for PasswordBoxAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for PasswordBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PasswordBoxAutomationPeer;{684f065e-3df3-4b9f-82ad-8819db3b218a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PasswordBoxAutomationPeer {
     type Vtable = IPasswordBoxAutomationPeer_Vtbl;
@@ -15504,9 +15747,10 @@ impl ::core::fmt::Debug for PatternInterface {
 }
 unsafe impl ::windows::core::RuntimeType for PatternInterface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Peers.PatternInterface;i4)");
-}
-impl ::windows::core::DefaultType for PatternInterface {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
@@ -15553,6 +15797,10 @@ impl ::core::fmt::Debug for PersonPictureAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for PersonPictureAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PersonPictureAutomationPeer;{27156d4c-a66f-4aaf-8286-4f796d30628c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PersonPictureAutomationPeer {
     type Vtable = IPersonPictureAutomationPeer_Vtbl;
@@ -15685,6 +15933,10 @@ impl ::core::fmt::Debug for PickerFlyoutPresenterAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for PickerFlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PickerFlyoutPresenterAutomationPeer;{28414bf7-8382-4eae-93c1-d6f035aa8155})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PickerFlyoutPresenterAutomationPeer {
     type Vtable = IPickerFlyoutPresenterAutomationPeer_Vtbl;
@@ -15924,6 +16176,10 @@ impl ::core::fmt::Debug for PivotAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for PivotAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PivotAutomationPeer;{e715a8f8-3b9d-402c-81e2-6e912ef58981})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PivotAutomationPeer {
     type Vtable = IPivotAutomationPeer_Vtbl;
@@ -16168,6 +16424,10 @@ impl ::core::fmt::Debug for PivotItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for PivotItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PivotItemAutomationPeer;{1a4241ad-5d55-4d27-b40f-2d37506fbe78})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PivotItemAutomationPeer {
     type Vtable = IPivotItemAutomationPeer_Vtbl;
@@ -16361,6 +16621,10 @@ impl ::core::fmt::Debug for PivotItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for PivotItemDataAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.PivotItemDataAutomationPeer;{a2a3b788-ea1d-48b7-88ee-f08b6aa07fee})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PivotItemDataAutomationPeer {
     type Vtable = IPivotItemDataAutomationPeer_Vtbl;
@@ -16594,6 +16858,10 @@ impl ::core::fmt::Debug for ProgressBarAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ProgressBarAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ProgressBarAutomationPeer;{93f48f86-d840-4fb6-ac2f-5f779b854b0d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProgressBarAutomationPeer {
     type Vtable = IProgressBarAutomationPeer_Vtbl;
@@ -16795,6 +17063,10 @@ impl ::core::fmt::Debug for ProgressRingAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ProgressRingAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ProgressRingAutomationPeer;{bc305eee-39d3-4eeb-ac33-2394de123e2e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProgressRingAutomationPeer {
     type Vtable = IProgressRingAutomationPeer_Vtbl;
@@ -16986,6 +17258,10 @@ impl ::core::fmt::Debug for RadioButtonAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for RadioButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RadioButtonAutomationPeer;{7e6a5ed8-0b30-4743-b102-dcdf548e3131})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RadioButtonAutomationPeer {
     type Vtable = IRadioButtonAutomationPeer_Vtbl;
@@ -17293,6 +17569,10 @@ impl ::core::fmt::Debug for RangeBaseAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for RangeBaseAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RangeBaseAutomationPeer;{e454b549-4b2c-42ad-b04b-d35947d1ee50})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RangeBaseAutomationPeer {
     type Vtable = IRangeBaseAutomationPeer_Vtbl;
@@ -17474,6 +17754,10 @@ impl ::core::fmt::Debug for RatingControlAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for RatingControlAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RatingControlAutomationPeer;{3d14349a-9963-4a47-823c-f457cb3209d5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RatingControlAutomationPeer {
     type Vtable = IRatingControlAutomationPeer_Vtbl;
@@ -17606,9 +17890,10 @@ unsafe impl ::windows::core::Abi for RawElementProviderRuntimeId {
 }
 unsafe impl ::windows::core::RuntimeType for RawElementProviderRuntimeId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Automation.Peers.RawElementProviderRuntimeId;u4;u4)");
-}
-impl ::windows::core::DefaultType for RawElementProviderRuntimeId {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for RawElementProviderRuntimeId {
     fn eq(&self, other: &Self) -> bool {
@@ -17672,6 +17957,10 @@ impl ::core::fmt::Debug for RepeatButtonAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for RepeatButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RepeatButtonAutomationPeer;{29e41ad5-a8ac-4e8a-83d8-09e37e054257})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RepeatButtonAutomationPeer {
     type Vtable = IRepeatButtonAutomationPeer_Vtbl;
@@ -17873,6 +18162,10 @@ impl ::core::fmt::Debug for RichEditBoxAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for RichEditBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RichEditBoxAutomationPeer;{c69f5c04-16ee-467a-a833-c3da8458ad64})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RichEditBoxAutomationPeer {
     type Vtable = IRichEditBoxAutomationPeer_Vtbl;
@@ -18028,6 +18321,10 @@ impl ::core::fmt::Debug for RichTextBlockAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for RichTextBlockAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RichTextBlockAutomationPeer;{93a01a9c-9609-41fa-82f3-909c09f49a72})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RichTextBlockAutomationPeer {
     type Vtable = IRichTextBlockAutomationPeer_Vtbl;
@@ -18183,6 +18480,10 @@ impl ::core::fmt::Debug for RichTextBlockOverflowAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for RichTextBlockOverflowAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.RichTextBlockOverflowAutomationPeer;{8c9a409a-2736-437b-ab36-a16a202f105d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RichTextBlockOverflowAutomationPeer {
     type Vtable = IRichTextBlockOverflowAutomationPeer_Vtbl;
@@ -18338,6 +18639,10 @@ impl ::core::fmt::Debug for ScrollBarAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ScrollBarAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ScrollBarAutomationPeer;{69e0c369-bbe7-41f2-87ca-aad813fe550e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ScrollBarAutomationPeer {
     type Vtable = IScrollBarAutomationPeer_Vtbl;
@@ -18605,6 +18910,10 @@ impl ::core::fmt::Debug for ScrollViewerAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ScrollViewerAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ScrollViewerAutomationPeer;{d985f259-1b09-4e88-88fd-421750dc6b45})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ScrollViewerAutomationPeer {
     type Vtable = IScrollViewerAutomationPeer_Vtbl;
@@ -18786,6 +19095,10 @@ impl ::core::fmt::Debug for SearchBoxAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for SearchBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SearchBoxAutomationPeer;{854011a4-18a6-4f30-939b-8871afa3f5e9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SearchBoxAutomationPeer {
     type Vtable = ISearchBoxAutomationPeer_Vtbl;
@@ -18968,6 +19281,10 @@ impl ::core::fmt::Debug for SelectorAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for SelectorAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SelectorAutomationPeer;{162ac829-7115-43ec-b383-a7b71644069d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SelectorAutomationPeer {
     type Vtable = ISelectorAutomationPeer_Vtbl;
@@ -19229,6 +19546,10 @@ impl ::core::fmt::Debug for SelectorItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for SelectorItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SelectorItemAutomationPeer;{ae8b3477-860a-45bb-bf7c-e1b27419d1dd})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SelectorItemAutomationPeer {
     type Vtable = ISelectorItemAutomationPeer_Vtbl;
@@ -19451,6 +19772,10 @@ impl ::core::fmt::Debug for SemanticZoomAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for SemanticZoomAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SemanticZoomAutomationPeer;{3c2fac6c-a977-47fc-b44e-2754c0b2bea9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SemanticZoomAutomationPeer {
     type Vtable = ISemanticZoomAutomationPeer_Vtbl;
@@ -19632,6 +19957,10 @@ impl ::core::fmt::Debug for SettingsFlyoutAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for SettingsFlyoutAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SettingsFlyoutAutomationPeer;{d0de0cdb-30cf-47a6-a5eb-9c77f0b0d6dd})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SettingsFlyoutAutomationPeer {
     type Vtable = ISettingsFlyoutAutomationPeer_Vtbl;
@@ -19787,6 +20116,10 @@ impl ::core::fmt::Debug for SliderAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for SliderAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.SliderAutomationPeer;{ec30015a-d611-46d0-ae4f-6ecf27dfbaa5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SliderAutomationPeer {
     type Vtable = ISliderAutomationPeer_Vtbl;
@@ -19988,6 +20321,10 @@ impl ::core::fmt::Debug for TextBlockAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for TextBlockAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TextBlockAutomationPeer;{be2057f5-6715-4e69-a050-92bd0ce232a9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TextBlockAutomationPeer {
     type Vtable = ITextBlockAutomationPeer_Vtbl;
@@ -20143,6 +20480,10 @@ impl ::core::fmt::Debug for TextBoxAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for TextBoxAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TextBoxAutomationPeer;{3a4f1ca0-5e5d-4d26-9067-e740bf657a9f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TextBoxAutomationPeer {
     type Vtable = ITextBoxAutomationPeer_Vtbl;
@@ -20298,6 +20639,10 @@ impl ::core::fmt::Debug for ThumbAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ThumbAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ThumbAutomationPeer;{dc2949b5-b45e-4d6d-892f-d9422c950efb})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ThumbAutomationPeer {
     type Vtable = IThumbAutomationPeer_Vtbl;
@@ -20453,6 +20798,10 @@ impl ::core::fmt::Debug for TimePickerAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for TimePickerAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TimePickerAutomationPeer;{a43d44ef-3285-4df7-b4a4-e4cdf36a3a17})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TimePickerAutomationPeer {
     type Vtable = ITimePickerAutomationPeer_Vtbl;
@@ -20585,6 +20934,10 @@ impl ::core::fmt::Debug for TimePickerFlyoutPresenterAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for TimePickerFlyoutPresenterAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TimePickerFlyoutPresenterAutomationPeer;{da93ee27-82f1-4701-8706-be297bf06043})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TimePickerFlyoutPresenterAutomationPeer {
     type Vtable = ITimePickerFlyoutPresenterAutomationPeer_Vtbl;
@@ -20755,6 +21108,10 @@ impl ::core::fmt::Debug for ToggleButtonAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ToggleButtonAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ToggleButtonAutomationPeer;{62dbe6c5-bc0a-45bb-bf77-ea0f1502891f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ToggleButtonAutomationPeer {
     type Vtable = IToggleButtonAutomationPeer_Vtbl;
@@ -20971,6 +21328,10 @@ impl ::core::fmt::Debug for ToggleMenuFlyoutItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ToggleMenuFlyoutItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ToggleMenuFlyoutItemAutomationPeer;{6b57eafe-6af1-4903-8373-3437bf352345})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ToggleMenuFlyoutItemAutomationPeer {
     type Vtable = IToggleMenuFlyoutItemAutomationPeer_Vtbl;
@@ -21167,6 +21528,10 @@ impl ::core::fmt::Debug for ToggleSwitchAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for ToggleSwitchAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.ToggleSwitchAutomationPeer;{c011f174-e89e-4790-bf9a-78ebb5f59e9f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ToggleSwitchAutomationPeer {
     type Vtable = IToggleSwitchAutomationPeer_Vtbl;
@@ -21369,6 +21734,10 @@ impl ::core::fmt::Debug for TreeViewItemAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for TreeViewItemAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TreeViewItemAutomationPeer;{2331d648-b617-437f-920c-71d450503e65})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TreeViewItemAutomationPeer {
     type Vtable = ITreeViewItemAutomationPeer_Vtbl;
@@ -21570,6 +21939,10 @@ impl ::core::fmt::Debug for TreeViewListAutomationPeer {
 }
 unsafe impl ::windows::core::RuntimeType for TreeViewListAutomationPeer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Automation.Peers.TreeViewListAutomationPeer;{71c1b5bc-bb29-4479-a8a8-606be6b823ae})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TreeViewListAutomationPeer {
     type Vtable = ITreeViewListAutomationPeer_Vtbl;

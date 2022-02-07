@@ -165,6 +165,10 @@ impl ::core::fmt::Debug for IImageScannerFormatConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for IImageScannerFormatConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ae275d11-dadf-4010-bf10-cca5c83dcbb0}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IImageScannerFormatConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
@@ -541,6 +545,10 @@ impl ::core::fmt::Debug for IImageScannerSourceConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for IImageScannerSourceConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bfb50055-0b44-4c82-9e89-205f9c234e59}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IImageScannerSourceConfiguration {
     type Vtable = IImageScannerSourceConfiguration_Vtbl;
@@ -726,6 +734,10 @@ impl ::core::fmt::Debug for ImageScanner {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScanner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScanner;{53a88f78-5298-48a0-8da3-8087519665e0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ImageScanner {
     type Vtable = IImageScanner_Vtbl;
@@ -828,6 +840,10 @@ impl ::core::fmt::Debug for ImageScannerAutoConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScannerAutoConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerAutoConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ImageScannerAutoConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
@@ -930,9 +946,10 @@ impl ::core::fmt::Debug for ImageScannerAutoCroppingMode {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScannerAutoCroppingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerAutoCroppingMode;i4)");
-}
-impl ::windows::core::DefaultType for ImageScannerAutoCroppingMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
@@ -965,9 +982,10 @@ impl ::core::fmt::Debug for ImageScannerColorMode {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScannerColorMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerColorMode;i4)");
-}
-impl ::windows::core::DefaultType for ImageScannerColorMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
@@ -1363,6 +1381,10 @@ impl ::core::fmt::Debug for ImageScannerFeederConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScannerFeederConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerFeederConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ImageScannerFeederConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
@@ -1727,6 +1749,10 @@ impl ::core::fmt::Debug for ImageScannerFlatbedConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScannerFlatbedConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerFlatbedConfiguration;{ae275d11-dadf-4010-bf10-cca5c83dcbb0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ImageScannerFlatbedConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
@@ -1855,9 +1881,10 @@ impl ::core::fmt::Debug for ImageScannerFormat {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScannerFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerFormat;i4)");
-}
-impl ::windows::core::DefaultType for ImageScannerFormat {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
@@ -1898,6 +1925,10 @@ impl ::core::fmt::Debug for ImageScannerPreviewResult {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScannerPreviewResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerPreviewResult;{08b7fe8e-8891-441d-be9c-176fa109c8bb})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ImageScannerPreviewResult {
     type Vtable = IImageScannerPreviewResult_Vtbl;
@@ -1970,9 +2001,10 @@ unsafe impl ::windows::core::Abi for ImageScannerResolution {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScannerResolution {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Scanners.ImageScannerResolution;f4;f4)");
-}
-impl ::windows::core::DefaultType for ImageScannerResolution {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for ImageScannerResolution {
     fn eq(&self, other: &Self) -> bool {
@@ -2017,6 +2049,10 @@ impl ::core::fmt::Debug for ImageScannerScanResult {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScannerScanResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Scanners.ImageScannerScanResult;{c91624cd-9037-4e48-84c1-ac0975076bc5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ImageScannerScanResult {
     type Vtable = IImageScannerScanResult_Vtbl;
@@ -2098,9 +2134,10 @@ impl ::core::fmt::Debug for ImageScannerScanSource {
 }
 unsafe impl ::windows::core::RuntimeType for ImageScannerScanSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerScanSource;i4)");
-}
-impl ::windows::core::DefaultType for ImageScannerScanSource {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

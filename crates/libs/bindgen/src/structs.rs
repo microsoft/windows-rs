@@ -129,14 +129,20 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
         if def.is_winrt() {
             let signature = Literal::byte_string(def.type_signature().as_bytes());
 
+            let clone = if def.is_blittable() {
+                quote! { *from }
+            } else {
+                quote! { from.clone() }
+            };
+
             tokens.combine(&quote! {
                 #cfg
                 unsafe impl ::windows::core::RuntimeType for #name {
                     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
-                }
-                #cfg
-                impl ::windows::core::DefaultType for #name {
                     type DefaultType = Self;
+                    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+                        Ok(#clone)
+                    }
                 }
             });
         }

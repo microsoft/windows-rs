@@ -28,9 +28,10 @@ impl ::core::fmt::Debug for ForegroundText {
 }
 unsafe impl ::windows::core::RuntimeType for ForegroundText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.ForegroundText;i4)");
-}
-impl ::windows::core::DefaultType for ForegroundText {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -665,6 +666,10 @@ impl ::core::fmt::Debug for JumpList {
 }
 unsafe impl ::windows::core::RuntimeType for JumpList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpList;{b0234c3e-cd6f-4cb6-a611-61fd505f3ed1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for JumpList {
     type Vtable = IJumpList_Vtbl;
@@ -835,6 +840,10 @@ impl ::core::fmt::Debug for JumpListItem {
 }
 unsafe impl ::windows::core::RuntimeType for JumpListItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpListItem;{7adb6717-8b5d-4820-995b-9b418dbe48b0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for JumpListItem {
     type Vtable = IJumpListItem_Vtbl;
@@ -914,9 +923,10 @@ impl ::core::fmt::Debug for JumpListItemKind {
 }
 unsafe impl ::windows::core::RuntimeType for JumpListItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListItemKind;i4)");
-}
-impl ::windows::core::DefaultType for JumpListItemKind {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
@@ -948,9 +958,10 @@ impl ::core::fmt::Debug for JumpListSystemGroupKind {
 }
 unsafe impl ::windows::core::RuntimeType for JumpListSystemGroupKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListSystemGroupKind;i4)");
-}
-impl ::windows::core::DefaultType for JumpListSystemGroupKind {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
@@ -1361,6 +1372,10 @@ impl ::core::fmt::Debug for SecondaryTile {
 }
 unsafe impl ::windows::core::RuntimeType for SecondaryTile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTile;{9e9e51e0-2bb5-4bc0-bb8d-42b23abcc88d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SecondaryTile {
     type Vtable = ISecondaryTile_Vtbl;
@@ -1612,6 +1627,10 @@ impl ::core::fmt::Debug for SecondaryTileVisualElements {
 }
 unsafe impl ::windows::core::RuntimeType for SecondaryTileVisualElements {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTileVisualElements;{1d8df333-815e-413f-9f50-a81da70a96b2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SecondaryTileVisualElements {
     type Vtable = ISecondaryTileVisualElements_Vtbl;
@@ -1759,6 +1778,10 @@ impl ::core::fmt::Debug for StartScreenManager {
 }
 unsafe impl ::windows::core::RuntimeType for StartScreenManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.StartScreenManager;{4a1dcbcb-26e9-4eb4-8933-859eb6ecdb29})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StartScreenManager {
     type Vtable = IStartScreenManager_Vtbl;
@@ -1875,6 +1898,10 @@ impl ::core::fmt::Debug for TileMixedRealityModel {
 }
 unsafe impl ::windows::core::RuntimeType for TileMixedRealityModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.TileMixedRealityModel;{b0764e5b-887d-4242-9a19-3d0a4ea78031})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TileMixedRealityModel {
     type Vtable = ITileMixedRealityModel_Vtbl;
@@ -1954,9 +1981,10 @@ impl ::core::fmt::Debug for TileMixedRealityModelActivationBehavior {
 }
 unsafe impl ::windows::core::RuntimeType for TileMixedRealityModelActivationBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior;i4)");
-}
-impl ::windows::core::DefaultType for TileMixedRealityModelActivationBehavior {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
@@ -2017,9 +2045,10 @@ impl ::core::ops::Not for TileOptions {
 }
 unsafe impl ::windows::core::RuntimeType for TileOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileOptions;u4)");
-}
-impl ::windows::core::DefaultType for TileOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
@@ -2056,9 +2085,10 @@ impl ::core::fmt::Debug for TileSize {
 }
 unsafe impl ::windows::core::RuntimeType for TileSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileSize;i4)");
-}
-impl ::windows::core::DefaultType for TileSize {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
@@ -2117,6 +2147,10 @@ impl ::core::fmt::Debug for VisualElementsRequest {
 }
 unsafe impl ::windows::core::RuntimeType for VisualElementsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequest;{c138333a-9308-4072-88cc-d068db347c68})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisualElementsRequest {
     type Vtable = IVisualElementsRequest_Vtbl;
@@ -2195,6 +2229,10 @@ impl ::core::fmt::Debug for VisualElementsRequestDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for VisualElementsRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestDeferral;{a1656eb0-0126-4357-8204-bd82bb2a046d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisualElementsRequestDeferral {
     type Vtable = IVisualElementsRequestDeferral_Vtbl;
@@ -2276,6 +2314,10 @@ impl ::core::fmt::Debug for VisualElementsRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for VisualElementsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestedEventArgs;{7b6fc982-3a0d-4ece-af96-cd17e1b00b2d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VisualElementsRequestedEventArgs {
     type Vtable = IVisualElementsRequestedEventArgs_Vtbl;

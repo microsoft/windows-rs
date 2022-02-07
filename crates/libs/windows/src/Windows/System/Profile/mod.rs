@@ -87,6 +87,10 @@ impl ::core::fmt::Debug for AnalyticsVersionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for AnalyticsVersionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.AnalyticsVersionInfo;{926130b8-9955-4c74-bdc1-7cd0decf9b03})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AnalyticsVersionInfo {
     type Vtable = IAnalyticsVersionInfo_Vtbl;
@@ -246,6 +250,10 @@ impl ::core::fmt::Debug for HardwareToken {
 }
 unsafe impl ::windows::core::RuntimeType for HardwareToken {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.HardwareToken;{28f6d4c0-fb12-40a4-8167-7f4e03d2724c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HardwareToken {
     type Vtable = IHardwareToken_Vtbl;
@@ -808,9 +816,10 @@ impl ::core::fmt::Debug for PlatformDataCollectionLevel {
 }
 unsafe impl ::windows::core::RuntimeType for PlatformDataCollectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
-}
-impl ::windows::core::DefaultType for PlatformDataCollectionLevel {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Profile'*"]
 pub struct PlatformDiagnosticsAndUsageDataSettings {}
@@ -975,6 +984,10 @@ impl ::core::fmt::Debug for SystemIdentificationInfo {
 }
 unsafe impl ::windows::core::RuntimeType for SystemIdentificationInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemIdentificationInfo;{0c659e7d-c3c2-4d33-a2df-21bc41916eb3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SystemIdentificationInfo {
     type Vtable = ISystemIdentificationInfo_Vtbl;
@@ -1056,9 +1069,10 @@ impl ::core::fmt::Debug for SystemIdentificationSource {
 }
 unsafe impl ::windows::core::RuntimeType for SystemIdentificationSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
-}
-impl ::windows::core::DefaultType for SystemIdentificationSource {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
@@ -1090,9 +1104,10 @@ impl ::core::fmt::Debug for SystemOutOfBoxExperienceState {
 }
 unsafe impl ::windows::core::RuntimeType for SystemOutOfBoxExperienceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
-}
-impl ::windows::core::DefaultType for SystemOutOfBoxExperienceState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Profile'*"]
 pub struct SystemSetupInfo {}
@@ -1165,6 +1180,10 @@ impl ::core::fmt::Debug for UnsupportedAppRequirement {
 }
 unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.UnsupportedAppRequirement;{6182445c-894b-5cbc-8976-a98e0a9b998d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UnsupportedAppRequirement {
     type Vtable = IUnsupportedAppRequirement_Vtbl;
@@ -1272,9 +1291,10 @@ impl ::core::ops::Not for UnsupportedAppRequirementReasons {
 }
 unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirementReasons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.UnsupportedAppRequirementReasons;u4)");
-}
-impl ::windows::core::DefaultType for UnsupportedAppRequirementReasons {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'System_Profile'*"]
 pub struct WindowsIntegrityPolicy {}

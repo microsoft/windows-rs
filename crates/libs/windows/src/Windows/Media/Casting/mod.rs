@@ -105,6 +105,10 @@ impl ::core::fmt::Debug for CastingConnection {
 }
 unsafe impl ::windows::core::RuntimeType for CastingConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnection;{cd951653-c2f1-4498-8b78-5fb4cd3640dd})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CastingConnection {
     type Vtable = ICastingConnection_Vtbl;
@@ -220,6 +224,10 @@ impl ::core::fmt::Debug for CastingConnectionErrorOccurredEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs;{a7fb3c69-8719-4f00-81fb-961863c79a32})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CastingConnectionErrorOccurredEventArgs {
     type Vtable = ICastingConnectionErrorOccurredEventArgs_Vtbl;
@@ -304,9 +312,10 @@ impl ::core::fmt::Debug for CastingConnectionErrorStatus {
 }
 unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
-}
-impl ::windows::core::DefaultType for CastingConnectionErrorStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
@@ -340,9 +349,10 @@ impl ::core::fmt::Debug for CastingConnectionState {
 }
 unsafe impl ::windows::core::RuntimeType for CastingConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
-}
-impl ::windows::core::DefaultType for CastingConnectionState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
@@ -445,6 +455,10 @@ impl ::core::fmt::Debug for CastingDevice {
 }
 unsafe impl ::windows::core::RuntimeType for CastingDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevice;{de721c83-4a43-4ad1-a6d2-2492a796c3f2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CastingDevice {
     type Vtable = ICastingDevice_Vtbl;
@@ -589,6 +603,10 @@ impl ::core::fmt::Debug for CastingDevicePicker {
 }
 unsafe impl ::windows::core::RuntimeType for CastingDevicePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePicker;{dcd39924-0591-49be-aacb-4b82ee756a95})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CastingDevicePicker {
     type Vtable = ICastingDevicePicker_Vtbl;
@@ -710,6 +728,10 @@ impl ::core::fmt::Debug for CastingDevicePickerFilter {
 }
 unsafe impl ::windows::core::RuntimeType for CastingDevicePickerFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePickerFilter;{be8c619c-b563-4354-ae33-9fdaad8c6291})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CastingDevicePickerFilter {
     type Vtable = ICastingDevicePickerFilter_Vtbl;
@@ -791,6 +813,10 @@ impl ::core::fmt::Debug for CastingDeviceSelectedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CastingDeviceSelectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDeviceSelectedEventArgs;{dc439e86-dd57-4d0d-9400-af45e4fb3663})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CastingDeviceSelectedEventArgs {
     type Vtable = ICastingDeviceSelectedEventArgs_Vtbl;
@@ -900,9 +926,10 @@ impl ::core::ops::Not for CastingPlaybackTypes {
 }
 unsafe impl ::windows::core::RuntimeType for CastingPlaybackTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingPlaybackTypes;u4)");
-}
-impl ::windows::core::DefaultType for CastingPlaybackTypes {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
@@ -942,6 +969,10 @@ impl ::core::fmt::Debug for CastingSource {
 }
 unsafe impl ::windows::core::RuntimeType for CastingSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingSource;{f429ea72-3467-47e6-a027-522923e9d727})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CastingSource {
     type Vtable = ICastingSource_Vtbl;

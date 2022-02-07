@@ -106,9 +106,10 @@ impl ::core::fmt::Debug for PowerSavingMode {
 }
 unsafe impl ::windows::core::RuntimeType for PowerSavingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.Power.PowerSavingMode;i4)");
-}
-impl ::windows::core::DefaultType for PowerSavingMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -374,6 +374,10 @@ impl ::core::fmt::Debug for RfcommDeviceService {
 }
 unsafe impl ::windows::core::RuntimeType for RfcommDeviceService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService;{ae81ff1f-c5a1-4c40-8c28-f3efd69062f3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RfcommDeviceService {
     type Vtable = IRfcommDeviceService_Vtbl;
@@ -490,6 +494,10 @@ impl ::core::fmt::Debug for RfcommDeviceServicesResult {
 }
 unsafe impl ::windows::core::RuntimeType for RfcommDeviceServicesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult;{3b48388c-7ccf-488e-9625-d259a5732d55})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RfcommDeviceServicesResult {
     type Vtable = IRfcommDeviceServicesResult_Vtbl;
@@ -648,6 +656,10 @@ impl ::core::fmt::Debug for RfcommServiceId {
 }
 unsafe impl ::windows::core::RuntimeType for RfcommServiceId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId;{22629204-7e02-4017-8136-da1b6a1b9bbf})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RfcommServiceId {
     type Vtable = IRfcommServiceId_Vtbl;
@@ -768,6 +780,10 @@ impl ::core::fmt::Debug for RfcommServiceProvider {
 }
 unsafe impl ::windows::core::RuntimeType for RfcommServiceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider;{eadbfdc4-b1f6-44ff-9f7c-e7a82ab86821})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RfcommServiceProvider {
     type Vtable = IRfcommServiceProvider_Vtbl;

@@ -39,6 +39,10 @@ impl ::core::fmt::Debug for BufferProtectUnprotectResult {
 }
 unsafe impl ::windows::core::RuntimeType for BufferProtectUnprotectResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.BufferProtectUnprotectResult;{47995edc-6cec-4e3a-b251-9e7485d79e7a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BufferProtectUnprotectResult {
     type Vtable = IBufferProtectUnprotectResult_Vtbl;
@@ -128,6 +132,10 @@ impl ::core::fmt::Debug for DataProtectionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for DataProtectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.DataProtectionInfo;{8420b0c1-5e31-4405-9540-3f943af0cb26})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DataProtectionInfo {
     type Vtable = IDataProtectionInfo_Vtbl;
@@ -271,9 +279,10 @@ impl ::core::fmt::Debug for DataProtectionStatus {
 }
 unsafe impl ::windows::core::RuntimeType for DataProtectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.DataProtectionStatus;i4)");
-}
-impl ::windows::core::DefaultType for DataProtectionStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
@@ -306,9 +315,10 @@ impl ::core::fmt::Debug for EnforcementLevel {
 }
 unsafe impl ::windows::core::RuntimeType for EnforcementLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.EnforcementLevel;i4)");
-}
-impl ::windows::core::DefaultType for EnforcementLevel {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
@@ -365,6 +375,10 @@ impl ::core::fmt::Debug for FileProtectionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for FileProtectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileProtectionInfo;{4ee96486-147e-4dd0-8faf-5253ed91ad0c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileProtectionInfo {
     type Vtable = IFileProtectionInfo_Vtbl;
@@ -572,9 +586,10 @@ impl ::core::fmt::Debug for FileProtectionStatus {
 }
 unsafe impl ::windows::core::RuntimeType for FileProtectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.FileProtectionStatus;i4)");
-}
-impl ::windows::core::DefaultType for FileProtectionStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_EnterpriseData', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
@@ -669,6 +684,10 @@ impl ::core::fmt::Debug for FileUnprotectOptions {
 }
 unsafe impl ::windows::core::RuntimeType for FileUnprotectOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.FileUnprotectOptions;{7d1312f1-3b0d-4dd8-a1f8-1ec53822e2f3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileUnprotectOptions {
     type Vtable = IFileUnprotectOptions_Vtbl;
@@ -1333,6 +1352,10 @@ impl ::core::fmt::Debug for ProtectedAccessResumedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectedAccessResumedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs;{ac4dca59-5d80-4e95-8c5f-8539450eebe0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProtectedAccessResumedEventArgs {
     type Vtable = IProtectedAccessResumedEventArgs_Vtbl;
@@ -1433,6 +1456,10 @@ impl ::core::fmt::Debug for ProtectedAccessSuspendingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectedAccessSuspendingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs;{75a193e0-a344-429f-b975-04fc1f88c185})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProtectedAccessSuspendingEventArgs {
     type Vtable = IProtectedAccessSuspendingEventArgs_Vtbl;
@@ -1523,6 +1550,10 @@ impl ::core::fmt::Debug for ProtectedContainerExportResult {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectedContainerExportResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerExportResult;{3948ef95-f7fb-4b42-afb0-df70b41543c1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProtectedContainerExportResult {
     type Vtable = IProtectedContainerExportResult_Vtbl;
@@ -1613,6 +1644,10 @@ impl ::core::fmt::Debug for ProtectedContainerImportResult {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectedContainerImportResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContainerImportResult;{cdb780d1-e7bb-4d1a-9339-34dc41149f9b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProtectedContainerImportResult {
     type Vtable = IProtectedContainerImportResult_Vtbl;
@@ -1695,6 +1730,10 @@ impl ::core::fmt::Debug for ProtectedContentRevokedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectedContentRevokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs;{63686821-58b9-47ee-93d9-f0f741cf43f0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProtectedContentRevokedEventArgs {
     type Vtable = IProtectedContentRevokedEventArgs_Vtbl;
@@ -1794,6 +1833,10 @@ impl ::core::fmt::Debug for ProtectedFileCreateResult {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectedFileCreateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectedFileCreateResult;{28e3ed6a-e9e7-4a03-9f53-bdb16172699b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProtectedFileCreateResult {
     type Vtable = IProtectedFileCreateResult_Vtbl;
@@ -1879,9 +1922,10 @@ impl ::core::fmt::Debug for ProtectedImportExportStatus {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectedImportExportStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectedImportExportStatus;i4)");
-}
-impl ::windows::core::DefaultType for ProtectedImportExportStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
@@ -1914,9 +1958,10 @@ impl ::core::fmt::Debug for ProtectionPolicyAuditAction {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyAuditAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyAuditAction;i4)");
-}
-impl ::windows::core::DefaultType for ProtectionPolicyAuditAction {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
@@ -2012,6 +2057,10 @@ impl ::core::fmt::Debug for ProtectionPolicyAuditInfo {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyAuditInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo;{425ab7e4-feb7-44fc-b3bb-c3c4d7ecbebb})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProtectionPolicyAuditInfo {
     type Vtable = IProtectionPolicyAuditInfo_Vtbl;
@@ -2092,9 +2141,10 @@ impl ::core::fmt::Debug for ProtectionPolicyEvaluationResult {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyEvaluationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;i4)");
-}
-impl ::windows::core::DefaultType for ProtectionPolicyEvaluationResult {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
@@ -2448,6 +2498,10 @@ impl ::core::fmt::Debug for ProtectionPolicyManager {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ProtectionPolicyManager;{d5703e18-a08d-47e6-a240-9934d7165eb5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProtectionPolicyManager {
     type Vtable = IProtectionPolicyManager_Vtbl;
@@ -2527,9 +2581,10 @@ impl ::core::fmt::Debug for ProtectionPolicyRequestAccessBehavior {
 }
 unsafe impl ::windows::core::RuntimeType for ProtectionPolicyRequestAccessBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior;i4)");
-}
-impl ::windows::core::DefaultType for ProtectionPolicyRequestAccessBehavior {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
@@ -2560,6 +2615,10 @@ impl ::core::fmt::Debug for ThreadNetworkContext {
 }
 unsafe impl ::windows::core::RuntimeType for ThreadNetworkContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.EnterpriseData.ThreadNetworkContext;{fa4ea8e9-ef13-405a-b12c-d7348c6f41fc})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ThreadNetworkContext {
     type Vtable = IThreadNetworkContext_Vtbl;

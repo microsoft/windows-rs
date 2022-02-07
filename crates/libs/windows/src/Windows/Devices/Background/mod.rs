@@ -47,6 +47,10 @@ impl ::core::fmt::Debug for DeviceServicingDetails {
 }
 unsafe impl ::windows::core::RuntimeType for DeviceServicingDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceServicingDetails;{4aabee29-2344-4ac4-8527-4a8ef6905645})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DeviceServicingDetails {
     type Vtable = IDeviceServicingDetails_Vtbl;
@@ -136,6 +140,10 @@ impl ::core::fmt::Debug for DeviceUseDetails {
 }
 unsafe impl ::windows::core::RuntimeType for DeviceUseDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Background.DeviceUseDetails;{7d565141-557e-4154-b994-e4f7a11fb323})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DeviceUseDetails {
     type Vtable = IDeviceUseDetails_Vtbl;

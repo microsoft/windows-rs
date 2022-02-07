@@ -179,6 +179,10 @@ impl ::core::fmt::Debug for IWebUICommandBarElement {
 }
 unsafe impl ::windows::core::RuntimeType for IWebUICommandBarElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c9069ec2-284a-4633-8aad-637a27e282c3}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IWebUICommandBarElement {
     type Vtable = IWebUICommandBarElement_Vtbl;
@@ -251,6 +255,10 @@ impl ::core::fmt::Debug for IWebUICommandBarIcon {
 }
 unsafe impl ::windows::core::RuntimeType for IWebUICommandBarIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d587655d-2014-42be-969a-7d14ca6c8a49}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IWebUICommandBarIcon {
     type Vtable = IWebUICommandBarIcon_Vtbl;
@@ -431,6 +439,10 @@ unsafe impl ::windows::core::Interface for MenuClosedEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for MenuClosedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{435387c8-4dd0-4c52-9489-d390ce7721d2}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -509,6 +521,10 @@ unsafe impl ::windows::core::Interface for MenuOpenedEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for MenuOpenedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{18dc0ad3-678f-4c19-8963-cc1c49a5ef9e}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -587,6 +603,10 @@ unsafe impl ::windows::core::Interface for SizeChangedEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for SizeChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d49cfe3c-dd2e-4c28-b627-303a7f911af5}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -779,6 +799,10 @@ impl ::core::fmt::Debug for WebUICommandBar {
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBar;{a4fc0016-dbe5-41ad-8d7b-14698bd6911d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebUICommandBar {
     type Vtable = IWebUICommandBar_Vtbl;
@@ -887,6 +911,10 @@ impl ::core::fmt::Debug for WebUICommandBarBitmapIcon {
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarBitmapIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon;{858f4f45-08d8-4a46-81ec-00015b0b1c6c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarBitmapIcon {
     type Vtable = IWebUICommandBarBitmapIcon_Vtbl;
@@ -989,9 +1017,10 @@ impl ::core::fmt::Debug for WebUICommandBarClosedDisplayMode {
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarClosedDisplayMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.Core.WebUICommandBarClosedDisplayMode;i4)");
-}
-impl ::windows::core::DefaultType for WebUICommandBarClosedDisplayMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_WebUI_Core'*"]
 #[repr(transparent)]
@@ -1051,6 +1080,10 @@ impl ::core::fmt::Debug for WebUICommandBarConfirmationButton {
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarConfirmationButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton;{86e7824a-e3d5-4eb6-b2ff-8f018a172105})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarConfirmationButton {
     type Vtable = IWebUICommandBarConfirmationButton_Vtbl;
@@ -1233,6 +1266,10 @@ impl ::core::fmt::Debug for WebUICommandBarIconButton {
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarIconButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarIconButton;{8f1bc93a-3a7c-4842-a0cf-aff6ea308586})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarIconButton {
     type Vtable = IWebUICommandBarIconButton_Vtbl;
@@ -1336,6 +1373,10 @@ impl ::core::fmt::Debug for WebUICommandBarItemInvokedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarItemInvokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs;{304edbdd-e741-41ef-bdc4-a45cea2a4f70})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarItemInvokedEventArgs {
     type Vtable = IWebUICommandBarItemInvokedEventArgs_Vtbl;
@@ -1418,6 +1459,10 @@ impl ::core::fmt::Debug for WebUICommandBarSizeChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarSizeChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarSizeChangedEventArgs;{fbf1e2f6-3029-4719-8378-92f82b87af1e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarSizeChangedEventArgs {
     type Vtable = IWebUICommandBarSizeChangedEventArgs_Vtbl;
@@ -1523,6 +1568,10 @@ impl ::core::fmt::Debug for WebUICommandBarSymbolIcon {
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarSymbolIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon;{d4935477-fd26-46ed-8658-1a3f4400e7b3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarSymbolIcon {
     type Vtable = IWebUICommandBarSymbolIcon_Vtbl;

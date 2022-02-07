@@ -78,6 +78,10 @@ impl ::core::fmt::Debug for CustomDevice {
 }
 unsafe impl ::windows::core::RuntimeType for CustomDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.CustomDevice;{dd30251f-c48b-43bd-bcb1-dec88f15143e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CustomDevice {
     type Vtable = ICustomDevice_Vtbl;
@@ -158,9 +162,10 @@ impl ::core::fmt::Debug for DeviceAccessMode {
 }
 unsafe impl ::windows::core::RuntimeType for DeviceAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceAccessMode;i4)");
-}
-impl ::windows::core::DefaultType for DeviceAccessMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
@@ -191,9 +196,10 @@ impl ::core::fmt::Debug for DeviceSharingMode {
 }
 unsafe impl ::windows::core::RuntimeType for DeviceSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceSharingMode;i4)");
-}
-impl ::windows::core::DefaultType for DeviceSharingMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -343,6 +349,10 @@ impl ::core::fmt::Debug for IIOControlCode {
 }
 unsafe impl ::windows::core::RuntimeType for IIOControlCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0e9559e7-60c8-4375-a761-7f8808066c60}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IIOControlCode {
     type Vtable = IIOControlCode_Vtbl;
@@ -415,9 +425,10 @@ impl ::core::fmt::Debug for IOControlAccessMode {
 }
 unsafe impl ::windows::core::RuntimeType for IOControlAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlAccessMode;i4)");
-}
-impl ::windows::core::DefaultType for IOControlAccessMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
@@ -450,9 +461,10 @@ impl ::core::fmt::Debug for IOControlBufferingMethod {
 }
 unsafe impl ::windows::core::RuntimeType for IOControlBufferingMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlBufferingMethod;i4)");
-}
-impl ::windows::core::DefaultType for IOControlBufferingMethod {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
@@ -529,6 +541,10 @@ impl ::core::fmt::Debug for IOControlCode {
 }
 unsafe impl ::windows::core::RuntimeType for IOControlCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.IOControlCode;{0e9559e7-60c8-4375-a761-7f8808066c60})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IOControlCode {
     type Vtable = IIOControlCode_Vtbl;

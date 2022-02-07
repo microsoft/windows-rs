@@ -392,6 +392,10 @@ impl ::core::fmt::Debug for PrintTicketCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTicketCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities;{8c45508b-bbdc-4256-a142-2fd615ecb416})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PrintTicketCapabilities {
     type Vtable = IPrintTicketCapabilities_Vtbl;
@@ -536,6 +540,10 @@ impl ::core::fmt::Debug for PrintTicketFeature {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTicketFeature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketFeature;{e7607d6a-59f5-4103-8858-b97710963d39})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PrintTicketFeature {
     type Vtable = IPrintTicketFeature_Vtbl;
@@ -615,9 +623,10 @@ impl ::core::fmt::Debug for PrintTicketFeatureSelectionType {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTicketFeatureSelectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
-}
-impl ::windows::core::DefaultType for PrintTicketFeatureSelectionType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
@@ -709,6 +718,10 @@ impl ::core::fmt::Debug for PrintTicketOption {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTicketOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketOption;{b086cf90-b367-4e4b-bd48-9c78a0bb31ce})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PrintTicketOption {
     type Vtable = IPrintTicketOption_Vtbl;
@@ -789,9 +802,10 @@ impl ::core::fmt::Debug for PrintTicketParameterDataType {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTicketParameterDataType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
-}
-impl ::windows::core::DefaultType for PrintTicketParameterDataType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
@@ -873,6 +887,10 @@ impl ::core::fmt::Debug for PrintTicketParameterDefinition {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTicketParameterDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition;{d6bab4e4-2962-4c01-b7f3-9a9294eb8335})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PrintTicketParameterDefinition {
     type Vtable = IPrintTicketParameterDefinition_Vtbl;
@@ -984,6 +1002,10 @@ impl ::core::fmt::Debug for PrintTicketParameterInitializer {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTicketParameterInitializer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer;{5e3335bb-a0a5-48b1-9d5c-07116ddc597a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PrintTicketParameterInitializer {
     type Vtable = IPrintTicketParameterInitializer_Vtbl;
@@ -1081,6 +1103,10 @@ impl ::core::fmt::Debug for PrintTicketValue {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTicketValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.PrintTicketValue;{66b30a32-244d-4e22-a98b-bb3cf1f2dd91})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PrintTicketValue {
     type Vtable = IPrintTicketValue_Vtbl;
@@ -1161,9 +1187,10 @@ impl ::core::fmt::Debug for PrintTicketValueType {
 }
 unsafe impl ::windows::core::RuntimeType for PrintTicketValueType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketValueType;i4)");
-}
-impl ::windows::core::DefaultType for PrintTicketValueType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
@@ -1399,6 +1426,10 @@ impl ::core::fmt::Debug for WorkflowPrintTicket {
 }
 unsafe impl ::windows::core::RuntimeType for WorkflowPrintTicket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket;{41d52285-35e8-448e-a8c5-e4b6a2cf826c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WorkflowPrintTicket {
     type Vtable = IWorkflowPrintTicket_Vtbl;
@@ -1488,6 +1519,10 @@ impl ::core::fmt::Debug for WorkflowPrintTicketValidationResult {
 }
 unsafe impl ::windows::core::RuntimeType for WorkflowPrintTicketValidationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult;{0ad1f392-da7b-4a36-bf36-6a99a62e2059})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WorkflowPrintTicketValidationResult {
     type Vtable = IWorkflowPrintTicketValidationResult_Vtbl;

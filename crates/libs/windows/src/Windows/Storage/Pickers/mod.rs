@@ -127,6 +127,10 @@ impl ::core::fmt::Debug for FileExtensionVector {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for FileExtensionVector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileExtensionVector;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};string))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for FileExtensionVector {
@@ -431,6 +435,10 @@ impl ::core::fmt::Debug for FileOpenPicker {
 }
 unsafe impl ::windows::core::RuntimeType for FileOpenPicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileOpenPicker;{2ca8278a-12c5-4c5f-8977-94547793c241})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileOpenPicker {
     type Vtable = IFileOpenPicker_Vtbl;
@@ -577,6 +585,10 @@ impl ::core::fmt::Debug for FilePickerFileTypesOrderedMap {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for FilePickerFileTypesOrderedMap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FilePickerFileTypesOrderedMap;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};string)))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for FilePickerFileTypesOrderedMap {
@@ -782,6 +794,10 @@ impl ::core::fmt::Debug for FilePickerSelectedFilesArray {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for FilePickerSelectedFilesArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FilePickerSelectedFilesArray;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Storage.StorageFile;{fa3f6186-4214-428c-a64c-14c9ac7315ea})))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for FilePickerSelectedFilesArray {
@@ -1088,6 +1104,10 @@ impl ::core::fmt::Debug for FileSavePicker {
 }
 unsafe impl ::windows::core::RuntimeType for FileSavePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileSavePicker;{3286ffcb-617f-4cc5-af6a-b3fdf29ad145})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileSavePicker {
     type Vtable = IFileSavePicker_Vtbl;
@@ -1275,6 +1295,10 @@ impl ::core::fmt::Debug for FolderPicker {
 }
 unsafe impl ::windows::core::RuntimeType for FolderPicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FolderPicker;{084f7799-f3fb-400a-99b1-7b4a772fd60d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FolderPicker {
     type Vtable = IFolderPicker_Vtbl;
@@ -1660,9 +1684,10 @@ impl ::core::fmt::Debug for PickerLocationId {
 }
 unsafe impl ::windows::core::RuntimeType for PickerLocationId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerLocationId;i4)");
-}
-impl ::windows::core::DefaultType for PickerLocationId {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Pickers'*"]
 #[repr(transparent)]
@@ -1693,9 +1718,10 @@ impl ::core::fmt::Debug for PickerViewMode {
 }
 unsafe impl ::windows::core::RuntimeType for PickerViewMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerViewMode;i4)");
-}
-impl ::windows::core::DefaultType for PickerViewMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

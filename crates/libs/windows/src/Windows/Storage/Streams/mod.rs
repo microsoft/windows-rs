@@ -76,6 +76,10 @@ impl ::core::fmt::Debug for Buffer {
 }
 unsafe impl ::windows::core::RuntimeType for Buffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.Buffer;{905a0fe0-bc53-11df-8c49-001e4fc686da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Buffer {
     type Vtable = IBuffer_Vtbl;
@@ -177,9 +181,10 @@ impl ::core::fmt::Debug for ByteOrder {
 }
 unsafe impl ::windows::core::RuntimeType for ByteOrder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.ByteOrder;i4)");
-}
-impl ::windows::core::DefaultType for ByteOrder {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
@@ -433,6 +438,10 @@ impl ::core::fmt::Debug for DataReader {
 }
 unsafe impl ::windows::core::RuntimeType for DataReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReader;{e2b50029-b4c1-4314-a4b8-fb813a2f275e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DataReader {
     type Vtable = IDataReader_Vtbl;
@@ -624,6 +633,10 @@ impl ::core::fmt::Debug for DataReaderLoadOperation {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for DataReaderLoadOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReaderLoadOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for DataReaderLoadOperation {
@@ -983,6 +996,10 @@ impl ::core::fmt::Debug for DataWriter {
 }
 unsafe impl ::windows::core::RuntimeType for DataWriter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriter;{64b89265-d341-4922-b38a-dd4af8808c4e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DataWriter {
     type Vtable = IDataWriter_Vtbl;
@@ -1174,6 +1191,10 @@ impl ::core::fmt::Debug for DataWriterStoreOperation {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for DataWriterStoreOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriterStoreOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for DataWriterStoreOperation {
@@ -1357,6 +1378,10 @@ impl ::core::fmt::Debug for FileInputStream {
 }
 unsafe impl ::windows::core::RuntimeType for FileInputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileInputStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileInputStream {
     type Vtable = IInputStream_Vtbl;
@@ -1487,9 +1512,10 @@ impl ::core::fmt::Debug for FileOpenDisposition {
 }
 unsafe impl ::windows::core::RuntimeType for FileOpenDisposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.FileOpenDisposition;i4)");
-}
-impl ::windows::core::DefaultType for FileOpenDisposition {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
@@ -1538,6 +1564,10 @@ impl ::core::fmt::Debug for FileOutputStream {
 }
 unsafe impl ::windows::core::RuntimeType for FileOutputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileOutputStream;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileOutputStream {
     type Vtable = IOutputStream_Vtbl;
@@ -1827,6 +1857,10 @@ impl ::core::fmt::Debug for FileRandomAccessStream {
 }
 unsafe impl ::windows::core::RuntimeType for FileRandomAccessStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -2053,6 +2087,10 @@ impl ::core::fmt::Debug for IBuffer {
 }
 unsafe impl ::windows::core::RuntimeType for IBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe0-bc53-11df-8c49-001e4fc686da}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IBuffer {
     type Vtable = IBuffer_Vtbl;
@@ -2170,6 +2208,10 @@ impl ::core::fmt::Debug for IContentTypeProvider {
 }
 unsafe impl ::windows::core::RuntimeType for IContentTypeProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{97d098a5-3b99-4de9-88a5-e11d2f50c795}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IContentTypeProvider {
     type Vtable = IContentTypeProvider_Vtbl;
@@ -2443,6 +2485,10 @@ impl ::core::fmt::Debug for IDataReader {
 }
 unsafe impl ::windows::core::RuntimeType for IDataReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e2b50029-b4c1-4314-a4b8-fb813a2f275e}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IDataReader {
     type Vtable = IDataReader_Vtbl;
@@ -2743,6 +2789,10 @@ impl ::core::fmt::Debug for IDataWriter {
 }
 unsafe impl ::windows::core::RuntimeType for IDataWriter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{64b89265-d341-4922-b38a-dd4af8808c4e}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IDataWriter {
     type Vtable = IDataWriter_Vtbl;
@@ -2953,6 +3003,10 @@ impl ::core::fmt::Debug for IInputStream {
 }
 unsafe impl ::windows::core::RuntimeType for IInputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe2-bc53-11df-8c49-001e4fc686da}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IInputStream {
     type Vtable = IInputStream_Vtbl;
@@ -3039,6 +3093,10 @@ impl ::core::fmt::Debug for IInputStreamReference {
 }
 unsafe impl ::windows::core::RuntimeType for IInputStreamReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{43929d18-5ec9-4b5a-919c-4205b0c804b6}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IInputStreamReference {
     type Vtable = IInputStreamReference_Vtbl;
@@ -3166,6 +3224,10 @@ impl ::core::fmt::Debug for IOutputStream {
 }
 unsafe impl ::windows::core::RuntimeType for IOutputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe6-bc53-11df-8c49-001e4fc686da}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IOutputStream {
     type Vtable = IOutputStream_Vtbl;
@@ -3262,6 +3324,10 @@ impl ::core::fmt::Debug for IPropertySetSerializer {
 }
 unsafe impl ::windows::core::RuntimeType for IPropertySetSerializer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6e8ebf1c-ef3d-4376-b20e-5be638aeac77}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IPropertySetSerializer {
     type Vtable = IPropertySetSerializer_Vtbl;
@@ -3512,6 +3578,10 @@ impl ::core::fmt::Debug for IRandomAccessStream {
 }
 unsafe impl ::windows::core::RuntimeType for IRandomAccessStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe1-bc53-11df-8c49-001e4fc686da}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -3603,6 +3673,10 @@ impl ::core::fmt::Debug for IRandomAccessStreamReference {
 }
 unsafe impl ::windows::core::RuntimeType for IRandomAccessStreamReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{33ee3134-1dd6-4e3a-8067-d1c162e8642b}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IRandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReference_Vtbl;
@@ -3943,6 +4017,10 @@ impl ::core::fmt::Debug for IRandomAccessStreamWithContentType {
 }
 unsafe impl ::windows::core::RuntimeType for IRandomAccessStreamWithContentType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cc254827-4b3d-438f-9232-10c76bc7e038}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IRandomAccessStreamWithContentType {
     type Vtable = IRandomAccessStreamWithContentType_Vtbl;
@@ -4082,6 +4160,10 @@ impl ::core::fmt::Debug for InMemoryRandomAccessStream {
 }
 unsafe impl ::windows::core::RuntimeType for InMemoryRandomAccessStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InMemoryRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InMemoryRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -4282,9 +4364,10 @@ impl ::core::ops::Not for InputStreamOptions {
 }
 unsafe impl ::windows::core::RuntimeType for InputStreamOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.InputStreamOptions;u4)");
-}
-impl ::windows::core::DefaultType for InputStreamOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
@@ -4324,6 +4407,10 @@ impl ::core::fmt::Debug for InputStreamOverStream {
 }
 unsafe impl ::windows::core::RuntimeType for InputStreamOverStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InputStreamOverStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InputStreamOverStream {
     type Vtable = IInputStream_Vtbl;
@@ -4469,6 +4556,10 @@ impl ::core::fmt::Debug for OutputStreamOverStream {
 }
 unsafe impl ::windows::core::RuntimeType for OutputStreamOverStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.OutputStreamOverStream;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for OutputStreamOverStream {
     type Vtable = IOutputStream_Vtbl;
@@ -4725,6 +4816,10 @@ impl ::core::fmt::Debug for RandomAccessStreamOverStream {
 }
 unsafe impl ::windows::core::RuntimeType for RandomAccessStreamOverStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamOverStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RandomAccessStreamOverStream {
     type Vtable = IRandomAccessStream_Vtbl;
@@ -4926,6 +5021,10 @@ impl ::core::fmt::Debug for RandomAccessStreamReference {
 }
 unsafe impl ::windows::core::RuntimeType for RandomAccessStreamReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamReference;{33ee3134-1dd6-4e3a-8067-d1c162e8642b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReference_Vtbl;
@@ -5028,9 +5127,10 @@ impl ::core::fmt::Debug for UnicodeEncoding {
 }
 unsafe impl ::windows::core::RuntimeType for UnicodeEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.UnicodeEncoding;i4)");
-}
-impl ::windows::core::DefaultType for UnicodeEncoding {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

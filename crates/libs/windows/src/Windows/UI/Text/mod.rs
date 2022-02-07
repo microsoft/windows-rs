@@ -30,9 +30,10 @@ impl ::core::fmt::Debug for CaretType {
 }
 unsafe impl ::windows::core::RuntimeType for CaretType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.CaretType;i4)");
-}
-impl ::windows::core::DefaultType for CaretType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -131,6 +132,10 @@ impl ::core::fmt::Debug for ContentLinkInfo {
 }
 unsafe impl ::windows::core::RuntimeType for ContentLinkInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.ContentLinkInfo;{1ed52525-1c5f-48cb-b335-78b50a2ee642})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContentLinkInfo {
     type Vtable = IContentLinkInfo_Vtbl;
@@ -239,9 +244,10 @@ impl ::core::ops::Not for FindOptions {
 }
 unsafe impl ::windows::core::RuntimeType for FindOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FindOptions;u4)");
-}
-impl ::windows::core::DefaultType for FindOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -280,9 +286,10 @@ impl ::core::fmt::Debug for FontStretch {
 }
 unsafe impl ::windows::core::RuntimeType for FontStretch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStretch;i4)");
-}
-impl ::windows::core::DefaultType for FontStretch {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -314,9 +321,10 @@ impl ::core::fmt::Debug for FontStyle {
 }
 unsafe impl ::windows::core::RuntimeType for FontStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStyle;i4)");
-}
-impl ::windows::core::DefaultType for FontStyle {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'UI_Text'*"]
@@ -339,9 +347,10 @@ unsafe impl ::windows::core::Abi for FontWeight {
 }
 unsafe impl ::windows::core::RuntimeType for FontWeight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Text.FontWeight;u2)");
-}
-impl ::windows::core::DefaultType for FontWeight {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for FontWeight {
     fn eq(&self, other: &Self) -> bool {
@@ -459,6 +468,10 @@ impl ::core::fmt::Debug for FontWeights {
 }
 unsafe impl ::windows::core::RuntimeType for FontWeights {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.FontWeights;{7880a444-01ab-4997-8517-df822a0c45f1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FontWeights {
     type Vtable = IFontWeights_Vtbl;
@@ -540,9 +553,10 @@ impl ::core::fmt::Debug for FormatEffect {
 }
 unsafe impl ::windows::core::RuntimeType for FormatEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FormatEffect;i4)");
-}
-impl ::windows::core::DefaultType for FormatEffect {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -574,9 +588,10 @@ impl ::core::fmt::Debug for HorizontalCharacterAlignment {
 }
 unsafe impl ::windows::core::RuntimeType for HorizontalCharacterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.HorizontalCharacterAlignment;i4)");
-}
-impl ::windows::core::DefaultType for HorizontalCharacterAlignment {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1046,6 +1061,10 @@ impl ::core::fmt::Debug for ITextCharacterFormat {
 }
 unsafe impl ::windows::core::RuntimeType for ITextCharacterFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5adef3db-05fb-442d-8065-642afea02ced}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ITextCharacterFormat {
     type Vtable = ITextCharacterFormat_Vtbl;
@@ -1369,6 +1388,10 @@ impl ::core::fmt::Debug for ITextDocument {
 }
 unsafe impl ::windows::core::RuntimeType for ITextDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{beee4ddb-90b2-408c-a2f6-0a0ac31e33e4}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ITextDocument {
     type Vtable = ITextDocument_Vtbl;
@@ -1834,6 +1857,10 @@ impl ::core::fmt::Debug for ITextParagraphFormat {
 }
 unsafe impl ::windows::core::RuntimeType for ITextParagraphFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2cf8cfa6-4676-498a-93f5-bbdbfc0bd883}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ITextParagraphFormat {
     type Vtable = ITextParagraphFormat_Vtbl;
@@ -2296,6 +2323,10 @@ impl ::core::fmt::Debug for ITextRange {
 }
 unsafe impl ::windows::core::RuntimeType for ITextRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5b9e4e57-c072-42a0-8945-af503ee54768}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ITextRange {
     type Vtable = ITextRange_Vtbl;
@@ -2876,6 +2907,10 @@ impl ::core::fmt::Debug for ITextSelection {
 }
 unsafe impl ::windows::core::RuntimeType for ITextSelection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a6d36724-f28f-430a-b2cf-c343671ec0e9}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ITextSelection {
     type Vtable = ITextSelection_Vtbl;
@@ -2925,9 +2960,10 @@ impl ::core::fmt::Debug for LetterCase {
 }
 unsafe impl ::windows::core::RuntimeType for LetterCase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LetterCase;i4)");
-}
-impl ::windows::core::DefaultType for LetterCase {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -2964,9 +3000,10 @@ impl ::core::fmt::Debug for LineSpacingRule {
 }
 unsafe impl ::windows::core::RuntimeType for LineSpacingRule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LineSpacingRule;i4)");
-}
-impl ::windows::core::DefaultType for LineSpacingRule {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -3004,9 +3041,10 @@ impl ::core::fmt::Debug for LinkType {
 }
 unsafe impl ::windows::core::RuntimeType for LinkType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LinkType;i4)");
-}
-impl ::windows::core::DefaultType for LinkType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -3039,9 +3077,10 @@ impl ::core::fmt::Debug for MarkerAlignment {
 }
 unsafe impl ::windows::core::RuntimeType for MarkerAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerAlignment;i4)");
-}
-impl ::windows::core::DefaultType for MarkerAlignment {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -3077,9 +3116,10 @@ impl ::core::fmt::Debug for MarkerStyle {
 }
 unsafe impl ::windows::core::RuntimeType for MarkerStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerStyle;i4)");
-}
-impl ::windows::core::DefaultType for MarkerStyle {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -3133,9 +3173,10 @@ impl ::core::fmt::Debug for MarkerType {
 }
 unsafe impl ::windows::core::RuntimeType for MarkerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerType;i4)");
-}
-impl ::windows::core::DefaultType for MarkerType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -3169,9 +3210,10 @@ impl ::core::fmt::Debug for ParagraphAlignment {
 }
 unsafe impl ::windows::core::RuntimeType for ParagraphAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphAlignment;i4)");
-}
-impl ::windows::core::DefaultType for ParagraphAlignment {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -3212,9 +3254,10 @@ impl ::core::fmt::Debug for ParagraphStyle {
 }
 unsafe impl ::windows::core::RuntimeType for ParagraphStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphStyle;i4)");
-}
-impl ::windows::core::DefaultType for ParagraphStyle {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -3279,9 +3322,10 @@ impl ::core::ops::Not for PointOptions {
 }
 unsafe impl ::windows::core::RuntimeType for PointOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.PointOptions;u4)");
-}
-impl ::windows::core::DefaultType for PointOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -3315,9 +3359,10 @@ impl ::core::fmt::Debug for RangeGravity {
 }
 unsafe impl ::windows::core::RuntimeType for RangeGravity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RangeGravity;i4)");
-}
-impl ::windows::core::DefaultType for RangeGravity {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -3348,9 +3393,10 @@ impl ::core::fmt::Debug for RichEditMathMode {
 }
 unsafe impl ::windows::core::RuntimeType for RichEditMathMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RichEditMathMode;i4)");
-}
-impl ::windows::core::DefaultType for RichEditMathMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -3601,6 +3647,10 @@ impl ::core::fmt::Debug for RichEditTextDocument {
 }
 unsafe impl ::windows::core::RuntimeType for RichEditTextDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.RichEditTextDocument;{beee4ddb-90b2-408c-a2f6-0a0ac31e33e4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RichEditTextDocument {
     type Vtable = ITextDocument_Vtbl;
@@ -4050,6 +4100,10 @@ impl ::core::fmt::Debug for RichEditTextRange {
 }
 unsafe impl ::windows::core::RuntimeType for RichEditTextRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.RichEditTextRange;{5b9e4e57-c072-42a0-8945-af503ee54768})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RichEditTextRange {
     type Vtable = ITextRange_Vtbl;
@@ -4182,9 +4236,10 @@ impl ::core::ops::Not for SelectionOptions {
 }
 unsafe impl ::windows::core::RuntimeType for SelectionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionOptions;u4)");
-}
-impl ::windows::core::DefaultType for SelectionOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -4218,9 +4273,10 @@ impl ::core::fmt::Debug for SelectionType {
 }
 unsafe impl ::windows::core::RuntimeType for SelectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionType;i4)");
-}
-impl ::windows::core::DefaultType for SelectionType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -4254,9 +4310,10 @@ impl ::core::fmt::Debug for TabAlignment {
 }
 unsafe impl ::windows::core::RuntimeType for TabAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabAlignment;i4)");
-}
-impl ::windows::core::DefaultType for TabAlignment {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -4291,9 +4348,10 @@ impl ::core::fmt::Debug for TabLeader {
 }
 unsafe impl ::windows::core::RuntimeType for TabLeader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabLeader;i4)");
-}
-impl ::windows::core::DefaultType for TabLeader {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 pub struct TextConstants {}
@@ -4421,9 +4479,10 @@ impl ::core::ops::Not for TextDecorations {
 }
 unsafe impl ::windows::core::RuntimeType for TextDecorations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextDecorations;u4)");
-}
-impl ::windows::core::DefaultType for TextDecorations {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -4489,9 +4548,10 @@ impl ::core::ops::Not for TextGetOptions {
 }
 unsafe impl ::windows::core::RuntimeType for TextGetOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextGetOptions;u4)");
-}
-impl ::windows::core::DefaultType for TextGetOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -4553,9 +4613,10 @@ impl ::core::fmt::Debug for TextRangeUnit {
 }
 unsafe impl ::windows::core::RuntimeType for TextRangeUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextRangeUnit;i4)");
-}
-impl ::windows::core::DefaultType for TextRangeUnit {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -4648,9 +4709,10 @@ impl ::core::fmt::Debug for TextScript {
 }
 unsafe impl ::windows::core::RuntimeType for TextScript {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextScript;i4)");
-}
-impl ::windows::core::DefaultType for TextScript {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -4714,9 +4776,10 @@ impl ::core::ops::Not for TextSetOptions {
 }
 unsafe impl ::windows::core::RuntimeType for TextSetOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextSetOptions;u4)");
-}
-impl ::windows::core::DefaultType for TextSetOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -4765,9 +4828,10 @@ impl ::core::fmt::Debug for UnderlineType {
 }
 unsafe impl ::windows::core::RuntimeType for UnderlineType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.UnderlineType;i4)");
-}
-impl ::windows::core::DefaultType for UnderlineType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
@@ -4799,9 +4863,10 @@ impl ::core::fmt::Debug for VerticalCharacterAlignment {
 }
 unsafe impl ::windows::core::RuntimeType for VerticalCharacterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.VerticalCharacterAlignment;i4)");
-}
-impl ::windows::core::DefaultType for VerticalCharacterAlignment {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -351,6 +351,10 @@ impl ::core::fmt::Debug for SimpleHapticsController {
 }
 unsafe impl ::windows::core::RuntimeType for SimpleHapticsController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.SimpleHapticsController;{3d577ef9-4cee-11e6-b535-001bdc06ab3b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SimpleHapticsController {
     type Vtable = ISimpleHapticsController_Vtbl;
@@ -441,6 +445,10 @@ impl ::core::fmt::Debug for SimpleHapticsControllerFeedback {
 }
 unsafe impl ::windows::core::RuntimeType for SimpleHapticsControllerFeedback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.SimpleHapticsControllerFeedback;{3d577ef8-4cee-11e6-b535-001bdc06ab3b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SimpleHapticsControllerFeedback {
     type Vtable = ISimpleHapticsControllerFeedback_Vtbl;
@@ -522,9 +530,10 @@ impl ::core::fmt::Debug for VibrationAccessStatus {
 }
 unsafe impl ::windows::core::RuntimeType for VibrationAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.VibrationAccessStatus;i4)");
-}
-impl ::windows::core::DefaultType for VibrationAccessStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_Haptics'*"]
 #[repr(transparent)]
@@ -609,6 +618,10 @@ impl ::core::fmt::Debug for VibrationDevice {
 }
 unsafe impl ::windows::core::RuntimeType for VibrationDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.VibrationDevice;{40f21a3e-8844-47ff-b312-06185a3844da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;

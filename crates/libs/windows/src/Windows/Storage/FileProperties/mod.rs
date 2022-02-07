@@ -75,6 +75,10 @@ impl ::core::fmt::Debug for BasicProperties {
 }
 unsafe impl ::windows::core::RuntimeType for BasicProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.BasicProperties;{d05d55db-785e-4a66-be02-9beec58aea81})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BasicProperties {
     type Vtable = IBasicProperties_Vtbl;
@@ -239,6 +243,10 @@ impl ::core::fmt::Debug for DocumentProperties {
 }
 unsafe impl ::windows::core::RuntimeType for DocumentProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.DocumentProperties;{7eab19bc-1821-4923-b4a9-0aea404d0070})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DocumentProperties {
     type Vtable = IDocumentProperties_Vtbl;
@@ -634,6 +642,10 @@ impl ::core::fmt::Debug for IStorageItemExtraProperties {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageItemExtraProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c54361b2-54cd-432b-bdbc-4b19c4b470d7}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageItemExtraProperties {
     type Vtable = IStorageItemExtraProperties_Vtbl;
@@ -903,6 +915,10 @@ impl ::core::fmt::Debug for ImageProperties {
 }
 unsafe impl ::windows::core::RuntimeType for ImageProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.ImageProperties;{523c9424-fcff-4275-afee-ecdb9ab47973})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ImageProperties {
     type Vtable = IImageProperties_Vtbl;
@@ -1202,6 +1218,10 @@ impl ::core::fmt::Debug for MusicProperties {
 }
 unsafe impl ::windows::core::RuntimeType for MusicProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.MusicProperties;{bc8aab62-66ec-419a-bc5d-ca65a4cb46da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MusicProperties {
     type Vtable = IMusicProperties_Vtbl;
@@ -1308,9 +1328,10 @@ impl ::core::fmt::Debug for PhotoOrientation {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PhotoOrientation;i4)");
-}
-impl ::windows::core::DefaultType for PhotoOrientation {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
@@ -1373,9 +1394,10 @@ impl ::core::ops::Not for PropertyPrefetchOptions {
 }
 unsafe impl ::windows::core::RuntimeType for PropertyPrefetchOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PropertyPrefetchOptions;u4)");
-}
-impl ::windows::core::DefaultType for PropertyPrefetchOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
@@ -1463,6 +1485,10 @@ impl ::core::fmt::Debug for StorageItemContentProperties {
 }
 unsafe impl ::windows::core::RuntimeType for StorageItemContentProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemContentProperties;{05294bad-bc38-48bf-85d7-770e0e2ae0ba})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageItemContentProperties {
     type Vtable = IStorageItemContentProperties_Vtbl;
@@ -1712,6 +1738,10 @@ impl ::core::fmt::Debug for StorageItemThumbnail {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::RuntimeType for StorageItemThumbnail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemThumbnail;{cc254827-4b3d-438f-9232-10c76bc7e038})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for StorageItemThumbnail {
@@ -1959,9 +1989,10 @@ impl ::core::fmt::Debug for ThumbnailMode {
 }
 unsafe impl ::windows::core::RuntimeType for ThumbnailMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailMode;i4)");
-}
-impl ::windows::core::DefaultType for ThumbnailMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
@@ -2022,9 +2053,10 @@ impl ::core::ops::Not for ThumbnailOptions {
 }
 unsafe impl ::windows::core::RuntimeType for ThumbnailOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailOptions;u4)");
-}
-impl ::windows::core::DefaultType for ThumbnailOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
@@ -2055,9 +2087,10 @@ impl ::core::fmt::Debug for ThumbnailType {
 }
 unsafe impl ::windows::core::RuntimeType for ThumbnailType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailType;i4)");
-}
-impl ::windows::core::DefaultType for ThumbnailType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
@@ -2090,9 +2123,10 @@ impl ::core::fmt::Debug for VideoOrientation {
 }
 unsafe impl ::windows::core::RuntimeType for VideoOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.VideoOrientation;i4)");
-}
-impl ::windows::core::DefaultType for VideoOrientation {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
@@ -2304,6 +2338,10 @@ impl ::core::fmt::Debug for VideoProperties {
 }
 unsafe impl ::windows::core::RuntimeType for VideoProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.VideoProperties;{719ae507-68de-4db8-97de-49998c059f2f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VideoProperties {
     type Vtable = IVideoProperties_Vtbl;

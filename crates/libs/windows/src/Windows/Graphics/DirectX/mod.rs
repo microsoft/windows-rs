@@ -32,9 +32,10 @@ impl ::core::fmt::Debug for DirectXAlphaMode {
 }
 unsafe impl ::windows::core::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
-}
-impl ::windows::core::DefaultType for DirectXAlphaMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
@@ -88,9 +89,10 @@ impl ::core::fmt::Debug for DirectXColorSpace {
 }
 unsafe impl ::windows::core::RuntimeType for DirectXColorSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
-}
-impl ::windows::core::DefaultType for DirectXColorSpace {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
@@ -240,9 +242,10 @@ impl ::core::fmt::Debug for DirectXPixelFormat {
 }
 unsafe impl ::windows::core::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
-}
-impl ::windows::core::DefaultType for DirectXPixelFormat {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
@@ -277,9 +280,10 @@ impl ::core::fmt::Debug for DirectXPrimitiveTopology {
 }
 unsafe impl ::windows::core::RuntimeType for DirectXPrimitiveTopology {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
-}
-impl ::windows::core::DefaultType for DirectXPrimitiveTopology {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -104,9 +104,10 @@ impl ::core::fmt::Debug for TokenBindingKeyType {
 }
 unsafe impl ::windows::core::RuntimeType for TokenBindingKeyType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
-}
-impl ::windows::core::DefaultType for TokenBindingKeyType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Authentication_Web'*"]
 pub struct WebAuthenticationBroker {}
@@ -240,9 +241,10 @@ impl ::core::ops::Not for WebAuthenticationOptions {
 }
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
-}
-impl ::windows::core::DefaultType for WebAuthenticationOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
@@ -291,6 +293,10 @@ impl ::core::fmt::Debug for WebAuthenticationResult {
 }
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.WebAuthenticationResult;{64002b4b-ede9-470a-a5cd-0323faf6e262})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebAuthenticationResult {
     type Vtable = IWebAuthenticationResult_Vtbl;
@@ -369,9 +375,10 @@ impl ::core::fmt::Debug for WebAuthenticationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");
-}
-impl ::windows::core::DefaultType for WebAuthenticationStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

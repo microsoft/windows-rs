@@ -29,9 +29,10 @@ impl ::core::fmt::Debug for BitmapAlphaMode {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapAlphaMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapAlphaMode;i4)");
-}
-impl ::windows::core::DefaultType for BitmapAlphaMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Graphics_Imaging'*"]
@@ -57,9 +58,10 @@ unsafe impl ::windows::core::Abi for BitmapBounds {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapBounds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapBounds;u4;u4;u4;u4)");
-}
-impl ::windows::core::DefaultType for BitmapBounds {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for BitmapBounds {
     fn eq(&self, other: &Self) -> bool {
@@ -126,6 +128,10 @@ impl ::core::fmt::Debug for BitmapBuffer {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapBuffer;{a53e04c4-399c-438c-b28f-a63a6b83d1a1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BitmapBuffer {
     type Vtable = IBitmapBuffer_Vtbl;
@@ -258,9 +264,10 @@ impl ::core::fmt::Debug for BitmapBufferAccessMode {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapBufferAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapBufferAccessMode;i4)");
-}
-impl ::windows::core::DefaultType for BitmapBufferAccessMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
@@ -319,6 +326,10 @@ impl ::core::fmt::Debug for BitmapCodecInformation {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapCodecInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapCodecInformation;{400caaf2-c4b0-4392-a3b0-6f6f9ba95cb4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BitmapCodecInformation {
     type Vtable = IBitmapCodecInformation_Vtbl;
@@ -657,6 +668,10 @@ impl ::core::fmt::Debug for BitmapDecoder {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapDecoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapDecoder;{acef22ba-1d74-4c91-9dfc-9620745233e6})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BitmapDecoder {
     type Vtable = IBitmapDecoder_Vtbl;
@@ -981,6 +996,10 @@ impl ::core::fmt::Debug for BitmapEncoder {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapEncoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapEncoder;{2bc468e3-e1f8-4b54-95e8-32919551ce62})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BitmapEncoder {
     type Vtable = IBitmapEncoder_Vtbl;
@@ -1061,9 +1080,10 @@ impl ::core::fmt::Debug for BitmapFlip {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapFlip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapFlip;i4)");
-}
-impl ::windows::core::DefaultType for BitmapFlip {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
@@ -1214,6 +1234,10 @@ impl ::core::fmt::Debug for BitmapFrame {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapFrame;{72a49a1c-8081-438d-91bc-94ecfc8185c6})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BitmapFrame {
     type Vtable = IBitmapFrame_Vtbl;
@@ -1339,9 +1363,10 @@ impl ::core::fmt::Debug for BitmapInterpolationMode {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapInterpolationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapInterpolationMode;i4)");
-}
-impl ::windows::core::DefaultType for BitmapInterpolationMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
@@ -1379,9 +1404,10 @@ impl ::core::fmt::Debug for BitmapPixelFormat {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapPixelFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapPixelFormat;i4)");
-}
-impl ::windows::core::DefaultType for BitmapPixelFormat {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Graphics_Imaging'*"]
@@ -1407,9 +1433,10 @@ unsafe impl ::windows::core::Abi for BitmapPlaneDescription {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapPlaneDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapPlaneDescription;i4;i4;i4;i4)");
-}
-impl ::windows::core::DefaultType for BitmapPlaneDescription {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for BitmapPlaneDescription {
     fn eq(&self, other: &Self) -> bool {
@@ -1463,6 +1490,10 @@ impl ::core::fmt::Debug for BitmapProperties {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapProperties;{ea9f4f1b-b505-4450-a4d1-e8ca94529d8d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BitmapProperties {
     type Vtable = IBitmapProperties_Vtbl;
@@ -1567,6 +1598,10 @@ impl ::core::fmt::Debug for BitmapPropertiesView {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapPropertiesView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapPropertiesView;{7e0fe87a-3a70-48f8-9c55-196cf5a545f5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BitmapPropertiesView {
     type Vtable = IBitmapPropertiesView_Vtbl;
@@ -1742,6 +1777,10 @@ impl ::core::fmt::Debug for BitmapPropertySet {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for BitmapPropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapPropertySet;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;rc(Windows.Graphics.Imaging.BitmapTypedValue;{cd8044a9-2443-4000-b0cd-79316c56f589})))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for BitmapPropertySet {
@@ -1903,9 +1942,10 @@ impl ::core::fmt::Debug for BitmapRotation {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapRotation;i4)");
-}
-impl ::windows::core::DefaultType for BitmapRotation {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Graphics_Imaging'*"]
@@ -1929,9 +1969,10 @@ unsafe impl ::windows::core::Abi for BitmapSize {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapSize;u4;u4)");
-}
-impl ::windows::core::DefaultType for BitmapSize {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for BitmapSize {
     fn eq(&self, other: &Self) -> bool {
@@ -2052,6 +2093,10 @@ impl ::core::fmt::Debug for BitmapTransform {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapTransform;{ae755344-e268-4d35-adcf-e995d31a8d34})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BitmapTransform {
     type Vtable = IBitmapTransform_Vtbl;
@@ -2155,6 +2200,10 @@ impl ::core::fmt::Debug for BitmapTypedValue {
 }
 unsafe impl ::windows::core::RuntimeType for BitmapTypedValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.BitmapTypedValue;{cd8044a9-2443-4000-b0cd-79316c56f589})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BitmapTypedValue {
     type Vtable = IBitmapTypedValue_Vtbl;
@@ -2234,9 +2283,10 @@ impl ::core::fmt::Debug for ColorManagementMode {
 }
 unsafe impl ::windows::core::RuntimeType for ColorManagementMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ColorManagementMode;i4)");
-}
-impl ::windows::core::DefaultType for ColorManagementMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
@@ -2267,9 +2317,10 @@ impl ::core::fmt::Debug for ExifOrientationMode {
 }
 unsafe impl ::windows::core::RuntimeType for ExifOrientationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ExifOrientationMode;i4)");
-}
-impl ::windows::core::DefaultType for ExifOrientationMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2636,6 +2687,10 @@ impl ::core::fmt::Debug for IBitmapFrame {
 }
 unsafe impl ::windows::core::RuntimeType for IBitmapFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72a49a1c-8081-438d-91bc-94ecfc8185c6}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IBitmapFrame {
     type Vtable = IBitmapFrame_Vtbl;
@@ -2878,6 +2933,10 @@ impl ::core::fmt::Debug for IBitmapFrameWithSoftwareBitmap {
 }
 unsafe impl ::windows::core::RuntimeType for IBitmapFrameWithSoftwareBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fe287c9a-420c-4963-87ad-691436e08383}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IBitmapFrameWithSoftwareBitmap {
     type Vtable = IBitmapFrameWithSoftwareBitmap_Vtbl;
@@ -2988,6 +3047,10 @@ impl ::core::fmt::Debug for IBitmapPropertiesView {
 }
 unsafe impl ::windows::core::RuntimeType for IBitmapPropertiesView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7e0fe87a-3a70-48f8-9c55-196cf5a545f5}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IBitmapPropertiesView {
     type Vtable = IBitmapPropertiesView_Vtbl;
@@ -3296,6 +3359,10 @@ impl ::core::fmt::Debug for ImageStream {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::RuntimeType for ImageStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.ImageStream;{cc254827-4b3d-438f-9232-10c76bc7e038})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for ImageStream {
@@ -3545,9 +3612,10 @@ impl ::core::fmt::Debug for JpegSubsamplingMode {
 }
 unsafe impl ::windows::core::RuntimeType for JpegSubsamplingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.JpegSubsamplingMode;i4)");
-}
-impl ::windows::core::DefaultType for JpegSubsamplingMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
@@ -3580,6 +3648,10 @@ impl ::core::fmt::Debug for PixelDataProvider {
 }
 unsafe impl ::windows::core::RuntimeType for PixelDataProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.PixelDataProvider;{dd831f25-185c-4595-9fb9-ccbe6ec18a6f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PixelDataProvider {
     type Vtable = IPixelDataProvider_Vtbl;
@@ -3664,9 +3736,10 @@ impl ::core::fmt::Debug for PngFilterMode {
 }
 unsafe impl ::windows::core::RuntimeType for PngFilterMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.PngFilterMode;i4)");
-}
-impl ::windows::core::DefaultType for PngFilterMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
@@ -3873,6 +3946,10 @@ impl ::core::fmt::Debug for SoftwareBitmap {
 }
 unsafe impl ::windows::core::RuntimeType for SoftwareBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Imaging.SoftwareBitmap;{689e0708-7eef-483f-963f-da938818e073})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SoftwareBitmap {
     type Vtable = ISoftwareBitmap_Vtbl;
@@ -3984,9 +4061,10 @@ impl ::core::fmt::Debug for TiffCompressionMode {
 }
 unsafe impl ::windows::core::RuntimeType for TiffCompressionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.TiffCompressionMode;i4)");
-}
-impl ::windows::core::DefaultType for TiffCompressionMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

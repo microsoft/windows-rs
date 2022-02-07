@@ -30,6 +30,10 @@ impl ::core::fmt::Debug for ConnectionRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectionRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ConnectionRequestedEventArgs;{eb6891ae-4f1e-4c66-bd0d-46924a942e08})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ConnectionRequestedEventArgs {
     type Vtable = IConnectionRequestedEventArgs_Vtbl;
@@ -151,6 +155,10 @@ unsafe impl ::windows::core::Interface for DeviceArrivedEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for DeviceArrivedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{efa9da69-f6e1-49c9-a49e-8e0fc58fb911}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -229,6 +237,10 @@ unsafe impl ::windows::core::Interface for DeviceDepartedEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for DeviceDepartedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{efa9da69-f6e2-49c9-a49e-8e0fc58fb911}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -598,6 +610,10 @@ unsafe impl ::windows::core::Interface for MessageReceivedHandler {
 }
 unsafe impl ::windows::core::RuntimeType for MessageReceivedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{efab0782-f6e2-4675-a045-d8e320c24808}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -676,6 +692,10 @@ unsafe impl ::windows::core::Interface for MessageTransmittedHandler {
 }
 unsafe impl ::windows::core::RuntimeType for MessageTransmittedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{efaa0b4a-f6e2-4d7d-856c-78fc8efc021e}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -741,9 +761,10 @@ impl ::core::ops::Not for PeerDiscoveryTypes {
 }
 unsafe impl ::windows::core::RuntimeType for PeerDiscoveryTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerDiscoveryTypes;u4)");
-}
-impl ::windows::core::DefaultType for PeerDiscoveryTypes {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Proximity'*"]
 pub struct PeerFinder {}
@@ -970,6 +991,10 @@ impl ::core::fmt::Debug for PeerInformation {
 }
 unsafe impl ::windows::core::RuntimeType for PeerInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerInformation;{20024f08-9fff-45f4-b6e9-408b2ebef373})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PeerInformation {
     type Vtable = IPeerInformation_Vtbl;
@@ -1050,9 +1075,10 @@ impl ::core::fmt::Debug for PeerRole {
 }
 unsafe impl ::windows::core::RuntimeType for PeerRole {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
-}
-impl ::windows::core::DefaultType for PeerRole {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
@@ -1170,6 +1196,10 @@ impl ::core::fmt::Debug for PeerWatcher {
 }
 unsafe impl ::windows::core::RuntimeType for PeerWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerWatcher;{3cee21f8-2fa6-4679-9691-03c94a420f34})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PeerWatcher {
     type Vtable = IPeerWatcher_Vtbl;
@@ -1253,9 +1283,10 @@ impl ::core::fmt::Debug for PeerWatcherStatus {
 }
 unsafe impl ::windows::core::RuntimeType for PeerWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
-}
-impl ::windows::core::DefaultType for PeerWatcherStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
@@ -1430,6 +1461,10 @@ impl ::core::fmt::Debug for ProximityDevice {
 }
 unsafe impl ::windows::core::RuntimeType for ProximityDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityDevice;{efa8a552-f6e1-4329-a0fc-ab6b0fd28262})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProximityDevice {
     type Vtable = IProximityDevice_Vtbl;
@@ -1536,6 +1571,10 @@ impl ::core::fmt::Debug for ProximityMessage {
 }
 unsafe impl ::windows::core::RuntimeType for ProximityMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityMessage;{efab0782-f6e1-4675-a045-d8e320c24808})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ProximityMessage {
     type Vtable = IProximityMessage_Vtbl;
@@ -1619,9 +1658,10 @@ impl ::core::fmt::Debug for TriggeredConnectState {
 }
 unsafe impl ::windows::core::RuntimeType for TriggeredConnectState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.TriggeredConnectState;i4)");
-}
-impl ::windows::core::DefaultType for TriggeredConnectState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
@@ -1671,6 +1711,10 @@ impl ::core::fmt::Debug for TriggeredConnectionStateChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for TriggeredConnectionStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs;{c6a780ad-f6e1-4d54-96e2-33f620bca88a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TriggeredConnectionStateChangedEventArgs {
     type Vtable = ITriggeredConnectionStateChangedEventArgs_Vtbl;

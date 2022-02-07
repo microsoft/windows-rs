@@ -44,6 +44,10 @@ impl ::core::fmt::Debug for AdvancedPhotoCaptureSettings {
 }
 unsafe impl ::windows::core::RuntimeType for AdvancedPhotoCaptureSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AdvancedPhotoCaptureSettings;{08f3863a-0018-445b-93d2-646d1c5ed05c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AdvancedPhotoCaptureSettings {
     type Vtable = IAdvancedPhotoCaptureSettings_Vtbl;
@@ -147,6 +151,10 @@ impl ::core::fmt::Debug for AdvancedPhotoControl {
 }
 unsafe impl ::windows::core::RuntimeType for AdvancedPhotoControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AdvancedPhotoControl;{c5b15486-9001-4682-9309-68eae0080eec})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AdvancedPhotoControl {
     type Vtable = IAdvancedPhotoControl_Vtbl;
@@ -228,9 +236,10 @@ impl ::core::fmt::Debug for AdvancedPhotoMode {
 }
 unsafe impl ::windows::core::RuntimeType for AdvancedPhotoMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AdvancedPhotoMode;i4)");
-}
-impl ::windows::core::DefaultType for AdvancedPhotoMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -308,6 +317,10 @@ impl ::core::fmt::Debug for AudioDeviceController {
 }
 unsafe impl ::windows::core::RuntimeType for AudioDeviceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceController;{edd4a388-79c7-4f7c-90e8-ef934b21580a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AudioDeviceController {
     type Vtable = IAudioDeviceController_Vtbl;
@@ -450,6 +463,10 @@ impl ::core::fmt::Debug for AudioDeviceModule {
 }
 unsafe impl ::windows::core::RuntimeType for AudioDeviceModule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModule;{86cfac36-47c1-4b33-9852-8773ec4be123})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AudioDeviceModule {
     type Vtable = IAudioDeviceModule_Vtbl;
@@ -538,6 +555,10 @@ impl ::core::fmt::Debug for AudioDeviceModuleNotificationEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AudioDeviceModuleNotificationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs;{e3e3ccaf-224c-48be-956b-9a13134e96e8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AudioDeviceModuleNotificationEventArgs {
     type Vtable = IAudioDeviceModuleNotificationEventArgs_Vtbl;
@@ -656,6 +677,10 @@ impl ::core::fmt::Debug for AudioDeviceModulesManager {
 }
 unsafe impl ::windows::core::RuntimeType for AudioDeviceModulesManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModulesManager;{6aa40c4d-960a-4d1c-b318-0022604547ed})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AudioDeviceModulesManager {
     type Vtable = IAudioDeviceModulesManager_Vtbl;
@@ -735,9 +760,10 @@ impl ::core::fmt::Debug for AudioDeviceRole {
 }
 unsafe impl ::windows::core::RuntimeType for AudioDeviceRole {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AudioDeviceRole;i4)");
-}
-impl ::windows::core::DefaultType for AudioDeviceRole {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -769,9 +795,10 @@ impl ::core::fmt::Debug for AutoFocusRange {
 }
 unsafe impl ::windows::core::RuntimeType for AutoFocusRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AutoFocusRange;i4)");
-}
-impl ::windows::core::DefaultType for AutoFocusRange {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -939,6 +966,10 @@ impl ::core::fmt::Debug for CallControl {
 }
 unsafe impl ::windows::core::RuntimeType for CallControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CallControl;{a520d0d6-ae8d-45db-8011-ca49d3b3e578})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CallControl {
     type Vtable = ICallControl_Vtbl;
@@ -1060,6 +1091,10 @@ unsafe impl ::windows::core::Interface for CallControlEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for CallControlEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{596f759f-50df-4454-bc63-4d3d01b61958}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1121,6 +1156,10 @@ impl ::core::fmt::Debug for CameraOcclusionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for CameraOcclusionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionInfo;{af6c4ad0-a84d-5db6-be58-a5da21cfe011})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CameraOcclusionInfo {
     type Vtable = ICameraOcclusionInfo_Vtbl;
@@ -1200,9 +1239,10 @@ impl ::core::fmt::Debug for CameraOcclusionKind {
 }
 unsafe impl ::windows::core::RuntimeType for CameraOcclusionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraOcclusionKind;i4)");
-}
-impl ::windows::core::DefaultType for CameraOcclusionKind {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -1243,6 +1283,10 @@ impl ::core::fmt::Debug for CameraOcclusionState {
 }
 unsafe impl ::windows::core::RuntimeType for CameraOcclusionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionState;{430adeb8-6842-5e55-9bde-04b4ef3a8a57})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CameraOcclusionState {
     type Vtable = ICameraOcclusionState_Vtbl;
@@ -1324,6 +1368,10 @@ impl ::core::fmt::Debug for CameraOcclusionStateChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CameraOcclusionStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionStateChangedEventArgs;{8512d848-c0de-57ca-a1ca-fb2c3d23df55})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CameraOcclusionStateChangedEventArgs {
     type Vtable = ICameraOcclusionStateChangedEventArgs_Vtbl;
@@ -1405,9 +1453,10 @@ impl ::core::fmt::Debug for CameraStreamState {
 }
 unsafe impl ::windows::core::RuntimeType for CameraStreamState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraStreamState;i4)");
-}
-impl ::windows::core::DefaultType for CameraStreamState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -1449,9 +1498,10 @@ impl ::core::fmt::Debug for CaptureSceneMode {
 }
 unsafe impl ::windows::core::RuntimeType for CaptureSceneMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureSceneMode;i4)");
-}
-impl ::windows::core::DefaultType for CaptureSceneMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -1483,9 +1533,10 @@ impl ::core::fmt::Debug for CaptureUse {
 }
 unsafe impl ::windows::core::RuntimeType for CaptureUse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureUse;i4)");
-}
-impl ::windows::core::DefaultType for CaptureUse {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -1522,9 +1573,10 @@ impl ::core::fmt::Debug for ColorTemperaturePreset {
 }
 unsafe impl ::windows::core::RuntimeType for ColorTemperaturePreset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ColorTemperaturePreset;i4)");
-}
-impl ::windows::core::DefaultType for ColorTemperaturePreset {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -1565,6 +1617,10 @@ impl ::core::fmt::Debug for DefaultAudioCaptureDeviceChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for DefaultAudioCaptureDeviceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs;{110f882f-1c05-4657-a18e-47c9b69f07ab})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DefaultAudioCaptureDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
@@ -1676,6 +1732,10 @@ impl ::core::fmt::Debug for DefaultAudioRenderDeviceChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for DefaultAudioRenderDeviceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs;{110f882f-1c05-4657-a18e-47c9b69f07ab})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DefaultAudioRenderDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
@@ -1784,6 +1844,10 @@ impl ::core::fmt::Debug for DialRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for DialRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DialRequestedEventArgs;{037b929e-953c-4286-8866-4f0f376c855a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DialRequestedEventArgs {
     type Vtable = IDialRequestedEventArgs_Vtbl;
@@ -1905,6 +1969,10 @@ unsafe impl ::windows::core::Interface for DialRequestedEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for DialRequestedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5abbffdb-c21f-4bc4-891b-257e28c1b1a4}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1981,6 +2049,10 @@ impl ::core::fmt::Debug for DigitalWindowBounds {
 }
 unsafe impl ::windows::core::RuntimeType for DigitalWindowBounds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowBounds;{dd4f21dd-d173-5c6b-8c25-bdd26d5122b1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DigitalWindowBounds {
     type Vtable = IDigitalWindowBounds_Vtbl;
@@ -2103,6 +2175,10 @@ impl ::core::fmt::Debug for DigitalWindowCapability {
 }
 unsafe impl ::windows::core::RuntimeType for DigitalWindowCapability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowCapability;{d78bad2c-f721-5244-a196-b56ccbec606c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DigitalWindowCapability {
     type Vtable = IDigitalWindowCapability_Vtbl;
@@ -2235,6 +2311,10 @@ impl ::core::fmt::Debug for DigitalWindowControl {
 }
 unsafe impl ::windows::core::RuntimeType for DigitalWindowControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowControl;{23b69eff-65d2-53ea-8780-de582b48b544})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DigitalWindowControl {
     type Vtable = IDigitalWindowControl_Vtbl;
@@ -2315,9 +2395,10 @@ impl ::core::fmt::Debug for DigitalWindowMode {
 }
 unsafe impl ::windows::core::RuntimeType for DigitalWindowMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.DigitalWindowMode;i4)");
-}
-impl ::windows::core::DefaultType for DigitalWindowMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -2391,6 +2472,10 @@ impl ::core::fmt::Debug for ExposureCompensationControl {
 }
 unsafe impl ::windows::core::RuntimeType for ExposureCompensationControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposureCompensationControl;{81c8e834-dcec-4011-a610-1f3847e64aca})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ExposureCompensationControl {
     type Vtable = IExposureCompensationControl_Vtbl;
@@ -2532,6 +2617,10 @@ impl ::core::fmt::Debug for ExposureControl {
 }
 unsafe impl ::windows::core::RuntimeType for ExposureControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposureControl;{09e8cbe2-ad96-4f28-a0e0-96ed7e1b5fd2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ExposureControl {
     type Vtable = IExposureControl_Vtbl;
@@ -2624,6 +2713,10 @@ impl ::core::fmt::Debug for ExposurePriorityVideoControl {
 }
 unsafe impl ::windows::core::RuntimeType for ExposurePriorityVideoControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposurePriorityVideoControl;{2cb240a3-5168-4271-9ea5-47621a98a352})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ExposurePriorityVideoControl {
     type Vtable = IExposurePriorityVideoControl_Vtbl;
@@ -2794,6 +2887,10 @@ impl ::core::fmt::Debug for FlashControl {
 }
 unsafe impl ::windows::core::RuntimeType for FlashControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FlashControl;{def41dbe-7d68-45e3-8c0f-be7bb32837d0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FlashControl {
     type Vtable = IFlashControl_Vtbl;
@@ -3040,6 +3137,10 @@ impl ::core::fmt::Debug for FocusControl {
 }
 unsafe impl ::windows::core::RuntimeType for FocusControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FocusControl;{c0d889f6-5228-4453-b153-85606592b238})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FocusControl {
     type Vtable = IFocusControl_Vtbl;
@@ -3119,9 +3220,10 @@ impl ::core::fmt::Debug for FocusMode {
 }
 unsafe impl ::windows::core::RuntimeType for FocusMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusMode;i4)");
-}
-impl ::windows::core::DefaultType for FocusMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -3156,9 +3258,10 @@ impl ::core::fmt::Debug for FocusPreset {
 }
 unsafe impl ::windows::core::RuntimeType for FocusPreset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusPreset;i4)");
-}
-impl ::windows::core::DefaultType for FocusPreset {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -3272,6 +3375,10 @@ impl ::core::fmt::Debug for FocusSettings {
 }
 unsafe impl ::windows::core::RuntimeType for FocusSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FocusSettings;{79958f6b-3263-4275-85d6-aeae891c96ee})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FocusSettings {
     type Vtable = IFocusSettings_Vtbl;
@@ -3375,6 +3482,10 @@ impl ::core::fmt::Debug for HdrVideoControl {
 }
 unsafe impl ::windows::core::RuntimeType for HdrVideoControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.HdrVideoControl;{55d8e2d0-30c0-43bf-9b9a-9799d70ced94})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HdrVideoControl {
     type Vtable = IHdrVideoControl_Vtbl;
@@ -3455,9 +3566,10 @@ impl ::core::fmt::Debug for HdrVideoMode {
 }
 unsafe impl ::windows::core::RuntimeType for HdrVideoMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.HdrVideoMode;i4)");
-}
-impl ::windows::core::DefaultType for HdrVideoMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3957,6 +4069,10 @@ impl ::core::fmt::Debug for IDefaultAudioDeviceChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for IDefaultAudioDeviceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{110f882f-1c05-4657-a18e-47c9b69f07ab}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IDefaultAudioDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
@@ -4572,6 +4688,10 @@ impl ::core::fmt::Debug for IMediaDeviceController {
 }
 unsafe impl ::windows::core::RuntimeType for IMediaDeviceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f6f8f5ce-209a-48fb-86fc-d44578f317e6}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IMediaDeviceController {
     type Vtable = IMediaDeviceController_Vtbl;
@@ -5063,6 +5183,10 @@ impl ::core::fmt::Debug for InfraredTorchControl {
 }
 unsafe impl ::windows::core::RuntimeType for InfraredTorchControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.InfraredTorchControl;{1cba2c83-6cb6-5a04-a6fc-3be7b33ff056})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for InfraredTorchControl {
     type Vtable = IInfraredTorchControl_Vtbl;
@@ -5143,9 +5267,10 @@ impl ::core::fmt::Debug for InfraredTorchMode {
 }
 unsafe impl ::windows::core::RuntimeType for InfraredTorchMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.InfraredTorchMode;i4)");
-}
-impl ::windows::core::DefaultType for InfraredTorchMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -5263,6 +5388,10 @@ impl ::core::fmt::Debug for IsoSpeedControl {
 }
 unsafe impl ::windows::core::RuntimeType for IsoSpeedControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.IsoSpeedControl;{27b6c322-25ad-4f1b-aaab-524ab376ca33})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsoSpeedControl {
     type Vtable = IIsoSpeedControl_Vtbl;
@@ -5358,10 +5487,10 @@ impl ::core::fmt::Debug for IsoSpeedPreset {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IsoSpeedPreset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.IsoSpeedPreset;i4)");
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::DefaultType for IsoSpeedPreset {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -5394,6 +5523,10 @@ impl ::core::fmt::Debug for KeypadPressedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for KeypadPressedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.KeypadPressedEventArgs;{d3a43900-b4fa-49cd-9442-89af6568f601})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for KeypadPressedEventArgs {
     type Vtable = IKeypadPressedEventArgs_Vtbl;
@@ -5515,6 +5648,10 @@ unsafe impl ::windows::core::Interface for KeypadPressedEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for KeypadPressedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e637a454-c527-422c-8926-c9af83b559a0}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5612,6 +5749,10 @@ impl ::core::fmt::Debug for LowLagPhotoControl {
 }
 unsafe impl ::windows::core::RuntimeType for LowLagPhotoControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.LowLagPhotoControl;{6d5c4dd0-fadf-415d-aee6-3baa529300c9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LowLagPhotoControl {
     type Vtable = ILowLagPhotoControl_Vtbl;
@@ -5800,6 +5941,10 @@ impl ::core::fmt::Debug for LowLagPhotoSequenceControl {
 }
 unsafe impl ::windows::core::RuntimeType for LowLagPhotoSequenceControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.LowLagPhotoSequenceControl;{3dcf909d-6d16-409c-bafe-b9a594c6fde6})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LowLagPhotoSequenceControl {
     type Vtable = ILowLagPhotoSequenceControl_Vtbl;
@@ -5878,9 +6023,10 @@ impl ::core::fmt::Debug for ManualFocusDistance {
 }
 unsafe impl ::windows::core::RuntimeType for ManualFocusDistance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ManualFocusDistance;i4)");
-}
-impl ::windows::core::DefaultType for ManualFocusDistance {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -5914,9 +6060,10 @@ impl ::core::fmt::Debug for MediaCaptureFocusState {
 }
 unsafe impl ::windows::core::RuntimeType for MediaCaptureFocusState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureFocusState;i4)");
-}
-impl ::windows::core::DefaultType for MediaCaptureFocusState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -5952,9 +6099,10 @@ impl ::core::fmt::Debug for MediaCaptureOptimization {
 }
 unsafe impl ::windows::core::RuntimeType for MediaCaptureOptimization {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureOptimization;i4)");
-}
-impl ::windows::core::DefaultType for MediaCaptureOptimization {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -5985,9 +6133,10 @@ impl ::core::fmt::Debug for MediaCapturePauseBehavior {
 }
 unsafe impl ::windows::core::RuntimeType for MediaCapturePauseBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCapturePauseBehavior;i4)");
-}
-impl ::windows::core::DefaultType for MediaCapturePauseBehavior {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 pub struct MediaDevice {}
@@ -6125,6 +6274,10 @@ impl ::core::fmt::Debug for MediaDeviceControl {
 }
 unsafe impl ::windows::core::RuntimeType for MediaDeviceControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.MediaDeviceControl;{efa8dfa9-6f75-4863-ba0b-583f3036b4de})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MediaDeviceControl {
     type Vtable = IMediaDeviceControl_Vtbl;
@@ -6244,6 +6397,10 @@ impl ::core::fmt::Debug for MediaDeviceControlCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for MediaDeviceControlCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.MediaDeviceControlCapabilities;{23005816-eb85-43e2-b92b-8240d5ee70ec})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MediaDeviceControlCapabilities {
     type Vtable = IMediaDeviceControlCapabilities_Vtbl;
@@ -6332,6 +6489,10 @@ impl ::core::fmt::Debug for ModuleCommandResult {
 }
 unsafe impl ::windows::core::RuntimeType for ModuleCommandResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ModuleCommandResult;{520d1eb4-1374-4c7d-b1e4-39dcdf3eae4e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ModuleCommandResult {
     type Vtable = IModuleCommandResult_Vtbl;
@@ -6433,6 +6594,10 @@ impl ::core::fmt::Debug for OpticalImageStabilizationControl {
 }
 unsafe impl ::windows::core::RuntimeType for OpticalImageStabilizationControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.OpticalImageStabilizationControl;{bfad9c1d-00bc-423b-8eb2-a0178ca94247})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for OpticalImageStabilizationControl {
     type Vtable = IOpticalImageStabilizationControl_Vtbl;
@@ -6513,9 +6678,10 @@ impl ::core::fmt::Debug for OpticalImageStabilizationMode {
 }
 unsafe impl ::windows::core::RuntimeType for OpticalImageStabilizationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.OpticalImageStabilizationMode;i4)");
-}
-impl ::windows::core::DefaultType for OpticalImageStabilizationMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -6563,6 +6729,10 @@ impl ::core::fmt::Debug for PanelBasedOptimizationControl {
 }
 unsafe impl ::windows::core::RuntimeType for PanelBasedOptimizationControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.PanelBasedOptimizationControl;{33323223-6247-5419-a5a4-3d808645d917})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PanelBasedOptimizationControl {
     type Vtable = IPanelBasedOptimizationControl_Vtbl;
@@ -6672,6 +6842,10 @@ impl ::core::fmt::Debug for PhotoConfirmationControl {
 }
 unsafe impl ::windows::core::RuntimeType for PhotoConfirmationControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.PhotoConfirmationControl;{c8f3f363-ff5e-4582-a9a8-0550f85a4a76})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PhotoConfirmationControl {
     type Vtable = IPhotoConfirmationControl_Vtbl;
@@ -6748,6 +6922,10 @@ impl ::core::fmt::Debug for RedialRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for RedialRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.RedialRequestedEventArgs;{7eb55209-76ab-4c31-b40e-4b58379d580c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RedialRequestedEventArgs {
     type Vtable = IRedialRequestedEventArgs_Vtbl;
@@ -6869,6 +7047,10 @@ unsafe impl ::windows::core::Interface for RedialRequestedEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for RedialRequestedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{baf257d1-4ebd-4b84-9f47-6ec43d75d8b1}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6999,6 +7181,10 @@ impl ::core::fmt::Debug for RegionOfInterest {
 }
 unsafe impl ::windows::core::RuntimeType for RegionOfInterest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.RegionOfInterest;{e5ecc834-ce66-4e05-a78f-cf391a5ec2d1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RegionOfInterest {
     type Vtable = IRegionOfInterest_Vtbl;
@@ -7078,9 +7264,10 @@ impl ::core::fmt::Debug for RegionOfInterestType {
 }
 unsafe impl ::windows::core::RuntimeType for RegionOfInterestType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.RegionOfInterestType;i4)");
-}
-impl ::windows::core::DefaultType for RegionOfInterestType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -7164,6 +7351,10 @@ impl ::core::fmt::Debug for RegionsOfInterestControl {
 }
 unsafe impl ::windows::core::RuntimeType for RegionsOfInterestControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.RegionsOfInterestControl;{c323f527-ab0b-4558-8b5b-df5693db0378})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RegionsOfInterestControl {
     type Vtable = IRegionsOfInterestControl_Vtbl;
@@ -7261,6 +7452,10 @@ impl ::core::fmt::Debug for SceneModeControl {
 }
 unsafe impl ::windows::core::RuntimeType for SceneModeControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.SceneModeControl;{d48e5af7-8d59-4854-8c62-12c70ba89b7c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SceneModeControl {
     type Vtable = ISceneModeControl_Vtbl;
@@ -7338,9 +7533,10 @@ impl ::core::fmt::Debug for SendCommandStatus {
 }
 unsafe impl ::windows::core::RuntimeType for SendCommandStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.SendCommandStatus;i4)");
-}
-impl ::windows::core::DefaultType for SendCommandStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -7385,9 +7581,10 @@ impl ::core::fmt::Debug for TelephonyKey {
 }
 unsafe impl ::windows::core::RuntimeType for TelephonyKey {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.TelephonyKey;i4)");
-}
-impl ::windows::core::DefaultType for TelephonyKey {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -7454,6 +7651,10 @@ impl ::core::fmt::Debug for TorchControl {
 }
 unsafe impl ::windows::core::RuntimeType for TorchControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.TorchControl;{a6053665-8250-416c-919a-724296afa306})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for TorchControl {
     type Vtable = ITorchControl_Vtbl;
@@ -7924,6 +8125,10 @@ impl ::core::fmt::Debug for VideoDeviceController {
 }
 unsafe impl ::windows::core::RuntimeType for VideoDeviceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.VideoDeviceController;{99555575-2e2e-40b8-b6c7-f82d10013210})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VideoDeviceController {
     type Vtable = IVideoDeviceController_Vtbl;
@@ -8033,6 +8238,10 @@ impl ::core::fmt::Debug for VideoDeviceControllerGetDevicePropertyResult {
 }
 unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerGetDevicePropertyResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyResult;{c5d88395-6ed5-4790-8b5d-0ef13935d0f8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VideoDeviceControllerGetDevicePropertyResult {
     type Vtable = IVideoDeviceControllerGetDevicePropertyResult_Vtbl;
@@ -8117,9 +8326,10 @@ impl ::core::fmt::Debug for VideoDeviceControllerGetDevicePropertyStatus {
 }
 unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerGetDevicePropertyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyStatus;i4)");
-}
-impl ::windows::core::DefaultType for VideoDeviceControllerGetDevicePropertyStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -8154,9 +8364,10 @@ impl ::core::fmt::Debug for VideoDeviceControllerSetDevicePropertyStatus {
 }
 unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerSetDevicePropertyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus;i4)");
-}
-impl ::windows::core::DefaultType for VideoDeviceControllerSetDevicePropertyStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -8211,6 +8422,10 @@ impl ::core::fmt::Debug for VideoTemporalDenoisingControl {
 }
 unsafe impl ::windows::core::RuntimeType for VideoTemporalDenoisingControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.VideoTemporalDenoisingControl;{7ab34735-3e2a-4a32-baff-4358c4fbdd57})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for VideoTemporalDenoisingControl {
     type Vtable = IVideoTemporalDenoisingControl_Vtbl;
@@ -8291,9 +8506,10 @@ impl ::core::fmt::Debug for VideoTemporalDenoisingMode {
 }
 unsafe impl ::windows::core::RuntimeType for VideoTemporalDenoisingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoTemporalDenoisingMode;i4)");
-}
-impl ::windows::core::DefaultType for VideoTemporalDenoisingMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
@@ -8384,6 +8600,10 @@ impl ::core::fmt::Debug for WhiteBalanceControl {
 }
 unsafe impl ::windows::core::RuntimeType for WhiteBalanceControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.WhiteBalanceControl;{781f047e-7162-49c8-a8f9-9481c565363e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WhiteBalanceControl {
     type Vtable = IWhiteBalanceControl_Vtbl;
@@ -8522,6 +8742,10 @@ impl ::core::fmt::Debug for ZoomControl {
 }
 unsafe impl ::windows::core::RuntimeType for ZoomControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ZoomControl;{3a1e0b12-32da-4c17-bfd7-8d0c73c8f5a5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ZoomControl {
     type Vtable = IZoomControl_Vtbl;
@@ -8626,6 +8850,10 @@ impl ::core::fmt::Debug for ZoomSettings {
 }
 unsafe impl ::windows::core::RuntimeType for ZoomSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ZoomSettings;{6ad66b24-14b4-4bfd-b18f-88fe24463b52})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ZoomSettings {
     type Vtable = IZoomSettings_Vtbl;
@@ -8706,9 +8934,10 @@ impl ::core::fmt::Debug for ZoomTransitionMode {
 }
 unsafe impl ::windows::core::RuntimeType for ZoomTransitionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ZoomTransitionMode;i4)");
-}
-impl ::windows::core::DefaultType for ZoomTransitionMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

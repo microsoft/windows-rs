@@ -81,6 +81,10 @@ unsafe impl ::windows::core::Interface for HostMessageReceivedCallback {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for HostMessageReceivedCallback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{faf26ffa-8ce1-4cc1-b278-322d31a5e4a3}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
@@ -749,6 +753,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironment {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironment;{41d24597-c328-4467-b37f-4dfc6f60b6bc})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironment {
     type Vtable = IIsolatedWindowsEnvironment_Vtbl;
@@ -828,9 +836,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentActivator {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentActivator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentActivator {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -890,9 +899,10 @@ impl ::core::ops::Not for IsolatedWindowsEnvironmentAllowedClipboardFormats {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -954,9 +964,10 @@ impl ::core::ops::Not for IsolatedWindowsEnvironmentAvailablePrinters {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentAvailablePrinters {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -1016,9 +1027,10 @@ impl ::core::ops::Not for IsolatedWindowsEnvironmentClipboardCopyPasteDirections
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Security_Isolation'*"]
@@ -1042,9 +1054,10 @@ unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateProgress {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateProgress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress;enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4);u4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentCreateProgress {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentCreateProgress {
     fn eq(&self, other: &Self) -> bool {
@@ -1104,6 +1117,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateResult {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult;{ef9a5e58-dcd7-45c2-9c85-ab642a715e8e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentCreateResult {
     type Vtable = IIsolatedWindowsEnvironmentCreateResult_Vtbl;
@@ -1184,9 +1201,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateStatus {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentCreateStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -1248,6 +1266,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentFile {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentFile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentFile;{4d5ae1ef-029f-4101-8c35-fe91bf9cd5f0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentFile {
     type Vtable = IIsolatedWindowsEnvironmentFile_Vtbl;
@@ -1357,9 +1379,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentHostError {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentHostError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentHostError {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -1408,6 +1431,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileResult {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult;{685d4176-f6e0-4569-b1aa-215c0ff5b257})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentLaunchFileResult {
     type Vtable = IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl;
@@ -1491,9 +1518,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileStatus {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentLaunchFileStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -1650,6 +1678,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOptions {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions;{b71d98f7-61f0-4008-b207-0bf9eb2d76f2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentOptions {
     type Vtable = IIsolatedWindowsEnvironmentOptions_Vtbl;
@@ -1789,6 +1821,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationData {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData;{f888ec22-e8cf-56c0-b1df-90af4ad80e84})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationData {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl;
@@ -1878,6 +1914,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationResult {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult;{6dab9451-6169-55df-8f51-790e99d7277d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl;
@@ -1960,9 +2000,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -2003,6 +2044,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageResult {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult;{0dfa28fa-2ef0-4d8f-b341-3171b2df93b1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentPostMessageResult {
     type Vtable = IIsolatedWindowsEnvironmentPostMessageResult_Vtbl;
@@ -2083,9 +2128,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageStatus {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentPostMessageStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -2145,6 +2191,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcess {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess;{a858c3ef-8172-4f10-af93-cbe60af88d09})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentProcess {
     type Vtable = IIsolatedWindowsEnvironmentProcess_Vtbl;
@@ -2225,9 +2275,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcessState {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentProcessState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -2259,9 +2310,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProgressState {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProgressState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentProgressState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -2306,6 +2358,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileRequestOptions {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileRequestOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions;{c9190ed8-0fd0-4946-bb88-117a60737b61})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFileRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl;
@@ -2403,6 +2459,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileResult {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult;{aec7caa7-9ac6-4bf5-8b91-5c1adf0d7d00})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFileResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFileResult_Vtbl;
@@ -2486,9 +2546,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileStatus {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentShareFileStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -2533,6 +2594,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderRequestOptions 
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions;{c405eb7d-7053-4f6a-9b87-746846ed19b2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl;
@@ -2622,6 +2687,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderResult {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult;{556ba72e-ca9d-4211-b143-1cedc86eb2fe})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFolderResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderResult_Vtbl;
@@ -2704,9 +2773,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderStatus {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentShareFolderStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -2755,6 +2825,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessResult {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProcessResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult;{8fa1dc2f-57da-4bb5-9c06-fa072d2032e2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentStartProcessResult {
     type Vtable = IIsolatedWindowsEnvironmentStartProcessResult_Vtbl;
@@ -2837,9 +2911,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessStatus {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
-}
-impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentStartProcessStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
@@ -2884,6 +2959,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentTelemetryParameters {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentTelemetryParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters;{ebdb3cab-7a3a-4524-a0f4-f96e284d33cd})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentTelemetryParameters {
     type Vtable = IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl;
@@ -2982,6 +3061,10 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentUserInfo {
 }
 unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentUserInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo;{8a9c75ae-69ba-4001-96fc-19a02703b340})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentUserInfo {
     type Vtable = IIsolatedWindowsEnvironmentUserInfo_Vtbl;
@@ -3152,6 +3235,10 @@ unsafe impl ::windows::core::Interface for MessageReceivedCallback {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for MessageReceivedCallback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f5b4c8ff-1d9d-4995-9fea-4d15257c0757}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]

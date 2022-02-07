@@ -185,6 +185,10 @@ impl ::core::fmt::Debug for Binding {
 }
 unsafe impl ::windows::core::RuntimeType for Binding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.Binding;{3f7a0c6b-d00f-4730-8c1d-48e16c46f9ca})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Binding {
     type Vtable = IBinding_Vtbl;
@@ -318,6 +322,10 @@ impl ::core::fmt::Debug for BindingBase {
 }
 unsafe impl ::windows::core::RuntimeType for BindingBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.BindingBase;{1589a2ab-3d15-49bc-a447-8a5448e58870})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BindingBase {
     type Vtable = IBindingBase_Vtbl;
@@ -432,6 +440,10 @@ impl ::core::fmt::Debug for BindingExpression {
 }
 unsafe impl ::windows::core::RuntimeType for BindingExpression {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.BindingExpression;{516a19a5-c2fd-4a9e-9fd3-9aa42f995a3c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BindingExpression {
     type Vtable = IBindingExpression_Vtbl;
@@ -524,6 +536,10 @@ impl ::core::fmt::Debug for BindingExpressionBase {
 }
 unsafe impl ::windows::core::RuntimeType for BindingExpressionBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.BindingExpressionBase;{fded3154-e954-4f67-8fb6-6ed79b3a1cb3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BindingExpressionBase {
     type Vtable = IBindingExpressionBase_Vtbl;
@@ -604,9 +620,10 @@ impl ::core::fmt::Debug for BindingMode {
 }
 unsafe impl ::windows::core::RuntimeType for BindingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Data.BindingMode;i4)");
-}
-impl ::windows::core::DefaultType for BindingMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
@@ -640,6 +657,10 @@ impl ::core::fmt::Debug for BindingOperations {
 }
 unsafe impl ::windows::core::RuntimeType for BindingOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.BindingOperations;{6fffd738-9839-419c-a17a-4b3604e1524e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BindingOperations {
     type Vtable = IBindingOperations_Vtbl;
@@ -800,6 +821,10 @@ impl ::core::fmt::Debug for CollectionViewSource {
 }
 unsafe impl ::windows::core::RuntimeType for CollectionViewSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.CollectionViewSource;{a66a1146-d2fb-4ead-be9f-3578a466dcfe})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CollectionViewSource {
     type Vtable = ICollectionViewSource_Vtbl;
@@ -949,6 +974,10 @@ impl ::core::fmt::Debug for CurrentChangingEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CurrentChangingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.CurrentChangingEventArgs;{f9891e29-51cc-47dd-a5b9-35dc4914af69})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CurrentChangingEventArgs {
     type Vtable = ICurrentChangingEventArgs_Vtbl;
@@ -1070,6 +1099,10 @@ unsafe impl ::windows::core::Interface for CurrentChangingEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for CurrentChangingEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f3888db8-139f-4dce-8dc9-f7f1444d1185}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1625,6 +1658,10 @@ impl ::core::fmt::Debug for ICollectionView {
 }
 unsafe impl ::windows::core::RuntimeType for ICollectionView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8be8bfe4-dbef-44df-8126-a31a89121ddc}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for ICollectionView {
@@ -1757,6 +1794,10 @@ impl ::core::fmt::Debug for ICollectionViewFactory {
 }
 unsafe impl ::windows::core::RuntimeType for ICollectionViewFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{34d4aaf4-8e72-4950-9192-ecd07d399d0a}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICollectionViewFactory {
     type Vtable = ICollectionViewFactory_Vtbl;
@@ -1848,6 +1889,10 @@ impl ::core::fmt::Debug for ICollectionViewGroup {
 }
 unsafe impl ::windows::core::RuntimeType for ICollectionViewGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7e01b9d8-d7b5-48b6-b31c-5bb5bdf5f09b}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICollectionViewGroup {
     type Vtable = ICollectionViewGroup_Vtbl;
@@ -2049,6 +2094,10 @@ impl ::core::fmt::Debug for ICustomProperty {
 }
 unsafe impl ::windows::core::RuntimeType for ICustomProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{30da92c0-23e8-42a0-ae7c-734a0e5d2782}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICustomProperty {
     type Vtable = ICustomProperty_Vtbl;
@@ -2167,6 +2216,10 @@ impl ::core::fmt::Debug for ICustomPropertyProvider {
 }
 unsafe impl ::windows::core::RuntimeType for ICustomPropertyProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7c925755-3e48-42b4-8677-76372267033f}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICustomPropertyProvider {
     type Vtable = ICustomPropertyProvider_Vtbl;
@@ -2316,6 +2369,10 @@ impl ::core::fmt::Debug for IItemsRangeInfo {
 }
 unsafe impl ::windows::core::RuntimeType for IItemsRangeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f05f5665-71fd-45a2-be13-a081d294a68d}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IItemsRangeInfo {
     type Vtable = IItemsRangeInfo_Vtbl;
@@ -2408,6 +2465,10 @@ impl ::core::fmt::Debug for INotifyPropertyChanged {
 }
 unsafe impl ::windows::core::RuntimeType for INotifyPropertyChanged {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cf75d69c-f2f4-486b-b302-bb4c09baebfa}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for INotifyPropertyChanged {
     type Vtable = INotifyPropertyChanged_Vtbl;
@@ -2569,6 +2630,10 @@ impl ::core::fmt::Debug for ISelectionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for ISelectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2e12ca86-e1ed-4245-be49-207e42aec524}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ISelectionInfo {
     type Vtable = ISelectionInfo_Vtbl;
@@ -2666,6 +2731,10 @@ impl ::core::fmt::Debug for ISupportIncrementalLoading {
 }
 unsafe impl ::windows::core::RuntimeType for ISupportIncrementalLoading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7f5ee992-7694-4e6c-a51b-e34bf43de743}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ISupportIncrementalLoading {
     type Vtable = ISupportIncrementalLoading_Vtbl;
@@ -2762,6 +2831,10 @@ impl ::core::fmt::Debug for IValueConverter {
 }
 unsafe impl ::windows::core::RuntimeType for IValueConverter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e6f2fef0-0712-487f-b313-f300b8d79aa1}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IValueConverter {
     type Vtable = IValueConverter_Vtbl;
@@ -2847,6 +2920,10 @@ impl ::core::fmt::Debug for ItemIndexRange {
 }
 unsafe impl ::windows::core::RuntimeType for ItemIndexRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.ItemIndexRange;{83b834be-0583-4a26-9b64-8bf4a2f65704})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ItemIndexRange {
     type Vtable = IItemIndexRange_Vtbl;
@@ -2918,9 +2995,10 @@ unsafe impl ::windows::core::Abi for LoadMoreItemsResult {
 }
 unsafe impl ::windows::core::RuntimeType for LoadMoreItemsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Data.LoadMoreItemsResult;u4)");
-}
-impl ::windows::core::DefaultType for LoadMoreItemsResult {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for LoadMoreItemsResult {
     fn eq(&self, other: &Self) -> bool {
@@ -2984,6 +3062,10 @@ impl ::core::fmt::Debug for PropertyChangedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PropertyChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.PropertyChangedEventArgs;{4f33a9a0-5cf4-47a4-b16f-d7faaf17457e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PropertyChangedEventArgs {
     type Vtable = IPropertyChangedEventArgs_Vtbl;
@@ -3105,6 +3187,10 @@ unsafe impl ::windows::core::Interface for PropertyChangedEventHandler {
 }
 unsafe impl ::windows::core::RuntimeType for PropertyChangedEventHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{50f19c16-0a22-4d8e-a089-1ea9951657d2}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3168,6 +3254,10 @@ impl ::core::fmt::Debug for RelativeSource {
 }
 unsafe impl ::windows::core::RuntimeType for RelativeSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.RelativeSource;{2397ce84-2822-483a-b499-d0f031e06c6b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RelativeSource {
     type Vtable = IRelativeSource_Vtbl;
@@ -3268,9 +3358,10 @@ impl ::core::fmt::Debug for RelativeSourceMode {
 }
 unsafe impl ::windows::core::RuntimeType for RelativeSourceMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Data.RelativeSourceMode;i4)");
-}
-impl ::windows::core::DefaultType for RelativeSourceMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
@@ -3303,9 +3394,10 @@ impl ::core::fmt::Debug for UpdateSourceTrigger {
 }
 unsafe impl ::windows::core::RuntimeType for UpdateSourceTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Data.UpdateSourceTrigger;i4)");
-}
-impl ::windows::core::DefaultType for UpdateSourceTrigger {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

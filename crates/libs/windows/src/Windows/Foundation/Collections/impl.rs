@@ -38,7 +38,7 @@ where
     fn Current(&mut self) -> ::windows::core::Result<T>;
     fn HasCurrent(&mut self) -> ::windows::core::Result<bool>;
     fn MoveNext(&mut self) -> ::windows::core::Result<bool>;
-    fn GetMany(&mut self, items: &mut [<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
+    fn GetMany(&mut self, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IIterator<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterator";
@@ -160,12 +160,12 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
 {
-    fn Lookup(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<V>;
+    fn Lookup(&mut self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<V>;
     fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn HasKey(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<bool>;
+    fn HasKey(&mut self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<bool>;
     fn GetView(&mut self) -> ::windows::core::Result<IMapView<K, V>>;
-    fn Insert(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType, value: &<V as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<bool>;
-    fn Remove(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()>;
+    fn Insert(&mut self, key: &<K as ::windows::core::RuntimeType>::DefaultType, value: &<V as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<bool>;
+    fn Remove(&mut self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IMap<K, V> {
@@ -312,9 +312,9 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
 {
-    fn Lookup(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<V>;
+    fn Lookup(&mut self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<V>;
     fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn HasKey(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<bool>;
+    fn HasKey(&mut self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<bool>;
     fn Split(&mut self, first: &mut ::core::option::Option<IMapView<K, V>>, second: &mut ::core::option::Option<IMapView<K, V>>) -> ::windows::core::Result<()>;
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IMapView<K, V> {
@@ -478,15 +478,15 @@ where
     fn GetAt(&mut self, index: u32) -> ::windows::core::Result<T>;
     fn Size(&mut self) -> ::windows::core::Result<u32>;
     fn GetView(&mut self) -> ::windows::core::Result<IVectorView<T>>;
-    fn IndexOf(&mut self, value: &<T as ::windows::core::DefaultType>::DefaultType, index: &mut u32) -> ::windows::core::Result<bool>;
-    fn SetAt(&mut self, index: u32, value: &<T as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()>;
-    fn InsertAt(&mut self, index: u32, value: &<T as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()>;
+    fn IndexOf(&mut self, value: &<T as ::windows::core::RuntimeType>::DefaultType, index: &mut u32) -> ::windows::core::Result<bool>;
+    fn SetAt(&mut self, index: u32, value: &<T as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
+    fn InsertAt(&mut self, index: u32, value: &<T as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
     fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn Append(&mut self, value: &<T as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()>;
+    fn Append(&mut self, value: &<T as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
     fn RemoveAtEnd(&mut self) -> ::windows::core::Result<()>;
     fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn GetMany(&mut self, startindex: u32, items: &mut [<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
-    fn ReplaceAll(&mut self, items: &[<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GetMany(&mut self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32>;
+    fn ReplaceAll(&mut self, items: &[<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IVector<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVector";
@@ -658,8 +658,8 @@ where
 {
     fn GetAt(&mut self, index: u32) -> ::windows::core::Result<T>;
     fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn IndexOf(&mut self, value: &<T as ::windows::core::DefaultType>::DefaultType, index: &mut u32) -> ::windows::core::Result<bool>;
-    fn GetMany(&mut self, startindex: u32, items: &mut [<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
+    fn IndexOf(&mut self, value: &<T as ::windows::core::RuntimeType>::DefaultType, index: &mut u32) -> ::windows::core::Result<bool>;
+    fn GetMany(&mut self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IVectorView<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorView";
