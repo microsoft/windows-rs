@@ -39,7 +39,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayAdapterId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayAdapterId;u4;i4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for DisplayAdapterId {
@@ -76,7 +76,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.DisplayId;u8)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for DisplayId {
@@ -190,7 +190,7 @@ unsafe impl ::windows::core::RuntimeType for PointInt32 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.PointInt32;i4;i4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for PointInt32 {
@@ -230,7 +230,7 @@ unsafe impl ::windows::core::RuntimeType for RectInt32 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.RectInt32;i4;i4;i4;i4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for RectInt32 {
@@ -268,7 +268,7 @@ unsafe impl ::windows::core::RuntimeType for SizeInt32 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.SizeInt32;i4;i4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for SizeInt32 {

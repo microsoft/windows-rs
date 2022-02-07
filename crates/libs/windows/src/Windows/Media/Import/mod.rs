@@ -1866,7 +1866,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportProgress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Media.Import.PhotoImportProgress;u4;u4;u8;u8;f8)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for PhotoImportProgress {

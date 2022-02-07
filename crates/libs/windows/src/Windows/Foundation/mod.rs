@@ -633,7 +633,7 @@ unsafe impl ::windows::core::RuntimeType for DateTime {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for DateTime {
@@ -968,7 +968,7 @@ unsafe impl ::windows::core::RuntimeType for EventRegistrationToken {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.EventRegistrationToken;i8)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for EventRegistrationToken {
@@ -4008,7 +4008,7 @@ unsafe impl ::windows::core::RuntimeType for Point {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for Point {
@@ -4406,7 +4406,7 @@ unsafe impl ::windows::core::RuntimeType for Rect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for Rect {
@@ -4444,7 +4444,7 @@ unsafe impl ::windows::core::RuntimeType for Size {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for Size {
@@ -4481,7 +4481,7 @@ unsafe impl ::windows::core::RuntimeType for TimeSpan {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for TimeSpan {

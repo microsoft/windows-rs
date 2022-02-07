@@ -2702,7 +2702,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTimeRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Media.MediaTimeRange;struct(Windows.Foundation.TimeSpan;i8);struct(Windows.Foundation.TimeSpan;i8))");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 #[cfg(feature = "Foundation")]

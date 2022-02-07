@@ -27,7 +27,7 @@ unsafe impl ::windows::core::RuntimeType for BandwidthStatistics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.BandwidthStatistics;u8;u8;u8;u8;b1;b1)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for BandwidthStatistics {
@@ -3921,7 +3921,7 @@ unsafe impl ::windows::core::RuntimeType for RoundTripTimeStatistics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.RoundTripTimeStatistics;u4;u4;u4;u4)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for RoundTripTimeStatistics {

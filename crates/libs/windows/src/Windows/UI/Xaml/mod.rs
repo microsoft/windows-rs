@@ -2183,7 +2183,7 @@ unsafe impl ::windows::core::RuntimeType for CornerRadius {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.CornerRadius;f8;f8;f8;f8)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for CornerRadius {
@@ -4900,7 +4900,7 @@ unsafe impl ::windows::core::RuntimeType for Duration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Duration;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.UI.Xaml.DurationType;i4))");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 #[cfg(feature = "Foundation")]
@@ -7899,7 +7899,7 @@ unsafe impl ::windows::core::RuntimeType for GridLength {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.GridLength;f8;enum(Windows.UI.Xaml.GridUnitType;i4))");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for GridLength {
@@ -15576,7 +15576,7 @@ unsafe impl ::windows::core::RuntimeType for Thickness {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Thickness;f8;f8;f8;f8)");
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
+        Ok(*from)
     }
 }
 impl ::core::cmp::PartialEq for Thickness {
