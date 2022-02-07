@@ -2,6 +2,7 @@
 Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
 */
 
+#![allow(incomplete_features)]
 #![cfg_attr(feature = "use_raw_dylib", feature(raw_dylib))]
 #![cfg_attr(feature = "implement", feature(const_fn_fn_ptr_basics))]
 #![cfg_attr(feature = "implement", feature(const_fn_trait_bound))]
