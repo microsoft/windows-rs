@@ -5,37 +5,37 @@ use windows::Win32::Foundation::E_BOUNDS;
 #[implement(
     windows::Foundation::Collections::IIterator<T>,
 )]
-struct Iterator<T>
-where
-    T: RuntimeType + 'static,
-{
-    owner: IIterable<T>,
-    current: usize,
-}
+struct Iterator<T: RuntimeType + 'static>(std::cell::UnsafeCell<(IIterable<T>, usize)>);
 
 #[allow(non_snake_case)]
 impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
     fn Current(&self) -> Result<T> {
-        let owner = unsafe { Iterable::to_impl(&self.owner) };
+        unsafe {
+            let this = self.0.get();
+            let owner = Iterable::to_impl(&(*this).0);
 
-        if owner.0.len() > self.current {
-            Ok(owner.0[self.current].clone())
-        } else {
-            Err(Error::new(E_BOUNDS, "".into()))
+            if owner.0.len() > (*this).1 {
+                Ok(owner.0[(*this).1].clone())
+            } else {
+                Err(Error::new(E_BOUNDS, "".into()))
+            }
         }
     }
 
     fn HasCurrent(&self) -> Result<bool> {
-        let owner = unsafe { Iterable::to_impl(&self.owner) };
-        Ok(owner.0.len() > self.current)
+        unsafe {
+            let this = self.0.get();
+            let owner = Iterable::to_impl(&(*this).0);
+            Ok(owner.0.len() > (*this).1)
+        }
     }
 
     fn MoveNext(&self) -> Result<bool> {
         unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            let owner = Iterable::to_impl(&writer.owner);
-            writer.current += 1;
-            Ok(owner.0.len() > writer.current)
+            let this = self.0.get();
+            let owner = Iterable::to_impl(&(*this).0);
+            (*this).1 += 1;
+            Ok(owner.0.len() > (*this).1)
         }
     }
 
@@ -54,7 +54,7 @@ where
 #[allow(non_snake_case)]
 impl<T: RuntimeType + 'static> IIterable_Impl<T> for Iterable<T> {
     fn First(&self) -> Result<IIterator<T>> {
-        Ok(Iterator::<T> { owner: self.cast()?, current: 0 }.into())
+        Ok(Iterator::<T>((self.cast()?, 0).into()).into())
     }
 }
 

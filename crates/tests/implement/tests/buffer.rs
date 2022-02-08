@@ -3,21 +3,18 @@ use windows::Storage::Streams::Buffer;
 use windows::Win32::System::WinRT::*;
 
 #[implement(IBufferByteAccess)]
-struct TestBuffer(Vec<u8>);
+struct TestBuffer(std::cell::UnsafeCell<Vec<u8>>);
 
 #[allow(non_snake_case)]
 impl IBufferByteAccess_Impl for TestBuffer {
     fn Buffer(&self) -> Result<*mut u8> {
-        unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            Ok(writer.0.as_mut_ptr())
-        }
+        unsafe { Ok((*self.0.get()).as_mut_ptr()) }
     }
 }
 
 #[test]
 fn test() -> Result<()> {
-    let object: IBufferByteAccess = TestBuffer(vec![0xAA, 0xBB, 0xCC]).into();
+    let object: IBufferByteAccess = TestBuffer(vec![0xAA, 0xBB, 0xCC].into()).into();
 
     let bytes: *const u8 = unsafe { object.Buffer()? };
     let bytes = unsafe { core::slice::from_raw_parts(bytes, 3) };

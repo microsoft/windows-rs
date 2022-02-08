@@ -2,9 +2,8 @@
 
 use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 
-#[implement(IDataObject)]
 #[derive(Default)]
-struct Test {
+struct TestData {
     GetData: bool,
     GetDataHere: bool,
     QueryGetData: bool,
@@ -16,75 +15,70 @@ struct Test {
     EnumDAdvise: bool,
 }
 
+#[implement(IDataObject)]
+#[derive(Default)]
+struct Test(std::cell::UnsafeCell<TestData>);
+
 impl IDataObject_Impl for Test {
     fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM> {
         unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            writer.GetData = true;
+            (*self.0.get()).GetData = true;
             Ok(STGMEDIUM::default())
         }
     }
 
     fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
         unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            writer.GetDataHere = true;
+            (*self.0.get()).GetDataHere = true;
             Ok(())
         }
     }
 
     fn QueryGetData(&self, _: *const FORMATETC) -> Result<()> {
         unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            writer.QueryGetData = true;
+            (*self.0.get()).QueryGetData = true;
             Ok(())
         }
     }
 
     fn GetCanonicalFormatEtc(&self, _: *const FORMATETC) -> Result<FORMATETC> {
         unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            writer.GetCanonicalFormatEtc = true;
+            (*self.0.get()).GetCanonicalFormatEtc = true;
             Ok(FORMATETC::default())
         }
     }
 
     fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
         unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            writer.SetData = true;
+            (*self.0.get()).SetData = true;
             Ok(())
         }
     }
 
     fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
         unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            writer.EnumFormatEtc = true;
+            (*self.0.get()).EnumFormatEtc = true;
             Err(Error::OK)
         }
     }
 
     fn DAdvise(&self, _: *const FORMATETC, _: u32, _: &Option<IAdviseSink>) -> Result<u32> {
         unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            writer.DAdvise = true;
+            (*self.0.get()).DAdvise = true;
             Ok(0)
         }
     }
 
     fn DUnadvise(&self, _: u32) -> Result<()> {
         unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            writer.DUnadvise = true;
+            (*self.0.get()).DUnadvise = true;
             Ok(())
         }
     }
 
     fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
         unsafe {
-            let writer: &mut Self = &mut *(self as *const _ as *mut Self);
-            writer.EnumDAdvise = true;
+            (*self.0.get()).EnumDAdvise = true;
             Err(Error::OK)
         }
     }
@@ -102,23 +96,23 @@ fn test() -> Result<()> {
         let _ = d.EnumFormatEtc(0);
         d.DAdvise(core::ptr::null_mut(), 0, None)?;
 
-        let i = Test::to_impl(&d);
-        assert!(i.GetData);
-        assert!(i.GetDataHere);
-        assert!(i.QueryGetData);
-        assert!(i.GetCanonicalFormatEtc);
-        assert!(i.SetData);
-        assert!(i.EnumFormatEtc);
-        assert!(i.DAdvise);
+        let i = Test::to_impl(&d).0.get();
+        assert!((*i).GetData);
+        assert!((*i).GetDataHere);
+        assert!((*i).QueryGetData);
+        assert!((*i).GetCanonicalFormatEtc);
+        assert!((*i).SetData);
+        assert!((*i).EnumFormatEtc);
+        assert!((*i).DAdvise);
 
-        assert!(!i.DUnadvise);
-        assert!(!i.EnumDAdvise);
+        assert!(!(*i).DUnadvise);
+        assert!(!(*i).EnumDAdvise);
 
         d.DUnadvise(0)?;
         let _ = d.EnumDAdvise();
 
-        assert!(i.DUnadvise);
-        assert!(i.EnumDAdvise);
+        assert!((*i).DUnadvise);
+        assert!((*i).EnumDAdvise);
 
         Ok(())
     }
