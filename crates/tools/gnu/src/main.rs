@@ -32,7 +32,7 @@ fn main() {
     let root = reader.types.get_namespace("Windows.Win32").unwrap();
     load_functions(root, &mut libraries);
 
-    let output = std::path::Path::new(format!("crates/targets/{}/lib", platform));
+    let output = std::path::PathBuf::from(format!("crates/targets/{}/lib", platform));
     let _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
 
