@@ -105,7 +105,7 @@ fn build_yml() {
     let reader = metadata::TypeReader::get();
     let metadata_root = reader.types.get_namespace("Windows").unwrap();
     let trees = metadata::collect_trees(&["Windows.Win32.Interop"], metadata_root);
-    let features = metadata::features(&trees, &metadata_root.namespace);
+    let features = metadata::features(&trees, metadata_root.namespace);
 
     let root = std::path::PathBuf::from(metadata::workspace_dir());
     let mut yml = r#"################################################################################
