@@ -171,6 +171,10 @@ impl ::core::fmt::Debug for BarcodeScanner {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScanner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScanner;{bea33e06-b264-4f03-a9c1-45b20f01134f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BarcodeScanner {
     type Vtable = IBarcodeScanner_Vtbl;
@@ -318,6 +322,10 @@ impl ::core::fmt::Debug for BarcodeScannerCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerCapabilities;{c60691e4-f2c8-4420-a307-b12ef6622857})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerCapabilities {
     type Vtable = IBarcodeScannerCapabilities_Vtbl;
@@ -399,6 +407,10 @@ impl ::core::fmt::Debug for BarcodeScannerDataReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs;{4234a7e2-ed97-467d-ad2b-01e44313a929})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerDataReceivedEventArgs {
     type Vtable = IBarcodeScannerDataReceivedEventArgs_Vtbl;
@@ -496,6 +508,10 @@ impl ::core::fmt::Debug for BarcodeScannerErrorOccurredEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs;{2cd2602f-cf3a-4002-a75a-c5ec468f0a20})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerErrorOccurredEventArgs {
     type Vtable = IBarcodeScannerErrorOccurredEventArgs_Vtbl;
@@ -578,6 +594,10 @@ impl ::core::fmt::Debug for BarcodeScannerImagePreviewReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerImagePreviewReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs;{f3b7de85-6e8b-434e-9f58-06ef26bc4baf})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerImagePreviewReceivedEventArgs {
     type Vtable = IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl;
@@ -690,6 +710,10 @@ impl ::core::fmt::Debug for BarcodeScannerReport {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerReport;{5ce4d8b0-a489-4b96-86c4-f0bf8a37753d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerReport {
     type Vtable = IBarcodeScannerReport_Vtbl;
@@ -772,9 +796,10 @@ impl ::core::fmt::Debug for BarcodeScannerStatus {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeScannerStatus;i4)");
-}
-impl ::windows::core::DefaultType for BarcodeScannerStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -815,6 +840,10 @@ impl ::core::fmt::Debug for BarcodeScannerStatusUpdatedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs;{355d8586-9c43-462b-a91a-816dc97f452c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStatusUpdatedEventArgs {
     type Vtable = IBarcodeScannerStatusUpdatedEventArgs_Vtbl;
@@ -1659,6 +1688,10 @@ impl ::core::fmt::Debug for BarcodeSymbologyAttributes {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeSymbologyAttributes;{66413a78-ab7a-4ada-8ece-936014b2ead7})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BarcodeSymbologyAttributes {
     type Vtable = IBarcodeSymbologyAttributes_Vtbl;
@@ -1739,9 +1772,10 @@ impl ::core::fmt::Debug for BarcodeSymbologyDecodeLengthKind {
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyDecodeLengthKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind;i4)");
-}
-impl ::windows::core::DefaultType for BarcodeSymbologyDecodeLengthKind {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -1894,6 +1928,10 @@ impl ::core::fmt::Debug for CashDrawer {
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawer;{9f88f5c8-de54-4aee-a890-920bcbfe30fc})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CashDrawer {
     type Vtable = ICashDrawer_Vtbl;
@@ -2041,6 +2079,10 @@ impl ::core::fmt::Debug for CashDrawerCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCapabilities;{0bc6de0b-e8e7-4b1f-b1d1-3e501ad08247})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CashDrawerCapabilities {
     type Vtable = ICashDrawerCapabilities_Vtbl;
@@ -2196,6 +2238,10 @@ impl ::core::fmt::Debug for CashDrawerCloseAlarm {
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerCloseAlarm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCloseAlarm;{6bf88cc7-6f63-430e-ab3b-95d75ffbe87f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CashDrawerCloseAlarm {
     type Vtable = ICashDrawerCloseAlarm_Vtbl;
@@ -2277,6 +2323,10 @@ impl ::core::fmt::Debug for CashDrawerClosedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerClosedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CashDrawerClosedEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
@@ -2402,6 +2452,10 @@ impl ::core::fmt::Debug for CashDrawerEventSource {
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerEventSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerEventSource;{e006e46c-f2f9-442f-8dd6-06c10a4227ba})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CashDrawerEventSource {
     type Vtable = ICashDrawerEventSource_Vtbl;
@@ -2483,6 +2537,10 @@ impl ::core::fmt::Debug for CashDrawerOpenedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerOpenedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerOpenedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CashDrawerOpenedEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
@@ -2594,6 +2652,10 @@ impl ::core::fmt::Debug for CashDrawerStatus {
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatus;{6bbd78bf-dca1-4e06-99eb-5af6a5aec108})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CashDrawerStatus {
     type Vtable = ICashDrawerStatus_Vtbl;
@@ -2676,9 +2738,10 @@ impl ::core::fmt::Debug for CashDrawerStatusKind {
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerStatusKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.CashDrawerStatusKind;i4)");
-}
-impl ::windows::core::DefaultType for CashDrawerStatusKind {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -2711,6 +2774,10 @@ impl ::core::fmt::Debug for CashDrawerStatusUpdatedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs;{30aae98a-0d70-459c-9553-87e124c52488})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CashDrawerStatusUpdatedEventArgs {
     type Vtable = ICashDrawerStatusUpdatedEventArgs_Vtbl;
@@ -3059,6 +3126,10 @@ impl ::core::fmt::Debug for ClaimedBarcodeScanner {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedBarcodeScanner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScanner;{4a63b49c-8fa4-4332-bb26-945d11d81e0f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedBarcodeScanner {
     type Vtable = IClaimedBarcodeScanner_Vtbl;
@@ -3157,6 +3228,10 @@ impl ::core::fmt::Debug for ClaimedBarcodeScannerClosedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedBarcodeScannerClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs;{cf7d5489-a22c-4c65-a901-88d77d833954})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedBarcodeScannerClosedEventArgs {
     type Vtable = IClaimedBarcodeScannerClosedEventArgs_Vtbl;
@@ -3352,6 +3427,10 @@ impl ::core::fmt::Debug for ClaimedCashDrawer {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedCashDrawer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawer;{ca3f99af-abb8-42c1-8a84-5c66512f5a75})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedCashDrawer {
     type Vtable = IClaimedCashDrawer_Vtbl;
@@ -3450,6 +3529,10 @@ impl ::core::fmt::Debug for ClaimedCashDrawerClosedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs;{cc573f33-3f34-4c5c-baae-deadf16cd7fa})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedCashDrawerClosedEventArgs {
     type Vtable = IClaimedCashDrawerClosedEventArgs_Vtbl;
@@ -3668,6 +3751,10 @@ impl ::core::fmt::Debug for ClaimedJournalPrinter {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedJournalPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedJournalPrinter;{67ea0630-517d-487f-9fdf-d2e0a0a264a5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedJournalPrinter {
     type Vtable = IClaimedJournalPrinter_Vtbl;
@@ -4043,6 +4130,10 @@ impl ::core::fmt::Debug for ClaimedLineDisplay {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedLineDisplay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplay;{120ac970-9a75-4acf-aae7-09972bcf8794})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedLineDisplay {
     type Vtable = IClaimedLineDisplay_Vtbl;
@@ -4141,6 +4232,10 @@ impl ::core::fmt::Debug for ClaimedLineDisplayClosedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs;{f915f364-d3d5-4f10-b511-90939edfacd8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedLineDisplayClosedEventArgs {
     type Vtable = IClaimedLineDisplayClosedEventArgs_Vtbl;
@@ -4481,6 +4576,10 @@ impl ::core::fmt::Debug for ClaimedMagneticStripeReader {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedMagneticStripeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReader;{475ca8f3-9417-48bc-b9d7-4163a7844c02})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedMagneticStripeReader {
     type Vtable = IClaimedMagneticStripeReader_Vtbl;
@@ -4579,6 +4678,10 @@ impl ::core::fmt::Debug for ClaimedMagneticStripeReaderClosedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedMagneticStripeReaderClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs;{14ada93a-adcd-4c80-acda-c3eaed2647e1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedMagneticStripeReaderClosedEventArgs {
     type Vtable = IClaimedMagneticStripeReaderClosedEventArgs_Vtbl;
@@ -4820,6 +4923,10 @@ impl ::core::fmt::Debug for ClaimedPosPrinter {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedPosPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinter;{6d64ce0c-e03e-4b14-a38e-c28c34b86353})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedPosPrinter {
     type Vtable = IClaimedPosPrinter_Vtbl;
@@ -4918,6 +5025,10 @@ impl ::core::fmt::Debug for ClaimedPosPrinterClosedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs;{e2b7a27b-4d40-471d-92ed-63375b18c788})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedPosPrinterClosedEventArgs {
     type Vtable = IClaimedPosPrinterClosedEventArgs_Vtbl;
@@ -5178,6 +5289,10 @@ impl ::core::fmt::Debug for ClaimedReceiptPrinter {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedReceiptPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedReceiptPrinter;{9ad27a74-dd61-4ee2-9837-5b5d72d538b9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedReceiptPrinter {
     type Vtable = IClaimedReceiptPrinter_Vtbl;
@@ -5509,6 +5624,10 @@ impl ::core::fmt::Debug for ClaimedSlipPrinter {
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedSlipPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedSlipPrinter;{bd5deff2-af90-4e8a-b77b-e3ae9ca63a7f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ClaimedSlipPrinter {
     type Vtable = IClaimedSlipPrinter_Vtbl;
@@ -6160,6 +6279,10 @@ impl ::core::fmt::Debug for ICashDrawerEventSourceEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for ICashDrawerEventSourceEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69cb3bc1-147f-421c-9c23-090123bb786c}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICashDrawerEventSourceEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
@@ -7136,6 +7259,10 @@ impl ::core::fmt::Debug for ICommonClaimedPosPrinterStation {
 }
 unsafe impl ::windows::core::RuntimeType for ICommonClaimedPosPrinterStation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b7eb66a8-fe8a-4cfb-8b42-e35b280cb27c}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICommonClaimedPosPrinterStation {
     type Vtable = ICommonClaimedPosPrinterStation_Vtbl;
@@ -7333,6 +7460,10 @@ impl ::core::fmt::Debug for ICommonPosPrintStationCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for ICommonPosPrintStationCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{de5b52ca-e02e-40e9-9e5e-1b488e6aacfc}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICommonPosPrintStationCapabilities {
     type Vtable = ICommonPosPrintStationCapabilities_Vtbl;
@@ -7623,6 +7754,10 @@ impl ::core::fmt::Debug for ICommonReceiptSlipCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for ICommonReceiptSlipCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{09286b8b-9873-4d05-bfbe-4727a6038f69}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ICommonReceiptSlipCapabilities {
     type Vtable = ICommonReceiptSlipCapabilities_Vtbl;
@@ -8560,6 +8695,10 @@ impl ::core::fmt::Debug for IPosPrinterJob {
 }
 unsafe impl ::windows::core::RuntimeType for IPosPrinterJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a94005c-0615-4591-a58f-30f87edfe2e4}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IPosPrinterJob {
     type Vtable = IPosPrinterJob_Vtbl;
@@ -8881,6 +9020,10 @@ impl ::core::fmt::Debug for IReceiptOrSlipJob {
 }
 unsafe impl ::windows::core::RuntimeType for IReceiptOrSlipJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{532199be-c8c3-4dc2-89e9-5c4a37b34ddc}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IReceiptOrSlipJob {
     type Vtable = IReceiptOrSlipJob_Vtbl;
@@ -9135,6 +9278,10 @@ impl ::core::fmt::Debug for JournalPrintJob {
 }
 unsafe impl ::windows::core::RuntimeType for JournalPrintJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrintJob;{9a94005c-0615-4591-a58f-30f87edfe2e4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for JournalPrintJob {
     type Vtable = IPosPrinterJob_Vtbl;
@@ -9383,6 +9530,10 @@ impl ::core::fmt::Debug for JournalPrinterCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for JournalPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrinterCapabilities;{3b5ccc43-e047-4463-bb58-17b5ba1d8056})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for JournalPrinterCapabilities {
     type Vtable = IJournalPrinterCapabilities_Vtbl;
@@ -9605,6 +9756,10 @@ impl ::core::fmt::Debug for LineDisplay {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplay;{24f5df4e-3c99-44e2-b73f-e51be3637a8c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplay {
     type Vtable = ILineDisplay_Vtbl;
@@ -9799,6 +9954,10 @@ impl ::core::fmt::Debug for LineDisplayAttributes {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayAttributes;{c17de99c-229a-4c14-a6f1-b4e4b1fead92})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplayAttributes {
     type Vtable = ILineDisplayAttributes_Vtbl;
@@ -10016,6 +10175,10 @@ impl ::core::fmt::Debug for LineDisplayCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCapabilities;{5a15b5d1-8dc5-4b9c-9172-303e47b70c55})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplayCapabilities {
     type Vtable = ILineDisplayCapabilities_Vtbl;
@@ -10162,6 +10325,10 @@ impl ::core::fmt::Debug for LineDisplayCursor {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayCursor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursor;{ecdffc45-754a-4e3b-ab2b-151181085605})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplayCursor {
     type Vtable = ILineDisplayCursor_Vtbl;
@@ -10289,6 +10456,10 @@ impl ::core::fmt::Debug for LineDisplayCursorAttributes {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayCursorAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursorAttributes;{4e2d54fe-4ffd-4190-aae1-ce285f20c896})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplayCursorAttributes {
     type Vtable = ILineDisplayCursorAttributes_Vtbl;
@@ -10372,9 +10543,10 @@ impl ::core::fmt::Debug for LineDisplayCursorType {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayCursorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayCursorType;i4)");
-}
-impl ::windows::core::DefaultType for LineDisplayCursorType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -10426,6 +10598,10 @@ impl ::core::fmt::Debug for LineDisplayCustomGlyphs {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayCustomGlyphs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCustomGlyphs;{2257f63c-f263-44f1-a1a0-e750a6a0ec54})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplayCustomGlyphs {
     type Vtable = ILineDisplayCustomGlyphs_Vtbl;
@@ -10506,9 +10682,10 @@ impl ::core::fmt::Debug for LineDisplayDescriptorState {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayDescriptorState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayDescriptorState;i4)");
-}
-impl ::windows::core::DefaultType for LineDisplayDescriptorState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -10540,9 +10717,10 @@ impl ::core::fmt::Debug for LineDisplayHorizontalAlignment {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayHorizontalAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayHorizontalAlignment;i4)");
-}
-impl ::windows::core::DefaultType for LineDisplayHorizontalAlignment {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -10628,6 +10806,10 @@ impl ::core::fmt::Debug for LineDisplayMarquee {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayMarquee {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayMarquee;{a3d33e3e-f46a-4b7a-bc21-53eb3b57f8b4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplayMarquee {
     type Vtable = ILineDisplayMarquee_Vtbl;
@@ -10708,9 +10890,10 @@ impl ::core::fmt::Debug for LineDisplayMarqueeFormat {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayMarqueeFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayMarqueeFormat;i4)");
-}
-impl ::windows::core::DefaultType for LineDisplayMarqueeFormat {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -10744,9 +10927,10 @@ impl ::core::fmt::Debug for LineDisplayPowerStatus {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayPowerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayPowerStatus;i4)");
-}
-impl ::windows::core::DefaultType for LineDisplayPowerStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -10779,9 +10963,10 @@ impl ::core::fmt::Debug for LineDisplayScrollDirection {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayScrollDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayScrollDirection;i4)");
-}
-impl ::windows::core::DefaultType for LineDisplayScrollDirection {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -10830,6 +11015,10 @@ impl ::core::fmt::Debug for LineDisplayStatisticsCategorySelector {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayStatisticsCategorySelector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector;{b521c46b-9274-4d24-94f3-b6017b832444})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplayStatisticsCategorySelector {
     type Vtable = ILineDisplayStatisticsCategorySelector_Vtbl;
@@ -10911,6 +11100,10 @@ impl ::core::fmt::Debug for LineDisplayStatusUpdatedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs;{ddd57c1a-86fb-4eba-93d1-6f5eda52b752})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplayStatusUpdatedEventArgs {
     type Vtable = ILineDisplayStatusUpdatedEventArgs_Vtbl;
@@ -11001,6 +11194,10 @@ impl ::core::fmt::Debug for LineDisplayStoredBitmap {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayStoredBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStoredBitmap;{f621515b-d81e-43ba-bf1b-bcfa3c785ba0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplayStoredBitmap {
     type Vtable = ILineDisplayStoredBitmap_Vtbl;
@@ -11082,9 +11279,10 @@ impl ::core::fmt::Debug for LineDisplayTextAttribute {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttribute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttribute;i4)");
-}
-impl ::windows::core::DefaultType for LineDisplayTextAttribute {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -11116,9 +11314,10 @@ impl ::core::fmt::Debug for LineDisplayTextAttributeGranularity {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttributeGranularity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity;i4)");
-}
-impl ::windows::core::DefaultType for LineDisplayTextAttributeGranularity {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -11150,9 +11349,10 @@ impl ::core::fmt::Debug for LineDisplayVerticalAlignment {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayVerticalAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayVerticalAlignment;i4)");
-}
-impl ::windows::core::DefaultType for LineDisplayVerticalAlignment {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -11340,6 +11540,10 @@ impl ::core::fmt::Debug for LineDisplayWindow {
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayWindow;{d21feef4-2364-4be5-bee1-851680af4964})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LineDisplayWindow {
     type Vtable = ILineDisplayWindow_Vtbl;
@@ -11567,6 +11771,10 @@ impl ::core::fmt::Debug for MagneticStripeReader {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReader;{1a92b015-47c3-468a-9333-0c6517574883})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReader {
     type Vtable = IMagneticStripeReader_Vtbl;
@@ -11818,6 +12026,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs;{0a4bbd51-c316-4910-87f3-7a62ba862d31})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl;
@@ -11898,9 +12110,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationLevel {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel;i4)");
-}
-impl ::windows::core::DefaultType for MagneticStripeReaderAuthenticationLevel {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -11931,9 +12144,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationProtocol {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationProtocol {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol;i4)");
-}
-impl ::windows::core::DefaultType for MagneticStripeReaderAuthenticationProtocol {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -12030,6 +12244,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderBankCardDataReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderBankCardDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs;{2e958823-a31a-4763-882c-23725e39b08e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderBankCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl;
@@ -12191,6 +12409,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderCapabilities;{7128809c-c440-44a2-a467-469175d02896})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderCapabilities {
     type Vtable = IMagneticStripeReaderCapabilities_Vtbl;
@@ -12385,6 +12607,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderErrorOccurredEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs;{1fedf95d-2c84-41ad-b778-f2356a789ab1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderErrorOccurredEventArgs {
     type Vtable = IMagneticStripeReaderErrorOccurredEventArgs_Vtbl;
@@ -12464,9 +12690,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderErrorReportingType {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorReportingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType;i4)");
-}
-impl ::windows::core::DefaultType for MagneticStripeReaderErrorReportingType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -12566,6 +12793,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderReport {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderReport;{6a5b6047-99b0-4188-bef1-eddf79f78fe6})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderReport {
     type Vtable = IMagneticStripeReaderReport_Vtbl;
@@ -12646,9 +12877,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderStatus {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderStatus;i4)");
-}
-impl ::windows::core::DefaultType for MagneticStripeReaderStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -12689,6 +12921,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderStatusUpdatedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs;{09cc6bb0-3262-401d-9e8a-e80d6358906b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderStatusUpdatedEventArgs {
     type Vtable = IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl;
@@ -12789,6 +13025,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderTrackData {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderTrackData;{104cf671-4a9d-446e-abc5-20402307ba36})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderTrackData {
     type Vtable = IMagneticStripeReaderTrackData_Vtbl;
@@ -12872,9 +13112,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderTrackErrorType {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackErrorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType;i4)");
-}
-impl ::windows::core::DefaultType for MagneticStripeReaderTrackErrorType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -12908,9 +13149,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderTrackIds {
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackIds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackIds;i4)");
-}
-impl ::windows::core::DefaultType for MagneticStripeReaderTrackIds {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -12943,6 +13185,10 @@ impl ::core::fmt::Debug for MagneticStripeReaderVendorSpecificCardDataReceivedEv
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs;{af0a5514-59cc-4a60-99e8-99a53dace5aa})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl;
@@ -13052,9 +13298,10 @@ impl ::core::ops::Not for PosConnectionTypes {
 }
 unsafe impl ::windows::core::RuntimeType for PosConnectionTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosConnectionTypes;u4)");
-}
-impl ::windows::core::DefaultType for PosConnectionTypes {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -13226,6 +13473,10 @@ impl ::core::fmt::Debug for PosPrinter {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinter;{2a03c10e-9a19-4a01-994f-12dfad6adcbf})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PosPrinter {
     type Vtable = IPosPrinter_Vtbl;
@@ -13332,9 +13583,10 @@ impl ::core::fmt::Debug for PosPrinterAlignment {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterAlignment;i4)");
-}
-impl ::windows::core::DefaultType for PosPrinterAlignment {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -13366,9 +13618,10 @@ impl ::core::fmt::Debug for PosPrinterBarcodeTextPosition {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterBarcodeTextPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition;i4)");
-}
-impl ::windows::core::DefaultType for PosPrinterBarcodeTextPosition {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -13473,6 +13726,10 @@ impl ::core::fmt::Debug for PosPrinterCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterCapabilities;{cde95721-4380-4985-adc5-39db30cd93bc})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PosPrinterCapabilities {
     type Vtable = IPosPrinterCapabilities_Vtbl;
@@ -13583,9 +13840,10 @@ impl ::core::ops::Not for PosPrinterCartridgeSensors {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterCartridgeSensors {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterCartridgeSensors;u4)");
-}
-impl ::windows::core::DefaultType for PosPrinterCartridgeSensors {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 pub struct PosPrinterCharacterSetIds {}
@@ -13687,9 +13945,10 @@ impl ::core::ops::Not for PosPrinterColorCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterColorCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCapabilities;u4)");
-}
-impl ::windows::core::DefaultType for PosPrinterColorCapabilities {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -13729,9 +13988,10 @@ impl ::core::fmt::Debug for PosPrinterColorCartridge {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterColorCartridge {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCartridge;i4)");
-}
-impl ::windows::core::DefaultType for PosPrinterColorCartridge {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -13781,6 +14041,10 @@ impl ::core::fmt::Debug for PosPrinterFontProperty {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterFontProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterFontProperty;{a7f4e93a-f8ac-5f04-84d2-29b16d8a633c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PosPrinterFontProperty {
     type Vtable = IPosPrinterFontProperty_Vtbl;
@@ -13860,9 +14124,10 @@ impl ::core::fmt::Debug for PosPrinterLineDirection {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterLineDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineDirection;i4)");
-}
-impl ::windows::core::DefaultType for PosPrinterLineDirection {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -13895,9 +14160,10 @@ impl ::core::fmt::Debug for PosPrinterLineStyle {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterLineStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineStyle;i4)");
-}
-impl ::windows::core::DefaultType for PosPrinterLineStyle {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -13930,9 +14196,10 @@ impl ::core::fmt::Debug for PosPrinterMapMode {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterMapMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMapMode;i4)");
-}
-impl ::windows::core::DefaultType for PosPrinterMapMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -13994,9 +14261,10 @@ impl ::core::ops::Not for PosPrinterMarkFeedCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities;u4)");
-}
-impl ::windows::core::DefaultType for PosPrinterMarkFeedCapabilities {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -14029,9 +14297,10 @@ impl ::core::fmt::Debug for PosPrinterMarkFeedKind {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedKind;i4)");
-}
-impl ::windows::core::DefaultType for PosPrinterMarkFeedKind {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -14232,6 +14501,10 @@ impl ::core::fmt::Debug for PosPrinterPrintOptions {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterPrintOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterPrintOptions;{0a2e16fd-1d02-5a58-9d59-bfcde76fde86})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PosPrinterPrintOptions {
     type Vtable = IPosPrinterPrintOptions_Vtbl;
@@ -14312,9 +14585,10 @@ impl ::core::fmt::Debug for PosPrinterPrintSide {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterPrintSide {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterPrintSide;i4)");
-}
-impl ::windows::core::DefaultType for PosPrinterPrintSide {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -14338,6 +14612,10 @@ impl ::core::fmt::Debug for PosPrinterReleaseDeviceRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterReleaseDeviceRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs;{2bcba359-1cef-40b2-9ecb-f927f856ae3c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PosPrinterReleaseDeviceRequestedEventArgs {
     type Vtable = IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl;
@@ -14419,9 +14697,10 @@ impl ::core::fmt::Debug for PosPrinterRotation {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRotation;i4)");
-}
-impl ::windows::core::DefaultType for PosPrinterRotation {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -14481,9 +14760,10 @@ impl ::core::ops::Not for PosPrinterRuledLineCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterRuledLineCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities;u4)");
-}
-impl ::windows::core::DefaultType for PosPrinterRuledLineCapabilities {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -14524,6 +14804,10 @@ impl ::core::fmt::Debug for PosPrinterStatus {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatus;{d1f0c730-da40-4328-bf76-5156fa33b747})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PosPrinterStatus {
     type Vtable = IPosPrinterStatus_Vtbl;
@@ -14606,9 +14890,10 @@ impl ::core::fmt::Debug for PosPrinterStatusKind {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterStatusKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterStatusKind;i4)");
-}
-impl ::windows::core::DefaultType for PosPrinterStatusKind {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -14641,6 +14926,10 @@ impl ::core::fmt::Debug for PosPrinterStatusUpdatedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs;{2edb87df-13a6-428d-ba81-b0e7c3e5a3cd})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PosPrinterStatusUpdatedEventArgs {
     type Vtable = IPosPrinterStatusUpdatedEventArgs_Vtbl;
@@ -14857,6 +15146,10 @@ impl ::core::fmt::Debug for ReceiptPrintJob {
 }
 unsafe impl ::windows::core::RuntimeType for ReceiptPrintJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrintJob;{aa96066e-acad-4b79-9d0f-c0cfc08dc77b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ReceiptPrintJob {
     type Vtable = IReceiptPrintJob_Vtbl;
@@ -15225,6 +15518,10 @@ impl ::core::fmt::Debug for ReceiptPrinterCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for ReceiptPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrinterCapabilities;{b8f0b58f-51a8-43fc-9bd5-8de272a6415b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ReceiptPrinterCapabilities {
     type Vtable = IReceiptPrinterCapabilities_Vtbl;
@@ -15341,9 +15638,10 @@ unsafe impl ::windows::core::Abi for SizeUInt32 {
 }
 unsafe impl ::windows::core::RuntimeType for SizeUInt32 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.PointOfService.SizeUInt32;u4;u4)");
-}
-impl ::windows::core::DefaultType for SizeUInt32 {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for SizeUInt32 {
     fn eq(&self, other: &Self) -> bool {
@@ -15502,6 +15800,10 @@ impl ::core::fmt::Debug for SlipPrintJob {
 }
 unsafe impl ::windows::core::RuntimeType for SlipPrintJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrintJob;{532199be-c8c3-4dc2-89e9-5c4a37b34ddc})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SlipPrintJob {
     type Vtable = IReceiptOrSlipJob_Vtbl;
@@ -15862,6 +16164,10 @@ impl ::core::fmt::Debug for SlipPrinterCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for SlipPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrinterCapabilities;{99b16399-488c-4157-8ac2-9f57f708d3db})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SlipPrinterCapabilities {
     type Vtable = ISlipPrinterCapabilities_Vtbl;
@@ -16023,6 +16329,10 @@ impl ::core::fmt::Debug for UnifiedPosErrorData {
 }
 unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.UnifiedPosErrorData;{2b998c3a-555c-4889-8ed8-c599bb3a712a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for UnifiedPosErrorData {
     type Vtable = IUnifiedPosErrorData_Vtbl;
@@ -16111,9 +16421,10 @@ impl ::core::fmt::Debug for UnifiedPosErrorReason {
 }
 unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorReason;i4)");
-}
-impl ::windows::core::DefaultType for UnifiedPosErrorReason {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -16148,9 +16459,10 @@ impl ::core::fmt::Debug for UnifiedPosErrorSeverity {
 }
 unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorSeverity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorSeverity;i4)");
-}
-impl ::windows::core::DefaultType for UnifiedPosErrorSeverity {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -16183,9 +16495,10 @@ impl ::core::fmt::Debug for UnifiedPosHealthCheckLevel {
 }
 unsafe impl ::windows::core::RuntimeType for UnifiedPosHealthCheckLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel;i4)");
-}
-impl ::windows::core::DefaultType for UnifiedPosHealthCheckLevel {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
@@ -16217,9 +16530,10 @@ impl ::core::fmt::Debug for UnifiedPosPowerReportingType {
 }
 unsafe impl ::windows::core::RuntimeType for UnifiedPosPowerReportingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosPowerReportingType;i4)");
-}
-impl ::windows::core::DefaultType for UnifiedPosPowerReportingType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

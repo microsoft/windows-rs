@@ -1,6 +1,6 @@
 pub trait INavigationTransitionInfoOverrides_Impl: Sized {
-    fn GetNavigationStateCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNavigationStateCore(&mut self, navigationstate: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+    fn GetNavigationStateCore(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNavigationStateCore(&self, navigationstate: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }

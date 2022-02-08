@@ -1,5 +1,5 @@
 pub trait IControlChannelTriggerEventDetails_Impl: Sized {
-    fn ControlChannelTrigger(&mut self) -> ::windows::core::Result<ControlChannelTrigger>;
+    fn ControlChannelTrigger(&self) -> ::windows::core::Result<ControlChannelTrigger>;
 }
 impl ::windows::core::RuntimeName for IControlChannelTriggerEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerEventDetails";
@@ -28,9 +28,9 @@ impl IControlChannelTriggerEventDetails_Vtbl {
     }
 }
 pub trait IControlChannelTriggerResetEventDetails_Impl: Sized {
-    fn ResetReason(&mut self) -> ::windows::core::Result<ControlChannelTriggerResetReason>;
-    fn HardwareSlotReset(&mut self) -> ::windows::core::Result<bool>;
-    fn SoftwareSlotReset(&mut self) -> ::windows::core::Result<bool>;
+    fn ResetReason(&self) -> ::windows::core::Result<ControlChannelTriggerResetReason>;
+    fn HardwareSlotReset(&self) -> ::windows::core::Result<bool>;
+    fn SoftwareSlotReset(&self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IControlChannelTriggerResetEventDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.IControlChannelTriggerResetEventDetails";
@@ -86,12 +86,12 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IWebSocket_Impl: Sized + super::super::Foundation::IClosable_Impl {
-    fn OutputStream(&mut self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
-    fn ConnectAsync(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
-    fn SetRequestHeader(&mut self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Closed(&mut self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveClosed(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn CloseWithStatus(&mut self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
+    fn ConnectAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Closed(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveClosed(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IWebSocket {
@@ -167,13 +167,13 @@ impl IWebSocket_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
 pub trait IWebSocketControl_Impl: Sized {
-    fn OutboundBufferSizeInBytes(&mut self) -> ::windows::core::Result<u32>;
-    fn SetOutboundBufferSizeInBytes(&mut self, value: u32) -> ::windows::core::Result<()>;
-    fn ServerCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&mut self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn ProxyCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&mut self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn SupportedProtocols(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32>;
+    fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()>;
+    fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetServerCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetProxyCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn SupportedProtocols(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
 impl ::windows::core::RuntimeName for IWebSocketControl {
@@ -262,7 +262,7 @@ impl IWebSocketControl_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 pub trait IWebSocketControl2_Impl: Sized + IWebSocketControl_Impl {
-    fn IgnorableServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn IgnorableServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 impl ::windows::core::RuntimeName for IWebSocketControl2 {
@@ -293,9 +293,9 @@ impl IWebSocketControl2_Vtbl {
     }
 }
 pub trait IWebSocketInformation_Impl: Sized {
-    fn LocalAddress(&mut self) -> ::windows::core::Result<super::HostName>;
-    fn BandwidthStatistics(&mut self) -> ::windows::core::Result<BandwidthStatistics>;
-    fn Protocol(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LocalAddress(&self) -> ::windows::core::Result<super::HostName>;
+    fn BandwidthStatistics(&self) -> ::windows::core::Result<BandwidthStatistics>;
+    fn Protocol(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.IWebSocketInformation";
@@ -351,10 +351,10 @@ impl IWebSocketInformation_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
 pub trait IWebSocketInformation2_Impl: Sized + IWebSocketInformation_Impl {
-    fn ServerCertificate(&mut self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
-    fn ServerCertificateErrorSeverity(&mut self) -> ::windows::core::Result<SocketSslErrorSeverity>;
-    fn ServerCertificateErrors(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
-    fn ServerIntermediateCertificates(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
+    fn ServerCertificate(&self) -> ::windows::core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
+    fn ServerCertificateErrorSeverity(&self) -> ::windows::core::Result<SocketSslErrorSeverity>;
+    fn ServerCertificateErrors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>;
+    fn ServerIntermediateCertificates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
 impl ::windows::core::RuntimeName for IWebSocketInformation2 {

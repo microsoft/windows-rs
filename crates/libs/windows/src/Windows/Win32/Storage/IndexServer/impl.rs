@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IFilter_Impl: Sized {
-    fn Init(&mut self, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32;
-    fn GetChunk(&mut self, pstat: *mut STAT_CHUNK) -> i32;
-    fn GetText(&mut self, pcwcbuffer: *mut u32, awcbuffer: super::super::Foundation::PWSTR) -> i32;
-    fn GetValue(&mut self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32;
-    fn BindRegion(&mut self, origpos: &FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32;
+    fn Init(&self, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32;
+    fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32;
+    fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: super::super::Foundation::PWSTR) -> i32;
+    fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32;
+    fn BindRegion(&self, origpos: &FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IFilter_Vtbl {
@@ -49,8 +49,8 @@ impl IFilter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPhraseSink_Impl: Sized {
-    fn PutSmallPhrase(&mut self, pwcnoun: super::super::Foundation::PWSTR, cwcnoun: u32, pwcmodifier: super::super::Foundation::PWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::Result<()>;
-    fn PutPhrase(&mut self, pwcphrase: super::super::Foundation::PWSTR, cwcphrase: u32) -> ::windows::core::Result<()>;
+    fn PutSmallPhrase(&self, pwcnoun: super::super::Foundation::PWSTR, cwcnoun: u32, pwcmodifier: super::super::Foundation::PWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::Result<()>;
+    fn PutPhrase(&self, pwcphrase: super::super::Foundation::PWSTR, cwcphrase: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPhraseSink_Vtbl {

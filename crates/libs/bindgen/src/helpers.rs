@@ -78,6 +78,10 @@ pub fn gen_runtime_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
             #cfg
             unsafe impl<#(#constraints)*> ::windows::core::RuntimeType for #name {
                 const SIGNATURE: ::windows::core::ConstBuffer = #type_signature;
+                type DefaultType = ::core::option::Option<Self>;
+                fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+                    from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+                }
             }
         }
     } else {
@@ -454,7 +458,7 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
         let this = if is_delegate {
             quote! {}
         } else {
-            quote! { &mut self, }
+            quote! { &self, }
         };
 
         quote! { (#this #(#params),*) -> ::windows::core::Result<#return_sig> }
@@ -485,7 +489,7 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
             _ => gen_return_sig(&signature, gen),
         };
 
-        quote! { (&mut self, #params) #return_sig }
+        quote! { (&self, #params) #return_sig }
     }
 }
 
@@ -508,7 +512,7 @@ fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &
             quote! { &mut ::windows::core::Array<#kind> }
         } else {
             let kind = if let ElementType::GenericParam(_) = param.signature.kind {
-                quote! { <#kind as ::windows::core::DefaultType>::DefaultType }
+                quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
             } else if param.signature.kind.is_nullable() {
                 quote! { ::core::option::Option<#kind> }
             } else {
@@ -523,7 +527,7 @@ fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &
         }
     } else if param.param.is_input() {
         if let ElementType::GenericParam(_) = param.signature.kind {
-            quote! { &<#kind as ::windows::core::DefaultType>::DefaultType }
+            quote! { &<#kind as ::windows::core::RuntimeType>::DefaultType }
         } else if param.signature.kind.is_primitive() {
             quote! { #kind }
         } else if param.signature.kind.is_nullable() {

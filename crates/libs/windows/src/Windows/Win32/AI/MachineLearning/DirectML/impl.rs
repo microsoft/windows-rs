@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait IDMLBindingTable_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl {
-    fn BindInputs(&mut self, bindingcount: u32, bindings: *const DML_BINDING_DESC);
-    fn BindOutputs(&mut self, bindingcount: u32, bindings: *const DML_BINDING_DESC);
-    fn BindTemporaryResource(&mut self, binding: *const DML_BINDING_DESC);
-    fn BindPersistentResource(&mut self, binding: *const DML_BINDING_DESC);
-    fn Reset(&mut self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::Result<()>;
+    fn BindInputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC);
+    fn BindOutputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC);
+    fn BindTemporaryResource(&self, binding: *const DML_BINDING_DESC);
+    fn BindPersistentResource(&self, binding: *const DML_BINDING_DESC);
+    fn Reset(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl IDMLBindingTable_Vtbl {
@@ -49,7 +49,7 @@ impl IDMLBindingTable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait IDMLCommandRecorder_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl {
-    fn RecordDispatch(&mut self, commandlist: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandList>, dispatchable: &::core::option::Option<IDMLDispatchable>, bindings: &::core::option::Option<IDMLBindingTable>);
+    fn RecordDispatch(&self, commandlist: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandList>, dispatchable: &::core::option::Option<IDMLDispatchable>, bindings: &::core::option::Option<IDMLBindingTable>);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl IDMLCommandRecorder_Vtbl {
@@ -78,7 +78,7 @@ impl IDMLCompiledOperator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDMLDebugDevice_Impl: Sized {
-    fn SetMuteDebugOutput(&mut self, mute: super::super::super::Foundation::BOOL);
+    fn SetMuteDebugOutput(&self, mute: super::super::super::Foundation::BOOL);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDMLDebugDevice_Vtbl {
@@ -96,16 +96,16 @@ impl IDMLDebugDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait IDMLDevice_Impl: Sized + IDMLObject_Impl {
-    fn CheckFeatureSupport(&mut self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateOperator(&mut self, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CompileOperator(&mut self, op: &::core::option::Option<IDMLOperator>, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateOperatorInitializer(&mut self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateCommandRecorder(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateBindingTable(&mut self, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Evict(&mut self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::core::Result<()>;
-    fn MakeResident(&mut self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::core::Result<()>;
-    fn GetDeviceRemovedReason(&mut self) -> ::windows::core::Result<()>;
-    fn GetParentDevice(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CompileOperator(&self, op: &::core::option::Option<IDMLOperator>, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateOperatorInitializer(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateCommandRecorder(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateBindingTable(&self, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Evict(&self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::core::Result<()>;
+    fn MakeResident(&self, count: u32, ppobjects: *const ::core::option::Option<IDMLPageable>) -> ::windows::core::Result<()>;
+    fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()>;
+    fn GetParentDevice(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl IDMLDevice_Vtbl {
@@ -180,7 +180,7 @@ impl IDMLDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait IDMLDevice1_Impl: Sized + IDMLObject_Impl + IDMLDevice_Impl {
-    fn CompileGraph(&mut self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CompileGraph(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl IDMLDevice1_Vtbl {
@@ -198,7 +198,7 @@ impl IDMLDevice1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDMLDeviceChild_Impl: Sized + IDMLObject_Impl {
-    fn GetDevice(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetDevice(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDMLDeviceChild_Vtbl {
@@ -216,7 +216,7 @@ impl IDMLDeviceChild_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDMLDispatchable_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl + IDMLPageable_Impl {
-    fn GetBindingProperties(&mut self) -> DML_BINDING_PROPERTIES;
+    fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDMLDispatchable_Vtbl {
@@ -234,10 +234,10 @@ impl IDMLDispatchable_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDMLObject_Impl: Sized {
-    fn GetPrivateData(&mut self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateData(&mut self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&mut self, guid: *const ::windows::core::GUID, data: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetName(&mut self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, data: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetName(&self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDMLObject_Vtbl {
@@ -287,7 +287,7 @@ impl IDMLOperator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDMLOperatorInitializer_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl + IDMLPageable_Impl + IDMLDispatchable_Impl {
-    fn Reset(&mut self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>) -> ::windows::core::Result<()>;
+    fn Reset(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDMLOperatorInitializer_Vtbl {

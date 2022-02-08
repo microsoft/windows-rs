@@ -84,28 +84,6 @@ impl ElementType {
         }
     }
 
-    pub fn from_string_lossy(name: &str) -> Option<ElementType> {
-        match name {
-            "bool" => Some(Self::Bool),
-            "i8" => Some(Self::I8),
-            "u8" => Some(Self::U8),
-            "i16" => Some(Self::I16),
-            "u16" => Some(Self::U16),
-            "i32" => Some(Self::I32),
-            "u32" => Some(Self::U32),
-            "i64" => Some(Self::I64),
-            "u64" => Some(Self::U64),
-            "f32" => Some(Self::F32),
-            "f64" => Some(Self::F64),
-            "isize" => Some(Self::ISize),
-            "usize" => Some(Self::USize),
-            "HSTRING" => Some(Self::String),
-            "GUID" => Some(Self::GUID),
-            "IInspectable" => Some(Self::IInspectable),
-            _ => None,
-        }
-    }
-
     pub fn type_name(&self) -> TypeName {
         match self {
             Self::TypeDef(def) => def.type_name(),
@@ -133,14 +111,6 @@ impl ElementType {
             Self::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_owned(),
             Self::TypeDef(t) => t.type_signature(),
             _ => unimplemented!(),
-        }
-    }
-
-    pub fn features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        match self {
-            Self::TypeDef(def) => def.features(features, keys),
-            Self::Array((signature, _)) => signature.kind.features(features, keys),
-            _ => {}
         }
     }
 

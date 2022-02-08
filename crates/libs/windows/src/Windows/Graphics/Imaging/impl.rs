@@ -1,17 +1,17 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IBitmapFrame_Impl: Sized {
-    fn GetThumbnailAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
-    fn BitmapProperties(&mut self) -> ::windows::core::Result<BitmapPropertiesView>;
-    fn BitmapPixelFormat(&mut self) -> ::windows::core::Result<BitmapPixelFormat>;
-    fn BitmapAlphaMode(&mut self) -> ::windows::core::Result<BitmapAlphaMode>;
-    fn DpiX(&mut self) -> ::windows::core::Result<f64>;
-    fn DpiY(&mut self) -> ::windows::core::Result<f64>;
-    fn PixelWidth(&mut self) -> ::windows::core::Result<u32>;
-    fn PixelHeight(&mut self) -> ::windows::core::Result<u32>;
-    fn OrientedPixelWidth(&mut self) -> ::windows::core::Result<u32>;
-    fn OrientedPixelHeight(&mut self) -> ::windows::core::Result<u32>;
-    fn GetPixelDataAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
-    fn GetPixelDataTransformedAsync(&mut self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: &::core::option::Option<BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
+    fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageStream>>;
+    fn BitmapProperties(&self) -> ::windows::core::Result<BitmapPropertiesView>;
+    fn BitmapPixelFormat(&self) -> ::windows::core::Result<BitmapPixelFormat>;
+    fn BitmapAlphaMode(&self) -> ::windows::core::Result<BitmapAlphaMode>;
+    fn DpiX(&self) -> ::windows::core::Result<f64>;
+    fn DpiY(&self) -> ::windows::core::Result<f64>;
+    fn PixelWidth(&self) -> ::windows::core::Result<u32>;
+    fn PixelHeight(&self) -> ::windows::core::Result<u32>;
+    fn OrientedPixelWidth(&self) -> ::windows::core::Result<u32>;
+    fn OrientedPixelHeight(&self) -> ::windows::core::Result<u32>;
+    fn GetPixelDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
+    fn GetPixelDataTransformedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: &::core::option::Option<BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IBitmapFrame {
@@ -186,9 +186,9 @@ impl IBitmapFrame_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IBitmapFrameWithSoftwareBitmap_Impl: Sized + IBitmapFrame_Impl {
-    fn GetSoftwareBitmapAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
-    fn GetSoftwareBitmapConvertedAsync(&mut self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
-    fn GetSoftwareBitmapTransformedAsync(&mut self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: &::core::option::Option<BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
+    fn GetSoftwareBitmapAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
+    fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
+    fn GetSoftwareBitmapTransformedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: &::core::option::Option<BitmapTransform>, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IBitmapFrameWithSoftwareBitmap {
@@ -246,7 +246,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IBitmapPropertiesView_Impl: Sized {
-    fn GetPropertiesAsync(&mut self, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;
+    fn GetPropertiesAsync(&self, propertiestoretrieve: &::core::option::Option<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IBitmapPropertiesView {

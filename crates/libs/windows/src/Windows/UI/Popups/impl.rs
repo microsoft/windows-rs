@@ -1,10 +1,10 @@
 pub trait IUICommand_Impl: Sized {
-    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Invoked(&mut self) -> ::windows::core::Result<UICommandInvokedHandler>;
-    fn SetInvoked(&mut self, value: &::core::option::Option<UICommandInvokedHandler>) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetId(&mut self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Invoked(&self) -> ::windows::core::Result<UICommandInvokedHandler>;
+    fn SetInvoked(&self, value: &::core::option::Option<UICommandInvokedHandler>) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn SetId(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IUICommand {
     const NAME: &'static str = "Windows.UI.Popups.IUICommand";

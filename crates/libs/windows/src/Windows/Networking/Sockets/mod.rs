@@ -25,9 +25,10 @@ unsafe impl ::windows::core::Abi for BandwidthStatistics {
 }
 unsafe impl ::windows::core::RuntimeType for BandwidthStatistics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.BandwidthStatistics;u8;u8;u8;u8;b1;b1)");
-}
-impl ::windows::core::DefaultType for BandwidthStatistics {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for BandwidthStatistics {
     fn eq(&self, other: &Self) -> bool {
@@ -174,6 +175,10 @@ impl ::core::fmt::Debug for ControlChannelTrigger {
 }
 unsafe impl ::windows::core::RuntimeType for ControlChannelTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ControlChannelTrigger;{7d1431a7-ee96-40e8-a199-8703cd969ec3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ControlChannelTrigger {
     type Vtable = IControlChannelTrigger_Vtbl;
@@ -281,9 +286,10 @@ impl ::core::fmt::Debug for ControlChannelTriggerResetReason {
 }
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResetReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResetReason;i4)");
-}
-impl ::windows::core::DefaultType for ControlChannelTriggerResetReason {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
@@ -314,9 +320,10 @@ impl ::core::fmt::Debug for ControlChannelTriggerResourceType {
 }
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResourceType;i4)");
-}
-impl ::windows::core::DefaultType for ControlChannelTriggerResourceType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
@@ -352,9 +359,10 @@ impl ::core::fmt::Debug for ControlChannelTriggerStatus {
 }
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerStatus;i4)");
-}
-impl ::windows::core::DefaultType for ControlChannelTriggerStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
@@ -556,6 +564,10 @@ impl ::core::fmt::Debug for DatagramSocket {
 }
 unsafe impl ::windows::core::RuntimeType for DatagramSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocket;{7fe25bbb-c3bc-4677-8446-ca28a465a3af})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DatagramSocket {
     type Vtable = IDatagramSocket_Vtbl;
@@ -720,6 +732,10 @@ impl ::core::fmt::Debug for DatagramSocketControl {
 }
 unsafe impl ::windows::core::RuntimeType for DatagramSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketControl;{52ac3f2e-349a-4135-bb58-b79b2647d390})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DatagramSocketControl {
     type Vtable = IDatagramSocketControl_Vtbl;
@@ -825,6 +841,10 @@ impl ::core::fmt::Debug for DatagramSocketInformation {
 }
 unsafe impl ::windows::core::RuntimeType for DatagramSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketInformation;{5f1a569a-55fb-48cd-9706-7a974f7b1585})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DatagramSocketInformation {
     type Vtable = IDatagramSocketInformation_Vtbl;
@@ -940,6 +960,10 @@ impl ::core::fmt::Debug for DatagramSocketMessageReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for DatagramSocketMessageReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs;{9e2ddca2-1712-4ce4-b179-8c652c6d107e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DatagramSocketMessageReceivedEventArgs {
     type Vtable = IDatagramSocketMessageReceivedEventArgs_Vtbl;
@@ -1103,6 +1127,10 @@ impl ::core::fmt::Debug for IControlChannelTriggerEventDetails {
 }
 unsafe impl ::windows::core::RuntimeType for IControlChannelTriggerEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1b36e047-89bb-4236-96ac-71d012bb4869}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IControlChannelTriggerEventDetails {
     type Vtable = IControlChannelTriggerEventDetails_Vtbl;
@@ -1215,6 +1243,10 @@ impl ::core::fmt::Debug for IControlChannelTriggerResetEventDetails {
 }
 unsafe impl ::windows::core::RuntimeType for IControlChannelTriggerResetEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6851038e-8ec4-42fe-9bb2-21e91b7bfcb1}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IControlChannelTriggerResetEventDetails {
     type Vtable = IControlChannelTriggerResetEventDetails_Vtbl;
@@ -2351,6 +2383,10 @@ impl ::core::fmt::Debug for IWebSocket {
 }
 unsafe impl ::windows::core::RuntimeType for IWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f877396f-99b1-4e18-bc08-850c9adf156e}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IWebSocket {
     type Vtable = IWebSocket_Vtbl;
@@ -2508,6 +2544,10 @@ impl ::core::fmt::Debug for IWebSocketControl {
 }
 unsafe impl ::windows::core::RuntimeType for IWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2ec4bdc3-d9a5-455a-9811-de24d45337e9}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IWebSocketControl {
     type Vtable = IWebSocketControl_Vtbl;
@@ -2686,6 +2726,10 @@ impl ::core::fmt::Debug for IWebSocketControl2 {
 }
 unsafe impl ::windows::core::RuntimeType for IWebSocketControl2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79c3be03-f2ca-461e-af4e-9665bc2d0620}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IWebSocketControl2 {
     type Vtable = IWebSocketControl2_Vtbl;
@@ -2803,6 +2847,10 @@ impl ::core::fmt::Debug for IWebSocketInformation {
 }
 unsafe impl ::windows::core::RuntimeType for IWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5e01e316-c92a-47a5-b25f-07847639d181}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
@@ -2960,6 +3008,10 @@ impl ::core::fmt::Debug for IWebSocketInformation2 {
 }
 unsafe impl ::windows::core::RuntimeType for IWebSocketInformation2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ce1d39ce-a1b7-4d43-8269-8d5b981bd47a}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IWebSocketInformation2 {
     type Vtable = IWebSocketInformation2_Vtbl;
@@ -3156,6 +3208,10 @@ impl ::core::fmt::Debug for MessageWebSocket {
 }
 unsafe impl ::windows::core::RuntimeType for MessageWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocket;{33727d08-34d5-4746-ad7b-8dde5bc2ef88})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MessageWebSocket {
     type Vtable = IMessageWebSocket_Vtbl;
@@ -3416,6 +3472,10 @@ impl ::core::fmt::Debug for MessageWebSocketControl {
 }
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketControl;{8118388a-c629-4f0a-80fb-81fc05538862})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MessageWebSocketControl {
     type Vtable = IMessageWebSocketControl_Vtbl;
@@ -3592,6 +3652,10 @@ impl ::core::fmt::Debug for MessageWebSocketInformation {
 }
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MessageWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
@@ -3743,6 +3807,10 @@ impl ::core::fmt::Debug for MessageWebSocketMessageReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketMessageReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs;{478c22ac-4c4b-42ed-9ed7-1ef9f94fa3d5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MessageWebSocketMessageReceivedEventArgs {
     type Vtable = IMessageWebSocketMessageReceivedEventArgs_Vtbl;
@@ -3822,9 +3890,10 @@ impl ::core::fmt::Debug for MessageWebSocketReceiveMode {
 }
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketReceiveMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.MessageWebSocketReceiveMode;i4)");
-}
-impl ::windows::core::DefaultType for MessageWebSocketReceiveMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Networking_Sockets'*"]
@@ -3850,9 +3919,10 @@ unsafe impl ::windows::core::Abi for RoundTripTimeStatistics {
 }
 unsafe impl ::windows::core::RuntimeType for RoundTripTimeStatistics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.RoundTripTimeStatistics;u4;u4;u4;u4)");
-}
-impl ::windows::core::DefaultType for RoundTripTimeStatistics {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for RoundTripTimeStatistics {
     fn eq(&self, other: &Self) -> bool {
@@ -3954,6 +4024,10 @@ impl ::core::fmt::Debug for ServerMessageWebSocket {
 }
 unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocket;{e3ac9240-813b-5efd-7e11-ae2305fc77f1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ServerMessageWebSocket {
     type Vtable = IServerMessageWebSocket_Vtbl;
@@ -4066,6 +4140,10 @@ impl ::core::fmt::Debug for ServerMessageWebSocketControl {
 }
 unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketControl;{69c2f051-1c1f-587a-4519-2181610192b7})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ServerMessageWebSocketControl {
     type Vtable = IServerMessageWebSocketControl_Vtbl;
@@ -4163,6 +4241,10 @@ impl ::core::fmt::Debug for ServerMessageWebSocketInformation {
 }
 unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketInformation;{fc32b45f-4448-5505-6cc9-09afa8915f5d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ServerMessageWebSocketInformation {
     type Vtable = IServerMessageWebSocketInformation_Vtbl;
@@ -4288,6 +4370,10 @@ impl ::core::fmt::Debug for ServerStreamWebSocket {
 }
 unsafe impl ::windows::core::RuntimeType for ServerStreamWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocket;{2ced5bbf-74f6-55e4-79df-9132680dfee8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ServerStreamWebSocket {
     type Vtable = IServerStreamWebSocket_Vtbl;
@@ -4411,6 +4497,10 @@ impl ::core::fmt::Debug for ServerStreamWebSocketInformation {
 }
 unsafe impl ::windows::core::RuntimeType for ServerStreamWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocketInformation;{fc32b45f-4448-5505-6cc9-09aba8915f5d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ServerStreamWebSocketInformation {
     type Vtable = IServerStreamWebSocketInformation_Vtbl;
@@ -4490,9 +4580,10 @@ impl ::core::fmt::Debug for SocketActivityConnectedStandbyAction {
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityConnectedStandbyAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityConnectedStandbyAction;i4)");
-}
-impl ::windows::core::DefaultType for SocketActivityConnectedStandbyAction {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
@@ -4539,6 +4630,10 @@ impl ::core::fmt::Debug for SocketActivityContext {
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityContext;{43b04d64-4c85-4396-a637-1d973f6ebd49})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SocketActivityContext {
     type Vtable = ISocketActivityContext_Vtbl;
@@ -4681,6 +4776,10 @@ impl ::core::fmt::Debug for SocketActivityInformation {
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityInformation;{8d8a42e4-a87e-4b74-9968-185b2511defe})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SocketActivityInformation {
     type Vtable = ISocketActivityInformation_Vtbl;
@@ -4762,9 +4861,10 @@ impl ::core::fmt::Debug for SocketActivityKind {
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityKind;i4)");
-}
-impl ::windows::core::DefaultType for SocketActivityKind {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
@@ -4805,6 +4905,10 @@ impl ::core::fmt::Debug for SocketActivityTriggerDetails {
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityTriggerDetails;{45f406a7-fc9f-4f81-acad-355fef51e67b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SocketActivityTriggerDetails {
     type Vtable = ISocketActivityTriggerDetails_Vtbl;
@@ -4887,9 +4991,10 @@ impl ::core::fmt::Debug for SocketActivityTriggerReason {
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityTriggerReason;i4)");
-}
-impl ::windows::core::DefaultType for SocketActivityTriggerReason {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 pub struct SocketError {}
@@ -4968,9 +5073,10 @@ impl ::core::fmt::Debug for SocketErrorStatus {
 }
 unsafe impl ::windows::core::RuntimeType for SocketErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketErrorStatus;i4)");
-}
-impl ::windows::core::DefaultType for SocketErrorStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
@@ -5001,9 +5107,10 @@ impl ::core::fmt::Debug for SocketMessageType {
 }
 unsafe impl ::windows::core::RuntimeType for SocketMessageType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketMessageType;i4)");
-}
-impl ::windows::core::DefaultType for SocketMessageType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
@@ -5042,9 +5149,10 @@ impl ::core::fmt::Debug for SocketProtectionLevel {
 }
 unsafe impl ::windows::core::RuntimeType for SocketProtectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketProtectionLevel;i4)");
-}
-impl ::windows::core::DefaultType for SocketProtectionLevel {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
@@ -5075,9 +5183,10 @@ impl ::core::fmt::Debug for SocketQualityOfService {
 }
 unsafe impl ::windows::core::RuntimeType for SocketQualityOfService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketQualityOfService;i4)");
-}
-impl ::windows::core::DefaultType for SocketQualityOfService {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
@@ -5109,9 +5218,10 @@ impl ::core::fmt::Debug for SocketSslErrorSeverity {
 }
 unsafe impl ::windows::core::RuntimeType for SocketSslErrorSeverity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
-}
-impl ::windows::core::DefaultType for SocketSslErrorSeverity {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
@@ -5293,6 +5403,10 @@ impl ::core::fmt::Debug for StreamSocket {
 }
 unsafe impl ::windows::core::RuntimeType for StreamSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocket;{69a22cf3-fc7b-4857-af38-f6e7de6a5b49})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreamSocket {
     type Vtable = IStreamSocket_Vtbl;
@@ -5507,6 +5621,10 @@ impl ::core::fmt::Debug for StreamSocketControl {
 }
 unsafe impl ::windows::core::RuntimeType for StreamSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketControl;{fe25adf1-92ab-4af3-9992-0f4c85e36cc4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreamSocketControl {
     type Vtable = IStreamSocketControl_Vtbl;
@@ -5696,6 +5814,10 @@ impl ::core::fmt::Debug for StreamSocketInformation {
 }
 unsafe impl ::windows::core::RuntimeType for StreamSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketInformation;{3b80ae30-5e68-4205-88f0-dc85d2e25ded})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreamSocketInformation {
     type Vtable = IStreamSocketInformation_Vtbl;
@@ -5878,6 +6000,10 @@ impl ::core::fmt::Debug for StreamSocketListener {
 }
 unsafe impl ::windows::core::RuntimeType for StreamSocketListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListener;{ff513437-df9f-4df0-bf82-0ec5d7b35aae})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreamSocketListener {
     type Vtable = IStreamSocketListener_Vtbl;
@@ -5985,6 +6111,10 @@ impl ::core::fmt::Debug for StreamSocketListenerConnectionReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for StreamSocketListenerConnectionReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs;{0c472ea9-373f-447b-85b1-ddd4548803ba})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreamSocketListenerConnectionReceivedEventArgs {
     type Vtable = IStreamSocketListenerConnectionReceivedEventArgs_Vtbl;
@@ -6123,6 +6253,10 @@ impl ::core::fmt::Debug for StreamSocketListenerControl {
 }
 unsafe impl ::windows::core::RuntimeType for StreamSocketListenerControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerControl;{20d8c576-8d8a-4dba-9722-a16c4d984980})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreamSocketListenerControl {
     type Vtable = IStreamSocketListenerControl_Vtbl;
@@ -6204,6 +6338,10 @@ impl ::core::fmt::Debug for StreamSocketListenerInformation {
 }
 unsafe impl ::windows::core::RuntimeType for StreamSocketListenerInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerInformation;{e62ba82f-a63a-430b-bf62-29e93e5633b4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreamSocketListenerInformation {
     type Vtable = IStreamSocketListenerInformation_Vtbl;
@@ -6373,6 +6511,10 @@ impl ::core::fmt::Debug for StreamWebSocket {
 }
 unsafe impl ::windows::core::RuntimeType for StreamWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocket;{bd4a49d8-b289-45bb-97eb-c7525205a843})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreamWebSocket {
     type Vtable = IStreamWebSocket_Vtbl;
@@ -6607,6 +6749,10 @@ impl ::core::fmt::Debug for StreamWebSocketControl {
 }
 unsafe impl ::windows::core::RuntimeType for StreamWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketControl;{b4f478b1-a45a-48db-953a-645b7d964c07})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreamWebSocketControl {
     type Vtable = IStreamWebSocketControl_Vtbl;
@@ -6783,6 +6929,10 @@ impl ::core::fmt::Debug for StreamWebSocketInformation {
 }
 unsafe impl ::windows::core::RuntimeType for StreamWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StreamWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
@@ -6916,6 +7066,10 @@ impl ::core::fmt::Debug for WebSocketClosedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for WebSocketClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketClosedEventArgs;{ceb78d07-d0a8-4703-a091-c8c2c0915bc3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebSocketClosedEventArgs {
     type Vtable = IWebSocketClosedEventArgs_Vtbl;
@@ -7029,6 +7183,10 @@ impl ::core::fmt::Debug for WebSocketKeepAlive {
 #[cfg(feature = "ApplicationModel_Background")]
 unsafe impl ::windows::core::RuntimeType for WebSocketKeepAlive {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketKeepAlive;{7d13d534-fd12-43ce-8c22-ea1ff13c06df})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "ApplicationModel_Background")]
 unsafe impl ::windows::core::Interface for WebSocketKeepAlive {
@@ -7189,6 +7347,10 @@ impl ::core::fmt::Debug for WebSocketServerCustomValidationRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for WebSocketServerCustomValidationRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs;{ffeffe48-022a-4ab7-8b36-e10af4640e6b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for WebSocketServerCustomValidationRequestedEventArgs {
     type Vtable = IWebSocketServerCustomValidationRequestedEventArgs_Vtbl;

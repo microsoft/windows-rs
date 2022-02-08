@@ -1,9 +1,9 @@
 #[cfg(feature = "deprecated")]
 pub trait ISmsBinaryMessage_Impl: Sized + ISmsMessage_Impl {
-    fn Format(&mut self) -> ::windows::core::Result<SmsDataFormat>;
-    fn SetFormat(&mut self, value: SmsDataFormat) -> ::windows::core::Result<()>;
-    fn GetData(&mut self) -> ::windows::core::Result<::windows::core::Array<u8>>;
-    fn SetData(&mut self, value: &[u8]) -> ::windows::core::Result<()>;
+    fn Format(&self) -> ::windows::core::Result<SmsDataFormat>;
+    fn SetFormat(&self, value: SmsDataFormat) -> ::windows::core::Result<()>;
+    fn GetData(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
+    fn SetData(&self, value: &[u8]) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for ISmsBinaryMessage {
@@ -61,16 +61,16 @@ impl ISmsBinaryMessage_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait ISmsDevice_Impl: Sized {
-    fn SendMessageAsync(&mut self, message: &::core::option::Option<ISmsMessage>) -> ::windows::core::Result<SendSmsMessageOperation>;
-    fn CalculateLength(&mut self, message: &::core::option::Option<SmsTextMessage>) -> ::windows::core::Result<SmsEncodedLength>;
-    fn AccountPhoneNumber(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CellularClass(&mut self) -> ::windows::core::Result<CellularClass>;
-    fn MessageStore(&mut self) -> ::windows::core::Result<SmsDeviceMessageStore>;
-    fn DeviceStatus(&mut self) -> ::windows::core::Result<SmsDeviceStatus>;
-    fn SmsMessageReceived(&mut self, eventhandler: &::core::option::Option<SmsMessageReceivedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSmsMessageReceived(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SmsDeviceStatusChanged(&mut self, eventhandler: &::core::option::Option<SmsDeviceStatusChangedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSmsDeviceStatusChanged(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SendMessageAsync(&self, message: &::core::option::Option<ISmsMessage>) -> ::windows::core::Result<SendSmsMessageOperation>;
+    fn CalculateLength(&self, message: &::core::option::Option<SmsTextMessage>) -> ::windows::core::Result<SmsEncodedLength>;
+    fn AccountPhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CellularClass(&self) -> ::windows::core::Result<CellularClass>;
+    fn MessageStore(&self) -> ::windows::core::Result<SmsDeviceMessageStore>;
+    fn DeviceStatus(&self) -> ::windows::core::Result<SmsDeviceStatus>;
+    fn SmsMessageReceived(&self, eventhandler: &::core::option::Option<SmsMessageReceivedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSmsMessageReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SmsDeviceStatusChanged(&self, eventhandler: &::core::option::Option<SmsDeviceStatusChangedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSmsDeviceStatusChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for ISmsDevice {
@@ -204,8 +204,8 @@ impl ISmsDevice_Vtbl {
     }
 }
 pub trait ISmsMessage_Impl: Sized {
-    fn Id(&mut self) -> ::windows::core::Result<u32>;
-    fn MessageClass(&mut self) -> ::windows::core::Result<SmsMessageClass>;
+    fn Id(&self) -> ::windows::core::Result<u32>;
+    fn MessageClass(&self) -> ::windows::core::Result<SmsMessageClass>;
 }
 impl ::windows::core::RuntimeName for ISmsMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessage";
@@ -247,11 +247,11 @@ impl ISmsMessage_Vtbl {
     }
 }
 pub trait ISmsMessageBase_Impl: Sized {
-    fn MessageType(&mut self) -> ::windows::core::Result<SmsMessageType>;
-    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CellularClass(&mut self) -> ::windows::core::Result<CellularClass>;
-    fn MessageClass(&mut self) -> ::windows::core::Result<SmsMessageClass>;
-    fn SimIccId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn MessageType(&self) -> ::windows::core::Result<SmsMessageType>;
+    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CellularClass(&self) -> ::windows::core::Result<CellularClass>;
+    fn MessageClass(&self) -> ::windows::core::Result<SmsMessageClass>;
+    fn SimIccId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for ISmsMessageBase {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessageBase";
@@ -333,19 +333,19 @@ impl ISmsMessageBase_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 pub trait ISmsTextMessage_Impl: Sized + ISmsMessage_Impl {
-    fn Timestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
-    fn PartReferenceId(&mut self) -> ::windows::core::Result<u32>;
-    fn PartNumber(&mut self) -> ::windows::core::Result<u32>;
-    fn PartCount(&mut self) -> ::windows::core::Result<u32>;
-    fn To(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetTo(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn From(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetFrom(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Body(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetBody(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Encoding(&mut self) -> ::windows::core::Result<SmsEncoding>;
-    fn SetEncoding(&mut self, value: SmsEncoding) -> ::windows::core::Result<()>;
-    fn ToBinaryMessages(&mut self, format: SmsDataFormat) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>;
+    fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime>;
+    fn PartReferenceId(&self) -> ::windows::core::Result<u32>;
+    fn PartNumber(&self) -> ::windows::core::Result<u32>;
+    fn PartCount(&self) -> ::windows::core::Result<u32>;
+    fn To(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetTo(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetFrom(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetBody(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Encoding(&self) -> ::windows::core::Result<SmsEncoding>;
+    fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()>;
+    fn ToBinaryMessages(&self, format: SmsDataFormat) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for ISmsTextMessage {

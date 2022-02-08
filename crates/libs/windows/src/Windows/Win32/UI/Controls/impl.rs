@@ -1,34 +1,34 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IImageList_Impl: Sized {
-    fn Add(&mut self, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<i32>;
-    fn ReplaceIcon(&mut self, i: i32, hicon: super::WindowsAndMessaging::HICON) -> ::windows::core::Result<i32>;
-    fn SetOverlayImage(&mut self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()>;
-    fn Replace(&mut self, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
-    fn AddMasked(&mut self, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: u32) -> ::windows::core::Result<i32>;
-    fn Draw(&mut self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, i: i32) -> ::windows::core::Result<()>;
-    fn GetIcon(&mut self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON>;
-    fn GetImageInfo(&mut self, i: i32) -> ::windows::core::Result<IMAGEINFO>;
-    fn Copy(&mut self, idst: i32, punksrc: &::core::option::Option<::windows::core::IUnknown>, isrc: i32, uflags: u32) -> ::windows::core::Result<()>;
-    fn Merge(&mut self, i1: i32, punk2: &::core::option::Option<::windows::core::IUnknown>, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Clone(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetImageRect(&mut self, i: i32) -> ::windows::core::Result<super::super::Foundation::RECT>;
-    fn GetIconSize(&mut self, cx: *mut i32, cy: *mut i32) -> ::windows::core::Result<()>;
-    fn SetIconSize(&mut self, cx: i32, cy: i32) -> ::windows::core::Result<()>;
-    fn GetImageCount(&mut self) -> ::windows::core::Result<i32>;
-    fn SetImageCount(&mut self, unewcount: u32) -> ::windows::core::Result<()>;
-    fn SetBkColor(&mut self, clrbk: u32) -> ::windows::core::Result<u32>;
-    fn GetBkColor(&mut self) -> ::windows::core::Result<u32>;
-    fn BeginDrag(&mut self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>;
-    fn EndDrag(&mut self) -> ::windows::core::Result<()>;
-    fn DragEnter(&mut self, hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> ::windows::core::Result<()>;
-    fn DragLeave(&mut self, hwndlock: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn DragMove(&mut self, x: i32, y: i32) -> ::windows::core::Result<()>;
-    fn SetDragCursorImage(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>;
-    fn DragShowNolock(&mut self, fshow: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetDragImage(&mut self, ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetItemFlags(&mut self, i: i32) -> ::windows::core::Result<IMAGE_LIST_ITEM_FLAGS>;
-    fn GetOverlayImage(&mut self, ioverlay: i32) -> ::windows::core::Result<i32>;
+    fn Add(&self, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<i32>;
+    fn ReplaceIcon(&self, i: i32, hicon: super::WindowsAndMessaging::HICON) -> ::windows::core::Result<i32>;
+    fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()>;
+    fn Replace(&self, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
+    fn AddMasked(&self, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: u32) -> ::windows::core::Result<i32>;
+    fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()>;
+    fn Remove(&self, i: i32) -> ::windows::core::Result<()>;
+    fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON>;
+    fn GetImageInfo(&self, i: i32) -> ::windows::core::Result<IMAGEINFO>;
+    fn Copy(&self, idst: i32, punksrc: &::core::option::Option<::windows::core::IUnknown>, isrc: i32, uflags: u32) -> ::windows::core::Result<()>;
+    fn Merge(&self, i1: i32, punk2: &::core::option::Option<::windows::core::IUnknown>, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Clone(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetImageRect(&self, i: i32) -> ::windows::core::Result<super::super::Foundation::RECT>;
+    fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows::core::Result<()>;
+    fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows::core::Result<()>;
+    fn GetImageCount(&self) -> ::windows::core::Result<i32>;
+    fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()>;
+    fn SetBkColor(&self, clrbk: u32) -> ::windows::core::Result<u32>;
+    fn GetBkColor(&self) -> ::windows::core::Result<u32>;
+    fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>;
+    fn EndDrag(&self) -> ::windows::core::Result<()>;
+    fn DragEnter(&self, hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> ::windows::core::Result<()>;
+    fn DragLeave(&self, hwndlock: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn DragMove(&self, x: i32, y: i32) -> ::windows::core::Result<()>;
+    fn SetDragCursorImage(&self, punk: &::core::option::Option<::windows::core::IUnknown>, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>;
+    fn DragShowNolock(&self, fshow: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetDragImage(&self, ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetItemFlags(&self, i: i32) -> ::windows::core::Result<IMAGE_LIST_ITEM_FLAGS>;
+    fn GetOverlayImage(&self, ioverlay: i32) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IImageList_Vtbl {
@@ -283,18 +283,18 @@ impl IImageList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IImageList2_Impl: Sized + IImageList_Impl {
-    fn Resize(&mut self, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows::core::Result<()>;
-    fn GetOriginalSize(&mut self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> ::windows::core::Result<()>;
-    fn SetOriginalSize(&mut self, iimage: i32, cx: i32, cy: i32) -> ::windows::core::Result<()>;
-    fn SetCallback(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetCallback(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ForceImagePresent(&mut self, iimage: i32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn DiscardImages(&mut self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows::core::Result<()>;
-    fn PreloadImages(&mut self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()>;
-    fn GetStatistics(&mut self, pils: *mut IMAGELISTSTATS) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows::core::Result<()>;
-    fn Replace2(&mut self, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, punk: &::core::option::Option<::windows::core::IUnknown>, dwflags: u32) -> ::windows::core::Result<()>;
-    fn ReplaceFromImageList(&mut self, i: i32, pil: &::core::option::Option<IImageList>, isrc: i32, punk: &::core::option::Option<::windows::core::IUnknown>, dwflags: u32) -> ::windows::core::Result<()>;
+    fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows::core::Result<()>;
+    fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> ::windows::core::Result<()>;
+    fn SetOriginalSize(&self, iimage: i32, cx: i32, cy: i32) -> ::windows::core::Result<()>;
+    fn SetCallback(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetCallback(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ForceImagePresent(&self, iimage: i32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows::core::Result<()>;
+    fn PreloadImages(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()>;
+    fn GetStatistics(&self, pils: *mut IMAGELISTSTATS) -> ::windows::core::Result<()>;
+    fn Initialize(&self, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows::core::Result<()>;
+    fn Replace2(&self, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, punk: &::core::option::Option<::windows::core::IUnknown>, dwflags: u32) -> ::windows::core::Result<()>;
+    fn ReplaceFromImageList(&self, i: i32, pil: &::core::option::Option<IImageList>, isrc: i32, punk: &::core::option::Option<::windows::core::IUnknown>, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IImageList2_Vtbl {

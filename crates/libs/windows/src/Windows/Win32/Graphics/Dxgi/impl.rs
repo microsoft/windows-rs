@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIAdapter_Impl: Sized + IDXGIObject_Impl {
-    fn EnumOutputs(&mut self, output: u32) -> ::windows::core::Result<IDXGIOutput>;
-    fn GetDesc(&mut self) -> ::windows::core::Result<DXGI_ADAPTER_DESC>;
-    fn CheckInterfaceSupport(&mut self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64>;
+    fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput>;
+    fn GetDesc(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC>;
+    fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIAdapter_Vtbl {
@@ -53,7 +53,7 @@ impl IDXGIAdapter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIAdapter1_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl {
-    fn GetDesc1(&mut self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1>;
+    fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIAdapter1_Vtbl {
@@ -77,7 +77,7 @@ impl IDXGIAdapter1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIAdapter2_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl + IDXGIAdapter1_Impl {
-    fn GetDesc2(&mut self) -> ::windows::core::Result<DXGI_ADAPTER_DESC2>;
+    fn GetDesc2(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC2>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIAdapter2_Vtbl {
@@ -101,12 +101,12 @@ impl IDXGIAdapter2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIAdapter3_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl + IDXGIAdapter1_Impl + IDXGIAdapter2_Impl {
-    fn RegisterHardwareContentProtectionTeardownStatusEvent(&mut self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
-    fn UnregisterHardwareContentProtectionTeardownStatus(&mut self, dwcookie: u32);
-    fn QueryVideoMemoryInfo(&mut self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP) -> ::windows::core::Result<DXGI_QUERY_VIDEO_MEMORY_INFO>;
-    fn SetVideoMemoryReservation(&mut self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> ::windows::core::Result<()>;
-    fn RegisterVideoMemoryBudgetChangeNotificationEvent(&mut self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
-    fn UnregisterVideoMemoryBudgetChangeNotification(&mut self, dwcookie: u32);
+    fn RegisterHardwareContentProtectionTeardownStatusEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
+    fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: u32);
+    fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP) -> ::windows::core::Result<DXGI_QUERY_VIDEO_MEMORY_INFO>;
+    fn SetVideoMemoryReservation(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> ::windows::core::Result<()>;
+    fn RegisterVideoMemoryBudgetChangeNotificationEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
+    fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: u32);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIAdapter3_Vtbl {
@@ -175,7 +175,7 @@ impl IDXGIAdapter3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIAdapter4_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl + IDXGIAdapter1_Impl + IDXGIAdapter2_Impl + IDXGIAdapter3_Impl {
-    fn GetDesc3(&mut self) -> ::windows::core::Result<DXGI_ADAPTER_DESC3>;
+    fn GetDesc3(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC3>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIAdapter4_Vtbl {
@@ -198,7 +198,7 @@ impl IDXGIAdapter4_Vtbl {
     }
 }
 pub trait IDXGIDebug_Impl: Sized {
-    fn ReportLiveObjects(&mut self, apiid: &::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::Result<()>;
+    fn ReportLiveObjects(&self, apiid: &::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::Result<()>;
 }
 impl IDXGIDebug_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDebug_Impl, const OFFSET: isize>() -> IDXGIDebug_Vtbl {
@@ -215,9 +215,9 @@ impl IDXGIDebug_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIDebug1_Impl: Sized + IDXGIDebug_Impl {
-    fn EnableLeakTrackingForThread(&mut self);
-    fn DisableLeakTrackingForThread(&mut self);
-    fn IsLeakTrackingEnabledForThread(&mut self) -> super::super::Foundation::BOOL;
+    fn EnableLeakTrackingForThread(&self);
+    fn DisableLeakTrackingForThread(&self);
+    fn IsLeakTrackingEnabledForThread(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIDebug1_Vtbl {
@@ -250,15 +250,15 @@ impl IDXGIDebug1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIDecodeSwapChain_Impl: Sized {
-    fn PresentBuffer(&mut self, buffertopresent: u32, syncinterval: u32, flags: u32) -> ::windows::core::Result<()>;
-    fn SetSourceRect(&mut self, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn SetTargetRect(&mut self, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn SetDestSize(&mut self, width: u32, height: u32) -> ::windows::core::Result<()>;
-    fn GetSourceRect(&mut self) -> ::windows::core::Result<super::super::Foundation::RECT>;
-    fn GetTargetRect(&mut self) -> ::windows::core::Result<super::super::Foundation::RECT>;
-    fn GetDestSize(&mut self, pwidth: *mut u32, pheight: *mut u32) -> ::windows::core::Result<()>;
-    fn SetColorSpace(&mut self, colorspace: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS) -> ::windows::core::Result<()>;
-    fn GetColorSpace(&mut self) -> DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS;
+    fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: u32) -> ::windows::core::Result<()>;
+    fn SetSourceRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn SetTargetRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn SetDestSize(&self, width: u32, height: u32) -> ::windows::core::Result<()>;
+    fn GetSourceRect(&self) -> ::windows::core::Result<super::super::Foundation::RECT>;
+    fn GetTargetRect(&self) -> ::windows::core::Result<super::super::Foundation::RECT>;
+    fn GetDestSize(&self, pwidth: *mut u32, pheight: *mut u32) -> ::windows::core::Result<()>;
+    fn SetColorSpace(&self, colorspace: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS) -> ::windows::core::Result<()>;
+    fn GetColorSpace(&self) -> DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIDecodeSwapChain_Vtbl {
@@ -339,11 +339,11 @@ impl IDXGIDecodeSwapChain_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIDevice_Impl: Sized + IDXGIObject_Impl {
-    fn GetAdapter(&mut self) -> ::windows::core::Result<IDXGIAdapter>;
-    fn CreateSurface(&mut self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
-    fn QueryResourceResidency(&mut self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()>;
-    fn SetGPUThreadPriority(&mut self, priority: i32) -> ::windows::core::Result<()>;
-    fn GetGPUThreadPriority(&mut self) -> ::windows::core::Result<i32>;
+    fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter>;
+    fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
+    fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()>;
+    fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()>;
+    fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIDevice_Vtbl {
@@ -400,8 +400,8 @@ impl IDXGIDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIDevice1_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl {
-    fn SetMaximumFrameLatency(&mut self, maxlatency: u32) -> ::windows::core::Result<()>;
-    fn GetMaximumFrameLatency(&mut self) -> ::windows::core::Result<u32>;
+    fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()>;
+    fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIDevice1_Vtbl {
@@ -434,9 +434,9 @@ impl IDXGIDevice1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIDevice2_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGIDevice1_Impl {
-    fn OfferResources(&mut self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()>;
-    fn ReclaimResources(&mut self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn EnqueueSetEvent(&mut self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn OfferResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()>;
+    fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn EnqueueSetEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIDevice2_Vtbl {
@@ -475,7 +475,7 @@ impl IDXGIDevice2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIDevice3_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGIDevice1_Impl + IDXGIDevice2_Impl {
-    fn Trim(&mut self);
+    fn Trim(&self);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIDevice3_Vtbl {
@@ -493,8 +493,8 @@ impl IDXGIDevice3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIDevice4_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGIDevice1_Impl + IDXGIDevice2_Impl + IDXGIDevice3_Impl {
-    fn OfferResources1(&mut self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()>;
-    fn ReclaimResources1(&mut self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<DXGI_RECLAIM_RESOURCE_RESULTS>;
+    fn OfferResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()>;
+    fn ReclaimResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<DXGI_RECLAIM_RESOURCE_RESULTS>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIDevice4_Vtbl {
@@ -526,7 +526,7 @@ impl IDXGIDevice4_Vtbl {
     }
 }
 pub trait IDXGIDeviceSubObject_Impl: Sized + IDXGIObject_Impl {
-    fn GetDevice(&mut self, riid: *const ::windows::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetDevice(&self, riid: *const ::windows::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IDXGIDeviceSubObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDeviceSubObject_Impl, const OFFSET: isize>() -> IDXGIDeviceSubObject_Vtbl {
@@ -543,8 +543,8 @@ impl IDXGIDeviceSubObject_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIDisplayControl_Impl: Sized {
-    fn IsStereoEnabled(&mut self) -> super::super::Foundation::BOOL;
-    fn SetStereoEnabled(&mut self, enabled: super::super::Foundation::BOOL);
+    fn IsStereoEnabled(&self) -> super::super::Foundation::BOOL;
+    fn SetStereoEnabled(&self, enabled: super::super::Foundation::BOOL);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIDisplayControl_Vtbl {
@@ -571,11 +571,11 @@ impl IDXGIDisplayControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIFactory_Impl: Sized + IDXGIObject_Impl {
-    fn EnumAdapters(&mut self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter>;
-    fn MakeWindowAssociation(&mut self, windowhandle: super::super::Foundation::HWND, flags: u32) -> ::windows::core::Result<()>;
-    fn GetWindowAssociation(&mut self) -> ::windows::core::Result<super::super::Foundation::HWND>;
-    fn CreateSwapChain(&mut self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain>;
-    fn CreateSoftwareAdapter(&mut self, module: super::super::Foundation::HINSTANCE) -> ::windows::core::Result<IDXGIAdapter>;
+    fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter>;
+    fn MakeWindowAssociation(&self, windowhandle: super::super::Foundation::HWND, flags: u32) -> ::windows::core::Result<()>;
+    fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
+    fn CreateSwapChain(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain>;
+    fn CreateSoftwareAdapter(&self, module: super::super::Foundation::HINSTANCE) -> ::windows::core::Result<IDXGIAdapter>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory_Vtbl {
@@ -644,8 +644,8 @@ impl IDXGIFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIFactory1_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl {
-    fn EnumAdapters1(&mut self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1>;
-    fn IsCurrent(&mut self) -> super::super::Foundation::BOOL;
+    fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1>;
+    fn IsCurrent(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory1_Vtbl {
@@ -678,17 +678,17 @@ impl IDXGIFactory1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIFactory2_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl {
-    fn IsWindowedStereoEnabled(&mut self) -> super::super::Foundation::BOOL;
-    fn CreateSwapChainForHwnd(&mut self, pdevice: &::core::option::Option<::windows::core::IUnknown>, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
-    fn CreateSwapChainForCoreWindow(&mut self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pwindow: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
-    fn GetSharedResourceAdapterLuid(&mut self, hresource: super::super::Foundation::HANDLE) -> ::windows::core::Result<super::super::Foundation::LUID>;
-    fn RegisterStereoStatusWindow(&mut self, windowhandle: super::super::Foundation::HWND, wmsg: u32) -> ::windows::core::Result<u32>;
-    fn RegisterStereoStatusEvent(&mut self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
-    fn UnregisterStereoStatus(&mut self, dwcookie: u32);
-    fn RegisterOcclusionStatusWindow(&mut self, windowhandle: super::super::Foundation::HWND, wmsg: u32) -> ::windows::core::Result<u32>;
-    fn RegisterOcclusionStatusEvent(&mut self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
-    fn UnregisterOcclusionStatus(&mut self, dwcookie: u32);
-    fn CreateSwapChainForComposition(&mut self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
+    fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL;
+    fn CreateSwapChainForHwnd(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
+    fn CreateSwapChainForCoreWindow(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pwindow: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
+    fn GetSharedResourceAdapterLuid(&self, hresource: super::super::Foundation::HANDLE) -> ::windows::core::Result<super::super::Foundation::LUID>;
+    fn RegisterStereoStatusWindow(&self, windowhandle: super::super::Foundation::HWND, wmsg: u32) -> ::windows::core::Result<u32>;
+    fn RegisterStereoStatusEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
+    fn UnregisterStereoStatus(&self, dwcookie: u32);
+    fn RegisterOcclusionStatusWindow(&self, windowhandle: super::super::Foundation::HWND, wmsg: u32) -> ::windows::core::Result<u32>;
+    fn RegisterOcclusionStatusEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
+    fn UnregisterOcclusionStatus(&self, dwcookie: u32);
+    fn CreateSwapChainForComposition(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory2_Vtbl {
@@ -817,7 +817,7 @@ impl IDXGIFactory2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIFactory3_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl {
-    fn GetCreationFlags(&mut self) -> u32;
+    fn GetCreationFlags(&self) -> u32;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory3_Vtbl {
@@ -835,8 +835,8 @@ impl IDXGIFactory3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIFactory4_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl + IDXGIFactory3_Impl {
-    fn EnumAdapterByLuid(&mut self, adapterluid: &super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn EnumWarpAdapter(&mut self, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn EnumAdapterByLuid(&self, adapterluid: &super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn EnumWarpAdapter(&self, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory4_Vtbl {
@@ -863,7 +863,7 @@ impl IDXGIFactory4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIFactory5_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl + IDXGIFactory3_Impl + IDXGIFactory4_Impl {
-    fn CheckFeatureSupport(&mut self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
+    fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory5_Vtbl {
@@ -881,7 +881,7 @@ impl IDXGIFactory5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIFactory6_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl + IDXGIFactory3_Impl + IDXGIFactory4_Impl + IDXGIFactory5_Impl {
-    fn EnumAdapterByGpuPreference(&mut self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn EnumAdapterByGpuPreference(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory6_Vtbl {
@@ -899,8 +899,8 @@ impl IDXGIFactory6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIFactory7_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl + IDXGIFactory3_Impl + IDXGIFactory4_Impl + IDXGIFactory5_Impl + IDXGIFactory6_Impl {
-    fn RegisterAdaptersChangedEvent(&mut self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
-    fn UnregisterAdaptersChangedEvent(&mut self, dwcookie: u32) -> ::windows::core::Result<()>;
+    fn RegisterAdaptersChangedEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
+    fn UnregisterAdaptersChangedEvent(&self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory7_Vtbl {
@@ -933,8 +933,8 @@ impl IDXGIFactory7_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIFactoryMedia_Impl: Sized {
-    fn CreateSwapChainForCompositionSurfaceHandle(&mut self, pdevice: &::core::option::Option<::windows::core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
-    fn CreateDecodeSwapChainForCompositionSurfaceHandle(&mut self, pdevice: &::core::option::Option<::windows::core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: &::core::option::Option<IDXGIResource>, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGIDecodeSwapChain>;
+    fn CreateSwapChainForCompositionSurfaceHandle(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
+    fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: &::core::option::Option<IDXGIResource>, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGIDecodeSwapChain>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactoryMedia_Vtbl {
@@ -973,43 +973,43 @@ impl IDXGIFactoryMedia_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIInfoQueue_Impl: Sized {
-    fn SetMessageCountLimit(&mut self, producer: &::windows::core::GUID, messagecountlimit: u64) -> ::windows::core::Result<()>;
-    fn ClearStoredMessages(&mut self, producer: &::windows::core::GUID);
-    fn GetMessage(&mut self, producer: &::windows::core::GUID, messageindex: u64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::Result<()>;
-    fn GetNumStoredMessagesAllowedByRetrievalFilters(&mut self, producer: &::windows::core::GUID) -> u64;
-    fn GetNumStoredMessages(&mut self, producer: &::windows::core::GUID) -> u64;
-    fn GetNumMessagesDiscardedByMessageCountLimit(&mut self, producer: &::windows::core::GUID) -> u64;
-    fn GetMessageCountLimit(&mut self, producer: &::windows::core::GUID) -> u64;
-    fn GetNumMessagesAllowedByStorageFilter(&mut self, producer: &::windows::core::GUID) -> u64;
-    fn GetNumMessagesDeniedByStorageFilter(&mut self, producer: &::windows::core::GUID) -> u64;
-    fn AddStorageFilterEntries(&mut self, producer: &::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn GetStorageFilter(&mut self, producer: &::windows::core::GUID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
-    fn ClearStorageFilter(&mut self, producer: &::windows::core::GUID);
-    fn PushEmptyStorageFilter(&mut self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn PushDenyAllStorageFilter(&mut self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn PushCopyOfStorageFilter(&mut self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn PushStorageFilter(&mut self, producer: &::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn PopStorageFilter(&mut self, producer: &::windows::core::GUID);
-    fn GetStorageFilterStackSize(&mut self, producer: &::windows::core::GUID) -> u32;
-    fn AddRetrievalFilterEntries(&mut self, producer: &::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn GetRetrievalFilter(&mut self, producer: &::windows::core::GUID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
-    fn ClearRetrievalFilter(&mut self, producer: &::windows::core::GUID);
-    fn PushEmptyRetrievalFilter(&mut self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn PushDenyAllRetrievalFilter(&mut self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn PushCopyOfRetrievalFilter(&mut self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn PushRetrievalFilter(&mut self, producer: &::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn PopRetrievalFilter(&mut self, producer: &::windows::core::GUID);
-    fn GetRetrievalFilterStackSize(&mut self, producer: &::windows::core::GUID) -> u32;
-    fn AddMessage(&mut self, producer: &::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: i32, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn AddApplicationMessage(&mut self, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn SetBreakOnCategory(&mut self, producer: &::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetBreakOnSeverity(&mut self, producer: &::windows::core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetBreakOnID(&mut self, producer: &::windows::core::GUID, id: i32, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetBreakOnCategory(&mut self, producer: &::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnSeverity(&mut self, producer: &::windows::core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnID(&mut self, producer: &::windows::core::GUID, id: i32) -> super::super::Foundation::BOOL;
-    fn SetMuteDebugOutput(&mut self, producer: &::windows::core::GUID, bmute: super::super::Foundation::BOOL);
-    fn GetMuteDebugOutput(&mut self, producer: &::windows::core::GUID) -> super::super::Foundation::BOOL;
+    fn SetMessageCountLimit(&self, producer: &::windows::core::GUID, messagecountlimit: u64) -> ::windows::core::Result<()>;
+    fn ClearStoredMessages(&self, producer: &::windows::core::GUID);
+    fn GetMessage(&self, producer: &::windows::core::GUID, messageindex: u64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::Result<()>;
+    fn GetNumStoredMessagesAllowedByRetrievalFilters(&self, producer: &::windows::core::GUID) -> u64;
+    fn GetNumStoredMessages(&self, producer: &::windows::core::GUID) -> u64;
+    fn GetNumMessagesDiscardedByMessageCountLimit(&self, producer: &::windows::core::GUID) -> u64;
+    fn GetMessageCountLimit(&self, producer: &::windows::core::GUID) -> u64;
+    fn GetNumMessagesAllowedByStorageFilter(&self, producer: &::windows::core::GUID) -> u64;
+    fn GetNumMessagesDeniedByStorageFilter(&self, producer: &::windows::core::GUID) -> u64;
+    fn AddStorageFilterEntries(&self, producer: &::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn GetStorageFilter(&self, producer: &::windows::core::GUID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
+    fn ClearStorageFilter(&self, producer: &::windows::core::GUID);
+    fn PushEmptyStorageFilter(&self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn PushDenyAllStorageFilter(&self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn PushCopyOfStorageFilter(&self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn PushStorageFilter(&self, producer: &::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn PopStorageFilter(&self, producer: &::windows::core::GUID);
+    fn GetStorageFilterStackSize(&self, producer: &::windows::core::GUID) -> u32;
+    fn AddRetrievalFilterEntries(&self, producer: &::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn GetRetrievalFilter(&self, producer: &::windows::core::GUID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
+    fn ClearRetrievalFilter(&self, producer: &::windows::core::GUID);
+    fn PushEmptyRetrievalFilter(&self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn PushDenyAllRetrievalFilter(&self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn PushCopyOfRetrievalFilter(&self, producer: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn PushRetrievalFilter(&self, producer: &::windows::core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn PopRetrievalFilter(&self, producer: &::windows::core::GUID);
+    fn GetRetrievalFilterStackSize(&self, producer: &::windows::core::GUID) -> u32;
+    fn AddMessage(&self, producer: &::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: i32, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn AddApplicationMessage(&self, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn SetBreakOnCategory(&self, producer: &::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetBreakOnSeverity(&self, producer: &::windows::core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetBreakOnID(&self, producer: &::windows::core::GUID, id: i32, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetBreakOnCategory(&self, producer: &::windows::core::GUID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL;
+    fn GetBreakOnSeverity(&self, producer: &::windows::core::GUID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL;
+    fn GetBreakOnID(&self, producer: &::windows::core::GUID, id: i32) -> super::super::Foundation::BOOL;
+    fn SetMuteDebugOutput(&self, producer: &::windows::core::GUID, bmute: super::super::Foundation::BOOL);
+    fn GetMuteDebugOutput(&self, producer: &::windows::core::GUID) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIInfoQueue_Vtbl {
@@ -1245,8 +1245,8 @@ impl IDXGIInfoQueue_Vtbl {
     }
 }
 pub trait IDXGIKeyedMutex_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl {
-    fn AcquireSync(&mut self, key: u64, dwmilliseconds: u32) -> ::windows::core::Result<()>;
-    fn ReleaseSync(&mut self, key: u64) -> ::windows::core::Result<()>;
+    fn AcquireSync(&self, key: u64, dwmilliseconds: u32) -> ::windows::core::Result<()>;
+    fn ReleaseSync(&self, key: u64) -> ::windows::core::Result<()>;
 }
 impl IDXGIKeyedMutex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIKeyedMutex_Impl, const OFFSET: isize>() -> IDXGIKeyedMutex_Vtbl {
@@ -1271,10 +1271,10 @@ impl IDXGIKeyedMutex_Vtbl {
     }
 }
 pub trait IDXGIObject_Impl: Sized {
-    fn SetPrivateData(&mut self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&mut self, name: *const ::windows::core::GUID, punknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetPrivateData(&mut self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetParent(&mut self, riid: *const ::windows::core::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, name: *const ::windows::core::GUID, punknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetParent(&self, riid: *const ::windows::core::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IDXGIObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIObject_Impl, const OFFSET: isize>() -> IDXGIObject_Vtbl {
@@ -1312,18 +1312,18 @@ impl IDXGIObject_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput_Impl: Sized + IDXGIObject_Impl {
-    fn GetDesc(&mut self) -> ::windows::core::Result<DXGI_OUTPUT_DESC>;
-    fn GetDisplayModeList(&mut self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>;
-    fn FindClosestMatchingMode(&mut self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn WaitForVBlank(&mut self) -> ::windows::core::Result<()>;
-    fn TakeOwnership(&mut self, pdevice: &::core::option::Option<::windows::core::IUnknown>, exclusive: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn ReleaseOwnership(&mut self);
-    fn GetGammaControlCapabilities(&mut self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>;
-    fn SetGammaControl(&mut self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()>;
-    fn GetGammaControl(&mut self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL>;
-    fn SetDisplaySurface(&mut self, pscanoutsurface: &::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
-    fn GetDisplaySurfaceData(&mut self, pdestination: &::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
-    fn GetFrameStatistics(&mut self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS>;
+    fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC>;
+    fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>;
+    fn FindClosestMatchingMode(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn WaitForVBlank(&self) -> ::windows::core::Result<()>;
+    fn TakeOwnership(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, exclusive: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn ReleaseOwnership(&self);
+    fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>;
+    fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()>;
+    fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL>;
+    fn SetDisplaySurface(&self, pscanoutsurface: &::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
+    fn GetDisplaySurfaceData(&self, pdestination: &::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
+    fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput_Vtbl {
@@ -1434,10 +1434,10 @@ impl IDXGIOutput_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput1_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl {
-    fn GetDisplayModeList1(&mut self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()>;
-    fn FindClosestMatchingMode1(&mut self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetDisplaySurfaceData1(&mut self, pdestination: &::core::option::Option<IDXGIResource>) -> ::windows::core::Result<()>;
-    fn DuplicateOutput(&mut self, pdevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IDXGIOutputDuplication>;
+    fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()>;
+    fn FindClosestMatchingMode1(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetDisplaySurfaceData1(&self, pdestination: &::core::option::Option<IDXGIResource>) -> ::windows::core::Result<()>;
+    fn DuplicateOutput(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IDXGIOutputDuplication>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput1_Vtbl {
@@ -1482,7 +1482,7 @@ impl IDXGIOutput1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput2_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl {
-    fn SupportsOverlays(&mut self) -> super::super::Foundation::BOOL;
+    fn SupportsOverlays(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput2_Vtbl {
@@ -1500,7 +1500,7 @@ impl IDXGIOutput2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput3_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl + IDXGIOutput2_Impl {
-    fn CheckOverlaySupport(&mut self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
+    fn CheckOverlaySupport(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput3_Vtbl {
@@ -1524,7 +1524,7 @@ impl IDXGIOutput3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput4_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl + IDXGIOutput2_Impl + IDXGIOutput3_Impl {
-    fn CheckOverlayColorSpaceSupport(&mut self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
+    fn CheckOverlayColorSpaceSupport(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput4_Vtbl {
@@ -1548,7 +1548,7 @@ impl IDXGIOutput4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput5_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl + IDXGIOutput2_Impl + IDXGIOutput3_Impl + IDXGIOutput4_Impl {
-    fn DuplicateOutput1(&mut self, pdevice: &::core::option::Option<::windows::core::IUnknown>, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> ::windows::core::Result<IDXGIOutputDuplication>;
+    fn DuplicateOutput1(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> ::windows::core::Result<IDXGIOutputDuplication>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput5_Vtbl {
@@ -1572,8 +1572,8 @@ impl IDXGIOutput5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGIOutput6_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl + IDXGIOutput2_Impl + IDXGIOutput3_Impl + IDXGIOutput4_Impl + IDXGIOutput5_Impl {
-    fn GetDesc1(&mut self) -> ::windows::core::Result<DXGI_OUTPUT_DESC1>;
-    fn CheckHardwareCompositionSupport(&mut self) -> ::windows::core::Result<u32>;
+    fn GetDesc1(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC1>;
+    fn CheckHardwareCompositionSupport(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput6_Vtbl {
@@ -1612,14 +1612,14 @@ impl IDXGIOutput6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIOutputDuplication_Impl: Sized + IDXGIObject_Impl {
-    fn GetDesc(&mut self, pdesc: *mut DXGI_OUTDUPL_DESC);
-    fn AcquireNextFrame(&mut self, timeoutinmilliseconds: u32, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: *mut ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<()>;
-    fn GetFrameDirtyRects(&mut self, dirtyrectsbuffersize: u32, pdirtyrectsbuffer: *mut super::super::Foundation::RECT, pdirtyrectsbuffersizerequired: *mut u32) -> ::windows::core::Result<()>;
-    fn GetFrameMoveRects(&mut self, moverectsbuffersize: u32, pmoverectbuffer: *mut DXGI_OUTDUPL_MOVE_RECT, pmoverectsbuffersizerequired: *mut u32) -> ::windows::core::Result<()>;
-    fn GetFramePointerShape(&mut self, pointershapebuffersize: u32, ppointershapebuffer: *mut ::core::ffi::c_void, ppointershapebuffersizerequired: *mut u32, ppointershapeinfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> ::windows::core::Result<()>;
-    fn MapDesktopSurface(&mut self) -> ::windows::core::Result<DXGI_MAPPED_RECT>;
-    fn UnMapDesktopSurface(&mut self) -> ::windows::core::Result<()>;
-    fn ReleaseFrame(&mut self) -> ::windows::core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut DXGI_OUTDUPL_DESC);
+    fn AcquireNextFrame(&self, timeoutinmilliseconds: u32, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: *mut ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<()>;
+    fn GetFrameDirtyRects(&self, dirtyrectsbuffersize: u32, pdirtyrectsbuffer: *mut super::super::Foundation::RECT, pdirtyrectsbuffersizerequired: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFrameMoveRects(&self, moverectsbuffersize: u32, pmoverectbuffer: *mut DXGI_OUTDUPL_MOVE_RECT, pmoverectsbuffersizerequired: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFramePointerShape(&self, pointershapebuffersize: u32, ppointershapebuffer: *mut ::core::ffi::c_void, ppointershapebuffersizerequired: *mut u32, ppointershapeinfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> ::windows::core::Result<()>;
+    fn MapDesktopSurface(&self) -> ::windows::core::Result<DXGI_MAPPED_RECT>;
+    fn UnMapDesktopSurface(&self) -> ::windows::core::Result<()>;
+    fn ReleaseFrame(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIOutputDuplication_Vtbl {
@@ -1688,10 +1688,10 @@ impl IDXGIOutputDuplication_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIResource_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl {
-    fn GetSharedHandle(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
-    fn GetUsage(&mut self) -> ::windows::core::Result<u32>;
-    fn SetEvictionPriority(&mut self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::Result<()>;
-    fn GetEvictionPriority(&mut self) -> ::windows::core::Result<u32>;
+    fn GetSharedHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn GetUsage(&self) -> ::windows::core::Result<u32>;
+    fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::Result<()>;
+    fn GetEvictionPriority(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIResource_Vtbl {
@@ -1748,8 +1748,8 @@ impl IDXGIResource_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub trait IDXGIResource1_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGIResource_Impl {
-    fn CreateSubresourceSurface(&mut self, index: u32) -> ::windows::core::Result<IDXGISurface2>;
-    fn CreateSharedHandle(&mut self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn CreateSubresourceSurface(&self, index: u32) -> ::windows::core::Result<IDXGISurface2>;
+    fn CreateSharedHandle(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IDXGIResource1_Vtbl {
@@ -1788,9 +1788,9 @@ impl IDXGIResource1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IDXGISurface_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl {
-    fn GetDesc(&mut self) -> ::windows::core::Result<DXGI_SURFACE_DESC>;
-    fn Map(&mut self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::core::Result<()>;
-    fn Unmap(&mut self) -> ::windows::core::Result<()>;
+    fn GetDesc(&self) -> ::windows::core::Result<DXGI_SURFACE_DESC>;
+    fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::core::Result<()>;
+    fn Unmap(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDXGISurface_Vtbl {
@@ -1829,8 +1829,8 @@ impl IDXGISurface_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGISurface1_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISurface_Impl {
-    fn GetDC(&mut self, discard: super::super::Foundation::BOOL) -> ::windows::core::Result<super::Gdi::HDC>;
-    fn ReleaseDC(&mut self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn GetDC(&self, discard: super::super::Foundation::BOOL) -> ::windows::core::Result<super::Gdi::HDC>;
+    fn ReleaseDC(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGISurface1_Vtbl {
@@ -1859,7 +1859,7 @@ impl IDXGISurface1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 pub trait IDXGISurface2_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISurface_Impl + IDXGISurface1_Impl {
-    fn GetResource(&mut self, riid: *const ::windows::core::GUID, ppparentresource: *mut *mut ::core::ffi::c_void, psubresourceindex: *mut u32) -> ::windows::core::Result<()>;
+    fn GetResource(&self, riid: *const ::windows::core::GUID, ppparentresource: *mut *mut ::core::ffi::c_void, psubresourceindex: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGISurface2_Vtbl {
@@ -1877,16 +1877,16 @@ impl IDXGISurface2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGISwapChain_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl {
-    fn Present(&mut self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()>;
-    fn GetBuffer(&mut self, buffer: u32, riid: *const ::windows::core::GUID, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetFullscreenState(&mut self, fullscreen: super::super::Foundation::BOOL, ptarget: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()>;
-    fn GetFullscreenState(&mut self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()>;
-    fn GetDesc(&mut self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC>;
-    fn ResizeBuffers(&mut self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()>;
-    fn ResizeTarget(&mut self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>;
-    fn GetContainingOutput(&mut self) -> ::windows::core::Result<IDXGIOutput>;
-    fn GetFrameStatistics(&mut self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS>;
-    fn GetLastPresentCount(&mut self) -> ::windows::core::Result<u32>;
+    fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()>;
+    fn GetBuffer(&self, buffer: u32, riid: *const ::windows::core::GUID, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetFullscreenState(&self, fullscreen: super::super::Foundation::BOOL, ptarget: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()>;
+    fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()>;
+    fn GetDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC>;
+    fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()>;
+    fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()>;
+    fn GetContainingOutput(&self) -> ::windows::core::Result<IDXGIOutput>;
+    fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS>;
+    fn GetLastPresentCount(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGISwapChain_Vtbl {
@@ -1985,17 +1985,17 @@ impl IDXGISwapChain_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGISwapChain1_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISwapChain_Impl {
-    fn GetDesc1(&mut self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1>;
-    fn GetFullscreenDesc(&mut self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>;
-    fn GetHwnd(&mut self) -> ::windows::core::Result<super::super::Foundation::HWND>;
-    fn GetCoreWindow(&mut self, refiid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Present1(&mut self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()>;
-    fn IsTemporaryMonoSupported(&mut self) -> super::super::Foundation::BOOL;
-    fn GetRestrictToOutput(&mut self) -> ::windows::core::Result<IDXGIOutput>;
-    fn SetBackgroundColor(&mut self, pcolor: *const DXGI_RGBA) -> ::windows::core::Result<()>;
-    fn GetBackgroundColor(&mut self) -> ::windows::core::Result<DXGI_RGBA>;
-    fn SetRotation(&mut self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()>;
-    fn GetRotation(&mut self) -> ::windows::core::Result<Common::DXGI_MODE_ROTATION>;
+    fn GetDesc1(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1>;
+    fn GetFullscreenDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>;
+    fn GetHwnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
+    fn GetCoreWindow(&self, refiid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()>;
+    fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL;
+    fn GetRestrictToOutput(&self) -> ::windows::core::Result<IDXGIOutput>;
+    fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> ::windows::core::Result<()>;
+    fn GetBackgroundColor(&self) -> ::windows::core::Result<DXGI_RGBA>;
+    fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()>;
+    fn GetRotation(&self) -> ::windows::core::Result<Common::DXGI_MODE_ROTATION>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGISwapChain1_Vtbl {
@@ -2112,13 +2112,13 @@ impl IDXGISwapChain1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGISwapChain2_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISwapChain_Impl + IDXGISwapChain1_Impl {
-    fn SetSourceSize(&mut self, width: u32, height: u32) -> ::windows::core::Result<()>;
-    fn GetSourceSize(&mut self, pwidth: *mut u32, pheight: *mut u32) -> ::windows::core::Result<()>;
-    fn SetMaximumFrameLatency(&mut self, maxlatency: u32) -> ::windows::core::Result<()>;
-    fn GetMaximumFrameLatency(&mut self) -> ::windows::core::Result<u32>;
-    fn GetFrameLatencyWaitableObject(&mut self) -> super::super::Foundation::HANDLE;
-    fn SetMatrixTransform(&mut self, pmatrix: *const DXGI_MATRIX_3X2_F) -> ::windows::core::Result<()>;
-    fn GetMatrixTransform(&mut self) -> ::windows::core::Result<DXGI_MATRIX_3X2_F>;
+    fn SetSourceSize(&self, width: u32, height: u32) -> ::windows::core::Result<()>;
+    fn GetSourceSize(&self, pwidth: *mut u32, pheight: *mut u32) -> ::windows::core::Result<()>;
+    fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()>;
+    fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32>;
+    fn GetFrameLatencyWaitableObject(&self) -> super::super::Foundation::HANDLE;
+    fn SetMatrixTransform(&self, pmatrix: *const DXGI_MATRIX_3X2_F) -> ::windows::core::Result<()>;
+    fn GetMatrixTransform(&self) -> ::windows::core::Result<DXGI_MATRIX_3X2_F>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGISwapChain2_Vtbl {
@@ -2187,10 +2187,10 @@ impl IDXGISwapChain2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGISwapChain3_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISwapChain_Impl + IDXGISwapChain1_Impl + IDXGISwapChain2_Impl {
-    fn GetCurrentBackBufferIndex(&mut self) -> u32;
-    fn CheckColorSpaceSupport(&mut self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<u32>;
-    fn SetColorSpace1(&mut self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()>;
-    fn ResizeBuffers1(&mut self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetCurrentBackBufferIndex(&self) -> u32;
+    fn CheckColorSpaceSupport(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<u32>;
+    fn SetColorSpace1(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()>;
+    fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGISwapChain3_Vtbl {
@@ -2235,7 +2235,7 @@ impl IDXGISwapChain3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGISwapChain4_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Impl + IDXGISwapChain_Impl + IDXGISwapChain1_Impl + IDXGISwapChain2_Impl + IDXGISwapChain3_Impl {
-    fn SetHDRMetaData(&mut self, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGISwapChain4_Vtbl {
@@ -2252,9 +2252,9 @@ impl IDXGISwapChain4_Vtbl {
     }
 }
 pub trait IDXGISwapChainMedia_Impl: Sized {
-    fn GetFrameStatisticsMedia(&mut self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS_MEDIA>;
-    fn SetPresentDuration(&mut self, duration: u32) -> ::windows::core::Result<()>;
-    fn CheckPresentDurationSupport(&mut self, desiredpresentduration: u32, pclosestsmallerpresentduration: *mut u32, pclosestlargerpresentduration: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFrameStatisticsMedia(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS_MEDIA>;
+    fn SetPresentDuration(&self, duration: u32) -> ::windows::core::Result<()>;
+    fn CheckPresentDurationSupport(&self, desiredpresentduration: u32, pclosestsmallerpresentduration: *mut u32, pclosestlargerpresentduration: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IDXGISwapChainMedia_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChainMedia_Impl, const OFFSET: isize>() -> IDXGISwapChainMedia_Vtbl {
@@ -2291,8 +2291,8 @@ impl IDXGISwapChainMedia_Vtbl {
     }
 }
 pub trait IDXGraphicsAnalysis_Impl: Sized {
-    fn BeginCapture(&mut self);
-    fn EndCapture(&mut self);
+    fn BeginCapture(&self);
+    fn EndCapture(&self);
 }
 impl IDXGraphicsAnalysis_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGraphicsAnalysis_Impl, const OFFSET: isize>() -> IDXGraphicsAnalysis_Vtbl {

@@ -1,8 +1,8 @@
 #[cfg(feature = "Foundation")]
 pub trait IPointerPointTransform_Impl: Sized {
-    fn Inverse(&mut self) -> ::windows::core::Result<IPointerPointTransform>;
-    fn TryTransform(&mut self, inpoint: &super::super::Foundation::Point, outpoint: &mut super::super::Foundation::Point) -> ::windows::core::Result<bool>;
-    fn TransformBounds(&mut self, rect: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::Rect>;
+    fn Inverse(&self) -> ::windows::core::Result<IPointerPointTransform>;
+    fn TryTransform(&self, inpoint: &super::super::Foundation::Point, outpoint: &mut super::super::Foundation::Point) -> ::windows::core::Result<bool>;
+    fn TransformBounds(&self, rect: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::Rect>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IPointerPointTransform {

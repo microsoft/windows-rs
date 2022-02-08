@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ICompositionFramePresentStatistics_Impl: Sized + IPresentStatistics_Impl {
-    fn GetContentTag(&mut self) -> usize;
-    fn GetCompositionFrameId(&mut self) -> u64;
-    fn GetDisplayInstanceArray(&mut self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance);
+    fn GetContentTag(&self) -> usize;
+    fn GetCompositionFrameId(&self) -> u64;
+    fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ICompositionFramePresentStatistics_Vtbl {
@@ -35,11 +35,11 @@ impl ICompositionFramePresentStatistics_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IIndependentFlipFramePresentStatistics_Impl: Sized + IPresentStatistics_Impl {
-    fn GetOutputAdapterLUID(&mut self) -> super::super::Foundation::LUID;
-    fn GetOutputVidPnSourceId(&mut self) -> u32;
-    fn GetContentTag(&mut self) -> usize;
-    fn GetDisplayedTime(&mut self) -> SystemInterruptTime;
-    fn GetPresentDuration(&mut self) -> SystemInterruptTime;
+    fn GetOutputAdapterLUID(&self) -> super::super::Foundation::LUID;
+    fn GetOutputVidPnSourceId(&self) -> u32;
+    fn GetContentTag(&self) -> usize;
+    fn GetDisplayedTime(&self) -> SystemInterruptTime;
+    fn GetPresentDuration(&self) -> SystemInterruptTime;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IIndependentFlipFramePresentStatistics_Vtbl {
@@ -83,8 +83,8 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
     }
 }
 pub trait IPresentStatistics_Impl: Sized {
-    fn GetPresentId(&mut self) -> u64;
-    fn GetKind(&mut self) -> PresentStatisticsKind;
+    fn GetPresentId(&self) -> u64;
+    fn GetKind(&self) -> PresentStatisticsKind;
 }
 impl IPresentStatistics_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPresentStatistics_Impl, const OFFSET: isize>() -> IPresentStatistics_Vtbl {
@@ -109,8 +109,8 @@ impl IPresentStatistics_Vtbl {
     }
 }
 pub trait IPresentStatusPresentStatistics_Impl: Sized + IPresentStatistics_Impl {
-    fn GetCompositionFrameId(&mut self) -> u64;
-    fn GetPresentStatus(&mut self) -> PresentStatus;
+    fn GetCompositionFrameId(&self) -> u64;
+    fn GetPresentStatus(&self) -> PresentStatus;
 }
 impl IPresentStatusPresentStatistics_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPresentStatusPresentStatistics_Impl, const OFFSET: isize>() -> IPresentStatusPresentStatistics_Vtbl {
@@ -136,8 +136,8 @@ impl IPresentStatusPresentStatistics_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPresentationBuffer_Impl: Sized {
-    fn GetAvailableEvent(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
-    fn IsAvailable(&mut self) -> ::windows::core::Result<u8>;
+    fn GetAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn IsAvailable(&self) -> ::windows::core::Result<u8>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPresentationBuffer_Vtbl {
@@ -175,7 +175,7 @@ impl IPresentationBuffer_Vtbl {
     }
 }
 pub trait IPresentationContent_Impl: Sized {
-    fn SetTag(&mut self, tag: usize);
+    fn SetTag(&self, tag: usize);
 }
 impl IPresentationContent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPresentationContent_Impl, const OFFSET: isize>() -> IPresentationContent_Vtbl {
@@ -191,9 +191,9 @@ impl IPresentationContent_Vtbl {
     }
 }
 pub trait IPresentationFactory_Impl: Sized {
-    fn IsPresentationSupported(&mut self) -> u8;
-    fn IsPresentationSupportedWithIndependentFlip(&mut self) -> u8;
-    fn CreatePresentationManager(&mut self) -> ::windows::core::Result<IPresentationManager>;
+    fn IsPresentationSupported(&self) -> u8;
+    fn IsPresentationSupportedWithIndependentFlip(&self) -> u8;
+    fn CreatePresentationManager(&self) -> ::windows::core::Result<IPresentationManager>;
 }
 impl IPresentationFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPresentationFactory_Impl, const OFFSET: isize>() -> IPresentationFactory_Vtbl {
@@ -231,19 +231,19 @@ impl IPresentationFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPresentationManager_Impl: Sized {
-    fn AddBufferFromResource(&mut self, resource: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IPresentationBuffer>;
-    fn CreatePresentationSurface(&mut self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> ::windows::core::Result<IPresentationSurface>;
-    fn GetNextPresentId(&mut self) -> u64;
-    fn SetTargetTime(&mut self, targettime: &SystemInterruptTime) -> ::windows::core::Result<()>;
-    fn SetPreferredPresentDuration(&mut self, preferredduration: &SystemInterruptTime, deviationtolerance: &SystemInterruptTime) -> ::windows::core::Result<()>;
-    fn ForceVSyncInterrupt(&mut self, forcevsyncinterrupt: u8) -> ::windows::core::Result<()>;
-    fn Present(&mut self) -> ::windows::core::Result<()>;
-    fn GetPresentRetiringFence(&mut self, riid: *const ::windows::core::GUID, fence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CancelPresentsFrom(&mut self, presentidtocancelfrom: u64) -> ::windows::core::Result<()>;
-    fn GetLostEvent(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
-    fn GetPresentStatisticsAvailableEvent(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
-    fn EnablePresentStatisticsKind(&mut self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::Result<()>;
-    fn GetNextPresentStatistics(&mut self) -> ::windows::core::Result<IPresentStatistics>;
+    fn AddBufferFromResource(&self, resource: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IPresentationBuffer>;
+    fn CreatePresentationSurface(&self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> ::windows::core::Result<IPresentationSurface>;
+    fn GetNextPresentId(&self) -> u64;
+    fn SetTargetTime(&self, targettime: &SystemInterruptTime) -> ::windows::core::Result<()>;
+    fn SetPreferredPresentDuration(&self, preferredduration: &SystemInterruptTime, deviationtolerance: &SystemInterruptTime) -> ::windows::core::Result<()>;
+    fn ForceVSyncInterrupt(&self, forcevsyncinterrupt: u8) -> ::windows::core::Result<()>;
+    fn Present(&self) -> ::windows::core::Result<()>;
+    fn GetPresentRetiringFence(&self, riid: *const ::windows::core::GUID, fence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> ::windows::core::Result<()>;
+    fn GetLostEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn GetPresentStatisticsAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::Result<()>;
+    fn GetNextPresentStatistics(&self) -> ::windows::core::Result<IPresentStatistics>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPresentationManager_Vtbl {
@@ -366,14 +366,14 @@ impl IPresentationManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IPresentationSurface_Impl: Sized + IPresentationContent_Impl {
-    fn SetBuffer(&mut self, presentationbuffer: &::core::option::Option<IPresentationBuffer>) -> ::windows::core::Result<()>;
-    fn SetColorSpace(&mut self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()>;
-    fn SetAlphaMode(&mut self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<()>;
-    fn SetSourceRect(&mut self, sourcerect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn SetTransform(&mut self, transform: *const PresentationTransform) -> ::windows::core::Result<()>;
-    fn RestrictToOutput(&mut self, output: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetDisableReadback(&mut self, value: u8) -> ::windows::core::Result<()>;
-    fn SetLetterboxingMargins(&mut self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows::core::Result<()>;
+    fn SetBuffer(&self, presentationbuffer: &::core::option::Option<IPresentationBuffer>) -> ::windows::core::Result<()>;
+    fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()>;
+    fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<()>;
+    fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn SetTransform(&self, transform: *const PresentationTransform) -> ::windows::core::Result<()>;
+    fn RestrictToOutput(&self, output: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetDisableReadback(&self, value: u8) -> ::windows::core::Result<()>;
+    fn SetLetterboxingMargins(&self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IPresentationSurface_Vtbl {

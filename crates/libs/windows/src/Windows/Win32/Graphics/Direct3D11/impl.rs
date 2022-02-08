@@ -1,5 +1,5 @@
 pub trait ID3D11Asynchronous_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetDataSize(&mut self) -> u32;
+    fn GetDataSize(&self) -> u32;
 }
 impl ID3D11Asynchronous_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11Asynchronous_Impl, const OFFSET: isize>() -> ID3D11Asynchronous_Vtbl {
@@ -16,9 +16,9 @@ impl ID3D11Asynchronous_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11AuthenticatedChannel_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetCertificateSize(&mut self) -> ::windows::core::Result<u32>;
-    fn GetCertificate(&mut self, certificatesize: u32) -> ::windows::core::Result<u8>;
-    fn GetChannelHandle(&mut self, pchannelhandle: *mut super::super::Foundation::HANDLE);
+    fn GetCertificateSize(&self) -> ::windows::core::Result<u32>;
+    fn GetCertificate(&self, certificatesize: u32) -> ::windows::core::Result<u8>;
+    fn GetChannelHandle(&self, pchannelhandle: *mut super::super::Foundation::HANDLE);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11AuthenticatedChannel_Vtbl {
@@ -63,7 +63,7 @@ impl ID3D11AuthenticatedChannel_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11BlendState_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_BLEND_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_BLEND_DESC);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11BlendState_Vtbl {
@@ -81,7 +81,7 @@ impl ID3D11BlendState_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11BlendState1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11BlendState_Impl {
-    fn GetDesc1(&mut self, pdesc: *mut D3D11_BLEND_DESC1);
+    fn GetDesc1(&self, pdesc: *mut D3D11_BLEND_DESC1);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11BlendState1_Vtbl {
@@ -98,7 +98,7 @@ impl ID3D11BlendState1_Vtbl {
     }
 }
 pub trait ID3D11Buffer_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_BUFFER_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_BUFFER_DESC);
 }
 impl ID3D11Buffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11Buffer_Impl, const OFFSET: isize>() -> ID3D11Buffer_Vtbl {
@@ -115,10 +115,10 @@ impl ID3D11Buffer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11ClassInstance_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetClassLinkage(&mut self, pplinkage: *mut ::core::option::Option<ID3D11ClassLinkage>);
-    fn GetDesc(&mut self, pdesc: *mut D3D11_CLASS_INSTANCE_DESC);
-    fn GetInstanceName(&mut self, pinstancename: super::super::Foundation::PSTR, pbufferlength: *mut usize);
-    fn GetTypeName(&mut self, ptypename: super::super::Foundation::PSTR, pbufferlength: *mut usize);
+    fn GetClassLinkage(&self, pplinkage: *mut ::core::option::Option<ID3D11ClassLinkage>);
+    fn GetDesc(&self, pdesc: *mut D3D11_CLASS_INSTANCE_DESC);
+    fn GetInstanceName(&self, pinstancename: super::super::Foundation::PSTR, pbufferlength: *mut usize);
+    fn GetTypeName(&self, ptypename: super::super::Foundation::PSTR, pbufferlength: *mut usize);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11ClassInstance_Vtbl {
@@ -157,8 +157,8 @@ impl ID3D11ClassInstance_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11ClassLinkage_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetClassInstance(&mut self, pclassinstancename: super::super::Foundation::PSTR, instanceindex: u32) -> ::windows::core::Result<ID3D11ClassInstance>;
-    fn CreateClassInstance(&mut self, pclasstypename: super::super::Foundation::PSTR, constantbufferoffset: u32, constantvectoroffset: u32, textureoffset: u32, sampleroffset: u32) -> ::windows::core::Result<ID3D11ClassInstance>;
+    fn GetClassInstance(&self, pclassinstancename: super::super::Foundation::PSTR, instanceindex: u32) -> ::windows::core::Result<ID3D11ClassInstance>;
+    fn CreateClassInstance(&self, pclasstypename: super::super::Foundation::PSTR, constantbufferoffset: u32, constantvectoroffset: u32, textureoffset: u32, sampleroffset: u32) -> ::windows::core::Result<ID3D11ClassInstance>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11ClassLinkage_Vtbl {
@@ -196,7 +196,7 @@ impl ID3D11ClassLinkage_Vtbl {
     }
 }
 pub trait ID3D11CommandList_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetContextFlags(&mut self) -> u32;
+    fn GetContextFlags(&self) -> u32;
 }
 impl ID3D11CommandList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11CommandList_Impl, const OFFSET: isize>() -> ID3D11CommandList_Vtbl {
@@ -221,7 +221,7 @@ impl ID3D11ComputeShader_Vtbl {
     }
 }
 pub trait ID3D11Counter_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Asynchronous_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_COUNTER_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_COUNTER_DESC);
 }
 impl ID3D11Counter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11Counter_Impl, const OFFSET: isize>() -> ID3D11Counter_Vtbl {
@@ -238,11 +238,11 @@ impl ID3D11Counter_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11CryptoSession_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetCryptoType(&mut self, pcryptotype: *mut ::windows::core::GUID);
-    fn GetDecoderProfile(&mut self, pdecoderprofile: *mut ::windows::core::GUID);
-    fn GetCertificateSize(&mut self) -> ::windows::core::Result<u32>;
-    fn GetCertificate(&mut self, certificatesize: u32) -> ::windows::core::Result<u8>;
-    fn GetCryptoSessionHandle(&mut self, pcryptosessionhandle: *mut super::super::Foundation::HANDLE);
+    fn GetCryptoType(&self, pcryptotype: *mut ::windows::core::GUID);
+    fn GetDecoderProfile(&self, pdecoderprofile: *mut ::windows::core::GUID);
+    fn GetCertificateSize(&self) -> ::windows::core::Result<u32>;
+    fn GetCertificate(&self, certificatesize: u32) -> ::windows::core::Result<u8>;
+    fn GetCryptoSessionHandle(&self, pcryptosessionhandle: *mut super::super::Foundation::HANDLE);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11CryptoSession_Vtbl {
@@ -299,15 +299,15 @@ impl ID3D11CryptoSession_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub trait ID3D11Debug_Impl: Sized {
-    fn SetFeatureMask(&mut self, mask: u32) -> ::windows::core::Result<()>;
-    fn GetFeatureMask(&mut self) -> u32;
-    fn SetPresentPerRenderOpDelay(&mut self, milliseconds: u32) -> ::windows::core::Result<()>;
-    fn GetPresentPerRenderOpDelay(&mut self) -> u32;
-    fn SetSwapChain(&mut self, pswapchain: &::core::option::Option<super::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
-    fn GetSwapChain(&mut self) -> ::windows::core::Result<super::Dxgi::IDXGISwapChain>;
-    fn ValidateContext(&mut self, pcontext: &::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::Result<()>;
-    fn ReportLiveDeviceObjects(&mut self, flags: D3D11_RLDO_FLAGS) -> ::windows::core::Result<()>;
-    fn ValidateContextForDispatch(&mut self, pcontext: &::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::Result<()>;
+    fn SetFeatureMask(&self, mask: u32) -> ::windows::core::Result<()>;
+    fn GetFeatureMask(&self) -> u32;
+    fn SetPresentPerRenderOpDelay(&self, milliseconds: u32) -> ::windows::core::Result<()>;
+    fn GetPresentPerRenderOpDelay(&self) -> u32;
+    fn SetSwapChain(&self, pswapchain: &::core::option::Option<super::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
+    fn GetSwapChain(&self) -> ::windows::core::Result<super::Dxgi::IDXGISwapChain>;
+    fn ValidateContext(&self, pcontext: &::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::Result<()>;
+    fn ReportLiveDeviceObjects(&self, flags: D3D11_RLDO_FLAGS) -> ::windows::core::Result<()>;
+    fn ValidateContextForDispatch(&self, pcontext: &::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ID3D11Debug_Vtbl {
@@ -382,7 +382,7 @@ impl ID3D11Debug_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11DepthStencilState_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_DEPTH_STENCIL_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_DEPTH_STENCIL_DESC);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11DepthStencilState_Vtbl {
@@ -400,7 +400,7 @@ impl ID3D11DepthStencilState_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11DepthStencilView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_DEPTH_STENCIL_VIEW_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_DEPTH_STENCIL_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11DepthStencilView_Vtbl {
@@ -418,46 +418,46 @@ impl ID3D11DepthStencilView_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device_Impl: Sized {
-    fn CreateBuffer(&mut self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Buffer>;
-    fn CreateTexture1D(&mut self, pdesc: *const D3D11_TEXTURE1D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture1D>;
-    fn CreateTexture2D(&mut self, pdesc: *const D3D11_TEXTURE2D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D>;
-    fn CreateTexture3D(&mut self, pdesc: *const D3D11_TEXTURE3D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D>;
-    fn CreateShaderResourceView(&mut self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_SHADER_RESOURCE_VIEW_DESC) -> ::windows::core::Result<ID3D11ShaderResourceView>;
-    fn CreateUnorderedAccessView(&mut self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_UNORDERED_ACCESS_VIEW_DESC) -> ::windows::core::Result<ID3D11UnorderedAccessView>;
-    fn CreateRenderTargetView(&mut self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_RENDER_TARGET_VIEW_DESC) -> ::windows::core::Result<ID3D11RenderTargetView>;
-    fn CreateDepthStencilView(&mut self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_DEPTH_STENCIL_VIEW_DESC) -> ::windows::core::Result<ID3D11DepthStencilView>;
-    fn CreateInputLayout(&mut self, pinputelementdescs: *const D3D11_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D11InputLayout>;
-    fn CreateVertexShader(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11VertexShader>;
-    fn CreateGeometryShader(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11GeometryShader>;
-    fn CreateGeometryShaderWithStreamOutput(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, psodeclaration: *const D3D11_SO_DECLARATION_ENTRY, numentries: u32, pbufferstrides: *const u32, numstrides: u32, rasterizedstream: u32, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11GeometryShader>;
-    fn CreatePixelShader(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11PixelShader>;
-    fn CreateHullShader(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11HullShader>;
-    fn CreateDomainShader(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11DomainShader>;
-    fn CreateComputeShader(&mut self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11ComputeShader>;
-    fn CreateClassLinkage(&mut self) -> ::windows::core::Result<ID3D11ClassLinkage>;
-    fn CreateBlendState(&mut self, pblendstatedesc: *const D3D11_BLEND_DESC) -> ::windows::core::Result<ID3D11BlendState>;
-    fn CreateDepthStencilState(&mut self, pdepthstencildesc: *const D3D11_DEPTH_STENCIL_DESC) -> ::windows::core::Result<ID3D11DepthStencilState>;
-    fn CreateRasterizerState(&mut self, prasterizerdesc: *const D3D11_RASTERIZER_DESC) -> ::windows::core::Result<ID3D11RasterizerState>;
-    fn CreateSamplerState(&mut self, psamplerdesc: *const D3D11_SAMPLER_DESC) -> ::windows::core::Result<ID3D11SamplerState>;
-    fn CreateQuery(&mut self, pquerydesc: *const D3D11_QUERY_DESC) -> ::windows::core::Result<ID3D11Query>;
-    fn CreatePredicate(&mut self, ppredicatedesc: *const D3D11_QUERY_DESC) -> ::windows::core::Result<ID3D11Predicate>;
-    fn CreateCounter(&mut self, pcounterdesc: *const D3D11_COUNTER_DESC) -> ::windows::core::Result<ID3D11Counter>;
-    fn CreateDeferredContext(&mut self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext>;
-    fn OpenSharedResource(&mut self, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CheckFormatSupport(&mut self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32>;
-    fn CheckMultisampleQualityLevels(&mut self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32>;
-    fn CheckCounterInfo(&mut self, pcounterinfo: *mut D3D11_COUNTER_INFO);
-    fn CheckCounter(&mut self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: super::super::Foundation::PSTR, pnamelength: *mut u32, szunits: super::super::Foundation::PSTR, punitslength: *mut u32, szdescription: super::super::Foundation::PSTR, pdescriptionlength: *mut u32) -> ::windows::core::Result<()>;
-    fn CheckFeatureSupport(&mut self, feature: D3D11_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
-    fn GetPrivateData(&mut self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateData(&mut self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&mut self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetFeatureLevel(&mut self) -> super::Direct3D::D3D_FEATURE_LEVEL;
-    fn GetCreationFlags(&mut self) -> u32;
-    fn GetDeviceRemovedReason(&mut self) -> ::windows::core::Result<()>;
-    fn GetImmediateContext(&mut self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext>);
-    fn SetExceptionMode(&mut self, raiseflags: u32) -> ::windows::core::Result<()>;
-    fn GetExceptionMode(&mut self) -> u32;
+    fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Buffer>;
+    fn CreateTexture1D(&self, pdesc: *const D3D11_TEXTURE1D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture1D>;
+    fn CreateTexture2D(&self, pdesc: *const D3D11_TEXTURE2D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D>;
+    fn CreateTexture3D(&self, pdesc: *const D3D11_TEXTURE3D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D>;
+    fn CreateShaderResourceView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_SHADER_RESOURCE_VIEW_DESC) -> ::windows::core::Result<ID3D11ShaderResourceView>;
+    fn CreateUnorderedAccessView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_UNORDERED_ACCESS_VIEW_DESC) -> ::windows::core::Result<ID3D11UnorderedAccessView>;
+    fn CreateRenderTargetView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_RENDER_TARGET_VIEW_DESC) -> ::windows::core::Result<ID3D11RenderTargetView>;
+    fn CreateDepthStencilView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_DEPTH_STENCIL_VIEW_DESC) -> ::windows::core::Result<ID3D11DepthStencilView>;
+    fn CreateInputLayout(&self, pinputelementdescs: *const D3D11_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::core::ffi::c_void, bytecodelength: usize) -> ::windows::core::Result<ID3D11InputLayout>;
+    fn CreateVertexShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11VertexShader>;
+    fn CreateGeometryShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11GeometryShader>;
+    fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, psodeclaration: *const D3D11_SO_DECLARATION_ENTRY, numentries: u32, pbufferstrides: *const u32, numstrides: u32, rasterizedstream: u32, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11GeometryShader>;
+    fn CreatePixelShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11PixelShader>;
+    fn CreateHullShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11HullShader>;
+    fn CreateDomainShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11DomainShader>;
+    fn CreateComputeShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: &::core::option::Option<ID3D11ClassLinkage>) -> ::windows::core::Result<ID3D11ComputeShader>;
+    fn CreateClassLinkage(&self) -> ::windows::core::Result<ID3D11ClassLinkage>;
+    fn CreateBlendState(&self, pblendstatedesc: *const D3D11_BLEND_DESC) -> ::windows::core::Result<ID3D11BlendState>;
+    fn CreateDepthStencilState(&self, pdepthstencildesc: *const D3D11_DEPTH_STENCIL_DESC) -> ::windows::core::Result<ID3D11DepthStencilState>;
+    fn CreateRasterizerState(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC) -> ::windows::core::Result<ID3D11RasterizerState>;
+    fn CreateSamplerState(&self, psamplerdesc: *const D3D11_SAMPLER_DESC) -> ::windows::core::Result<ID3D11SamplerState>;
+    fn CreateQuery(&self, pquerydesc: *const D3D11_QUERY_DESC) -> ::windows::core::Result<ID3D11Query>;
+    fn CreatePredicate(&self, ppredicatedesc: *const D3D11_QUERY_DESC) -> ::windows::core::Result<ID3D11Predicate>;
+    fn CreateCounter(&self, pcounterdesc: *const D3D11_COUNTER_DESC) -> ::windows::core::Result<ID3D11Counter>;
+    fn CreateDeferredContext(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext>;
+    fn OpenSharedResource(&self, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CheckFormatSupport(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32>;
+    fn CheckMultisampleQualityLevels(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32) -> ::windows::core::Result<u32>;
+    fn CheckCounterInfo(&self, pcounterinfo: *mut D3D11_COUNTER_INFO);
+    fn CheckCounter(&self, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: super::super::Foundation::PSTR, pnamelength: *mut u32, szunits: super::super::Foundation::PSTR, punitslength: *mut u32, szdescription: super::super::Foundation::PSTR, pdescriptionlength: *mut u32) -> ::windows::core::Result<()>;
+    fn CheckFeatureSupport(&self, feature: D3D11_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
+    fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetFeatureLevel(&self) -> super::Direct3D::D3D_FEATURE_LEVEL;
+    fn GetCreationFlags(&self) -> u32;
+    fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()>;
+    fn GetImmediateContext(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext>);
+    fn SetExceptionMode(&self, raiseflags: u32) -> ::windows::core::Result<()>;
+    fn GetExceptionMode(&self) -> u32;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11Device_Vtbl {
@@ -874,13 +874,13 @@ impl ID3D11Device_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device1_Impl: Sized + ID3D11Device_Impl {
-    fn GetImmediateContext1(&mut self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>);
-    fn CreateDeferredContext1(&mut self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1>;
-    fn CreateBlendState1(&mut self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1>;
-    fn CreateRasterizerState1(&mut self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1>;
-    fn CreateDeviceContextState(&mut self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()>;
-    fn OpenSharedResource1(&mut self, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn OpenSharedResourceByName(&mut self, lpname: super::super::Foundation::PWSTR, dwdesiredaccess: u32, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>);
+    fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1>;
+    fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1>;
+    fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1>;
+    fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()>;
+    fn OpenSharedResource1(&self, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OpenSharedResourceByName(&self, lpname: super::super::Foundation::PWSTR, dwdesiredaccess: u32, returnedinterface: *const ::windows::core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11Device1_Vtbl {
@@ -955,10 +955,10 @@ impl ID3D11Device1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device2_Impl: Sized + ID3D11Device_Impl + ID3D11Device1_Impl {
-    fn GetImmediateContext2(&mut self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>);
-    fn CreateDeferredContext2(&mut self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2>;
-    fn GetResourceTiling(&mut self, ptiledresource: &::core::option::Option<ID3D11Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING);
-    fn CheckMultisampleQualityLevels1(&mut self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32>;
+    fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>);
+    fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2>;
+    fn GetResourceTiling(&self, ptiledresource: &::core::option::Option<ID3D11Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING);
+    fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11Device2_Vtbl {
@@ -1009,17 +1009,17 @@ impl ID3D11Device2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device3_Impl: Sized + ID3D11Device_Impl + ID3D11Device1_Impl + ID3D11Device2_Impl {
-    fn CreateTexture2D1(&mut self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D1>;
-    fn CreateTexture3D1(&mut self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D1>;
-    fn CreateRasterizerState2(&mut self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2) -> ::windows::core::Result<ID3D11RasterizerState2>;
-    fn CreateShaderResourceView1(&mut self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D11ShaderResourceView1>;
-    fn CreateUnorderedAccessView1(&mut self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1) -> ::windows::core::Result<ID3D11UnorderedAccessView1>;
-    fn CreateRenderTargetView1(&mut self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1) -> ::windows::core::Result<ID3D11RenderTargetView1>;
-    fn CreateQuery1(&mut self, pquerydesc1: *const D3D11_QUERY_DESC1) -> ::windows::core::Result<ID3D11Query1>;
-    fn GetImmediateContext3(&mut self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext3>);
-    fn CreateDeferredContext3(&mut self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext3>;
-    fn WriteToSubresource(&mut self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
-    fn ReadFromSubresource(&mut self, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, psrcresource: &::core::option::Option<ID3D11Resource>, srcsubresource: u32, psrcbox: *const D3D11_BOX);
+    fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D1>;
+    fn CreateTexture3D1(&self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D1>;
+    fn CreateRasterizerState2(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2) -> ::windows::core::Result<ID3D11RasterizerState2>;
+    fn CreateShaderResourceView1(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D11ShaderResourceView1>;
+    fn CreateUnorderedAccessView1(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1) -> ::windows::core::Result<ID3D11UnorderedAccessView1>;
+    fn CreateRenderTargetView1(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1) -> ::windows::core::Result<ID3D11RenderTargetView1>;
+    fn CreateQuery1(&self, pquerydesc1: *const D3D11_QUERY_DESC1) -> ::windows::core::Result<ID3D11Query1>;
+    fn GetImmediateContext3(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext3>);
+    fn CreateDeferredContext3(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext3>;
+    fn WriteToSubresource(&self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
+    fn ReadFromSubresource(&self, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, psrcresource: &::core::option::Option<ID3D11Resource>, srcsubresource: u32, psrcbox: *const D3D11_BOX);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11Device3_Vtbl {
@@ -1148,8 +1148,8 @@ impl ID3D11Device3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device4_Impl: Sized + ID3D11Device_Impl + ID3D11Device1_Impl + ID3D11Device2_Impl + ID3D11Device3_Impl {
-    fn RegisterDeviceRemovedEvent(&mut self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
-    fn UnregisterDeviceRemoved(&mut self, dwcookie: u32);
+    fn RegisterDeviceRemovedEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
+    fn UnregisterDeviceRemoved(&self, dwcookie: u32);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11Device4_Vtbl {
@@ -1182,8 +1182,8 @@ impl ID3D11Device4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11Device5_Impl: Sized + ID3D11Device_Impl + ID3D11Device1_Impl + ID3D11Device2_Impl + ID3D11Device3_Impl + ID3D11Device4_Impl {
-    fn OpenSharedFence(&mut self, hfence: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateFence(&mut self, initialvalue: u64, flags: D3D11_FENCE_FLAG, returnedinterface: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OpenSharedFence(&self, hfence: super::super::Foundation::HANDLE, returnedinterface: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateFence(&self, initialvalue: u64, flags: D3D11_FENCE_FLAG, returnedinterface: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11Device5_Vtbl {
@@ -1209,10 +1209,10 @@ impl ID3D11Device5_Vtbl {
     }
 }
 pub trait ID3D11DeviceChild_Impl: Sized {
-    fn GetDevice(&mut self, ppdevice: *mut ::core::option::Option<ID3D11Device>);
-    fn GetPrivateData(&mut self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateData(&mut self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&mut self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>);
+    fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ID3D11DeviceChild_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11DeviceChild_Impl, const OFFSET: isize>() -> ID3D11DeviceChild_Vtbl {
@@ -1250,114 +1250,114 @@ impl ID3D11DeviceChild_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11DeviceContext_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn VSSetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
-    fn PSSetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
-    fn PSSetShader(&mut self, ppixelshader: &::core::option::Option<ID3D11PixelShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
-    fn PSSetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
-    fn VSSetShader(&mut self, pvertexshader: &::core::option::Option<ID3D11VertexShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
-    fn DrawIndexed(&mut self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32);
-    fn Draw(&mut self, vertexcount: u32, startvertexlocation: u32);
-    fn Map(&mut self, presource: &::core::option::Option<ID3D11Resource>, subresource: u32, maptype: D3D11_MAP, mapflags: u32) -> ::windows::core::Result<D3D11_MAPPED_SUBRESOURCE>;
-    fn Unmap(&mut self, presource: &::core::option::Option<ID3D11Resource>, subresource: u32);
-    fn PSSetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
-    fn IASetInputLayout(&mut self, pinputlayout: &::core::option::Option<ID3D11InputLayout>);
-    fn IASetVertexBuffers(&mut self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D11Buffer>, pstrides: *const u32, poffsets: *const u32);
-    fn IASetIndexBuffer(&mut self, pindexbuffer: &::core::option::Option<ID3D11Buffer>, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32);
-    fn DrawIndexedInstanced(&mut self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32);
-    fn DrawInstanced(&mut self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32);
-    fn GSSetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
-    fn GSSetShader(&mut self, pshader: &::core::option::Option<ID3D11GeometryShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
-    fn IASetPrimitiveTopology(&mut self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
-    fn VSSetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
-    fn VSSetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
-    fn Begin(&mut self, pasync: &::core::option::Option<ID3D11Asynchronous>);
-    fn End(&mut self, pasync: &::core::option::Option<ID3D11Asynchronous>);
-    fn GetData(&mut self, pasync: &::core::option::Option<ID3D11Asynchronous>, pdata: *mut ::core::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows::core::Result<()>;
-    fn SetPredication(&mut self, ppredicate: &::core::option::Option<ID3D11Predicate>, predicatevalue: super::super::Foundation::BOOL);
-    fn GSSetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
-    fn GSSetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
-    fn OMSetRenderTargets(&mut self, numviews: u32, pprendertargetviews: *const ::core::option::Option<ID3D11RenderTargetView>, pdepthstencilview: &::core::option::Option<ID3D11DepthStencilView>);
-    fn OMSetRenderTargetsAndUnorderedAccessViews(&mut self, numrtvs: u32, pprendertargetviews: *const ::core::option::Option<ID3D11RenderTargetView>, pdepthstencilview: &::core::option::Option<ID3D11DepthStencilView>, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32);
-    fn OMSetBlendState(&mut self, pblendstate: &::core::option::Option<ID3D11BlendState>, blendfactor: *const f32, samplemask: u32);
-    fn OMSetDepthStencilState(&mut self, pdepthstencilstate: &::core::option::Option<ID3D11DepthStencilState>, stencilref: u32);
-    fn SOSetTargets(&mut self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D11Buffer>, poffsets: *const u32);
-    fn DrawAuto(&mut self);
-    fn DrawIndexedInstancedIndirect(&mut self, pbufferforargs: &::core::option::Option<ID3D11Buffer>, alignedbyteoffsetforargs: u32);
-    fn DrawInstancedIndirect(&mut self, pbufferforargs: &::core::option::Option<ID3D11Buffer>, alignedbyteoffsetforargs: u32);
-    fn Dispatch(&mut self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32);
-    fn DispatchIndirect(&mut self, pbufferforargs: &::core::option::Option<ID3D11Buffer>, alignedbyteoffsetforargs: u32);
-    fn RSSetState(&mut self, prasterizerstate: &::core::option::Option<ID3D11RasterizerState>);
-    fn RSSetViewports(&mut self, numviewports: u32, pviewports: *const D3D11_VIEWPORT);
-    fn RSSetScissorRects(&mut self, numrects: u32, prects: *const super::super::Foundation::RECT);
-    fn CopySubresourceRegion(&mut self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: &::core::option::Option<ID3D11Resource>, srcsubresource: u32, psrcbox: *const D3D11_BOX);
-    fn CopyResource(&mut self, pdstresource: &::core::option::Option<ID3D11Resource>, psrcresource: &::core::option::Option<ID3D11Resource>);
-    fn UpdateSubresource(&mut self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
-    fn CopyStructureCount(&mut self, pdstbuffer: &::core::option::Option<ID3D11Buffer>, dstalignedbyteoffset: u32, psrcview: &::core::option::Option<ID3D11UnorderedAccessView>);
-    fn ClearRenderTargetView(&mut self, prendertargetview: &::core::option::Option<ID3D11RenderTargetView>, colorrgba: *const f32);
-    fn ClearUnorderedAccessViewUint(&mut self, punorderedaccessview: &::core::option::Option<ID3D11UnorderedAccessView>, values: *const u32);
-    fn ClearUnorderedAccessViewFloat(&mut self, punorderedaccessview: &::core::option::Option<ID3D11UnorderedAccessView>, values: *const f32);
-    fn ClearDepthStencilView(&mut self, pdepthstencilview: &::core::option::Option<ID3D11DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
-    fn GenerateMips(&mut self, pshaderresourceview: &::core::option::Option<ID3D11ShaderResourceView>);
-    fn SetResourceMinLOD(&mut self, presource: &::core::option::Option<ID3D11Resource>, minlod: f32);
-    fn GetResourceMinLOD(&mut self, presource: &::core::option::Option<ID3D11Resource>) -> f32;
-    fn ResolveSubresource(&mut self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, psrcresource: &::core::option::Option<ID3D11Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
-    fn ExecuteCommandList(&mut self, pcommandlist: &::core::option::Option<ID3D11CommandList>, restorecontextstate: super::super::Foundation::BOOL);
-    fn HSSetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
-    fn HSSetShader(&mut self, phullshader: &::core::option::Option<ID3D11HullShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
-    fn HSSetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
-    fn HSSetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
-    fn DSSetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
-    fn DSSetShader(&mut self, pdomainshader: &::core::option::Option<ID3D11DomainShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
-    fn DSSetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
-    fn DSSetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
-    fn CSSetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
-    fn CSSetUnorderedAccessViews(&mut self, startslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32);
-    fn CSSetShader(&mut self, pcomputeshader: &::core::option::Option<ID3D11ComputeShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
-    fn CSSetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
-    fn CSSetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
-    fn VSGetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
-    fn PSGetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
-    fn PSGetShader(&mut self, pppixelshader: *mut ::core::option::Option<ID3D11PixelShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
-    fn PSGetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
-    fn VSGetShader(&mut self, ppvertexshader: *mut ::core::option::Option<ID3D11VertexShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
-    fn PSGetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
-    fn IAGetInputLayout(&mut self, ppinputlayout: *mut ::core::option::Option<ID3D11InputLayout>);
-    fn IAGetVertexBuffers(&mut self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D11Buffer>, pstrides: *mut u32, poffsets: *mut u32);
-    fn IAGetIndexBuffer(&mut self, pindexbuffer: *mut ::core::option::Option<ID3D11Buffer>, format: *mut super::Dxgi::Common::DXGI_FORMAT, offset: *mut u32);
-    fn GSGetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
-    fn GSGetShader(&mut self, ppgeometryshader: *mut ::core::option::Option<ID3D11GeometryShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
-    fn IAGetPrimitiveTopology(&mut self, ptopology: *mut super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
-    fn VSGetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
-    fn VSGetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
-    fn GetPredication(&mut self, pppredicate: *mut ::core::option::Option<ID3D11Predicate>, ppredicatevalue: *mut super::super::Foundation::BOOL);
-    fn GSGetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
-    fn GSGetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
-    fn OMGetRenderTargets(&mut self, numviews: u32, pprendertargetviews: *mut ::core::option::Option<ID3D11RenderTargetView>, ppdepthstencilview: *mut ::core::option::Option<ID3D11DepthStencilView>);
-    fn OMGetRenderTargetsAndUnorderedAccessViews(&mut self, numrtvs: u32, pprendertargetviews: *mut ::core::option::Option<ID3D11RenderTargetView>, ppdepthstencilview: *mut ::core::option::Option<ID3D11DepthStencilView>, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *mut ::core::option::Option<ID3D11UnorderedAccessView>);
-    fn OMGetBlendState(&mut self, ppblendstate: *mut ::core::option::Option<ID3D11BlendState>, blendfactor: *mut f32, psamplemask: *mut u32);
-    fn OMGetDepthStencilState(&mut self, ppdepthstencilstate: *mut ::core::option::Option<ID3D11DepthStencilState>, pstencilref: *mut u32);
-    fn SOGetTargets(&mut self, numbuffers: u32, ppsotargets: *mut ::core::option::Option<ID3D11Buffer>);
-    fn RSGetState(&mut self, pprasterizerstate: *mut ::core::option::Option<ID3D11RasterizerState>);
-    fn RSGetViewports(&mut self, pnumviewports: *mut u32, pviewports: *mut D3D11_VIEWPORT);
-    fn RSGetScissorRects(&mut self, pnumrects: *mut u32, prects: *mut super::super::Foundation::RECT);
-    fn HSGetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
-    fn HSGetShader(&mut self, pphullshader: *mut ::core::option::Option<ID3D11HullShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
-    fn HSGetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
-    fn HSGetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
-    fn DSGetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
-    fn DSGetShader(&mut self, ppdomainshader: *mut ::core::option::Option<ID3D11DomainShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
-    fn DSGetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
-    fn DSGetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
-    fn CSGetShaderResources(&mut self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
-    fn CSGetUnorderedAccessViews(&mut self, startslot: u32, numuavs: u32, ppunorderedaccessviews: *mut ::core::option::Option<ID3D11UnorderedAccessView>);
-    fn CSGetShader(&mut self, ppcomputeshader: *mut ::core::option::Option<ID3D11ComputeShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
-    fn CSGetSamplers(&mut self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
-    fn CSGetConstantBuffers(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
-    fn ClearState(&mut self);
-    fn Flush(&mut self);
-    fn GetType(&mut self) -> D3D11_DEVICE_CONTEXT_TYPE;
-    fn GetContextFlags(&mut self) -> u32;
-    fn FinishCommandList(&mut self, restoredeferredcontextstate: super::super::Foundation::BOOL) -> ::windows::core::Result<ID3D11CommandList>;
+    fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
+    fn PSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
+    fn PSSetShader(&self, ppixelshader: &::core::option::Option<ID3D11PixelShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
+    fn PSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
+    fn VSSetShader(&self, pvertexshader: &::core::option::Option<ID3D11VertexShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
+    fn DrawIndexed(&self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32);
+    fn Draw(&self, vertexcount: u32, startvertexlocation: u32);
+    fn Map(&self, presource: &::core::option::Option<ID3D11Resource>, subresource: u32, maptype: D3D11_MAP, mapflags: u32) -> ::windows::core::Result<D3D11_MAPPED_SUBRESOURCE>;
+    fn Unmap(&self, presource: &::core::option::Option<ID3D11Resource>, subresource: u32);
+    fn PSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
+    fn IASetInputLayout(&self, pinputlayout: &::core::option::Option<ID3D11InputLayout>);
+    fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D11Buffer>, pstrides: *const u32, poffsets: *const u32);
+    fn IASetIndexBuffer(&self, pindexbuffer: &::core::option::Option<ID3D11Buffer>, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32);
+    fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32);
+    fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32);
+    fn GSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
+    fn GSSetShader(&self, pshader: &::core::option::Option<ID3D11GeometryShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
+    fn IASetPrimitiveTopology(&self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
+    fn VSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
+    fn VSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
+    fn Begin(&self, pasync: &::core::option::Option<ID3D11Asynchronous>);
+    fn End(&self, pasync: &::core::option::Option<ID3D11Asynchronous>);
+    fn GetData(&self, pasync: &::core::option::Option<ID3D11Asynchronous>, pdata: *mut ::core::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows::core::Result<()>;
+    fn SetPredication(&self, ppredicate: &::core::option::Option<ID3D11Predicate>, predicatevalue: super::super::Foundation::BOOL);
+    fn GSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
+    fn GSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
+    fn OMSetRenderTargets(&self, numviews: u32, pprendertargetviews: *const ::core::option::Option<ID3D11RenderTargetView>, pdepthstencilview: &::core::option::Option<ID3D11DepthStencilView>);
+    fn OMSetRenderTargetsAndUnorderedAccessViews(&self, numrtvs: u32, pprendertargetviews: *const ::core::option::Option<ID3D11RenderTargetView>, pdepthstencilview: &::core::option::Option<ID3D11DepthStencilView>, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32);
+    fn OMSetBlendState(&self, pblendstate: &::core::option::Option<ID3D11BlendState>, blendfactor: *const f32, samplemask: u32);
+    fn OMSetDepthStencilState(&self, pdepthstencilstate: &::core::option::Option<ID3D11DepthStencilState>, stencilref: u32);
+    fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D11Buffer>, poffsets: *const u32);
+    fn DrawAuto(&self);
+    fn DrawIndexedInstancedIndirect(&self, pbufferforargs: &::core::option::Option<ID3D11Buffer>, alignedbyteoffsetforargs: u32);
+    fn DrawInstancedIndirect(&self, pbufferforargs: &::core::option::Option<ID3D11Buffer>, alignedbyteoffsetforargs: u32);
+    fn Dispatch(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32);
+    fn DispatchIndirect(&self, pbufferforargs: &::core::option::Option<ID3D11Buffer>, alignedbyteoffsetforargs: u32);
+    fn RSSetState(&self, prasterizerstate: &::core::option::Option<ID3D11RasterizerState>);
+    fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D11_VIEWPORT);
+    fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT);
+    fn CopySubresourceRegion(&self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: &::core::option::Option<ID3D11Resource>, srcsubresource: u32, psrcbox: *const D3D11_BOX);
+    fn CopyResource(&self, pdstresource: &::core::option::Option<ID3D11Resource>, psrcresource: &::core::option::Option<ID3D11Resource>);
+    fn UpdateSubresource(&self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
+    fn CopyStructureCount(&self, pdstbuffer: &::core::option::Option<ID3D11Buffer>, dstalignedbyteoffset: u32, psrcview: &::core::option::Option<ID3D11UnorderedAccessView>);
+    fn ClearRenderTargetView(&self, prendertargetview: &::core::option::Option<ID3D11RenderTargetView>, colorrgba: *const f32);
+    fn ClearUnorderedAccessViewUint(&self, punorderedaccessview: &::core::option::Option<ID3D11UnorderedAccessView>, values: *const u32);
+    fn ClearUnorderedAccessViewFloat(&self, punorderedaccessview: &::core::option::Option<ID3D11UnorderedAccessView>, values: *const f32);
+    fn ClearDepthStencilView(&self, pdepthstencilview: &::core::option::Option<ID3D11DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
+    fn GenerateMips(&self, pshaderresourceview: &::core::option::Option<ID3D11ShaderResourceView>);
+    fn SetResourceMinLOD(&self, presource: &::core::option::Option<ID3D11Resource>, minlod: f32);
+    fn GetResourceMinLOD(&self, presource: &::core::option::Option<ID3D11Resource>) -> f32;
+    fn ResolveSubresource(&self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, psrcresource: &::core::option::Option<ID3D11Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
+    fn ExecuteCommandList(&self, pcommandlist: &::core::option::Option<ID3D11CommandList>, restorecontextstate: super::super::Foundation::BOOL);
+    fn HSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
+    fn HSSetShader(&self, phullshader: &::core::option::Option<ID3D11HullShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
+    fn HSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
+    fn HSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
+    fn DSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
+    fn DSSetShader(&self, pdomainshader: &::core::option::Option<ID3D11DomainShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
+    fn DSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
+    fn DSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
+    fn CSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D11ShaderResourceView>);
+    fn CSSetUnorderedAccessViews(&self, startslot: u32, numuavs: u32, ppunorderedaccessviews: *const ::core::option::Option<ID3D11UnorderedAccessView>, puavinitialcounts: *const u32);
+    fn CSSetShader(&self, pcomputeshader: &::core::option::Option<ID3D11ComputeShader>, ppclassinstances: *const ::core::option::Option<ID3D11ClassInstance>, numclassinstances: u32);
+    fn CSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D11SamplerState>);
+    fn CSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>);
+    fn VSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
+    fn PSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
+    fn PSGetShader(&self, pppixelshader: *mut ::core::option::Option<ID3D11PixelShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
+    fn PSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
+    fn VSGetShader(&self, ppvertexshader: *mut ::core::option::Option<ID3D11VertexShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
+    fn PSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
+    fn IAGetInputLayout(&self, ppinputlayout: *mut ::core::option::Option<ID3D11InputLayout>);
+    fn IAGetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut ::core::option::Option<ID3D11Buffer>, pstrides: *mut u32, poffsets: *mut u32);
+    fn IAGetIndexBuffer(&self, pindexbuffer: *mut ::core::option::Option<ID3D11Buffer>, format: *mut super::Dxgi::Common::DXGI_FORMAT, offset: *mut u32);
+    fn GSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
+    fn GSGetShader(&self, ppgeometryshader: *mut ::core::option::Option<ID3D11GeometryShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
+    fn IAGetPrimitiveTopology(&self, ptopology: *mut super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
+    fn VSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
+    fn VSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
+    fn GetPredication(&self, pppredicate: *mut ::core::option::Option<ID3D11Predicate>, ppredicatevalue: *mut super::super::Foundation::BOOL);
+    fn GSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
+    fn GSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
+    fn OMGetRenderTargets(&self, numviews: u32, pprendertargetviews: *mut ::core::option::Option<ID3D11RenderTargetView>, ppdepthstencilview: *mut ::core::option::Option<ID3D11DepthStencilView>);
+    fn OMGetRenderTargetsAndUnorderedAccessViews(&self, numrtvs: u32, pprendertargetviews: *mut ::core::option::Option<ID3D11RenderTargetView>, ppdepthstencilview: *mut ::core::option::Option<ID3D11DepthStencilView>, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *mut ::core::option::Option<ID3D11UnorderedAccessView>);
+    fn OMGetBlendState(&self, ppblendstate: *mut ::core::option::Option<ID3D11BlendState>, blendfactor: *mut f32, psamplemask: *mut u32);
+    fn OMGetDepthStencilState(&self, ppdepthstencilstate: *mut ::core::option::Option<ID3D11DepthStencilState>, pstencilref: *mut u32);
+    fn SOGetTargets(&self, numbuffers: u32, ppsotargets: *mut ::core::option::Option<ID3D11Buffer>);
+    fn RSGetState(&self, pprasterizerstate: *mut ::core::option::Option<ID3D11RasterizerState>);
+    fn RSGetViewports(&self, pnumviewports: *mut u32, pviewports: *mut D3D11_VIEWPORT);
+    fn RSGetScissorRects(&self, pnumrects: *mut u32, prects: *mut super::super::Foundation::RECT);
+    fn HSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
+    fn HSGetShader(&self, pphullshader: *mut ::core::option::Option<ID3D11HullShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
+    fn HSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
+    fn HSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
+    fn DSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
+    fn DSGetShader(&self, ppdomainshader: *mut ::core::option::Option<ID3D11DomainShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
+    fn DSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
+    fn DSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
+    fn CSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D11ShaderResourceView>);
+    fn CSGetUnorderedAccessViews(&self, startslot: u32, numuavs: u32, ppunorderedaccessviews: *mut ::core::option::Option<ID3D11UnorderedAccessView>);
+    fn CSGetShader(&self, ppcomputeshader: *mut ::core::option::Option<ID3D11ComputeShader>, ppclassinstances: *mut ::core::option::Option<ID3D11ClassInstance>, pnumclassinstances: *mut u32);
+    fn CSGetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *mut ::core::option::Option<ID3D11SamplerState>);
+    fn CSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>);
+    fn ClearState(&self);
+    fn Flush(&self);
+    fn GetType(&self) -> D3D11_DEVICE_CONTEXT_TYPE;
+    fn GetContextFlags(&self) -> u32;
+    fn FinishCommandList(&self, restoredeferredcontextstate: super::super::Foundation::BOOL) -> ::windows::core::Result<ID3D11CommandList>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11DeviceContext_Vtbl {
@@ -2032,25 +2032,25 @@ impl ID3D11DeviceContext_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11DeviceContext1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11DeviceContext_Impl {
-    fn CopySubresourceRegion1(&mut self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: &::core::option::Option<ID3D11Resource>, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32);
-    fn UpdateSubresource1(&mut self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32);
-    fn DiscardResource(&mut self, presource: &::core::option::Option<ID3D11Resource>);
-    fn DiscardView(&mut self, presourceview: &::core::option::Option<ID3D11View>);
-    fn VSSetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
-    fn HSSetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
-    fn DSSetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
-    fn GSSetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
-    fn PSSetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
-    fn CSSetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
-    fn VSGetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
-    fn HSGetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
-    fn DSGetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
-    fn GSGetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
-    fn PSGetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
-    fn CSGetConstantBuffers1(&mut self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
-    fn SwapDeviceContextState(&mut self, pstate: &::core::option::Option<ID3DDeviceContextState>, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>);
-    fn ClearView(&mut self, pview: &::core::option::Option<ID3D11View>, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32);
-    fn DiscardView1(&mut self, presourceview: &::core::option::Option<ID3D11View>, prects: *const super::super::Foundation::RECT, numrects: u32);
+    fn CopySubresourceRegion1(&self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: &::core::option::Option<ID3D11Resource>, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32);
+    fn UpdateSubresource1(&self, pdstresource: &::core::option::Option<ID3D11Resource>, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32);
+    fn DiscardResource(&self, presource: &::core::option::Option<ID3D11Resource>);
+    fn DiscardView(&self, presourceview: &::core::option::Option<ID3D11View>);
+    fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
+    fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
+    fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
+    fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
+    fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
+    fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32);
+    fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
+    fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
+    fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
+    fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
+    fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
+    fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32);
+    fn SwapDeviceContextState(&self, pstate: &::core::option::Option<ID3DDeviceContextState>, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>);
+    fn ClearView(&self, pview: &::core::option::Option<ID3D11View>, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32);
+    fn DiscardView1(&self, presourceview: &::core::option::Option<ID3D11View>, prects: *const super::super::Foundation::RECT, numrects: u32);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11DeviceContext1_Vtbl {
@@ -2179,16 +2179,16 @@ impl ID3D11DeviceContext1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11DeviceContext2_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11DeviceContext_Impl + ID3D11DeviceContext1_Impl {
-    fn UpdateTileMappings(&mut self, ptiledresource: &::core::option::Option<ID3D11Resource>, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: &::core::option::Option<ID3D11Buffer>, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()>;
-    fn CopyTileMappings(&mut self, pdesttiledresource: &::core::option::Option<ID3D11Resource>, pdestregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, psourcetiledresource: &::core::option::Option<ID3D11Resource>, psourceregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, flags: u32) -> ::windows::core::Result<()>;
-    fn CopyTiles(&mut self, ptiledresource: &::core::option::Option<ID3D11Resource>, ptileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, pbuffer: &::core::option::Option<ID3D11Buffer>, bufferstartoffsetinbytes: u64, flags: u32);
-    fn UpdateTiles(&mut self, pdesttiledresource: &::core::option::Option<ID3D11Resource>, pdesttileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pdesttileregionsize: *const D3D11_TILE_REGION_SIZE, psourcetiledata: *const ::core::ffi::c_void, flags: u32);
-    fn ResizeTilePool(&mut self, ptilepool: &::core::option::Option<ID3D11Buffer>, newsizeinbytes: u64) -> ::windows::core::Result<()>;
-    fn TiledResourceBarrier(&mut self, ptiledresourceorviewaccessbeforebarrier: &::core::option::Option<ID3D11DeviceChild>, ptiledresourceorviewaccessafterbarrier: &::core::option::Option<ID3D11DeviceChild>);
-    fn IsAnnotationEnabled(&mut self) -> super::super::Foundation::BOOL;
-    fn SetMarkerInt(&mut self, plabel: super::super::Foundation::PWSTR, data: i32);
-    fn BeginEventInt(&mut self, plabel: super::super::Foundation::PWSTR, data: i32);
-    fn EndEvent(&mut self);
+    fn UpdateTileMappings(&self, ptiledresource: &::core::option::Option<ID3D11Resource>, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: &::core::option::Option<ID3D11Buffer>, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()>;
+    fn CopyTileMappings(&self, pdesttiledresource: &::core::option::Option<ID3D11Resource>, pdestregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, psourcetiledresource: &::core::option::Option<ID3D11Resource>, psourceregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, flags: u32) -> ::windows::core::Result<()>;
+    fn CopyTiles(&self, ptiledresource: &::core::option::Option<ID3D11Resource>, ptileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, pbuffer: &::core::option::Option<ID3D11Buffer>, bufferstartoffsetinbytes: u64, flags: u32);
+    fn UpdateTiles(&self, pdesttiledresource: &::core::option::Option<ID3D11Resource>, pdesttileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pdesttileregionsize: *const D3D11_TILE_REGION_SIZE, psourcetiledata: *const ::core::ffi::c_void, flags: u32);
+    fn ResizeTilePool(&self, ptilepool: &::core::option::Option<ID3D11Buffer>, newsizeinbytes: u64) -> ::windows::core::Result<()>;
+    fn TiledResourceBarrier(&self, ptiledresourceorviewaccessbeforebarrier: &::core::option::Option<ID3D11DeviceChild>, ptiledresourceorviewaccessafterbarrier: &::core::option::Option<ID3D11DeviceChild>);
+    fn IsAnnotationEnabled(&self) -> super::super::Foundation::BOOL;
+    fn SetMarkerInt(&self, plabel: super::super::Foundation::PWSTR, data: i32);
+    fn BeginEventInt(&self, plabel: super::super::Foundation::PWSTR, data: i32);
+    fn EndEvent(&self);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11DeviceContext2_Vtbl {
@@ -2265,9 +2265,9 @@ impl ID3D11DeviceContext2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11DeviceContext3_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11DeviceContext_Impl + ID3D11DeviceContext1_Impl + ID3D11DeviceContext2_Impl {
-    fn Flush1(&mut self, contexttype: D3D11_CONTEXT_TYPE, hevent: super::super::Foundation::HANDLE);
-    fn SetHardwareProtectionState(&mut self, hwprotectionenable: super::super::Foundation::BOOL);
-    fn GetHardwareProtectionState(&mut self, phwprotectionenable: *mut super::super::Foundation::BOOL);
+    fn Flush1(&self, contexttype: D3D11_CONTEXT_TYPE, hevent: super::super::Foundation::HANDLE);
+    fn SetHardwareProtectionState(&self, hwprotectionenable: super::super::Foundation::BOOL);
+    fn GetHardwareProtectionState(&self, phwprotectionenable: *mut super::super::Foundation::BOOL);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11DeviceContext3_Vtbl {
@@ -2300,8 +2300,8 @@ impl ID3D11DeviceContext3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11DeviceContext4_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11DeviceContext_Impl + ID3D11DeviceContext1_Impl + ID3D11DeviceContext2_Impl + ID3D11DeviceContext3_Impl {
-    fn Signal(&mut self, pfence: &::core::option::Option<ID3D11Fence>, value: u64) -> ::windows::core::Result<()>;
-    fn Wait(&mut self, pfence: &::core::option::Option<ID3D11Fence>, value: u64) -> ::windows::core::Result<()>;
+    fn Signal(&self, pfence: &::core::option::Option<ID3D11Fence>, value: u64) -> ::windows::core::Result<()>;
+    fn Wait(&self, pfence: &::core::option::Option<ID3D11Fence>, value: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11DeviceContext4_Vtbl {
@@ -2333,9 +2333,9 @@ impl ID3D11DomainShader_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub trait ID3D11Fence_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn CreateSharedHandle(&mut self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
-    fn GetCompletedValue(&mut self) -> u64;
-    fn SetEventOnCompletion(&mut self, value: u64, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn CreateSharedHandle(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn GetCompletedValue(&self) -> u64;
+    fn SetEventOnCompletion(&self, value: u64, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ID3D11Fence_Vtbl {
@@ -2374,14 +2374,14 @@ impl ID3D11Fence_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D11FunctionLinkingGraph_Impl: Sized {
-    fn CreateModuleInstance(&mut self, ppmoduleinstance: *mut ::core::option::Option<ID3D11ModuleInstance>, pperrorbuffer: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()>;
-    fn SetInputSignature(&mut self, pinputparameters: *const D3D11_PARAMETER_DESC, cinputparameters: u32) -> ::windows::core::Result<ID3D11LinkingNode>;
-    fn SetOutputSignature(&mut self, poutputparameters: *const D3D11_PARAMETER_DESC, coutputparameters: u32) -> ::windows::core::Result<ID3D11LinkingNode>;
-    fn CallFunction(&mut self, pmoduleinstancenamespace: super::super::Foundation::PSTR, pmodulewithfunctionprototype: &::core::option::Option<ID3D11Module>, pfunctionname: super::super::Foundation::PSTR) -> ::windows::core::Result<ID3D11LinkingNode>;
-    fn PassValue(&mut self, psrcnode: &::core::option::Option<ID3D11LinkingNode>, srcparameterindex: i32, pdstnode: &::core::option::Option<ID3D11LinkingNode>, dstparameterindex: i32) -> ::windows::core::Result<()>;
-    fn PassValueWithSwizzle(&mut self, psrcnode: &::core::option::Option<ID3D11LinkingNode>, srcparameterindex: i32, psrcswizzle: super::super::Foundation::PSTR, pdstnode: &::core::option::Option<ID3D11LinkingNode>, dstparameterindex: i32, pdstswizzle: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn GetLastError(&mut self) -> ::windows::core::Result<super::Direct3D::ID3DBlob>;
-    fn GenerateHlsl(&mut self, uflags: u32) -> ::windows::core::Result<super::Direct3D::ID3DBlob>;
+    fn CreateModuleInstance(&self, ppmoduleinstance: *mut ::core::option::Option<ID3D11ModuleInstance>, pperrorbuffer: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()>;
+    fn SetInputSignature(&self, pinputparameters: *const D3D11_PARAMETER_DESC, cinputparameters: u32) -> ::windows::core::Result<ID3D11LinkingNode>;
+    fn SetOutputSignature(&self, poutputparameters: *const D3D11_PARAMETER_DESC, coutputparameters: u32) -> ::windows::core::Result<ID3D11LinkingNode>;
+    fn CallFunction(&self, pmoduleinstancenamespace: super::super::Foundation::PSTR, pmodulewithfunctionprototype: &::core::option::Option<ID3D11Module>, pfunctionname: super::super::Foundation::PSTR) -> ::windows::core::Result<ID3D11LinkingNode>;
+    fn PassValue(&self, psrcnode: &::core::option::Option<ID3D11LinkingNode>, srcparameterindex: i32, pdstnode: &::core::option::Option<ID3D11LinkingNode>, dstparameterindex: i32) -> ::windows::core::Result<()>;
+    fn PassValueWithSwizzle(&self, psrcnode: &::core::option::Option<ID3D11LinkingNode>, srcparameterindex: i32, psrcswizzle: super::super::Foundation::PSTR, pdstnode: &::core::option::Option<ID3D11LinkingNode>, dstparameterindex: i32, pdstswizzle: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn GetLastError(&self) -> ::windows::core::Result<super::Direct3D::ID3DBlob>;
+    fn GenerateHlsl(&self, uflags: u32) -> ::windows::core::Result<super::Direct3D::ID3DBlob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D11FunctionLinkingGraph_Vtbl {
@@ -2474,7 +2474,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D11FunctionParameterReflection_Impl: Sized {
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D11_PARAMETER_DESC>;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D11_PARAMETER_DESC>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D11FunctionParameterReflection_Vtbl {
@@ -2498,13 +2498,13 @@ impl ID3D11FunctionParameterReflection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D11FunctionReflection_Impl: Sized {
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D11_FUNCTION_DESC>;
-    fn GetConstantBufferByIndex(&mut self, bufferindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
-    fn GetConstantBufferByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
-    fn GetResourceBindingDesc(&mut self, resourceindex: u32) -> ::windows::core::Result<D3D11_SHADER_INPUT_BIND_DESC>;
-    fn GetVariableByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>;
-    fn GetResourceBindingDescByName(&mut self, name: super::super::Foundation::PSTR) -> ::windows::core::Result<D3D11_SHADER_INPUT_BIND_DESC>;
-    fn GetFunctionParameter(&mut self, parameterindex: i32) -> ::core::option::Option<ID3D11FunctionParameterReflection>;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D11_FUNCTION_DESC>;
+    fn GetConstantBufferByIndex(&self, bufferindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
+    fn GetConstantBufferByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
+    fn GetResourceBindingDesc(&self, resourceindex: u32) -> ::windows::core::Result<D3D11_SHADER_INPUT_BIND_DESC>;
+    fn GetVariableByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>;
+    fn GetResourceBindingDescByName(&self, name: super::super::Foundation::PSTR) -> ::windows::core::Result<D3D11_SHADER_INPUT_BIND_DESC>;
+    fn GetFunctionParameter(&self, parameterindex: i32) -> ::core::option::Option<ID3D11FunctionParameterReflection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D11FunctionReflection_Vtbl {
@@ -2596,41 +2596,41 @@ impl ID3D11HullShader_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11InfoQueue_Impl: Sized {
-    fn SetMessageCountLimit(&mut self, messagecountlimit: u64) -> ::windows::core::Result<()>;
-    fn ClearStoredMessages(&mut self);
-    fn GetMessage(&mut self, messageindex: u64, pmessage: *mut D3D11_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::Result<()>;
-    fn GetNumMessagesAllowedByStorageFilter(&mut self) -> u64;
-    fn GetNumMessagesDeniedByStorageFilter(&mut self) -> u64;
-    fn GetNumStoredMessages(&mut self) -> u64;
-    fn GetNumStoredMessagesAllowedByRetrievalFilter(&mut self) -> u64;
-    fn GetNumMessagesDiscardedByMessageCountLimit(&mut self) -> u64;
-    fn GetMessageCountLimit(&mut self) -> u64;
-    fn AddStorageFilterEntries(&mut self, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn GetStorageFilter(&mut self, pfilter: *mut D3D11_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
-    fn ClearStorageFilter(&mut self);
-    fn PushEmptyStorageFilter(&mut self) -> ::windows::core::Result<()>;
-    fn PushCopyOfStorageFilter(&mut self) -> ::windows::core::Result<()>;
-    fn PushStorageFilter(&mut self, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn PopStorageFilter(&mut self);
-    fn GetStorageFilterStackSize(&mut self) -> u32;
-    fn AddRetrievalFilterEntries(&mut self, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn GetRetrievalFilter(&mut self, pfilter: *mut D3D11_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
-    fn ClearRetrievalFilter(&mut self);
-    fn PushEmptyRetrievalFilter(&mut self) -> ::windows::core::Result<()>;
-    fn PushCopyOfRetrievalFilter(&mut self) -> ::windows::core::Result<()>;
-    fn PushRetrievalFilter(&mut self, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
-    fn PopRetrievalFilter(&mut self);
-    fn GetRetrievalFilterStackSize(&mut self) -> u32;
-    fn AddMessage(&mut self, category: D3D11_MESSAGE_CATEGORY, severity: D3D11_MESSAGE_SEVERITY, id: D3D11_MESSAGE_ID, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn AddApplicationMessage(&mut self, severity: D3D11_MESSAGE_SEVERITY, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn SetBreakOnCategory(&mut self, category: D3D11_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetBreakOnSeverity(&mut self, severity: D3D11_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetBreakOnID(&mut self, id: D3D11_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetBreakOnCategory(&mut self, category: D3D11_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnSeverity(&mut self, severity: D3D11_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL;
-    fn GetBreakOnID(&mut self, id: D3D11_MESSAGE_ID) -> super::super::Foundation::BOOL;
-    fn SetMuteDebugOutput(&mut self, bmute: super::super::Foundation::BOOL);
-    fn GetMuteDebugOutput(&mut self) -> super::super::Foundation::BOOL;
+    fn SetMessageCountLimit(&self, messagecountlimit: u64) -> ::windows::core::Result<()>;
+    fn ClearStoredMessages(&self);
+    fn GetMessage(&self, messageindex: u64, pmessage: *mut D3D11_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::Result<()>;
+    fn GetNumMessagesAllowedByStorageFilter(&self) -> u64;
+    fn GetNumMessagesDeniedByStorageFilter(&self) -> u64;
+    fn GetNumStoredMessages(&self) -> u64;
+    fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64;
+    fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64;
+    fn GetMessageCountLimit(&self) -> u64;
+    fn AddStorageFilterEntries(&self, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn GetStorageFilter(&self, pfilter: *mut D3D11_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
+    fn ClearStorageFilter(&self);
+    fn PushEmptyStorageFilter(&self) -> ::windows::core::Result<()>;
+    fn PushCopyOfStorageFilter(&self) -> ::windows::core::Result<()>;
+    fn PushStorageFilter(&self, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn PopStorageFilter(&self);
+    fn GetStorageFilterStackSize(&self) -> u32;
+    fn AddRetrievalFilterEntries(&self, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn GetRetrievalFilter(&self, pfilter: *mut D3D11_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::Result<()>;
+    fn ClearRetrievalFilter(&self);
+    fn PushEmptyRetrievalFilter(&self) -> ::windows::core::Result<()>;
+    fn PushCopyOfRetrievalFilter(&self) -> ::windows::core::Result<()>;
+    fn PushRetrievalFilter(&self, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows::core::Result<()>;
+    fn PopRetrievalFilter(&self);
+    fn GetRetrievalFilterStackSize(&self) -> u32;
+    fn AddMessage(&self, category: D3D11_MESSAGE_CATEGORY, severity: D3D11_MESSAGE_SEVERITY, id: D3D11_MESSAGE_ID, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn AddApplicationMessage(&self, severity: D3D11_MESSAGE_SEVERITY, pdescription: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn SetBreakOnCategory(&self, category: D3D11_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetBreakOnSeverity(&self, severity: D3D11_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetBreakOnID(&self, id: D3D11_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetBreakOnCategory(&self, category: D3D11_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL;
+    fn GetBreakOnSeverity(&self, severity: D3D11_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL;
+    fn GetBreakOnID(&self, id: D3D11_MESSAGE_ID) -> super::super::Foundation::BOOL;
+    fn SetMuteDebugOutput(&self, bmute: super::super::Foundation::BOOL);
+    fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11InfoQueue_Vtbl {
@@ -2864,8 +2864,8 @@ impl ID3D11InputLayout_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11LibraryReflection_Impl: Sized {
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D11_LIBRARY_DESC>;
-    fn GetFunctionByIndex(&mut self, functionindex: i32) -> ::core::option::Option<ID3D11FunctionReflection>;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D11_LIBRARY_DESC>;
+    fn GetFunctionByIndex(&self, functionindex: i32) -> ::core::option::Option<ID3D11FunctionReflection>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11LibraryReflection_Vtbl {
@@ -2898,9 +2898,9 @@ impl ID3D11LibraryReflection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D11Linker_Impl: Sized {
-    fn Link(&mut self, pentry: &::core::option::Option<ID3D11ModuleInstance>, pentryname: super::super::Foundation::PSTR, ptargetname: super::super::Foundation::PSTR, uflags: u32, ppshaderblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorbuffer: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()>;
-    fn UseLibrary(&mut self, plibrarymi: &::core::option::Option<ID3D11ModuleInstance>) -> ::windows::core::Result<()>;
-    fn AddClipPlaneFromCBuffer(&mut self, ucbufferslot: u32, ucbufferentry: u32) -> ::windows::core::Result<()>;
+    fn Link(&self, pentry: &::core::option::Option<ID3D11ModuleInstance>, pentryname: super::super::Foundation::PSTR, ptargetname: super::super::Foundation::PSTR, uflags: u32, ppshaderblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorbuffer: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()>;
+    fn UseLibrary(&self, plibrarymi: &::core::option::Option<ID3D11ModuleInstance>) -> ::windows::core::Result<()>;
+    fn AddClipPlaneFromCBuffer(&self, ucbufferslot: u32, ucbufferentry: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D11Linker_Vtbl {
@@ -2942,7 +2942,7 @@ impl ID3D11LinkingNode_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11Module_Impl: Sized {
-    fn CreateInstance(&mut self, pnamespace: super::super::Foundation::PSTR) -> ::windows::core::Result<ID3D11ModuleInstance>;
+    fn CreateInstance(&self, pnamespace: super::super::Foundation::PSTR) -> ::windows::core::Result<ID3D11ModuleInstance>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11Module_Vtbl {
@@ -2966,16 +2966,16 @@ impl ID3D11Module_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11ModuleInstance_Impl: Sized {
-    fn BindConstantBuffer(&mut self, usrcslot: u32, udstslot: u32, cbdstoffset: u32) -> ::windows::core::Result<()>;
-    fn BindConstantBufferByName(&mut self, pname: super::super::Foundation::PSTR, udstslot: u32, cbdstoffset: u32) -> ::windows::core::Result<()>;
-    fn BindResource(&mut self, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
-    fn BindResourceByName(&mut self, pname: super::super::Foundation::PSTR, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
-    fn BindSampler(&mut self, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
-    fn BindSamplerByName(&mut self, pname: super::super::Foundation::PSTR, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
-    fn BindUnorderedAccessView(&mut self, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
-    fn BindUnorderedAccessViewByName(&mut self, pname: super::super::Foundation::PSTR, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
-    fn BindResourceAsUnorderedAccessView(&mut self, usrcsrvslot: u32, udstuavslot: u32, ucount: u32) -> ::windows::core::Result<()>;
-    fn BindResourceAsUnorderedAccessViewByName(&mut self, psrvname: super::super::Foundation::PSTR, udstuavslot: u32, ucount: u32) -> ::windows::core::Result<()>;
+    fn BindConstantBuffer(&self, usrcslot: u32, udstslot: u32, cbdstoffset: u32) -> ::windows::core::Result<()>;
+    fn BindConstantBufferByName(&self, pname: super::super::Foundation::PSTR, udstslot: u32, cbdstoffset: u32) -> ::windows::core::Result<()>;
+    fn BindResource(&self, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
+    fn BindResourceByName(&self, pname: super::super::Foundation::PSTR, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
+    fn BindSampler(&self, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
+    fn BindSamplerByName(&self, pname: super::super::Foundation::PSTR, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
+    fn BindUnorderedAccessView(&self, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
+    fn BindUnorderedAccessViewByName(&self, pname: super::super::Foundation::PSTR, udstslot: u32, ucount: u32) -> ::windows::core::Result<()>;
+    fn BindResourceAsUnorderedAccessView(&self, usrcsrvslot: u32, udstuavslot: u32, ucount: u32) -> ::windows::core::Result<()>;
+    fn BindResourceAsUnorderedAccessViewByName(&self, psrvname: super::super::Foundation::PSTR, udstuavslot: u32, ucount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11ModuleInstance_Vtbl {
@@ -3050,10 +3050,10 @@ impl ID3D11ModuleInstance_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11Multithread_Impl: Sized {
-    fn Enter(&mut self);
-    fn Leave(&mut self);
-    fn SetMultithreadProtected(&mut self, bmtprotect: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    fn GetMultithreadProtected(&mut self) -> super::super::Foundation::BOOL;
+    fn Enter(&self);
+    fn Leave(&self);
+    fn SetMultithreadProtected(&self, bmtprotect: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11Multithread_Vtbl {
@@ -3109,7 +3109,7 @@ impl ID3D11Predicate_Vtbl {
     }
 }
 pub trait ID3D11Query_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Asynchronous_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_QUERY_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_QUERY_DESC);
 }
 impl ID3D11Query_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11Query_Impl, const OFFSET: isize>() -> ID3D11Query_Vtbl {
@@ -3125,7 +3125,7 @@ impl ID3D11Query_Vtbl {
     }
 }
 pub trait ID3D11Query1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Asynchronous_Impl + ID3D11Query_Impl {
-    fn GetDesc1(&mut self, pdesc1: *mut D3D11_QUERY_DESC1);
+    fn GetDesc1(&self, pdesc1: *mut D3D11_QUERY_DESC1);
 }
 impl ID3D11Query1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11Query1_Impl, const OFFSET: isize>() -> ID3D11Query1_Vtbl {
@@ -3142,7 +3142,7 @@ impl ID3D11Query1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11RasterizerState_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_RASTERIZER_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_RASTERIZER_DESC);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11RasterizerState_Vtbl {
@@ -3160,7 +3160,7 @@ impl ID3D11RasterizerState_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11RasterizerState1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11RasterizerState_Impl {
-    fn GetDesc1(&mut self, pdesc: *mut D3D11_RASTERIZER_DESC1);
+    fn GetDesc1(&self, pdesc: *mut D3D11_RASTERIZER_DESC1);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11RasterizerState1_Vtbl {
@@ -3178,7 +3178,7 @@ impl ID3D11RasterizerState1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11RasterizerState2_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11RasterizerState_Impl + ID3D11RasterizerState1_Impl {
-    fn GetDesc2(&mut self, pdesc: *mut D3D11_RASTERIZER_DESC2);
+    fn GetDesc2(&self, pdesc: *mut D3D11_RASTERIZER_DESC2);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11RasterizerState2_Vtbl {
@@ -3195,7 +3195,7 @@ impl ID3D11RasterizerState2_Vtbl {
     }
 }
 pub trait ID3D11RefDefaultTrackingOptions_Impl: Sized {
-    fn SetTrackingOptions(&mut self, resourcetypeflags: u32, options: u32) -> ::windows::core::Result<()>;
+    fn SetTrackingOptions(&self, resourcetypeflags: u32, options: u32) -> ::windows::core::Result<()>;
 }
 impl ID3D11RefDefaultTrackingOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11RefDefaultTrackingOptions_Impl, const OFFSET: isize>() -> ID3D11RefDefaultTrackingOptions_Vtbl {
@@ -3211,7 +3211,7 @@ impl ID3D11RefDefaultTrackingOptions_Vtbl {
     }
 }
 pub trait ID3D11RefTrackingOptions_Impl: Sized {
-    fn SetTrackingOptions(&mut self, uoptions: u32) -> ::windows::core::Result<()>;
+    fn SetTrackingOptions(&self, uoptions: u32) -> ::windows::core::Result<()>;
 }
 impl ID3D11RefTrackingOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11RefTrackingOptions_Impl, const OFFSET: isize>() -> ID3D11RefTrackingOptions_Vtbl {
@@ -3228,7 +3228,7 @@ impl ID3D11RefTrackingOptions_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11RenderTargetView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_RENDER_TARGET_VIEW_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_RENDER_TARGET_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11RenderTargetView_Vtbl {
@@ -3246,7 +3246,7 @@ impl ID3D11RenderTargetView_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11RenderTargetView1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl + ID3D11RenderTargetView_Impl {
-    fn GetDesc1(&mut self, pdesc1: *mut D3D11_RENDER_TARGET_VIEW_DESC1);
+    fn GetDesc1(&self, pdesc1: *mut D3D11_RENDER_TARGET_VIEW_DESC1);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11RenderTargetView1_Vtbl {
@@ -3263,9 +3263,9 @@ impl ID3D11RenderTargetView1_Vtbl {
     }
 }
 pub trait ID3D11Resource_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetType(&mut self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION);
-    fn SetEvictionPriority(&mut self, evictionpriority: u32);
-    fn GetEvictionPriority(&mut self) -> u32;
+    fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION);
+    fn SetEvictionPriority(&self, evictionpriority: u32);
+    fn GetEvictionPriority(&self) -> u32;
 }
 impl ID3D11Resource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11Resource_Impl, const OFFSET: isize>() -> ID3D11Resource_Vtbl {
@@ -3296,7 +3296,7 @@ impl ID3D11Resource_Vtbl {
     }
 }
 pub trait ID3D11SamplerState_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_SAMPLER_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_SAMPLER_DESC);
 }
 impl ID3D11SamplerState_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11SamplerState_Impl, const OFFSET: isize>() -> ID3D11SamplerState_Vtbl {
@@ -3313,25 +3313,25 @@ impl ID3D11SamplerState_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D11ShaderReflection_Impl: Sized {
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D11_SHADER_DESC>;
-    fn GetConstantBufferByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
-    fn GetConstantBufferByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
-    fn GetResourceBindingDesc(&mut self, resourceindex: u32) -> ::windows::core::Result<D3D11_SHADER_INPUT_BIND_DESC>;
-    fn GetInputParameterDesc(&mut self, parameterindex: u32) -> ::windows::core::Result<D3D11_SIGNATURE_PARAMETER_DESC>;
-    fn GetOutputParameterDesc(&mut self, parameterindex: u32) -> ::windows::core::Result<D3D11_SIGNATURE_PARAMETER_DESC>;
-    fn GetPatchConstantParameterDesc(&mut self, parameterindex: u32) -> ::windows::core::Result<D3D11_SIGNATURE_PARAMETER_DESC>;
-    fn GetVariableByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>;
-    fn GetResourceBindingDescByName(&mut self, name: super::super::Foundation::PSTR) -> ::windows::core::Result<D3D11_SHADER_INPUT_BIND_DESC>;
-    fn GetMovInstructionCount(&mut self) -> u32;
-    fn GetMovcInstructionCount(&mut self) -> u32;
-    fn GetConversionInstructionCount(&mut self) -> u32;
-    fn GetBitwiseInstructionCount(&mut self) -> u32;
-    fn GetGSInputPrimitive(&mut self) -> super::Direct3D::D3D_PRIMITIVE;
-    fn IsSampleFrequencyShader(&mut self) -> super::super::Foundation::BOOL;
-    fn GetNumInterfaceSlots(&mut self) -> u32;
-    fn GetMinFeatureLevel(&mut self) -> ::windows::core::Result<super::Direct3D::D3D_FEATURE_LEVEL>;
-    fn GetThreadGroupSize(&mut self, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32;
-    fn GetRequiresFlags(&mut self) -> u64;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D11_SHADER_DESC>;
+    fn GetConstantBufferByIndex(&self, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
+    fn GetConstantBufferByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
+    fn GetResourceBindingDesc(&self, resourceindex: u32) -> ::windows::core::Result<D3D11_SHADER_INPUT_BIND_DESC>;
+    fn GetInputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D11_SIGNATURE_PARAMETER_DESC>;
+    fn GetOutputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D11_SIGNATURE_PARAMETER_DESC>;
+    fn GetPatchConstantParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D11_SIGNATURE_PARAMETER_DESC>;
+    fn GetVariableByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>;
+    fn GetResourceBindingDescByName(&self, name: super::super::Foundation::PSTR) -> ::windows::core::Result<D3D11_SHADER_INPUT_BIND_DESC>;
+    fn GetMovInstructionCount(&self) -> u32;
+    fn GetMovcInstructionCount(&self) -> u32;
+    fn GetConversionInstructionCount(&self) -> u32;
+    fn GetBitwiseInstructionCount(&self) -> u32;
+    fn GetGSInputPrimitive(&self) -> super::Direct3D::D3D_PRIMITIVE;
+    fn IsSampleFrequencyShader(&self) -> super::super::Foundation::BOOL;
+    fn GetNumInterfaceSlots(&self) -> u32;
+    fn GetMinFeatureLevel(&self) -> ::windows::core::Result<super::Direct3D::D3D_FEATURE_LEVEL>;
+    fn GetThreadGroupSize(&self, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32;
+    fn GetRequiresFlags(&self) -> u64;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D11ShaderReflection_Vtbl {
@@ -3502,9 +3502,9 @@ impl ID3D11ShaderReflection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D11ShaderReflectionConstantBuffer_Impl: Sized {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_SHADER_BUFFER_DESC) -> ::windows::core::Result<()>;
-    fn GetVariableByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionVariable>;
-    fn GetVariableByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>;
+    fn GetDesc(&self, pdesc: *mut D3D11_SHADER_BUFFER_DESC) -> ::windows::core::Result<()>;
+    fn GetVariableByIndex(&self, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionVariable>;
+    fn GetVariableByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D11ShaderReflectionConstantBuffer_Vtbl {
@@ -3536,17 +3536,17 @@ impl ID3D11ShaderReflectionConstantBuffer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 pub trait ID3D11ShaderReflectionType_Impl: Sized {
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D11_SHADER_TYPE_DESC>;
-    fn GetMemberTypeByIndex(&mut self, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionType>;
-    fn GetMemberTypeByName(&mut self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionType>;
-    fn GetMemberTypeName(&mut self, index: u32) -> super::super::Foundation::PSTR;
-    fn IsEqual(&mut self, ptype: &::core::option::Option<ID3D11ShaderReflectionType>) -> ::windows::core::Result<()>;
-    fn GetSubType(&mut self) -> ::core::option::Option<ID3D11ShaderReflectionType>;
-    fn GetBaseClass(&mut self) -> ::core::option::Option<ID3D11ShaderReflectionType>;
-    fn GetNumInterfaces(&mut self) -> u32;
-    fn GetInterfaceByIndex(&mut self, uindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionType>;
-    fn IsOfType(&mut self, ptype: &::core::option::Option<ID3D11ShaderReflectionType>) -> ::windows::core::Result<()>;
-    fn ImplementsInterface(&mut self, pbase: &::core::option::Option<ID3D11ShaderReflectionType>) -> ::windows::core::Result<()>;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D11_SHADER_TYPE_DESC>;
+    fn GetMemberTypeByIndex(&self, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionType>;
+    fn GetMemberTypeByName(&self, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D11ShaderReflectionType>;
+    fn GetMemberTypeName(&self, index: u32) -> super::super::Foundation::PSTR;
+    fn IsEqual(&self, ptype: &::core::option::Option<ID3D11ShaderReflectionType>) -> ::windows::core::Result<()>;
+    fn GetSubType(&self) -> ::core::option::Option<ID3D11ShaderReflectionType>;
+    fn GetBaseClass(&self) -> ::core::option::Option<ID3D11ShaderReflectionType>;
+    fn GetNumInterfaces(&self) -> u32;
+    fn GetInterfaceByIndex(&self, uindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionType>;
+    fn IsOfType(&self, ptype: &::core::option::Option<ID3D11ShaderReflectionType>) -> ::windows::core::Result<()>;
+    fn ImplementsInterface(&self, pbase: &::core::option::Option<ID3D11ShaderReflectionType>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D11ShaderReflectionType_Vtbl {
@@ -3632,10 +3632,10 @@ impl ID3D11ShaderReflectionType_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11ShaderReflectionVariable_Impl: Sized {
-    fn GetDesc(&mut self) -> ::windows::core::Result<D3D11_SHADER_VARIABLE_DESC>;
-    fn GetType(&mut self) -> ::core::option::Option<ID3D11ShaderReflectionType>;
-    fn GetBuffer(&mut self) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
-    fn GetInterfaceSlot(&mut self, uarrayindex: u32) -> u32;
+    fn GetDesc(&self) -> ::windows::core::Result<D3D11_SHADER_VARIABLE_DESC>;
+    fn GetType(&self) -> ::core::option::Option<ID3D11ShaderReflectionType>;
+    fn GetBuffer(&self) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>;
+    fn GetInterfaceSlot(&self, uarrayindex: u32) -> u32;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11ShaderReflectionVariable_Vtbl {
@@ -3679,7 +3679,7 @@ impl ID3D11ShaderReflectionVariable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11ShaderResourceView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11ShaderResourceView_Vtbl {
@@ -3697,7 +3697,7 @@ impl ID3D11ShaderResourceView_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11ShaderResourceView1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl + ID3D11ShaderResourceView_Impl {
-    fn GetDesc1(&mut self, pdesc1: *mut D3D11_SHADER_RESOURCE_VIEW_DESC1);
+    fn GetDesc1(&self, pdesc1: *mut D3D11_SHADER_RESOURCE_VIEW_DESC1);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11ShaderResourceView1_Vtbl {
@@ -3715,14 +3715,14 @@ impl ID3D11ShaderResourceView1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11ShaderTrace_Impl: Sized {
-    fn TraceReady(&mut self) -> ::windows::core::Result<u64>;
-    fn ResetTrace(&mut self);
-    fn GetTraceStats(&mut self) -> ::windows::core::Result<D3D11_TRACE_STATS>;
-    fn PSSelectStamp(&mut self, stampindex: u32) -> ::windows::core::Result<()>;
-    fn GetInitialRegisterContents(&mut self, pregister: *const D3D11_TRACE_REGISTER) -> ::windows::core::Result<D3D11_TRACE_VALUE>;
-    fn GetStep(&mut self, stepindex: u32) -> ::windows::core::Result<D3D11_TRACE_STEP>;
-    fn GetWrittenRegister(&mut self, stepindex: u32, writtenregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> ::windows::core::Result<()>;
-    fn GetReadRegister(&mut self, stepindex: u32, readregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> ::windows::core::Result<()>;
+    fn TraceReady(&self) -> ::windows::core::Result<u64>;
+    fn ResetTrace(&self);
+    fn GetTraceStats(&self) -> ::windows::core::Result<D3D11_TRACE_STATS>;
+    fn PSSelectStamp(&self, stampindex: u32) -> ::windows::core::Result<()>;
+    fn GetInitialRegisterContents(&self, pregister: *const D3D11_TRACE_REGISTER) -> ::windows::core::Result<D3D11_TRACE_VALUE>;
+    fn GetStep(&self, stepindex: u32) -> ::windows::core::Result<D3D11_TRACE_STEP>;
+    fn GetWrittenRegister(&self, stepindex: u32, writtenregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> ::windows::core::Result<()>;
+    fn GetReadRegister(&self, stepindex: u32, readregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11ShaderTrace_Vtbl {
@@ -3808,7 +3808,7 @@ impl ID3D11ShaderTrace_Vtbl {
     }
 }
 pub trait ID3D11ShaderTraceFactory_Impl: Sized {
-    fn CreateShaderTrace(&mut self, pshader: &::core::option::Option<::windows::core::IUnknown>, ptracedesc: *const D3D11_SHADER_TRACE_DESC) -> ::windows::core::Result<ID3D11ShaderTrace>;
+    fn CreateShaderTrace(&self, pshader: &::core::option::Option<::windows::core::IUnknown>, ptracedesc: *const D3D11_SHADER_TRACE_DESC) -> ::windows::core::Result<ID3D11ShaderTrace>;
 }
 impl ID3D11ShaderTraceFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11ShaderTraceFactory_Impl, const OFFSET: isize>() -> ID3D11ShaderTraceFactory_Vtbl {
@@ -3831,8 +3831,8 @@ impl ID3D11ShaderTraceFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D11SwitchToRef_Impl: Sized {
-    fn SetUseRef(&mut self, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    fn GetUseRef(&mut self) -> super::super::Foundation::BOOL;
+    fn SetUseRef(&self, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    fn GetUseRef(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D11SwitchToRef_Vtbl {
@@ -3859,7 +3859,7 @@ impl ID3D11SwitchToRef_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11Texture1D_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_TEXTURE1D_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE1D_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11Texture1D_Vtbl {
@@ -3877,7 +3877,7 @@ impl ID3D11Texture1D_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11Texture2D_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_TEXTURE2D_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE2D_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11Texture2D_Vtbl {
@@ -3895,7 +3895,7 @@ impl ID3D11Texture2D_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11Texture2D1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl + ID3D11Texture2D_Impl {
-    fn GetDesc1(&mut self, pdesc: *mut D3D11_TEXTURE2D_DESC1);
+    fn GetDesc1(&self, pdesc: *mut D3D11_TEXTURE2D_DESC1);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11Texture2D1_Vtbl {
@@ -3913,7 +3913,7 @@ impl ID3D11Texture2D1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11Texture3D_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_TEXTURE3D_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE3D_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11Texture3D_Vtbl {
@@ -3931,7 +3931,7 @@ impl ID3D11Texture3D_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11Texture3D1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11Resource_Impl + ID3D11Texture3D_Impl {
-    fn GetDesc1(&mut self, pdesc: *mut D3D11_TEXTURE3D_DESC1);
+    fn GetDesc1(&self, pdesc: *mut D3D11_TEXTURE3D_DESC1);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11Texture3D1_Vtbl {
@@ -3948,8 +3948,8 @@ impl ID3D11Texture3D1_Vtbl {
     }
 }
 pub trait ID3D11TracingDevice_Impl: Sized {
-    fn SetShaderTrackingOptionsByType(&mut self, resourcetypeflags: u32, options: u32) -> ::windows::core::Result<()>;
-    fn SetShaderTrackingOptions(&mut self, pshader: &::core::option::Option<::windows::core::IUnknown>, options: u32) -> ::windows::core::Result<()>;
+    fn SetShaderTrackingOptionsByType(&self, resourcetypeflags: u32, options: u32) -> ::windows::core::Result<()>;
+    fn SetShaderTrackingOptions(&self, pshader: &::core::option::Option<::windows::core::IUnknown>, options: u32) -> ::windows::core::Result<()>;
 }
 impl ID3D11TracingDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11TracingDevice_Impl, const OFFSET: isize>() -> ID3D11TracingDevice_Vtbl {
@@ -3975,7 +3975,7 @@ impl ID3D11TracingDevice_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11UnorderedAccessView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11UnorderedAccessView_Vtbl {
@@ -3993,7 +3993,7 @@ impl ID3D11UnorderedAccessView_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11UnorderedAccessView1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl + ID3D11UnorderedAccessView_Impl {
-    fn GetDesc1(&mut self, pdesc1: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC1);
+    fn GetDesc1(&self, pdesc1: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC1);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11UnorderedAccessView1_Vtbl {
@@ -4020,64 +4020,64 @@ impl ID3D11VertexShader_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11VideoContext_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetDecoderBuffer(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE, pbuffersize: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ReleaseDecoderBuffer(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE) -> ::windows::core::Result<()>;
-    fn DecoderBeginFrame(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, pview: &::core::option::Option<ID3D11VideoDecoderOutputView>, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn DecoderEndFrame(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>) -> ::windows::core::Result<()>;
-    fn SubmitDecoderBuffers(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC) -> ::windows::core::Result<()>;
-    fn DecoderExtension(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, pextensiondata: *const D3D11_VIDEO_DECODER_EXTENSION) -> i32;
-    fn VideoProcessorSetOutputTargetRect(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, enable: super::super::Foundation::BOOL, prect: *const super::super::Foundation::RECT);
-    fn VideoProcessorSetOutputBackgroundColor(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, ycbcr: super::super::Foundation::BOOL, pcolor: *const D3D11_VIDEO_COLOR);
-    fn VideoProcessorSetOutputColorSpace(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pcolorspace: *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
-    fn VideoProcessorSetOutputAlphaFillMode(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, alphafillmode: D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, streamindex: u32);
-    fn VideoProcessorSetOutputConstriction(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, enable: super::super::Foundation::BOOL, size: &super::super::Foundation::SIZE);
-    fn VideoProcessorSetOutputStereoMode(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, enable: super::super::Foundation::BOOL);
-    fn VideoProcessorSetOutputExtension(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> i32;
-    fn VideoProcessorGetOutputTargetRect(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, enabled: *mut super::super::Foundation::BOOL, prect: *mut super::super::Foundation::RECT);
-    fn VideoProcessorGetOutputBackgroundColor(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pycbcr: *mut super::super::Foundation::BOOL, pcolor: *mut D3D11_VIDEO_COLOR);
-    fn VideoProcessorGetOutputColorSpace(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pcolorspace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
-    fn VideoProcessorGetOutputAlphaFillMode(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, palphafillmode: *mut D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, pstreamindex: *mut u32);
-    fn VideoProcessorGetOutputConstriction(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, penabled: *mut super::super::Foundation::BOOL, psize: *mut super::super::Foundation::SIZE);
-    fn VideoProcessorGetOutputStereoMode(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, penabled: *mut super::super::Foundation::BOOL);
-    fn VideoProcessorGetOutputExtension(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32;
-    fn VideoProcessorSetStreamFrameFormat(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, frameformat: D3D11_VIDEO_FRAME_FORMAT);
-    fn VideoProcessorSetStreamColorSpace(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pcolorspace: *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
-    fn VideoProcessorSetStreamOutputRate(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, outputrate: D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, repeatframe: super::super::Foundation::BOOL, pcustomrate: *const super::Dxgi::Common::DXGI_RATIONAL);
-    fn VideoProcessorSetStreamSourceRect(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, prect: *const super::super::Foundation::RECT);
-    fn VideoProcessorSetStreamDestRect(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, prect: *const super::super::Foundation::RECT);
-    fn VideoProcessorSetStreamAlpha(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, alpha: f32);
-    fn VideoProcessorSetStreamPalette(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, count: u32, pentries: *const u32);
-    fn VideoProcessorSetStreamPixelAspectRatio(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, psourceaspectratio: *const super::Dxgi::Common::DXGI_RATIONAL, pdestinationaspectratio: *const super::Dxgi::Common::DXGI_RATIONAL);
-    fn VideoProcessorSetStreamLumaKey(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, lower: f32, upper: f32);
-    fn VideoProcessorSetStreamStereoFormat(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, format: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, leftviewframe0: super::super::Foundation::BOOL, baseviewframe0: super::super::Foundation::BOOL, flipmode: D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, monooffset: i32);
-    fn VideoProcessorSetStreamAutoProcessingMode(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL);
-    fn VideoProcessorSetStreamFilter(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, filter: D3D11_VIDEO_PROCESSOR_FILTER, enable: super::super::Foundation::BOOL, level: i32);
-    fn VideoProcessorSetStreamExtension(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> i32;
-    fn VideoProcessorGetStreamFrameFormat(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pframeformat: *mut D3D11_VIDEO_FRAME_FORMAT);
-    fn VideoProcessorGetStreamColorSpace(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pcolorspace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
-    fn VideoProcessorGetStreamOutputRate(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, poutputrate: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, prepeatframe: *mut super::super::Foundation::BOOL, pcustomrate: *mut super::Dxgi::Common::DXGI_RATIONAL);
-    fn VideoProcessorGetStreamSourceRect(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, prect: *mut super::super::Foundation::RECT);
-    fn VideoProcessorGetStreamDestRect(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, prect: *mut super::super::Foundation::RECT);
-    fn VideoProcessorGetStreamAlpha(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, palpha: *mut f32);
-    fn VideoProcessorGetStreamPalette(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, count: u32, pentries: *mut u32);
-    fn VideoProcessorGetStreamPixelAspectRatio(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, psourceaspectratio: *mut super::Dxgi::Common::DXGI_RATIONAL, pdestinationaspectratio: *mut super::Dxgi::Common::DXGI_RATIONAL);
-    fn VideoProcessorGetStreamLumaKey(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, plower: *mut f32, pupper: *mut f32);
-    fn VideoProcessorGetStreamStereoFormat(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pformat: *mut D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, pleftviewframe0: *mut super::super::Foundation::BOOL, pbaseviewframe0: *mut super::super::Foundation::BOOL, pflipmode: *mut D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, monooffset: *mut i32);
-    fn VideoProcessorGetStreamAutoProcessingMode(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL);
-    fn VideoProcessorGetStreamFilter(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, filter: D3D11_VIDEO_PROCESSOR_FILTER, penabled: *mut super::super::Foundation::BOOL, plevel: *mut i32);
-    fn VideoProcessorGetStreamExtension(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32;
-    fn VideoProcessorBlt(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pview: &::core::option::Option<ID3D11VideoProcessorOutputView>, outputframe: u32, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM) -> ::windows::core::Result<()>;
-    fn NegotiateCryptoSessionKeyExchange(&mut self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn EncryptionBlt(&mut self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, psrcsurface: &::core::option::Option<ID3D11Texture2D>, pdstsurface: &::core::option::Option<ID3D11Texture2D>, ivsize: u32, piv: *const ::core::ffi::c_void);
-    fn DecryptionBlt(&mut self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, psrcsurface: &::core::option::Option<ID3D11Texture2D>, pdstsurface: &::core::option::Option<ID3D11Texture2D>, pencryptedblockinfo: *const D3D11_ENCRYPTED_BLOCK_INFO, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, ivsize: u32, piv: *const ::core::ffi::c_void);
-    fn StartSessionKeyRefresh(&mut self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, randomnumbersize: u32, prandomnumber: *mut ::core::ffi::c_void);
-    fn FinishSessionKeyRefresh(&mut self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>);
-    fn GetEncryptionBltKey(&mut self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, keysize: u32, preadbackkey: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn NegotiateAuthenticatedChannelKeyExchange(&mut self, pchannel: &::core::option::Option<ID3D11AuthenticatedChannel>, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn QueryAuthenticatedChannel(&mut self, pchannel: &::core::option::Option<ID3D11AuthenticatedChannel>, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ConfigureAuthenticatedChannel(&mut self, pchannel: &::core::option::Option<ID3D11AuthenticatedChannel>, inputsize: u32, pinput: *const ::core::ffi::c_void) -> ::windows::core::Result<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>;
-    fn VideoProcessorSetStreamRotation(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, rotation: D3D11_VIDEO_PROCESSOR_ROTATION);
-    fn VideoProcessorGetStreamRotation(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penable: *mut super::super::Foundation::BOOL, protation: *mut D3D11_VIDEO_PROCESSOR_ROTATION);
+    fn GetDecoderBuffer(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE, pbuffersize: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ReleaseDecoderBuffer(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE) -> ::windows::core::Result<()>;
+    fn DecoderBeginFrame(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, pview: &::core::option::Option<ID3D11VideoDecoderOutputView>, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn DecoderEndFrame(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>) -> ::windows::core::Result<()>;
+    fn SubmitDecoderBuffers(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC) -> ::windows::core::Result<()>;
+    fn DecoderExtension(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, pextensiondata: *const D3D11_VIDEO_DECODER_EXTENSION) -> i32;
+    fn VideoProcessorSetOutputTargetRect(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, enable: super::super::Foundation::BOOL, prect: *const super::super::Foundation::RECT);
+    fn VideoProcessorSetOutputBackgroundColor(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, ycbcr: super::super::Foundation::BOOL, pcolor: *const D3D11_VIDEO_COLOR);
+    fn VideoProcessorSetOutputColorSpace(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pcolorspace: *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
+    fn VideoProcessorSetOutputAlphaFillMode(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, alphafillmode: D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, streamindex: u32);
+    fn VideoProcessorSetOutputConstriction(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, enable: super::super::Foundation::BOOL, size: &super::super::Foundation::SIZE);
+    fn VideoProcessorSetOutputStereoMode(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, enable: super::super::Foundation::BOOL);
+    fn VideoProcessorSetOutputExtension(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> i32;
+    fn VideoProcessorGetOutputTargetRect(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, enabled: *mut super::super::Foundation::BOOL, prect: *mut super::super::Foundation::RECT);
+    fn VideoProcessorGetOutputBackgroundColor(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pycbcr: *mut super::super::Foundation::BOOL, pcolor: *mut D3D11_VIDEO_COLOR);
+    fn VideoProcessorGetOutputColorSpace(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pcolorspace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
+    fn VideoProcessorGetOutputAlphaFillMode(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, palphafillmode: *mut D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, pstreamindex: *mut u32);
+    fn VideoProcessorGetOutputConstriction(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, penabled: *mut super::super::Foundation::BOOL, psize: *mut super::super::Foundation::SIZE);
+    fn VideoProcessorGetOutputStereoMode(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, penabled: *mut super::super::Foundation::BOOL);
+    fn VideoProcessorGetOutputExtension(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32;
+    fn VideoProcessorSetStreamFrameFormat(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, frameformat: D3D11_VIDEO_FRAME_FORMAT);
+    fn VideoProcessorSetStreamColorSpace(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pcolorspace: *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
+    fn VideoProcessorSetStreamOutputRate(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, outputrate: D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, repeatframe: super::super::Foundation::BOOL, pcustomrate: *const super::Dxgi::Common::DXGI_RATIONAL);
+    fn VideoProcessorSetStreamSourceRect(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, prect: *const super::super::Foundation::RECT);
+    fn VideoProcessorSetStreamDestRect(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, prect: *const super::super::Foundation::RECT);
+    fn VideoProcessorSetStreamAlpha(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, alpha: f32);
+    fn VideoProcessorSetStreamPalette(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, count: u32, pentries: *const u32);
+    fn VideoProcessorSetStreamPixelAspectRatio(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, psourceaspectratio: *const super::Dxgi::Common::DXGI_RATIONAL, pdestinationaspectratio: *const super::Dxgi::Common::DXGI_RATIONAL);
+    fn VideoProcessorSetStreamLumaKey(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, lower: f32, upper: f32);
+    fn VideoProcessorSetStreamStereoFormat(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, format: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, leftviewframe0: super::super::Foundation::BOOL, baseviewframe0: super::super::Foundation::BOOL, flipmode: D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, monooffset: i32);
+    fn VideoProcessorSetStreamAutoProcessingMode(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL);
+    fn VideoProcessorSetStreamFilter(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, filter: D3D11_VIDEO_PROCESSOR_FILTER, enable: super::super::Foundation::BOOL, level: i32);
+    fn VideoProcessorSetStreamExtension(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> i32;
+    fn VideoProcessorGetStreamFrameFormat(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pframeformat: *mut D3D11_VIDEO_FRAME_FORMAT);
+    fn VideoProcessorGetStreamColorSpace(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pcolorspace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE);
+    fn VideoProcessorGetStreamOutputRate(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, poutputrate: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, prepeatframe: *mut super::super::Foundation::BOOL, pcustomrate: *mut super::Dxgi::Common::DXGI_RATIONAL);
+    fn VideoProcessorGetStreamSourceRect(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, prect: *mut super::super::Foundation::RECT);
+    fn VideoProcessorGetStreamDestRect(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, prect: *mut super::super::Foundation::RECT);
+    fn VideoProcessorGetStreamAlpha(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, palpha: *mut f32);
+    fn VideoProcessorGetStreamPalette(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, count: u32, pentries: *mut u32);
+    fn VideoProcessorGetStreamPixelAspectRatio(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, psourceaspectratio: *mut super::Dxgi::Common::DXGI_RATIONAL, pdestinationaspectratio: *mut super::Dxgi::Common::DXGI_RATIONAL);
+    fn VideoProcessorGetStreamLumaKey(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, plower: *mut f32, pupper: *mut f32);
+    fn VideoProcessorGetStreamStereoFormat(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pformat: *mut D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, pleftviewframe0: *mut super::super::Foundation::BOOL, pbaseviewframe0: *mut super::super::Foundation::BOOL, pflipmode: *mut D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, monooffset: *mut i32);
+    fn VideoProcessorGetStreamAutoProcessingMode(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penabled: *mut super::super::Foundation::BOOL);
+    fn VideoProcessorGetStreamFilter(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, filter: D3D11_VIDEO_PROCESSOR_FILTER, penabled: *mut super::super::Foundation::BOOL, plevel: *mut i32);
+    fn VideoProcessorGetStreamExtension(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32;
+    fn VideoProcessorBlt(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pview: &::core::option::Option<ID3D11VideoProcessorOutputView>, outputframe: u32, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM) -> ::windows::core::Result<()>;
+    fn NegotiateCryptoSessionKeyExchange(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn EncryptionBlt(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, psrcsurface: &::core::option::Option<ID3D11Texture2D>, pdstsurface: &::core::option::Option<ID3D11Texture2D>, ivsize: u32, piv: *const ::core::ffi::c_void);
+    fn DecryptionBlt(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, psrcsurface: &::core::option::Option<ID3D11Texture2D>, pdstsurface: &::core::option::Option<ID3D11Texture2D>, pencryptedblockinfo: *const D3D11_ENCRYPTED_BLOCK_INFO, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, ivsize: u32, piv: *const ::core::ffi::c_void);
+    fn StartSessionKeyRefresh(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, randomnumbersize: u32, prandomnumber: *mut ::core::ffi::c_void);
+    fn FinishSessionKeyRefresh(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>);
+    fn GetEncryptionBltKey(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, keysize: u32, preadbackkey: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn NegotiateAuthenticatedChannelKeyExchange(&self, pchannel: &::core::option::Option<ID3D11AuthenticatedChannel>, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn QueryAuthenticatedChannel(&self, pchannel: &::core::option::Option<ID3D11AuthenticatedChannel>, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ConfigureAuthenticatedChannel(&self, pchannel: &::core::option::Option<ID3D11AuthenticatedChannel>, inputsize: u32, pinput: *const ::core::ffi::c_void) -> ::windows::core::Result<D3D11_AUTHENTICATED_CONFIGURE_OUTPUT>;
+    fn VideoProcessorSetStreamRotation(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, rotation: D3D11_VIDEO_PROCESSOR_ROTATION);
+    fn VideoProcessorGetStreamRotation(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penable: *mut super::super::Foundation::BOOL, protation: *mut D3D11_VIDEO_PROCESSOR_ROTATION);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11VideoContext_Vtbl {
@@ -4446,20 +4446,20 @@ impl ID3D11VideoContext_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11VideoContext1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11VideoContext_Impl {
-    fn SubmitDecoderBuffers1(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows::core::Result<()>;
-    fn GetDataForNewHardwareKey(&mut self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, privateinputsize: u32, pprivatinputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u64>;
-    fn CheckCryptoSessionStatus(&mut self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS>;
-    fn DecoderEnableDownsampling(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, referenceframecount: u32) -> ::windows::core::Result<()>;
-    fn DecoderUpdateDownsampling(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC) -> ::windows::core::Result<()>;
-    fn VideoProcessorSetOutputColorSpace1(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE);
-    fn VideoProcessorSetOutputShaderUsage(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, shaderusage: super::super::Foundation::BOOL);
-    fn VideoProcessorGetOutputColorSpace1(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE);
-    fn VideoProcessorGetOutputShaderUsage(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pshaderusage: *mut super::super::Foundation::BOOL);
-    fn VideoProcessorSetStreamColorSpace1(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE);
-    fn VideoProcessorSetStreamMirror(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, fliphorizontal: super::super::Foundation::BOOL, flipvertical: super::super::Foundation::BOOL);
-    fn VideoProcessorGetStreamColorSpace1(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE);
-    fn VideoProcessorGetStreamMirror(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pfliphorizontal: *mut super::super::Foundation::BOOL, pflipvertical: *mut super::super::Foundation::BOOL);
-    fn VideoProcessorGetBehaviorHints(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, outputwidth: u32, outputheight: u32, outputformat: super::Dxgi::Common::DXGI_FORMAT, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT) -> ::windows::core::Result<u32>;
+    fn SubmitDecoderBuffers1(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows::core::Result<()>;
+    fn GetDataForNewHardwareKey(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, privateinputsize: u32, pprivatinputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u64>;
+    fn CheckCryptoSessionStatus(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS>;
+    fn DecoderEnableDownsampling(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, referenceframecount: u32) -> ::windows::core::Result<()>;
+    fn DecoderUpdateDownsampling(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC) -> ::windows::core::Result<()>;
+    fn VideoProcessorSetOutputColorSpace1(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE);
+    fn VideoProcessorSetOutputShaderUsage(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, shaderusage: super::super::Foundation::BOOL);
+    fn VideoProcessorGetOutputColorSpace1(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE);
+    fn VideoProcessorGetOutputShaderUsage(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, pshaderusage: *mut super::super::Foundation::BOOL);
+    fn VideoProcessorSetStreamColorSpace1(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE);
+    fn VideoProcessorSetStreamMirror(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, enable: super::super::Foundation::BOOL, fliphorizontal: super::super::Foundation::BOOL, flipvertical: super::super::Foundation::BOOL);
+    fn VideoProcessorGetStreamColorSpace1(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE);
+    fn VideoProcessorGetStreamMirror(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pfliphorizontal: *mut super::super::Foundation::BOOL, pflipvertical: *mut super::super::Foundation::BOOL);
+    fn VideoProcessorGetBehaviorHints(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, outputwidth: u32, outputheight: u32, outputformat: super::Dxgi::Common::DXGI_FORMAT, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11VideoContext1_Vtbl {
@@ -4576,10 +4576,10 @@ impl ID3D11VideoContext1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11VideoContext2_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11VideoContext_Impl + ID3D11VideoContext1_Impl {
-    fn VideoProcessorSetOutputHDRMetaData(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void);
-    fn VideoProcessorGetOutputHDRMetaData(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void);
-    fn VideoProcessorSetStreamHDRMetaData(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void);
-    fn VideoProcessorGetStreamHDRMetaData(&mut self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void);
+    fn VideoProcessorSetOutputHDRMetaData(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void);
+    fn VideoProcessorGetOutputHDRMetaData(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void);
+    fn VideoProcessorSetStreamHDRMetaData(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void);
+    fn VideoProcessorGetStreamHDRMetaData(&self, pvideoprocessor: &::core::option::Option<ID3D11VideoProcessor>, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11VideoContext2_Vtbl {
@@ -4618,8 +4618,8 @@ impl ID3D11VideoContext2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11VideoContext3_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11VideoContext_Impl + ID3D11VideoContext1_Impl + ID3D11VideoContext2_Impl {
-    fn DecoderBeginFrame1(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, pview: &::core::option::Option<ID3D11VideoDecoderOutputView>, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, numcomponenthistograms: u32, phistogramoffsets: *const u32, pphistogrambuffers: *const ::core::option::Option<ID3D11Buffer>) -> ::windows::core::Result<()>;
-    fn SubmitDecoderBuffers2(&mut self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> ::windows::core::Result<()>;
+    fn DecoderBeginFrame1(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, pview: &::core::option::Option<ID3D11VideoDecoderOutputView>, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, numcomponenthistograms: u32, phistogramoffsets: *const u32, pphistogrambuffers: *const ::core::option::Option<ID3D11Buffer>) -> ::windows::core::Result<()>;
+    fn SubmitDecoderBuffers2(&self, pdecoder: &::core::option::Option<ID3D11VideoDecoder>, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11VideoContext3_Vtbl {
@@ -4646,8 +4646,8 @@ impl ID3D11VideoContext3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11VideoDecoder_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetCreationParameters(&mut self, pvideodesc: *mut D3D11_VIDEO_DECODER_DESC, pconfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<()>;
-    fn GetDriverHandle(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn GetCreationParameters(&self, pvideodesc: *mut D3D11_VIDEO_DECODER_DESC, pconfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<()>;
+    fn GetDriverHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11VideoDecoder_Vtbl {
@@ -4679,7 +4679,7 @@ impl ID3D11VideoDecoder_Vtbl {
     }
 }
 pub trait ID3D11VideoDecoderOutputView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC);
 }
 impl ID3D11VideoDecoderOutputView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11VideoDecoderOutputView_Impl, const OFFSET: isize>() -> ID3D11VideoDecoderOutputView_Vtbl {
@@ -4696,23 +4696,23 @@ impl ID3D11VideoDecoderOutputView_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11VideoDevice_Impl: Sized {
-    fn CreateVideoDecoder(&mut self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<ID3D11VideoDecoder>;
-    fn CreateVideoProcessor(&mut self, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, rateconversionindex: u32) -> ::windows::core::Result<ID3D11VideoProcessor>;
-    fn CreateAuthenticatedChannel(&mut self, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE) -> ::windows::core::Result<ID3D11AuthenticatedChannel>;
-    fn CreateCryptoSession(&mut self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, pkeyexchangetype: *const ::windows::core::GUID) -> ::windows::core::Result<ID3D11CryptoSession>;
-    fn CreateVideoDecoderOutputView(&mut self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC) -> ::windows::core::Result<ID3D11VideoDecoderOutputView>;
-    fn CreateVideoProcessorInputView(&mut self, presource: &::core::option::Option<ID3D11Resource>, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, pdesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC) -> ::windows::core::Result<ID3D11VideoProcessorInputView>;
-    fn CreateVideoProcessorOutputView(&mut self, presource: &::core::option::Option<ID3D11Resource>, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, pdesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC) -> ::windows::core::Result<ID3D11VideoProcessorOutputView>;
-    fn CreateVideoProcessorEnumerator(&mut self, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> ::windows::core::Result<ID3D11VideoProcessorEnumerator>;
-    fn GetVideoDecoderProfileCount(&mut self) -> u32;
-    fn GetVideoDecoderProfile(&mut self, index: u32) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CheckVideoDecoderFormat(&mut self, pdecoderprofile: *const ::windows::core::GUID, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetVideoDecoderConfigCount(&mut self, pdesc: *const D3D11_VIDEO_DECODER_DESC) -> ::windows::core::Result<u32>;
-    fn GetVideoDecoderConfig(&mut self, pdesc: *const D3D11_VIDEO_DECODER_DESC, index: u32) -> ::windows::core::Result<D3D11_VIDEO_DECODER_CONFIG>;
-    fn GetContentProtectionCaps(&mut self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID) -> ::windows::core::Result<D3D11_VIDEO_CONTENT_PROTECTION_CAPS>;
-    fn CheckCryptoKeyExchange(&mut self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, index: u32) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetPrivateData(&mut self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&mut self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<ID3D11VideoDecoder>;
+    fn CreateVideoProcessor(&self, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, rateconversionindex: u32) -> ::windows::core::Result<ID3D11VideoProcessor>;
+    fn CreateAuthenticatedChannel(&self, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE) -> ::windows::core::Result<ID3D11AuthenticatedChannel>;
+    fn CreateCryptoSession(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, pkeyexchangetype: *const ::windows::core::GUID) -> ::windows::core::Result<ID3D11CryptoSession>;
+    fn CreateVideoDecoderOutputView(&self, presource: &::core::option::Option<ID3D11Resource>, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC) -> ::windows::core::Result<ID3D11VideoDecoderOutputView>;
+    fn CreateVideoProcessorInputView(&self, presource: &::core::option::Option<ID3D11Resource>, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, pdesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC) -> ::windows::core::Result<ID3D11VideoProcessorInputView>;
+    fn CreateVideoProcessorOutputView(&self, presource: &::core::option::Option<ID3D11Resource>, penum: &::core::option::Option<ID3D11VideoProcessorEnumerator>, pdesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC) -> ::windows::core::Result<ID3D11VideoProcessorOutputView>;
+    fn CreateVideoProcessorEnumerator(&self, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> ::windows::core::Result<ID3D11VideoProcessorEnumerator>;
+    fn GetVideoDecoderProfileCount(&self) -> u32;
+    fn GetVideoDecoderProfile(&self, index: u32) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CheckVideoDecoderFormat(&self, pdecoderprofile: *const ::windows::core::GUID, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetVideoDecoderConfigCount(&self, pdesc: *const D3D11_VIDEO_DECODER_DESC) -> ::windows::core::Result<u32>;
+    fn GetVideoDecoderConfig(&self, pdesc: *const D3D11_VIDEO_DECODER_DESC, index: u32) -> ::windows::core::Result<D3D11_VIDEO_DECODER_CONFIG>;
+    fn GetContentProtectionCaps(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID) -> ::windows::core::Result<D3D11_VIDEO_CONTENT_PROTECTION_CAPS>;
+    fn CheckCryptoKeyExchange(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, index: u32) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11VideoDevice_Vtbl {
@@ -4913,10 +4913,10 @@ impl ID3D11VideoDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11VideoDevice1_Impl: Sized + ID3D11VideoDevice_Impl {
-    fn GetCryptoSessionPrivateDataSize(&mut self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, pkeyexchangetype: *const ::windows::core::GUID, pprivateinputsize: *mut u32, pprivateoutputsize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetVideoDecoderCaps(&mut self, pdecoderprofile: *const ::windows::core::GUID, samplewidth: u32, sampleheight: u32, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, bitrate: u32, pcryptotype: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
-    fn CheckVideoDecoderDownsampling(&mut self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, psupported: *mut super::super::Foundation::BOOL, prealtimehint: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn RecommendVideoDecoderDownsampleParameters(&mut self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL) -> ::windows::core::Result<D3D11_VIDEO_SAMPLE_DESC>;
+    fn GetCryptoSessionPrivateDataSize(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, pkeyexchangetype: *const ::windows::core::GUID, pprivateinputsize: *mut u32, pprivateoutputsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetVideoDecoderCaps(&self, pdecoderprofile: *const ::windows::core::GUID, samplewidth: u32, sampleheight: u32, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, bitrate: u32, pcryptotype: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
+    fn CheckVideoDecoderDownsampling(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, psupported: *mut super::super::Foundation::BOOL, prealtimehint: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn RecommendVideoDecoderDownsampleParameters(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL) -> ::windows::core::Result<D3D11_VIDEO_SAMPLE_DESC>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11VideoDevice1_Vtbl {
@@ -4967,8 +4967,8 @@ impl ID3D11VideoDevice1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11VideoDevice2_Impl: Sized + ID3D11VideoDevice_Impl + ID3D11VideoDevice1_Impl {
-    fn CheckFeatureSupport(&mut self, feature: D3D11_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
-    fn NegotiateCryptoSessionKeyExchangeMT(&mut self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CheckFeatureSupport(&self, feature: D3D11_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
+    fn NegotiateCryptoSessionKeyExchangeMT(&self, pcryptosession: &::core::option::Option<ID3D11CryptoSession>, flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11VideoDevice2_Vtbl {
@@ -4995,8 +4995,8 @@ impl ID3D11VideoDevice2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D11VideoProcessor_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetContentDesc(&mut self, pdesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC);
-    fn GetRateConversionCaps(&mut self, pcaps: *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS);
+    fn GetContentDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC);
+    fn GetRateConversionCaps(&self, pcaps: *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D11VideoProcessor_Vtbl {
@@ -5023,12 +5023,12 @@ impl ID3D11VideoProcessor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11VideoProcessorEnumerator_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetVideoProcessorContentDesc(&mut self) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_CONTENT_DESC>;
-    fn CheckVideoProcessorFormat(&mut self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32>;
-    fn GetVideoProcessorCaps(&mut self) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_CAPS>;
-    fn GetVideoProcessorRateConversionCaps(&mut self, typeindex: u32) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS>;
-    fn GetVideoProcessorCustomRate(&mut self, typeindex: u32, customrateindex: u32) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_CUSTOM_RATE>;
-    fn GetVideoProcessorFilterRange(&mut self, filter: D3D11_VIDEO_PROCESSOR_FILTER) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_FILTER_RANGE>;
+    fn GetVideoProcessorContentDesc(&self) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_CONTENT_DESC>;
+    fn CheckVideoProcessorFormat(&self, format: super::Dxgi::Common::DXGI_FORMAT) -> ::windows::core::Result<u32>;
+    fn GetVideoProcessorCaps(&self) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_CAPS>;
+    fn GetVideoProcessorRateConversionCaps(&self, typeindex: u32) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS>;
+    fn GetVideoProcessorCustomRate(&self, typeindex: u32, customrateindex: u32) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_CUSTOM_RATE>;
+    fn GetVideoProcessorFilterRange(&self, filter: D3D11_VIDEO_PROCESSOR_FILTER) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_FILTER_RANGE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11VideoProcessorEnumerator_Vtbl {
@@ -5115,7 +5115,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D11VideoProcessorEnumerator1_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11VideoProcessorEnumerator_Impl {
-    fn CheckVideoProcessorFormatConversion(&mut self, inputformat: super::Dxgi::Common::DXGI_FORMAT, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, outputformat: super::Dxgi::Common::DXGI_FORMAT, outputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn CheckVideoProcessorFormatConversion(&self, inputformat: super::Dxgi::Common::DXGI_FORMAT, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, outputformat: super::Dxgi::Common::DXGI_FORMAT, outputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D11VideoProcessorEnumerator1_Vtbl {
@@ -5141,7 +5141,7 @@ impl ID3D11VideoProcessorEnumerator1_Vtbl {
     }
 }
 pub trait ID3D11VideoProcessorInputView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC);
 }
 impl ID3D11VideoProcessorInputView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11VideoProcessorInputView_Impl, const OFFSET: isize>() -> ID3D11VideoProcessorInputView_Vtbl {
@@ -5157,7 +5157,7 @@ impl ID3D11VideoProcessorInputView_Vtbl {
     }
 }
 pub trait ID3D11VideoProcessorOutputView_Impl: Sized + ID3D11DeviceChild_Impl + ID3D11View_Impl {
-    fn GetDesc(&mut self, pdesc: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC);
+    fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC);
 }
 impl ID3D11VideoProcessorOutputView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11VideoProcessorOutputView_Impl, const OFFSET: isize>() -> ID3D11VideoProcessorOutputView_Vtbl {
@@ -5173,7 +5173,7 @@ impl ID3D11VideoProcessorOutputView_Vtbl {
     }
 }
 pub trait ID3D11View_Impl: Sized + ID3D11DeviceChild_Impl {
-    fn GetResource(&mut self, ppresource: *mut ::core::option::Option<ID3D11Resource>);
+    fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>);
 }
 impl ID3D11View_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D11View_Impl, const OFFSET: isize>() -> ID3D11View_Vtbl {
@@ -5199,10 +5199,10 @@ impl ID3DDeviceContextState_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3DUserDefinedAnnotation_Impl: Sized {
-    fn BeginEvent(&mut self, name: super::super::Foundation::PWSTR) -> i32;
-    fn EndEvent(&mut self) -> i32;
-    fn SetMarker(&mut self, name: super::super::Foundation::PWSTR);
-    fn GetStatus(&mut self) -> super::super::Foundation::BOOL;
+    fn BeginEvent(&self, name: super::super::Foundation::PWSTR) -> i32;
+    fn EndEvent(&self) -> i32;
+    fn SetMarker(&self, name: super::super::Foundation::PWSTR);
+    fn GetStatus(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ID3DUserDefinedAnnotation_Vtbl {
@@ -5240,13 +5240,13 @@ impl ID3DUserDefinedAnnotation_Vtbl {
     }
 }
 pub trait ID3DX11FFT_Impl: Sized {
-    fn SetForwardScale(&mut self, forwardscale: f32) -> ::windows::core::Result<()>;
-    fn GetForwardScale(&mut self) -> f32;
-    fn SetInverseScale(&mut self, inversescale: f32) -> ::windows::core::Result<()>;
-    fn GetInverseScale(&mut self) -> f32;
-    fn AttachBuffersAndPrecompute(&mut self, numtempbuffers: u32, pptempbuffers: *const ::core::option::Option<ID3D11UnorderedAccessView>, numprecomputebuffers: u32, ppprecomputebuffersizes: *const ::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
-    fn ForwardTransform(&mut self, pinputbuffer: &::core::option::Option<ID3D11UnorderedAccessView>, ppoutputbuffer: *mut ::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
-    fn InverseTransform(&mut self, pinputbuffer: &::core::option::Option<ID3D11UnorderedAccessView>, ppoutputbuffer: *mut ::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
+    fn SetForwardScale(&self, forwardscale: f32) -> ::windows::core::Result<()>;
+    fn GetForwardScale(&self) -> f32;
+    fn SetInverseScale(&self, inversescale: f32) -> ::windows::core::Result<()>;
+    fn GetInverseScale(&self) -> f32;
+    fn AttachBuffersAndPrecompute(&self, numtempbuffers: u32, pptempbuffers: *const ::core::option::Option<ID3D11UnorderedAccessView>, numprecomputebuffers: u32, ppprecomputebuffersizes: *const ::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
+    fn ForwardTransform(&self, pinputbuffer: &::core::option::Option<ID3D11UnorderedAccessView>, ppoutputbuffer: *mut ::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
+    fn InverseTransform(&self, pinputbuffer: &::core::option::Option<ID3D11UnorderedAccessView>, ppoutputbuffer: *mut ::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
 }
 impl ID3DX11FFT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3DX11FFT_Impl, const OFFSET: isize>() -> ID3DX11FFT_Vtbl {
@@ -5301,9 +5301,9 @@ impl ID3DX11FFT_Vtbl {
     }
 }
 pub trait ID3DX11Scan_Impl: Sized {
-    fn SetScanDirection(&mut self, direction: D3DX11_SCAN_DIRECTION) -> ::windows::core::Result<()>;
-    fn Scan(&mut self, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, psrc: &::core::option::Option<ID3D11UnorderedAccessView>, pdst: &::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
-    fn Multiscan(&mut self, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, elementscanpitch: u32, scancount: u32, psrc: &::core::option::Option<ID3D11UnorderedAccessView>, pdst: &::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
+    fn SetScanDirection(&self, direction: D3DX11_SCAN_DIRECTION) -> ::windows::core::Result<()>;
+    fn Scan(&self, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, psrc: &::core::option::Option<ID3D11UnorderedAccessView>, pdst: &::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
+    fn Multiscan(&self, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, elementscanpitch: u32, scancount: u32, psrc: &::core::option::Option<ID3D11UnorderedAccessView>, pdst: &::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
 }
 impl ID3DX11Scan_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3DX11Scan_Impl, const OFFSET: isize>() -> ID3DX11Scan_Vtbl {
@@ -5334,8 +5334,8 @@ impl ID3DX11Scan_Vtbl {
     }
 }
 pub trait ID3DX11SegmentedScan_Impl: Sized {
-    fn SetScanDirection(&mut self, direction: D3DX11_SCAN_DIRECTION) -> ::windows::core::Result<()>;
-    fn SegScan(&mut self, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, psrc: &::core::option::Option<ID3D11UnorderedAccessView>, psrcelementflags: &::core::option::Option<ID3D11UnorderedAccessView>, pdst: &::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
+    fn SetScanDirection(&self, direction: D3DX11_SCAN_DIRECTION) -> ::windows::core::Result<()>;
+    fn SegScan(&self, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, psrc: &::core::option::Option<ID3D11UnorderedAccessView>, psrcelementflags: &::core::option::Option<ID3D11UnorderedAccessView>, pdst: &::core::option::Option<ID3D11UnorderedAccessView>) -> ::windows::core::Result<()>;
 }
 impl ID3DX11SegmentedScan_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3DX11SegmentedScan_Impl, const OFFSET: isize>() -> ID3DX11SegmentedScan_Vtbl {

@@ -1,5 +1,5 @@
 pub trait IStorageProviderHandlerFactory_Impl: Sized {
-    fn GetStatusSource(&mut self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<IStorageProviderStatusSource>;
+    fn GetStatusSource(&self, syncrootid: &::windows::core::HSTRING) -> ::windows::core::Result<IStorageProviderStatusSource>;
 }
 impl ::windows::core::RuntimeName for IStorageProviderHandlerFactory {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderHandlerFactory";
@@ -29,7 +29,7 @@ impl IStorageProviderHandlerFactory_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IStorageProviderItemPropertySource_Impl: Sized {
-    fn GetItemProperties(&mut self, itempath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;
+    fn GetItemProperties(&self, itempath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IStorageProviderItemPropertySource {
@@ -60,7 +60,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
     }
 }
 pub trait IStorageProviderPropertyCapabilities_Impl: Sized {
-    fn IsPropertySupported(&mut self, propertycanonicalname: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn IsPropertySupported(&self, propertycanonicalname: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IStorageProviderPropertyCapabilities {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderPropertyCapabilities";
@@ -90,9 +90,9 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IStorageProviderStatusSource_Impl: Sized {
-    fn GetStatus(&mut self) -> ::windows::core::Result<StorageProviderStatus>;
-    fn Changed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn GetStatus(&self) -> ::windows::core::Result<StorageProviderStatus>;
+    fn Changed(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageProviderStatusSource {
@@ -142,8 +142,8 @@ impl IStorageProviderStatusSource_Vtbl {
     }
 }
 pub trait IStorageProviderUriSource_Impl: Sized {
-    fn GetPathForContentUri(&mut self, contenturi: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetPathForContentUriResult>) -> ::windows::core::Result<()>;
-    fn GetContentInfoForPath(&mut self, path: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetContentInfoForPathResult>) -> ::windows::core::Result<()>;
+    fn GetPathForContentUri(&self, contenturi: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetPathForContentUriResult>) -> ::windows::core::Result<()>;
+    fn GetContentInfoForPath(&self, path: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetContentInfoForPathResult>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IStorageProviderUriSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUriSource";

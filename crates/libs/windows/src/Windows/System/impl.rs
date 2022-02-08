@@ -1,7 +1,7 @@
 #[cfg(feature = "UI_ViewManagement")]
 pub trait ILauncherViewOptions_Impl: Sized {
-    fn DesiredRemainingView(&mut self) -> ::windows::core::Result<super::UI::ViewManagement::ViewSizePreference>;
-    fn SetDesiredRemainingView(&mut self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()>;
+    fn DesiredRemainingView(&self) -> ::windows::core::Result<super::UI::ViewManagement::ViewSizePreference>;
+    fn SetDesiredRemainingView(&self, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "UI_ViewManagement")]
 impl ::windows::core::RuntimeName for ILauncherViewOptions {

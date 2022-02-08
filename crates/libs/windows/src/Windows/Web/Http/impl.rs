@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 pub trait IHttpContent_Impl: Sized + super::super::Foundation::IClosable_Impl {
-    fn Headers(&mut self) -> ::windows::core::Result<Headers::HttpContentHeaderCollection>;
-    fn BufferAllAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
-    fn ReadAsBufferAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>;
-    fn ReadAsInputStreamAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>;
-    fn ReadAsStringAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>;
-    fn TryComputeLength(&mut self, length: &mut u64) -> ::windows::core::Result<bool>;
-    fn WriteToStreamAsync(&mut self, outputstream: &::core::option::Option<super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
+    fn Headers(&self) -> ::windows::core::Result<Headers::HttpContentHeaderCollection>;
+    fn BufferAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
+    fn ReadAsBufferAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>;
+    fn ReadAsInputStreamAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>;
+    fn ReadAsStringAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>;
+    fn TryComputeLength(&self, length: &mut u64) -> ::windows::core::Result<bool>;
+    fn WriteToStreamAsync(&self, outputstream: &::core::option::Option<super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 impl ::windows::core::RuntimeName for IHttpContent {

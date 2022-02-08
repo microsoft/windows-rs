@@ -2,7 +2,7 @@ pub trait IIterable_Impl<T>: Sized
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    fn First(&mut self) -> ::windows::core::Result<IIterator<T>>;
+    fn First(&self) -> ::windows::core::Result<IIterator<T>>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IIterable<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterable";
@@ -35,10 +35,10 @@ pub trait IIterator_Impl<T>: Sized
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    fn Current(&mut self) -> ::windows::core::Result<T>;
-    fn HasCurrent(&mut self) -> ::windows::core::Result<bool>;
-    fn MoveNext(&mut self) -> ::windows::core::Result<bool>;
-    fn GetMany(&mut self, items: &mut [<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
+    fn Current(&self) -> ::windows::core::Result<T>;
+    fn HasCurrent(&self) -> ::windows::core::Result<bool>;
+    fn MoveNext(&self) -> ::windows::core::Result<bool>;
+    fn GetMany(&self, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IIterator<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterator";
@@ -111,8 +111,8 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
 {
-    fn Key(&mut self) -> ::windows::core::Result<K>;
-    fn Value(&mut self) -> ::windows::core::Result<V>;
+    fn Key(&self) -> ::windows::core::Result<K>;
+    fn Value(&self) -> ::windows::core::Result<V>;
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IKeyValuePair<K, V> {
     const NAME: &'static str = "Windows.Foundation.Collections.IKeyValuePair";
@@ -160,13 +160,13 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
 {
-    fn Lookup(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<V>;
-    fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn HasKey(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<bool>;
-    fn GetView(&mut self) -> ::windows::core::Result<IMapView<K, V>>;
-    fn Insert(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType, value: &<V as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<bool>;
-    fn Remove(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn Lookup(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<V>;
+    fn Size(&self) -> ::windows::core::Result<u32>;
+    fn HasKey(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<bool>;
+    fn GetView(&self) -> ::windows::core::Result<IMapView<K, V>>;
+    fn Insert(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType, value: &<V as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<bool>;
+    fn Remove(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IMap<K, V> {
     const NAME: &'static str = "Windows.Foundation.Collections.IMap";
@@ -264,8 +264,8 @@ pub trait IMapChangedEventArgs_Impl<K>: Sized
 where
     K: ::windows::core::RuntimeType + 'static,
 {
-    fn CollectionChange(&mut self) -> ::windows::core::Result<CollectionChange>;
-    fn Key(&mut self) -> ::windows::core::Result<K>;
+    fn CollectionChange(&self) -> ::windows::core::Result<CollectionChange>;
+    fn Key(&self) -> ::windows::core::Result<K>;
 }
 impl<K: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IMapChangedEventArgs<K> {
     const NAME: &'static str = "Windows.Foundation.Collections.IMapChangedEventArgs";
@@ -312,10 +312,10 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
 {
-    fn Lookup(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<V>;
-    fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn HasKey(&mut self, key: &<K as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<bool>;
-    fn Split(&mut self, first: &mut ::core::option::Option<IMapView<K, V>>, second: &mut ::core::option::Option<IMapView<K, V>>) -> ::windows::core::Result<()>;
+    fn Lookup(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<V>;
+    fn Size(&self) -> ::windows::core::Result<u32>;
+    fn HasKey(&self, key: &<K as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<bool>;
+    fn Split(&self, first: &mut ::core::option::Option<IMapView<K, V>>, second: &mut ::core::option::Option<IMapView<K, V>>) -> ::windows::core::Result<()>;
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IMapView<K, V> {
     const NAME: &'static str = "Windows.Foundation.Collections.IMapView";
@@ -382,8 +382,8 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
 {
-    fn MapChanged(&mut self, vhnd: &::core::option::Option<MapChangedEventHandler<K, V>>) -> ::windows::core::Result<super::EventRegistrationToken>;
-    fn RemoveMapChanged(&mut self, token: &super::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MapChanged(&self, vhnd: &::core::option::Option<MapChangedEventHandler<K, V>>) -> ::windows::core::Result<super::EventRegistrationToken>;
+    fn RemoveMapChanged(&self, token: &super::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IObservableMap<K, V> {
     const NAME: &'static str = "Windows.Foundation.Collections.IObservableMap";
@@ -423,8 +423,8 @@ pub trait IObservableVector_Impl<T>: Sized + IIterable_Impl<T> + IVector_Impl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    fn VectorChanged(&mut self, vhnd: &::core::option::Option<VectorChangedEventHandler<T>>) -> ::windows::core::Result<super::EventRegistrationToken>;
-    fn RemoveVectorChanged(&mut self, token: &super::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn VectorChanged(&self, vhnd: &::core::option::Option<VectorChangedEventHandler<T>>) -> ::windows::core::Result<super::EventRegistrationToken>;
+    fn RemoveVectorChanged(&self, token: &super::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IObservableVector<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IObservableVector";
@@ -475,18 +475,18 @@ pub trait IVector_Impl<T>: Sized + IIterable_Impl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<T>;
-    fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn GetView(&mut self) -> ::windows::core::Result<IVectorView<T>>;
-    fn IndexOf(&mut self, value: &<T as ::windows::core::DefaultType>::DefaultType, index: &mut u32) -> ::windows::core::Result<bool>;
-    fn SetAt(&mut self, index: u32, value: &<T as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()>;
-    fn InsertAt(&mut self, index: u32, value: &<T as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn Append(&mut self, value: &<T as ::windows::core::DefaultType>::DefaultType) -> ::windows::core::Result<()>;
-    fn RemoveAtEnd(&mut self) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn GetMany(&mut self, startindex: u32, items: &mut [<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
-    fn ReplaceAll(&mut self, items: &[<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<()>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<T>;
+    fn Size(&self) -> ::windows::core::Result<u32>;
+    fn GetView(&self) -> ::windows::core::Result<IVectorView<T>>;
+    fn IndexOf(&self, value: &<T as ::windows::core::RuntimeType>::DefaultType, index: &mut u32) -> ::windows::core::Result<bool>;
+    fn SetAt(&self, index: u32, value: &<T as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
+    fn InsertAt(&self, index: u32, value: &<T as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn Append(&self, value: &<T as ::windows::core::RuntimeType>::DefaultType) -> ::windows::core::Result<()>;
+    fn RemoveAtEnd(&self) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32>;
+    fn ReplaceAll(&self, items: &[<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<()>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IVector<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVector";
@@ -610,8 +610,8 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Vtbl<T> {
     }
 }
 pub trait IVectorChangedEventArgs_Impl: Sized {
-    fn CollectionChange(&mut self) -> ::windows::core::Result<CollectionChange>;
-    fn Index(&mut self) -> ::windows::core::Result<u32>;
+    fn CollectionChange(&self) -> ::windows::core::Result<CollectionChange>;
+    fn Index(&self) -> ::windows::core::Result<u32>;
 }
 impl ::windows::core::RuntimeName for IVectorChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorChangedEventArgs";
@@ -656,10 +656,10 @@ pub trait IVectorView_Impl<T>: Sized + IIterable_Impl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<T>;
-    fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn IndexOf(&mut self, value: &<T as ::windows::core::DefaultType>::DefaultType, index: &mut u32) -> ::windows::core::Result<bool>;
-    fn GetMany(&mut self, startindex: u32, items: &mut [<T as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<T>;
+    fn Size(&self) -> ::windows::core::Result<u32>;
+    fn IndexOf(&self, value: &<T as ::windows::core::RuntimeType>::DefaultType, index: &mut u32) -> ::windows::core::Result<bool>;
+    fn GetMany(&self, startindex: u32, items: &mut [<T as ::windows::core::RuntimeType>::DefaultType]) -> ::windows::core::Result<u32>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IVectorView<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVectorView";

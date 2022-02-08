@@ -266,6 +266,10 @@ impl ::core::fmt::Debug for AsymmetricKeyAlgorithmProvider {
 }
 unsafe impl ::windows::core::RuntimeType for AsymmetricKeyAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider;{e8d2ff37-6259-4e88-b7e0-94191fde699e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AsymmetricKeyAlgorithmProvider {
     type Vtable = IAsymmetricKeyAlgorithmProvider_Vtbl;
@@ -345,9 +349,10 @@ impl ::core::fmt::Debug for Capi1KdfTargetAlgorithm {
 }
 unsafe impl ::windows::core::RuntimeType for Capi1KdfTargetAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
-}
-impl ::windows::core::DefaultType for Capi1KdfTargetAlgorithm {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Cryptography_Core'*"]
 pub struct CryptographicEngine {}
@@ -500,6 +505,10 @@ impl ::core::fmt::Debug for CryptographicHash {
 }
 unsafe impl ::windows::core::RuntimeType for CryptographicHash {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicHash;{5904d1b6-ad31-4603-a3a4-b1bda98e2562})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CryptographicHash {
     type Vtable = IHashComputation_Vtbl;
@@ -617,6 +626,10 @@ impl ::core::fmt::Debug for CryptographicKey {
 }
 unsafe impl ::windows::core::RuntimeType for CryptographicKey {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicKey;{ed2a3b70-8e7b-4009-8401-ffd1a62eeb27})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CryptographicKey {
     type Vtable = ICryptographicKey_Vtbl;
@@ -698,9 +711,10 @@ impl ::core::fmt::Debug for CryptographicPadding {
 }
 unsafe impl ::windows::core::RuntimeType for CryptographicPadding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
-}
-impl ::windows::core::DefaultType for CryptographicPadding {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
@@ -734,9 +748,10 @@ impl ::core::fmt::Debug for CryptographicPrivateKeyBlobType {
 }
 unsafe impl ::windows::core::RuntimeType for CryptographicPrivateKeyBlobType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
-}
-impl ::windows::core::DefaultType for CryptographicPrivateKeyBlobType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
@@ -770,9 +785,10 @@ impl ::core::fmt::Debug for CryptographicPublicKeyBlobType {
 }
 unsafe impl ::windows::core::RuntimeType for CryptographicPublicKeyBlobType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType;i4)");
-}
-impl ::windows::core::DefaultType for CryptographicPublicKeyBlobType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Security_Cryptography_Core'*"]
 pub struct EccCurveNames {}
@@ -1150,6 +1166,10 @@ impl ::core::fmt::Debug for EncryptedAndAuthenticatedData {
 }
 unsafe impl ::windows::core::RuntimeType for EncryptedAndAuthenticatedData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData;{6fa42fe7-1ecb-4b00-bea5-60b83f862f17})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EncryptedAndAuthenticatedData {
     type Vtable = IEncryptedAndAuthenticatedData_Vtbl;
@@ -1315,6 +1335,10 @@ impl ::core::fmt::Debug for HashAlgorithmProvider {
 }
 unsafe impl ::windows::core::RuntimeType for HashAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.HashAlgorithmProvider;{be9b3080-b2c3-422b-bce1-ec90efb5d7b5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HashAlgorithmProvider {
     type Vtable = IHashAlgorithmProvider_Vtbl;
@@ -2220,6 +2244,10 @@ impl ::core::fmt::Debug for KeyDerivationAlgorithmProvider {
 }
 unsafe impl ::windows::core::RuntimeType for KeyDerivationAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider;{e1fba83b-4671-43b7-9158-763aaa98b6bf})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for KeyDerivationAlgorithmProvider {
     type Vtable = IKeyDerivationAlgorithmProvider_Vtbl;
@@ -2370,6 +2398,10 @@ impl ::core::fmt::Debug for KeyDerivationParameters {
 }
 unsafe impl ::windows::core::RuntimeType for KeyDerivationParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationParameters;{7bf05967-047b-4a8c-964a-469ffd5522e2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for KeyDerivationParameters {
     type Vtable = IKeyDerivationParameters_Vtbl;
@@ -2543,6 +2575,10 @@ impl ::core::fmt::Debug for MacAlgorithmProvider {
 }
 unsafe impl ::windows::core::RuntimeType for MacAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.MacAlgorithmProvider;{4a3fc5c3-1cbd-41ce-a092-aa0bc5d2d2f5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MacAlgorithmProvider {
     type Vtable = IMacAlgorithmProvider_Vtbl;
@@ -2826,6 +2862,10 @@ impl ::core::fmt::Debug for SymmetricKeyAlgorithmProvider {
 }
 unsafe impl ::windows::core::RuntimeType for SymmetricKeyAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider;{3d7e4a33-3bd0-4902-8ac8-470d50d21376})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SymmetricKeyAlgorithmProvider {
     type Vtable = ISymmetricKeyAlgorithmProvider_Vtbl;

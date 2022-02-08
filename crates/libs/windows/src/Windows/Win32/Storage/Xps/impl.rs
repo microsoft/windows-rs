@@ -1,8 +1,8 @@
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsDocumentPackageTarget_Impl: Sized {
-    fn GetXpsOMPackageWriter(&mut self, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPackageWriter>;
-    fn GetXpsOMFactory(&mut self) -> ::windows::core::Result<IXpsOMObjectFactory>;
-    fn GetXpsType(&mut self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
+    fn GetXpsOMPackageWriter(&self, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPackageWriter>;
+    fn GetXpsOMFactory(&self) -> ::windows::core::Result<IXpsOMObjectFactory>;
+    fn GetXpsType(&self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsDocumentPackageTarget_Vtbl {
@@ -53,8 +53,8 @@ impl IXpsDocumentPackageTarget_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsDocumentPackageTarget3D_Impl: Sized {
-    fn GetXpsOMPackageWriter3D(&mut self, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, modelpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, modeldata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<IXpsOMPackageWriter3D>;
-    fn GetXpsOMFactory(&mut self) -> ::windows::core::Result<IXpsOMObjectFactory>;
+    fn GetXpsOMPackageWriter3D(&self, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, modelpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, modeldata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<IXpsOMPackageWriter3D>;
+    fn GetXpsOMFactory(&self) -> ::windows::core::Result<IXpsOMObjectFactory>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsDocumentPackageTarget3D_Vtbl {
@@ -92,8 +92,8 @@ impl IXpsDocumentPackageTarget3D_Vtbl {
     }
 }
 pub trait IXpsOMBrush_Impl: Sized + IXpsOMShareable_Impl {
-    fn GetOpacity(&mut self) -> ::windows::core::Result<f32>;
-    fn SetOpacity(&mut self, opacity: f32) -> ::windows::core::Result<()>;
+    fn GetOpacity(&self) -> ::windows::core::Result<f32>;
+    fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()>;
 }
 impl IXpsOMBrush_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMBrush_Impl, const OFFSET: isize>() -> IXpsOMBrush_Vtbl {
@@ -125,19 +125,19 @@ impl IXpsOMBrush_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXpsOMCanvas_Impl: Sized + IXpsOMShareable_Impl + IXpsOMVisual_Impl {
-    fn GetVisuals(&mut self) -> ::windows::core::Result<IXpsOMVisualCollection>;
-    fn GetUseAliasedEdgeMode(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetUseAliasedEdgeMode(&mut self, usealiasededgemode: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetAccessibilityShortDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetAccessibilityShortDescription(&mut self, shortdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetAccessibilityLongDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetAccessibilityLongDescription(&mut self, longdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetDictionary(&mut self) -> ::windows::core::Result<IXpsOMDictionary>;
-    fn GetDictionaryLocal(&mut self) -> ::windows::core::Result<IXpsOMDictionary>;
-    fn SetDictionaryLocal(&mut self, resourcedictionary: &::core::option::Option<IXpsOMDictionary>) -> ::windows::core::Result<()>;
-    fn GetDictionaryResource(&mut self) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
-    fn SetDictionaryResource(&mut self, remotedictionaryresource: &::core::option::Option<IXpsOMRemoteDictionaryResource>) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMCanvas>;
+    fn GetVisuals(&self) -> ::windows::core::Result<IXpsOMVisualCollection>;
+    fn GetUseAliasedEdgeMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetUseAliasedEdgeMode(&self, usealiasededgemode: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetAccessibilityShortDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAccessibilityShortDescription(&self, shortdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetAccessibilityLongDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAccessibilityLongDescription(&self, longdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary>;
+    fn GetDictionaryLocal(&self) -> ::windows::core::Result<IXpsOMDictionary>;
+    fn SetDictionaryLocal(&self, resourcedictionary: &::core::option::Option<IXpsOMDictionary>) -> ::windows::core::Result<()>;
+    fn GetDictionaryResource(&self) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
+    fn SetDictionaryResource(&self, remotedictionaryresource: &::core::option::Option<IXpsOMRemoteDictionaryResource>) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMCanvas>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXpsOMCanvas_Vtbl {
@@ -278,8 +278,8 @@ impl IXpsOMCanvas_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMColorProfileResource_Impl: Sized + IXpsOMPart_Impl + IXpsOMResource_Impl {
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetContent(&mut self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn SetContent(&self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMColorProfileResource_Vtbl {
@@ -312,13 +312,13 @@ impl IXpsOMColorProfileResource_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMColorProfileResourceCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsOMColorProfileResource>;
-    fn InsertAt(&mut self, index: u32, object: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, object: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, object: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
-    fn GetByPartName(&mut self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMColorProfileResource>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsOMColorProfileResource>;
+    fn InsertAt(&self, index: u32, object: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, object: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
+    fn Append(&self, object: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
+    fn GetByPartName(&self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMColorProfileResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMColorProfileResourceCollection_Vtbl {
@@ -393,40 +393,40 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMCoreProperties_Impl: Sized + IXpsOMPart_Impl {
-    fn GetOwner(&mut self) -> ::windows::core::Result<IXpsOMPackage>;
-    fn GetCategory(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetCategory(&mut self, category: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetContentStatus(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetContentStatus(&mut self, contentstatus: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetContentType(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetContentType(&mut self, contenttype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetCreated(&mut self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn SetCreated(&mut self, created: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
-    fn GetCreator(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetCreator(&mut self, creator: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetDescription(&mut self, description: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetIdentifier(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetIdentifier(&mut self, identifier: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetKeywords(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetKeywords(&mut self, keywords: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetLanguage(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetLanguage(&mut self, language: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetLastModifiedBy(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetLastModifiedBy(&mut self, lastmodifiedby: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetLastPrinted(&mut self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn SetLastPrinted(&mut self, lastprinted: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
-    fn GetModified(&mut self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn SetModified(&mut self, modified: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
-    fn GetRevision(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetRevision(&mut self, revision: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetSubject(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetSubject(&mut self, subject: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetTitle(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetTitle(&mut self, title: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetVersion(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetVersion(&mut self, version: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMCoreProperties>;
+    fn GetOwner(&self) -> ::windows::core::Result<IXpsOMPackage>;
+    fn GetCategory(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetCategory(&self, category: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetContentStatus(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetContentStatus(&self, contentstatus: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetContentType(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetContentType(&self, contenttype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetCreated(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
+    fn SetCreated(&self, created: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
+    fn GetCreator(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetCreator(&self, creator: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetDescription(&self, description: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetIdentifier(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetIdentifier(&self, identifier: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetKeywords(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetKeywords(&self, keywords: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetLanguage(&self, language: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetLastModifiedBy(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetLastModifiedBy(&self, lastmodifiedby: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetLastPrinted(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
+    fn SetLastPrinted(&self, lastprinted: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
+    fn GetModified(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
+    fn SetModified(&self, modified: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
+    fn GetRevision(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetRevision(&self, revision: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSubject(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetSubject(&self, subject: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetTitle(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetTitle(&self, title: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetVersion(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetVersion(&self, version: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMCoreProperties>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMCoreProperties_Vtbl {
@@ -752,12 +752,12 @@ impl IXpsOMCoreProperties_Vtbl {
     }
 }
 pub trait IXpsOMDashCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<XPS_DASH>;
-    fn InsertAt(&mut self, index: u32, dash: *const XPS_DASH) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, dash: *const XPS_DASH) -> ::windows::core::Result<()>;
-    fn Append(&mut self, dash: *const XPS_DASH) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<XPS_DASH>;
+    fn InsertAt(&self, index: u32, dash: *const XPS_DASH) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, dash: *const XPS_DASH) -> ::windows::core::Result<()>;
+    fn Append(&self, dash: *const XPS_DASH) -> ::windows::core::Result<()>;
 }
 impl IXpsOMDashCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMDashCollection_Impl, const OFFSET: isize>() -> IXpsOMDashCollection_Vtbl {
@@ -819,16 +819,16 @@ impl IXpsOMDashCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMDictionary_Impl: Sized {
-    fn GetOwner(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32, key: *mut super::super::Foundation::PWSTR, entry: *mut ::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<()>;
-    fn GetByKey(&mut self, key: super::super::Foundation::PWSTR, beforeentry: &::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<IXpsOMShareable>;
-    fn GetIndex(&mut self, entry: &::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<u32>;
-    fn Append(&mut self, key: super::super::Foundation::PWSTR, entry: &::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<()>;
-    fn InsertAt(&mut self, index: u32, key: super::super::Foundation::PWSTR, entry: &::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, key: super::super::Foundation::PWSTR, entry: &::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMDictionary>;
+    fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32, key: *mut super::super::Foundation::PWSTR, entry: *mut ::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<()>;
+    fn GetByKey(&self, key: super::super::Foundation::PWSTR, beforeentry: &::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<IXpsOMShareable>;
+    fn GetIndex(&self, entry: &::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<u32>;
+    fn Append(&self, key: super::super::Foundation::PWSTR, entry: &::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<()>;
+    fn InsertAt(&self, index: u32, key: super::super::Foundation::PWSTR, entry: &::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, key: super::super::Foundation::PWSTR, entry: &::core::option::Option<IXpsOMShareable>) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMDictionary>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMDictionary_Vtbl {
@@ -933,14 +933,14 @@ impl IXpsOMDictionary_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMDocument_Impl: Sized + IXpsOMPart_Impl {
-    fn GetOwner(&mut self) -> ::windows::core::Result<IXpsOMDocumentSequence>;
-    fn GetPageReferences(&mut self) -> ::windows::core::Result<IXpsOMPageReferenceCollection>;
-    fn GetPrintTicketResource(&mut self) -> ::windows::core::Result<IXpsOMPrintTicketResource>;
-    fn SetPrintTicketResource(&mut self, printticketresource: &::core::option::Option<IXpsOMPrintTicketResource>) -> ::windows::core::Result<()>;
-    fn GetDocumentStructureResource(&mut self) -> ::windows::core::Result<IXpsOMDocumentStructureResource>;
-    fn SetDocumentStructureResource(&mut self, documentstructureresource: &::core::option::Option<IXpsOMDocumentStructureResource>) -> ::windows::core::Result<()>;
-    fn GetSignatureBlockResources(&mut self) -> ::windows::core::Result<IXpsOMSignatureBlockResourceCollection>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMDocument>;
+    fn GetOwner(&self) -> ::windows::core::Result<IXpsOMDocumentSequence>;
+    fn GetPageReferences(&self) -> ::windows::core::Result<IXpsOMPageReferenceCollection>;
+    fn GetPrintTicketResource(&self) -> ::windows::core::Result<IXpsOMPrintTicketResource>;
+    fn SetPrintTicketResource(&self, printticketresource: &::core::option::Option<IXpsOMPrintTicketResource>) -> ::windows::core::Result<()>;
+    fn GetDocumentStructureResource(&self) -> ::windows::core::Result<IXpsOMDocumentStructureResource>;
+    fn SetDocumentStructureResource(&self, documentstructureresource: &::core::option::Option<IXpsOMDocumentStructureResource>) -> ::windows::core::Result<()>;
+    fn GetSignatureBlockResources(&self) -> ::windows::core::Result<IXpsOMSignatureBlockResourceCollection>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMDocument>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMDocument_Vtbl {
@@ -1038,12 +1038,12 @@ impl IXpsOMDocument_Vtbl {
     }
 }
 pub trait IXpsOMDocumentCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsOMDocument>;
-    fn InsertAt(&mut self, index: u32, document: &::core::option::Option<IXpsOMDocument>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, document: &::core::option::Option<IXpsOMDocument>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, document: &::core::option::Option<IXpsOMDocument>) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsOMDocument>;
+    fn InsertAt(&self, index: u32, document: &::core::option::Option<IXpsOMDocument>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, document: &::core::option::Option<IXpsOMDocument>) -> ::windows::core::Result<()>;
+    fn Append(&self, document: &::core::option::Option<IXpsOMDocument>) -> ::windows::core::Result<()>;
 }
 impl IXpsOMDocumentCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMDocumentCollection_Impl, const OFFSET: isize>() -> IXpsOMDocumentCollection_Vtbl {
@@ -1105,10 +1105,10 @@ impl IXpsOMDocumentCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMDocumentSequence_Impl: Sized + IXpsOMPart_Impl {
-    fn GetOwner(&mut self) -> ::windows::core::Result<IXpsOMPackage>;
-    fn GetDocuments(&mut self) -> ::windows::core::Result<IXpsOMDocumentCollection>;
-    fn GetPrintTicketResource(&mut self) -> ::windows::core::Result<IXpsOMPrintTicketResource>;
-    fn SetPrintTicketResource(&mut self, printticketresource: &::core::option::Option<IXpsOMPrintTicketResource>) -> ::windows::core::Result<()>;
+    fn GetOwner(&self) -> ::windows::core::Result<IXpsOMPackage>;
+    fn GetDocuments(&self) -> ::windows::core::Result<IXpsOMDocumentCollection>;
+    fn GetPrintTicketResource(&self) -> ::windows::core::Result<IXpsOMPrintTicketResource>;
+    fn SetPrintTicketResource(&self, printticketresource: &::core::option::Option<IXpsOMPrintTicketResource>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMDocumentSequence_Vtbl {
@@ -1165,9 +1165,9 @@ impl IXpsOMDocumentSequence_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMDocumentStructureResource_Impl: Sized + IXpsOMPart_Impl + IXpsOMResource_Impl {
-    fn GetOwner(&mut self) -> ::windows::core::Result<IXpsOMDocument>;
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetContent(&mut self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetOwner(&self) -> ::windows::core::Result<IXpsOMDocument>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn SetContent(&self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMDocumentStructureResource_Vtbl {
@@ -1212,9 +1212,9 @@ impl IXpsOMDocumentStructureResource_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMFontResource_Impl: Sized + IXpsOMPart_Impl + IXpsOMResource_Impl {
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetContent(&mut self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, embeddingoption: XPS_FONT_EMBEDDING, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
-    fn GetEmbeddingOption(&mut self) -> ::windows::core::Result<XPS_FONT_EMBEDDING>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn SetContent(&self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, embeddingoption: XPS_FONT_EMBEDDING, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetEmbeddingOption(&self) -> ::windows::core::Result<XPS_FONT_EMBEDDING>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMFontResource_Vtbl {
@@ -1259,13 +1259,13 @@ impl IXpsOMFontResource_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMFontResourceCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsOMFontResource>;
-    fn SetAt(&mut self, index: u32, value: &::core::option::Option<IXpsOMFontResource>) -> ::windows::core::Result<()>;
-    fn InsertAt(&mut self, index: u32, value: &::core::option::Option<IXpsOMFontResource>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, value: &::core::option::Option<IXpsOMFontResource>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn GetByPartName(&mut self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMFontResource>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsOMFontResource>;
+    fn SetAt(&self, index: u32, value: &::core::option::Option<IXpsOMFontResource>) -> ::windows::core::Result<()>;
+    fn InsertAt(&self, index: u32, value: &::core::option::Option<IXpsOMFontResource>) -> ::windows::core::Result<()>;
+    fn Append(&self, value: &::core::option::Option<IXpsOMFontResource>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn GetByPartName(&self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMFontResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMFontResourceCollection_Vtbl {
@@ -1340,15 +1340,15 @@ impl IXpsOMFontResourceCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMGeometry_Impl: Sized + IXpsOMShareable_Impl {
-    fn GetFigures(&mut self) -> ::windows::core::Result<IXpsOMGeometryFigureCollection>;
-    fn GetFillRule(&mut self) -> ::windows::core::Result<XPS_FILL_RULE>;
-    fn SetFillRule(&mut self, fillrule: XPS_FILL_RULE) -> ::windows::core::Result<()>;
-    fn GetTransform(&mut self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
-    fn GetTransformLocal(&mut self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
-    fn SetTransformLocal(&mut self, transform: &::core::option::Option<IXpsOMMatrixTransform>) -> ::windows::core::Result<()>;
-    fn GetTransformLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetTransformLookup(&mut self, lookup: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMGeometry>;
+    fn GetFigures(&self) -> ::windows::core::Result<IXpsOMGeometryFigureCollection>;
+    fn GetFillRule(&self) -> ::windows::core::Result<XPS_FILL_RULE>;
+    fn SetFillRule(&self, fillrule: XPS_FILL_RULE) -> ::windows::core::Result<()>;
+    fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
+    fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
+    fn SetTransformLocal(&self, transform: &::core::option::Option<IXpsOMMatrixTransform>) -> ::windows::core::Result<()>;
+    fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetTransformLookup(&self, lookup: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMGeometry>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMGeometry_Vtbl {
@@ -1453,21 +1453,21 @@ impl IXpsOMGeometry_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMGeometryFigure_Impl: Sized {
-    fn GetOwner(&mut self) -> ::windows::core::Result<IXpsOMGeometry>;
-    fn GetSegmentData(&mut self, datacount: *mut u32, segmentdata: *mut f32) -> ::windows::core::Result<()>;
-    fn GetSegmentTypes(&mut self, segmentcount: *mut u32, segmenttypes: *mut XPS_SEGMENT_TYPE) -> ::windows::core::Result<()>;
-    fn GetSegmentStrokes(&mut self, segmentcount: *mut u32, segmentstrokes: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetSegments(&mut self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetStartPoint(&mut self) -> ::windows::core::Result<XPS_POINT>;
-    fn SetStartPoint(&mut self, startpoint: *const XPS_POINT) -> ::windows::core::Result<()>;
-    fn GetIsClosed(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetIsClosed(&mut self, isclosed: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetIsFilled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetIsFilled(&mut self, isfilled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetSegmentCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetSegmentDataCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetSegmentStrokePattern(&mut self) -> ::windows::core::Result<XPS_SEGMENT_STROKE_PATTERN>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMGeometryFigure>;
+    fn GetOwner(&self) -> ::windows::core::Result<IXpsOMGeometry>;
+    fn GetSegmentData(&self, datacount: *mut u32, segmentdata: *mut f32) -> ::windows::core::Result<()>;
+    fn GetSegmentTypes(&self, segmentcount: *mut u32, segmenttypes: *mut XPS_SEGMENT_TYPE) -> ::windows::core::Result<()>;
+    fn GetSegmentStrokes(&self, segmentcount: *mut u32, segmentstrokes: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: *const XPS_SEGMENT_TYPE, segmentdata: *const f32, segmentstrokes: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetStartPoint(&self) -> ::windows::core::Result<XPS_POINT>;
+    fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> ::windows::core::Result<()>;
+    fn GetIsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetIsClosed(&self, isclosed: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetIsFilled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetIsFilled(&self, isfilled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetSegmentCount(&self) -> ::windows::core::Result<u32>;
+    fn GetSegmentDataCount(&self) -> ::windows::core::Result<u32>;
+    fn GetSegmentStrokePattern(&self) -> ::windows::core::Result<XPS_SEGMENT_STROKE_PATTERN>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMGeometryFigure>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMGeometryFigure_Vtbl {
@@ -1619,12 +1619,12 @@ impl IXpsOMGeometryFigure_Vtbl {
     }
 }
 pub trait IXpsOMGeometryFigureCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsOMGeometryFigure>;
-    fn InsertAt(&mut self, index: u32, geometryfigure: &::core::option::Option<IXpsOMGeometryFigure>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, geometryfigure: &::core::option::Option<IXpsOMGeometryFigure>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, geometryfigure: &::core::option::Option<IXpsOMGeometryFigure>) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsOMGeometryFigure>;
+    fn InsertAt(&self, index: u32, geometryfigure: &::core::option::Option<IXpsOMGeometryFigure>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, geometryfigure: &::core::option::Option<IXpsOMGeometryFigure>) -> ::windows::core::Result<()>;
+    fn Append(&self, geometryfigure: &::core::option::Option<IXpsOMGeometryFigure>) -> ::windows::core::Result<()>;
 }
 impl IXpsOMGeometryFigureCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMGeometryFigureCollection_Impl, const OFFSET: isize>() -> IXpsOMGeometryFigureCollection_Vtbl {
@@ -1686,33 +1686,33 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXpsOMGlyphs_Impl: Sized + IXpsOMShareable_Impl + IXpsOMVisual_Impl {
-    fn GetUnicodeString(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetGlyphIndexCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetGlyphIndices(&mut self, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> ::windows::core::Result<()>;
-    fn GetGlyphMappingCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetGlyphMappings(&mut self, glyphmappingcount: *mut u32, glyphmappings: *mut XPS_GLYPH_MAPPING) -> ::windows::core::Result<()>;
-    fn GetProhibitedCaretStopCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetProhibitedCaretStops(&mut self, prohibitedcaretstopcount: *mut u32, prohibitedcaretstops: *mut u32) -> ::windows::core::Result<()>;
-    fn GetBidiLevel(&mut self) -> ::windows::core::Result<u32>;
-    fn GetIsSideways(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetDeviceFontName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetStyleSimulations(&mut self) -> ::windows::core::Result<XPS_STYLE_SIMULATION>;
-    fn SetStyleSimulations(&mut self, stylesimulations: XPS_STYLE_SIMULATION) -> ::windows::core::Result<()>;
-    fn GetOrigin(&mut self) -> ::windows::core::Result<XPS_POINT>;
-    fn SetOrigin(&mut self, origin: *const XPS_POINT) -> ::windows::core::Result<()>;
-    fn GetFontRenderingEmSize(&mut self) -> ::windows::core::Result<f32>;
-    fn SetFontRenderingEmSize(&mut self, fontrenderingemsize: f32) -> ::windows::core::Result<()>;
-    fn GetFontResource(&mut self) -> ::windows::core::Result<IXpsOMFontResource>;
-    fn SetFontResource(&mut self, fontresource: &::core::option::Option<IXpsOMFontResource>) -> ::windows::core::Result<()>;
-    fn GetFontFaceIndex(&mut self) -> ::windows::core::Result<i16>;
-    fn SetFontFaceIndex(&mut self, fontfaceindex: i16) -> ::windows::core::Result<()>;
-    fn GetFillBrush(&mut self) -> ::windows::core::Result<IXpsOMBrush>;
-    fn GetFillBrushLocal(&mut self) -> ::windows::core::Result<IXpsOMBrush>;
-    fn SetFillBrushLocal(&mut self, fillbrush: &::core::option::Option<IXpsOMBrush>) -> ::windows::core::Result<()>;
-    fn GetFillBrushLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetFillBrushLookup(&mut self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetGlyphsEditor(&mut self) -> ::windows::core::Result<IXpsOMGlyphsEditor>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMGlyphs>;
+    fn GetUnicodeString(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetGlyphIndexCount(&self) -> ::windows::core::Result<u32>;
+    fn GetGlyphIndices(&self, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> ::windows::core::Result<()>;
+    fn GetGlyphMappingCount(&self) -> ::windows::core::Result<u32>;
+    fn GetGlyphMappings(&self, glyphmappingcount: *mut u32, glyphmappings: *mut XPS_GLYPH_MAPPING) -> ::windows::core::Result<()>;
+    fn GetProhibitedCaretStopCount(&self) -> ::windows::core::Result<u32>;
+    fn GetProhibitedCaretStops(&self, prohibitedcaretstopcount: *mut u32, prohibitedcaretstops: *mut u32) -> ::windows::core::Result<()>;
+    fn GetBidiLevel(&self) -> ::windows::core::Result<u32>;
+    fn GetIsSideways(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetDeviceFontName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetStyleSimulations(&self) -> ::windows::core::Result<XPS_STYLE_SIMULATION>;
+    fn SetStyleSimulations(&self, stylesimulations: XPS_STYLE_SIMULATION) -> ::windows::core::Result<()>;
+    fn GetOrigin(&self) -> ::windows::core::Result<XPS_POINT>;
+    fn SetOrigin(&self, origin: *const XPS_POINT) -> ::windows::core::Result<()>;
+    fn GetFontRenderingEmSize(&self) -> ::windows::core::Result<f32>;
+    fn SetFontRenderingEmSize(&self, fontrenderingemsize: f32) -> ::windows::core::Result<()>;
+    fn GetFontResource(&self) -> ::windows::core::Result<IXpsOMFontResource>;
+    fn SetFontResource(&self, fontresource: &::core::option::Option<IXpsOMFontResource>) -> ::windows::core::Result<()>;
+    fn GetFontFaceIndex(&self) -> ::windows::core::Result<i16>;
+    fn SetFontFaceIndex(&self, fontfaceindex: i16) -> ::windows::core::Result<()>;
+    fn GetFillBrush(&self) -> ::windows::core::Result<IXpsOMBrush>;
+    fn GetFillBrushLocal(&self) -> ::windows::core::Result<IXpsOMBrush>;
+    fn SetFillBrushLocal(&self, fillbrush: &::core::option::Option<IXpsOMBrush>) -> ::windows::core::Result<()>;
+    fn GetFillBrushLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetFillBrushLookup(&self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetGlyphsEditor(&self) -> ::windows::core::Result<IXpsOMGlyphsEditor>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMGlyphs>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXpsOMGlyphs_Vtbl {
@@ -1991,24 +1991,24 @@ impl IXpsOMGlyphs_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMGlyphsEditor_Impl: Sized {
-    fn ApplyEdits(&mut self) -> ::windows::core::Result<()>;
-    fn GetUnicodeString(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetUnicodeString(&mut self, unicodestring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetGlyphIndexCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetGlyphIndices(&mut self, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> ::windows::core::Result<()>;
-    fn SetGlyphIndices(&mut self, indexcount: u32, glyphindices: *const XPS_GLYPH_INDEX) -> ::windows::core::Result<()>;
-    fn GetGlyphMappingCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetGlyphMappings(&mut self, glyphmappingcount: *mut u32, glyphmappings: *mut XPS_GLYPH_MAPPING) -> ::windows::core::Result<()>;
-    fn SetGlyphMappings(&mut self, glyphmappingcount: u32, glyphmappings: *const XPS_GLYPH_MAPPING) -> ::windows::core::Result<()>;
-    fn GetProhibitedCaretStopCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetProhibitedCaretStops(&mut self, count: *mut u32, prohibitedcaretstops: *mut u32) -> ::windows::core::Result<()>;
-    fn SetProhibitedCaretStops(&mut self, count: u32, prohibitedcaretstops: *const u32) -> ::windows::core::Result<()>;
-    fn GetBidiLevel(&mut self) -> ::windows::core::Result<u32>;
-    fn SetBidiLevel(&mut self, bidilevel: u32) -> ::windows::core::Result<()>;
-    fn GetIsSideways(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetIsSideways(&mut self, issideways: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetDeviceFontName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetDeviceFontName(&mut self, devicefontname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ApplyEdits(&self) -> ::windows::core::Result<()>;
+    fn GetUnicodeString(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetUnicodeString(&self, unicodestring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetGlyphIndexCount(&self) -> ::windows::core::Result<u32>;
+    fn GetGlyphIndices(&self, indexcount: *mut u32, glyphindices: *mut XPS_GLYPH_INDEX) -> ::windows::core::Result<()>;
+    fn SetGlyphIndices(&self, indexcount: u32, glyphindices: *const XPS_GLYPH_INDEX) -> ::windows::core::Result<()>;
+    fn GetGlyphMappingCount(&self) -> ::windows::core::Result<u32>;
+    fn GetGlyphMappings(&self, glyphmappingcount: *mut u32, glyphmappings: *mut XPS_GLYPH_MAPPING) -> ::windows::core::Result<()>;
+    fn SetGlyphMappings(&self, glyphmappingcount: u32, glyphmappings: *const XPS_GLYPH_MAPPING) -> ::windows::core::Result<()>;
+    fn GetProhibitedCaretStopCount(&self) -> ::windows::core::Result<u32>;
+    fn GetProhibitedCaretStops(&self, count: *mut u32, prohibitedcaretstops: *mut u32) -> ::windows::core::Result<()>;
+    fn SetProhibitedCaretStops(&self, count: u32, prohibitedcaretstops: *const u32) -> ::windows::core::Result<()>;
+    fn GetBidiLevel(&self) -> ::windows::core::Result<u32>;
+    fn SetBidiLevel(&self, bidilevel: u32) -> ::windows::core::Result<()>;
+    fn GetIsSideways(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetIsSideways(&self, issideways: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetDeviceFontName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetDeviceFontName(&self, devicefontname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMGlyphsEditor_Vtbl {
@@ -2173,16 +2173,16 @@ impl IXpsOMGlyphsEditor_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMGradientBrush_Impl: Sized + IXpsOMShareable_Impl + IXpsOMBrush_Impl {
-    fn GetGradientStops(&mut self) -> ::windows::core::Result<IXpsOMGradientStopCollection>;
-    fn GetTransform(&mut self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
-    fn GetTransformLocal(&mut self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
-    fn SetTransformLocal(&mut self, transform: &::core::option::Option<IXpsOMMatrixTransform>) -> ::windows::core::Result<()>;
-    fn GetTransformLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetTransformLookup(&mut self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetSpreadMethod(&mut self) -> ::windows::core::Result<XPS_SPREAD_METHOD>;
-    fn SetSpreadMethod(&mut self, spreadmethod: XPS_SPREAD_METHOD) -> ::windows::core::Result<()>;
-    fn GetColorInterpolationMode(&mut self) -> ::windows::core::Result<XPS_COLOR_INTERPOLATION>;
-    fn SetColorInterpolationMode(&mut self, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> ::windows::core::Result<()>;
+    fn GetGradientStops(&self) -> ::windows::core::Result<IXpsOMGradientStopCollection>;
+    fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
+    fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
+    fn SetTransformLocal(&self, transform: &::core::option::Option<IXpsOMMatrixTransform>) -> ::windows::core::Result<()>;
+    fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetTransformLookup(&self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSpreadMethod(&self) -> ::windows::core::Result<XPS_SPREAD_METHOD>;
+    fn SetSpreadMethod(&self, spreadmethod: XPS_SPREAD_METHOD) -> ::windows::core::Result<()>;
+    fn GetColorInterpolationMode(&self) -> ::windows::core::Result<XPS_COLOR_INTERPOLATION>;
+    fn SetColorInterpolationMode(&self, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMGradientBrush_Vtbl {
@@ -2292,12 +2292,12 @@ impl IXpsOMGradientBrush_Vtbl {
     }
 }
 pub trait IXpsOMGradientStop_Impl: Sized {
-    fn GetOwner(&mut self) -> ::windows::core::Result<IXpsOMGradientBrush>;
-    fn GetOffset(&mut self) -> ::windows::core::Result<f32>;
-    fn SetOffset(&mut self, offset: f32) -> ::windows::core::Result<()>;
-    fn GetColor(&mut self, color: *mut XPS_COLOR, colorprofile: *mut ::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
-    fn SetColor(&mut self, color: *const XPS_COLOR, colorprofile: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMGradientStop>;
+    fn GetOwner(&self) -> ::windows::core::Result<IXpsOMGradientBrush>;
+    fn GetOffset(&self) -> ::windows::core::Result<f32>;
+    fn SetOffset(&self, offset: f32) -> ::windows::core::Result<()>;
+    fn GetColor(&self, color: *mut XPS_COLOR, colorprofile: *mut ::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
+    fn SetColor(&self, color: *const XPS_COLOR, colorprofile: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMGradientStop>;
 }
 impl IXpsOMGradientStop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMGradientStop_Impl, const OFFSET: isize>() -> IXpsOMGradientStop_Vtbl {
@@ -2364,12 +2364,12 @@ impl IXpsOMGradientStop_Vtbl {
     }
 }
 pub trait IXpsOMGradientStopCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsOMGradientStop>;
-    fn InsertAt(&mut self, index: u32, stop: &::core::option::Option<IXpsOMGradientStop>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, stop: &::core::option::Option<IXpsOMGradientStop>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, stop: &::core::option::Option<IXpsOMGradientStop>) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsOMGradientStop>;
+    fn InsertAt(&self, index: u32, stop: &::core::option::Option<IXpsOMGradientStop>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, stop: &::core::option::Option<IXpsOMGradientStop>) -> ::windows::core::Result<()>;
+    fn Append(&self, stop: &::core::option::Option<IXpsOMGradientStop>) -> ::windows::core::Result<()>;
 }
 impl IXpsOMGradientStopCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMGradientStopCollection_Impl, const OFFSET: isize>() -> IXpsOMGradientStopCollection_Vtbl {
@@ -2431,11 +2431,11 @@ impl IXpsOMGradientStopCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMImageBrush_Impl: Sized + IXpsOMShareable_Impl + IXpsOMBrush_Impl + IXpsOMTileBrush_Impl {
-    fn GetImageResource(&mut self) -> ::windows::core::Result<IXpsOMImageResource>;
-    fn SetImageResource(&mut self, imageresource: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
-    fn GetColorProfileResource(&mut self) -> ::windows::core::Result<IXpsOMColorProfileResource>;
-    fn SetColorProfileResource(&mut self, colorprofileresource: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMImageBrush>;
+    fn GetImageResource(&self) -> ::windows::core::Result<IXpsOMImageResource>;
+    fn SetImageResource(&self, imageresource: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
+    fn GetColorProfileResource(&self) -> ::windows::core::Result<IXpsOMColorProfileResource>;
+    fn SetColorProfileResource(&self, colorprofileresource: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMImageBrush>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMImageBrush_Vtbl {
@@ -2498,9 +2498,9 @@ impl IXpsOMImageBrush_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMImageResource_Impl: Sized + IXpsOMPart_Impl + IXpsOMResource_Impl {
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetContent(&mut self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, imagetype: XPS_IMAGE_TYPE, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
-    fn GetImageType(&mut self) -> ::windows::core::Result<XPS_IMAGE_TYPE>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn SetContent(&self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, imagetype: XPS_IMAGE_TYPE, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetImageType(&self) -> ::windows::core::Result<XPS_IMAGE_TYPE>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMImageResource_Vtbl {
@@ -2545,13 +2545,13 @@ impl IXpsOMImageResource_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMImageResourceCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsOMImageResource>;
-    fn InsertAt(&mut self, index: u32, object: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, object: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, object: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
-    fn GetByPartName(&mut self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMImageResource>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsOMImageResource>;
+    fn InsertAt(&self, index: u32, object: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, object: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
+    fn Append(&self, object: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
+    fn GetByPartName(&self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMImageResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMImageResourceCollection_Vtbl {
@@ -2626,11 +2626,11 @@ impl IXpsOMImageResourceCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMLinearGradientBrush_Impl: Sized + IXpsOMShareable_Impl + IXpsOMBrush_Impl + IXpsOMGradientBrush_Impl {
-    fn GetStartPoint(&mut self) -> ::windows::core::Result<XPS_POINT>;
-    fn SetStartPoint(&mut self, startpoint: *const XPS_POINT) -> ::windows::core::Result<()>;
-    fn GetEndPoint(&mut self) -> ::windows::core::Result<XPS_POINT>;
-    fn SetEndPoint(&mut self, endpoint: *const XPS_POINT) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMLinearGradientBrush>;
+    fn GetStartPoint(&self) -> ::windows::core::Result<XPS_POINT>;
+    fn SetStartPoint(&self, startpoint: *const XPS_POINT) -> ::windows::core::Result<()>;
+    fn GetEndPoint(&self) -> ::windows::core::Result<XPS_POINT>;
+    fn SetEndPoint(&self, endpoint: *const XPS_POINT) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMLinearGradientBrush>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMLinearGradientBrush_Vtbl {
@@ -2692,9 +2692,9 @@ impl IXpsOMLinearGradientBrush_Vtbl {
     }
 }
 pub trait IXpsOMMatrixTransform_Impl: Sized + IXpsOMShareable_Impl {
-    fn GetMatrix(&mut self) -> ::windows::core::Result<XPS_MATRIX>;
-    fn SetMatrix(&mut self, matrix: *const XPS_MATRIX) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
+    fn GetMatrix(&self) -> ::windows::core::Result<XPS_MATRIX>;
+    fn SetMatrix(&self, matrix: *const XPS_MATRIX) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
 }
 impl IXpsOMMatrixTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMMatrixTransform_Impl, const OFFSET: isize>() -> IXpsOMMatrixTransform_Vtbl {
@@ -2738,8 +2738,8 @@ impl IXpsOMMatrixTransform_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMNameCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMNameCollection_Vtbl {
@@ -2778,43 +2778,43 @@ impl IXpsOMNameCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMObjectFactory_Impl: Sized {
-    fn CreatePackage(&mut self) -> ::windows::core::Result<IXpsOMPackage>;
-    fn CreatePackageFromFile(&mut self, filename: super::super::Foundation::PWSTR, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPackage>;
-    fn CreatePackageFromStream(&mut self, stream: &::core::option::Option<super::super::System::Com::IStream>, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPackage>;
-    fn CreateStoryFragmentsResource(&mut self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMStoryFragmentsResource>;
-    fn CreateDocumentStructureResource(&mut self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMDocumentStructureResource>;
-    fn CreateSignatureBlockResource(&mut self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMSignatureBlockResource>;
-    fn CreateRemoteDictionaryResource(&mut self, dictionary: &::core::option::Option<IXpsOMDictionary>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
-    fn CreateRemoteDictionaryResourceFromStream(&mut self, dictionarymarkupstream: &::core::option::Option<super::super::System::Com::IStream>, dictionaryparturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, resources: &::core::option::Option<IXpsOMPartResources>) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
-    fn CreatePartResources(&mut self) -> ::windows::core::Result<IXpsOMPartResources>;
-    fn CreateDocumentSequence(&mut self, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMDocumentSequence>;
-    fn CreateDocument(&mut self, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMDocument>;
-    fn CreatePageReference(&mut self, advisorypagedimensions: *const XPS_SIZE) -> ::windows::core::Result<IXpsOMPageReference>;
-    fn CreatePage(&mut self, pagedimensions: *const XPS_SIZE, language: super::super::Foundation::PWSTR, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPage>;
-    fn CreatePageFromStream(&mut self, pagemarkupstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, resources: &::core::option::Option<IXpsOMPartResources>, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPage>;
-    fn CreateCanvas(&mut self) -> ::windows::core::Result<IXpsOMCanvas>;
-    fn CreateGlyphs(&mut self, fontresource: &::core::option::Option<IXpsOMFontResource>) -> ::windows::core::Result<IXpsOMGlyphs>;
-    fn CreatePath(&mut self) -> ::windows::core::Result<IXpsOMPath>;
-    fn CreateGeometry(&mut self) -> ::windows::core::Result<IXpsOMGeometry>;
-    fn CreateGeometryFigure(&mut self, startpoint: *const XPS_POINT) -> ::windows::core::Result<IXpsOMGeometryFigure>;
-    fn CreateMatrixTransform(&mut self, matrix: *const XPS_MATRIX) -> ::windows::core::Result<IXpsOMMatrixTransform>;
-    fn CreateSolidColorBrush(&mut self, color: *const XPS_COLOR, colorprofile: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<IXpsOMSolidColorBrush>;
-    fn CreateColorProfileResource(&mut self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMColorProfileResource>;
-    fn CreateImageBrush(&mut self, image: &::core::option::Option<IXpsOMImageResource>, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> ::windows::core::Result<IXpsOMImageBrush>;
-    fn CreateVisualBrush(&mut self, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> ::windows::core::Result<IXpsOMVisualBrush>;
-    fn CreateImageResource(&mut self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, contenttype: XPS_IMAGE_TYPE, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMImageResource>;
-    fn CreatePrintTicketResource(&mut self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPrintTicketResource>;
-    fn CreateFontResource(&mut self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, fontembedding: XPS_FONT_EMBEDDING, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, isobfsourcestream: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMFontResource>;
-    fn CreateGradientStop(&mut self, color: *const XPS_COLOR, colorprofile: &::core::option::Option<IXpsOMColorProfileResource>, offset: f32) -> ::windows::core::Result<IXpsOMGradientStop>;
-    fn CreateLinearGradientBrush(&mut self, gradstop1: &::core::option::Option<IXpsOMGradientStop>, gradstop2: &::core::option::Option<IXpsOMGradientStop>, startpoint: *const XPS_POINT, endpoint: *const XPS_POINT) -> ::windows::core::Result<IXpsOMLinearGradientBrush>;
-    fn CreateRadialGradientBrush(&mut self, gradstop1: &::core::option::Option<IXpsOMGradientStop>, gradstop2: &::core::option::Option<IXpsOMGradientStop>, centerpoint: *const XPS_POINT, gradientorigin: *const XPS_POINT, radiisizes: *const XPS_SIZE) -> ::windows::core::Result<IXpsOMRadialGradientBrush>;
-    fn CreateCoreProperties(&mut self, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMCoreProperties>;
-    fn CreateDictionary(&mut self) -> ::windows::core::Result<IXpsOMDictionary>;
-    fn CreatePartUriCollection(&mut self) -> ::windows::core::Result<IXpsOMPartUriCollection>;
-    fn CreatePackageWriterOnFile(&mut self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, coreproperties: &::core::option::Option<IXpsOMCoreProperties>, packagethumbnail: &::core::option::Option<IXpsOMImageResource>, documentsequenceprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPackageWriter>;
-    fn CreatePackageWriterOnStream(&mut self, outputstream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, coreproperties: &::core::option::Option<IXpsOMCoreProperties>, packagethumbnail: &::core::option::Option<IXpsOMImageResource>, documentsequenceprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPackageWriter>;
-    fn CreatePartUri(&mut self, uri: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
-    fn CreateReadOnlyStreamOnFile(&mut self, filename: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn CreatePackage(&self) -> ::windows::core::Result<IXpsOMPackage>;
+    fn CreatePackageFromFile(&self, filename: super::super::Foundation::PWSTR, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPackage>;
+    fn CreatePackageFromStream(&self, stream: &::core::option::Option<super::super::System::Com::IStream>, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPackage>;
+    fn CreateStoryFragmentsResource(&self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMStoryFragmentsResource>;
+    fn CreateDocumentStructureResource(&self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMDocumentStructureResource>;
+    fn CreateSignatureBlockResource(&self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMSignatureBlockResource>;
+    fn CreateRemoteDictionaryResource(&self, dictionary: &::core::option::Option<IXpsOMDictionary>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
+    fn CreateRemoteDictionaryResourceFromStream(&self, dictionarymarkupstream: &::core::option::Option<super::super::System::Com::IStream>, dictionaryparturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, resources: &::core::option::Option<IXpsOMPartResources>) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
+    fn CreatePartResources(&self) -> ::windows::core::Result<IXpsOMPartResources>;
+    fn CreateDocumentSequence(&self, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMDocumentSequence>;
+    fn CreateDocument(&self, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMDocument>;
+    fn CreatePageReference(&self, advisorypagedimensions: *const XPS_SIZE) -> ::windows::core::Result<IXpsOMPageReference>;
+    fn CreatePage(&self, pagedimensions: *const XPS_SIZE, language: super::super::Foundation::PWSTR, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPage>;
+    fn CreatePageFromStream(&self, pagemarkupstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, resources: &::core::option::Option<IXpsOMPartResources>, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPage>;
+    fn CreateCanvas(&self) -> ::windows::core::Result<IXpsOMCanvas>;
+    fn CreateGlyphs(&self, fontresource: &::core::option::Option<IXpsOMFontResource>) -> ::windows::core::Result<IXpsOMGlyphs>;
+    fn CreatePath(&self) -> ::windows::core::Result<IXpsOMPath>;
+    fn CreateGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry>;
+    fn CreateGeometryFigure(&self, startpoint: *const XPS_POINT) -> ::windows::core::Result<IXpsOMGeometryFigure>;
+    fn CreateMatrixTransform(&self, matrix: *const XPS_MATRIX) -> ::windows::core::Result<IXpsOMMatrixTransform>;
+    fn CreateSolidColorBrush(&self, color: *const XPS_COLOR, colorprofile: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<IXpsOMSolidColorBrush>;
+    fn CreateColorProfileResource(&self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMColorProfileResource>;
+    fn CreateImageBrush(&self, image: &::core::option::Option<IXpsOMImageResource>, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> ::windows::core::Result<IXpsOMImageBrush>;
+    fn CreateVisualBrush(&self, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> ::windows::core::Result<IXpsOMVisualBrush>;
+    fn CreateImageResource(&self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, contenttype: XPS_IMAGE_TYPE, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMImageResource>;
+    fn CreatePrintTicketResource(&self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPrintTicketResource>;
+    fn CreateFontResource(&self, acquiredstream: &::core::option::Option<super::super::System::Com::IStream>, fontembedding: XPS_FONT_EMBEDDING, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, isobfsourcestream: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMFontResource>;
+    fn CreateGradientStop(&self, color: *const XPS_COLOR, colorprofile: &::core::option::Option<IXpsOMColorProfileResource>, offset: f32) -> ::windows::core::Result<IXpsOMGradientStop>;
+    fn CreateLinearGradientBrush(&self, gradstop1: &::core::option::Option<IXpsOMGradientStop>, gradstop2: &::core::option::Option<IXpsOMGradientStop>, startpoint: *const XPS_POINT, endpoint: *const XPS_POINT) -> ::windows::core::Result<IXpsOMLinearGradientBrush>;
+    fn CreateRadialGradientBrush(&self, gradstop1: &::core::option::Option<IXpsOMGradientStop>, gradstop2: &::core::option::Option<IXpsOMGradientStop>, centerpoint: *const XPS_POINT, gradientorigin: *const XPS_POINT, radiisizes: *const XPS_SIZE) -> ::windows::core::Result<IXpsOMRadialGradientBrush>;
+    fn CreateCoreProperties(&self, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMCoreProperties>;
+    fn CreateDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary>;
+    fn CreatePartUriCollection(&self) -> ::windows::core::Result<IXpsOMPartUriCollection>;
+    fn CreatePackageWriterOnFile(&self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, coreproperties: &::core::option::Option<IXpsOMCoreProperties>, packagethumbnail: &::core::option::Option<IXpsOMImageResource>, documentsequenceprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPackageWriter>;
+    fn CreatePackageWriterOnStream(&self, outputstream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, coreproperties: &::core::option::Option<IXpsOMCoreProperties>, packagethumbnail: &::core::option::Option<IXpsOMImageResource>, documentsequenceprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPackageWriter>;
+    fn CreatePartUri(&self, uri: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
+    fn CreateReadOnlyStreamOnFile(&self, filename: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMObjectFactory_Vtbl {
@@ -3273,18 +3273,18 @@ impl IXpsOMObjectFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMObjectFactory1_Impl: Sized + IXpsOMObjectFactory_Impl {
-    fn GetDocumentTypeFromFile(&mut self, filename: super::super::Foundation::PWSTR) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
-    fn GetDocumentTypeFromStream(&mut self, xpsdocumentstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
-    fn ConvertHDPhotoToJpegXR(&mut self, imageresource: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
-    fn ConvertJpegXRToHDPhoto(&mut self, imageresource: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
-    fn CreatePackageWriterOnFile1(&mut self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, coreproperties: &::core::option::Option<IXpsOMCoreProperties>, packagethumbnail: &::core::option::Option<IXpsOMImageResource>, documentsequenceprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<IXpsOMPackageWriter>;
-    fn CreatePackageWriterOnStream1(&mut self, outputstream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, coreproperties: &::core::option::Option<IXpsOMCoreProperties>, packagethumbnail: &::core::option::Option<IXpsOMImageResource>, documentsequenceprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<IXpsOMPackageWriter>;
-    fn CreatePackage1(&mut self) -> ::windows::core::Result<IXpsOMPackage1>;
-    fn CreatePackageFromStream1(&mut self, stream: &::core::option::Option<super::super::System::Com::IStream>, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPackage1>;
-    fn CreatePackageFromFile1(&mut self, filename: super::super::Foundation::PWSTR, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPackage1>;
-    fn CreatePage1(&mut self, pagedimensions: *const XPS_SIZE, language: super::super::Foundation::PWSTR, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPage1>;
-    fn CreatePageFromStream1(&mut self, pagemarkupstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, resources: &::core::option::Option<IXpsOMPartResources>, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPage1>;
-    fn CreateRemoteDictionaryResourceFromStream1(&mut self, dictionarymarkupstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, resources: &::core::option::Option<IXpsOMPartResources>) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
+    fn GetDocumentTypeFromFile(&self, filename: super::super::Foundation::PWSTR) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
+    fn GetDocumentTypeFromStream(&self, xpsdocumentstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
+    fn ConvertHDPhotoToJpegXR(&self, imageresource: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
+    fn ConvertJpegXRToHDPhoto(&self, imageresource: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
+    fn CreatePackageWriterOnFile1(&self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, coreproperties: &::core::option::Option<IXpsOMCoreProperties>, packagethumbnail: &::core::option::Option<IXpsOMImageResource>, documentsequenceprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<IXpsOMPackageWriter>;
+    fn CreatePackageWriterOnStream1(&self, outputstream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, coreproperties: &::core::option::Option<IXpsOMCoreProperties>, packagethumbnail: &::core::option::Option<IXpsOMImageResource>, documentsequenceprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<IXpsOMPackageWriter>;
+    fn CreatePackage1(&self) -> ::windows::core::Result<IXpsOMPackage1>;
+    fn CreatePackageFromStream1(&self, stream: &::core::option::Option<super::super::System::Com::IStream>, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPackage1>;
+    fn CreatePackageFromFile1(&self, filename: super::super::Foundation::PWSTR, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPackage1>;
+    fn CreatePage1(&self, pagedimensions: *const XPS_SIZE, language: super::super::Foundation::PWSTR, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPage1>;
+    fn CreatePageFromStream1(&self, pagemarkupstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, resources: &::core::option::Option<IXpsOMPartResources>, reuseobjects: super::super::Foundation::BOOL) -> ::windows::core::Result<IXpsOMPage1>;
+    fn CreateRemoteDictionaryResourceFromStream1(&self, dictionarymarkupstream: &::core::option::Option<super::super::System::Com::IStream>, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, resources: &::core::option::Option<IXpsOMPartResources>) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMObjectFactory1_Vtbl {
@@ -3443,16 +3443,16 @@ impl IXpsOMObjectFactory1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackage_Impl: Sized {
-    fn GetDocumentSequence(&mut self) -> ::windows::core::Result<IXpsOMDocumentSequence>;
-    fn SetDocumentSequence(&mut self, documentsequence: &::core::option::Option<IXpsOMDocumentSequence>) -> ::windows::core::Result<()>;
-    fn GetCoreProperties(&mut self) -> ::windows::core::Result<IXpsOMCoreProperties>;
-    fn SetCoreProperties(&mut self, coreproperties: &::core::option::Option<IXpsOMCoreProperties>) -> ::windows::core::Result<()>;
-    fn GetDiscardControlPartName(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
-    fn SetDiscardControlPartName(&mut self, discardcontrolparturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
-    fn GetThumbnailResource(&mut self) -> ::windows::core::Result<IXpsOMImageResource>;
-    fn SetThumbnailResource(&mut self, imageresource: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
-    fn WriteToFile(&mut self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn WriteToStream(&mut self, stream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetDocumentSequence(&self) -> ::windows::core::Result<IXpsOMDocumentSequence>;
+    fn SetDocumentSequence(&self, documentsequence: &::core::option::Option<IXpsOMDocumentSequence>) -> ::windows::core::Result<()>;
+    fn GetCoreProperties(&self) -> ::windows::core::Result<IXpsOMCoreProperties>;
+    fn SetCoreProperties(&self, coreproperties: &::core::option::Option<IXpsOMCoreProperties>) -> ::windows::core::Result<()>;
+    fn GetDiscardControlPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
+    fn SetDiscardControlPartName(&self, discardcontrolparturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetThumbnailResource(&self) -> ::windows::core::Result<IXpsOMImageResource>;
+    fn SetThumbnailResource(&self, imageresource: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
+    fn WriteToFile(&self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn WriteToStream(&self, stream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackage_Vtbl {
@@ -3551,9 +3551,9 @@ impl IXpsOMPackage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackage1_Impl: Sized + IXpsOMPackage_Impl {
-    fn GetDocumentType(&mut self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
-    fn WriteToFile1(&mut self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>;
-    fn WriteToStream1(&mut self, outputstream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>;
+    fn GetDocumentType(&self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
+    fn WriteToFile1(&self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>;
+    fn WriteToStream1(&self, outputstream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackage1_Vtbl {
@@ -3592,7 +3592,7 @@ impl IXpsOMPackage1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackageTarget_Impl: Sized {
-    fn CreateXpsOMPackageWriter(&mut self, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, documentsequenceprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPackageWriter>;
+    fn CreateXpsOMPackageWriter(&self, documentsequencepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, documentsequenceprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, discardcontrolpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMPackageWriter>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackageTarget_Vtbl {
@@ -3616,11 +3616,11 @@ impl IXpsOMPackageTarget_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackageWriter_Impl: Sized {
-    fn StartNewDocument(&mut self, documentpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, documentprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, documentstructure: &::core::option::Option<IXpsOMDocumentStructureResource>, signatureblockresources: &::core::option::Option<IXpsOMSignatureBlockResourceCollection>, restrictedfonts: &::core::option::Option<IXpsOMPartUriCollection>) -> ::windows::core::Result<()>;
-    fn AddPage(&mut self, page: &::core::option::Option<IXpsOMPage>, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: &::core::option::Option<IXpsOMPartUriCollection>, storyfragments: &::core::option::Option<IXpsOMStoryFragmentsResource>, pageprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, pagethumbnail: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
-    fn AddResource(&mut self, resource: &::core::option::Option<IXpsOMResource>) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn IsClosed(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn StartNewDocument(&self, documentpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, documentprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, documentstructure: &::core::option::Option<IXpsOMDocumentStructureResource>, signatureblockresources: &::core::option::Option<IXpsOMSignatureBlockResourceCollection>, restrictedfonts: &::core::option::Option<IXpsOMPartUriCollection>) -> ::windows::core::Result<()>;
+    fn AddPage(&self, page: &::core::option::Option<IXpsOMPage>, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: &::core::option::Option<IXpsOMPartUriCollection>, storyfragments: &::core::option::Option<IXpsOMStoryFragmentsResource>, pageprintticket: &::core::option::Option<IXpsOMPrintTicketResource>, pagethumbnail: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
+    fn AddResource(&self, resource: &::core::option::Option<IXpsOMResource>) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn IsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackageWriter_Vtbl {
@@ -3671,8 +3671,8 @@ impl IXpsOMPackageWriter_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackageWriter3D_Impl: Sized + IXpsOMPackageWriter_Impl {
-    fn AddModelTexture(&mut self, texturepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, texturedata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn SetModelPrintTicket(&mut self, printticketpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, printticketdata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddModelTexture(&self, texturepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, texturedata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SetModelPrintTicket(&self, printticketpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, printticketdata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPackageWriter3D_Vtbl {
@@ -3699,28 +3699,28 @@ impl IXpsOMPackageWriter3D_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPage_Impl: Sized + IXpsOMPart_Impl {
-    fn GetOwner(&mut self) -> ::windows::core::Result<IXpsOMPageReference>;
-    fn GetVisuals(&mut self) -> ::windows::core::Result<IXpsOMVisualCollection>;
-    fn GetPageDimensions(&mut self) -> ::windows::core::Result<XPS_SIZE>;
-    fn SetPageDimensions(&mut self, pagedimensions: *const XPS_SIZE) -> ::windows::core::Result<()>;
-    fn GetContentBox(&mut self) -> ::windows::core::Result<XPS_RECT>;
-    fn SetContentBox(&mut self, contentbox: *const XPS_RECT) -> ::windows::core::Result<()>;
-    fn GetBleedBox(&mut self) -> ::windows::core::Result<XPS_RECT>;
-    fn SetBleedBox(&mut self, bleedbox: *const XPS_RECT) -> ::windows::core::Result<()>;
-    fn GetLanguage(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetLanguage(&mut self, language: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetName(&mut self, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetIsHyperlinkTarget(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetIsHyperlinkTarget(&mut self, ishyperlinktarget: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetDictionary(&mut self) -> ::windows::core::Result<IXpsOMDictionary>;
-    fn GetDictionaryLocal(&mut self) -> ::windows::core::Result<IXpsOMDictionary>;
-    fn SetDictionaryLocal(&mut self, resourcedictionary: &::core::option::Option<IXpsOMDictionary>) -> ::windows::core::Result<()>;
-    fn GetDictionaryResource(&mut self) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
-    fn SetDictionaryResource(&mut self, remotedictionaryresource: &::core::option::Option<IXpsOMRemoteDictionaryResource>) -> ::windows::core::Result<()>;
-    fn Write(&mut self, stream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GenerateUnusedLookupKey(&mut self, r#type: XPS_OBJECT_TYPE) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMPage>;
+    fn GetOwner(&self) -> ::windows::core::Result<IXpsOMPageReference>;
+    fn GetVisuals(&self) -> ::windows::core::Result<IXpsOMVisualCollection>;
+    fn GetPageDimensions(&self) -> ::windows::core::Result<XPS_SIZE>;
+    fn SetPageDimensions(&self, pagedimensions: *const XPS_SIZE) -> ::windows::core::Result<()>;
+    fn GetContentBox(&self) -> ::windows::core::Result<XPS_RECT>;
+    fn SetContentBox(&self, contentbox: *const XPS_RECT) -> ::windows::core::Result<()>;
+    fn GetBleedBox(&self) -> ::windows::core::Result<XPS_RECT>;
+    fn SetBleedBox(&self, bleedbox: *const XPS_RECT) -> ::windows::core::Result<()>;
+    fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetLanguage(&self, language: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetName(&self, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetIsHyperlinkTarget(&self, ishyperlinktarget: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary>;
+    fn GetDictionaryLocal(&self) -> ::windows::core::Result<IXpsOMDictionary>;
+    fn SetDictionaryLocal(&self, resourcedictionary: &::core::option::Option<IXpsOMDictionary>) -> ::windows::core::Result<()>;
+    fn GetDictionaryResource(&self) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
+    fn SetDictionaryResource(&self, remotedictionaryresource: &::core::option::Option<IXpsOMRemoteDictionaryResource>) -> ::windows::core::Result<()>;
+    fn Write(&self, stream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GenerateUnusedLookupKey(&self, r#type: XPS_OBJECT_TYPE) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMPage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPage_Vtbl {
@@ -3945,8 +3945,8 @@ impl IXpsOMPage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPage1_Impl: Sized + IXpsOMPart_Impl + IXpsOMPage_Impl {
-    fn GetDocumentType(&mut self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
-    fn Write1(&mut self, stream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>;
+    fn GetDocumentType(&self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
+    fn Write1(&self, stream: &::core::option::Option<super::super::System::Com::ISequentialStream>, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPage1_Vtbl {
@@ -3979,23 +3979,23 @@ impl IXpsOMPage1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMPageReference_Impl: Sized {
-    fn GetOwner(&mut self) -> ::windows::core::Result<IXpsOMDocument>;
-    fn GetPage(&mut self) -> ::windows::core::Result<IXpsOMPage>;
-    fn SetPage(&mut self, page: &::core::option::Option<IXpsOMPage>) -> ::windows::core::Result<()>;
-    fn DiscardPage(&mut self) -> ::windows::core::Result<()>;
-    fn IsPageLoaded(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn GetAdvisoryPageDimensions(&mut self) -> ::windows::core::Result<XPS_SIZE>;
-    fn SetAdvisoryPageDimensions(&mut self, pagedimensions: *const XPS_SIZE) -> ::windows::core::Result<()>;
-    fn GetStoryFragmentsResource(&mut self) -> ::windows::core::Result<IXpsOMStoryFragmentsResource>;
-    fn SetStoryFragmentsResource(&mut self, storyfragmentsresource: &::core::option::Option<IXpsOMStoryFragmentsResource>) -> ::windows::core::Result<()>;
-    fn GetPrintTicketResource(&mut self) -> ::windows::core::Result<IXpsOMPrintTicketResource>;
-    fn SetPrintTicketResource(&mut self, printticketresource: &::core::option::Option<IXpsOMPrintTicketResource>) -> ::windows::core::Result<()>;
-    fn GetThumbnailResource(&mut self) -> ::windows::core::Result<IXpsOMImageResource>;
-    fn SetThumbnailResource(&mut self, imageresource: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
-    fn CollectLinkTargets(&mut self) -> ::windows::core::Result<IXpsOMNameCollection>;
-    fn CollectPartResources(&mut self) -> ::windows::core::Result<IXpsOMPartResources>;
-    fn HasRestrictedFonts(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMPageReference>;
+    fn GetOwner(&self) -> ::windows::core::Result<IXpsOMDocument>;
+    fn GetPage(&self) -> ::windows::core::Result<IXpsOMPage>;
+    fn SetPage(&self, page: &::core::option::Option<IXpsOMPage>) -> ::windows::core::Result<()>;
+    fn DiscardPage(&self) -> ::windows::core::Result<()>;
+    fn IsPageLoaded(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetAdvisoryPageDimensions(&self) -> ::windows::core::Result<XPS_SIZE>;
+    fn SetAdvisoryPageDimensions(&self, pagedimensions: *const XPS_SIZE) -> ::windows::core::Result<()>;
+    fn GetStoryFragmentsResource(&self) -> ::windows::core::Result<IXpsOMStoryFragmentsResource>;
+    fn SetStoryFragmentsResource(&self, storyfragmentsresource: &::core::option::Option<IXpsOMStoryFragmentsResource>) -> ::windows::core::Result<()>;
+    fn GetPrintTicketResource(&self) -> ::windows::core::Result<IXpsOMPrintTicketResource>;
+    fn SetPrintTicketResource(&self, printticketresource: &::core::option::Option<IXpsOMPrintTicketResource>) -> ::windows::core::Result<()>;
+    fn GetThumbnailResource(&self) -> ::windows::core::Result<IXpsOMImageResource>;
+    fn SetThumbnailResource(&self, imageresource: &::core::option::Option<IXpsOMImageResource>) -> ::windows::core::Result<()>;
+    fn CollectLinkTargets(&self) -> ::windows::core::Result<IXpsOMNameCollection>;
+    fn CollectPartResources(&self) -> ::windows::core::Result<IXpsOMPartResources>;
+    fn HasRestrictedFonts(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMPageReference>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMPageReference_Vtbl {
@@ -4177,12 +4177,12 @@ impl IXpsOMPageReference_Vtbl {
     }
 }
 pub trait IXpsOMPageReferenceCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsOMPageReference>;
-    fn InsertAt(&mut self, index: u32, pagereference: &::core::option::Option<IXpsOMPageReference>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, pagereference: &::core::option::Option<IXpsOMPageReference>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, pagereference: &::core::option::Option<IXpsOMPageReference>) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsOMPageReference>;
+    fn InsertAt(&self, index: u32, pagereference: &::core::option::Option<IXpsOMPageReference>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, pagereference: &::core::option::Option<IXpsOMPageReference>) -> ::windows::core::Result<()>;
+    fn Append(&self, pagereference: &::core::option::Option<IXpsOMPageReference>) -> ::windows::core::Result<()>;
 }
 impl IXpsOMPageReferenceCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMPageReferenceCollection_Impl, const OFFSET: isize>() -> IXpsOMPageReferenceCollection_Vtbl {
@@ -4244,8 +4244,8 @@ impl IXpsOMPageReferenceCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPart_Impl: Sized {
-    fn GetPartName(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
-    fn SetPartName(&mut self, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
+    fn SetPartName(&self, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPart_Vtbl {
@@ -4277,10 +4277,10 @@ impl IXpsOMPart_Vtbl {
     }
 }
 pub trait IXpsOMPartResources_Impl: Sized {
-    fn GetFontResources(&mut self) -> ::windows::core::Result<IXpsOMFontResourceCollection>;
-    fn GetImageResources(&mut self) -> ::windows::core::Result<IXpsOMImageResourceCollection>;
-    fn GetColorProfileResources(&mut self) -> ::windows::core::Result<IXpsOMColorProfileResourceCollection>;
-    fn GetRemoteDictionaryResources(&mut self) -> ::windows::core::Result<IXpsOMRemoteDictionaryResourceCollection>;
+    fn GetFontResources(&self) -> ::windows::core::Result<IXpsOMFontResourceCollection>;
+    fn GetImageResources(&self) -> ::windows::core::Result<IXpsOMImageResourceCollection>;
+    fn GetColorProfileResources(&self) -> ::windows::core::Result<IXpsOMColorProfileResourceCollection>;
+    fn GetRemoteDictionaryResources(&self) -> ::windows::core::Result<IXpsOMRemoteDictionaryResourceCollection>;
 }
 impl IXpsOMPartResources_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMPartResources_Impl, const OFFSET: isize>() -> IXpsOMPartResources_Vtbl {
@@ -4342,12 +4342,12 @@ impl IXpsOMPartResources_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPartUriCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
-    fn InsertAt(&mut self, index: u32, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
+    fn InsertAt(&self, index: u32, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn Append(&self, parturi: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPartUriCollection_Vtbl {
@@ -4410,43 +4410,43 @@ impl IXpsOMPartUriCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXpsOMPath_Impl: Sized + IXpsOMShareable_Impl + IXpsOMVisual_Impl {
-    fn GetGeometry(&mut self) -> ::windows::core::Result<IXpsOMGeometry>;
-    fn GetGeometryLocal(&mut self) -> ::windows::core::Result<IXpsOMGeometry>;
-    fn SetGeometryLocal(&mut self, geometry: &::core::option::Option<IXpsOMGeometry>) -> ::windows::core::Result<()>;
-    fn GetGeometryLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetGeometryLookup(&mut self, lookup: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetAccessibilityShortDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetAccessibilityShortDescription(&mut self, shortdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetAccessibilityLongDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetAccessibilityLongDescription(&mut self, longdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetSnapsToPixels(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetSnapsToPixels(&mut self, snapstopixels: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetStrokeBrush(&mut self) -> ::windows::core::Result<IXpsOMBrush>;
-    fn GetStrokeBrushLocal(&mut self) -> ::windows::core::Result<IXpsOMBrush>;
-    fn SetStrokeBrushLocal(&mut self, brush: &::core::option::Option<IXpsOMBrush>) -> ::windows::core::Result<()>;
-    fn GetStrokeBrushLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetStrokeBrushLookup(&mut self, lookup: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetStrokeDashes(&mut self) -> ::windows::core::Result<IXpsOMDashCollection>;
-    fn GetStrokeDashCap(&mut self) -> ::windows::core::Result<XPS_DASH_CAP>;
-    fn SetStrokeDashCap(&mut self, strokedashcap: XPS_DASH_CAP) -> ::windows::core::Result<()>;
-    fn GetStrokeDashOffset(&mut self) -> ::windows::core::Result<f32>;
-    fn SetStrokeDashOffset(&mut self, strokedashoffset: f32) -> ::windows::core::Result<()>;
-    fn GetStrokeStartLineCap(&mut self) -> ::windows::core::Result<XPS_LINE_CAP>;
-    fn SetStrokeStartLineCap(&mut self, strokestartlinecap: XPS_LINE_CAP) -> ::windows::core::Result<()>;
-    fn GetStrokeEndLineCap(&mut self) -> ::windows::core::Result<XPS_LINE_CAP>;
-    fn SetStrokeEndLineCap(&mut self, strokeendlinecap: XPS_LINE_CAP) -> ::windows::core::Result<()>;
-    fn GetStrokeLineJoin(&mut self) -> ::windows::core::Result<XPS_LINE_JOIN>;
-    fn SetStrokeLineJoin(&mut self, strokelinejoin: XPS_LINE_JOIN) -> ::windows::core::Result<()>;
-    fn GetStrokeMiterLimit(&mut self) -> ::windows::core::Result<f32>;
-    fn SetStrokeMiterLimit(&mut self, strokemiterlimit: f32) -> ::windows::core::Result<()>;
-    fn GetStrokeThickness(&mut self) -> ::windows::core::Result<f32>;
-    fn SetStrokeThickness(&mut self, strokethickness: f32) -> ::windows::core::Result<()>;
-    fn GetFillBrush(&mut self) -> ::windows::core::Result<IXpsOMBrush>;
-    fn GetFillBrushLocal(&mut self) -> ::windows::core::Result<IXpsOMBrush>;
-    fn SetFillBrushLocal(&mut self, brush: &::core::option::Option<IXpsOMBrush>) -> ::windows::core::Result<()>;
-    fn GetFillBrushLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetFillBrushLookup(&mut self, lookup: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMPath>;
+    fn GetGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry>;
+    fn GetGeometryLocal(&self) -> ::windows::core::Result<IXpsOMGeometry>;
+    fn SetGeometryLocal(&self, geometry: &::core::option::Option<IXpsOMGeometry>) -> ::windows::core::Result<()>;
+    fn GetGeometryLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetGeometryLookup(&self, lookup: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetAccessibilityShortDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAccessibilityShortDescription(&self, shortdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetAccessibilityLongDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetAccessibilityLongDescription(&self, longdescription: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSnapsToPixels(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetSnapsToPixels(&self, snapstopixels: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetStrokeBrush(&self) -> ::windows::core::Result<IXpsOMBrush>;
+    fn GetStrokeBrushLocal(&self) -> ::windows::core::Result<IXpsOMBrush>;
+    fn SetStrokeBrushLocal(&self, brush: &::core::option::Option<IXpsOMBrush>) -> ::windows::core::Result<()>;
+    fn GetStrokeBrushLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetStrokeBrushLookup(&self, lookup: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetStrokeDashes(&self) -> ::windows::core::Result<IXpsOMDashCollection>;
+    fn GetStrokeDashCap(&self) -> ::windows::core::Result<XPS_DASH_CAP>;
+    fn SetStrokeDashCap(&self, strokedashcap: XPS_DASH_CAP) -> ::windows::core::Result<()>;
+    fn GetStrokeDashOffset(&self) -> ::windows::core::Result<f32>;
+    fn SetStrokeDashOffset(&self, strokedashoffset: f32) -> ::windows::core::Result<()>;
+    fn GetStrokeStartLineCap(&self) -> ::windows::core::Result<XPS_LINE_CAP>;
+    fn SetStrokeStartLineCap(&self, strokestartlinecap: XPS_LINE_CAP) -> ::windows::core::Result<()>;
+    fn GetStrokeEndLineCap(&self) -> ::windows::core::Result<XPS_LINE_CAP>;
+    fn SetStrokeEndLineCap(&self, strokeendlinecap: XPS_LINE_CAP) -> ::windows::core::Result<()>;
+    fn GetStrokeLineJoin(&self) -> ::windows::core::Result<XPS_LINE_JOIN>;
+    fn SetStrokeLineJoin(&self, strokelinejoin: XPS_LINE_JOIN) -> ::windows::core::Result<()>;
+    fn GetStrokeMiterLimit(&self) -> ::windows::core::Result<f32>;
+    fn SetStrokeMiterLimit(&self, strokemiterlimit: f32) -> ::windows::core::Result<()>;
+    fn GetStrokeThickness(&self) -> ::windows::core::Result<f32>;
+    fn SetStrokeThickness(&self, strokethickness: f32) -> ::windows::core::Result<()>;
+    fn GetFillBrush(&self) -> ::windows::core::Result<IXpsOMBrush>;
+    fn GetFillBrushLocal(&self) -> ::windows::core::Result<IXpsOMBrush>;
+    fn SetFillBrushLocal(&self, brush: &::core::option::Option<IXpsOMBrush>) -> ::windows::core::Result<()>;
+    fn GetFillBrushLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetFillBrushLookup(&self, lookup: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMPath>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXpsOMPath_Vtbl {
@@ -4809,8 +4809,8 @@ impl IXpsOMPath_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPrintTicketResource_Impl: Sized + IXpsOMPart_Impl + IXpsOMResource_Impl {
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetContent(&mut self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn SetContent(&self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMPrintTicketResource_Vtbl {
@@ -4843,13 +4843,13 @@ impl IXpsOMPrintTicketResource_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMRadialGradientBrush_Impl: Sized + IXpsOMShareable_Impl + IXpsOMBrush_Impl + IXpsOMGradientBrush_Impl {
-    fn GetCenter(&mut self) -> ::windows::core::Result<XPS_POINT>;
-    fn SetCenter(&mut self, center: *const XPS_POINT) -> ::windows::core::Result<()>;
-    fn GetRadiiSizes(&mut self) -> ::windows::core::Result<XPS_SIZE>;
-    fn SetRadiiSizes(&mut self, radiisizes: *const XPS_SIZE) -> ::windows::core::Result<()>;
-    fn GetGradientOrigin(&mut self) -> ::windows::core::Result<XPS_POINT>;
-    fn SetGradientOrigin(&mut self, origin: *const XPS_POINT) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMRadialGradientBrush>;
+    fn GetCenter(&self) -> ::windows::core::Result<XPS_POINT>;
+    fn SetCenter(&self, center: *const XPS_POINT) -> ::windows::core::Result<()>;
+    fn GetRadiiSizes(&self) -> ::windows::core::Result<XPS_SIZE>;
+    fn SetRadiiSizes(&self, radiisizes: *const XPS_SIZE) -> ::windows::core::Result<()>;
+    fn GetGradientOrigin(&self) -> ::windows::core::Result<XPS_POINT>;
+    fn SetGradientOrigin(&self, origin: *const XPS_POINT) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMRadialGradientBrush>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMRadialGradientBrush_Vtbl {
@@ -4930,8 +4930,8 @@ impl IXpsOMRadialGradientBrush_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMRemoteDictionaryResource_Impl: Sized + IXpsOMPart_Impl + IXpsOMResource_Impl {
-    fn GetDictionary(&mut self) -> ::windows::core::Result<IXpsOMDictionary>;
-    fn SetDictionary(&mut self, dictionary: &::core::option::Option<IXpsOMDictionary>) -> ::windows::core::Result<()>;
+    fn GetDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary>;
+    fn SetDictionary(&self, dictionary: &::core::option::Option<IXpsOMDictionary>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMRemoteDictionaryResource_Vtbl {
@@ -4964,8 +4964,8 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMRemoteDictionaryResource1_Impl: Sized + IXpsOMPart_Impl + IXpsOMResource_Impl + IXpsOMRemoteDictionaryResource_Impl {
-    fn GetDocumentType(&mut self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
-    fn Write1(&mut self, stream: &::core::option::Option<super::super::System::Com::ISequentialStream>, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>;
+    fn GetDocumentType(&self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>;
+    fn Write1(&self, stream: &::core::option::Option<super::super::System::Com::ISequentialStream>, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMRemoteDictionaryResource1_Vtbl {
@@ -4998,13 +4998,13 @@ impl IXpsOMRemoteDictionaryResource1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMRemoteDictionaryResourceCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
-    fn InsertAt(&mut self, index: u32, object: &::core::option::Option<IXpsOMRemoteDictionaryResource>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, object: &::core::option::Option<IXpsOMRemoteDictionaryResource>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, object: &::core::option::Option<IXpsOMRemoteDictionaryResource>) -> ::windows::core::Result<()>;
-    fn GetByPartName(&mut self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
+    fn InsertAt(&self, index: u32, object: &::core::option::Option<IXpsOMRemoteDictionaryResource>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, object: &::core::option::Option<IXpsOMRemoteDictionaryResource>) -> ::windows::core::Result<()>;
+    fn Append(&self, object: &::core::option::Option<IXpsOMRemoteDictionaryResource>) -> ::windows::core::Result<()>;
+    fn GetByPartName(&self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
@@ -5089,8 +5089,8 @@ impl IXpsOMResource_Vtbl {
     }
 }
 pub trait IXpsOMShareable_Impl: Sized {
-    fn GetOwner(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetType(&mut self) -> ::windows::core::Result<XPS_OBJECT_TYPE>;
+    fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE>;
 }
 impl IXpsOMShareable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMShareable_Impl, const OFFSET: isize>() -> IXpsOMShareable_Vtbl {
@@ -5128,9 +5128,9 @@ impl IXpsOMShareable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMSignatureBlockResource_Impl: Sized + IXpsOMPart_Impl + IXpsOMResource_Impl {
-    fn GetOwner(&mut self) -> ::windows::core::Result<IXpsOMDocument>;
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetContent(&mut self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetOwner(&self) -> ::windows::core::Result<IXpsOMDocument>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn SetContent(&self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMSignatureBlockResource_Vtbl {
@@ -5175,13 +5175,13 @@ impl IXpsOMSignatureBlockResource_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMSignatureBlockResourceCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsOMSignatureBlockResource>;
-    fn InsertAt(&mut self, index: u32, signatureblockresource: &::core::option::Option<IXpsOMSignatureBlockResource>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, signatureblockresource: &::core::option::Option<IXpsOMSignatureBlockResource>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, signatureblockresource: &::core::option::Option<IXpsOMSignatureBlockResource>) -> ::windows::core::Result<()>;
-    fn GetByPartName(&mut self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMSignatureBlockResource>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsOMSignatureBlockResource>;
+    fn InsertAt(&self, index: u32, signatureblockresource: &::core::option::Option<IXpsOMSignatureBlockResource>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, signatureblockresource: &::core::option::Option<IXpsOMSignatureBlockResource>) -> ::windows::core::Result<()>;
+    fn Append(&self, signatureblockresource: &::core::option::Option<IXpsOMSignatureBlockResource>) -> ::windows::core::Result<()>;
+    fn GetByPartName(&self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMSignatureBlockResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMSignatureBlockResourceCollection_Vtbl {
@@ -5255,9 +5255,9 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
     }
 }
 pub trait IXpsOMSolidColorBrush_Impl: Sized + IXpsOMShareable_Impl + IXpsOMBrush_Impl {
-    fn GetColor(&mut self, color: *mut XPS_COLOR, colorprofile: *mut ::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
-    fn SetColor(&mut self, color: *const XPS_COLOR, colorprofile: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMSolidColorBrush>;
+    fn GetColor(&self, color: *mut XPS_COLOR, colorprofile: *mut ::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
+    fn SetColor(&self, color: *const XPS_COLOR, colorprofile: &::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMSolidColorBrush>;
 }
 impl IXpsOMSolidColorBrush_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>() -> IXpsOMSolidColorBrush_Vtbl {
@@ -5295,9 +5295,9 @@ impl IXpsOMSolidColorBrush_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMStoryFragmentsResource_Impl: Sized + IXpsOMPart_Impl + IXpsOMResource_Impl {
-    fn GetOwner(&mut self) -> ::windows::core::Result<IXpsOMPageReference>;
-    fn GetStream(&mut self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetContent(&mut self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetOwner(&self) -> ::windows::core::Result<IXpsOMPageReference>;
+    fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn SetContent(&self, sourcestream: &::core::option::Option<super::super::System::Com::IStream>, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMStoryFragmentsResource_Vtbl {
@@ -5342,7 +5342,7 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMThumbnailGenerator_Impl: Sized {
-    fn GenerateThumbnail(&mut self, page: &::core::option::Option<IXpsOMPage>, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMImageResource>;
+    fn GenerateThumbnail(&self, page: &::core::option::Option<IXpsOMPage>, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<IXpsOMImageResource>;
 }
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsOMThumbnailGenerator_Vtbl {
@@ -5366,17 +5366,17 @@ impl IXpsOMThumbnailGenerator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMTileBrush_Impl: Sized + IXpsOMShareable_Impl + IXpsOMBrush_Impl {
-    fn GetTransform(&mut self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
-    fn GetTransformLocal(&mut self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
-    fn SetTransformLocal(&mut self, transform: &::core::option::Option<IXpsOMMatrixTransform>) -> ::windows::core::Result<()>;
-    fn GetTransformLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetTransformLookup(&mut self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetViewbox(&mut self) -> ::windows::core::Result<XPS_RECT>;
-    fn SetViewbox(&mut self, viewbox: *const XPS_RECT) -> ::windows::core::Result<()>;
-    fn GetViewport(&mut self) -> ::windows::core::Result<XPS_RECT>;
-    fn SetViewport(&mut self, viewport: *const XPS_RECT) -> ::windows::core::Result<()>;
-    fn GetTileMode(&mut self) -> ::windows::core::Result<XPS_TILE_MODE>;
-    fn SetTileMode(&mut self, tilemode: XPS_TILE_MODE) -> ::windows::core::Result<()>;
+    fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
+    fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
+    fn SetTransformLocal(&self, transform: &::core::option::Option<IXpsOMMatrixTransform>) -> ::windows::core::Result<()>;
+    fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetTransformLookup(&self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetViewbox(&self) -> ::windows::core::Result<XPS_RECT>;
+    fn SetViewbox(&self, viewbox: *const XPS_RECT) -> ::windows::core::Result<()>;
+    fn GetViewport(&self) -> ::windows::core::Result<XPS_RECT>;
+    fn SetViewport(&self, viewport: *const XPS_RECT) -> ::windows::core::Result<()>;
+    fn GetTileMode(&self) -> ::windows::core::Result<XPS_TILE_MODE>;
+    fn SetTileMode(&self, tilemode: XPS_TILE_MODE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMTileBrush_Vtbl {
@@ -5493,31 +5493,31 @@ impl IXpsOMTileBrush_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IXpsOMVisual_Impl: Sized + IXpsOMShareable_Impl {
-    fn GetTransform(&mut self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
-    fn GetTransformLocal(&mut self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
-    fn SetTransformLocal(&mut self, matrixtransform: &::core::option::Option<IXpsOMMatrixTransform>) -> ::windows::core::Result<()>;
-    fn GetTransformLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetTransformLookup(&mut self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetClipGeometry(&mut self) -> ::windows::core::Result<IXpsOMGeometry>;
-    fn GetClipGeometryLocal(&mut self) -> ::windows::core::Result<IXpsOMGeometry>;
-    fn SetClipGeometryLocal(&mut self, clipgeometry: &::core::option::Option<IXpsOMGeometry>) -> ::windows::core::Result<()>;
-    fn GetClipGeometryLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetClipGeometryLookup(&mut self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetOpacity(&mut self) -> ::windows::core::Result<f32>;
-    fn SetOpacity(&mut self, opacity: f32) -> ::windows::core::Result<()>;
-    fn GetOpacityMaskBrush(&mut self) -> ::windows::core::Result<IXpsOMBrush>;
-    fn GetOpacityMaskBrushLocal(&mut self) -> ::windows::core::Result<IXpsOMBrush>;
-    fn SetOpacityMaskBrushLocal(&mut self, opacitymaskbrush: &::core::option::Option<IXpsOMBrush>) -> ::windows::core::Result<()>;
-    fn GetOpacityMaskBrushLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetOpacityMaskBrushLookup(&mut self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetName(&mut self, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetIsHyperlinkTarget(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetIsHyperlinkTarget(&mut self, ishyperlink: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetHyperlinkNavigateUri(&mut self) -> ::windows::core::Result<super::super::System::Com::IUri>;
-    fn SetHyperlinkNavigateUri(&mut self, hyperlinkuri: &::core::option::Option<super::super::System::Com::IUri>) -> ::windows::core::Result<()>;
-    fn GetLanguage(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetLanguage(&mut self, language: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
+    fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform>;
+    fn SetTransformLocal(&self, matrixtransform: &::core::option::Option<IXpsOMMatrixTransform>) -> ::windows::core::Result<()>;
+    fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetTransformLookup(&self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetClipGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry>;
+    fn GetClipGeometryLocal(&self) -> ::windows::core::Result<IXpsOMGeometry>;
+    fn SetClipGeometryLocal(&self, clipgeometry: &::core::option::Option<IXpsOMGeometry>) -> ::windows::core::Result<()>;
+    fn GetClipGeometryLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetClipGeometryLookup(&self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetOpacity(&self) -> ::windows::core::Result<f32>;
+    fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()>;
+    fn GetOpacityMaskBrush(&self) -> ::windows::core::Result<IXpsOMBrush>;
+    fn GetOpacityMaskBrushLocal(&self) -> ::windows::core::Result<IXpsOMBrush>;
+    fn SetOpacityMaskBrushLocal(&self, opacitymaskbrush: &::core::option::Option<IXpsOMBrush>) -> ::windows::core::Result<()>;
+    fn GetOpacityMaskBrushLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetOpacityMaskBrushLookup(&self, key: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetName(&self, name: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetIsHyperlinkTarget(&self, ishyperlink: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri>;
+    fn SetHyperlinkNavigateUri(&self, hyperlinkuri: &::core::option::Option<super::super::System::Com::IUri>) -> ::windows::core::Result<()>;
+    fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetLanguage(&self, language: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXpsOMVisual_Vtbl {
@@ -5766,12 +5766,12 @@ impl IXpsOMVisual_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsOMVisualBrush_Impl: Sized + IXpsOMShareable_Impl + IXpsOMBrush_Impl + IXpsOMTileBrush_Impl {
-    fn GetVisual(&mut self) -> ::windows::core::Result<IXpsOMVisual>;
-    fn GetVisualLocal(&mut self) -> ::windows::core::Result<IXpsOMVisual>;
-    fn SetVisualLocal(&mut self, visual: &::core::option::Option<IXpsOMVisual>) -> ::windows::core::Result<()>;
-    fn GetVisualLookup(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetVisualLookup(&mut self, lookup: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IXpsOMVisualBrush>;
+    fn GetVisual(&self) -> ::windows::core::Result<IXpsOMVisual>;
+    fn GetVisualLocal(&self) -> ::windows::core::Result<IXpsOMVisual>;
+    fn SetVisualLocal(&self, visual: &::core::option::Option<IXpsOMVisual>) -> ::windows::core::Result<()>;
+    fn GetVisualLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetVisualLookup(&self, lookup: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IXpsOMVisualBrush>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsOMVisualBrush_Vtbl {
@@ -5845,12 +5845,12 @@ impl IXpsOMVisualBrush_Vtbl {
     }
 }
 pub trait IXpsOMVisualCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsOMVisual>;
-    fn InsertAt(&mut self, index: u32, object: &::core::option::Option<IXpsOMVisual>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn SetAt(&mut self, index: u32, object: &::core::option::Option<IXpsOMVisual>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, object: &::core::option::Option<IXpsOMVisual>) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsOMVisual>;
+    fn InsertAt(&self, index: u32, object: &::core::option::Option<IXpsOMVisual>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
+    fn SetAt(&self, index: u32, object: &::core::option::Option<IXpsOMVisual>) -> ::windows::core::Result<()>;
+    fn Append(&self, object: &::core::option::Option<IXpsOMVisual>) -> ::windows::core::Result<()>;
 }
 impl IXpsOMVisualCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsOMVisualCollection_Impl, const OFFSET: isize>() -> IXpsOMVisualCollection_Vtbl {
@@ -5912,18 +5912,18 @@ impl IXpsOMVisualCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignature_Impl: Sized {
-    fn GetSignatureId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetSignatureValue(&mut self, signaturehashvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCertificateEnumerator(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcCertificateEnumerator>;
-    fn GetSigningTime(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetSigningTimeFormat(&mut self) -> ::windows::core::Result<super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT>;
-    fn GetSignaturePartName(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
-    fn Verify(&mut self, x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<XPS_SIGNATURE_STATUS>;
-    fn GetPolicy(&mut self) -> ::windows::core::Result<XPS_SIGN_POLICY>;
-    fn GetCustomObjectEnumerator(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureCustomObjectEnumerator>;
-    fn GetCustomReferenceEnumerator(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureReferenceEnumerator>;
-    fn GetSignatureXml(&mut self, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
-    fn SetSignatureXml(&mut self, signaturexml: *const u8, count: u32) -> ::windows::core::Result<()>;
+    fn GetSignatureId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetSignatureValue(&self, signaturehashvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCertificateEnumerator(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcCertificateEnumerator>;
+    fn GetSigningTime(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetSigningTimeFormat(&self) -> ::windows::core::Result<super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT>;
+    fn GetSignaturePartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
+    fn Verify(&self, x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<XPS_SIGNATURE_STATUS>;
+    fn GetPolicy(&self) -> ::windows::core::Result<XPS_SIGN_POLICY>;
+    fn GetCustomObjectEnumerator(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureCustomObjectEnumerator>;
+    fn GetCustomReferenceEnumerator(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureReferenceEnumerator>;
+    fn GetSignatureXml(&self, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
+    fn SetSignatureXml(&self, signaturexml: *const u8, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignature_Vtbl {
@@ -6064,11 +6064,11 @@ impl IXpsSignature_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignatureBlock_Impl: Sized {
-    fn GetRequests(&mut self) -> ::windows::core::Result<IXpsSignatureRequestCollection>;
-    fn GetPartName(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
-    fn GetDocumentIndex(&mut self) -> ::windows::core::Result<u32>;
-    fn GetDocumentName(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
-    fn CreateRequest(&mut self, requestid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IXpsSignatureRequest>;
+    fn GetRequests(&self) -> ::windows::core::Result<IXpsSignatureRequestCollection>;
+    fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
+    fn GetDocumentIndex(&self) -> ::windows::core::Result<u32>;
+    fn GetDocumentName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
+    fn CreateRequest(&self, requestid: super::super::Foundation::PWSTR) -> ::windows::core::Result<IXpsSignatureRequest>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignatureBlock_Vtbl {
@@ -6142,9 +6142,9 @@ impl IXpsSignatureBlock_Vtbl {
     }
 }
 pub trait IXpsSignatureBlockCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsSignatureBlock>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsSignatureBlock>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
 }
 impl IXpsSignatureBlockCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsSignatureBlockCollection_Impl, const OFFSET: isize>() -> IXpsSignatureBlockCollection_Vtbl {
@@ -6187,9 +6187,9 @@ impl IXpsSignatureBlockCollection_Vtbl {
     }
 }
 pub trait IXpsSignatureCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsSignature>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsSignature>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
 }
 impl IXpsSignatureCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsSignatureCollection_Impl, const OFFSET: isize>() -> IXpsSignatureCollection_Vtbl {
@@ -6233,17 +6233,17 @@ impl IXpsSignatureCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignatureManager_Impl: Sized {
-    fn LoadPackageFile(&mut self, filename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn LoadPackageStream(&mut self, stream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn Sign(&mut self, signoptions: &::core::option::Option<IXpsSigningOptions>, x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<IXpsSignature>;
-    fn GetSignatureOriginPartName(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
-    fn SetSignatureOriginPartName(&mut self, signatureoriginpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
-    fn GetSignatures(&mut self) -> ::windows::core::Result<IXpsSignatureCollection>;
-    fn AddSignatureBlock(&mut self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, fixeddocumentindex: u32) -> ::windows::core::Result<IXpsSignatureBlock>;
-    fn GetSignatureBlocks(&mut self) -> ::windows::core::Result<IXpsSignatureBlockCollection>;
-    fn CreateSigningOptions(&mut self) -> ::windows::core::Result<IXpsSigningOptions>;
-    fn SavePackageToFile(&mut self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32) -> ::windows::core::Result<()>;
-    fn SavePackageToStream(&mut self, stream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn LoadPackageFile(&self, filename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn LoadPackageStream(&self, stream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Sign(&self, signoptions: &::core::option::Option<IXpsSigningOptions>, x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<IXpsSignature>;
+    fn GetSignatureOriginPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
+    fn SetSignatureOriginPartName(&self, signatureoriginpartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetSignatures(&self) -> ::windows::core::Result<IXpsSignatureCollection>;
+    fn AddSignatureBlock(&self, partname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>, fixeddocumentindex: u32) -> ::windows::core::Result<IXpsSignatureBlock>;
+    fn GetSignatureBlocks(&self) -> ::windows::core::Result<IXpsSignatureBlockCollection>;
+    fn CreateSigningOptions(&self) -> ::windows::core::Result<IXpsSigningOptions>;
+    fn SavePackageToFile(&self, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32) -> ::windows::core::Result<()>;
+    fn SavePackageToStream(&self, stream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignatureManager_Vtbl {
@@ -6360,18 +6360,18 @@ impl IXpsSignatureManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignatureRequest_Impl: Sized {
-    fn GetIntent(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetIntent(&mut self, intent: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetRequestedSigner(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetRequestedSigner(&mut self, signername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetRequestSignByDate(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetRequestSignByDate(&mut self, datestring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetSigningLocale(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetSigningLocale(&mut self, place: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetSpotLocation(&mut self, pageindex: *mut i32, pagepartname: *mut ::core::option::Option<super::Packaging::Opc::IOpcPartUri>, x: *mut f32, y: *mut f32) -> ::windows::core::Result<()>;
-    fn SetSpotLocation(&mut self, pageindex: i32, x: f32, y: f32) -> ::windows::core::Result<()>;
-    fn GetRequestId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetSignature(&mut self) -> ::windows::core::Result<IXpsSignature>;
+    fn GetIntent(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetIntent(&self, intent: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetRequestedSigner(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetRequestedSigner(&self, signername: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetRequestSignByDate(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetRequestSignByDate(&self, datestring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSigningLocale(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetSigningLocale(&self, place: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSpotLocation(&self, pageindex: *mut i32, pagepartname: *mut ::core::option::Option<super::Packaging::Opc::IOpcPartUri>, x: *mut f32, y: *mut f32) -> ::windows::core::Result<()>;
+    fn SetSpotLocation(&self, pageindex: i32, x: f32, y: f32) -> ::windows::core::Result<()>;
+    fn GetRequestId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetSignature(&self) -> ::windows::core::Result<IXpsSignature>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSignatureRequest_Vtbl {
@@ -6493,9 +6493,9 @@ impl IXpsSignatureRequest_Vtbl {
     }
 }
 pub trait IXpsSignatureRequestCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, index: u32) -> ::windows::core::Result<IXpsSignatureRequest>;
-    fn RemoveAt(&mut self, index: u32) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, index: u32) -> ::windows::core::Result<IXpsSignatureRequest>;
+    fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()>;
 }
 impl IXpsSignatureRequestCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsSignatureRequestCollection_Impl, const OFFSET: isize>() -> IXpsSignatureRequestCollection_Vtbl {
@@ -6539,23 +6539,23 @@ impl IXpsSignatureRequestCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSigningOptions_Impl: Sized {
-    fn GetSignatureId(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetSignatureId(&mut self, signatureid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetSignatureMethod(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetSignatureMethod(&mut self, signaturemethod: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetDigestMethod(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetDigestMethod(&mut self, digestmethod: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetSignaturePartName(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
-    fn SetSignaturePartName(&mut self, signaturepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
-    fn GetPolicy(&mut self) -> ::windows::core::Result<XPS_SIGN_POLICY>;
-    fn SetPolicy(&mut self, policy: XPS_SIGN_POLICY) -> ::windows::core::Result<()>;
-    fn GetSigningTimeFormat(&mut self) -> ::windows::core::Result<super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT>;
-    fn SetSigningTimeFormat(&mut self, timeformat: super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::Result<()>;
-    fn GetCustomObjects(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureCustomObjectSet>;
-    fn GetCustomReferences(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureReferenceSet>;
-    fn GetCertificateSet(&mut self) -> ::windows::core::Result<super::Packaging::Opc::IOpcCertificateSet>;
-    fn GetFlags(&mut self) -> ::windows::core::Result<XPS_SIGN_FLAGS>;
-    fn SetFlags(&mut self, flags: XPS_SIGN_FLAGS) -> ::windows::core::Result<()>;
+    fn GetSignatureId(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetSignatureId(&self, signatureid: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSignatureMethod(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetSignatureMethod(&self, signaturemethod: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetDigestMethod(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetDigestMethod(&self, digestmethod: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSignaturePartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>;
+    fn SetSignaturePartName(&self, signaturepartname: &::core::option::Option<super::Packaging::Opc::IOpcPartUri>) -> ::windows::core::Result<()>;
+    fn GetPolicy(&self) -> ::windows::core::Result<XPS_SIGN_POLICY>;
+    fn SetPolicy(&self, policy: XPS_SIGN_POLICY) -> ::windows::core::Result<()>;
+    fn GetSigningTimeFormat(&self) -> ::windows::core::Result<super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT>;
+    fn SetSigningTimeFormat(&self, timeformat: super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::Result<()>;
+    fn GetCustomObjects(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureCustomObjectSet>;
+    fn GetCustomReferences(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureReferenceSet>;
+    fn GetCertificateSet(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcCertificateSet>;
+    fn GetFlags(&self) -> ::windows::core::Result<XPS_SIGN_FLAGS>;
+    fn SetFlags(&self, flags: XPS_SIGN_FLAGS) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 impl IXpsSigningOptions_Vtbl {

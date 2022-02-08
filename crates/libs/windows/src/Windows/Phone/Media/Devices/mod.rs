@@ -34,9 +34,10 @@ impl ::core::fmt::Debug for AudioRoutingEndpoint {
 }
 unsafe impl ::windows::core::RuntimeType for AudioRoutingEndpoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
-}
-impl ::windows::core::DefaultType for AudioRoutingEndpoint {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Phone_Media_Devices'*"]
 #[repr(transparent)]
@@ -109,6 +110,10 @@ impl ::core::fmt::Debug for AudioRoutingManager {
 }
 unsafe impl ::windows::core::RuntimeType for AudioRoutingManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Media.Devices.AudioRoutingManager;{79340d20-71cc-4526-9f29-fc8d2486418b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AudioRoutingManager {
     type Vtable = IAudioRoutingManager_Vtbl;
@@ -218,9 +223,10 @@ impl ::core::ops::Not for AvailableAudioRoutingEndpoints {
 }
 unsafe impl ::windows::core::RuntimeType for AvailableAudioRoutingEndpoints {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints;u4)");
-}
-impl ::windows::core::DefaultType for AvailableAudioRoutingEndpoints {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]

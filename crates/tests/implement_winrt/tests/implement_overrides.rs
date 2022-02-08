@@ -8,17 +8,17 @@ use windows::UI::Xaml::*;
 struct App {}
 
 impl IApplicationOverrides_Impl for App {
-    fn OnActivated(&mut self, _args: &Option<IActivatedEventArgs>) -> Result<()> {
+    fn OnActivated(&self, _args: &Option<IActivatedEventArgs>) -> Result<()> {
         Ok(())
     }
 
-    fn OnLaunched(&mut self, _args: &Option<LaunchActivatedEventArgs>) -> Result<()> {
+    fn OnLaunched(&self, _args: &Option<LaunchActivatedEventArgs>) -> Result<()> {
         Ok(())
     }
 }
 
 impl IApplicationOverrides2_Impl for App {
-    fn OnBackgroundActivated(&mut self, _args: &Option<BackgroundActivatedEventArgs>) -> Result<()> {
+    fn OnBackgroundActivated(&self, _args: &Option<BackgroundActivatedEventArgs>) -> Result<()> {
         Ok(())
     }
 }

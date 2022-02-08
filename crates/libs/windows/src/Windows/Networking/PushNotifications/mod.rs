@@ -292,6 +292,10 @@ impl ::core::fmt::Debug for PushNotificationChannel {
 }
 unsafe impl ::windows::core::RuntimeType for PushNotificationChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannel;{2b28102e-ef0b-4f39-9b8a-a3c194de7081})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PushNotificationChannel {
     type Vtable = IPushNotificationChannel_Vtbl;
@@ -498,6 +502,10 @@ impl ::core::fmt::Debug for PushNotificationChannelManagerForUser {
 }
 unsafe impl ::windows::core::RuntimeType for PushNotificationChannelManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser;{a4c45704-1182-42c7-8890-f563c4890dc4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PushNotificationChannelManagerForUser {
     type Vtable = IPushNotificationChannelManagerForUser_Vtbl;
@@ -570,6 +578,10 @@ impl ::core::fmt::Debug for PushNotificationChannelsRevokedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PushNotificationChannelsRevokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs;{20e1a24c-1a34-5beb-aae2-40c232c8c140})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PushNotificationChannelsRevokedEventArgs {
     type Vtable = IPushNotificationChannelsRevokedEventArgs_Vtbl;
@@ -699,6 +711,10 @@ impl ::core::fmt::Debug for PushNotificationReceivedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for PushNotificationReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs;{d1065e0c-36cd-484c-b935-0a99b753cf00})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PushNotificationReceivedEventArgs {
     type Vtable = IPushNotificationReceivedEventArgs_Vtbl;
@@ -781,9 +797,10 @@ impl ::core::fmt::Debug for PushNotificationType {
 }
 unsafe impl ::windows::core::RuntimeType for PushNotificationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.PushNotifications.PushNotificationType;i4)");
-}
-impl ::windows::core::DefaultType for PushNotificationType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Networking_PushNotifications'*"]
 #[repr(transparent)]
@@ -842,6 +859,10 @@ impl ::core::fmt::Debug for RawNotification {
 }
 unsafe impl ::windows::core::RuntimeType for RawNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.RawNotification;{1a227281-3b79-42ac-9963-22ab00d4f0b7})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RawNotification {
     type Vtable = IRawNotification_Vtbl;

@@ -55,22 +55,22 @@ impl DISystemMonitorInternal_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAlertDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCollector_Impl {
-    fn AlertThresholds(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetAlertThresholds(&mut self, alerts: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn EventLog(&mut self) -> ::windows::core::Result<i16>;
-    fn SetEventLog(&mut self, log: i16) -> ::windows::core::Result<()>;
-    fn SampleInterval(&mut self) -> ::windows::core::Result<u32>;
-    fn SetSampleInterval(&mut self, interval: u32) -> ::windows::core::Result<()>;
-    fn Task(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTask(&mut self, task: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TaskRunAsSelf(&mut self) -> ::windows::core::Result<i16>;
-    fn SetTaskRunAsSelf(&mut self, runasself: i16) -> ::windows::core::Result<()>;
-    fn TaskArguments(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTaskArguments(&mut self, task: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TaskUserTextArguments(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTaskUserTextArguments(&mut self, task: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TriggerDataCollectorSet(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTriggerDataCollectorSet(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AlertThresholds(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn SetAlertThresholds(&self, alerts: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn EventLog(&self) -> ::windows::core::Result<i16>;
+    fn SetEventLog(&self, log: i16) -> ::windows::core::Result<()>;
+    fn SampleInterval(&self) -> ::windows::core::Result<u32>;
+    fn SetSampleInterval(&self, interval: u32) -> ::windows::core::Result<()>;
+    fn Task(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTask(&self, task: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TaskRunAsSelf(&self) -> ::windows::core::Result<i16>;
+    fn SetTaskRunAsSelf(&self, runasself: i16) -> ::windows::core::Result<()>;
+    fn TaskArguments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTaskArguments(&self, task: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TaskUserTextArguments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTaskUserTextArguments(&self, task: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TriggerDataCollectorSet(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTriggerDataCollectorSet(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAlertDataCollector_Vtbl {
@@ -229,20 +229,20 @@ impl IAlertDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IApiTracingDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCollector_Impl {
-    fn LogApiNamesOnly(&mut self) -> ::windows::core::Result<i16>;
-    fn SetLogApiNamesOnly(&mut self, logapinames: i16) -> ::windows::core::Result<()>;
-    fn LogApisRecursively(&mut self) -> ::windows::core::Result<i16>;
-    fn SetLogApisRecursively(&mut self, logrecursively: i16) -> ::windows::core::Result<()>;
-    fn ExePath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetExePath(&mut self, exepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LogFilePath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLogFilePath(&mut self, logfilepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IncludeModules(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetIncludeModules(&mut self, includemodules: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn IncludeApis(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetIncludeApis(&mut self, includeapis: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn ExcludeApis(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetExcludeApis(&mut self, excludeapis: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn LogApiNamesOnly(&self) -> ::windows::core::Result<i16>;
+    fn SetLogApiNamesOnly(&self, logapinames: i16) -> ::windows::core::Result<()>;
+    fn LogApisRecursively(&self) -> ::windows::core::Result<i16>;
+    fn SetLogApisRecursively(&self, logrecursively: i16) -> ::windows::core::Result<()>;
+    fn ExePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetExePath(&self, exepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LogFilePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLogFilePath(&self, logfilepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IncludeModules(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn SetIncludeModules(&self, includemodules: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn IncludeApis(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn SetIncludeApis(&self, includeapis: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn ExcludeApis(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn SetExcludeApis(&self, excludeapis: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IApiTracingDataCollector_Vtbl {
@@ -383,24 +383,24 @@ impl IApiTracingDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IConfigurationDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCollector_Impl {
-    fn FileMaxCount(&mut self) -> ::windows::core::Result<u32>;
-    fn SetFileMaxCount(&mut self, count: u32) -> ::windows::core::Result<()>;
-    fn FileMaxRecursiveDepth(&mut self) -> ::windows::core::Result<u32>;
-    fn SetFileMaxRecursiveDepth(&mut self, depth: u32) -> ::windows::core::Result<()>;
-    fn FileMaxTotalSize(&mut self) -> ::windows::core::Result<u32>;
-    fn SetFileMaxTotalSize(&mut self, size: u32) -> ::windows::core::Result<()>;
-    fn Files(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetFiles(&mut self, files: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn ManagementQueries(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetManagementQueries(&mut self, queries: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn QueryNetworkAdapters(&mut self) -> ::windows::core::Result<i16>;
-    fn SetQueryNetworkAdapters(&mut self, network: i16) -> ::windows::core::Result<()>;
-    fn RegistryKeys(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetRegistryKeys(&mut self, query: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn RegistryMaxRecursiveDepth(&mut self) -> ::windows::core::Result<u32>;
-    fn SetRegistryMaxRecursiveDepth(&mut self, depth: u32) -> ::windows::core::Result<()>;
-    fn SystemStateFile(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSystemStateFile(&mut self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FileMaxCount(&self) -> ::windows::core::Result<u32>;
+    fn SetFileMaxCount(&self, count: u32) -> ::windows::core::Result<()>;
+    fn FileMaxRecursiveDepth(&self) -> ::windows::core::Result<u32>;
+    fn SetFileMaxRecursiveDepth(&self, depth: u32) -> ::windows::core::Result<()>;
+    fn FileMaxTotalSize(&self) -> ::windows::core::Result<u32>;
+    fn SetFileMaxTotalSize(&self, size: u32) -> ::windows::core::Result<()>;
+    fn Files(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn SetFiles(&self, files: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn ManagementQueries(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn SetManagementQueries(&self, queries: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn QueryNetworkAdapters(&self) -> ::windows::core::Result<i16>;
+    fn SetQueryNetworkAdapters(&self, network: i16) -> ::windows::core::Result<()>;
+    fn RegistryKeys(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn SetRegistryKeys(&self, query: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn RegistryMaxRecursiveDepth(&self) -> ::windows::core::Result<u32>;
+    fn SetRegistryMaxRecursiveDepth(&self, depth: u32) -> ::windows::core::Result<()>;
+    fn SystemStateFile(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSystemStateFile(&self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IConfigurationDataCollector_Vtbl {
@@ -577,18 +577,18 @@ impl IConfigurationDataCollector_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICounterItem_Impl: Sized {
-    fn Value(&mut self) -> ::windows::core::Result<f64>;
-    fn SetColor(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn Color(&mut self) -> ::windows::core::Result<u32>;
-    fn SetWidth(&mut self, iwidth: i32) -> ::windows::core::Result<()>;
-    fn Width(&mut self) -> ::windows::core::Result<i32>;
-    fn SetLineStyle(&mut self, ilinestyle: i32) -> ::windows::core::Result<()>;
-    fn LineStyle(&mut self) -> ::windows::core::Result<i32>;
-    fn SetScaleFactor(&mut self, iscale: i32) -> ::windows::core::Result<()>;
-    fn ScaleFactor(&mut self) -> ::windows::core::Result<i32>;
-    fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetValue(&mut self, value: *mut f64, status: *mut i32) -> ::windows::core::Result<()>;
-    fn GetStatistics(&mut self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()>;
+    fn Value(&self) -> ::windows::core::Result<f64>;
+    fn SetColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn Color(&self) -> ::windows::core::Result<u32>;
+    fn SetWidth(&self, iwidth: i32) -> ::windows::core::Result<()>;
+    fn Width(&self) -> ::windows::core::Result<i32>;
+    fn SetLineStyle(&self, ilinestyle: i32) -> ::windows::core::Result<()>;
+    fn LineStyle(&self) -> ::windows::core::Result<i32>;
+    fn SetScaleFactor(&self, iscale: i32) -> ::windows::core::Result<()>;
+    fn ScaleFactor(&self) -> ::windows::core::Result<i32>;
+    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetValue(&self, value: *mut f64, status: *mut i32) -> ::windows::core::Result<()>;
+    fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICounterItem_Vtbl {
@@ -711,11 +711,11 @@ impl ICounterItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICounterItem2_Impl: Sized + ICounterItem_Impl {
-    fn SetSelected(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn Selected(&mut self) -> ::windows::core::Result<i16>;
-    fn SetVisible(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn Visible(&mut self) -> ::windows::core::Result<i16>;
-    fn GetDataAt(&mut self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSelected(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn Selected(&self) -> ::windows::core::Result<i16>;
+    fn SetVisible(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn Visible(&self) -> ::windows::core::Result<i16>;
+    fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICounterItem2_Vtbl {
@@ -778,11 +778,11 @@ impl ICounterItem2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICounters_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<DICounterItem>;
-    fn Add(&mut self, pathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<DICounterItem>;
-    fn Remove(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<DICounterItem>;
+    fn Add(&self, pathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<DICounterItem>;
+    fn Remove(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICounters_Vtbl {
@@ -851,31 +851,31 @@ impl ICounters_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataCollector_Impl: Sized + super::Com::IDispatch_Impl {
-    fn DataCollectorSet(&mut self) -> ::windows::core::Result<IDataCollectorSet>;
-    fn SetDataCollectorSet(&mut self, group: &::core::option::Option<IDataCollectorSet>) -> ::windows::core::Result<()>;
-    fn DataCollectorType(&mut self) -> ::windows::core::Result<DataCollectorType>;
-    fn FileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFileName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FileNameFormat(&mut self) -> ::windows::core::Result<AutoPathFormat>;
-    fn SetFileNameFormat(&mut self, format: AutoPathFormat) -> ::windows::core::Result<()>;
-    fn FileNameFormatPattern(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFileNameFormatPattern(&mut self, pattern: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LatestOutputLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLatestOutputLocation(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LogAppend(&mut self) -> ::windows::core::Result<i16>;
-    fn SetLogAppend(&mut self, append: i16) -> ::windows::core::Result<()>;
-    fn LogCircular(&mut self) -> ::windows::core::Result<i16>;
-    fn SetLogCircular(&mut self, circular: i16) -> ::windows::core::Result<()>;
-    fn LogOverwrite(&mut self) -> ::windows::core::Result<i16>;
-    fn SetLogOverwrite(&mut self, overwrite: i16) -> ::windows::core::Result<()>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OutputLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Index(&mut self) -> ::windows::core::Result<i32>;
-    fn SetIndex(&mut self, index: i32) -> ::windows::core::Result<()>;
-    fn Xml(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetXml(&mut self, xml: &super::super::Foundation::BSTR) -> ::windows::core::Result<IValueMap>;
-    fn CreateOutputLocation(&mut self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet>;
+    fn SetDataCollectorSet(&self, group: &::core::option::Option<IDataCollectorSet>) -> ::windows::core::Result<()>;
+    fn DataCollectorType(&self) -> ::windows::core::Result<DataCollectorType>;
+    fn FileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFileName(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FileNameFormat(&self) -> ::windows::core::Result<AutoPathFormat>;
+    fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()>;
+    fn FileNameFormatPattern(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFileNameFormatPattern(&self, pattern: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LatestOutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLatestOutputLocation(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LogAppend(&self) -> ::windows::core::Result<i16>;
+    fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()>;
+    fn LogCircular(&self) -> ::windows::core::Result<i16>;
+    fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()>;
+    fn LogOverwrite(&self) -> ::windows::core::Result<i16>;
+    fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetName(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Index(&self) -> ::windows::core::Result<i32>;
+    fn SetIndex(&self, index: i32) -> ::windows::core::Result<()>;
+    fn Xml(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetXml(&self, xml: &super::super::Foundation::BSTR) -> ::windows::core::Result<IValueMap>;
+    fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataCollector_Vtbl {
@@ -1130,15 +1130,15 @@ impl IDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataCollectorCollection_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<IDataCollector>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&mut self, collector: &::core::option::Option<IDataCollector>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, collector: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn AddRange(&mut self, collectors: &::core::option::Option<IDataCollectorCollection>) -> ::windows::core::Result<()>;
-    fn CreateDataCollectorFromXml(&mut self, bstrxml: &super::super::Foundation::BSTR, pvalidation: *mut ::core::option::Option<IValueMap>, pcollector: *mut ::core::option::Option<IDataCollector>) -> ::windows::core::Result<()>;
-    fn CreateDataCollector(&mut self, r#type: DataCollectorType) -> ::windows::core::Result<IDataCollector>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<IDataCollector>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Add(&self, collector: &::core::option::Option<IDataCollector>) -> ::windows::core::Result<()>;
+    fn Remove(&self, collector: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn AddRange(&self, collectors: &::core::option::Option<IDataCollectorCollection>) -> ::windows::core::Result<()>;
+    fn CreateDataCollectorFromXml(&self, bstrxml: &super::super::Foundation::BSTR, pvalidation: *mut ::core::option::Option<IValueMap>, pcollector: *mut ::core::option::Option<IDataCollector>) -> ::windows::core::Result<()>;
+    fn CreateDataCollector(&self, r#type: DataCollectorType) -> ::windows::core::Result<IDataCollector>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataCollectorCollection_Vtbl {
@@ -1231,66 +1231,66 @@ impl IDataCollectorCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataCollectorSet_Impl: Sized + super::Com::IDispatch_Impl {
-    fn DataCollectors(&mut self) -> ::windows::core::Result<IDataCollectorCollection>;
-    fn Duration(&mut self) -> ::windows::core::Result<u32>;
-    fn SetDuration(&mut self, seconds: u32) -> ::windows::core::Result<()>;
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DescriptionUnresolved(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDisplayName(&mut self, displayname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DisplayNameUnresolved(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Keywords(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetKeywords(&mut self, keywords: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn LatestOutputLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLatestOutputLocation(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn OutputLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RootPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRootPath(&mut self, folder: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Segment(&mut self) -> ::windows::core::Result<i16>;
-    fn SetSegment(&mut self, segment: i16) -> ::windows::core::Result<()>;
-    fn SegmentMaxDuration(&mut self) -> ::windows::core::Result<u32>;
-    fn SetSegmentMaxDuration(&mut self, seconds: u32) -> ::windows::core::Result<()>;
-    fn SegmentMaxSize(&mut self) -> ::windows::core::Result<u32>;
-    fn SetSegmentMaxSize(&mut self, size: u32) -> ::windows::core::Result<()>;
-    fn SerialNumber(&mut self) -> ::windows::core::Result<u32>;
-    fn SetSerialNumber(&mut self, index: u32) -> ::windows::core::Result<()>;
-    fn Server(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Status(&mut self) -> ::windows::core::Result<DataCollectorSetStatus>;
-    fn Subdirectory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSubdirectory(&mut self, folder: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SubdirectoryFormat(&mut self) -> ::windows::core::Result<AutoPathFormat>;
-    fn SetSubdirectoryFormat(&mut self, format: AutoPathFormat) -> ::windows::core::Result<()>;
-    fn SubdirectoryFormatPattern(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSubdirectoryFormatPattern(&mut self, pattern: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Task(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTask(&mut self, task: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TaskRunAsSelf(&mut self) -> ::windows::core::Result<i16>;
-    fn SetTaskRunAsSelf(&mut self, runasself: i16) -> ::windows::core::Result<()>;
-    fn TaskArguments(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTaskArguments(&mut self, task: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TaskUserTextArguments(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTaskUserTextArguments(&mut self, usertext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Schedules(&mut self) -> ::windows::core::Result<IScheduleCollection>;
-    fn SchedulesEnabled(&mut self) -> ::windows::core::Result<i16>;
-    fn SetSchedulesEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
-    fn UserAccount(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Xml(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Security(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSecurity(&mut self, bstrsecurity: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StopOnCompletion(&mut self) -> ::windows::core::Result<i16>;
-    fn SetStopOnCompletion(&mut self, stop: i16) -> ::windows::core::Result<()>;
-    fn DataManager(&mut self) -> ::windows::core::Result<IDataManager>;
-    fn SetCredentials(&mut self, user: &super::super::Foundation::BSTR, password: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Query(&mut self, name: &super::super::Foundation::BSTR, server: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Commit(&mut self, name: &super::super::Foundation::BSTR, server: &super::super::Foundation::BSTR, mode: CommitMode) -> ::windows::core::Result<IValueMap>;
-    fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Start(&mut self, synchronous: i16) -> ::windows::core::Result<()>;
-    fn Stop(&mut self, synchronous: i16) -> ::windows::core::Result<()>;
-    fn SetXml(&mut self, xml: &super::super::Foundation::BSTR) -> ::windows::core::Result<IValueMap>;
-    fn SetValue(&mut self, key: &super::super::Foundation::BSTR, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetValue(&mut self, key: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DataCollectors(&self) -> ::windows::core::Result<IDataCollectorCollection>;
+    fn Duration(&self) -> ::windows::core::Result<u32>;
+    fn SetDuration(&self, seconds: u32) -> ::windows::core::Result<()>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DescriptionUnresolved(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDisplayName(&self, displayname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DisplayNameUnresolved(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Keywords(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn SetKeywords(&self, keywords: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn LatestOutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLatestOutputLocation(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn OutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RootPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRootPath(&self, folder: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Segment(&self) -> ::windows::core::Result<i16>;
+    fn SetSegment(&self, segment: i16) -> ::windows::core::Result<()>;
+    fn SegmentMaxDuration(&self) -> ::windows::core::Result<u32>;
+    fn SetSegmentMaxDuration(&self, seconds: u32) -> ::windows::core::Result<()>;
+    fn SegmentMaxSize(&self) -> ::windows::core::Result<u32>;
+    fn SetSegmentMaxSize(&self, size: u32) -> ::windows::core::Result<()>;
+    fn SerialNumber(&self) -> ::windows::core::Result<u32>;
+    fn SetSerialNumber(&self, index: u32) -> ::windows::core::Result<()>;
+    fn Server(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Status(&self) -> ::windows::core::Result<DataCollectorSetStatus>;
+    fn Subdirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSubdirectory(&self, folder: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SubdirectoryFormat(&self) -> ::windows::core::Result<AutoPathFormat>;
+    fn SetSubdirectoryFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()>;
+    fn SubdirectoryFormatPattern(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSubdirectoryFormatPattern(&self, pattern: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Task(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTask(&self, task: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TaskRunAsSelf(&self) -> ::windows::core::Result<i16>;
+    fn SetTaskRunAsSelf(&self, runasself: i16) -> ::windows::core::Result<()>;
+    fn TaskArguments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTaskArguments(&self, task: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TaskUserTextArguments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTaskUserTextArguments(&self, usertext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Schedules(&self) -> ::windows::core::Result<IScheduleCollection>;
+    fn SchedulesEnabled(&self) -> ::windows::core::Result<i16>;
+    fn SetSchedulesEnabled(&self, enabled: i16) -> ::windows::core::Result<()>;
+    fn UserAccount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Xml(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Security(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSecurity(&self, bstrsecurity: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StopOnCompletion(&self) -> ::windows::core::Result<i16>;
+    fn SetStopOnCompletion(&self, stop: i16) -> ::windows::core::Result<()>;
+    fn DataManager(&self) -> ::windows::core::Result<IDataManager>;
+    fn SetCredentials(&self, user: &super::super::Foundation::BSTR, password: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Query(&self, name: &super::super::Foundation::BSTR, server: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Commit(&self, name: &super::super::Foundation::BSTR, server: &super::super::Foundation::BSTR, mode: CommitMode) -> ::windows::core::Result<IValueMap>;
+    fn Delete(&self) -> ::windows::core::Result<()>;
+    fn Start(&self, synchronous: i16) -> ::windows::core::Result<()>;
+    fn Stop(&self, synchronous: i16) -> ::windows::core::Result<()>;
+    fn SetXml(&self, xml: &super::super::Foundation::BSTR) -> ::windows::core::Result<IValueMap>;
+    fn SetValue(&self, key: &super::super::Foundation::BSTR, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetValue(&self, key: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataCollectorSet_Vtbl {
@@ -1869,14 +1869,14 @@ impl IDataCollectorSet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataCollectorSetCollection_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<IDataCollectorSet>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&mut self, set: &::core::option::Option<IDataCollectorSet>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, set: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn AddRange(&mut self, sets: &::core::option::Option<IDataCollectorSetCollection>) -> ::windows::core::Result<()>;
-    fn GetDataCollectorSets(&mut self, server: &super::super::Foundation::BSTR, filter: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<IDataCollectorSet>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Add(&self, set: &::core::option::Option<IDataCollectorSet>) -> ::windows::core::Result<()>;
+    fn Remove(&self, set: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn AddRange(&self, sets: &::core::option::Option<IDataCollectorSetCollection>) -> ::windows::core::Result<()>;
+    fn GetDataCollectorSets(&self, server: &super::super::Foundation::BSTR, filter: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataCollectorSetCollection_Vtbl {
@@ -1957,31 +1957,31 @@ impl IDataCollectorSetCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataManager_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
-    fn SetEnabled(&mut self, fenabled: i16) -> ::windows::core::Result<()>;
-    fn CheckBeforeRunning(&mut self) -> ::windows::core::Result<i16>;
-    fn SetCheckBeforeRunning(&mut self, fcheck: i16) -> ::windows::core::Result<()>;
-    fn MinFreeDisk(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMinFreeDisk(&mut self, minfreedisk: u32) -> ::windows::core::Result<()>;
-    fn MaxSize(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMaxSize(&mut self, ulmaxsize: u32) -> ::windows::core::Result<()>;
-    fn MaxFolderCount(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMaxFolderCount(&mut self, ulmaxfoldercount: u32) -> ::windows::core::Result<()>;
-    fn ResourcePolicy(&mut self) -> ::windows::core::Result<ResourcePolicy>;
-    fn SetResourcePolicy(&mut self, policy: ResourcePolicy) -> ::windows::core::Result<()>;
-    fn FolderActions(&mut self) -> ::windows::core::Result<IFolderActionCollection>;
-    fn ReportSchema(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetReportSchema(&mut self, reportschema: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ReportFileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetReportFileName(&mut self, pbstrfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RuleTargetFileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRuleTargetFileName(&mut self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn EventsFileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEventsFileName(&mut self, pbstrfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Rules(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRules(&mut self, bstrxml: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Run(&mut self, steps: DataManagerSteps, bstrfolder: &super::super::Foundation::BSTR) -> ::windows::core::Result<IValueMap>;
-    fn Extract(&mut self, cabfilename: &super::super::Foundation::BSTR, destinationpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Enabled(&self) -> ::windows::core::Result<i16>;
+    fn SetEnabled(&self, fenabled: i16) -> ::windows::core::Result<()>;
+    fn CheckBeforeRunning(&self) -> ::windows::core::Result<i16>;
+    fn SetCheckBeforeRunning(&self, fcheck: i16) -> ::windows::core::Result<()>;
+    fn MinFreeDisk(&self) -> ::windows::core::Result<u32>;
+    fn SetMinFreeDisk(&self, minfreedisk: u32) -> ::windows::core::Result<()>;
+    fn MaxSize(&self) -> ::windows::core::Result<u32>;
+    fn SetMaxSize(&self, ulmaxsize: u32) -> ::windows::core::Result<()>;
+    fn MaxFolderCount(&self) -> ::windows::core::Result<u32>;
+    fn SetMaxFolderCount(&self, ulmaxfoldercount: u32) -> ::windows::core::Result<()>;
+    fn ResourcePolicy(&self) -> ::windows::core::Result<ResourcePolicy>;
+    fn SetResourcePolicy(&self, policy: ResourcePolicy) -> ::windows::core::Result<()>;
+    fn FolderActions(&self) -> ::windows::core::Result<IFolderActionCollection>;
+    fn ReportSchema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetReportSchema(&self, reportschema: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ReportFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetReportFileName(&self, pbstrfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RuleTargetFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRuleTargetFileName(&self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EventsFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetEventsFileName(&self, pbstrfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Rules(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRules(&self, bstrxml: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Run(&self, steps: DataManagerSteps, bstrfolder: &super::super::Foundation::BSTR) -> ::windows::core::Result<IValueMap>;
+    fn Extract(&self, cabfilename: &super::super::Foundation::BSTR, destinationpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataManager_Vtbl {
@@ -2224,14 +2224,14 @@ impl IDataManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFolderAction_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Age(&mut self) -> ::windows::core::Result<u32>;
-    fn SetAge(&mut self, ulage: u32) -> ::windows::core::Result<()>;
-    fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn SetSize(&mut self, ulage: u32) -> ::windows::core::Result<()>;
-    fn Actions(&mut self) -> ::windows::core::Result<FolderActionSteps>;
-    fn SetActions(&mut self, steps: FolderActionSteps) -> ::windows::core::Result<()>;
-    fn SendCabTo(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSendCabTo(&mut self, bstrdestination: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Age(&self) -> ::windows::core::Result<u32>;
+    fn SetAge(&self, ulage: u32) -> ::windows::core::Result<()>;
+    fn Size(&self) -> ::windows::core::Result<u32>;
+    fn SetSize(&self, ulage: u32) -> ::windows::core::Result<()>;
+    fn Actions(&self) -> ::windows::core::Result<FolderActionSteps>;
+    fn SetActions(&self, steps: FolderActionSteps) -> ::windows::core::Result<()>;
+    fn SendCabTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSendCabTo(&self, bstrdestination: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFolderAction_Vtbl {
@@ -2318,14 +2318,14 @@ impl IFolderAction_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFolderActionCollection_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<u32>;
-    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<IFolderAction>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&mut self, action: &::core::option::Option<IFolderAction>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn AddRange(&mut self, actions: &::core::option::Option<IFolderActionCollection>) -> ::windows::core::Result<()>;
-    fn CreateFolderAction(&mut self) -> ::windows::core::Result<IFolderAction>;
+    fn Count(&self) -> ::windows::core::Result<u32>;
+    fn Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<IFolderAction>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Add(&self, action: &::core::option::Option<IFolderAction>) -> ::windows::core::Result<()>;
+    fn Remove(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn AddRange(&self, actions: &::core::option::Option<IFolderActionCollection>) -> ::windows::core::Result<()>;
+    fn CreateFolderAction(&self) -> ::windows::core::Result<IFolderAction>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFolderActionCollection_Vtbl {
@@ -2412,7 +2412,7 @@ impl IFolderActionCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ILogFileItem_Impl: Sized {
-    fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ILogFileItem_Vtbl {
@@ -2436,11 +2436,11 @@ impl ILogFileItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILogFiles_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<DILogFileItem>;
-    fn Add(&mut self, pathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<DILogFileItem>;
-    fn Remove(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<DILogFileItem>;
+    fn Add(&self, pathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<DILogFileItem>;
+    fn Remove(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ILogFiles_Vtbl {
@@ -2509,16 +2509,16 @@ impl ILogFiles_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPerformanceCounterDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCollector_Impl {
-    fn DataSourceName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDataSourceName(&mut self, dsn: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PerformanceCounters(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetPerformanceCounters(&mut self, counters: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn LogFileFormat(&mut self) -> ::windows::core::Result<FileFormat>;
-    fn SetLogFileFormat(&mut self, format: FileFormat) -> ::windows::core::Result<()>;
-    fn SampleInterval(&mut self) -> ::windows::core::Result<u32>;
-    fn SetSampleInterval(&mut self, interval: u32) -> ::windows::core::Result<()>;
-    fn SegmentMaxRecords(&mut self) -> ::windows::core::Result<u32>;
-    fn SetSegmentMaxRecords(&mut self, records: u32) -> ::windows::core::Result<()>;
+    fn DataSourceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDataSourceName(&self, dsn: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PerformanceCounters(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn SetPerformanceCounters(&self, counters: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn LogFileFormat(&self) -> ::windows::core::Result<FileFormat>;
+    fn SetLogFileFormat(&self, format: FileFormat) -> ::windows::core::Result<()>;
+    fn SampleInterval(&self) -> ::windows::core::Result<u32>;
+    fn SetSampleInterval(&self, interval: u32) -> ::windows::core::Result<()>;
+    fn SegmentMaxRecords(&self) -> ::windows::core::Result<u32>;
+    fn SetSegmentMaxRecords(&self, records: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPerformanceCounterDataCollector_Vtbl {
@@ -2623,14 +2623,14 @@ impl IPerformanceCounterDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISchedule_Impl: Sized + super::Com::IDispatch_Impl {
-    fn StartDate(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetStartDate(&mut self, start: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn EndDate(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetEndDate(&mut self, end: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn StartTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetStartTime(&mut self, start: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Days(&mut self) -> ::windows::core::Result<WeekDays>;
-    fn SetDays(&mut self, days: WeekDays) -> ::windows::core::Result<()>;
+    fn StartDate(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetStartDate(&self, start: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn EndDate(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetEndDate(&self, end: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn StartTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetStartTime(&self, start: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Days(&self) -> ::windows::core::Result<WeekDays>;
+    fn SetDays(&self, days: WeekDays) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISchedule_Vtbl {
@@ -2717,14 +2717,14 @@ impl ISchedule_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IScheduleCollection_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<ISchedule>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&mut self, pschedule: &::core::option::Option<ISchedule>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, vschedule: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn AddRange(&mut self, pschedules: &::core::option::Option<IScheduleCollection>) -> ::windows::core::Result<()>;
-    fn CreateSchedule(&mut self) -> ::windows::core::Result<ISchedule>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<ISchedule>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Add(&self, pschedule: &::core::option::Option<ISchedule>) -> ::windows::core::Result<()>;
+    fn Remove(&self, vschedule: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn AddRange(&self, pschedules: &::core::option::Option<IScheduleCollection>) -> ::windows::core::Result<()>;
+    fn CreateSchedule(&self) -> ::windows::core::Result<ISchedule>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IScheduleCollection_Vtbl {
@@ -2811,82 +2811,82 @@ impl IScheduleCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISystemMonitor_Impl: Sized {
-    fn Appearance(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAppearance(&mut self, iappearance: i32) -> ::windows::core::Result<()>;
-    fn BackColor(&mut self) -> ::windows::core::Result<u32>;
-    fn SetBackColor(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn BorderStyle(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBorderStyle(&mut self, iborderstyle: i32) -> ::windows::core::Result<()>;
-    fn ForeColor(&mut self) -> ::windows::core::Result<u32>;
-    fn SetForeColor(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn Font(&mut self) -> ::windows::core::Result<super::Ole::IFontDisp>;
-    fn putref_Font(&mut self, pfont: &::core::option::Option<super::Ole::IFontDisp>) -> ::windows::core::Result<()>;
-    fn Counters(&mut self) -> ::windows::core::Result<ICounters>;
-    fn SetShowVerticalGrid(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowVerticalGrid(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowHorizontalGrid(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowHorizontalGrid(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowLegend(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowLegend(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowScaleLabels(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowScaleLabels(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowValueBar(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowValueBar(&mut self) -> ::windows::core::Result<i16>;
-    fn SetMaximumScale(&mut self, ivalue: i32) -> ::windows::core::Result<()>;
-    fn MaximumScale(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMinimumScale(&mut self, ivalue: i32) -> ::windows::core::Result<()>;
-    fn MinimumScale(&mut self) -> ::windows::core::Result<i32>;
-    fn SetUpdateInterval(&mut self, fvalue: f32) -> ::windows::core::Result<()>;
-    fn UpdateInterval(&mut self) -> ::windows::core::Result<f32>;
-    fn SetDisplayType(&mut self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()>;
-    fn DisplayType(&mut self) -> ::windows::core::Result<DisplayTypeConstants>;
-    fn SetManualUpdate(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ManualUpdate(&mut self) -> ::windows::core::Result<i16>;
-    fn SetGraphTitle(&mut self, bstitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GraphTitle(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetYAxisLabel(&mut self, bstitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn YAxisLabel(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CollectSample(&mut self) -> ::windows::core::Result<()>;
-    fn UpdateGraph(&mut self) -> ::windows::core::Result<()>;
-    fn BrowseCounters(&mut self) -> ::windows::core::Result<()>;
-    fn DisplayProperties(&mut self) -> ::windows::core::Result<()>;
-    fn Counter(&mut self, iindex: i32) -> ::windows::core::Result<ICounterItem>;
-    fn AddCounter(&mut self, bspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<ICounterItem>;
-    fn DeleteCounter(&mut self, pctr: &::core::option::Option<ICounterItem>) -> ::windows::core::Result<()>;
-    fn BackColorCtl(&mut self) -> ::windows::core::Result<u32>;
-    fn SetBackColorCtl(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn SetLogFileName(&mut self, bsfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LogFileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLogViewStart(&mut self, starttime: f64) -> ::windows::core::Result<()>;
-    fn LogViewStart(&mut self) -> ::windows::core::Result<f64>;
-    fn SetLogViewStop(&mut self, stoptime: f64) -> ::windows::core::Result<()>;
-    fn LogViewStop(&mut self) -> ::windows::core::Result<f64>;
-    fn GridColor(&mut self) -> ::windows::core::Result<u32>;
-    fn SetGridColor(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn TimeBarColor(&mut self) -> ::windows::core::Result<u32>;
-    fn SetTimeBarColor(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn Highlight(&mut self) -> ::windows::core::Result<i16>;
-    fn SetHighlight(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowToolbar(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowToolbar(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn Paste(&mut self) -> ::windows::core::Result<()>;
-    fn Copy(&mut self) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn SetReadOnly(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ReadOnly(&mut self) -> ::windows::core::Result<i16>;
-    fn SetReportValueType(&mut self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()>;
-    fn ReportValueType(&mut self) -> ::windows::core::Result<ReportValueTypeConstants>;
-    fn SetMonitorDuplicateInstances(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn MonitorDuplicateInstances(&mut self) -> ::windows::core::Result<i16>;
-    fn SetDisplayFilter(&mut self, ivalue: i32) -> ::windows::core::Result<()>;
-    fn DisplayFilter(&mut self) -> ::windows::core::Result<i32>;
-    fn LogFiles(&mut self) -> ::windows::core::Result<ILogFiles>;
-    fn SetDataSourceType(&mut self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()>;
-    fn DataSourceType(&mut self) -> ::windows::core::Result<DataSourceTypeConstants>;
-    fn SetSqlDsnName(&mut self, bssqldsnname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SqlDsnName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSqlLogSetName(&mut self, bssqllogsetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SqlLogSetName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Appearance(&self) -> ::windows::core::Result<i32>;
+    fn SetAppearance(&self, iappearance: i32) -> ::windows::core::Result<()>;
+    fn BackColor(&self) -> ::windows::core::Result<u32>;
+    fn SetBackColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn BorderStyle(&self) -> ::windows::core::Result<i32>;
+    fn SetBorderStyle(&self, iborderstyle: i32) -> ::windows::core::Result<()>;
+    fn ForeColor(&self) -> ::windows::core::Result<u32>;
+    fn SetForeColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn Font(&self) -> ::windows::core::Result<super::Ole::IFontDisp>;
+    fn putref_Font(&self, pfont: &::core::option::Option<super::Ole::IFontDisp>) -> ::windows::core::Result<()>;
+    fn Counters(&self) -> ::windows::core::Result<ICounters>;
+    fn SetShowVerticalGrid(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowVerticalGrid(&self) -> ::windows::core::Result<i16>;
+    fn SetShowHorizontalGrid(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowHorizontalGrid(&self) -> ::windows::core::Result<i16>;
+    fn SetShowLegend(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowLegend(&self) -> ::windows::core::Result<i16>;
+    fn SetShowScaleLabels(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowScaleLabels(&self) -> ::windows::core::Result<i16>;
+    fn SetShowValueBar(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowValueBar(&self) -> ::windows::core::Result<i16>;
+    fn SetMaximumScale(&self, ivalue: i32) -> ::windows::core::Result<()>;
+    fn MaximumScale(&self) -> ::windows::core::Result<i32>;
+    fn SetMinimumScale(&self, ivalue: i32) -> ::windows::core::Result<()>;
+    fn MinimumScale(&self) -> ::windows::core::Result<i32>;
+    fn SetUpdateInterval(&self, fvalue: f32) -> ::windows::core::Result<()>;
+    fn UpdateInterval(&self) -> ::windows::core::Result<f32>;
+    fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()>;
+    fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants>;
+    fn SetManualUpdate(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ManualUpdate(&self) -> ::windows::core::Result<i16>;
+    fn SetGraphTitle(&self, bstitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GraphTitle(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetYAxisLabel(&self, bstitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn YAxisLabel(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CollectSample(&self) -> ::windows::core::Result<()>;
+    fn UpdateGraph(&self) -> ::windows::core::Result<()>;
+    fn BrowseCounters(&self) -> ::windows::core::Result<()>;
+    fn DisplayProperties(&self) -> ::windows::core::Result<()>;
+    fn Counter(&self, iindex: i32) -> ::windows::core::Result<ICounterItem>;
+    fn AddCounter(&self, bspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<ICounterItem>;
+    fn DeleteCounter(&self, pctr: &::core::option::Option<ICounterItem>) -> ::windows::core::Result<()>;
+    fn BackColorCtl(&self) -> ::windows::core::Result<u32>;
+    fn SetBackColorCtl(&self, color: u32) -> ::windows::core::Result<()>;
+    fn SetLogFileName(&self, bsfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LogFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLogViewStart(&self, starttime: f64) -> ::windows::core::Result<()>;
+    fn LogViewStart(&self) -> ::windows::core::Result<f64>;
+    fn SetLogViewStop(&self, stoptime: f64) -> ::windows::core::Result<()>;
+    fn LogViewStop(&self) -> ::windows::core::Result<f64>;
+    fn GridColor(&self) -> ::windows::core::Result<u32>;
+    fn SetGridColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn TimeBarColor(&self) -> ::windows::core::Result<u32>;
+    fn SetTimeBarColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn Highlight(&self) -> ::windows::core::Result<i16>;
+    fn SetHighlight(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowToolbar(&self) -> ::windows::core::Result<i16>;
+    fn SetShowToolbar(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn Paste(&self) -> ::windows::core::Result<()>;
+    fn Copy(&self) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn SetReadOnly(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ReadOnly(&self) -> ::windows::core::Result<i16>;
+    fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()>;
+    fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants>;
+    fn SetMonitorDuplicateInstances(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn MonitorDuplicateInstances(&self) -> ::windows::core::Result<i16>;
+    fn SetDisplayFilter(&self, ivalue: i32) -> ::windows::core::Result<()>;
+    fn DisplayFilter(&self) -> ::windows::core::Result<i32>;
+    fn LogFiles(&self) -> ::windows::core::Result<ILogFiles>;
+    fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()>;
+    fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants>;
+    fn SetSqlDsnName(&self, bssqldsnname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SqlDsnName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSqlLogSetName(&self, bssqllogsetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SqlLogSetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISystemMonitor_Vtbl {
@@ -3573,26 +3573,26 @@ impl ISystemMonitor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISystemMonitor2_Impl: Sized + ISystemMonitor_Impl {
-    fn SetEnableDigitGrouping(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn EnableDigitGrouping(&mut self) -> ::windows::core::Result<i16>;
-    fn SetEnableToolTips(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn EnableToolTips(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowTimeAxisLabels(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowTimeAxisLabels(&mut self) -> ::windows::core::Result<i16>;
-    fn SetChartScroll(&mut self, bscroll: i16) -> ::windows::core::Result<()>;
-    fn ChartScroll(&mut self) -> ::windows::core::Result<i16>;
-    fn SetDataPointCount(&mut self, inewcount: i32) -> ::windows::core::Result<()>;
-    fn DataPointCount(&mut self) -> ::windows::core::Result<i32>;
-    fn ScaleToFit(&mut self, bselectedcountersonly: i16) -> ::windows::core::Result<()>;
-    fn SaveAs(&mut self, bstrfilename: &super::super::Foundation::BSTR, esysmonfiletype: SysmonFileType) -> ::windows::core::Result<()>;
-    fn Relog(&mut self, bstrfilename: &super::super::Foundation::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> ::windows::core::Result<()>;
-    fn ClearData(&mut self) -> ::windows::core::Result<()>;
-    fn LogSourceStartTime(&mut self) -> ::windows::core::Result<f64>;
-    fn LogSourceStopTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetLogViewRange(&mut self, starttime: f64, stoptime: f64) -> ::windows::core::Result<()>;
-    fn GetLogViewRange(&mut self, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::Result<()>;
-    fn BatchingLock(&mut self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()>;
-    fn LoadSettings(&mut self, bstrsettingfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetEnableDigitGrouping(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn EnableDigitGrouping(&self) -> ::windows::core::Result<i16>;
+    fn SetEnableToolTips(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn EnableToolTips(&self) -> ::windows::core::Result<i16>;
+    fn SetShowTimeAxisLabels(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowTimeAxisLabels(&self) -> ::windows::core::Result<i16>;
+    fn SetChartScroll(&self, bscroll: i16) -> ::windows::core::Result<()>;
+    fn ChartScroll(&self) -> ::windows::core::Result<i16>;
+    fn SetDataPointCount(&self, inewcount: i32) -> ::windows::core::Result<()>;
+    fn DataPointCount(&self) -> ::windows::core::Result<i32>;
+    fn ScaleToFit(&self, bselectedcountersonly: i16) -> ::windows::core::Result<()>;
+    fn SaveAs(&self, bstrfilename: &super::super::Foundation::BSTR, esysmonfiletype: SysmonFileType) -> ::windows::core::Result<()>;
+    fn Relog(&self, bstrfilename: &super::super::Foundation::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> ::windows::core::Result<()>;
+    fn ClearData(&self) -> ::windows::core::Result<()>;
+    fn LogSourceStartTime(&self) -> ::windows::core::Result<f64>;
+    fn LogSourceStopTime(&self) -> ::windows::core::Result<f64>;
+    fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> ::windows::core::Result<()>;
+    fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::Result<()>;
+    fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()>;
+    fn LoadSettings(&self, bstrsettingfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISystemMonitor2_Vtbl {
@@ -3768,11 +3768,11 @@ impl ISystemMonitor2_Vtbl {
     }
 }
 pub trait ISystemMonitorEvents_Impl: Sized {
-    fn OnCounterSelected(&mut self, index: i32);
-    fn OnCounterAdded(&mut self, index: i32);
-    fn OnCounterDeleted(&mut self, index: i32);
-    fn OnSampleCollected(&mut self);
-    fn OnDblClick(&mut self, index: i32);
+    fn OnCounterSelected(&self, index: i32);
+    fn OnCounterAdded(&self, index: i32);
+    fn OnCounterDeleted(&self, index: i32);
+    fn OnSampleCollected(&self);
+    fn OnDblClick(&self, index: i32);
 }
 impl ISystemMonitorEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMonitorEvents_Impl, const OFFSET: isize>() -> ISystemMonitorEvents_Vtbl {
@@ -3816,46 +3816,46 @@ impl ISystemMonitorEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITraceDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCollector_Impl {
-    fn BufferSize(&mut self) -> ::windows::core::Result<u32>;
-    fn SetBufferSize(&mut self, size: u32) -> ::windows::core::Result<()>;
-    fn BuffersLost(&mut self) -> ::windows::core::Result<u32>;
-    fn SetBuffersLost(&mut self, buffers: u32) -> ::windows::core::Result<()>;
-    fn BuffersWritten(&mut self) -> ::windows::core::Result<u32>;
-    fn SetBuffersWritten(&mut self, buffers: u32) -> ::windows::core::Result<()>;
-    fn ClockType(&mut self) -> ::windows::core::Result<ClockType>;
-    fn SetClockType(&mut self, clock: ClockType) -> ::windows::core::Result<()>;
-    fn EventsLost(&mut self) -> ::windows::core::Result<u32>;
-    fn SetEventsLost(&mut self, events: u32) -> ::windows::core::Result<()>;
-    fn ExtendedModes(&mut self) -> ::windows::core::Result<u32>;
-    fn SetExtendedModes(&mut self, mode: u32) -> ::windows::core::Result<()>;
-    fn FlushTimer(&mut self) -> ::windows::core::Result<u32>;
-    fn SetFlushTimer(&mut self, seconds: u32) -> ::windows::core::Result<()>;
-    fn FreeBuffers(&mut self) -> ::windows::core::Result<u32>;
-    fn SetFreeBuffers(&mut self, buffers: u32) -> ::windows::core::Result<()>;
-    fn Guid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetGuid(&mut self, guid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn IsKernelTrace(&mut self) -> ::windows::core::Result<i16>;
-    fn MaximumBuffers(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMaximumBuffers(&mut self, buffers: u32) -> ::windows::core::Result<()>;
-    fn MinimumBuffers(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMinimumBuffers(&mut self, buffers: u32) -> ::windows::core::Result<()>;
-    fn NumberOfBuffers(&mut self) -> ::windows::core::Result<u32>;
-    fn SetNumberOfBuffers(&mut self, buffers: u32) -> ::windows::core::Result<()>;
-    fn PreallocateFile(&mut self) -> ::windows::core::Result<i16>;
-    fn SetPreallocateFile(&mut self, allocate: i16) -> ::windows::core::Result<()>;
-    fn ProcessMode(&mut self) -> ::windows::core::Result<i16>;
-    fn SetProcessMode(&mut self, process: i16) -> ::windows::core::Result<()>;
-    fn RealTimeBuffersLost(&mut self) -> ::windows::core::Result<u32>;
-    fn SetRealTimeBuffersLost(&mut self, buffers: u32) -> ::windows::core::Result<()>;
-    fn SessionId(&mut self) -> ::windows::core::Result<u64>;
-    fn SetSessionId(&mut self, id: u64) -> ::windows::core::Result<()>;
-    fn SessionName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSessionName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SessionThreadId(&mut self) -> ::windows::core::Result<u32>;
-    fn SetSessionThreadId(&mut self, tid: u32) -> ::windows::core::Result<()>;
-    fn StreamMode(&mut self) -> ::windows::core::Result<StreamMode>;
-    fn SetStreamMode(&mut self, mode: StreamMode) -> ::windows::core::Result<()>;
-    fn TraceDataProviders(&mut self) -> ::windows::core::Result<ITraceDataProviderCollection>;
+    fn BufferSize(&self) -> ::windows::core::Result<u32>;
+    fn SetBufferSize(&self, size: u32) -> ::windows::core::Result<()>;
+    fn BuffersLost(&self) -> ::windows::core::Result<u32>;
+    fn SetBuffersLost(&self, buffers: u32) -> ::windows::core::Result<()>;
+    fn BuffersWritten(&self) -> ::windows::core::Result<u32>;
+    fn SetBuffersWritten(&self, buffers: u32) -> ::windows::core::Result<()>;
+    fn ClockType(&self) -> ::windows::core::Result<ClockType>;
+    fn SetClockType(&self, clock: ClockType) -> ::windows::core::Result<()>;
+    fn EventsLost(&self) -> ::windows::core::Result<u32>;
+    fn SetEventsLost(&self, events: u32) -> ::windows::core::Result<()>;
+    fn ExtendedModes(&self) -> ::windows::core::Result<u32>;
+    fn SetExtendedModes(&self, mode: u32) -> ::windows::core::Result<()>;
+    fn FlushTimer(&self) -> ::windows::core::Result<u32>;
+    fn SetFlushTimer(&self, seconds: u32) -> ::windows::core::Result<()>;
+    fn FreeBuffers(&self) -> ::windows::core::Result<u32>;
+    fn SetFreeBuffers(&self, buffers: u32) -> ::windows::core::Result<()>;
+    fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetGuid(&self, guid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn IsKernelTrace(&self) -> ::windows::core::Result<i16>;
+    fn MaximumBuffers(&self) -> ::windows::core::Result<u32>;
+    fn SetMaximumBuffers(&self, buffers: u32) -> ::windows::core::Result<()>;
+    fn MinimumBuffers(&self) -> ::windows::core::Result<u32>;
+    fn SetMinimumBuffers(&self, buffers: u32) -> ::windows::core::Result<()>;
+    fn NumberOfBuffers(&self) -> ::windows::core::Result<u32>;
+    fn SetNumberOfBuffers(&self, buffers: u32) -> ::windows::core::Result<()>;
+    fn PreallocateFile(&self) -> ::windows::core::Result<i16>;
+    fn SetPreallocateFile(&self, allocate: i16) -> ::windows::core::Result<()>;
+    fn ProcessMode(&self) -> ::windows::core::Result<i16>;
+    fn SetProcessMode(&self, process: i16) -> ::windows::core::Result<()>;
+    fn RealTimeBuffersLost(&self) -> ::windows::core::Result<u32>;
+    fn SetRealTimeBuffersLost(&self, buffers: u32) -> ::windows::core::Result<()>;
+    fn SessionId(&self) -> ::windows::core::Result<u64>;
+    fn SetSessionId(&self, id: u64) -> ::windows::core::Result<()>;
+    fn SessionName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSessionName(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SessionThreadId(&self) -> ::windows::core::Result<u32>;
+    fn SetSessionThreadId(&self, tid: u32) -> ::windows::core::Result<()>;
+    fn StreamMode(&self) -> ::windows::core::Result<StreamMode>;
+    fn SetStreamMode(&self, mode: StreamMode) -> ::windows::core::Result<()>;
+    fn TraceDataProviders(&self) -> ::windows::core::Result<ITraceDataProviderCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITraceDataCollector_Vtbl {
@@ -4236,25 +4236,25 @@ impl ITraceDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITraceDataProvider_Impl: Sized + super::Com::IDispatch_Impl {
-    fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDisplayName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Guid(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetGuid(&mut self, guid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Level(&mut self) -> ::windows::core::Result<IValueMap>;
-    fn KeywordsAny(&mut self) -> ::windows::core::Result<IValueMap>;
-    fn KeywordsAll(&mut self) -> ::windows::core::Result<IValueMap>;
-    fn Properties(&mut self) -> ::windows::core::Result<IValueMap>;
-    fn FilterEnabled(&mut self) -> ::windows::core::Result<i16>;
-    fn SetFilterEnabled(&mut self, filterenabled: i16) -> ::windows::core::Result<()>;
-    fn FilterType(&mut self) -> ::windows::core::Result<u32>;
-    fn SetFilterType(&mut self, ultype: u32) -> ::windows::core::Result<()>;
-    fn FilterData(&mut self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetFilterData(&mut self, pdata: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
-    fn Query(&mut self, bstrname: &super::super::Foundation::BSTR, bstrserver: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Resolve(&mut self, pfrom: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn SetSecurity(&mut self, sddl: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetSecurity(&mut self, securityinfo: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetRegisteredProcesses(&mut self) -> ::windows::core::Result<IValueMap>;
+    fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDisplayName(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetGuid(&self, guid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Level(&self) -> ::windows::core::Result<IValueMap>;
+    fn KeywordsAny(&self) -> ::windows::core::Result<IValueMap>;
+    fn KeywordsAll(&self) -> ::windows::core::Result<IValueMap>;
+    fn Properties(&self) -> ::windows::core::Result<IValueMap>;
+    fn FilterEnabled(&self) -> ::windows::core::Result<i16>;
+    fn SetFilterEnabled(&self, filterenabled: i16) -> ::windows::core::Result<()>;
+    fn FilterType(&self) -> ::windows::core::Result<u32>;
+    fn SetFilterType(&self, ultype: u32) -> ::windows::core::Result<()>;
+    fn FilterData(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
+    fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
+    fn Query(&self, bstrname: &super::super::Foundation::BSTR, bstrserver: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Resolve(&self, pfrom: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn SetSecurity(&self, sddl: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetSecurity(&self, securityinfo: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetRegisteredProcesses(&self) -> ::windows::core::Result<IValueMap>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITraceDataProvider_Vtbl {
@@ -4449,16 +4449,16 @@ impl ITraceDataProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITraceDataProviderCollection_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<ITraceDataProvider>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&mut self, pprovider: &::core::option::Option<ITraceDataProvider>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, vprovider: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn AddRange(&mut self, providers: &::core::option::Option<ITraceDataProviderCollection>) -> ::windows::core::Result<()>;
-    fn CreateTraceDataProvider(&mut self) -> ::windows::core::Result<ITraceDataProvider>;
-    fn GetTraceDataProviders(&mut self, server: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetTraceDataProvidersByProcess(&mut self, server: &super::super::Foundation::BSTR, pid: u32) -> ::windows::core::Result<()>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<ITraceDataProvider>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Add(&self, pprovider: &::core::option::Option<ITraceDataProvider>) -> ::windows::core::Result<()>;
+    fn Remove(&self, vprovider: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn AddRange(&self, providers: &::core::option::Option<ITraceDataProviderCollection>) -> ::windows::core::Result<()>;
+    fn CreateTraceDataProvider(&self) -> ::windows::core::Result<ITraceDataProvider>;
+    fn GetTraceDataProviders(&self, server: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetTraceDataProvidersByProcess(&self, server: &super::super::Foundation::BSTR, pid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITraceDataProviderCollection_Vtbl {
@@ -4557,20 +4557,20 @@ impl ITraceDataProviderCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IValueMap_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, index: &super::Com::VARIANT) -> ::windows::core::Result<IValueMapItem>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Value(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetValue(&mut self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ValueMapType(&mut self) -> ::windows::core::Result<ValueMapType>;
-    fn SetValueMapType(&mut self, r#type: ValueMapType) -> ::windows::core::Result<()>;
-    fn Add(&mut self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn AddRange(&mut self, map: &::core::option::Option<IValueMap>) -> ::windows::core::Result<()>;
-    fn CreateValueMapItem(&mut self) -> ::windows::core::Result<IValueMapItem>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<IValueMapItem>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetValue(&self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ValueMapType(&self) -> ::windows::core::Result<ValueMapType>;
+    fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows::core::Result<()>;
+    fn Add(&self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Remove(&self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn AddRange(&self, map: &::core::option::Option<IValueMap>) -> ::windows::core::Result<()>;
+    fn CreateValueMapItem(&self) -> ::windows::core::Result<IValueMapItem>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IValueMap_Vtbl {
@@ -4711,16 +4711,16 @@ impl IValueMap_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IValueMapItem_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Enabled(&mut self) -> ::windows::core::Result<i16>;
-    fn SetEnabled(&mut self, enabled: i16) -> ::windows::core::Result<()>;
-    fn Key(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetKey(&mut self, key: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Value(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetValue(&mut self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ValueMapType(&mut self) -> ::windows::core::Result<ValueMapType>;
-    fn SetValueMapType(&mut self, r#type: ValueMapType) -> ::windows::core::Result<()>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Enabled(&self) -> ::windows::core::Result<i16>;
+    fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()>;
+    fn Key(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetKey(&self, key: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetValue(&self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ValueMapType(&self) -> ::windows::core::Result<ValueMapType>;
+    fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IValueMapItem_Vtbl {
@@ -4825,23 +4825,23 @@ impl IValueMapItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _ICounterItemUnion_Impl: Sized {
-    fn Value(&mut self) -> ::windows::core::Result<f64>;
-    fn SetColor(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn Color(&mut self) -> ::windows::core::Result<u32>;
-    fn SetWidth(&mut self, iwidth: i32) -> ::windows::core::Result<()>;
-    fn Width(&mut self) -> ::windows::core::Result<i32>;
-    fn SetLineStyle(&mut self, ilinestyle: i32) -> ::windows::core::Result<()>;
-    fn LineStyle(&mut self) -> ::windows::core::Result<i32>;
-    fn SetScaleFactor(&mut self, iscale: i32) -> ::windows::core::Result<()>;
-    fn ScaleFactor(&mut self) -> ::windows::core::Result<i32>;
-    fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetValue(&mut self, value: *mut f64, status: *mut i32) -> ::windows::core::Result<()>;
-    fn GetStatistics(&mut self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()>;
-    fn SetSelected(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn Selected(&mut self) -> ::windows::core::Result<i16>;
-    fn SetVisible(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn Visible(&mut self) -> ::windows::core::Result<i16>;
-    fn GetDataAt(&mut self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Value(&self) -> ::windows::core::Result<f64>;
+    fn SetColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn Color(&self) -> ::windows::core::Result<u32>;
+    fn SetWidth(&self, iwidth: i32) -> ::windows::core::Result<()>;
+    fn Width(&self) -> ::windows::core::Result<i32>;
+    fn SetLineStyle(&self, ilinestyle: i32) -> ::windows::core::Result<()>;
+    fn LineStyle(&self) -> ::windows::core::Result<i32>;
+    fn SetScaleFactor(&self, iscale: i32) -> ::windows::core::Result<()>;
+    fn ScaleFactor(&self) -> ::windows::core::Result<i32>;
+    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetValue(&self, value: *mut f64, status: *mut i32) -> ::windows::core::Result<()>;
+    fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()>;
+    fn SetSelected(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn Selected(&self) -> ::windows::core::Result<i16>;
+    fn SetVisible(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn Visible(&self) -> ::windows::core::Result<i16>;
+    fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _ICounterItemUnion_Vtbl {
@@ -5012,102 +5012,102 @@ impl _ICounterItemUnion_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _ISystemMonitorUnion_Impl: Sized {
-    fn Appearance(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAppearance(&mut self, iappearance: i32) -> ::windows::core::Result<()>;
-    fn BackColor(&mut self) -> ::windows::core::Result<u32>;
-    fn SetBackColor(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn BorderStyle(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBorderStyle(&mut self, iborderstyle: i32) -> ::windows::core::Result<()>;
-    fn ForeColor(&mut self) -> ::windows::core::Result<u32>;
-    fn SetForeColor(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn Font(&mut self) -> ::windows::core::Result<super::Ole::IFontDisp>;
-    fn putref_Font(&mut self, pfont: &::core::option::Option<super::Ole::IFontDisp>) -> ::windows::core::Result<()>;
-    fn Counters(&mut self) -> ::windows::core::Result<ICounters>;
-    fn SetShowVerticalGrid(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowVerticalGrid(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowHorizontalGrid(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowHorizontalGrid(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowLegend(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowLegend(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowScaleLabels(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowScaleLabels(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowValueBar(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowValueBar(&mut self) -> ::windows::core::Result<i16>;
-    fn SetMaximumScale(&mut self, ivalue: i32) -> ::windows::core::Result<()>;
-    fn MaximumScale(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMinimumScale(&mut self, ivalue: i32) -> ::windows::core::Result<()>;
-    fn MinimumScale(&mut self) -> ::windows::core::Result<i32>;
-    fn SetUpdateInterval(&mut self, fvalue: f32) -> ::windows::core::Result<()>;
-    fn UpdateInterval(&mut self) -> ::windows::core::Result<f32>;
-    fn SetDisplayType(&mut self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()>;
-    fn DisplayType(&mut self) -> ::windows::core::Result<DisplayTypeConstants>;
-    fn SetManualUpdate(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ManualUpdate(&mut self) -> ::windows::core::Result<i16>;
-    fn SetGraphTitle(&mut self, bstitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GraphTitle(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetYAxisLabel(&mut self, bstitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn YAxisLabel(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CollectSample(&mut self) -> ::windows::core::Result<()>;
-    fn UpdateGraph(&mut self) -> ::windows::core::Result<()>;
-    fn BrowseCounters(&mut self) -> ::windows::core::Result<()>;
-    fn DisplayProperties(&mut self) -> ::windows::core::Result<()>;
-    fn Counter(&mut self, iindex: i32) -> ::windows::core::Result<ICounterItem>;
-    fn AddCounter(&mut self, bspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<ICounterItem>;
-    fn DeleteCounter(&mut self, pctr: &::core::option::Option<ICounterItem>) -> ::windows::core::Result<()>;
-    fn BackColorCtl(&mut self) -> ::windows::core::Result<u32>;
-    fn SetBackColorCtl(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn SetLogFileName(&mut self, bsfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LogFileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLogViewStart(&mut self, starttime: f64) -> ::windows::core::Result<()>;
-    fn LogViewStart(&mut self) -> ::windows::core::Result<f64>;
-    fn SetLogViewStop(&mut self, stoptime: f64) -> ::windows::core::Result<()>;
-    fn LogViewStop(&mut self) -> ::windows::core::Result<f64>;
-    fn GridColor(&mut self) -> ::windows::core::Result<u32>;
-    fn SetGridColor(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn TimeBarColor(&mut self) -> ::windows::core::Result<u32>;
-    fn SetTimeBarColor(&mut self, color: u32) -> ::windows::core::Result<()>;
-    fn Highlight(&mut self) -> ::windows::core::Result<i16>;
-    fn SetHighlight(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowToolbar(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowToolbar(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn Paste(&mut self) -> ::windows::core::Result<()>;
-    fn Copy(&mut self) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn SetReadOnly(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ReadOnly(&mut self) -> ::windows::core::Result<i16>;
-    fn SetReportValueType(&mut self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()>;
-    fn ReportValueType(&mut self) -> ::windows::core::Result<ReportValueTypeConstants>;
-    fn SetMonitorDuplicateInstances(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn MonitorDuplicateInstances(&mut self) -> ::windows::core::Result<i16>;
-    fn SetDisplayFilter(&mut self, ivalue: i32) -> ::windows::core::Result<()>;
-    fn DisplayFilter(&mut self) -> ::windows::core::Result<i32>;
-    fn LogFiles(&mut self) -> ::windows::core::Result<ILogFiles>;
-    fn SetDataSourceType(&mut self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()>;
-    fn DataSourceType(&mut self) -> ::windows::core::Result<DataSourceTypeConstants>;
-    fn SetSqlDsnName(&mut self, bssqldsnname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SqlDsnName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSqlLogSetName(&mut self, bssqllogsetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SqlLogSetName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEnableDigitGrouping(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn EnableDigitGrouping(&mut self) -> ::windows::core::Result<i16>;
-    fn SetEnableToolTips(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn EnableToolTips(&mut self) -> ::windows::core::Result<i16>;
-    fn SetShowTimeAxisLabels(&mut self, bstate: i16) -> ::windows::core::Result<()>;
-    fn ShowTimeAxisLabels(&mut self) -> ::windows::core::Result<i16>;
-    fn SetChartScroll(&mut self, bscroll: i16) -> ::windows::core::Result<()>;
-    fn ChartScroll(&mut self) -> ::windows::core::Result<i16>;
-    fn SetDataPointCount(&mut self, inewcount: i32) -> ::windows::core::Result<()>;
-    fn DataPointCount(&mut self) -> ::windows::core::Result<i32>;
-    fn ScaleToFit(&mut self, bselectedcountersonly: i16) -> ::windows::core::Result<()>;
-    fn SaveAs(&mut self, bstrfilename: &super::super::Foundation::BSTR, esysmonfiletype: SysmonFileType) -> ::windows::core::Result<()>;
-    fn Relog(&mut self, bstrfilename: &super::super::Foundation::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> ::windows::core::Result<()>;
-    fn ClearData(&mut self) -> ::windows::core::Result<()>;
-    fn LogSourceStartTime(&mut self) -> ::windows::core::Result<f64>;
-    fn LogSourceStopTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetLogViewRange(&mut self, starttime: f64, stoptime: f64) -> ::windows::core::Result<()>;
-    fn GetLogViewRange(&mut self, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::Result<()>;
-    fn BatchingLock(&mut self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()>;
-    fn LoadSettings(&mut self, bstrsettingfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Appearance(&self) -> ::windows::core::Result<i32>;
+    fn SetAppearance(&self, iappearance: i32) -> ::windows::core::Result<()>;
+    fn BackColor(&self) -> ::windows::core::Result<u32>;
+    fn SetBackColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn BorderStyle(&self) -> ::windows::core::Result<i32>;
+    fn SetBorderStyle(&self, iborderstyle: i32) -> ::windows::core::Result<()>;
+    fn ForeColor(&self) -> ::windows::core::Result<u32>;
+    fn SetForeColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn Font(&self) -> ::windows::core::Result<super::Ole::IFontDisp>;
+    fn putref_Font(&self, pfont: &::core::option::Option<super::Ole::IFontDisp>) -> ::windows::core::Result<()>;
+    fn Counters(&self) -> ::windows::core::Result<ICounters>;
+    fn SetShowVerticalGrid(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowVerticalGrid(&self) -> ::windows::core::Result<i16>;
+    fn SetShowHorizontalGrid(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowHorizontalGrid(&self) -> ::windows::core::Result<i16>;
+    fn SetShowLegend(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowLegend(&self) -> ::windows::core::Result<i16>;
+    fn SetShowScaleLabels(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowScaleLabels(&self) -> ::windows::core::Result<i16>;
+    fn SetShowValueBar(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowValueBar(&self) -> ::windows::core::Result<i16>;
+    fn SetMaximumScale(&self, ivalue: i32) -> ::windows::core::Result<()>;
+    fn MaximumScale(&self) -> ::windows::core::Result<i32>;
+    fn SetMinimumScale(&self, ivalue: i32) -> ::windows::core::Result<()>;
+    fn MinimumScale(&self) -> ::windows::core::Result<i32>;
+    fn SetUpdateInterval(&self, fvalue: f32) -> ::windows::core::Result<()>;
+    fn UpdateInterval(&self) -> ::windows::core::Result<f32>;
+    fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()>;
+    fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants>;
+    fn SetManualUpdate(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ManualUpdate(&self) -> ::windows::core::Result<i16>;
+    fn SetGraphTitle(&self, bstitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GraphTitle(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetYAxisLabel(&self, bstitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn YAxisLabel(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CollectSample(&self) -> ::windows::core::Result<()>;
+    fn UpdateGraph(&self) -> ::windows::core::Result<()>;
+    fn BrowseCounters(&self) -> ::windows::core::Result<()>;
+    fn DisplayProperties(&self) -> ::windows::core::Result<()>;
+    fn Counter(&self, iindex: i32) -> ::windows::core::Result<ICounterItem>;
+    fn AddCounter(&self, bspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<ICounterItem>;
+    fn DeleteCounter(&self, pctr: &::core::option::Option<ICounterItem>) -> ::windows::core::Result<()>;
+    fn BackColorCtl(&self) -> ::windows::core::Result<u32>;
+    fn SetBackColorCtl(&self, color: u32) -> ::windows::core::Result<()>;
+    fn SetLogFileName(&self, bsfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LogFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLogViewStart(&self, starttime: f64) -> ::windows::core::Result<()>;
+    fn LogViewStart(&self) -> ::windows::core::Result<f64>;
+    fn SetLogViewStop(&self, stoptime: f64) -> ::windows::core::Result<()>;
+    fn LogViewStop(&self) -> ::windows::core::Result<f64>;
+    fn GridColor(&self) -> ::windows::core::Result<u32>;
+    fn SetGridColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn TimeBarColor(&self) -> ::windows::core::Result<u32>;
+    fn SetTimeBarColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn Highlight(&self) -> ::windows::core::Result<i16>;
+    fn SetHighlight(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowToolbar(&self) -> ::windows::core::Result<i16>;
+    fn SetShowToolbar(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn Paste(&self) -> ::windows::core::Result<()>;
+    fn Copy(&self) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn SetReadOnly(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ReadOnly(&self) -> ::windows::core::Result<i16>;
+    fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()>;
+    fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants>;
+    fn SetMonitorDuplicateInstances(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn MonitorDuplicateInstances(&self) -> ::windows::core::Result<i16>;
+    fn SetDisplayFilter(&self, ivalue: i32) -> ::windows::core::Result<()>;
+    fn DisplayFilter(&self) -> ::windows::core::Result<i32>;
+    fn LogFiles(&self) -> ::windows::core::Result<ILogFiles>;
+    fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()>;
+    fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants>;
+    fn SetSqlDsnName(&self, bssqldsnname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SqlDsnName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSqlLogSetName(&self, bssqllogsetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SqlLogSetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetEnableDigitGrouping(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn EnableDigitGrouping(&self) -> ::windows::core::Result<i16>;
+    fn SetEnableToolTips(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn EnableToolTips(&self) -> ::windows::core::Result<i16>;
+    fn SetShowTimeAxisLabels(&self, bstate: i16) -> ::windows::core::Result<()>;
+    fn ShowTimeAxisLabels(&self) -> ::windows::core::Result<i16>;
+    fn SetChartScroll(&self, bscroll: i16) -> ::windows::core::Result<()>;
+    fn ChartScroll(&self) -> ::windows::core::Result<i16>;
+    fn SetDataPointCount(&self, inewcount: i32) -> ::windows::core::Result<()>;
+    fn DataPointCount(&self) -> ::windows::core::Result<i32>;
+    fn ScaleToFit(&self, bselectedcountersonly: i16) -> ::windows::core::Result<()>;
+    fn SaveAs(&self, bstrfilename: &super::super::Foundation::BSTR, esysmonfiletype: SysmonFileType) -> ::windows::core::Result<()>;
+    fn Relog(&self, bstrfilename: &super::super::Foundation::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> ::windows::core::Result<()>;
+    fn ClearData(&self) -> ::windows::core::Result<()>;
+    fn LogSourceStartTime(&self) -> ::windows::core::Result<f64>;
+    fn LogSourceStopTime(&self) -> ::windows::core::Result<f64>;
+    fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> ::windows::core::Result<()>;
+    fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::Result<()>;
+    fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()>;
+    fn LoadSettings(&self, bstrsettingfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _ISystemMonitorUnion_Vtbl {

@@ -31,9 +31,10 @@ impl ::core::fmt::Debug for SpeechRecognitionUIStatus {
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionUIStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Speech.Recognition.SpeechRecognitionUIStatus;i4)");
-}
-impl ::windows::core::DefaultType for SpeechRecognitionUIStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

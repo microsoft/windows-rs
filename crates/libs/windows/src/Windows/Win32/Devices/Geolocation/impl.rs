@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ICivicAddressReport_Impl: Sized + ILocationReport_Impl {
-    fn GetAddressLine1(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetAddressLine2(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetCity(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetStateProvince(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPostalCode(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetCountryRegion(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetDetailLevel(&mut self) -> ::windows::core::Result<u32>;
+    fn GetAddressLine1(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetAddressLine2(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetCity(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetStateProvince(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPostalCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetCountryRegion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDetailLevel(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ICivicAddressReport_Vtbl {
@@ -105,7 +105,7 @@ impl ICivicAddressReport_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICivicAddressReportFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocationReportFactory_Impl {
-    fn CivicAddressReport(&mut self) -> ::windows::core::Result<IDispCivicAddressReport>;
+    fn CivicAddressReport(&self) -> ::windows::core::Result<IDispCivicAddressReport>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICivicAddressReportFactory_Vtbl {
@@ -128,8 +128,8 @@ impl ICivicAddressReportFactory_Vtbl {
     }
 }
 pub trait IDefaultLocation_Impl: Sized {
-    fn SetReport(&mut self, reporttype: *const ::windows::core::GUID, plocationreport: &::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
-    fn GetReport(&mut self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport>;
+    fn SetReport(&self, reporttype: *const ::windows::core::GUID, plocationreport: &::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
+    fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport>;
 }
 impl IDefaultLocation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDefaultLocation_Impl, const OFFSET: isize>() -> IDefaultLocation_Vtbl {
@@ -161,14 +161,14 @@ impl IDefaultLocation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDispCivicAddressReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AddressLine1(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn AddressLine2(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn City(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn StateProvince(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn PostalCode(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CountryRegion(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DetailLevel(&mut self) -> ::windows::core::Result<u32>;
-    fn Timestamp(&mut self) -> ::windows::core::Result<f64>;
+    fn AddressLine1(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn AddressLine2(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn City(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn StateProvince(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PostalCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CountryRegion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DetailLevel(&self) -> ::windows::core::Result<u32>;
+    fn Timestamp(&self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDispCivicAddressReport_Vtbl {
@@ -279,12 +279,12 @@ impl IDispCivicAddressReport_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDispLatLongReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Latitude(&mut self) -> ::windows::core::Result<f64>;
-    fn Longitude(&mut self) -> ::windows::core::Result<f64>;
-    fn ErrorRadius(&mut self) -> ::windows::core::Result<f64>;
-    fn Altitude(&mut self) -> ::windows::core::Result<f64>;
-    fn AltitudeError(&mut self) -> ::windows::core::Result<f64>;
-    fn Timestamp(&mut self) -> ::windows::core::Result<f64>;
+    fn Latitude(&self) -> ::windows::core::Result<f64>;
+    fn Longitude(&self) -> ::windows::core::Result<f64>;
+    fn ErrorRadius(&self) -> ::windows::core::Result<f64>;
+    fn Altitude(&self) -> ::windows::core::Result<f64>;
+    fn AltitudeError(&self) -> ::windows::core::Result<f64>;
+    fn Timestamp(&self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDispLatLongReport_Vtbl {
@@ -371,11 +371,11 @@ impl IDispLatLongReport_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ILatLongReport_Impl: Sized + ILocationReport_Impl {
-    fn GetLatitude(&mut self) -> ::windows::core::Result<f64>;
-    fn GetLongitude(&mut self) -> ::windows::core::Result<f64>;
-    fn GetErrorRadius(&mut self) -> ::windows::core::Result<f64>;
-    fn GetAltitude(&mut self) -> ::windows::core::Result<f64>;
-    fn GetAltitudeError(&mut self) -> ::windows::core::Result<f64>;
+    fn GetLatitude(&self) -> ::windows::core::Result<f64>;
+    fn GetLongitude(&self) -> ::windows::core::Result<f64>;
+    fn GetErrorRadius(&self) -> ::windows::core::Result<f64>;
+    fn GetAltitude(&self) -> ::windows::core::Result<f64>;
+    fn GetAltitudeError(&self) -> ::windows::core::Result<f64>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ILatLongReport_Vtbl {
@@ -450,7 +450,7 @@ impl ILatLongReport_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILatLongReportFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl + ILocationReportFactory_Impl {
-    fn LatLongReport(&mut self) -> ::windows::core::Result<IDispLatLongReport>;
+    fn LatLongReport(&self) -> ::windows::core::Result<IDispLatLongReport>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ILatLongReportFactory_Vtbl {
@@ -474,15 +474,15 @@ impl ILatLongReportFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Devices_Sensors", feature = "Win32_Foundation"))]
 pub trait ILocation_Impl: Sized {
-    fn RegisterForReport(&mut self, pevents: &::core::option::Option<ILocationEvents>, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()>;
-    fn UnregisterForReport(&mut self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetReport(&mut self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport>;
-    fn GetReportStatus(&mut self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<LOCATION_REPORT_STATUS>;
-    fn GetReportInterval(&mut self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&mut self, reporttype: *const ::windows::core::GUID, millisecondsrequested: u32) -> ::windows::core::Result<()>;
-    fn GetDesiredAccuracy(&mut self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<super::Sensors::LOCATION_DESIRED_ACCURACY>;
-    fn SetDesiredAccuracy(&mut self, reporttype: *const ::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::Result<()>;
-    fn RequestPermissions(&mut self, hparent: super::super::Foundation::HWND, preporttypes: *const ::windows::core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn RegisterForReport(&self, pevents: &::core::option::Option<ILocationEvents>, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()>;
+    fn UnregisterForReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport>;
+    fn GetReportStatus(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<LOCATION_REPORT_STATUS>;
+    fn GetReportInterval(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&self, reporttype: *const ::windows::core::GUID, millisecondsrequested: u32) -> ::windows::core::Result<()>;
+    fn GetDesiredAccuracy(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<super::Sensors::LOCATION_DESIRED_ACCURACY>;
+    fn SetDesiredAccuracy(&self, reporttype: *const ::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::Result<()>;
+    fn RequestPermissions(&self, hparent: super::super::Foundation::HWND, preporttypes: *const ::windows::core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Devices_Sensors", feature = "Win32_Foundation"))]
 impl ILocation_Vtbl {
@@ -574,8 +574,8 @@ impl ILocation_Vtbl {
     }
 }
 pub trait ILocationEvents_Impl: Sized {
-    fn OnLocationChanged(&mut self, reporttype: *const ::windows::core::GUID, plocationreport: &::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
-    fn OnStatusChanged(&mut self, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::Result<()>;
+    fn OnLocationChanged(&self, reporttype: *const ::windows::core::GUID, plocationreport: &::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
+    fn OnStatusChanged(&self, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::Result<()>;
 }
 impl ILocationEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationEvents_Impl, const OFFSET: isize>() -> ILocationEvents_Vtbl {
@@ -600,8 +600,8 @@ impl ILocationEvents_Vtbl {
     }
 }
 pub trait ILocationPower_Impl: Sized {
-    fn Connect(&mut self) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self) -> ::windows::core::Result<()>;
+    fn Connect(&self) -> ::windows::core::Result<()>;
+    fn Disconnect(&self) -> ::windows::core::Result<()>;
 }
 impl ILocationPower_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationPower_Impl, const OFFSET: isize>() -> ILocationPower_Vtbl {
@@ -627,9 +627,9 @@ impl ILocationPower_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ILocationReport_Impl: Sized {
-    fn GetSensorID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
-    fn GetValue(&mut self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
+    fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ILocationReport_Vtbl {
@@ -680,14 +680,14 @@ impl ILocationReport_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ILocationReportFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ListenForReports(&mut self, requestedreportinterval: u32) -> ::windows::core::Result<()>;
-    fn StopListeningForReports(&mut self) -> ::windows::core::Result<()>;
-    fn Status(&mut self) -> ::windows::core::Result<u32>;
-    fn ReportInterval(&mut self) -> ::windows::core::Result<u32>;
-    fn SetReportInterval(&mut self, millisecondsrequested: u32) -> ::windows::core::Result<()>;
-    fn DesiredAccuracy(&mut self) -> ::windows::core::Result<u32>;
-    fn SetDesiredAccuracy(&mut self, desiredaccuracy: u32) -> ::windows::core::Result<()>;
-    fn RequestPermissions(&mut self, hwnd: *const u32) -> ::windows::core::Result<()>;
+    fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()>;
+    fn StopListeningForReports(&self) -> ::windows::core::Result<()>;
+    fn Status(&self) -> ::windows::core::Result<u32>;
+    fn ReportInterval(&self) -> ::windows::core::Result<u32>;
+    fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()>;
+    fn DesiredAccuracy(&self) -> ::windows::core::Result<u32>;
+    fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()>;
+    fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ILocationReportFactory_Vtbl {

@@ -14,18 +14,6 @@ pub struct MethodParam {
 }
 
 impl MethodSignature {
-    pub fn method_features(&self) -> BTreeSet<&'static str> {
-        let mut features = std::collections::BTreeSet::new();
-        let mut keys = std::collections::HashSet::new();
-        self.features(&mut features, &mut keys);
-        features
-    }
-
-    pub fn features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        self.return_sig.iter().for_each(|def| def.kind.features(features, keys));
-        self.params.iter().for_each(|def| def.signature.kind.features(features, keys));
-    }
-
     pub fn kind(&self) -> SignatureKind {
         if self.preserve_sig {
             return SignatureKind::PreserveSig;

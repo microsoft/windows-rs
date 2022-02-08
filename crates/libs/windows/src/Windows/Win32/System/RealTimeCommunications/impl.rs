@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub trait INetworkTransportSettings_Impl: Sized {
-    fn ApplySetting(&mut self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn QuerySetting(&mut self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn ApplySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn QuerySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl INetworkTransportSettings_Vtbl {
@@ -27,8 +27,8 @@ impl INetworkTransportSettings_Vtbl {
     }
 }
 pub trait INotificationTransportSync_Impl: Sized {
-    fn CompleteDelivery(&mut self) -> ::windows::core::Result<()>;
-    fn Flush(&mut self) -> ::windows::core::Result<()>;
+    fn CompleteDelivery(&self) -> ::windows::core::Result<()>;
+    fn Flush(&self) -> ::windows::core::Result<()>;
 }
 impl INotificationTransportSync_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationTransportSync_Impl, const OFFSET: isize>() -> INotificationTransportSync_Vtbl {
@@ -54,8 +54,8 @@ impl INotificationTransportSync_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCBuddy_Impl: Sized + IRTCPresenceContact_Impl {
-    fn Status(&mut self) -> ::windows::core::Result<RTC_PRESENCE_STATUS>;
-    fn Notes(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Status(&self) -> ::windows::core::Result<RTC_PRESENCE_STATUS>;
+    fn Notes(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCBuddy_Vtbl {
@@ -94,14 +94,14 @@ impl IRTCBuddy_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCBuddy2_Impl: Sized + IRTCPresenceContact_Impl + IRTCBuddy_Impl {
-    fn Profile(&mut self) -> ::windows::core::Result<IRTCProfile2>;
-    fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn EnumerateGroups(&mut self) -> ::windows::core::Result<IRTCEnumGroups>;
-    fn Groups(&mut self) -> ::windows::core::Result<IRTCCollection>;
-    fn PresenceProperty(&mut self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn EnumeratePresenceDevices(&mut self) -> ::windows::core::Result<IRTCEnumPresenceDevices>;
-    fn PresenceDevices(&mut self) -> ::windows::core::Result<IRTCCollection>;
-    fn SubscriptionType(&mut self) -> ::windows::core::Result<RTC_BUDDY_SUBSCRIPTION_TYPE>;
+    fn Profile(&self) -> ::windows::core::Result<IRTCProfile2>;
+    fn Refresh(&self) -> ::windows::core::Result<()>;
+    fn EnumerateGroups(&self) -> ::windows::core::Result<IRTCEnumGroups>;
+    fn Groups(&self) -> ::windows::core::Result<IRTCCollection>;
+    fn PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn EnumeratePresenceDevices(&self) -> ::windows::core::Result<IRTCEnumPresenceDevices>;
+    fn PresenceDevices(&self) -> ::windows::core::Result<IRTCCollection>;
+    fn SubscriptionType(&self) -> ::windows::core::Result<RTC_BUDDY_SUBSCRIPTION_TYPE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCBuddy2_Vtbl {
@@ -206,7 +206,7 @@ impl IRTCBuddy2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCBuddyEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Buddy(&mut self) -> ::windows::core::Result<IRTCBuddy>;
+    fn Buddy(&self) -> ::windows::core::Result<IRTCBuddy>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCBuddyEvent_Vtbl {
@@ -230,9 +230,9 @@ impl IRTCBuddyEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCBuddyEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCBuddyEvent_Impl {
-    fn EventType(&mut self) -> ::windows::core::Result<RTC_BUDDY_EVENT_TYPE>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
-    fn StatusText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn EventType(&self) -> ::windows::core::Result<RTC_BUDDY_EVENT_TYPE>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
+    fn StatusText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCBuddyEvent2_Vtbl {
@@ -283,15 +283,15 @@ impl IRTCBuddyEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCBuddyGroup_Impl: Sized {
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrgroupname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddBuddy(&mut self, pbuddy: &::core::option::Option<IRTCBuddy>) -> ::windows::core::Result<()>;
-    fn RemoveBuddy(&mut self, pbuddy: &::core::option::Option<IRTCBuddy>) -> ::windows::core::Result<()>;
-    fn EnumerateBuddies(&mut self) -> ::windows::core::Result<IRTCEnumBuddies>;
-    fn Buddies(&mut self) -> ::windows::core::Result<IRTCCollection>;
-    fn Data(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetData(&mut self, bstrdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Profile(&mut self) -> ::windows::core::Result<IRTCProfile2>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetName(&self, bstrgroupname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddBuddy(&self, pbuddy: &::core::option::Option<IRTCBuddy>) -> ::windows::core::Result<()>;
+    fn RemoveBuddy(&self, pbuddy: &::core::option::Option<IRTCBuddy>) -> ::windows::core::Result<()>;
+    fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies>;
+    fn Buddies(&self) -> ::windows::core::Result<IRTCCollection>;
+    fn Data(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetData(&self, bstrdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Profile(&self) -> ::windows::core::Result<IRTCProfile2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCBuddyGroup_Vtbl {
@@ -390,10 +390,10 @@ impl IRTCBuddyGroup_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCBuddyGroupEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn EventType(&mut self) -> ::windows::core::Result<RTC_GROUP_EVENT_TYPE>;
-    fn Group(&mut self) -> ::windows::core::Result<IRTCBuddyGroup>;
-    fn Buddy(&mut self) -> ::windows::core::Result<IRTCBuddy2>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
+    fn EventType(&self) -> ::windows::core::Result<RTC_GROUP_EVENT_TYPE>;
+    fn Group(&self) -> ::windows::core::Result<IRTCBuddyGroup>;
+    fn Buddy(&self) -> ::windows::core::Result<IRTCBuddy2>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCBuddyGroupEvent_Vtbl {
@@ -456,48 +456,48 @@ impl IRTCBuddyGroupEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCClient_Impl: Sized {
-    fn Initialize(&mut self) -> ::windows::core::Result<()>;
-    fn Shutdown(&mut self) -> ::windows::core::Result<()>;
-    fn PrepareForShutdown(&mut self) -> ::windows::core::Result<()>;
-    fn SetEventFilter(&mut self, lfilter: i32) -> ::windows::core::Result<()>;
-    fn EventFilter(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPreferredMediaTypes(&mut self, lmediatypes: i32, fpersistent: i16) -> ::windows::core::Result<()>;
-    fn PreferredMediaTypes(&mut self) -> ::windows::core::Result<i32>;
-    fn MediaCapabilities(&mut self) -> ::windows::core::Result<i32>;
-    fn CreateSession(&mut self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &super::super::Foundation::BSTR, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCSession>;
-    fn SetListenForIncomingSessions(&mut self, enlisten: RTC_LISTEN_MODE) -> ::windows::core::Result<()>;
-    fn ListenForIncomingSessions(&mut self) -> ::windows::core::Result<RTC_LISTEN_MODE>;
-    fn NetworkAddresses(&mut self, ftcp: i16, fexternal: i16) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetVolume(&mut self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()>;
-    fn Volume(&mut self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32>;
-    fn SetAudioMuted(&mut self, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::Result<()>;
-    fn AudioMuted(&mut self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i16>;
-    fn IVideoWindow(&mut self, endevice: RTC_VIDEO_DEVICE) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow>;
-    fn SetPreferredAudioDevice(&mut self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PreferredAudioDevice(&mut self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPreferredVolume(&mut self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()>;
-    fn PreferredVolume(&mut self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32>;
-    fn SetPreferredAEC(&mut self, benable: i16) -> ::windows::core::Result<()>;
-    fn PreferredAEC(&mut self) -> ::windows::core::Result<i16>;
-    fn SetPreferredVideoDevice(&mut self, bstrdevicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PreferredVideoDevice(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ActiveMedia(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxBitrate(&mut self, lmaxbitrate: i32) -> ::windows::core::Result<()>;
-    fn MaxBitrate(&mut self) -> ::windows::core::Result<i32>;
-    fn SetTemporalSpatialTradeOff(&mut self, lvalue: i32) -> ::windows::core::Result<()>;
-    fn TemporalSpatialTradeOff(&mut self) -> ::windows::core::Result<i32>;
-    fn NetworkQuality(&mut self) -> ::windows::core::Result<i32>;
-    fn StartT120Applet(&mut self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<()>;
-    fn StopT120Applets(&mut self) -> ::windows::core::Result<()>;
-    fn IsT120AppletRunning(&mut self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<i16>;
-    fn LocalUserURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocalUserURI(&mut self, bstruseruri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LocalUserName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocalUserName(&mut self, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PlayRing(&mut self, entype: RTC_RING_TYPE, bplay: i16) -> ::windows::core::Result<()>;
-    fn SendDTMF(&mut self, endtmf: RTC_DTMF) -> ::windows::core::Result<()>;
-    fn InvokeTuningWizard(&mut self, hwndparent: isize) -> ::windows::core::Result<()>;
-    fn IsTuned(&mut self) -> ::windows::core::Result<i16>;
+    fn Initialize(&self) -> ::windows::core::Result<()>;
+    fn Shutdown(&self) -> ::windows::core::Result<()>;
+    fn PrepareForShutdown(&self) -> ::windows::core::Result<()>;
+    fn SetEventFilter(&self, lfilter: i32) -> ::windows::core::Result<()>;
+    fn EventFilter(&self) -> ::windows::core::Result<i32>;
+    fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: i16) -> ::windows::core::Result<()>;
+    fn PreferredMediaTypes(&self) -> ::windows::core::Result<i32>;
+    fn MediaCapabilities(&self) -> ::windows::core::Result<i32>;
+    fn CreateSession(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &super::super::Foundation::BSTR, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCSession>;
+    fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> ::windows::core::Result<()>;
+    fn ListenForIncomingSessions(&self) -> ::windows::core::Result<RTC_LISTEN_MODE>;
+    fn NetworkAddresses(&self, ftcp: i16, fexternal: i16) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()>;
+    fn Volume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32>;
+    fn SetAudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::Result<()>;
+    fn AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i16>;
+    fn IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow>;
+    fn SetPreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()>;
+    fn PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32>;
+    fn SetPreferredAEC(&self, benable: i16) -> ::windows::core::Result<()>;
+    fn PreferredAEC(&self) -> ::windows::core::Result<i16>;
+    fn SetPreferredVideoDevice(&self, bstrdevicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PreferredVideoDevice(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ActiveMedia(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxBitrate(&self, lmaxbitrate: i32) -> ::windows::core::Result<()>;
+    fn MaxBitrate(&self) -> ::windows::core::Result<i32>;
+    fn SetTemporalSpatialTradeOff(&self, lvalue: i32) -> ::windows::core::Result<()>;
+    fn TemporalSpatialTradeOff(&self) -> ::windows::core::Result<i32>;
+    fn NetworkQuality(&self) -> ::windows::core::Result<i32>;
+    fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<()>;
+    fn StopT120Applets(&self) -> ::windows::core::Result<()>;
+    fn IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<i16>;
+    fn LocalUserURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocalUserURI(&self, bstruseruri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LocalUserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocalUserName(&self, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: i16) -> ::windows::core::Result<()>;
+    fn SendDTMF(&self, endtmf: RTC_DTMF) -> ::windows::core::Result<()>;
+    fn InvokeTuningWizard(&self, hwndparent: isize) -> ::windows::core::Result<()>;
+    fn IsTuned(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCClient_Vtbl {
@@ -890,19 +890,19 @@ impl IRTCClient_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCClient2_Impl: Sized + IRTCClient_Impl {
-    fn SetAnswerMode(&mut self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::Result<()>;
-    fn AnswerMode(&mut self, entype: RTC_SESSION_TYPE) -> ::windows::core::Result<RTC_ANSWER_MODE>;
-    fn InvokeTuningWizardEx(&mut self, hwndparent: isize, fallowaudio: i16, fallowvideo: i16) -> ::windows::core::Result<()>;
-    fn Version(&mut self) -> ::windows::core::Result<i32>;
-    fn SetClientName(&mut self, bstrclientname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetClientCurVer(&mut self, bstrclientcurver: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InitializeEx(&mut self, lflags: i32) -> ::windows::core::Result<()>;
-    fn CreateSessionWithDescription(&mut self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCSession2>;
-    fn SetSessionDescriptionManager(&mut self, psessiondescriptionmanager: &::core::option::Option<IRTCSessionDescriptionManager>) -> ::windows::core::Result<()>;
-    fn SetPreferredSecurityLevel(&mut self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()>;
-    fn PreferredSecurityLevel(&mut self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
-    fn SetAllowedPorts(&mut self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::Result<()>;
-    fn AllowedPorts(&mut self, ltransport: i32) -> ::windows::core::Result<RTC_LISTEN_MODE>;
+    fn SetAnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::Result<()>;
+    fn AnswerMode(&self, entype: RTC_SESSION_TYPE) -> ::windows::core::Result<RTC_ANSWER_MODE>;
+    fn InvokeTuningWizardEx(&self, hwndparent: isize, fallowaudio: i16, fallowvideo: i16) -> ::windows::core::Result<()>;
+    fn Version(&self) -> ::windows::core::Result<i32>;
+    fn SetClientName(&self, bstrclientname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetClientCurVer(&self, bstrclientcurver: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InitializeEx(&self, lflags: i32) -> ::windows::core::Result<()>;
+    fn CreateSessionWithDescription(&self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCSession2>;
+    fn SetSessionDescriptionManager(&self, psessiondescriptionmanager: &::core::option::Option<IRTCSessionDescriptionManager>) -> ::windows::core::Result<()>;
+    fn SetPreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()>;
+    fn PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
+    fn SetAllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::Result<()>;
+    fn AllowedPorts(&self, ltransport: i32) -> ::windows::core::Result<RTC_LISTEN_MODE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCClient2_Vtbl {
@@ -1025,8 +1025,8 @@ impl IRTCClient2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCClientEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn EventType(&mut self) -> ::windows::core::Result<RTC_CLIENT_EVENT_TYPE>;
-    fn Client(&mut self) -> ::windows::core::Result<IRTCClient>;
+    fn EventType(&self) -> ::windows::core::Result<RTC_CLIENT_EVENT_TYPE>;
+    fn Client(&self) -> ::windows::core::Result<IRTCClient>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCClientEvent_Vtbl {
@@ -1065,9 +1065,9 @@ impl IRTCClientEvent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCClientPortManagement_Impl: Sized {
-    fn StartListenAddressAndPort(&mut self, bstrinternallocaladdress: &super::super::Foundation::BSTR, linternallocalport: i32) -> ::windows::core::Result<()>;
-    fn StopListenAddressAndPort(&mut self, bstrinternallocaladdress: &super::super::Foundation::BSTR, linternallocalport: i32) -> ::windows::core::Result<()>;
-    fn GetPortRange(&mut self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::Result<()>;
+    fn StartListenAddressAndPort(&self, bstrinternallocaladdress: &super::super::Foundation::BSTR, linternallocalport: i32) -> ::windows::core::Result<()>;
+    fn StopListenAddressAndPort(&self, bstrinternallocaladdress: &super::super::Foundation::BSTR, linternallocalport: i32) -> ::windows::core::Result<()>;
+    fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCClientPortManagement_Vtbl {
@@ -1100,24 +1100,24 @@ impl IRTCClientPortManagement_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCClientPresence_Impl: Sized {
-    fn EnablePresence(&mut self, fusestorage: i16, varstorage: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Export(&mut self, varstorage: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Import(&mut self, varstorage: &super::Com::VARIANT, freplaceall: i16) -> ::windows::core::Result<()>;
-    fn EnumerateBuddies(&mut self) -> ::windows::core::Result<IRTCEnumBuddies>;
-    fn Buddies(&mut self) -> ::windows::core::Result<IRTCCollection>;
-    fn Buddy(&mut self, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCBuddy>;
-    fn AddBuddy(&mut self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, fpersistent: i16, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCBuddy>;
-    fn RemoveBuddy(&mut self, pbuddy: &::core::option::Option<IRTCBuddy>) -> ::windows::core::Result<()>;
-    fn EnumerateWatchers(&mut self) -> ::windows::core::Result<IRTCEnumWatchers>;
-    fn Watchers(&mut self) -> ::windows::core::Result<IRTCCollection>;
-    fn Watcher(&mut self, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCWatcher>;
-    fn AddWatcher(&mut self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher>;
-    fn RemoveWatcher(&mut self, pwatcher: &::core::option::Option<IRTCWatcher>) -> ::windows::core::Result<()>;
-    fn SetLocalPresenceInfo(&mut self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OfferWatcherMode(&mut self) -> ::windows::core::Result<RTC_OFFER_WATCHER_MODE>;
-    fn SetOfferWatcherMode(&mut self, enmode: RTC_OFFER_WATCHER_MODE) -> ::windows::core::Result<()>;
-    fn PrivacyMode(&mut self) -> ::windows::core::Result<RTC_PRIVACY_MODE>;
-    fn SetPrivacyMode(&mut self, enmode: RTC_PRIVACY_MODE) -> ::windows::core::Result<()>;
+    fn EnablePresence(&self, fusestorage: i16, varstorage: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Export(&self, varstorage: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Import(&self, varstorage: &super::Com::VARIANT, freplaceall: i16) -> ::windows::core::Result<()>;
+    fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies>;
+    fn Buddies(&self) -> ::windows::core::Result<IRTCCollection>;
+    fn Buddy(&self, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCBuddy>;
+    fn AddBuddy(&self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, fpersistent: i16, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCBuddy>;
+    fn RemoveBuddy(&self, pbuddy: &::core::option::Option<IRTCBuddy>) -> ::windows::core::Result<()>;
+    fn EnumerateWatchers(&self) -> ::windows::core::Result<IRTCEnumWatchers>;
+    fn Watchers(&self) -> ::windows::core::Result<IRTCCollection>;
+    fn Watcher(&self, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCWatcher>;
+    fn AddWatcher(&self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher>;
+    fn RemoveWatcher(&self, pwatcher: &::core::option::Option<IRTCWatcher>) -> ::windows::core::Result<()>;
+    fn SetLocalPresenceInfo(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OfferWatcherMode(&self) -> ::windows::core::Result<RTC_OFFER_WATCHER_MODE>;
+    fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> ::windows::core::Result<()>;
+    fn PrivacyMode(&self) -> ::windows::core::Result<RTC_PRIVACY_MODE>;
+    fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCClientPresence_Vtbl {
@@ -1300,21 +1300,21 @@ impl IRTCClientPresence_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCClientPresence2_Impl: Sized + IRTCClientPresence_Impl {
-    fn EnablePresenceEx(&mut self, pprofile: &::core::option::Option<IRTCProfile>, varstorage: &super::Com::VARIANT, lflags: i32) -> ::windows::core::Result<()>;
-    fn DisablePresence(&mut self) -> ::windows::core::Result<()>;
-    fn AddGroup(&mut self, bstrgroupname: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCBuddyGroup>;
-    fn RemoveGroup(&mut self, pgroup: &::core::option::Option<IRTCBuddyGroup>) -> ::windows::core::Result<()>;
-    fn EnumerateGroups(&mut self) -> ::windows::core::Result<IRTCEnumGroups>;
-    fn Groups(&mut self) -> ::windows::core::Result<IRTCCollection>;
-    fn Group(&mut self, bstrgroupname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCBuddyGroup>;
-    fn AddWatcherEx(&mut self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: i16, enscope: RTC_ACE_SCOPE, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCWatcher2>;
-    fn WatcherEx(&mut self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCWatcher2>;
-    fn SetPresenceProperty(&mut self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PresenceProperty(&mut self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPresenceData(&mut self, bstrnamespace: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetPresenceData(&mut self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetLocalPresenceInfo(&mut self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddBuddyEx(&mut self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, fpersistent: i16, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCBuddy2>;
+    fn EnablePresenceEx(&self, pprofile: &::core::option::Option<IRTCProfile>, varstorage: &super::Com::VARIANT, lflags: i32) -> ::windows::core::Result<()>;
+    fn DisablePresence(&self) -> ::windows::core::Result<()>;
+    fn AddGroup(&self, bstrgroupname: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCBuddyGroup>;
+    fn RemoveGroup(&self, pgroup: &::core::option::Option<IRTCBuddyGroup>) -> ::windows::core::Result<()>;
+    fn EnumerateGroups(&self) -> ::windows::core::Result<IRTCEnumGroups>;
+    fn Groups(&self) -> ::windows::core::Result<IRTCCollection>;
+    fn Group(&self, bstrgroupname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCBuddyGroup>;
+    fn AddWatcherEx(&self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: i16, enscope: RTC_ACE_SCOPE, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCWatcher2>;
+    fn WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCWatcher2>;
+    fn SetPresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPresenceData(&self, bstrnamespace: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetPresenceData(&self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddBuddyEx(&self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, fpersistent: i16, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCBuddy2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCClientPresence2_Vtbl {
@@ -1467,13 +1467,13 @@ impl IRTCClientPresence2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCClientProvisioning_Impl: Sized {
-    fn CreateProfile(&mut self, bstrprofilexml: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCProfile>;
-    fn EnableProfile(&mut self, pprofile: &::core::option::Option<IRTCProfile>, lregisterflags: i32) -> ::windows::core::Result<()>;
-    fn DisableProfile(&mut self, pprofile: &::core::option::Option<IRTCProfile>) -> ::windows::core::Result<()>;
-    fn EnumerateProfiles(&mut self) -> ::windows::core::Result<IRTCEnumProfiles>;
-    fn Profiles(&mut self) -> ::windows::core::Result<IRTCCollection>;
-    fn GetProfile(&mut self, bstruseraccount: &super::super::Foundation::BSTR, bstruserpassword: &super::super::Foundation::BSTR, bstruseruri: &super::super::Foundation::BSTR, bstrserver: &super::super::Foundation::BSTR, ltransport: i32, lcookie: isize) -> ::windows::core::Result<()>;
-    fn SessionCapabilities(&mut self) -> ::windows::core::Result<i32>;
+    fn CreateProfile(&self, bstrprofilexml: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCProfile>;
+    fn EnableProfile(&self, pprofile: &::core::option::Option<IRTCProfile>, lregisterflags: i32) -> ::windows::core::Result<()>;
+    fn DisableProfile(&self, pprofile: &::core::option::Option<IRTCProfile>) -> ::windows::core::Result<()>;
+    fn EnumerateProfiles(&self) -> ::windows::core::Result<IRTCEnumProfiles>;
+    fn Profiles(&self) -> ::windows::core::Result<IRTCCollection>;
+    fn GetProfile(&self, bstruseraccount: &super::super::Foundation::BSTR, bstruserpassword: &super::super::Foundation::BSTR, bstruseruri: &super::super::Foundation::BSTR, bstrserver: &super::super::Foundation::BSTR, ltransport: i32, lcookie: isize) -> ::windows::core::Result<()>;
+    fn SessionCapabilities(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCClientProvisioning_Vtbl {
@@ -1554,7 +1554,7 @@ impl IRTCClientProvisioning_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCClientProvisioning2_Impl: Sized + IRTCClientProvisioning_Impl {
-    fn EnableProfileEx(&mut self, pprofile: &::core::option::Option<IRTCProfile>, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::Result<()>;
+    fn EnableProfileEx(&self, pprofile: &::core::option::Option<IRTCProfile>, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCClientProvisioning2_Vtbl {
@@ -1572,9 +1572,9 @@ impl IRTCClientProvisioning2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCCollection_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCCollection_Vtbl {
@@ -1635,10 +1635,10 @@ impl IRTCDispatchEventNotification_Vtbl {
     }
 }
 pub trait IRTCEnumBuddies_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppelements: *mut ::core::option::Option<IRTCBuddy>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IRTCEnumBuddies>;
+    fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<IRTCBuddy>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IRTCEnumBuddies>;
 }
 impl IRTCEnumBuddies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCEnumBuddies_Impl, const OFFSET: isize>() -> IRTCEnumBuddies_Vtbl {
@@ -1681,10 +1681,10 @@ impl IRTCEnumBuddies_Vtbl {
     }
 }
 pub trait IRTCEnumGroups_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppelements: *mut ::core::option::Option<IRTCBuddyGroup>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IRTCEnumGroups>;
+    fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<IRTCBuddyGroup>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IRTCEnumGroups>;
 }
 impl IRTCEnumGroups_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCEnumGroups_Impl, const OFFSET: isize>() -> IRTCEnumGroups_Vtbl {
@@ -1727,10 +1727,10 @@ impl IRTCEnumGroups_Vtbl {
     }
 }
 pub trait IRTCEnumParticipants_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppelements: *mut ::core::option::Option<IRTCParticipant>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IRTCEnumParticipants>;
+    fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<IRTCParticipant>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IRTCEnumParticipants>;
 }
 impl IRTCEnumParticipants_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCEnumParticipants_Impl, const OFFSET: isize>() -> IRTCEnumParticipants_Vtbl {
@@ -1773,10 +1773,10 @@ impl IRTCEnumParticipants_Vtbl {
     }
 }
 pub trait IRTCEnumPresenceDevices_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppelements: *mut ::core::option::Option<IRTCPresenceDevice>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IRTCEnumPresenceDevices>;
+    fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<IRTCPresenceDevice>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IRTCEnumPresenceDevices>;
 }
 impl IRTCEnumPresenceDevices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCEnumPresenceDevices_Impl, const OFFSET: isize>() -> IRTCEnumPresenceDevices_Vtbl {
@@ -1819,10 +1819,10 @@ impl IRTCEnumPresenceDevices_Vtbl {
     }
 }
 pub trait IRTCEnumProfiles_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppelements: *mut ::core::option::Option<IRTCProfile>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IRTCEnumProfiles>;
+    fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<IRTCProfile>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IRTCEnumProfiles>;
 }
 impl IRTCEnumProfiles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCEnumProfiles_Impl, const OFFSET: isize>() -> IRTCEnumProfiles_Vtbl {
@@ -1865,10 +1865,10 @@ impl IRTCEnumProfiles_Vtbl {
     }
 }
 pub trait IRTCEnumUserSearchResults_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppelements: *mut ::core::option::Option<IRTCUserSearchResult>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IRTCEnumUserSearchResults>;
+    fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<IRTCUserSearchResult>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IRTCEnumUserSearchResults>;
 }
 impl IRTCEnumUserSearchResults_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCEnumUserSearchResults_Impl, const OFFSET: isize>() -> IRTCEnumUserSearchResults_Vtbl {
@@ -1911,10 +1911,10 @@ impl IRTCEnumUserSearchResults_Vtbl {
     }
 }
 pub trait IRTCEnumWatchers_Impl: Sized {
-    fn Next(&mut self, celt: u32, ppelements: *mut ::core::option::Option<IRTCWatcher>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IRTCEnumWatchers>;
+    fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<IRTCWatcher>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IRTCEnumWatchers>;
 }
 impl IRTCEnumWatchers_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCEnumWatchers_Impl, const OFFSET: isize>() -> IRTCEnumWatchers_Vtbl {
@@ -1958,7 +1958,7 @@ impl IRTCEnumWatchers_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCEventNotification_Impl: Sized {
-    fn Event(&mut self, rtcevent: RTC_EVENT, pevent: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Event(&self, rtcevent: RTC_EVENT, pevent: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCEventNotification_Vtbl {
@@ -1976,10 +1976,10 @@ impl IRTCEventNotification_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCInfoEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Session(&mut self) -> ::windows::core::Result<IRTCSession2>;
-    fn Participant(&mut self) -> ::windows::core::Result<IRTCParticipant>;
-    fn Info(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn InfoHeader(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Session(&self) -> ::windows::core::Result<IRTCSession2>;
+    fn Participant(&self) -> ::windows::core::Result<IRTCParticipant>;
+    fn Info(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn InfoHeader(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCInfoEvent_Vtbl {
@@ -2042,10 +2042,10 @@ impl IRTCInfoEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCIntensityEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Level(&mut self) -> ::windows::core::Result<i32>;
-    fn Min(&mut self) -> ::windows::core::Result<i32>;
-    fn Max(&mut self) -> ::windows::core::Result<i32>;
-    fn Direction(&mut self) -> ::windows::core::Result<RTC_AUDIO_DEVICE>;
+    fn Level(&self) -> ::windows::core::Result<i32>;
+    fn Min(&self) -> ::windows::core::Result<i32>;
+    fn Max(&self) -> ::windows::core::Result<i32>;
+    fn Direction(&self) -> ::windows::core::Result<RTC_AUDIO_DEVICE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCIntensityEvent_Vtbl {
@@ -2108,9 +2108,9 @@ impl IRTCIntensityEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCMediaEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn MediaType(&mut self) -> ::windows::core::Result<i32>;
-    fn EventType(&mut self) -> ::windows::core::Result<RTC_MEDIA_EVENT_TYPE>;
-    fn EventReason(&mut self) -> ::windows::core::Result<RTC_MEDIA_EVENT_REASON>;
+    fn MediaType(&self) -> ::windows::core::Result<i32>;
+    fn EventType(&self) -> ::windows::core::Result<RTC_MEDIA_EVENT_TYPE>;
+    fn EventReason(&self) -> ::windows::core::Result<RTC_MEDIA_EVENT_REASON>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCMediaEvent_Vtbl {
@@ -2161,13 +2161,13 @@ impl IRTCMediaEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCMediaRequestEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Session(&mut self) -> ::windows::core::Result<IRTCSession2>;
-    fn ProposedMedia(&mut self) -> ::windows::core::Result<i32>;
-    fn CurrentMedia(&mut self) -> ::windows::core::Result<i32>;
-    fn Accept(&mut self, lmediatypes: i32) -> ::windows::core::Result<()>;
-    fn RemotePreferredSecurityLevel(&mut self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
-    fn Reject(&mut self) -> ::windows::core::Result<()>;
-    fn State(&mut self) -> ::windows::core::Result<RTC_REINVITE_STATE>;
+    fn Session(&self) -> ::windows::core::Result<IRTCSession2>;
+    fn ProposedMedia(&self) -> ::windows::core::Result<i32>;
+    fn CurrentMedia(&self) -> ::windows::core::Result<i32>;
+    fn Accept(&self, lmediatypes: i32) -> ::windows::core::Result<()>;
+    fn RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
+    fn Reject(&self) -> ::windows::core::Result<()>;
+    fn State(&self) -> ::windows::core::Result<RTC_REINVITE_STATE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCMediaRequestEvent_Vtbl {
@@ -2254,12 +2254,12 @@ impl IRTCMediaRequestEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCMessagingEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Session(&mut self) -> ::windows::core::Result<IRTCSession>;
-    fn Participant(&mut self) -> ::windows::core::Result<IRTCParticipant>;
-    fn EventType(&mut self) -> ::windows::core::Result<RTC_MESSAGING_EVENT_TYPE>;
-    fn Message(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn MessageHeader(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn UserStatus(&mut self) -> ::windows::core::Result<RTC_MESSAGING_USER_STATUS>;
+    fn Session(&self) -> ::windows::core::Result<IRTCSession>;
+    fn Participant(&self) -> ::windows::core::Result<IRTCParticipant>;
+    fn EventType(&self) -> ::windows::core::Result<RTC_MESSAGING_EVENT_TYPE>;
+    fn Message(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn MessageHeader(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn UserStatus(&self) -> ::windows::core::Result<RTC_MESSAGING_USER_STATUS>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCMessagingEvent_Vtbl {
@@ -2346,11 +2346,11 @@ impl IRTCMessagingEvent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCParticipant_Impl: Sized {
-    fn UserURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Removable(&mut self) -> ::windows::core::Result<i16>;
-    fn State(&mut self) -> ::windows::core::Result<RTC_PARTICIPANT_STATE>;
-    fn Session(&mut self) -> ::windows::core::Result<IRTCSession>;
+    fn UserURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Removable(&self) -> ::windows::core::Result<i16>;
+    fn State(&self) -> ::windows::core::Result<RTC_PARTICIPANT_STATE>;
+    fn Session(&self) -> ::windows::core::Result<IRTCSession>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCParticipant_Vtbl {
@@ -2425,9 +2425,9 @@ impl IRTCParticipant_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCParticipantStateChangeEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Participant(&mut self) -> ::windows::core::Result<IRTCParticipant>;
-    fn State(&mut self) -> ::windows::core::Result<RTC_PARTICIPANT_STATE>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
+    fn Participant(&self) -> ::windows::core::Result<IRTCParticipant>;
+    fn State(&self) -> ::windows::core::Result<RTC_PARTICIPANT_STATE>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCParticipantStateChangeEvent_Vtbl {
@@ -2478,9 +2478,9 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCPortManager_Impl: Sized {
-    fn GetMapping(&mut self, bstrremoteaddress: &super::super::Foundation::BSTR, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::core::Result<()>;
-    fn UpdateRemoteAddress(&mut self, bstrremoteaddress: &super::super::Foundation::BSTR, bstrinternallocaladdress: &super::super::Foundation::BSTR, linternallocalport: i32, bstrexternallocaladdress: &super::super::Foundation::BSTR, lexternallocalport: i32) -> ::windows::core::Result<()>;
-    fn ReleaseMapping(&mut self, bstrinternallocaladdress: &super::super::Foundation::BSTR, linternallocalport: i32, bstrexternallocaladdress: &super::super::Foundation::BSTR, lexternallocaladdress: i32) -> ::windows::core::Result<()>;
+    fn GetMapping(&self, bstrremoteaddress: &super::super::Foundation::BSTR, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut super::super::Foundation::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut super::super::Foundation::BSTR, plexternallocalport: *mut i32) -> ::windows::core::Result<()>;
+    fn UpdateRemoteAddress(&self, bstrremoteaddress: &super::super::Foundation::BSTR, bstrinternallocaladdress: &super::super::Foundation::BSTR, linternallocalport: i32, bstrexternallocaladdress: &super::super::Foundation::BSTR, lexternallocalport: i32) -> ::windows::core::Result<()>;
+    fn ReleaseMapping(&self, bstrinternallocaladdress: &super::super::Foundation::BSTR, linternallocalport: i32, bstrexternallocaladdress: &super::super::Foundation::BSTR, lexternallocaladdress: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCPortManager_Vtbl {
@@ -2513,14 +2513,14 @@ impl IRTCPortManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCPresenceContact_Impl: Sized {
-    fn PresentityURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPresentityURI(&mut self, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Data(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetData(&mut self, bstrdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Persistent(&mut self) -> ::windows::core::Result<i16>;
-    fn SetPersistent(&mut self, fpersistent: i16) -> ::windows::core::Result<()>;
+    fn PresentityURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPresentityURI(&self, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetName(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Data(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetData(&self, bstrdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Persistent(&self) -> ::windows::core::Result<i16>;
+    fn SetPersistent(&self, fpersistent: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCPresenceContact_Vtbl {
@@ -2607,9 +2607,9 @@ impl IRTCPresenceContact_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCPresenceDataEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
-    fn StatusText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPresenceData(&mut self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
+    fn StatusText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPresenceData(&self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCPresenceDataEvent_Vtbl {
@@ -2654,10 +2654,10 @@ impl IRTCPresenceDataEvent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCPresenceDevice_Impl: Sized {
-    fn Status(&mut self) -> ::windows::core::Result<RTC_PRESENCE_STATUS>;
-    fn Notes(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn PresenceProperty(&mut self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPresenceData(&mut self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Status(&self) -> ::windows::core::Result<RTC_PRESENCE_STATUS>;
+    fn Notes(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPresenceData(&self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCPresenceDevice_Vtbl {
@@ -2714,10 +2714,10 @@ impl IRTCPresenceDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCPresencePropertyEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
-    fn StatusText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn PresenceProperty(&mut self) -> ::windows::core::Result<RTC_PRESENCE_PROPERTY>;
-    fn Value(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
+    fn StatusText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PresenceProperty(&self) -> ::windows::core::Result<RTC_PRESENCE_PROPERTY>;
+    fn Value(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCPresencePropertyEvent_Vtbl {
@@ -2780,9 +2780,9 @@ impl IRTCPresencePropertyEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCPresenceStatusEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
-    fn StatusText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetLocalPresenceInfo(&mut self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
+    fn StatusText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCPresenceStatusEvent_Vtbl {
@@ -2827,24 +2827,24 @@ impl IRTCPresenceStatusEvent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCProfile_Impl: Sized {
-    fn Key(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn XML(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProviderName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProviderURI(&mut self, enuri: RTC_PROVIDER_URI) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProviderData(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ClientName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ClientBanner(&mut self) -> ::windows::core::Result<i16>;
-    fn ClientMinVer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ClientCurVer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ClientUpdateURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ClientData(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn UserURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn UserName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn UserAccount(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCredentials(&mut self, bstruseruri: &super::super::Foundation::BSTR, bstruseraccount: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SessionCapabilities(&mut self) -> ::windows::core::Result<i32>;
-    fn State(&mut self) -> ::windows::core::Result<RTC_REGISTRATION_STATE>;
+    fn Key(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn XML(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ProviderData(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ClientBanner(&self) -> ::windows::core::Result<i16>;
+    fn ClientMinVer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ClientCurVer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ClientUpdateURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ClientData(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn UserURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn UserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn UserAccount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetCredentials(&self, bstruseruri: &super::super::Foundation::BSTR, bstruseraccount: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SessionCapabilities(&self) -> ::windows::core::Result<i32>;
+    fn State(&self) -> ::windows::core::Result<RTC_REGISTRATION_STATE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCProfile_Vtbl {
@@ -3069,10 +3069,10 @@ impl IRTCProfile_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCProfile2_Impl: Sized + IRTCProfile_Impl {
-    fn Realm(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRealm(&mut self, bstrrealm: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AllowedAuth(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAllowedAuth(&mut self, lallowedauth: i32) -> ::windows::core::Result<()>;
+    fn Realm(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRealm(&self, bstrrealm: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AllowedAuth(&self) -> ::windows::core::Result<i32>;
+    fn SetAllowedAuth(&self, lallowedauth: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCProfile2_Vtbl {
@@ -3123,9 +3123,9 @@ impl IRTCProfile2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCProfileEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Profile(&mut self) -> ::windows::core::Result<IRTCProfile>;
-    fn Cookie(&mut self) -> ::windows::core::Result<isize>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
+    fn Profile(&self) -> ::windows::core::Result<IRTCProfile>;
+    fn Cookie(&self) -> ::windows::core::Result<isize>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCProfileEvent_Vtbl {
@@ -3176,7 +3176,7 @@ impl IRTCProfileEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCProfileEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCProfileEvent_Impl {
-    fn EventType(&mut self) -> ::windows::core::Result<RTC_PROFILE_EVENT_TYPE>;
+    fn EventType(&self) -> ::windows::core::Result<RTC_PROFILE_EVENT_TYPE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCProfileEvent2_Vtbl {
@@ -3200,11 +3200,11 @@ impl IRTCProfileEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCReInviteEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Session(&mut self) -> ::windows::core::Result<IRTCSession2>;
-    fn Accept(&mut self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Reject(&mut self) -> ::windows::core::Result<()>;
-    fn State(&mut self) -> ::windows::core::Result<RTC_REINVITE_STATE>;
-    fn GetRemoteSessionDescription(&mut self, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Session(&self) -> ::windows::core::Result<IRTCSession2>;
+    fn Accept(&self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Reject(&self) -> ::windows::core::Result<()>;
+    fn State(&self) -> ::windows::core::Result<RTC_REINVITE_STATE>;
+    fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCReInviteEvent_Vtbl {
@@ -3261,10 +3261,10 @@ impl IRTCReInviteEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCRegistrationStateChangeEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Profile(&mut self) -> ::windows::core::Result<IRTCProfile>;
-    fn State(&mut self) -> ::windows::core::Result<RTC_REGISTRATION_STATE>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
-    fn StatusText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Profile(&self) -> ::windows::core::Result<IRTCProfile>;
+    fn State(&self) -> ::windows::core::Result<RTC_REGISTRATION_STATE>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
+    fn StatusText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCRegistrationStateChangeEvent_Vtbl {
@@ -3327,10 +3327,10 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCRoamingEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn EventType(&mut self) -> ::windows::core::Result<RTC_ROAMING_EVENT_TYPE>;
-    fn Profile(&mut self) -> ::windows::core::Result<IRTCProfile2>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
-    fn StatusText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn EventType(&self) -> ::windows::core::Result<RTC_ROAMING_EVENT_TYPE>;
+    fn Profile(&self) -> ::windows::core::Result<IRTCProfile2>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
+    fn StatusText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCRoamingEvent_Vtbl {
@@ -3393,26 +3393,26 @@ impl IRTCRoamingEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCSession_Impl: Sized {
-    fn Client(&mut self) -> ::windows::core::Result<IRTCClient>;
-    fn State(&mut self) -> ::windows::core::Result<RTC_SESSION_STATE>;
-    fn Type(&mut self) -> ::windows::core::Result<RTC_SESSION_TYPE>;
-    fn Profile(&mut self) -> ::windows::core::Result<IRTCProfile>;
-    fn Participants(&mut self) -> ::windows::core::Result<IRTCCollection>;
-    fn Answer(&mut self) -> ::windows::core::Result<()>;
-    fn Terminate(&mut self, enreason: RTC_TERMINATE_REASON) -> ::windows::core::Result<()>;
-    fn Redirect(&mut self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &super::super::Foundation::BSTR, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<()>;
-    fn AddParticipant(&mut self, bstraddress: &super::super::Foundation::BSTR, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCParticipant>;
-    fn RemoveParticipant(&mut self, pparticipant: &::core::option::Option<IRTCParticipant>) -> ::windows::core::Result<()>;
-    fn EnumerateParticipants(&mut self) -> ::windows::core::Result<IRTCEnumParticipants>;
-    fn CanAddParticipants(&mut self) -> ::windows::core::Result<i16>;
-    fn RedirectedUserURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RedirectedUserName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn NextRedirectedUser(&mut self) -> ::windows::core::Result<()>;
-    fn SendMessage(&mut self, bstrmessageheader: &super::super::Foundation::BSTR, bstrmessage: &super::super::Foundation::BSTR, lcookie: isize) -> ::windows::core::Result<()>;
-    fn SendMessageStatus(&mut self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> ::windows::core::Result<()>;
-    fn AddStream(&mut self, lmediatype: i32, lcookie: isize) -> ::windows::core::Result<()>;
-    fn RemoveStream(&mut self, lmediatype: i32, lcookie: isize) -> ::windows::core::Result<()>;
-    fn SetEncryptionKey(&mut self, lmediatype: i32, encryptionkey: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Client(&self) -> ::windows::core::Result<IRTCClient>;
+    fn State(&self) -> ::windows::core::Result<RTC_SESSION_STATE>;
+    fn Type(&self) -> ::windows::core::Result<RTC_SESSION_TYPE>;
+    fn Profile(&self) -> ::windows::core::Result<IRTCProfile>;
+    fn Participants(&self) -> ::windows::core::Result<IRTCCollection>;
+    fn Answer(&self) -> ::windows::core::Result<()>;
+    fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> ::windows::core::Result<()>;
+    fn Redirect(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &super::super::Foundation::BSTR, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<()>;
+    fn AddParticipant(&self, bstraddress: &super::super::Foundation::BSTR, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCParticipant>;
+    fn RemoveParticipant(&self, pparticipant: &::core::option::Option<IRTCParticipant>) -> ::windows::core::Result<()>;
+    fn EnumerateParticipants(&self) -> ::windows::core::Result<IRTCEnumParticipants>;
+    fn CanAddParticipants(&self) -> ::windows::core::Result<i16>;
+    fn RedirectedUserURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RedirectedUserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn NextRedirectedUser(&self) -> ::windows::core::Result<()>;
+    fn SendMessage(&self, bstrmessageheader: &super::super::Foundation::BSTR, bstrmessage: &super::super::Foundation::BSTR, lcookie: isize) -> ::windows::core::Result<()>;
+    fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> ::windows::core::Result<()>;
+    fn AddStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::core::Result<()>;
+    fn RemoveStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::core::Result<()>;
+    fn SetEncryptionKey(&self, lmediatype: i32, encryptionkey: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCSession_Vtbl {
@@ -3607,12 +3607,12 @@ impl IRTCSession_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCSession2_Impl: Sized + IRTCSession_Impl {
-    fn SendInfo(&mut self, bstrinfoheader: &super::super::Foundation::BSTR, bstrinfo: &super::super::Foundation::BSTR, lcookie: isize) -> ::windows::core::Result<()>;
-    fn SetPreferredSecurityLevel(&mut self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()>;
-    fn PreferredSecurityLevel(&mut self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
-    fn IsSecurityEnabled(&mut self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<i16>;
-    fn AnswerWithSessionDescription(&mut self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ReInviteWithSessionDescription(&mut self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR, lcookie: isize) -> ::windows::core::Result<()>;
+    fn SendInfo(&self, bstrinfoheader: &super::super::Foundation::BSTR, bstrinfo: &super::super::Foundation::BSTR, lcookie: isize) -> ::windows::core::Result<()>;
+    fn SetPreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()>;
+    fn PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
+    fn IsSecurityEnabled(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<i16>;
+    fn AnswerWithSessionDescription(&self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ReInviteWithSessionDescription(&self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR, lcookie: isize) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCSession2_Vtbl {
@@ -3675,15 +3675,15 @@ impl IRTCSession2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCSessionCallControl_Impl: Sized {
-    fn Hold(&mut self, lcookie: isize) -> ::windows::core::Result<()>;
-    fn UnHold(&mut self, lcookie: isize) -> ::windows::core::Result<()>;
-    fn Forward(&mut self, bstrforwardtouri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Refer(&mut self, bstrrefertouri: &super::super::Foundation::BSTR, bstrrefercookie: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetReferredByURI(&mut self, bstrreferredbyuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ReferredByURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetReferCookie(&mut self, bstrrefercookie: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ReferCookie(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn IsReferred(&mut self) -> ::windows::core::Result<i16>;
+    fn Hold(&self, lcookie: isize) -> ::windows::core::Result<()>;
+    fn UnHold(&self, lcookie: isize) -> ::windows::core::Result<()>;
+    fn Forward(&self, bstrforwardtouri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Refer(&self, bstrrefertouri: &super::super::Foundation::BSTR, bstrrefercookie: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetReferredByURI(&self, bstrreferredbyuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ReferredByURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetReferCookie(&self, bstrrefercookie: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ReferCookie(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn IsReferred(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCSessionCallControl_Vtbl {
@@ -3770,7 +3770,7 @@ impl IRTCSessionCallControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCSessionDescriptionManager_Impl: Sized {
-    fn EvaluateSessionDescription(&mut self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR, pfapplicationsession: *mut i16) -> ::windows::core::Result<()>;
+    fn EvaluateSessionDescription(&self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR, pfapplicationsession: *mut i16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCSessionDescriptionManager_Vtbl {
@@ -3788,10 +3788,10 @@ impl IRTCSessionDescriptionManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCSessionOperationCompleteEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Session(&mut self) -> ::windows::core::Result<IRTCSession>;
-    fn Cookie(&mut self) -> ::windows::core::Result<isize>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
-    fn StatusText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Session(&self) -> ::windows::core::Result<IRTCSession>;
+    fn Cookie(&self) -> ::windows::core::Result<isize>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
+    fn StatusText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCSessionOperationCompleteEvent_Vtbl {
@@ -3854,8 +3854,8 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCSessionOperationCompleteEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCSessionOperationCompleteEvent_Impl {
-    fn Participant(&mut self) -> ::windows::core::Result<IRTCParticipant>;
-    fn GetRemoteSessionDescription(&mut self, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Participant(&self) -> ::windows::core::Result<IRTCParticipant>;
+    fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCSessionOperationCompleteEvent2_Vtbl {
@@ -3887,7 +3887,7 @@ impl IRTCSessionOperationCompleteEvent2_Vtbl {
     }
 }
 pub trait IRTCSessionPortManagement_Impl: Sized {
-    fn SetPortManager(&mut self, pportmanager: &::core::option::Option<IRTCPortManager>) -> ::windows::core::Result<()>;
+    fn SetPortManager(&self, pportmanager: &::core::option::Option<IRTCPortManager>) -> ::windows::core::Result<()>;
 }
 impl IRTCSessionPortManagement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSessionPortManagement_Impl, const OFFSET: isize>() -> IRTCSessionPortManagement_Vtbl {
@@ -3904,10 +3904,10 @@ impl IRTCSessionPortManagement_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCSessionReferStatusEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Session(&mut self) -> ::windows::core::Result<IRTCSession2>;
-    fn ReferStatus(&mut self) -> ::windows::core::Result<RTC_SESSION_REFER_STATUS>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
-    fn StatusText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Session(&self) -> ::windows::core::Result<IRTCSession2>;
+    fn ReferStatus(&self) -> ::windows::core::Result<RTC_SESSION_REFER_STATUS>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
+    fn StatusText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCSessionReferStatusEvent_Vtbl {
@@ -3970,13 +3970,13 @@ impl IRTCSessionReferStatusEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCSessionReferredEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Session(&mut self) -> ::windows::core::Result<IRTCSession2>;
-    fn ReferredByURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ReferToURI(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ReferCookie(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Accept(&mut self) -> ::windows::core::Result<()>;
-    fn Reject(&mut self) -> ::windows::core::Result<()>;
-    fn SetReferredSessionState(&mut self, enstate: RTC_SESSION_STATE) -> ::windows::core::Result<()>;
+    fn Session(&self) -> ::windows::core::Result<IRTCSession2>;
+    fn ReferredByURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ReferToURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ReferCookie(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Accept(&self) -> ::windows::core::Result<()>;
+    fn Reject(&self) -> ::windows::core::Result<()>;
+    fn SetReferredSessionState(&self, enstate: RTC_SESSION_STATE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCSessionReferredEvent_Vtbl {
@@ -4057,10 +4057,10 @@ impl IRTCSessionReferredEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCSessionStateChangeEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Session(&mut self) -> ::windows::core::Result<IRTCSession>;
-    fn State(&mut self) -> ::windows::core::Result<RTC_SESSION_STATE>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
-    fn StatusText(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Session(&self) -> ::windows::core::Result<IRTCSession>;
+    fn State(&self) -> ::windows::core::Result<RTC_SESSION_STATE>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
+    fn StatusText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCSessionStateChangeEvent_Vtbl {
@@ -4123,10 +4123,10 @@ impl IRTCSessionStateChangeEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCSessionStateChangeEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCSessionStateChangeEvent_Impl {
-    fn MediaTypes(&mut self) -> ::windows::core::Result<i32>;
-    fn RemotePreferredSecurityLevel(&mut self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
-    fn IsForked(&mut self) -> ::windows::core::Result<i16>;
-    fn GetRemoteSessionDescription(&mut self, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MediaTypes(&self) -> ::windows::core::Result<i32>;
+    fn RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
+    fn IsForked(&self) -> ::windows::core::Result<i16>;
+    fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCSessionStateChangeEvent2_Vtbl {
@@ -4182,8 +4182,8 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
     }
 }
 pub trait IRTCUserSearch_Impl: Sized {
-    fn CreateQuery(&mut self) -> ::windows::core::Result<IRTCUserSearchQuery>;
-    fn ExecuteSearch(&mut self, pquery: &::core::option::Option<IRTCUserSearchQuery>, pprofile: &::core::option::Option<IRTCProfile>, lcookie: isize) -> ::windows::core::Result<()>;
+    fn CreateQuery(&self) -> ::windows::core::Result<IRTCUserSearchQuery>;
+    fn ExecuteSearch(&self, pquery: &::core::option::Option<IRTCUserSearchQuery>, pprofile: &::core::option::Option<IRTCProfile>, lcookie: isize) -> ::windows::core::Result<()>;
 }
 impl IRTCUserSearch_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearch_Impl, const OFFSET: isize>() -> IRTCUserSearch_Vtbl {
@@ -4215,13 +4215,13 @@ impl IRTCUserSearch_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCUserSearchQuery_Impl: Sized {
-    fn SetSearchTerm(&mut self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SearchTerm(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SearchTerms(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSearchPreference(&mut self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> ::windows::core::Result<()>;
-    fn SearchPreference(&mut self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> ::windows::core::Result<i32>;
-    fn SetSearchDomain(&mut self, bstrdomain: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SearchDomain(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSearchTerm(&self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SearchTerm(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SearchTerms(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> ::windows::core::Result<()>;
+    fn SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> ::windows::core::Result<i32>;
+    fn SetSearchDomain(&self, bstrdomain: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SearchDomain(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCUserSearchQuery_Vtbl {
@@ -4302,7 +4302,7 @@ impl IRTCUserSearchQuery_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCUserSearchResult_Impl: Sized {
-    fn Value(&mut self, encolumn: RTC_USER_SEARCH_COLUMN) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCUserSearchResult_Vtbl {
@@ -4326,13 +4326,13 @@ impl IRTCUserSearchResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCUserSearchResultsEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn EnumerateResults(&mut self) -> ::windows::core::Result<IRTCEnumUserSearchResults>;
-    fn Results(&mut self) -> ::windows::core::Result<IRTCCollection>;
-    fn Profile(&mut self) -> ::windows::core::Result<IRTCProfile2>;
-    fn Query(&mut self) -> ::windows::core::Result<IRTCUserSearchQuery>;
-    fn Cookie(&mut self) -> ::windows::core::Result<isize>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
-    fn MoreAvailable(&mut self) -> ::windows::core::Result<i16>;
+    fn EnumerateResults(&self) -> ::windows::core::Result<IRTCEnumUserSearchResults>;
+    fn Results(&self) -> ::windows::core::Result<IRTCCollection>;
+    fn Profile(&self) -> ::windows::core::Result<IRTCProfile2>;
+    fn Query(&self) -> ::windows::core::Result<IRTCUserSearchQuery>;
+    fn Cookie(&self) -> ::windows::core::Result<isize>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
+    fn MoreAvailable(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCUserSearchResultsEvent_Vtbl {
@@ -4431,8 +4431,8 @@ impl IRTCUserSearchResultsEvent_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCWatcher_Impl: Sized + IRTCPresenceContact_Impl {
-    fn State(&mut self) -> ::windows::core::Result<RTC_WATCHER_STATE>;
-    fn SetState(&mut self, enstate: RTC_WATCHER_STATE) -> ::windows::core::Result<()>;
+    fn State(&self) -> ::windows::core::Result<RTC_WATCHER_STATE>;
+    fn SetState(&self, enstate: RTC_WATCHER_STATE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCWatcher_Vtbl {
@@ -4465,8 +4465,8 @@ impl IRTCWatcher_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCWatcher2_Impl: Sized + IRTCPresenceContact_Impl + IRTCWatcher_Impl {
-    fn Profile(&mut self) -> ::windows::core::Result<IRTCProfile2>;
-    fn Scope(&mut self) -> ::windows::core::Result<RTC_ACE_SCOPE>;
+    fn Profile(&self) -> ::windows::core::Result<IRTCProfile2>;
+    fn Scope(&self) -> ::windows::core::Result<RTC_ACE_SCOPE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCWatcher2_Vtbl {
@@ -4501,7 +4501,7 @@ impl IRTCWatcher2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCWatcherEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Watcher(&mut self) -> ::windows::core::Result<IRTCWatcher>;
+    fn Watcher(&self) -> ::windows::core::Result<IRTCWatcher>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCWatcherEvent_Vtbl {
@@ -4525,8 +4525,8 @@ impl IRTCWatcherEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCWatcherEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCWatcherEvent_Impl {
-    fn EventType(&mut self) -> ::windows::core::Result<RTC_WATCHER_EVENT_TYPE>;
-    fn StatusCode(&mut self) -> ::windows::core::Result<i32>;
+    fn EventType(&self) -> ::windows::core::Result<RTC_WATCHER_EVENT_TYPE>;
+    fn StatusCode(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCWatcherEvent2_Vtbl {
@@ -4565,8 +4565,8 @@ impl IRTCWatcherEvent2_Vtbl {
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub trait ITransportSettingsInternal_Impl: Sized {
-    fn ApplySetting(&mut self, setting: *mut TRANSPORT_SETTING) -> ::windows::core::Result<()>;
-    fn QuerySetting(&mut self, setting: *mut TRANSPORT_SETTING) -> ::windows::core::Result<()>;
+    fn ApplySetting(&self, setting: *mut TRANSPORT_SETTING) -> ::windows::core::Result<()>;
+    fn QuerySetting(&self, setting: *mut TRANSPORT_SETTING) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ITransportSettingsInternal_Vtbl {

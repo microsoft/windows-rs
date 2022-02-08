@@ -149,9 +149,10 @@ impl ::core::ops::Not for AttributeTargets {
 }
 unsafe impl ::windows::core::RuntimeType for AttributeTargets {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
-}
-impl ::windows::core::DefaultType for AttributeTargets {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
@@ -182,9 +183,10 @@ impl ::core::fmt::Debug for CompositionType {
 }
 unsafe impl ::windows::core::RuntimeType for CompositionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
-}
-impl ::windows::core::DefaultType for CompositionType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
@@ -215,9 +217,10 @@ impl ::core::fmt::Debug for DeprecationType {
 }
 unsafe impl ::windows::core::RuntimeType for DeprecationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
-}
-impl ::windows::core::DefaultType for DeprecationType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
@@ -250,9 +253,10 @@ impl ::core::fmt::Debug for FeatureStage {
 }
 unsafe impl ::windows::core::RuntimeType for FeatureStage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
-}
-impl ::windows::core::DefaultType for FeatureStage {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
@@ -284,9 +288,10 @@ impl ::core::fmt::Debug for GCPressureAmount {
 }
 unsafe impl ::windows::core::RuntimeType for GCPressureAmount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
-}
-impl ::windows::core::DefaultType for GCPressureAmount {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -341,9 +346,10 @@ impl ::core::fmt::Debug for MarshalingType {
 }
 unsafe impl ::windows::core::RuntimeType for MarshalingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
-}
-impl ::windows::core::DefaultType for MarshalingType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
@@ -374,9 +380,10 @@ impl ::core::fmt::Debug for Platform {
 }
 unsafe impl ::windows::core::RuntimeType for Platform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
-}
-impl ::windows::core::DefaultType for Platform {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
@@ -409,9 +416,10 @@ impl ::core::fmt::Debug for ThreadingModel {
 }
 unsafe impl ::windows::core::RuntimeType for ThreadingModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");
-}
-impl ::windows::core::DefaultType for ThreadingModel {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

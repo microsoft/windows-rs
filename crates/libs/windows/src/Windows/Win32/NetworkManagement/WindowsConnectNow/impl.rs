@@ -1,6 +1,6 @@
 pub trait IWCNConnectNotify_Impl: Sized {
-    fn ConnectSucceeded(&mut self) -> ::windows::core::Result<()>;
-    fn ConnectFailed(&mut self, hrfailure: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn ConnectSucceeded(&self) -> ::windows::core::Result<()>;
+    fn ConnectFailed(&self, hrfailure: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl IWCNConnectNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWCNConnectNotify_Impl, const OFFSET: isize>() -> IWCNConnectNotify_Vtbl {
@@ -26,17 +26,17 @@ impl IWCNConnectNotify_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWCNDevice_Impl: Sized {
-    fn SetPassword(&mut self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::Result<()>;
-    fn Connect(&mut self, pnotify: &::core::option::Option<IWCNConnectNotify>) -> ::windows::core::Result<()>;
-    fn GetAttribute(&mut self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()>;
-    fn GetIntegerAttribute(&mut self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows::core::Result<u32>;
-    fn GetStringAttribute(&mut self, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetNetworkProfile(&mut self, cchmaxstringlength: u32, wszprofile: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetNetworkProfile(&mut self, pszprofilexml: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetVendorExtension(&mut self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()>;
-    fn SetVendorExtension(&mut self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *const u8) -> ::windows::core::Result<()>;
-    fn Unadvise(&mut self) -> ::windows::core::Result<()>;
-    fn SetNFCPasswordParams(&mut self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> ::windows::core::Result<()>;
+    fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::Result<()>;
+    fn Connect(&self, pnotify: &::core::option::Option<IWCNConnectNotify>) -> ::windows::core::Result<()>;
+    fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()>;
+    fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows::core::Result<u32>;
+    fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetNetworkProfile(&self, cchmaxstringlength: u32, wszprofile: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetNetworkProfile(&self, pszprofilexml: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()>;
+    fn SetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *const u8) -> ::windows::core::Result<()>;
+    fn Unadvise(&self) -> ::windows::core::Result<()>;
+    fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWCNDevice_Vtbl {

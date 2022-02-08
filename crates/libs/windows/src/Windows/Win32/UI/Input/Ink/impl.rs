@@ -1,5 +1,5 @@
 pub trait IInkCommitRequestHandler_Impl: Sized {
-    fn OnCommitRequested(&mut self) -> ::windows::core::Result<()>;
+    fn OnCommitRequested(&self) -> ::windows::core::Result<()>;
 }
 impl IInkCommitRequestHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkCommitRequestHandler_Impl, const OFFSET: isize>() -> IInkCommitRequestHandler_Vtbl {
@@ -16,7 +16,7 @@ impl IInkCommitRequestHandler_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInkD2DRenderer_Impl: Sized {
-    fn Draw(&mut self, pd2d1devicecontext: &::core::option::Option<::windows::core::IUnknown>, pinkstrokeiterable: &::core::option::Option<::windows::core::IUnknown>, fhighcontrast: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Draw(&self, pd2d1devicecontext: &::core::option::Option<::windows::core::IUnknown>, pinkstrokeiterable: &::core::option::Option<::windows::core::IUnknown>, fhighcontrast: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInkD2DRenderer_Vtbl {
@@ -33,7 +33,7 @@ impl IInkD2DRenderer_Vtbl {
     }
 }
 pub trait IInkD2DRenderer2_Impl: Sized {
-    fn Draw(&mut self, pd2d1devicecontext: &::core::option::Option<::windows::core::IUnknown>, pinkstrokeiterable: &::core::option::Option<::windows::core::IUnknown>, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> ::windows::core::Result<()>;
+    fn Draw(&self, pd2d1devicecontext: &::core::option::Option<::windows::core::IUnknown>, pinkstrokeiterable: &::core::option::Option<::windows::core::IUnknown>, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> ::windows::core::Result<()>;
 }
 impl IInkD2DRenderer2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkD2DRenderer2_Impl, const OFFSET: isize>() -> IInkD2DRenderer2_Vtbl {
@@ -49,9 +49,9 @@ impl IInkD2DRenderer2_Vtbl {
     }
 }
 pub trait IInkDesktopHost_Impl: Sized {
-    fn QueueWorkItem(&mut self, workitem: &::core::option::Option<IInkHostWorkItem>) -> ::windows::core::Result<()>;
-    fn CreateInkPresenter(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateAndInitializeInkPresenter(&mut self, rootvisual: &::core::option::Option<::windows::core::IUnknown>, width: f32, height: f32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn QueueWorkItem(&self, workitem: &::core::option::Option<IInkHostWorkItem>) -> ::windows::core::Result<()>;
+    fn CreateInkPresenter(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateAndInitializeInkPresenter(&self, rootvisual: &::core::option::Option<::windows::core::IUnknown>, width: f32, height: f32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IInkDesktopHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkDesktopHost_Impl, const OFFSET: isize>() -> IInkDesktopHost_Vtbl {
@@ -82,7 +82,7 @@ impl IInkDesktopHost_Vtbl {
     }
 }
 pub trait IInkHostWorkItem_Impl: Sized {
-    fn Invoke(&mut self) -> ::windows::core::Result<()>;
+    fn Invoke(&self) -> ::windows::core::Result<()>;
 }
 impl IInkHostWorkItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkHostWorkItem_Impl, const OFFSET: isize>() -> IInkHostWorkItem_Vtbl {
@@ -98,11 +98,11 @@ impl IInkHostWorkItem_Vtbl {
     }
 }
 pub trait IInkPresenterDesktop_Impl: Sized {
-    fn SetRootVisual(&mut self, rootvisual: &::core::option::Option<::windows::core::IUnknown>, device: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetCommitRequestHandler(&mut self, handler: &::core::option::Option<IInkCommitRequestHandler>) -> ::windows::core::Result<()>;
-    fn GetSize(&mut self, width: *mut f32, height: *mut f32) -> ::windows::core::Result<()>;
-    fn SetSize(&mut self, width: f32, height: f32) -> ::windows::core::Result<()>;
-    fn OnHighContrastChanged(&mut self) -> ::windows::core::Result<()>;
+    fn SetRootVisual(&self, rootvisual: &::core::option::Option<::windows::core::IUnknown>, device: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetCommitRequestHandler(&self, handler: &::core::option::Option<IInkCommitRequestHandler>) -> ::windows::core::Result<()>;
+    fn GetSize(&self, width: *mut f32, height: *mut f32) -> ::windows::core::Result<()>;
+    fn SetSize(&self, width: f32, height: f32) -> ::windows::core::Result<()>;
+    fn OnHighContrastChanged(&self) -> ::windows::core::Result<()>;
 }
 impl IInkPresenterDesktop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkPresenterDesktop_Impl, const OFFSET: isize>() -> IInkPresenterDesktop_Vtbl {

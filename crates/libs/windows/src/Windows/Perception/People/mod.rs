@@ -67,6 +67,10 @@ impl ::core::fmt::Debug for EyesPose {
 }
 unsafe impl ::windows::core::RuntimeType for EyesPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.EyesPose;{682a9b23-8a1e-5b86-a060-906ffacb62a4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EyesPose {
     type Vtable = IEyesPose_Vtbl;
@@ -170,9 +174,10 @@ impl ::core::fmt::Debug for HandJointKind {
 }
 unsafe impl ::windows::core::RuntimeType for HandJointKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
-}
-impl ::windows::core::DefaultType for HandJointKind {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
@@ -259,6 +264,10 @@ impl ::core::fmt::Debug for HandMeshObserver {
 }
 unsafe impl ::windows::core::RuntimeType for HandMeshObserver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandMeshObserver;{85ae30cb-6fc3-55c4-a7b4-29e33896ca69})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HandMeshObserver {
     type Vtable = IHandMeshObserver_Vtbl;
@@ -337,10 +346,10 @@ unsafe impl ::windows::core::Abi for HandMeshVertex {
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::RuntimeType for HandMeshVertex {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::windows::core::DefaultType for HandMeshVertex {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for HandMeshVertex {
@@ -402,6 +411,10 @@ impl ::core::fmt::Debug for HandMeshVertexState {
 }
 unsafe impl ::windows::core::RuntimeType for HandMeshVertexState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandMeshVertexState;{046c5fef-1d8b-55de-ab2c-1cd424886d8f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HandMeshVertexState {
     type Vtable = IHandMeshVertexState_Vtbl;
@@ -508,6 +521,10 @@ impl ::core::fmt::Debug for HandPose {
 }
 unsafe impl ::windows::core::RuntimeType for HandPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandPose;{4d98e79a-bb08-5d09-91de-df0dd3fae46c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HandPose {
     type Vtable = IHandPose_Vtbl;
@@ -608,6 +625,10 @@ impl ::core::fmt::Debug for HeadPose {
 }
 unsafe impl ::windows::core::RuntimeType for HeadPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HeadPose;{7f5ac5a5-49db-379f-9429-32a2faf34fa6})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for HeadPose {
     type Vtable = IHeadPose_Vtbl;
@@ -819,10 +840,10 @@ unsafe impl ::windows::core::Abi for JointPose {
 #[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::RuntimeType for JointPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.People.JointPose;struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4;enum(Windows.Perception.People.JointPoseAccuracy;i4))");
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::windows::core::DefaultType for JointPose {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::core::cmp::PartialEq for JointPose {
@@ -867,9 +888,10 @@ impl ::core::fmt::Debug for JointPoseAccuracy {
 }
 unsafe impl ::windows::core::RuntimeType for JointPoseAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
-}
-impl ::windows::core::DefaultType for JointPoseAccuracy {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,5 +1,5 @@
 pub trait IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Impl: Sized {
-    fn CreateFromWin32Handle(&mut self, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateFromWin32Handle(&self, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     const NAME: &'static str = "";
@@ -21,7 +21,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
     }
 }
 pub trait IWindowsDevicesAllJoynBusAttachmentInterop_Impl: Sized {
-    fn Win32Handle(&mut self) -> ::windows::core::Result<u64>;
+    fn Win32Handle(&self) -> ::windows::core::Result<u64>;
 }
 impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusAttachmentInterop {
     const NAME: &'static str = "";
@@ -49,7 +49,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
     }
 }
 pub trait IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl: Sized {
-    fn CreateFromWin32Handle(&mut self, win32handle: u64, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateFromWin32Handle(&self, win32handle: u64, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     const NAME: &'static str = "";
@@ -71,9 +71,9 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
     }
 }
 pub trait IWindowsDevicesAllJoynBusObjectInterop_Impl: Sized {
-    fn AddPropertyGetHandler(&mut self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()>;
-    fn AddPropertySetHandler(&mut self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()>;
-    fn Win32Handle(&mut self) -> ::windows::core::Result<u64>;
+    fn AddPropertyGetHandler(&self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()>;
+    fn AddPropertySetHandler(&self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()>;
+    fn Win32Handle(&self) -> ::windows::core::Result<u64>;
 }
 impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectInterop {
     const NAME: &'static str = "";

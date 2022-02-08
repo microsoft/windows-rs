@@ -1,18 +1,18 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Class(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GUID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ADsPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Parent(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Schema(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetInfo(&mut self) -> ::windows::core::Result<()>;
-    fn SetInfo(&mut self) -> ::windows::core::Result<()>;
-    fn Get(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Put(&mut self, bstrname: &super::super::Foundation::BSTR, vprop: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetEx(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn PutEx(&mut self, lncontrolcode: i32, bstrname: &super::super::Foundation::BSTR, vprop: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetInfoEx(&mut self, vproperties: &super::super::System::Com::VARIANT, lnreserved: i32) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetInfo(&self) -> ::windows::core::Result<()>;
+    fn SetInfo(&self) -> ::windows::core::Result<()>;
+    fn Get(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Put(&self, bstrname: &super::super::Foundation::BSTR, vprop: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetEx(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn PutEx(&self, lncontrolcode: i32, bstrname: &super::super::Foundation::BSTR, vprop: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetInfoEx(&self, vproperties: &super::super::System::Com::VARIANT, lnreserved: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADs_Vtbl {
@@ -153,19 +153,19 @@ impl IADs_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsADSystemInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn UserName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ComputerName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SiteName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DomainShortName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DomainDNSName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ForestDNSName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn PDCRoleOwner(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SchemaRoleOwner(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn IsNativeMode(&mut self) -> ::windows::core::Result<i16>;
-    fn GetAnyDCName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetDCSiteName(&mut self, szserver: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn RefreshSchemaCache(&mut self) -> ::windows::core::Result<()>;
-    fn GetTrees(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn UserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ComputerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SiteName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DomainShortName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DomainDNSName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ForestDNSName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PDCRoleOwner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SchemaRoleOwner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn IsNativeMode(&self) -> ::windows::core::Result<i16>;
+    fn GetAnyDCName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetDCSiteName(&self, szserver: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn RefreshSchemaCache(&self) -> ::windows::core::Result<()>;
+    fn GetTrees(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsADSystemInfo_Vtbl {
@@ -330,20 +330,20 @@ impl IADsADSystemInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsAccessControlEntry_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AccessMask(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAccessMask(&mut self, lnaccessmask: i32) -> ::windows::core::Result<()>;
-    fn AceType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAceType(&mut self, lnacetype: i32) -> ::windows::core::Result<()>;
-    fn AceFlags(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAceFlags(&mut self, lnaceflags: i32) -> ::windows::core::Result<()>;
-    fn Flags(&mut self) -> ::windows::core::Result<i32>;
-    fn SetFlags(&mut self, lnflags: i32) -> ::windows::core::Result<()>;
-    fn ObjectType(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetObjectType(&mut self, bstrobjecttype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InheritedObjectType(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetInheritedObjectType(&mut self, bstrinheritedobjecttype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Trustee(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTrustee(&mut self, bstrtrustee: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AccessMask(&self) -> ::windows::core::Result<i32>;
+    fn SetAccessMask(&self, lnaccessmask: i32) -> ::windows::core::Result<()>;
+    fn AceType(&self) -> ::windows::core::Result<i32>;
+    fn SetAceType(&self, lnacetype: i32) -> ::windows::core::Result<()>;
+    fn AceFlags(&self) -> ::windows::core::Result<i32>;
+    fn SetAceFlags(&self, lnaceflags: i32) -> ::windows::core::Result<()>;
+    fn Flags(&self) -> ::windows::core::Result<i32>;
+    fn SetFlags(&self, lnflags: i32) -> ::windows::core::Result<()>;
+    fn ObjectType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetObjectType(&self, bstrobjecttype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InheritedObjectType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetInheritedObjectType(&self, bstrinheritedobjecttype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Trustee(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTrustee(&self, bstrtrustee: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsAccessControlEntry_Vtbl {
@@ -484,14 +484,14 @@ impl IADsAccessControlEntry_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsAccessControlList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AclRevision(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAclRevision(&mut self, lnaclrevision: i32) -> ::windows::core::Result<()>;
-    fn AceCount(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAceCount(&mut self, lnacecount: i32) -> ::windows::core::Result<()>;
-    fn AddAce(&mut self, paccesscontrolentry: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn RemoveAce(&mut self, paccesscontrolentry: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn CopyAccessList(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn AclRevision(&self) -> ::windows::core::Result<i32>;
+    fn SetAclRevision(&self, lnaclrevision: i32) -> ::windows::core::Result<()>;
+    fn AceCount(&self) -> ::windows::core::Result<i32>;
+    fn SetAceCount(&self, lnacecount: i32) -> ::windows::core::Result<()>;
+    fn AddAce(&self, paccesscontrolentry: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn RemoveAce(&self, paccesscontrolentry: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn CopyAccessList(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsAccessControlList_Vtbl {
@@ -578,13 +578,13 @@ impl IADsAccessControlList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsAcl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ProtectedAttrName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetProtectedAttrName(&mut self, bstrprotectedattrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SubjectName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSubjectName(&mut self, bstrsubjectname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Privileges(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPrivileges(&mut self, lnprivileges: i32) -> ::windows::core::Result<()>;
-    fn CopyAcl(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn ProtectedAttrName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetProtectedAttrName(&self, bstrprotectedattrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SubjectName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSubjectName(&self, bstrsubjectname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Privileges(&self) -> ::windows::core::Result<i32>;
+    fn SetPrivileges(&self, lnprivileges: i32) -> ::windows::core::Result<()>;
+    fn CopyAcl(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsAcl_Vtbl {
@@ -664,10 +664,10 @@ impl IADsAcl_Vtbl {
     }
 }
 pub trait IADsAggregatee_Impl: Sized {
-    fn ConnectAsAggregatee(&mut self, pouterunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn DisconnectAsAggregatee(&mut self) -> ::windows::core::Result<()>;
-    fn RelinquishInterface(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RestoreInterface(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ConnectAsAggregatee(&self, pouterunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn DisconnectAsAggregatee(&self) -> ::windows::core::Result<()>;
+    fn RelinquishInterface(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RestoreInterface(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IADsAggregatee_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IADsAggregatee_Impl, const OFFSET: isize>() -> IADsAggregatee_Vtbl {
@@ -704,8 +704,8 @@ impl IADsAggregatee_Vtbl {
     }
 }
 pub trait IADsAggregator_Impl: Sized {
-    fn ConnectAsAggregator(&mut self, paggregatee: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn DisconnectAsAggregator(&mut self) -> ::windows::core::Result<()>;
+    fn ConnectAsAggregator(&self, paggregatee: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn DisconnectAsAggregator(&self) -> ::windows::core::Result<()>;
 }
 impl IADsAggregator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IADsAggregator_Impl, const OFFSET: isize>() -> IADsAggregator_Vtbl {
@@ -731,10 +731,10 @@ impl IADsAggregator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsBackLink_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn RemoteID(&mut self) -> ::windows::core::Result<i32>;
-    fn SetRemoteID(&mut self, lnremoteid: i32) -> ::windows::core::Result<()>;
-    fn ObjectName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetObjectName(&mut self, bstrobjectname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemoteID(&self) -> ::windows::core::Result<i32>;
+    fn SetRemoteID(&self, lnremoteid: i32) -> ::windows::core::Result<()>;
+    fn ObjectName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetObjectName(&self, bstrobjectname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsBackLink_Vtbl {
@@ -785,8 +785,8 @@ impl IADsBackLink_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsCaseIgnoreList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn CaseIgnoreList(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetCaseIgnoreList(&mut self, vcaseignorelist: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn CaseIgnoreList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetCaseIgnoreList(&self, vcaseignorelist: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsCaseIgnoreList_Vtbl {
@@ -819,36 +819,36 @@ impl IADsCaseIgnoreList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsClass_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn PrimaryInterface(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CLSID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCLSID(&mut self, bstrclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOID(&mut self, bstroid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Abstract(&mut self) -> ::windows::core::Result<i16>;
-    fn SetAbstract(&mut self, fabstract: i16) -> ::windows::core::Result<()>;
-    fn Auxiliary(&mut self) -> ::windows::core::Result<i16>;
-    fn SetAuxiliary(&mut self, fauxiliary: i16) -> ::windows::core::Result<()>;
-    fn MandatoryProperties(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetMandatoryProperties(&mut self, vmandatoryproperties: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn OptionalProperties(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetOptionalProperties(&mut self, voptionalproperties: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn NamingProperties(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetNamingProperties(&mut self, vnamingproperties: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DerivedFrom(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetDerivedFrom(&mut self, vderivedfrom: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AuxDerivedFrom(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetAuxDerivedFrom(&mut self, vauxderivedfrom: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PossibleSuperiors(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPossibleSuperiors(&mut self, vpossiblesuperiors: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Containment(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetContainment(&mut self, vcontainment: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Container(&mut self) -> ::windows::core::Result<i16>;
-    fn SetContainer(&mut self, fcontainer: i16) -> ::windows::core::Result<()>;
-    fn HelpFileName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetHelpFileName(&mut self, bstrhelpfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn HelpFileContext(&mut self) -> ::windows::core::Result<i32>;
-    fn SetHelpFileContext(&mut self, lnhelpfilecontext: i32) -> ::windows::core::Result<()>;
-    fn Qualifiers(&mut self) -> ::windows::core::Result<IADsCollection>;
+    fn PrimaryInterface(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CLSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetCLSID(&self, bstrclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetOID(&self, bstroid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Abstract(&self) -> ::windows::core::Result<i16>;
+    fn SetAbstract(&self, fabstract: i16) -> ::windows::core::Result<()>;
+    fn Auxiliary(&self) -> ::windows::core::Result<i16>;
+    fn SetAuxiliary(&self, fauxiliary: i16) -> ::windows::core::Result<()>;
+    fn MandatoryProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetMandatoryProperties(&self, vmandatoryproperties: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OptionalProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetOptionalProperties(&self, voptionalproperties: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn NamingProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetNamingProperties(&self, vnamingproperties: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DerivedFrom(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetDerivedFrom(&self, vderivedfrom: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AuxDerivedFrom(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetAuxDerivedFrom(&self, vauxderivedfrom: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PossibleSuperiors(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetPossibleSuperiors(&self, vpossiblesuperiors: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Containment(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetContainment(&self, vcontainment: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Container(&self) -> ::windows::core::Result<i16>;
+    fn SetContainer(&self, fcontainer: i16) -> ::windows::core::Result<()>;
+    fn HelpFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetHelpFileName(&self, bstrhelpfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn HelpFileContext(&self) -> ::windows::core::Result<i32>;
+    fn SetHelpFileContext(&self, lnhelpfilecontext: i32) -> ::windows::core::Result<()>;
+    fn Qualifiers(&self) -> ::windows::core::Result<IADsCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsClass_Vtbl {
@@ -1139,10 +1139,10 @@ impl IADsClass_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&mut self, bstrname: &super::super::Foundation::BSTR, vitem: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, bstritemtoberemoved: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetObject(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Add(&self, bstrname: &super::super::Foundation::BSTR, vitem: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Remove(&self, bstritemtoberemoved: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetObject(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsCollection_Vtbl {
@@ -1193,38 +1193,38 @@ impl IADsCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsComputer_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn ComputerID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Site(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Location(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocation(&mut self, bstrlocation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PrimaryUser(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPrimaryUser(&mut self, bstrprimaryuser: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Owner(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOwner(&mut self, bstrowner: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Division(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDivision(&mut self, bstrdivision: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Department(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDepartment(&mut self, bstrdepartment: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Role(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetRole(&mut self, bstrrole: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OperatingSystem(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOperatingSystem(&mut self, bstroperatingsystem: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OperatingSystemVersion(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOperatingSystemVersion(&mut self, bstroperatingsystemversion: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Model(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetModel(&mut self, bstrmodel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Processor(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetProcessor(&mut self, bstrprocessor: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ProcessorCount(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetProcessorCount(&mut self, bstrprocessorcount: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MemorySize(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetMemorySize(&mut self, bstrmemorysize: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StorageCapacity(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetStorageCapacity(&mut self, bstrstoragecapacity: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NetAddresses(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetNetAddresses(&mut self, vnetaddresses: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ComputerID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Site(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Location(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocation(&self, bstrlocation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PrimaryUser(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPrimaryUser(&self, bstrprimaryuser: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Owner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetOwner(&self, bstrowner: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Division(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDivision(&self, bstrdivision: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Department(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDepartment(&self, bstrdepartment: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Role(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetRole(&self, bstrrole: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OperatingSystem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetOperatingSystem(&self, bstroperatingsystem: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OperatingSystemVersion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetOperatingSystemVersion(&self, bstroperatingsystemversion: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Model(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetModel(&self, bstrmodel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Processor(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetProcessor(&self, bstrprocessor: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ProcessorCount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetProcessorCount(&self, bstrprocessorcount: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MemorySize(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetMemorySize(&self, bstrmemorysize: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StorageCapacity(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetStorageCapacity(&self, bstrstoragecapacity: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NetAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetNetAddresses(&self, vnetaddresses: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsComputer_Vtbl {
@@ -1533,8 +1533,8 @@ impl IADsComputer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsComputerOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn Status(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn Shutdown(&mut self, breboot: i16) -> ::windows::core::Result<()>;
+    fn Status(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn Shutdown(&self, breboot: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsComputerOperations_Vtbl {
@@ -1563,17 +1563,17 @@ impl IADsComputerOperations_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsContainer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Filter(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetFilter(&mut self, var: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Hints(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetHints(&mut self, vhints: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetObject(&mut self, classname: &super::super::Foundation::BSTR, relativename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn Create(&mut self, classname: &super::super::Foundation::BSTR, relativename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn Delete(&mut self, bstrclassname: &super::super::Foundation::BSTR, bstrrelativename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn CopyHere(&mut self, sourcename: &super::super::Foundation::BSTR, newname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn MoveHere(&mut self, sourcename: &super::super::Foundation::BSTR, newname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Filter(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetFilter(&self, var: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Hints(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetHints(&self, vhints: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetObject(&self, classname: &super::super::Foundation::BSTR, relativename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn Create(&self, classname: &super::super::Foundation::BSTR, relativename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn Delete(&self, bstrclassname: &super::super::Foundation::BSTR, bstrrelativename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CopyHere(&self, sourcename: &super::super::Foundation::BSTR, newname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn MoveHere(&self, sourcename: &super::super::Foundation::BSTR, newname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsContainer_Vtbl {
@@ -1702,10 +1702,10 @@ impl IADsContainer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsDNWithBinary_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn BinaryValue(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetBinaryValue(&mut self, vbinaryvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DNString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDNString(&mut self, bstrdnstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BinaryValue(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetBinaryValue(&self, vbinaryvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DNString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDNString(&self, bstrdnstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsDNWithBinary_Vtbl {
@@ -1756,10 +1756,10 @@ impl IADsDNWithBinary_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsDNWithString_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn StringValue(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetStringValue(&mut self, bstrstringvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DNString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDNString(&mut self, bstrdnstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StringValue(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetStringValue(&self, bstrstringvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DNString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDNString(&self, bstrdnstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsDNWithString_Vtbl {
@@ -1810,7 +1810,7 @@ impl IADsDNWithString_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsDeleteOps_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn DeleteObject(&mut self, lnflags: i32) -> ::windows::core::Result<()>;
+    fn DeleteObject(&self, lnflags: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsDeleteOps_Vtbl {
@@ -1828,23 +1828,23 @@ impl IADsDeleteOps_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsDomain_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn IsWorkgroup(&mut self) -> ::windows::core::Result<i16>;
-    fn MinPasswordLength(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMinPasswordLength(&mut self, lnminpasswordlength: i32) -> ::windows::core::Result<()>;
-    fn MinPasswordAge(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMinPasswordAge(&mut self, lnminpasswordage: i32) -> ::windows::core::Result<()>;
-    fn MaxPasswordAge(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxPasswordAge(&mut self, lnmaxpasswordage: i32) -> ::windows::core::Result<()>;
-    fn MaxBadPasswordsAllowed(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxBadPasswordsAllowed(&mut self, lnmaxbadpasswordsallowed: i32) -> ::windows::core::Result<()>;
-    fn PasswordHistoryLength(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPasswordHistoryLength(&mut self, lnpasswordhistorylength: i32) -> ::windows::core::Result<()>;
-    fn PasswordAttributes(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPasswordAttributes(&mut self, lnpasswordattributes: i32) -> ::windows::core::Result<()>;
-    fn AutoUnlockInterval(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAutoUnlockInterval(&mut self, lnautounlockinterval: i32) -> ::windows::core::Result<()>;
-    fn LockoutObservationInterval(&mut self) -> ::windows::core::Result<i32>;
-    fn SetLockoutObservationInterval(&mut self, lnlockoutobservationinterval: i32) -> ::windows::core::Result<()>;
+    fn IsWorkgroup(&self) -> ::windows::core::Result<i16>;
+    fn MinPasswordLength(&self) -> ::windows::core::Result<i32>;
+    fn SetMinPasswordLength(&self, lnminpasswordlength: i32) -> ::windows::core::Result<()>;
+    fn MinPasswordAge(&self) -> ::windows::core::Result<i32>;
+    fn SetMinPasswordAge(&self, lnminpasswordage: i32) -> ::windows::core::Result<()>;
+    fn MaxPasswordAge(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxPasswordAge(&self, lnmaxpasswordage: i32) -> ::windows::core::Result<()>;
+    fn MaxBadPasswordsAllowed(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxBadPasswordsAllowed(&self, lnmaxbadpasswordsallowed: i32) -> ::windows::core::Result<()>;
+    fn PasswordHistoryLength(&self) -> ::windows::core::Result<i32>;
+    fn SetPasswordHistoryLength(&self, lnpasswordhistorylength: i32) -> ::windows::core::Result<()>;
+    fn PasswordAttributes(&self) -> ::windows::core::Result<i32>;
+    fn SetPasswordAttributes(&self, lnpasswordattributes: i32) -> ::windows::core::Result<()>;
+    fn AutoUnlockInterval(&self) -> ::windows::core::Result<i32>;
+    fn SetAutoUnlockInterval(&self, lnautounlockinterval: i32) -> ::windows::core::Result<()>;
+    fn LockoutObservationInterval(&self) -> ::windows::core::Result<i32>;
+    fn SetLockoutObservationInterval(&self, lnlockoutobservationinterval: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsDomain_Vtbl {
@@ -2015,10 +2015,10 @@ impl IADsDomain_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsEmail_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Type(&mut self) -> ::windows::core::Result<i32>;
-    fn SetType(&mut self, lntype: i32) -> ::windows::core::Result<()>;
-    fn Address(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetAddress(&mut self, bstraddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Type(&self) -> ::windows::core::Result<i32>;
+    fn SetType(&self, lntype: i32) -> ::windows::core::Result<()>;
+    fn Address(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetAddress(&self, bstraddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsEmail_Vtbl {
@@ -2069,9 +2069,9 @@ impl IADsEmail_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsExtension_Impl: Sized {
-    fn Operate(&mut self, dwcode: u32, vardata1: &super::super::System::Com::VARIANT, vardata2: &super::super::System::Com::VARIANT, vardata3: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PrivateGetIDsOfNames(&mut self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32>;
-    fn PrivateInvoke(&mut self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
+    fn Operate(&self, dwcode: u32, vardata1: &super::super::System::Com::VARIANT, vardata2: &super::super::System::Com::VARIANT, vardata3: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PrivateGetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32>;
+    fn PrivateInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsExtension_Vtbl {
@@ -2110,10 +2110,10 @@ impl IADsExtension_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsFaxNumber_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn TelephoneNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTelephoneNumber(&mut self, bstrtelephonenumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Parameters(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetParameters(&mut self, vparameters: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn TelephoneNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTelephoneNumber(&self, bstrtelephonenumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Parameters(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetParameters(&self, vparameters: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsFaxNumber_Vtbl {
@@ -2164,10 +2164,10 @@ impl IADsFaxNumber_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsFileService_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl + IADsService_Impl {
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MaxUserCount(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxUserCount(&mut self, lnmaxusercount: i32) -> ::windows::core::Result<()>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MaxUserCount(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxUserCount(&self, lnmaxusercount: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsFileService_Vtbl {
@@ -2218,8 +2218,8 @@ impl IADsFileService_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsFileServiceOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl + IADsServiceOperations_Impl {
-    fn Sessions(&mut self) -> ::windows::core::Result<IADsCollection>;
-    fn Resources(&mut self) -> ::windows::core::Result<IADsCollection>;
+    fn Sessions(&self) -> ::windows::core::Result<IADsCollection>;
+    fn Resources(&self) -> ::windows::core::Result<IADsCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsFileServiceOperations_Vtbl {
@@ -2258,15 +2258,15 @@ impl IADsFileServiceOperations_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsFileShare_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn CurrentUserCount(&mut self) -> ::windows::core::Result<i32>;
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn HostComputer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetHostComputer(&mut self, bstrhostcomputer: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPath(&mut self, bstrpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MaxUserCount(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxUserCount(&mut self, lnmaxusercount: i32) -> ::windows::core::Result<()>;
+    fn CurrentUserCount(&self) -> ::windows::core::Result<i32>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn HostComputer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetHostComputer(&self, bstrhostcomputer: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPath(&self, bstrpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MaxUserCount(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxUserCount(&self, lnmaxusercount: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsFileShare_Vtbl {
@@ -2365,12 +2365,12 @@ impl IADsFileShare_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Members(&mut self) -> ::windows::core::Result<IADsMembers>;
-    fn IsMember(&mut self, bstrmember: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
-    fn Add(&mut self, bstrnewitem: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, bstritemtoberemoved: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Members(&self) -> ::windows::core::Result<IADsMembers>;
+    fn IsMember(&self, bstrmember: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn Add(&self, bstrnewitem: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Remove(&self, bstritemtoberemoved: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsGroup_Vtbl {
@@ -2439,10 +2439,10 @@ impl IADsGroup_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsHold_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ObjectName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetObjectName(&mut self, bstrobjectname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Amount(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAmount(&mut self, lnamount: i32) -> ::windows::core::Result<()>;
+    fn ObjectName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetObjectName(&self, bstrobjectname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Amount(&self) -> ::windows::core::Result<i32>;
+    fn SetAmount(&self, lnamount: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsHold_Vtbl {
@@ -2493,10 +2493,10 @@ impl IADsHold_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsLargeInteger_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn HighPart(&mut self) -> ::windows::core::Result<i32>;
-    fn SetHighPart(&mut self, lnhighpart: i32) -> ::windows::core::Result<()>;
-    fn LowPart(&mut self) -> ::windows::core::Result<i32>;
-    fn SetLowPart(&mut self, lnlowpart: i32) -> ::windows::core::Result<()>;
+    fn HighPart(&self) -> ::windows::core::Result<i32>;
+    fn SetHighPart(&self, lnhighpart: i32) -> ::windows::core::Result<()>;
+    fn LowPart(&self) -> ::windows::core::Result<i32>;
+    fn SetLowPart(&self, lnlowpart: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsLargeInteger_Vtbl {
@@ -2547,14 +2547,14 @@ impl IADsLargeInteger_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsLocality_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LocalityName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocalityName(&mut self, bstrlocalityname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PostalAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPostalAddress(&mut self, bstrpostaladdress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SeeAlso(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSeeAlso(&mut self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LocalityName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocalityName(&self, bstrlocalityname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PostalAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPostalAddress(&self, bstrpostaladdress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetSeeAlso(&self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsLocality_Vtbl {
@@ -2641,10 +2641,10 @@ impl IADsLocality_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsMembers_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Filter(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetFilter(&mut self, pvfilter: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Filter(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetFilter(&self, pvfilter: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsMembers_Vtbl {
@@ -2701,13 +2701,13 @@ impl IADsMembers_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsNameTranslate_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SetChaseReferral(&mut self, lnchasereferral: i32) -> ::windows::core::Result<()>;
-    fn Init(&mut self, lnsettype: i32, bstradspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn InitEx(&mut self, lnsettype: i32, bstradspath: &super::super::Foundation::BSTR, bstruserid: &super::super::Foundation::BSTR, bstrdomain: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Set(&mut self, lnsettype: i32, bstradspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Get(&mut self, lnformattype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEx(&mut self, lnformattype: i32, pvar: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetEx(&mut self, lnformattype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetChaseReferral(&self, lnchasereferral: i32) -> ::windows::core::Result<()>;
+    fn Init(&self, lnsettype: i32, bstradspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn InitEx(&self, lnsettype: i32, bstradspath: &super::super::Foundation::BSTR, bstruserid: &super::super::Foundation::BSTR, bstrdomain: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Set(&self, lnsettype: i32, bstradspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Get(&self, lnformattype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetEx(&self, lnformattype: i32, pvar: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetEx(&self, lnformattype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsNameTranslate_Vtbl {
@@ -2776,8 +2776,8 @@ impl IADsNameTranslate_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsNamespaces_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn DefaultContainer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDefaultContainer(&mut self, bstrdefaultcontainer: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DefaultContainer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDefaultContainer(&self, bstrdefaultcontainer: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsNamespaces_Vtbl {
@@ -2810,10 +2810,10 @@ impl IADsNamespaces_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsNetAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AddressType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAddressType(&mut self, lnaddresstype: i32) -> ::windows::core::Result<()>;
-    fn Address(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetAddress(&mut self, vaddress: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddressType(&self) -> ::windows::core::Result<i32>;
+    fn SetAddressType(&self, lnaddresstype: i32) -> ::windows::core::Result<()>;
+    fn Address(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetAddress(&self, vaddress: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsNetAddress_Vtbl {
@@ -2864,18 +2864,18 @@ impl IADsNetAddress_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsO_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LocalityName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocalityName(&mut self, bstrlocalityname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PostalAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPostalAddress(&mut self, bstrpostaladdress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TelephoneNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTelephoneNumber(&mut self, bstrtelephonenumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FaxNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFaxNumber(&mut self, bstrfaxnumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SeeAlso(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSeeAlso(&mut self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LocalityName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocalityName(&self, bstrlocalityname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PostalAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPostalAddress(&self, bstrpostaladdress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TelephoneNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTelephoneNumber(&self, bstrtelephonenumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FaxNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFaxNumber(&self, bstrfaxnumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetSeeAlso(&self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsO_Vtbl {
@@ -2998,20 +2998,20 @@ impl IADsO_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsOU_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LocalityName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocalityName(&mut self, bstrlocalityname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PostalAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPostalAddress(&mut self, bstrpostaladdress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TelephoneNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTelephoneNumber(&mut self, bstrtelephonenumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FaxNumber(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFaxNumber(&mut self, bstrfaxnumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SeeAlso(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSeeAlso(&mut self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn BusinessCategory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBusinessCategory(&mut self, bstrbusinesscategory: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LocalityName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocalityName(&self, bstrlocalityname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PostalAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPostalAddress(&self, bstrpostaladdress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TelephoneNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTelephoneNumber(&self, bstrtelephonenumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FaxNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFaxNumber(&self, bstrfaxnumber: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetSeeAlso(&self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn BusinessCategory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetBusinessCategory(&self, bstrbusinesscategory: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsOU_Vtbl {
@@ -3152,8 +3152,8 @@ impl IADsOU_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsObjectOptions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetOption(&mut self, lnoption: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetOption(&mut self, lnoption: i32, vvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetOption(&self, lnoption: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetOption(&self, lnoption: i32, vvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsObjectOptions_Vtbl {
@@ -3186,8 +3186,8 @@ impl IADsObjectOptions_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsOctetList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OctetList(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetOctetList(&mut self, voctetlist: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OctetList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetOctetList(&self, voctetlist: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsOctetList_Vtbl {
@@ -3220,7 +3220,7 @@ impl IADsOctetList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsOpenDSObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OpenDSObject(&mut self, lpszdnname: &super::super::Foundation::BSTR, lpszusername: &super::super::Foundation::BSTR, lpszpassword: &super::super::Foundation::BSTR, lnreserved: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn OpenDSObject(&self, lpszdnname: &super::super::Foundation::BSTR, lpszusername: &super::super::Foundation::BSTR, lpszpassword: &super::super::Foundation::BSTR, lnreserved: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsOpenDSObject_Vtbl {
@@ -3244,12 +3244,12 @@ impl IADsOpenDSObject_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPath_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Type(&mut self) -> ::windows::core::Result<i32>;
-    fn SetType(&mut self, lntype: i32) -> ::windows::core::Result<()>;
-    fn VolumeName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetVolumeName(&mut self, bstrvolumename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPath(&mut self, bstrpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Type(&self) -> ::windows::core::Result<i32>;
+    fn SetType(&self, lntype: i32) -> ::windows::core::Result<()>;
+    fn VolumeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetVolumeName(&self, bstrvolumename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPath(&self, bstrpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPath_Vtbl {
@@ -3318,17 +3318,17 @@ impl IADsPath_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPathname_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Set(&mut self, bstradspath: &super::super::Foundation::BSTR, lnsettype: i32) -> ::windows::core::Result<()>;
-    fn SetDisplayType(&mut self, lndisplaytype: i32) -> ::windows::core::Result<()>;
-    fn Retrieve(&mut self, lnformattype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetNumElements(&mut self) -> ::windows::core::Result<i32>;
-    fn GetElement(&mut self, lnelementindex: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn AddLeafElement(&mut self, bstrleafelement: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RemoveLeafElement(&mut self) -> ::windows::core::Result<()>;
-    fn CopyPath(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn GetEscapedElement(&mut self, lnreserved: i32, bstrinstr: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn EscapedMode(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEscapedMode(&mut self, lnescapedmode: i32) -> ::windows::core::Result<()>;
+    fn Set(&self, bstradspath: &super::super::Foundation::BSTR, lnsettype: i32) -> ::windows::core::Result<()>;
+    fn SetDisplayType(&self, lndisplaytype: i32) -> ::windows::core::Result<()>;
+    fn Retrieve(&self, lnformattype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetNumElements(&self) -> ::windows::core::Result<i32>;
+    fn GetElement(&self, lnelementindex: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn AddLeafElement(&self, bstrleafelement: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn RemoveLeafElement(&self) -> ::windows::core::Result<()>;
+    fn CopyPath(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn GetEscapedElement(&self, lnreserved: i32, bstrinstr: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn EscapedMode(&self) -> ::windows::core::Result<i32>;
+    fn SetEscapedMode(&self, lnescapedmode: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPathname_Vtbl {
@@ -3445,8 +3445,8 @@ impl IADsPathname_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPostalAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn PostalAddress(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPostalAddress(&mut self, vpostaladdress: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PostalAddress(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetPostalAddress(&self, vpostaladdress: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPostalAddress_Vtbl {
@@ -3479,24 +3479,24 @@ impl IADsPostalAddress_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPrintJob_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn HostPrintQueue(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn User(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn UserPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn TimeSubmitted(&mut self) -> ::windows::core::Result<f64>;
-    fn TotalPages(&mut self) -> ::windows::core::Result<i32>;
-    fn Size(&mut self) -> ::windows::core::Result<i32>;
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Priority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPriority(&mut self, lnpriority: i32) -> ::windows::core::Result<()>;
-    fn StartTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetStartTime(&mut self, dastarttime: f64) -> ::windows::core::Result<()>;
-    fn UntilTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetUntilTime(&mut self, dauntiltime: f64) -> ::windows::core::Result<()>;
-    fn Notify(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetNotify(&mut self, bstrnotify: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NotifyPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetNotifyPath(&mut self, bstrnotifypath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn HostPrintQueue(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn User(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn UserPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn TimeSubmitted(&self) -> ::windows::core::Result<f64>;
+    fn TotalPages(&self) -> ::windows::core::Result<i32>;
+    fn Size(&self) -> ::windows::core::Result<i32>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Priority(&self) -> ::windows::core::Result<i32>;
+    fn SetPriority(&self, lnpriority: i32) -> ::windows::core::Result<()>;
+    fn StartTime(&self) -> ::windows::core::Result<f64>;
+    fn SetStartTime(&self, dastarttime: f64) -> ::windows::core::Result<()>;
+    fn UntilTime(&self) -> ::windows::core::Result<f64>;
+    fn SetUntilTime(&self, dauntiltime: f64) -> ::windows::core::Result<()>;
+    fn Notify(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetNotify(&self, bstrnotify: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NotifyPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetNotifyPath(&self, bstrnotifypath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPrintJob_Vtbl {
@@ -3691,13 +3691,13 @@ impl IADsPrintJob_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPrintJobOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn Status(&mut self) -> ::windows::core::Result<i32>;
-    fn TimeElapsed(&mut self) -> ::windows::core::Result<i32>;
-    fn PagesPrinted(&mut self) -> ::windows::core::Result<i32>;
-    fn Position(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPosition(&mut self, lnposition: i32) -> ::windows::core::Result<()>;
-    fn Pause(&mut self) -> ::windows::core::Result<()>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
+    fn Status(&self) -> ::windows::core::Result<i32>;
+    fn TimeElapsed(&self) -> ::windows::core::Result<i32>;
+    fn PagesPrinted(&self) -> ::windows::core::Result<i32>;
+    fn Position(&self) -> ::windows::core::Result<i32>;
+    fn SetPosition(&self, lnposition: i32) -> ::windows::core::Result<()>;
+    fn Pause(&self) -> ::windows::core::Result<()>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPrintJobOperations_Vtbl {
@@ -3778,32 +3778,32 @@ impl IADsPrintJobOperations_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPrintQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn PrinterPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPrinterPath(&mut self, bstrprinterpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Model(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetModel(&mut self, bstrmodel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Datatype(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDatatype(&mut self, bstrdatatype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PrintProcessor(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPrintProcessor(&mut self, bstrprintprocessor: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Location(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLocation(&mut self, bstrlocation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StartTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetStartTime(&mut self, dastarttime: f64) -> ::windows::core::Result<()>;
-    fn UntilTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetUntilTime(&mut self, dauntiltime: f64) -> ::windows::core::Result<()>;
-    fn DefaultJobPriority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDefaultJobPriority(&mut self, lndefaultjobpriority: i32) -> ::windows::core::Result<()>;
-    fn Priority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPriority(&mut self, lnpriority: i32) -> ::windows::core::Result<()>;
-    fn BannerPage(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetBannerPage(&mut self, bstrbannerpage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PrintDevices(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPrintDevices(&mut self, vprintdevices: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn NetAddresses(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetNetAddresses(&mut self, vnetaddresses: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PrinterPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPrinterPath(&self, bstrprinterpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Model(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetModel(&self, bstrmodel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Datatype(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDatatype(&self, bstrdatatype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PrintProcessor(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPrintProcessor(&self, bstrprintprocessor: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Location(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLocation(&self, bstrlocation: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StartTime(&self) -> ::windows::core::Result<f64>;
+    fn SetStartTime(&self, dastarttime: f64) -> ::windows::core::Result<()>;
+    fn UntilTime(&self) -> ::windows::core::Result<f64>;
+    fn SetUntilTime(&self, dauntiltime: f64) -> ::windows::core::Result<()>;
+    fn DefaultJobPriority(&self) -> ::windows::core::Result<i32>;
+    fn SetDefaultJobPriority(&self, lndefaultjobpriority: i32) -> ::windows::core::Result<()>;
+    fn Priority(&self) -> ::windows::core::Result<i32>;
+    fn SetPriority(&self, lnpriority: i32) -> ::windows::core::Result<()>;
+    fn BannerPage(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetBannerPage(&self, bstrbannerpage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PrintDevices(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetPrintDevices(&self, vprintdevices: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn NetAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetNetAddresses(&self, vnetaddresses: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPrintQueue_Vtbl {
@@ -4052,11 +4052,11 @@ impl IADsPrintQueue_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPrintQueueOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn Status(&mut self) -> ::windows::core::Result<i32>;
-    fn PrintJobs(&mut self) -> ::windows::core::Result<IADsCollection>;
-    fn Pause(&mut self) -> ::windows::core::Result<()>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn Purge(&mut self) -> ::windows::core::Result<()>;
+    fn Status(&self) -> ::windows::core::Result<i32>;
+    fn PrintJobs(&self) -> ::windows::core::Result<IADsCollection>;
+    fn Pause(&self) -> ::windows::core::Result<()>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
+    fn Purge(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPrintQueueOperations_Vtbl {
@@ -4113,17 +4113,17 @@ impl IADsPrintQueueOperations_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn OID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOID(&mut self, bstroid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Syntax(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSyntax(&mut self, bstrsyntax: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MaxRange(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxRange(&mut self, lnmaxrange: i32) -> ::windows::core::Result<()>;
-    fn MinRange(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMinRange(&mut self, lnminrange: i32) -> ::windows::core::Result<()>;
-    fn MultiValued(&mut self) -> ::windows::core::Result<i16>;
-    fn SetMultiValued(&mut self, fmultivalued: i16) -> ::windows::core::Result<()>;
-    fn Qualifiers(&mut self) -> ::windows::core::Result<IADsCollection>;
+    fn OID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetOID(&self, bstroid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Syntax(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetSyntax(&self, bstrsyntax: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MaxRange(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxRange(&self, lnmaxrange: i32) -> ::windows::core::Result<()>;
+    fn MinRange(&self) -> ::windows::core::Result<i32>;
+    fn SetMinRange(&self, lnminrange: i32) -> ::windows::core::Result<()>;
+    fn MultiValued(&self) -> ::windows::core::Result<i16>;
+    fn SetMultiValued(&self, fmultivalued: i16) -> ::windows::core::Result<()>;
+    fn Qualifiers(&self) -> ::windows::core::Result<IADsCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsProperty_Vtbl {
@@ -4240,15 +4240,15 @@ impl IADsProperty_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPropertyEntry_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ADsType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetADsType(&mut self, lnadstype: i32) -> ::windows::core::Result<()>;
-    fn ControlCode(&mut self) -> ::windows::core::Result<i32>;
-    fn SetControlCode(&mut self, lncontrolcode: i32) -> ::windows::core::Result<()>;
-    fn Values(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetValues(&mut self, vvalues: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetName(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ADsType(&self) -> ::windows::core::Result<i32>;
+    fn SetADsType(&self, lnadstype: i32) -> ::windows::core::Result<()>;
+    fn ControlCode(&self) -> ::windows::core::Result<i32>;
+    fn SetControlCode(&self, lncontrolcode: i32) -> ::windows::core::Result<()>;
+    fn Values(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetValues(&self, vvalues: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPropertyEntry_Vtbl {
@@ -4341,15 +4341,15 @@ impl IADsPropertyEntry_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPropertyList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn PropertyCount(&mut self) -> ::windows::core::Result<i32>;
-    fn Next(&mut self, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-    fn Skip(&mut self, celements: i32) -> ::windows::core::HRESULT;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Item(&mut self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetPropertyItem(&mut self, bstrname: &super::super::Foundation::BSTR, lnadstype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn PutPropertyItem(&mut self, vardata: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ResetPropertyItem(&mut self, varentry: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PurgePropertyList(&mut self) -> ::windows::core::Result<()>;
+    fn PropertyCount(&self) -> ::windows::core::Result<i32>;
+    fn Next(&self, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+    fn Skip(&self, celements: i32) -> ::windows::core::HRESULT;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetPropertyItem(&self, bstrname: &super::super::Foundation::BSTR, lnadstype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn PutPropertyItem(&self, vardata: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ResetPropertyItem(&self, varentry: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PurgePropertyList(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPropertyList_Vtbl {
@@ -4436,31 +4436,31 @@ impl IADsPropertyList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPropertyValue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn ADsType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetADsType(&mut self, lnadstype: i32) -> ::windows::core::Result<()>;
-    fn DNString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDNString(&mut self, bstrdnstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn CaseExactString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCaseExactString(&mut self, bstrcaseexactstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn CaseIgnoreString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCaseIgnoreString(&mut self, bstrcaseignorestring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PrintableString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPrintableString(&mut self, bstrprintablestring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NumericString(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetNumericString(&mut self, bstrnumericstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Boolean(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBoolean(&mut self, lnboolean: i32) -> ::windows::core::Result<()>;
-    fn Integer(&mut self) -> ::windows::core::Result<i32>;
-    fn SetInteger(&mut self, lninteger: i32) -> ::windows::core::Result<()>;
-    fn OctetString(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetOctetString(&mut self, voctetstring: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SecurityDescriptor(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn SetSecurityDescriptor(&mut self, psecuritydescriptor: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn LargeInteger(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn SetLargeInteger(&mut self, plargeinteger: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn UTCTime(&mut self) -> ::windows::core::Result<f64>;
-    fn SetUTCTime(&mut self, dautctime: f64) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn ADsType(&self) -> ::windows::core::Result<i32>;
+    fn SetADsType(&self, lnadstype: i32) -> ::windows::core::Result<()>;
+    fn DNString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDNString(&self, bstrdnstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CaseExactString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetCaseExactString(&self, bstrcaseexactstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn CaseIgnoreString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetCaseIgnoreString(&self, bstrcaseignorestring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PrintableString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPrintableString(&self, bstrprintablestring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NumericString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetNumericString(&self, bstrnumericstring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Boolean(&self) -> ::windows::core::Result<i32>;
+    fn SetBoolean(&self, lnboolean: i32) -> ::windows::core::Result<()>;
+    fn Integer(&self) -> ::windows::core::Result<i32>;
+    fn SetInteger(&self, lninteger: i32) -> ::windows::core::Result<()>;
+    fn OctetString(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetOctetString(&self, voctetstring: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SecurityDescriptor(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn SetSecurityDescriptor(&self, psecuritydescriptor: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn LargeInteger(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn SetLargeInteger(&self, plargeinteger: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn UTCTime(&self) -> ::windows::core::Result<f64>;
+    fn SetUTCTime(&self, dautctime: f64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPropertyValue_Vtbl {
@@ -4697,8 +4697,8 @@ impl IADsPropertyValue_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsPropertyValue2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetObjectProperty(&mut self, lnadstype: *mut i32, pvprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PutObjectProperty(&mut self, lnadstype: i32, vprop: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetObjectProperty(&self, lnadstype: *mut i32, pvprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PutObjectProperty(&self, lnadstype: i32, vprop: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsPropertyValue2_Vtbl {
@@ -4725,16 +4725,16 @@ impl IADsPropertyValue2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsReplicaPointer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ServerName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServerName(&mut self, bstrservername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ReplicaType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetReplicaType(&mut self, lnreplicatype: i32) -> ::windows::core::Result<()>;
-    fn ReplicaNumber(&mut self) -> ::windows::core::Result<i32>;
-    fn SetReplicaNumber(&mut self, lnreplicanumber: i32) -> ::windows::core::Result<()>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCount(&mut self, lncount: i32) -> ::windows::core::Result<()>;
-    fn ReplicaAddressHints(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetReplicaAddressHints(&mut self, vreplicaaddresshints: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ServerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetServerName(&self, bstrservername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ReplicaType(&self) -> ::windows::core::Result<i32>;
+    fn SetReplicaType(&self, lnreplicatype: i32) -> ::windows::core::Result<()>;
+    fn ReplicaNumber(&self) -> ::windows::core::Result<i32>;
+    fn SetReplicaNumber(&self, lnreplicanumber: i32) -> ::windows::core::Result<()>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn SetCount(&self, lncount: i32) -> ::windows::core::Result<()>;
+    fn ReplicaAddressHints(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetReplicaAddressHints(&self, vreplicaaddresshints: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsReplicaPointer_Vtbl {
@@ -4839,10 +4839,10 @@ impl IADsReplicaPointer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsResource_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn User(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn UserPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn LockCount(&mut self) -> ::windows::core::Result<i32>;
+    fn User(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn UserPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn LockCount(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsResource_Vtbl {
@@ -4905,27 +4905,27 @@ impl IADsResource_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsSecurityDescriptor_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Revision(&mut self) -> ::windows::core::Result<i32>;
-    fn SetRevision(&mut self, lnrevision: i32) -> ::windows::core::Result<()>;
-    fn Control(&mut self) -> ::windows::core::Result<i32>;
-    fn SetControl(&mut self, lncontrol: i32) -> ::windows::core::Result<()>;
-    fn Owner(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOwner(&mut self, bstrowner: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OwnerDefaulted(&mut self) -> ::windows::core::Result<i16>;
-    fn SetOwnerDefaulted(&mut self, fownerdefaulted: i16) -> ::windows::core::Result<()>;
-    fn Group(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetGroup(&mut self, bstrgroup: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GroupDefaulted(&mut self) -> ::windows::core::Result<i16>;
-    fn SetGroupDefaulted(&mut self, fgroupdefaulted: i16) -> ::windows::core::Result<()>;
-    fn DiscretionaryAcl(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn SetDiscretionaryAcl(&mut self, pdiscretionaryacl: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn DaclDefaulted(&mut self) -> ::windows::core::Result<i16>;
-    fn SetDaclDefaulted(&mut self, fdacldefaulted: i16) -> ::windows::core::Result<()>;
-    fn SystemAcl(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn SetSystemAcl(&mut self, psystemacl: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn SaclDefaulted(&mut self) -> ::windows::core::Result<i16>;
-    fn SetSaclDefaulted(&mut self, fsacldefaulted: i16) -> ::windows::core::Result<()>;
-    fn CopySecurityDescriptor(&mut self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn Revision(&self) -> ::windows::core::Result<i32>;
+    fn SetRevision(&self, lnrevision: i32) -> ::windows::core::Result<()>;
+    fn Control(&self) -> ::windows::core::Result<i32>;
+    fn SetControl(&self, lncontrol: i32) -> ::windows::core::Result<()>;
+    fn Owner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetOwner(&self, bstrowner: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OwnerDefaulted(&self) -> ::windows::core::Result<i16>;
+    fn SetOwnerDefaulted(&self, fownerdefaulted: i16) -> ::windows::core::Result<()>;
+    fn Group(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetGroup(&self, bstrgroup: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GroupDefaulted(&self) -> ::windows::core::Result<i16>;
+    fn SetGroupDefaulted(&self, fgroupdefaulted: i16) -> ::windows::core::Result<()>;
+    fn DiscretionaryAcl(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn SetDiscretionaryAcl(&self, pdiscretionaryacl: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn DaclDefaulted(&self) -> ::windows::core::Result<i16>;
+    fn SetDaclDefaulted(&self, fdacldefaulted: i16) -> ::windows::core::Result<()>;
+    fn SystemAcl(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn SetSystemAcl(&self, psystemacl: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn SaclDefaulted(&self) -> ::windows::core::Result<i16>;
+    fn SetSaclDefaulted(&self, fsacldefaulted: i16) -> ::windows::core::Result<()>;
+    fn CopySecurityDescriptor(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsSecurityDescriptor_Vtbl {
@@ -5132,11 +5132,11 @@ impl IADsSecurityDescriptor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsSecurityUtility_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetSecurityDescriptor(&mut self, varpath: &super::super::System::Com::VARIANT, lpathformat: i32, lformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSecurityDescriptor(&mut self, varpath: &super::super::System::Com::VARIANT, lpathformat: i32, vardata: &super::super::System::Com::VARIANT, ldataformat: i32) -> ::windows::core::Result<()>;
-    fn ConvertSecurityDescriptor(&mut self, varsd: &super::super::System::Com::VARIANT, ldataformat: i32, loutformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SecurityMask(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSecurityMask(&mut self, lnsecuritymask: i32) -> ::windows::core::Result<()>;
+    fn GetSecurityDescriptor(&self, varpath: &super::super::System::Com::VARIANT, lpathformat: i32, lformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetSecurityDescriptor(&self, varpath: &super::super::System::Com::VARIANT, lpathformat: i32, vardata: &super::super::System::Com::VARIANT, ldataformat: i32) -> ::windows::core::Result<()>;
+    fn ConvertSecurityDescriptor(&self, varsd: &super::super::System::Com::VARIANT, ldataformat: i32, loutformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SecurityMask(&self) -> ::windows::core::Result<i32>;
+    fn SetSecurityMask(&self, lnsecuritymask: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsSecurityUtility_Vtbl {
@@ -5199,30 +5199,30 @@ impl IADsSecurityUtility_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsService_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn HostComputer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetHostComputer(&mut self, bstrhostcomputer: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDisplayName(&mut self, bstrdisplayname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Version(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetVersion(&mut self, bstrversion: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ServiceType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetServiceType(&mut self, lnservicetype: i32) -> ::windows::core::Result<()>;
-    fn StartType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetStartType(&mut self, lnstarttype: i32) -> ::windows::core::Result<()>;
-    fn Path(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPath(&mut self, bstrpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn StartupParameters(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetStartupParameters(&mut self, bstrstartupparameters: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ErrorControl(&mut self) -> ::windows::core::Result<i32>;
-    fn SetErrorControl(&mut self, lnerrorcontrol: i32) -> ::windows::core::Result<()>;
-    fn LoadOrderGroup(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLoadOrderGroup(&mut self, bstrloadordergroup: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ServiceAccountName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceAccountName(&mut self, bstrserviceaccountname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ServiceAccountPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceAccountPath(&mut self, bstrserviceaccountpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Dependencies(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetDependencies(&mut self, vdependencies: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn HostComputer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetHostComputer(&self, bstrhostcomputer: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDisplayName(&self, bstrdisplayname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Version(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetVersion(&self, bstrversion: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ServiceType(&self) -> ::windows::core::Result<i32>;
+    fn SetServiceType(&self, lnservicetype: i32) -> ::windows::core::Result<()>;
+    fn StartType(&self) -> ::windows::core::Result<i32>;
+    fn SetStartType(&self, lnstarttype: i32) -> ::windows::core::Result<()>;
+    fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPath(&self, bstrpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn StartupParameters(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetStartupParameters(&self, bstrstartupparameters: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ErrorControl(&self) -> ::windows::core::Result<i32>;
+    fn SetErrorControl(&self, lnerrorcontrol: i32) -> ::windows::core::Result<()>;
+    fn LoadOrderGroup(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLoadOrderGroup(&self, bstrloadordergroup: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ServiceAccountName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetServiceAccountName(&self, bstrserviceaccountname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ServiceAccountPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetServiceAccountPath(&self, bstrserviceaccountpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Dependencies(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetDependencies(&self, vdependencies: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsService_Vtbl {
@@ -5453,12 +5453,12 @@ impl IADsService_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsServiceOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn Status(&mut self) -> ::windows::core::Result<i32>;
-    fn Start(&mut self) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
-    fn Pause(&mut self) -> ::windows::core::Result<()>;
-    fn Continue(&mut self) -> ::windows::core::Result<()>;
-    fn SetPassword(&mut self, bstrnewpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Status(&self) -> ::windows::core::Result<i32>;
+    fn Start(&self) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
+    fn Pause(&self) -> ::windows::core::Result<()>;
+    fn Continue(&self) -> ::windows::core::Result<()>;
+    fn SetPassword(&self, bstrnewpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsServiceOperations_Vtbl {
@@ -5515,12 +5515,12 @@ impl IADsServiceOperations_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsSession_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn User(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn UserPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Computer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ComputerPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ConnectTime(&mut self) -> ::windows::core::Result<i32>;
-    fn IdleTime(&mut self) -> ::windows::core::Result<i32>;
+    fn User(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn UserPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Computer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ComputerPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ConnectTime(&self) -> ::windows::core::Result<i32>;
+    fn IdleTime(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsSession_Vtbl {
@@ -5607,8 +5607,8 @@ impl IADsSession_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsSyntax_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn OleAutoDataType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetOleAutoDataType(&mut self, lnoleautodatatype: i32) -> ::windows::core::Result<()>;
+    fn OleAutoDataType(&self) -> ::windows::core::Result<i32>;
+    fn SetOleAutoDataType(&self, lnoleautodatatype: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsSyntax_Vtbl {
@@ -5641,10 +5641,10 @@ impl IADsSyntax_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsTimestamp_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn WholeSeconds(&mut self) -> ::windows::core::Result<i32>;
-    fn SetWholeSeconds(&mut self, lnwholeseconds: i32) -> ::windows::core::Result<()>;
-    fn EventID(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEventID(&mut self, lneventid: i32) -> ::windows::core::Result<()>;
+    fn WholeSeconds(&self) -> ::windows::core::Result<i32>;
+    fn SetWholeSeconds(&self, lnwholeseconds: i32) -> ::windows::core::Result<()>;
+    fn EventID(&self) -> ::windows::core::Result<i32>;
+    fn SetEventID(&self, lneventid: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsTimestamp_Vtbl {
@@ -5695,12 +5695,12 @@ impl IADsTimestamp_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsTypedName_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn ObjectName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetObjectName(&mut self, bstrobjectname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Level(&mut self) -> ::windows::core::Result<i32>;
-    fn SetLevel(&mut self, lnlevel: i32) -> ::windows::core::Result<()>;
-    fn Interval(&mut self) -> ::windows::core::Result<i32>;
-    fn SetInterval(&mut self, lninterval: i32) -> ::windows::core::Result<()>;
+    fn ObjectName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetObjectName(&self, bstrobjectname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Level(&self) -> ::windows::core::Result<i32>;
+    fn SetLevel(&self, lnlevel: i32) -> ::windows::core::Result<()>;
+    fn Interval(&self) -> ::windows::core::Result<i32>;
+    fn SetInterval(&self, lninterval: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsTypedName_Vtbl {
@@ -5769,97 +5769,97 @@ impl IADsTypedName_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsUser_Impl: Sized + super::super::System::Com::IDispatch_Impl + IADs_Impl {
-    fn BadLoginAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn BadLoginCount(&mut self) -> ::windows::core::Result<i32>;
-    fn LastLogin(&mut self) -> ::windows::core::Result<f64>;
-    fn LastLogoff(&mut self) -> ::windows::core::Result<f64>;
-    fn LastFailedLogin(&mut self) -> ::windows::core::Result<f64>;
-    fn PasswordLastChanged(&mut self) -> ::windows::core::Result<f64>;
-    fn Description(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDescription(&mut self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Division(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDivision(&mut self, bstrdivision: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Department(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetDepartment(&mut self, bstrdepartment: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn EmployeeID(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEmployeeID(&mut self, bstremployeeid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FullName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFullName(&mut self, bstrfullname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FirstName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFirstName(&mut self, bstrfirstname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LastName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLastName(&mut self, bstrlastname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn OtherName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetOtherName(&mut self, bstrothername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NamePrefix(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetNamePrefix(&mut self, bstrnameprefix: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn NameSuffix(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetNameSuffix(&mut self, bstrnamesuffix: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Title(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetTitle(&mut self, bstrtitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Manager(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetManager(&mut self, bstrmanager: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TelephoneHome(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetTelephoneHome(&mut self, vtelephonehome: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn TelephoneMobile(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetTelephoneMobile(&mut self, vtelephonemobile: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn TelephoneNumber(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetTelephoneNumber(&mut self, vtelephonenumber: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn TelephonePager(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetTelephonePager(&mut self, vtelephonepager: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn FaxNumber(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetFaxNumber(&mut self, vfaxnumber: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn OfficeLocations(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetOfficeLocations(&mut self, vofficelocations: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PostalAddresses(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPostalAddresses(&mut self, vpostaladdresses: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PostalCodes(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPostalCodes(&mut self, vpostalcodes: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SeeAlso(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSeeAlso(&mut self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AccountDisabled(&mut self) -> ::windows::core::Result<i16>;
-    fn SetAccountDisabled(&mut self, faccountdisabled: i16) -> ::windows::core::Result<()>;
-    fn AccountExpirationDate(&mut self) -> ::windows::core::Result<f64>;
-    fn SetAccountExpirationDate(&mut self, daaccountexpirationdate: f64) -> ::windows::core::Result<()>;
-    fn GraceLoginsAllowed(&mut self) -> ::windows::core::Result<i32>;
-    fn SetGraceLoginsAllowed(&mut self, lngraceloginsallowed: i32) -> ::windows::core::Result<()>;
-    fn GraceLoginsRemaining(&mut self) -> ::windows::core::Result<i32>;
-    fn SetGraceLoginsRemaining(&mut self, lngraceloginsremaining: i32) -> ::windows::core::Result<()>;
-    fn IsAccountLocked(&mut self) -> ::windows::core::Result<i16>;
-    fn SetIsAccountLocked(&mut self, fisaccountlocked: i16) -> ::windows::core::Result<()>;
-    fn LoginHours(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetLoginHours(&mut self, vloginhours: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn LoginWorkstations(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetLoginWorkstations(&mut self, vloginworkstations: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn MaxLogins(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxLogins(&mut self, lnmaxlogins: i32) -> ::windows::core::Result<()>;
-    fn MaxStorage(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxStorage(&mut self, lnmaxstorage: i32) -> ::windows::core::Result<()>;
-    fn PasswordExpirationDate(&mut self) -> ::windows::core::Result<f64>;
-    fn SetPasswordExpirationDate(&mut self, dapasswordexpirationdate: f64) -> ::windows::core::Result<()>;
-    fn PasswordMinimumLength(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPasswordMinimumLength(&mut self, lnpasswordminimumlength: i32) -> ::windows::core::Result<()>;
-    fn PasswordRequired(&mut self) -> ::windows::core::Result<i16>;
-    fn SetPasswordRequired(&mut self, fpasswordrequired: i16) -> ::windows::core::Result<()>;
-    fn RequireUniquePassword(&mut self) -> ::windows::core::Result<i16>;
-    fn SetRequireUniquePassword(&mut self, frequireuniquepassword: i16) -> ::windows::core::Result<()>;
-    fn EmailAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEmailAddress(&mut self, bstremailaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn HomeDirectory(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetHomeDirectory(&mut self, bstrhomedirectory: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Languages(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetLanguages(&mut self, vlanguages: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Profile(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetProfile(&mut self, bstrprofile: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn LoginScript(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLoginScript(&mut self, bstrloginscript: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Picture(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPicture(&mut self, vpicture: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn HomePage(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetHomePage(&mut self, bstrhomepage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Groups(&mut self) -> ::windows::core::Result<IADsMembers>;
-    fn SetPassword(&mut self, newpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ChangePassword(&mut self, bstroldpassword: &super::super::Foundation::BSTR, bstrnewpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn BadLoginAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn BadLoginCount(&self) -> ::windows::core::Result<i32>;
+    fn LastLogin(&self) -> ::windows::core::Result<f64>;
+    fn LastLogoff(&self) -> ::windows::core::Result<f64>;
+    fn LastFailedLogin(&self) -> ::windows::core::Result<f64>;
+    fn PasswordLastChanged(&self) -> ::windows::core::Result<f64>;
+    fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDescription(&self, bstrdescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Division(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDivision(&self, bstrdivision: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Department(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetDepartment(&self, bstrdepartment: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn EmployeeID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetEmployeeID(&self, bstremployeeid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FullName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFullName(&self, bstrfullname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FirstName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFirstName(&self, bstrfirstname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LastName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLastName(&self, bstrlastname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn OtherName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetOtherName(&self, bstrothername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NamePrefix(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetNamePrefix(&self, bstrnameprefix: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn NameSuffix(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetNameSuffix(&self, bstrnamesuffix: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetTitle(&self, bstrtitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Manager(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetManager(&self, bstrmanager: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TelephoneHome(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetTelephoneHome(&self, vtelephonehome: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn TelephoneMobile(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetTelephoneMobile(&self, vtelephonemobile: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn TelephoneNumber(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetTelephoneNumber(&self, vtelephonenumber: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn TelephonePager(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetTelephonePager(&self, vtelephonepager: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn FaxNumber(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetFaxNumber(&self, vfaxnumber: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OfficeLocations(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetOfficeLocations(&self, vofficelocations: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PostalAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetPostalAddresses(&self, vpostaladdresses: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PostalCodes(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetPostalCodes(&self, vpostalcodes: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetSeeAlso(&self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AccountDisabled(&self) -> ::windows::core::Result<i16>;
+    fn SetAccountDisabled(&self, faccountdisabled: i16) -> ::windows::core::Result<()>;
+    fn AccountExpirationDate(&self) -> ::windows::core::Result<f64>;
+    fn SetAccountExpirationDate(&self, daaccountexpirationdate: f64) -> ::windows::core::Result<()>;
+    fn GraceLoginsAllowed(&self) -> ::windows::core::Result<i32>;
+    fn SetGraceLoginsAllowed(&self, lngraceloginsallowed: i32) -> ::windows::core::Result<()>;
+    fn GraceLoginsRemaining(&self) -> ::windows::core::Result<i32>;
+    fn SetGraceLoginsRemaining(&self, lngraceloginsremaining: i32) -> ::windows::core::Result<()>;
+    fn IsAccountLocked(&self) -> ::windows::core::Result<i16>;
+    fn SetIsAccountLocked(&self, fisaccountlocked: i16) -> ::windows::core::Result<()>;
+    fn LoginHours(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetLoginHours(&self, vloginhours: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn LoginWorkstations(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetLoginWorkstations(&self, vloginworkstations: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn MaxLogins(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxLogins(&self, lnmaxlogins: i32) -> ::windows::core::Result<()>;
+    fn MaxStorage(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxStorage(&self, lnmaxstorage: i32) -> ::windows::core::Result<()>;
+    fn PasswordExpirationDate(&self) -> ::windows::core::Result<f64>;
+    fn SetPasswordExpirationDate(&self, dapasswordexpirationdate: f64) -> ::windows::core::Result<()>;
+    fn PasswordMinimumLength(&self) -> ::windows::core::Result<i32>;
+    fn SetPasswordMinimumLength(&self, lnpasswordminimumlength: i32) -> ::windows::core::Result<()>;
+    fn PasswordRequired(&self) -> ::windows::core::Result<i16>;
+    fn SetPasswordRequired(&self, fpasswordrequired: i16) -> ::windows::core::Result<()>;
+    fn RequireUniquePassword(&self) -> ::windows::core::Result<i16>;
+    fn SetRequireUniquePassword(&self, frequireuniquepassword: i16) -> ::windows::core::Result<()>;
+    fn EmailAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetEmailAddress(&self, bstremailaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn HomeDirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetHomeDirectory(&self, bstrhomedirectory: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Languages(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetLanguages(&self, vlanguages: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Profile(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetProfile(&self, bstrprofile: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn LoginScript(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLoginScript(&self, bstrloginscript: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Picture(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetPicture(&self, vpicture: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn HomePage(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetHomePage(&self, bstrhomepage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Groups(&self) -> ::windows::core::Result<IADsMembers>;
+    fn SetPassword(&self, newpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ChangePassword(&self, bstroldpassword: &super::super::Foundation::BSTR, bstrnewpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsUser_Vtbl {
@@ -6708,10 +6708,10 @@ impl IADsUser_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsWinNTSystemInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn UserName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ComputerName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DomainName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn PDC(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn UserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ComputerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DomainName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn PDC(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsWinNTSystemInfo_Vtbl {
@@ -6774,7 +6774,7 @@ impl IADsWinNTSystemInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ICommonQuery_Impl: Sized {
-    fn OpenQueryWindow(&mut self, hwndparent: super::super::Foundation::HWND, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn OpenQueryWindow(&self, hwndparent: super::super::Foundation::HWND, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ICommonQuery_Vtbl {
@@ -6792,11 +6792,11 @@ impl ICommonQuery_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDirectoryObject_Impl: Sized {
-    fn GetObjectInformation(&mut self) -> ::windows::core::Result<*mut ADS_OBJECT_INFO>;
-    fn GetObjectAttributes(&mut self, pattributenames: *const super::super::Foundation::PWSTR, dwnumberattributes: u32, ppattributeentries: *mut *mut ADS_ATTR_INFO, pdwnumattributesreturned: *mut u32) -> ::windows::core::Result<()>;
-    fn SetObjectAttributes(&mut self, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows::core::Result<u32>;
-    fn CreateDSObject(&mut self, pszrdnname: super::super::Foundation::PWSTR, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn DeleteDSObject(&mut self, pszrdnname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetObjectInformation(&self) -> ::windows::core::Result<*mut ADS_OBJECT_INFO>;
+    fn GetObjectAttributes(&self, pattributenames: *const super::super::Foundation::PWSTR, dwnumberattributes: u32, ppattributeentries: *mut *mut ADS_ATTR_INFO, pdwnumattributesreturned: *mut u32) -> ::windows::core::Result<()>;
+    fn SetObjectAttributes(&self, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows::core::Result<u32>;
+    fn CreateDSObject(&self, pszrdnname: super::super::Foundation::PWSTR, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn DeleteDSObject(&self, pszrdnname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDirectoryObject_Vtbl {
@@ -6859,14 +6859,14 @@ impl IDirectoryObject_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectorySchemaMgmt_Impl: Sized {
-    fn EnumAttributes(&mut self, ppszattrnames: *const super::super::Foundation::PWSTR, dwnumattributes: u32, ppattrdefinition: *const *const ADS_ATTR_DEF, pdwnumattributes: *const u32) -> ::windows::core::Result<()>;
-    fn CreateAttributeDefinition(&mut self, pszattributename: super::super::Foundation::PWSTR, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows::core::Result<()>;
-    fn WriteAttributeDefinition(&mut self, pszattributename: super::super::Foundation::PWSTR, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows::core::Result<()>;
-    fn DeleteAttributeDefinition(&mut self, pszattributename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn EnumClasses(&mut self, ppszclassnames: *const super::super::Foundation::PWSTR, dwnumclasses: u32, ppclassdefinition: *const *const ADS_CLASS_DEF, pdwnumclasses: *const u32) -> ::windows::core::Result<()>;
-    fn WriteClassDefinition(&mut self, pszclassname: super::super::Foundation::PWSTR, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows::core::Result<()>;
-    fn CreateClassDefinition(&mut self, pszclassname: super::super::Foundation::PWSTR, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows::core::Result<()>;
-    fn DeleteClassDefinition(&mut self, pszclassname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn EnumAttributes(&self, ppszattrnames: *const super::super::Foundation::PWSTR, dwnumattributes: u32, ppattrdefinition: *const *const ADS_ATTR_DEF, pdwnumattributes: *const u32) -> ::windows::core::Result<()>;
+    fn CreateAttributeDefinition(&self, pszattributename: super::super::Foundation::PWSTR, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows::core::Result<()>;
+    fn WriteAttributeDefinition(&self, pszattributename: super::super::Foundation::PWSTR, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows::core::Result<()>;
+    fn DeleteAttributeDefinition(&self, pszattributename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn EnumClasses(&self, ppszclassnames: *const super::super::Foundation::PWSTR, dwnumclasses: u32, ppclassdefinition: *const *const ADS_CLASS_DEF, pdwnumclasses: *const u32) -> ::windows::core::Result<()>;
+    fn WriteClassDefinition(&self, pszclassname: super::super::Foundation::PWSTR, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows::core::Result<()>;
+    fn CreateClassDefinition(&self, pszclassname: super::super::Foundation::PWSTR, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows::core::Result<()>;
+    fn DeleteClassDefinition(&self, pszclassname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectorySchemaMgmt_Vtbl {
@@ -6929,16 +6929,16 @@ impl IDirectorySchemaMgmt_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectorySearch_Impl: Sized {
-    fn SetSearchPreference(&mut self, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::Result<()>;
-    fn ExecuteSearch(&mut self, pszsearchfilter: super::super::Foundation::PWSTR, pattributenames: *const super::super::Foundation::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<isize>;
-    fn AbandonSearch(&mut self, phsearchresult: isize) -> ::windows::core::Result<()>;
-    fn GetFirstRow(&mut self, hsearchresult: isize) -> ::windows::core::HRESULT;
-    fn GetNextRow(&mut self, hsearchresult: isize) -> ::windows::core::HRESULT;
-    fn GetPreviousRow(&mut self, hsearchresult: isize) -> ::windows::core::HRESULT;
-    fn GetNextColumnName(&mut self, hsearchhandle: isize, ppszcolumnname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
-    fn GetColumn(&mut self, hsearchresult: isize, szcolumnname: super::super::Foundation::PWSTR) -> ::windows::core::Result<ads_search_column>;
-    fn FreeColumn(&mut self, psearchcolumn: *const ads_search_column) -> ::windows::core::Result<()>;
-    fn CloseSearchHandle(&mut self, hsearchresult: isize) -> ::windows::core::Result<()>;
+    fn SetSearchPreference(&self, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::Result<()>;
+    fn ExecuteSearch(&self, pszsearchfilter: super::super::Foundation::PWSTR, pattributenames: *const super::super::Foundation::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<isize>;
+    fn AbandonSearch(&self, phsearchresult: isize) -> ::windows::core::Result<()>;
+    fn GetFirstRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT;
+    fn GetNextRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT;
+    fn GetPreviousRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT;
+    fn GetNextColumnName(&self, hsearchhandle: isize, ppszcolumnname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
+    fn GetColumn(&self, hsearchresult: isize, szcolumnname: super::super::Foundation::PWSTR) -> ::windows::core::Result<ads_search_column>;
+    fn FreeColumn(&self, psearchcolumn: *const ads_search_column) -> ::windows::core::Result<()>;
+    fn CloseSearchHandle(&self, hsearchresult: isize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectorySearch_Vtbl {
@@ -7025,8 +7025,8 @@ impl IDirectorySearch_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDsAdminCreateObj_Impl: Sized {
-    fn Initialize(&mut self, padscontainerobj: &::core::option::Option<IADsContainer>, padscopysource: &::core::option::Option<IADs>, lpszclassname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn CreateModal(&mut self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<IADs>;
+    fn Initialize(&self, padscontainerobj: &::core::option::Option<IADsContainer>, padscopysource: &::core::option::Option<IADs>, lpszclassname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CreateModal(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<IADs>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDsAdminCreateObj_Vtbl {
@@ -7059,8 +7059,8 @@ impl IDsAdminCreateObj_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDsAdminNewObj_Impl: Sized {
-    fn SetButtons(&mut self, ncurrindex: u32, bvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetPageCounts(&mut self, pntotal: *mut i32, pnstartindex: *mut i32) -> ::windows::core::Result<()>;
+    fn SetButtons(&self, ncurrindex: u32, bvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetPageCounts(&self, pntotal: *mut i32, pnstartindex: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDsAdminNewObj_Vtbl {
@@ -7087,12 +7087,12 @@ impl IDsAdminNewObj_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDsAdminNewObjExt_Impl: Sized {
-    fn Initialize(&mut self, padscontainerobj: &::core::option::Option<IADsContainer>, padscopysource: &::core::option::Option<IADs>, lpszclassname: super::super::Foundation::PWSTR, pdsadminnewobj: &::core::option::Option<IDsAdminNewObj>, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> ::windows::core::Result<()>;
-    fn AddPages(&mut self, lpfnaddpage: &super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn SetObject(&mut self, padsobj: &::core::option::Option<IADs>) -> ::windows::core::Result<()>;
-    fn WriteData(&mut self, hwnd: super::super::Foundation::HWND, ucontext: u32) -> ::windows::core::Result<()>;
-    fn OnError(&mut self, hwnd: super::super::Foundation::HWND, hr: ::windows::core::HRESULT, ucontext: u32) -> ::windows::core::Result<()>;
-    fn GetSummaryInfo(&mut self, pbstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Initialize(&self, padscontainerobj: &::core::option::Option<IADsContainer>, padscopysource: &::core::option::Option<IADs>, lpszclassname: super::super::Foundation::PWSTR, pdsadminnewobj: &::core::option::Option<IDsAdminNewObj>, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> ::windows::core::Result<()>;
+    fn AddPages(&self, lpfnaddpage: &super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn SetObject(&self, padsobj: &::core::option::Option<IADs>) -> ::windows::core::Result<()>;
+    fn WriteData(&self, hwnd: super::super::Foundation::HWND, ucontext: u32) -> ::windows::core::Result<()>;
+    fn OnError(&self, hwnd: super::super::Foundation::HWND, hr: ::windows::core::HRESULT, ucontext: u32) -> ::windows::core::Result<()>;
+    fn GetSummaryInfo(&self, pbstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IDsAdminNewObjExt_Vtbl {
@@ -7143,8 +7143,8 @@ impl IDsAdminNewObjExt_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDsAdminNewObjPrimarySite_Impl: Sized {
-    fn CreateNew(&mut self, pszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Commit(&mut self) -> ::windows::core::Result<()>;
+    fn CreateNew(&self, pszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Commit(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDsAdminNewObjPrimarySite_Vtbl {
@@ -7171,10 +7171,10 @@ impl IDsAdminNewObjPrimarySite_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDsAdminNotifyHandler_Impl: Sized {
-    fn Initialize(&mut self, pextrainfo: &::core::option::Option<super::super::System::Com::IDataObject>, pueventflags: *mut u32) -> ::windows::core::Result<()>;
-    fn Begin(&mut self, uevent: u32, parg1: &::core::option::Option<super::super::System::Com::IDataObject>, parg2: &::core::option::Option<super::super::System::Com::IDataObject>, puflags: *mut u32, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Notify(&mut self, nitem: u32, uflags: u32) -> ::windows::core::Result<()>;
-    fn End(&mut self) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pextrainfo: &::core::option::Option<super::super::System::Com::IDataObject>, pueventflags: *mut u32) -> ::windows::core::Result<()>;
+    fn Begin(&self, uevent: u32, parg1: &::core::option::Option<super::super::System::Com::IDataObject>, parg2: &::core::option::Option<super::super::System::Com::IDataObject>, puflags: *mut u32, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Notify(&self, nitem: u32, uflags: u32) -> ::windows::core::Result<()>;
+    fn End(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDsAdminNotifyHandler_Vtbl {
@@ -7213,11 +7213,11 @@ impl IDsAdminNotifyHandler_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDsBrowseDomainTree_Impl: Sized {
-    fn BrowseTo(&mut self, hwndparent: super::super::Foundation::HWND, ppsztargetpath: *mut super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetDomains(&mut self, ppdomaintree: *mut *mut DOMAIN_TREE, dwflags: u32) -> ::windows::core::Result<()>;
-    fn FreeDomains(&mut self, ppdomaintree: *mut *mut DOMAIN_TREE) -> ::windows::core::Result<()>;
-    fn FlushCachedDomains(&mut self) -> ::windows::core::Result<()>;
-    fn SetComputer(&mut self, pszcomputername: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn BrowseTo(&self, hwndparent: super::super::Foundation::HWND, ppsztargetpath: *mut super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE, dwflags: u32) -> ::windows::core::Result<()>;
+    fn FreeDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE) -> ::windows::core::Result<()>;
+    fn FlushCachedDomains(&self) -> ::windows::core::Result<()>;
+    fn SetComputer(&self, pszcomputername: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDsBrowseDomainTree_Vtbl {
@@ -7262,17 +7262,17 @@ impl IDsBrowseDomainTree_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDsDisplaySpecifier_Impl: Sized {
-    fn SetServer(&mut self, pszserver: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
-    fn SetLanguageID(&mut self, langid: u16) -> ::windows::core::Result<()>;
-    fn GetDisplaySpecifier(&mut self, pszobjectclass: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetIconLocation(&mut self, pszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, pszbuffer: super::super::Foundation::PWSTR, cchbuffer: i32, presid: *mut i32) -> ::windows::core::Result<()>;
-    fn GetIcon(&mut self, pszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, cxicon: i32, cyicon: i32) -> super::super::UI::WindowsAndMessaging::HICON;
-    fn GetFriendlyClassName(&mut self, pszobjectclass: super::super::Foundation::PWSTR, pszbuffer: super::super::Foundation::PWSTR, cchbuffer: i32) -> ::windows::core::Result<()>;
-    fn GetFriendlyAttributeName(&mut self, pszobjectclass: super::super::Foundation::PWSTR, pszattributename: super::super::Foundation::PWSTR, pszbuffer: super::super::Foundation::PWSTR, cchbuffer: u32) -> ::windows::core::Result<()>;
-    fn IsClassContainer(&mut self, pszobjectclass: super::super::Foundation::PWSTR, pszadspath: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
-    fn GetClassCreationInfo(&mut self, pszobjectclass: super::super::Foundation::PWSTR, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> ::windows::core::Result<()>;
-    fn EnumClassAttributes(&mut self, pszobjectclass: super::super::Foundation::PWSTR, pcbenum: &LPDSENUMATTRIBUTES, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn GetAttributeADsType(&mut self, pszattributename: super::super::Foundation::PWSTR) -> ADSTYPEENUM;
+    fn SetServer(&self, pszserver: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetLanguageID(&self, langid: u16) -> ::windows::core::Result<()>;
+    fn GetDisplaySpecifier(&self, pszobjectclass: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetIconLocation(&self, pszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, pszbuffer: super::super::Foundation::PWSTR, cchbuffer: i32, presid: *mut i32) -> ::windows::core::Result<()>;
+    fn GetIcon(&self, pszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, cxicon: i32, cyicon: i32) -> super::super::UI::WindowsAndMessaging::HICON;
+    fn GetFriendlyClassName(&self, pszobjectclass: super::super::Foundation::PWSTR, pszbuffer: super::super::Foundation::PWSTR, cchbuffer: i32) -> ::windows::core::Result<()>;
+    fn GetFriendlyAttributeName(&self, pszobjectclass: super::super::Foundation::PWSTR, pszattributename: super::super::Foundation::PWSTR, pszbuffer: super::super::Foundation::PWSTR, cchbuffer: u32) -> ::windows::core::Result<()>;
+    fn IsClassContainer(&self, pszobjectclass: super::super::Foundation::PWSTR, pszadspath: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::BOOL;
+    fn GetClassCreationInfo(&self, pszobjectclass: super::super::Foundation::PWSTR, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> ::windows::core::Result<()>;
+    fn EnumClassAttributes(&self, pszobjectclass: super::super::Foundation::PWSTR, pcbenum: &LPDSENUMATTRIBUTES, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn GetAttributeADsType(&self, pszattributename: super::super::Foundation::PWSTR) -> ADSTYPEENUM;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IDsDisplaySpecifier_Vtbl {
@@ -7353,8 +7353,8 @@ impl IDsDisplaySpecifier_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDsObjectPicker_Impl: Sized {
-    fn Initialize(&mut self, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows::core::Result<()>;
-    fn InvokeDialog(&mut self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
+    fn Initialize(&self, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows::core::Result<()>;
+    fn InvokeDialog(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<super::super::System::Com::IDataObject>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDsObjectPicker_Vtbl {
@@ -7387,7 +7387,7 @@ impl IDsObjectPicker_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDsObjectPickerCredentials_Impl: Sized + IDsObjectPicker_Impl {
-    fn SetCredentials(&mut self, szusername: super::super::Foundation::PWSTR, szpassword: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetCredentials(&self, szusername: super::super::Foundation::PWSTR, szpassword: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDsObjectPickerCredentials_Vtbl {
@@ -7405,13 +7405,13 @@ impl IDsObjectPickerCredentials_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPersistQuery_Impl: Sized + super::super::System::Com::IPersist_Impl {
-    fn WriteString(&mut self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, pvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ReadString(&mut self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, pbuffer: super::super::Foundation::PWSTR, cchbuffer: i32) -> ::windows::core::Result<()>;
-    fn WriteInt(&mut self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, value: i32) -> ::windows::core::Result<()>;
-    fn ReadInt(&mut self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, pvalue: *mut i32) -> ::windows::core::Result<()>;
-    fn WriteStruct(&mut self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()>;
-    fn ReadStruct(&mut self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn WriteString(&self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, pvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ReadString(&self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, pbuffer: super::super::Foundation::PWSTR, cchbuffer: i32) -> ::windows::core::Result<()>;
+    fn WriteInt(&self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, value: i32) -> ::windows::core::Result<()>;
+    fn ReadInt(&self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, pvalue: *mut i32) -> ::windows::core::Result<()>;
+    fn WriteStruct(&self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()>;
+    fn ReadStruct(&self, psection: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPersistQuery_Vtbl {
@@ -7468,11 +7468,11 @@ impl IPersistQuery_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrivateDispatch_Impl: Sized {
-    fn ADSIInitializeDispatchManager(&mut self, dwextensionid: i32) -> ::windows::core::Result<()>;
-    fn ADSIGetTypeInfoCount(&mut self) -> ::windows::core::Result<u32>;
-    fn ADSIGetTypeInfo(&mut self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo>;
-    fn ADSIGetIDsOfNames(&mut self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32>;
-    fn ADSIInvoke(&mut self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
+    fn ADSIInitializeDispatchManager(&self, dwextensionid: i32) -> ::windows::core::Result<()>;
+    fn ADSIGetTypeInfoCount(&self) -> ::windows::core::Result<u32>;
+    fn ADSIGetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo>;
+    fn ADSIGetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32>;
+    fn ADSIInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrivateDispatch_Vtbl {
@@ -7535,8 +7535,8 @@ impl IPrivateDispatch_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrivateUnknown_Impl: Sized {
-    fn ADSIInitializeObject(&mut self, lpszusername: &super::super::Foundation::BSTR, lpszpassword: &super::super::Foundation::BSTR, lnreserved: i32) -> ::windows::core::Result<()>;
-    fn ADSIReleaseObject(&mut self) -> ::windows::core::Result<()>;
+    fn ADSIInitializeObject(&self, lpszusername: &super::super::Foundation::BSTR, lpszpassword: &super::super::Foundation::BSTR, lnreserved: i32) -> ::windows::core::Result<()>;
+    fn ADSIReleaseObject(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPrivateUnknown_Vtbl {
@@ -7563,9 +7563,9 @@ impl IPrivateUnknown_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IQueryForm_Impl: Sized {
-    fn Initialize(&mut self, hkform: super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
-    fn AddForms(&mut self, paddformsproc: &LPCQADDFORMSPROC, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn AddPages(&mut self, paddpagesproc: &LPCQADDPAGESPROC, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn Initialize(&self, hkform: super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
+    fn AddForms(&self, paddformsproc: &LPCQADDFORMSPROC, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn AddPages(&self, paddpagesproc: &LPCQADDPAGESPROC, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IQueryForm_Vtbl {

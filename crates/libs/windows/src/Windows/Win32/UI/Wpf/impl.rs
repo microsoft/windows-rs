@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IMILBitmapEffect_Impl: Sized {
-    fn GetOutput(&mut self, uiindex: u32, pcontext: &::core::option::Option<IMILBitmapEffectRenderContext>) -> ::windows::core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
-    fn GetParentEffect(&mut self) -> ::windows::core::Result<IMILBitmapEffectGroup>;
-    fn SetInputSource(&mut self, uiindex: u32, pbitmapsource: &::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()>;
+    fn GetOutput(&self, uiindex: u32, pcontext: &::core::option::Option<IMILBitmapEffectRenderContext>) -> ::windows::core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn GetParentEffect(&self) -> ::windows::core::Result<IMILBitmapEffectGroup>;
+    fn SetInputSource(&self, uiindex: u32, pbitmapsource: &::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 impl IMILBitmapEffect_Vtbl {
@@ -46,8 +46,8 @@ impl IMILBitmapEffect_Vtbl {
     }
 }
 pub trait IMILBitmapEffectConnections_Impl: Sized {
-    fn GetInputConnector(&mut self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectInputConnector>;
-    fn GetOutputConnector(&mut self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectOutputConnector>;
+    fn GetInputConnector(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectInputConnector>;
+    fn GetOutputConnector(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectOutputConnector>;
 }
 impl IMILBitmapEffectConnections_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnections_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnections_Vtbl {
@@ -84,10 +84,10 @@ impl IMILBitmapEffectConnections_Vtbl {
     }
 }
 pub trait IMILBitmapEffectConnectionsInfo_Impl: Sized {
-    fn GetNumberInputs(&mut self) -> ::windows::core::Result<u32>;
-    fn GetNumberOutputs(&mut self) -> ::windows::core::Result<u32>;
-    fn GetInputConnectorInfo(&mut self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectConnectorInfo>;
-    fn GetOutputConnectorInfo(&mut self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectConnectorInfo>;
+    fn GetNumberInputs(&self) -> ::windows::core::Result<u32>;
+    fn GetNumberOutputs(&self) -> ::windows::core::Result<u32>;
+    fn GetInputConnectorInfo(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectConnectorInfo>;
+    fn GetOutputConnectorInfo(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectConnectorInfo>;
 }
 impl IMILBitmapEffectConnectionsInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnectionsInfo_Vtbl {
@@ -148,8 +148,8 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
     }
 }
 pub trait IMILBitmapEffectConnector_Impl: Sized + IMILBitmapEffectConnectorInfo_Impl {
-    fn IsConnected(&mut self) -> ::windows::core::Result<i16>;
-    fn GetBitmapEffect(&mut self) -> ::windows::core::Result<IMILBitmapEffect>;
+    fn IsConnected(&self) -> ::windows::core::Result<i16>;
+    fn GetBitmapEffect(&self) -> ::windows::core::Result<IMILBitmapEffect>;
 }
 impl IMILBitmapEffectConnector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnector_Vtbl {
@@ -186,10 +186,10 @@ impl IMILBitmapEffectConnector_Vtbl {
     }
 }
 pub trait IMILBitmapEffectConnectorInfo_Impl: Sized {
-    fn GetIndex(&mut self) -> ::windows::core::Result<u32>;
-    fn GetOptimalFormat(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetNumberFormats(&mut self) -> ::windows::core::Result<u32>;
-    fn GetFormat(&mut self, ulindex: u32) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetIndex(&self) -> ::windows::core::Result<u32>;
+    fn GetOptimalFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetNumberFormats(&self) -> ::windows::core::Result<u32>;
+    fn GetFormat(&self, ulindex: u32) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl IMILBitmapEffectConnectorInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnectorInfo_Vtbl {
@@ -251,8 +251,8 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectEvents_Impl: Sized {
-    fn PropertyChange(&mut self, peffect: &::core::option::Option<IMILBitmapEffect>, bstrpropertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DirtyRegion(&mut self, peffect: &::core::option::Option<IMILBitmapEffect>, prect: *const MilRectD) -> ::windows::core::Result<()>;
+    fn PropertyChange(&self, peffect: &::core::option::Option<IMILBitmapEffect>, bstrpropertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DirtyRegion(&self, peffect: &::core::option::Option<IMILBitmapEffect>, prect: *const MilRectD) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMILBitmapEffectEvents_Vtbl {
@@ -278,9 +278,9 @@ impl IMILBitmapEffectEvents_Vtbl {
     }
 }
 pub trait IMILBitmapEffectFactory_Impl: Sized {
-    fn CreateEffect(&mut self, pguideffect: *const ::windows::core::GUID) -> ::windows::core::Result<IMILBitmapEffect>;
-    fn CreateContext(&mut self) -> ::windows::core::Result<IMILBitmapEffectRenderContext>;
-    fn CreateEffectOuter(&mut self) -> ::windows::core::Result<IMILBitmapEffect>;
+    fn CreateEffect(&self, pguideffect: *const ::windows::core::GUID) -> ::windows::core::Result<IMILBitmapEffect>;
+    fn CreateContext(&self) -> ::windows::core::Result<IMILBitmapEffectRenderContext>;
+    fn CreateEffectOuter(&self) -> ::windows::core::Result<IMILBitmapEffect>;
 }
 impl IMILBitmapEffectFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectFactory_Impl, const OFFSET: isize>() -> IMILBitmapEffectFactory_Vtbl {
@@ -329,9 +329,9 @@ impl IMILBitmapEffectFactory_Vtbl {
     }
 }
 pub trait IMILBitmapEffectGroup_Impl: Sized {
-    fn GetInteriorInputConnector(&mut self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectOutputConnector>;
-    fn GetInteriorOutputConnector(&mut self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectInputConnector>;
-    fn Add(&mut self, peffect: &::core::option::Option<IMILBitmapEffect>) -> ::windows::core::Result<()>;
+    fn GetInteriorInputConnector(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectOutputConnector>;
+    fn GetInteriorOutputConnector(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectInputConnector>;
+    fn Add(&self, peffect: &::core::option::Option<IMILBitmapEffect>) -> ::windows::core::Result<()>;
 }
 impl IMILBitmapEffectGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectGroup_Impl, const OFFSET: isize>() -> IMILBitmapEffectGroup_Vtbl {
@@ -374,9 +374,9 @@ impl IMILBitmapEffectGroup_Vtbl {
     }
 }
 pub trait IMILBitmapEffectGroupImpl_Impl: Sized {
-    fn Preprocess(&mut self, pcontext: &::core::option::Option<IMILBitmapEffectRenderContext>) -> ::windows::core::Result<()>;
-    fn GetNumberChildren(&mut self) -> ::windows::core::Result<u32>;
-    fn GetChildren(&mut self) -> ::windows::core::Result<IMILBitmapEffects>;
+    fn Preprocess(&self, pcontext: &::core::option::Option<IMILBitmapEffectRenderContext>) -> ::windows::core::Result<()>;
+    fn GetNumberChildren(&self) -> ::windows::core::Result<u32>;
+    fn GetChildren(&self) -> ::windows::core::Result<IMILBitmapEffects>;
 }
 impl IMILBitmapEffectGroupImpl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectGroupImpl_Vtbl {
@@ -420,13 +420,13 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IMILBitmapEffectImpl_Impl: Sized {
-    fn IsInPlaceModificationAllowed(&mut self, poutputconnector: &::core::option::Option<IMILBitmapEffectOutputConnector>) -> ::windows::core::Result<i16>;
-    fn SetParentEffect(&mut self, pparenteffect: &::core::option::Option<IMILBitmapEffectGroup>) -> ::windows::core::Result<()>;
-    fn GetInputSource(&mut self, uiindex: u32) -> ::windows::core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
-    fn GetInputSourceBounds(&mut self, uiindex: u32) -> ::windows::core::Result<MilRectD>;
-    fn GetInputBitmapSource(&mut self, uiindex: u32, prendercontext: &::core::option::Option<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()>;
-    fn GetOutputBitmapSource(&mut self, uiindex: u32, prendercontext: &::core::option::Option<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, pinner: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn IsInPlaceModificationAllowed(&self, poutputconnector: &::core::option::Option<IMILBitmapEffectOutputConnector>) -> ::windows::core::Result<i16>;
+    fn SetParentEffect(&self, pparenteffect: &::core::option::Option<IMILBitmapEffectGroup>) -> ::windows::core::Result<()>;
+    fn GetInputSource(&self, uiindex: u32) -> ::windows::core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn GetInputSourceBounds(&self, uiindex: u32) -> ::windows::core::Result<MilRectD>;
+    fn GetInputBitmapSource(&self, uiindex: u32, prendercontext: &::core::option::Option<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()>;
+    fn GetOutputBitmapSource(&self, uiindex: u32, prendercontext: &::core::option::Option<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pinner: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 impl IMILBitmapEffectImpl_Vtbl {
@@ -500,8 +500,8 @@ impl IMILBitmapEffectImpl_Vtbl {
     }
 }
 pub trait IMILBitmapEffectInputConnector_Impl: Sized + IMILBitmapEffectConnectorInfo_Impl + IMILBitmapEffectConnector_Impl {
-    fn ConnectTo(&mut self, pconnector: &::core::option::Option<IMILBitmapEffectOutputConnector>) -> ::windows::core::Result<()>;
-    fn GetConnection(&mut self) -> ::windows::core::Result<IMILBitmapEffectOutputConnector>;
+    fn ConnectTo(&self, pconnector: &::core::option::Option<IMILBitmapEffectOutputConnector>) -> ::windows::core::Result<()>;
+    fn GetConnection(&self) -> ::windows::core::Result<IMILBitmapEffectOutputConnector>;
 }
 impl IMILBitmapEffectInputConnector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectInputConnector_Vtbl {
@@ -532,7 +532,7 @@ impl IMILBitmapEffectInputConnector_Vtbl {
     }
 }
 pub trait IMILBitmapEffectInteriorInputConnector_Impl: Sized {
-    fn GetInputConnector(&mut self) -> ::windows::core::Result<IMILBitmapEffectInputConnector>;
+    fn GetInputConnector(&self) -> ::windows::core::Result<IMILBitmapEffectInputConnector>;
 }
 impl IMILBitmapEffectInteriorInputConnector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectInteriorInputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectInteriorInputConnector_Vtbl {
@@ -554,7 +554,7 @@ impl IMILBitmapEffectInteriorInputConnector_Vtbl {
     }
 }
 pub trait IMILBitmapEffectInteriorOutputConnector_Impl: Sized {
-    fn GetOutputConnector(&mut self) -> ::windows::core::Result<IMILBitmapEffectOutputConnector>;
+    fn GetOutputConnector(&self) -> ::windows::core::Result<IMILBitmapEffectOutputConnector>;
 }
 impl IMILBitmapEffectInteriorOutputConnector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectInteriorOutputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectInteriorOutputConnector_Vtbl {
@@ -576,8 +576,8 @@ impl IMILBitmapEffectInteriorOutputConnector_Vtbl {
     }
 }
 pub trait IMILBitmapEffectOutputConnector_Impl: Sized + IMILBitmapEffectConnectorInfo_Impl + IMILBitmapEffectConnector_Impl {
-    fn GetNumberConnections(&mut self) -> ::windows::core::Result<u32>;
-    fn GetConnection(&mut self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectInputConnector>;
+    fn GetNumberConnections(&self) -> ::windows::core::Result<u32>;
+    fn GetConnection(&self, uiindex: u32) -> ::windows::core::Result<IMILBitmapEffectInputConnector>;
 }
 impl IMILBitmapEffectOutputConnector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectOutputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectOutputConnector_Vtbl {
@@ -614,8 +614,8 @@ impl IMILBitmapEffectOutputConnector_Vtbl {
     }
 }
 pub trait IMILBitmapEffectOutputConnectorImpl_Impl: Sized {
-    fn AddBackLink(&mut self, pconnection: &::core::option::Option<IMILBitmapEffectInputConnector>) -> ::windows::core::Result<()>;
-    fn RemoveBackLink(&mut self, pconnection: &::core::option::Option<IMILBitmapEffectInputConnector>) -> ::windows::core::Result<()>;
+    fn AddBackLink(&self, pconnection: &::core::option::Option<IMILBitmapEffectInputConnector>) -> ::windows::core::Result<()>;
+    fn RemoveBackLink(&self, pconnection: &::core::option::Option<IMILBitmapEffectInputConnector>) -> ::windows::core::Result<()>;
 }
 impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectOutputConnectorImpl_Vtbl {
@@ -641,12 +641,12 @@ impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 pub trait IMILBitmapEffectPrimitive_Impl: Sized {
-    fn GetOutput(&mut self, uiindex: u32, pcontext: &::core::option::Option<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()>;
-    fn TransformPoint(&mut self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: i16, pcontext: &::core::option::Option<IMILBitmapEffectRenderContext>, pfpointtransformed: *mut i16) -> ::windows::core::Result<()>;
-    fn TransformRect(&mut self, uiindex: u32, p: *mut MilRectD, fforwardtransform: i16, pcontext: &::core::option::Option<IMILBitmapEffectRenderContext>) -> ::windows::core::Result<()>;
-    fn HasAffineTransform(&mut self, uiindex: u32) -> ::windows::core::Result<i16>;
-    fn HasInverseTransform(&mut self, uiindex: u32) -> ::windows::core::Result<i16>;
-    fn GetAffineMatrix(&mut self, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows::core::Result<()>;
+    fn GetOutput(&self, uiindex: u32, pcontext: &::core::option::Option<IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows::core::Result<()>;
+    fn TransformPoint(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: i16, pcontext: &::core::option::Option<IMILBitmapEffectRenderContext>, pfpointtransformed: *mut i16) -> ::windows::core::Result<()>;
+    fn TransformRect(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: i16, pcontext: &::core::option::Option<IMILBitmapEffectRenderContext>) -> ::windows::core::Result<()>;
+    fn HasAffineTransform(&self, uiindex: u32) -> ::windows::core::Result<i16>;
+    fn HasInverseTransform(&self, uiindex: u32) -> ::windows::core::Result<i16>;
+    fn GetAffineMatrix(&self, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 impl IMILBitmapEffectPrimitive_Vtbl {
@@ -708,8 +708,8 @@ impl IMILBitmapEffectPrimitive_Vtbl {
     }
 }
 pub trait IMILBitmapEffectPrimitiveImpl_Impl: Sized {
-    fn IsDirty(&mut self, uioutputindex: u32) -> ::windows::core::Result<i16>;
-    fn IsVolatile(&mut self, uioutputindex: u32) -> ::windows::core::Result<i16>;
+    fn IsDirty(&self, uioutputindex: u32) -> ::windows::core::Result<i16>;
+    fn IsVolatile(&self, uioutputindex: u32) -> ::windows::core::Result<i16>;
 }
 impl IMILBitmapEffectPrimitiveImpl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectPrimitiveImpl_Vtbl {
@@ -746,14 +746,14 @@ impl IMILBitmapEffectPrimitiveImpl_Vtbl {
     }
 }
 pub trait IMILBitmapEffectRenderContext_Impl: Sized {
-    fn SetOutputPixelFormat(&mut self, format: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetOutputPixelFormat(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn SetUseSoftwareRenderer(&mut self, fsoftware: i16) -> ::windows::core::Result<()>;
-    fn SetInitialTransform(&mut self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()>;
-    fn GetFinalTransform(&mut self) -> ::windows::core::Result<MILMatrixF>;
-    fn SetOutputDPI(&mut self, dbldpix: f64, dbldpiy: f64) -> ::windows::core::Result<()>;
-    fn GetOutputDPI(&mut self, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::core::Result<()>;
-    fn SetRegionOfInterest(&mut self, prect: *const MilRectD) -> ::windows::core::Result<()>;
+    fn SetOutputPixelFormat(&self, format: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetOutputPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn SetUseSoftwareRenderer(&self, fsoftware: i16) -> ::windows::core::Result<()>;
+    fn SetInitialTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()>;
+    fn GetFinalTransform(&self) -> ::windows::core::Result<MILMatrixF>;
+    fn SetOutputDPI(&self, dbldpix: f64, dbldpiy: f64) -> ::windows::core::Result<()>;
+    fn GetOutputDPI(&self, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::core::Result<()>;
+    fn SetRegionOfInterest(&self, prect: *const MilRectD) -> ::windows::core::Result<()>;
 }
 impl IMILBitmapEffectRenderContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>() -> IMILBitmapEffectRenderContext_Vtbl {
@@ -826,11 +826,11 @@ impl IMILBitmapEffectRenderContext_Vtbl {
     }
 }
 pub trait IMILBitmapEffectRenderContextImpl_Impl: Sized {
-    fn GetUseSoftwareRenderer(&mut self) -> ::windows::core::Result<i16>;
-    fn GetTransform(&mut self, pmatrix: *mut MILMatrixF) -> ::windows::core::Result<()>;
-    fn UpdateTransform(&mut self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()>;
-    fn GetOutputBounds(&mut self, prect: *mut MilRectD) -> ::windows::core::Result<()>;
-    fn UpdateOutputBounds(&mut self, prect: *const MilRectD) -> ::windows::core::Result<()>;
+    fn GetUseSoftwareRenderer(&self) -> ::windows::core::Result<i16>;
+    fn GetTransform(&self, pmatrix: *mut MILMatrixF) -> ::windows::core::Result<()>;
+    fn UpdateTransform(&self, pmatrix: *const MILMatrixF) -> ::windows::core::Result<()>;
+    fn GetOutputBounds(&self, prect: *mut MilRectD) -> ::windows::core::Result<()>;
+    fn UpdateOutputBounds(&self, prect: *const MilRectD) -> ::windows::core::Result<()>;
 }
 impl IMILBitmapEffectRenderContextImpl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectRenderContextImpl_Vtbl {
@@ -879,10 +879,10 @@ impl IMILBitmapEffectRenderContextImpl_Vtbl {
     }
 }
 pub trait IMILBitmapEffects_Impl: Sized {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Parent(&mut self) -> ::windows::core::Result<IMILBitmapEffectGroup>;
-    fn Item(&mut self, uindex: u32) -> ::windows::core::Result<IMILBitmapEffect>;
-    fn Count(&mut self) -> ::windows::core::Result<u32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Parent(&self) -> ::windows::core::Result<IMILBitmapEffectGroup>;
+    fn Item(&self, uindex: u32) -> ::windows::core::Result<IMILBitmapEffect>;
+    fn Count(&self) -> ::windows::core::Result<u32>;
 }
 impl IMILBitmapEffects_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>() -> IMILBitmapEffects_Vtbl {

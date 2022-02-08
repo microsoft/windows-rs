@@ -1,5 +1,5 @@
 pub trait IAnimationObject_Impl: Sized {
-    fn PopulatePropertyInfo(&mut self, propertyname: &::windows::core::HSTRING, propertyinfo: &::core::option::Option<AnimationPropertyInfo>) -> ::windows::core::Result<()>;
+    fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &::core::option::Option<AnimationPropertyInfo>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IAnimationObject {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationObject";
@@ -33,8 +33,8 @@ impl ICompositionAnimationBase_Vtbl {
     }
 }
 pub trait ICompositionSupportsSystemBackdrop_Impl: Sized {
-    fn SystemBackdrop(&mut self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetSystemBackdrop(&mut self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn SystemBackdrop(&self) -> ::windows::core::Result<CompositionBrush>;
+    fn SetSystemBackdrop(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICompositionSupportsSystemBackdrop {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSupportsSystemBackdrop";
@@ -81,7 +81,7 @@ impl ICompositionSurface_Vtbl {
     }
 }
 pub trait ICompositionSurfaceFacade_Impl: Sized {
-    fn GetRealSurface(&mut self) -> ::windows::core::Result<ICompositionSurface>;
+    fn GetRealSurface(&self) -> ::windows::core::Result<ICompositionSurface>;
 }
 impl ::windows::core::RuntimeName for ICompositionSurfaceFacade {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSurfaceFacade";
@@ -122,7 +122,7 @@ impl IVisualElement_Vtbl {
     }
 }
 pub trait IVisualElement2_Impl: Sized {
-    fn GetVisualInternal(&mut self) -> ::windows::core::Result<Visual>;
+    fn GetVisualInternal(&self) -> ::windows::core::Result<Visual>;
 }
 impl ::windows::core::RuntimeName for IVisualElement2 {
     const NAME: &'static str = "Windows.UI.Composition.IVisualElement2";

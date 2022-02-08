@@ -1,11 +1,11 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFunctionDiscovery_Impl: Sized {
-    fn GetInstanceCollection(&mut self, pszcategory: super::super::Foundation::PWSTR, pszsubcategory: super::super::Foundation::PWSTR, fincludeallsubcategories: super::super::Foundation::BOOL) -> ::windows::core::Result<IFunctionInstanceCollection>;
-    fn GetInstance(&mut self, pszfunctioninstanceidentity: super::super::Foundation::PWSTR) -> ::windows::core::Result<IFunctionInstance>;
-    fn CreateInstanceCollectionQuery(&mut self, pszcategory: super::super::Foundation::PWSTR, pszsubcategory: super::super::Foundation::PWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut ::core::option::Option<IFunctionInstanceCollectionQuery>) -> ::windows::core::Result<()>;
-    fn CreateInstanceQuery(&mut self, pszfunctioninstanceidentity: super::super::Foundation::PWSTR, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut ::core::option::Option<IFunctionInstanceQuery>) -> ::windows::core::Result<()>;
-    fn AddInstance(&mut self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: super::super::Foundation::PWSTR, pszsubcategory: super::super::Foundation::PWSTR, pszcategoryidentity: super::super::Foundation::PWSTR) -> ::windows::core::Result<IFunctionInstance>;
-    fn RemoveInstance(&mut self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: super::super::Foundation::PWSTR, pszsubcategory: super::super::Foundation::PWSTR, pszcategoryidentity: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetInstanceCollection(&self, pszcategory: super::super::Foundation::PWSTR, pszsubcategory: super::super::Foundation::PWSTR, fincludeallsubcategories: super::super::Foundation::BOOL) -> ::windows::core::Result<IFunctionInstanceCollection>;
+    fn GetInstance(&self, pszfunctioninstanceidentity: super::super::Foundation::PWSTR) -> ::windows::core::Result<IFunctionInstance>;
+    fn CreateInstanceCollectionQuery(&self, pszcategory: super::super::Foundation::PWSTR, pszsubcategory: super::super::Foundation::PWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut ::core::option::Option<IFunctionInstanceCollectionQuery>) -> ::windows::core::Result<()>;
+    fn CreateInstanceQuery(&self, pszfunctioninstanceidentity: super::super::Foundation::PWSTR, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut ::core::option::Option<IFunctionInstanceQuery>) -> ::windows::core::Result<()>;
+    fn AddInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: super::super::Foundation::PWSTR, pszsubcategory: super::super::Foundation::PWSTR, pszcategoryidentity: super::super::Foundation::PWSTR) -> ::windows::core::Result<IFunctionInstance>;
+    fn RemoveInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: super::super::Foundation::PWSTR, pszsubcategory: super::super::Foundation::PWSTR, pszcategoryidentity: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IFunctionDiscovery_Vtbl {
@@ -74,9 +74,9 @@ impl IFunctionDiscovery_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFunctionDiscoveryNotification_Impl: Sized {
-    fn OnUpdate(&mut self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: &::core::option::Option<IFunctionInstance>) -> ::windows::core::Result<()>;
-    fn OnError(&mut self, hr: ::windows::core::HRESULT, fdqcquerycontext: u64, pszprovider: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn OnEvent(&mut self, dweventid: u32, fdqcquerycontext: u64, pszprovider: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnUpdate(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: &::core::option::Option<IFunctionInstance>) -> ::windows::core::Result<()>;
+    fn OnError(&self, hr: ::windows::core::HRESULT, fdqcquerycontext: u64, pszprovider: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnEvent(&self, dweventid: u32, fdqcquerycontext: u64, pszprovider: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IFunctionDiscoveryNotification_Vtbl {
@@ -109,14 +109,14 @@ impl IFunctionDiscoveryNotification_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionDiscoveryProvider_Impl: Sized {
-    fn Initialize(&mut self, pifunctiondiscoveryproviderfactory: &::core::option::Option<IFunctionDiscoveryProviderFactory>, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>, lciduserdefault: u32) -> ::windows::core::Result<u32>;
-    fn Query(&mut self, pifunctiondiscoveryproviderquery: &::core::option::Option<IFunctionDiscoveryProviderQuery>) -> ::windows::core::Result<IFunctionInstanceCollection>;
-    fn EndQuery(&mut self) -> ::windows::core::Result<()>;
-    fn InstancePropertyStoreValidateAccess(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows::core::Result<()>;
-    fn InstancePropertyStoreOpen(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn InstancePropertyStoreFlush(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize) -> ::windows::core::Result<()>;
-    fn InstanceQueryService(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn InstanceReleased(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pifunctiondiscoveryproviderfactory: &::core::option::Option<IFunctionDiscoveryProviderFactory>, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>, lciduserdefault: u32) -> ::windows::core::Result<u32>;
+    fn Query(&self, pifunctiondiscoveryproviderquery: &::core::option::Option<IFunctionDiscoveryProviderQuery>) -> ::windows::core::Result<IFunctionInstanceCollection>;
+    fn EndQuery(&self) -> ::windows::core::Result<()>;
+    fn InstancePropertyStoreValidateAccess(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows::core::Result<()>;
+    fn InstancePropertyStoreOpen(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn InstancePropertyStoreFlush(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize) -> ::windows::core::Result<()>;
+    fn InstanceQueryService(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn InstanceReleased(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFunctionDiscoveryProvider_Vtbl {
@@ -203,9 +203,9 @@ impl IFunctionDiscoveryProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionDiscoveryProviderFactory_Impl: Sized {
-    fn CreatePropertyStore(&mut self) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn CreateInstance(&mut self, pszsubcategory: super::super::Foundation::PWSTR, pszproviderinstanceidentity: super::super::Foundation::PWSTR, iproviderinstancecontext: isize, pipropertystore: &::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pifunctiondiscoveryprovider: &::core::option::Option<IFunctionDiscoveryProvider>) -> ::windows::core::Result<IFunctionInstance>;
-    fn CreateFunctionInstanceCollection(&mut self) -> ::windows::core::Result<IFunctionInstanceCollection>;
+    fn CreatePropertyStore(&self) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn CreateInstance(&self, pszsubcategory: super::super::Foundation::PWSTR, pszproviderinstanceidentity: super::super::Foundation::PWSTR, iproviderinstancecontext: isize, pipropertystore: &::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pifunctiondiscoveryprovider: &::core::option::Option<IFunctionDiscoveryProvider>) -> ::windows::core::Result<IFunctionInstance>;
+    fn CreateFunctionInstanceCollection(&self) -> ::windows::core::Result<IFunctionInstanceCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFunctionDiscoveryProviderFactory_Vtbl {
@@ -256,10 +256,10 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFunctionDiscoveryProviderQuery_Impl: Sized {
-    fn IsInstanceQuery(&mut self, pisinstancequery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::Result<()>;
-    fn IsSubcategoryQuery(&mut self, pissubcategoryquery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::Result<()>;
-    fn GetQueryConstraints(&mut self) -> ::windows::core::Result<IProviderQueryConstraintCollection>;
-    fn GetPropertyConstraints(&mut self) -> ::windows::core::Result<IProviderPropertyConstraintCollection>;
+    fn IsInstanceQuery(&self, pisinstancequery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::Result<()>;
+    fn IsSubcategoryQuery(&self, pissubcategoryquery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::Result<()>;
+    fn GetQueryConstraints(&self) -> ::windows::core::Result<IProviderQueryConstraintCollection>;
+    fn GetPropertyConstraints(&self) -> ::windows::core::Result<IProviderPropertyConstraintCollection>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFunctionDiscoveryProviderQuery_Vtbl {
@@ -310,7 +310,7 @@ impl IFunctionDiscoveryProviderQuery_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionDiscoveryServiceProvider_Impl: Sized {
-    fn Initialize(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IFunctionDiscoveryServiceProvider_Vtbl {
@@ -328,10 +328,10 @@ impl IFunctionDiscoveryServiceProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionInstance_Impl: Sized + super::super::System::Com::IServiceProvider_Impl {
-    fn GetID(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn GetProviderInstanceID(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn OpenPropertyStore(&mut self, dwstgaccess: super::super::System::Com::StructuredStorage::STGM) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn GetCategory(&mut self, ppszcomemcategory: *mut *mut u16, ppszcomemsubcategory: *mut *mut u16) -> ::windows::core::Result<()>;
+    fn GetID(&self) -> ::windows::core::Result<*mut u16>;
+    fn GetProviderInstanceID(&self) -> ::windows::core::Result<*mut u16>;
+    fn OpenPropertyStore(&self, dwstgaccess: super::super::System::Com::StructuredStorage::STGM) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn GetCategory(&self, ppszcomemcategory: *mut *mut u16, ppszcomemsubcategory: *mut *mut u16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFunctionInstance_Vtbl {
@@ -388,13 +388,13 @@ impl IFunctionInstance_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFunctionInstanceCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn Get(&mut self, pszinstanceidentity: super::super::Foundation::PWSTR, pdwindex: *mut u32, ppifunctioninstance: *mut ::core::option::Option<IFunctionInstance>) -> ::windows::core::Result<()>;
-    fn Item(&mut self, dwindex: u32) -> ::windows::core::Result<IFunctionInstance>;
-    fn Add(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, dwindex: u32) -> ::windows::core::Result<IFunctionInstance>;
-    fn Delete(&mut self, dwindex: u32) -> ::windows::core::Result<()>;
-    fn DeleteAll(&mut self) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn Get(&self, pszinstanceidentity: super::super::Foundation::PWSTR, pdwindex: *mut u32, ppifunctioninstance: *mut ::core::option::Option<IFunctionInstance>) -> ::windows::core::Result<()>;
+    fn Item(&self, dwindex: u32) -> ::windows::core::Result<IFunctionInstance>;
+    fn Add(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>) -> ::windows::core::Result<()>;
+    fn Remove(&self, dwindex: u32) -> ::windows::core::Result<IFunctionInstance>;
+    fn Delete(&self, dwindex: u32) -> ::windows::core::Result<()>;
+    fn DeleteAll(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IFunctionInstanceCollection_Vtbl {
@@ -469,9 +469,9 @@ impl IFunctionInstanceCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionInstanceCollectionQuery_Impl: Sized {
-    fn AddQueryConstraint(&mut self, pszconstraintname: super::super::Foundation::PWSTR, pszconstraintvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddPropertyConstraint(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const super::super::System::Com::StructuredStorage::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> ::windows::core::Result<()>;
-    fn Execute(&mut self) -> ::windows::core::Result<IFunctionInstanceCollection>;
+    fn AddQueryConstraint(&self, pszconstraintname: super::super::Foundation::PWSTR, pszconstraintvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddPropertyConstraint(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const super::super::System::Com::StructuredStorage::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> ::windows::core::Result<()>;
+    fn Execute(&self) -> ::windows::core::Result<IFunctionInstanceCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFunctionInstanceCollectionQuery_Vtbl {
@@ -510,7 +510,7 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionInstanceQuery_Impl: Sized {
-    fn Execute(&mut self) -> ::windows::core::Result<IFunctionInstance>;
+    fn Execute(&self) -> ::windows::core::Result<IFunctionInstance>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IFunctionInstanceQuery_Vtbl {
@@ -534,9 +534,9 @@ impl IFunctionInstanceQuery_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPNPXAssociation_Impl: Sized {
-    fn Associate(&mut self, pszsubcategory: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Unassociate(&mut self, pszsubcategory: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Delete(&mut self, pszsubcategory: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Associate(&self, pszsubcategory: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Unassociate(&self, pszsubcategory: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Delete(&self, pszsubcategory: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPNPXAssociation_Vtbl {
@@ -569,9 +569,9 @@ impl IPNPXAssociation_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPNPXDeviceAssociation_Impl: Sized {
-    fn Associate(&mut self, pszsubcategory: super::super::Foundation::PWSTR, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>) -> ::windows::core::Result<()>;
-    fn Unassociate(&mut self, pszsubcategory: super::super::Foundation::PWSTR, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>) -> ::windows::core::Result<()>;
-    fn Delete(&mut self, pszsubcategory: super::super::Foundation::PWSTR, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>) -> ::windows::core::Result<()>;
+    fn Associate(&self, pszsubcategory: super::super::Foundation::PWSTR, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>) -> ::windows::core::Result<()>;
+    fn Unassociate(&self, pszsubcategory: super::super::Foundation::PWSTR, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>) -> ::windows::core::Result<()>;
+    fn Delete(&self, pszsubcategory: super::super::Foundation::PWSTR, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPNPXDeviceAssociation_Vtbl {
@@ -604,13 +604,13 @@ impl IPNPXDeviceAssociation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IPropertyStoreCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn Get(&mut self, pszinstanceidentity: super::super::Foundation::PWSTR, pdwindex: *mut u32, ppipropertystore: *mut ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
-    fn Item(&mut self, dwindex: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Add(&mut self, pipropertystore: &::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, dwindex: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Delete(&mut self, dwindex: u32) -> ::windows::core::Result<()>;
-    fn DeleteAll(&mut self) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn Get(&self, pszinstanceidentity: super::super::Foundation::PWSTR, pdwindex: *mut u32, ppipropertystore: *mut ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
+    fn Item(&self, dwindex: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn Add(&self, pipropertystore: &::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
+    fn Remove(&self, dwindex: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
+    fn Delete(&self, dwindex: u32) -> ::windows::core::Result<()>;
+    fn DeleteAll(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IPropertyStoreCollection_Vtbl {
@@ -685,10 +685,10 @@ impl IPropertyStoreCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IProviderProperties_Impl: Sized {
-    fn GetCount(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, dwindex: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>;
-    fn GetValue(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetValue(&mut self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetCount(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, dwindex: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>;
+    fn GetValue(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetValue(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IProviderProperties_Vtbl {
@@ -745,12 +745,12 @@ impl IProviderProperties_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IProviderPropertyConstraintCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn Get(&mut self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::core::Result<()>;
-    fn Item(&mut self, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::core::Result<()>;
-    fn Next(&mut self, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn Get(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::core::Result<()>;
+    fn Item(&self, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::core::Result<()>;
+    fn Next(&self, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pdwpropertyconstraint: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IProviderPropertyConstraintCollection_Vtbl {
@@ -807,8 +807,8 @@ impl IProviderPropertyConstraintCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IProviderPublishing_Impl: Sized {
-    fn CreateInstance(&mut self, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: super::super::Foundation::PWSTR, pszproviderinstanceidentity: super::super::Foundation::PWSTR) -> ::windows::core::Result<IFunctionInstance>;
-    fn RemoveInstance(&mut self, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: super::super::Foundation::PWSTR, pszproviderinstanceidentity: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CreateInstance(&self, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: super::super::Foundation::PWSTR, pszproviderinstanceidentity: super::super::Foundation::PWSTR) -> ::windows::core::Result<IFunctionInstance>;
+    fn RemoveInstance(&self, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: super::super::Foundation::PWSTR, pszproviderinstanceidentity: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IProviderPublishing_Vtbl {
@@ -841,12 +841,12 @@ impl IProviderPublishing_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IProviderQueryConstraintCollection_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn Get(&mut self, pszconstraintname: super::super::Foundation::PWSTR) -> ::windows::core::Result<*mut u16>;
-    fn Item(&mut self, dwindex: u32, ppszconstraintname: *mut *mut u16, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::Result<()>;
-    fn Next(&mut self, ppszconstraintname: *mut *mut u16, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::Result<()>;
-    fn Skip(&mut self) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn Get(&self, pszconstraintname: super::super::Foundation::PWSTR) -> ::windows::core::Result<*mut u16>;
+    fn Item(&self, dwindex: u32, ppszconstraintname: *mut *mut u16, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::Result<()>;
+    fn Next(&self, ppszconstraintname: *mut *mut u16, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::Result<()>;
+    fn Skip(&self) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IProviderQueryConstraintCollection_Vtbl {

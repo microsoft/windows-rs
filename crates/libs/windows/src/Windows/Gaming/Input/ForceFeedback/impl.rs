@@ -1,9 +1,9 @@
 pub trait IForceFeedbackEffect_Impl: Sized {
-    fn Gain(&mut self) -> ::windows::core::Result<f64>;
-    fn SetGain(&mut self, value: f64) -> ::windows::core::Result<()>;
-    fn State(&mut self) -> ::windows::core::Result<ForceFeedbackEffectState>;
-    fn Start(&mut self) -> ::windows::core::Result<()>;
-    fn Stop(&mut self) -> ::windows::core::Result<()>;
+    fn Gain(&self) -> ::windows::core::Result<f64>;
+    fn SetGain(&self, value: f64) -> ::windows::core::Result<()>;
+    fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState>;
+    fn Start(&self) -> ::windows::core::Result<()>;
+    fn Stop(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IForceFeedbackEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect";

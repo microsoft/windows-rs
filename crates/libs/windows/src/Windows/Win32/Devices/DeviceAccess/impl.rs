@@ -1,8 +1,8 @@
 pub trait ICreateDeviceAccessAsync_Impl: Sized {
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn Wait(&mut self, timeout: u32) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn GetResult(&mut self, riid: *const ::windows::core::GUID, deviceaccess: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Wait(&self, timeout: u32) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn GetResult(&self, riid: *const ::windows::core::GUID, deviceaccess: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ICreateDeviceAccessAsync_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateDeviceAccessAsync_Impl, const OFFSET: isize>() -> ICreateDeviceAccessAsync_Vtbl {
@@ -39,9 +39,9 @@ impl ICreateDeviceAccessAsync_Vtbl {
     }
 }
 pub trait IDeviceIoControl_Impl: Sized {
-    fn DeviceIoControlSync(&mut self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()>;
-    fn DeviceIoControlAsync(&mut self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: &::core::option::Option<IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> ::windows::core::Result<()>;
-    fn CancelOperation(&mut self, cancelcontext: usize) -> ::windows::core::Result<()>;
+    fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()>;
+    fn DeviceIoControlAsync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: &::core::option::Option<IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> ::windows::core::Result<()>;
+    fn CancelOperation(&self, cancelcontext: usize) -> ::windows::core::Result<()>;
 }
 impl IDeviceIoControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceIoControl_Impl, const OFFSET: isize>() -> IDeviceIoControl_Vtbl {
@@ -72,7 +72,7 @@ impl IDeviceIoControl_Vtbl {
     }
 }
 pub trait IDeviceRequestCompletionCallback_Impl: Sized {
-    fn Invoke(&mut self, requestresult: ::windows::core::HRESULT, bytesreturned: u32) -> ::windows::core::Result<()>;
+    fn Invoke(&self, requestresult: ::windows::core::HRESULT, bytesreturned: u32) -> ::windows::core::Result<()>;
 }
 impl IDeviceRequestCompletionCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceRequestCompletionCallback_Impl, const OFFSET: isize>() -> IDeviceRequestCompletionCallback_Vtbl {

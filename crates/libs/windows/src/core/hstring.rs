@@ -101,10 +101,10 @@ unsafe impl Abi for HSTRING {
 
 unsafe impl RuntimeType for HSTRING {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"string");
-}
-
-impl ::windows::core::DefaultType for HSTRING {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> Result<Self> {
+        Ok(from.clone())
+    }
 }
 
 impl Default for HSTRING {

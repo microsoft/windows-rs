@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagExtensibleHelper_Impl: Sized {
-    fn ResolveAttributes(&mut self, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
+    fn ResolveAttributes(&self, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetDiagExtensibleHelper_Vtbl {
@@ -18,24 +18,24 @@ impl INetDiagExtensibleHelper_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelper_Impl: Sized {
-    fn Initialize(&mut self, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
-    fn GetDiagnosticsInfo(&mut self) -> ::windows::core::Result<*mut DiagnosticsInfo>;
-    fn GetKeyAttributes(&mut self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
-    fn LowHealth(&mut self, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
-    fn HighUtilization(&mut self, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
-    fn GetLowerHypotheses(&mut self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
-    fn GetDownStreamHypotheses(&mut self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
-    fn GetHigherHypotheses(&mut self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
-    fn GetUpStreamHypotheses(&mut self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
-    fn Repair(&mut self, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()>;
-    fn Validate(&mut self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()>;
-    fn GetRepairInfo(&mut self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::Result<()>;
-    fn GetLifeTime(&mut self) -> ::windows::core::Result<LIFE_TIME>;
-    fn SetLifeTime(&mut self, lifetime: &LIFE_TIME) -> ::windows::core::Result<()>;
-    fn GetCacheTime(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn GetAttributes(&mut self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn Cleanup(&mut self) -> ::windows::core::Result<()>;
+    fn Initialize(&self, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
+    fn GetDiagnosticsInfo(&self) -> ::windows::core::Result<*mut DiagnosticsInfo>;
+    fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
+    fn LowHealth(&self, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
+    fn HighUtilization(&self, pwszinstancedescription: super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
+    fn GetLowerHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
+    fn GetDownStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
+    fn GetHigherHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
+    fn GetUpStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows::core::Result<()>;
+    fn Repair(&self, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()>;
+    fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()>;
+    fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::Result<()>;
+    fn GetLifeTime(&self) -> ::windows::core::Result<LIFE_TIME>;
+    fn SetLifeTime(&self, lifetime: &LIFE_TIME) -> ::windows::core::Result<()>;
+    fn GetCacheTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn GetAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Cleanup(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetDiagHelper_Vtbl {
@@ -176,9 +176,9 @@ impl INetDiagHelper_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelperEx_Impl: Sized {
-    fn ReconfirmLowHealth(&mut self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut super::super::Foundation::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
-    fn SetUtilities(&mut self, putilities: &::core::option::Option<INetDiagHelperUtilFactory>) -> ::windows::core::Result<()>;
-    fn ReproduceFailure(&mut self) -> ::windows::core::Result<()>;
+    fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut super::super::Foundation::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
+    fn SetUtilities(&self, putilities: &::core::option::Option<INetDiagHelperUtilFactory>) -> ::windows::core::Result<()>;
+    fn ReproduceFailure(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetDiagHelperEx_Vtbl {
@@ -211,7 +211,7 @@ impl INetDiagHelperEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelperInfo_Impl: Sized {
-    fn GetAttributeInfo(&mut self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::Result<()>;
+    fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INetDiagHelperInfo_Vtbl {
@@ -228,7 +228,7 @@ impl INetDiagHelperInfo_Vtbl {
     }
 }
 pub trait INetDiagHelperUtilFactory_Impl: Sized {
-    fn CreateUtilityInstance(&mut self, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateUtilityInstance(&self, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl INetDiagHelperUtilFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperUtilFactory_Impl, const OFFSET: isize>() -> INetDiagHelperUtilFactory_Vtbl {

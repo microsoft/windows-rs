@@ -8,9 +8,9 @@ impl IApoAcousticEchoCancellation_Vtbl {
     }
 }
 pub trait IApoAuxiliaryInputConfiguration_Impl: Sized {
-    fn AddAuxiliaryInput(&mut self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()>;
-    fn RemoveAuxiliaryInput(&mut self, dwinputid: u32) -> ::windows::core::Result<()>;
-    fn IsInputFormatSupported(&mut self, prequestedinputformat: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
+    fn AddAuxiliaryInput(&self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()>;
+    fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows::core::Result<()>;
+    fn IsInputFormatSupported(&self, prequestedinputformat: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
 }
 impl IApoAuxiliaryInputConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApoAuxiliaryInputConfiguration_Impl, const OFFSET: isize>() -> IApoAuxiliaryInputConfiguration_Vtbl {
@@ -47,7 +47,7 @@ impl IApoAuxiliaryInputConfiguration_Vtbl {
     }
 }
 pub trait IApoAuxiliaryInputRT_Impl: Sized {
-    fn AcceptInput(&mut self, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY);
+    fn AcceptInput(&self, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY);
 }
 impl IApoAuxiliaryInputRT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApoAuxiliaryInputRT_Impl, const OFFSET: isize>() -> IApoAuxiliaryInputRT_Vtbl {
@@ -63,7 +63,7 @@ impl IApoAuxiliaryInputRT_Vtbl {
     }
 }
 pub trait IAudioDeviceModulesClient_Impl: Sized {
-    fn SetAudioDeviceModulesManager(&mut self, paudiodevicemodulesmanager: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetAudioDeviceModulesManager(&self, paudiodevicemodulesmanager: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IAudioDeviceModulesClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioDeviceModulesClient_Impl, const OFFSET: isize>() -> IAudioDeviceModulesClient_Vtbl {
@@ -83,10 +83,10 @@ impl IAudioDeviceModulesClient_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioMediaType_Impl: Sized {
-    fn IsCompressedFormat(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn IsEqual(&mut self, piaudiotype: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<u32>;
-    fn GetAudioFormat(&mut self) -> *mut super::WAVEFORMATEX;
-    fn GetUncompressedAudioFormat(&mut self) -> ::windows::core::Result<UNCOMPRESSEDAUDIOFORMAT>;
+    fn IsCompressedFormat(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn IsEqual(&self, piaudiotype: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<u32>;
+    fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX;
+    fn GetUncompressedAudioFormat(&self) -> ::windows::core::Result<UNCOMPRESSEDAUDIOFORMAT>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioMediaType_Vtbl {
@@ -142,13 +142,13 @@ impl IAudioMediaType_Vtbl {
     }
 }
 pub trait IAudioProcessingObject_Impl: Sized {
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn GetLatency(&mut self) -> ::windows::core::Result<i64>;
-    fn GetRegistrationProperties(&mut self) -> ::windows::core::Result<*mut APO_REG_PROPERTIES>;
-    fn Initialize(&mut self, cbdatasize: u32, pbydata: *const u8) -> ::windows::core::Result<()>;
-    fn IsInputFormatSupported(&mut self, poppositeformat: &::core::option::Option<IAudioMediaType>, prequestedinputformat: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
-    fn IsOutputFormatSupported(&mut self, poppositeformat: &::core::option::Option<IAudioMediaType>, prequestedoutputformat: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
-    fn GetInputChannelCount(&mut self) -> ::windows::core::Result<u32>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn GetLatency(&self) -> ::windows::core::Result<i64>;
+    fn GetRegistrationProperties(&self) -> ::windows::core::Result<*mut APO_REG_PROPERTIES>;
+    fn Initialize(&self, cbdatasize: u32, pbydata: *const u8) -> ::windows::core::Result<()>;
+    fn IsInputFormatSupported(&self, poppositeformat: &::core::option::Option<IAudioMediaType>, prequestedinputformat: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
+    fn IsOutputFormatSupported(&self, poppositeformat: &::core::option::Option<IAudioMediaType>, prequestedoutputformat: &::core::option::Option<IAudioMediaType>) -> ::windows::core::Result<IAudioMediaType>;
+    fn GetInputChannelCount(&self) -> ::windows::core::Result<u32>;
 }
 impl IAudioProcessingObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioProcessingObject_Impl, const OFFSET: isize>() -> IAudioProcessingObject_Vtbl {
@@ -233,8 +233,8 @@ impl IAudioProcessingObject_Vtbl {
     }
 }
 pub trait IAudioProcessingObjectConfiguration_Impl: Sized {
-    fn LockForProcess(&mut self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()>;
-    fn UnlockForProcess(&mut self) -> ::windows::core::Result<()>;
+    fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()>;
+    fn UnlockForProcess(&self) -> ::windows::core::Result<()>;
 }
 impl IAudioProcessingObjectConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioProcessingObjectConfiguration_Impl, const OFFSET: isize>() -> IAudioProcessingObjectConfiguration_Vtbl {
@@ -260,7 +260,7 @@ impl IAudioProcessingObjectConfiguration_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioProcessingObjectLoggingService_Impl: Sized {
-    fn ApoLog(&mut self, level: APO_LOG_LEVEL, format: super::super::super::Foundation::PWSTR);
+    fn ApoLog(&self, level: APO_LOG_LEVEL, format: super::super::super::Foundation::PWSTR);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioProcessingObjectLoggingService_Vtbl {
@@ -278,8 +278,8 @@ impl IAudioProcessingObjectLoggingService_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IAudioProcessingObjectNotifications_Impl: Sized {
-    fn GetApoNotificationRegistrationInfo(&mut self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::Result<()>;
-    fn HandleNotification(&mut self, aponotification: *const APO_NOTIFICATION);
+    fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::Result<()>;
+    fn HandleNotification(&self, aponotification: *const APO_NOTIFICATION);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IAudioProcessingObjectNotifications_Vtbl {
@@ -305,9 +305,9 @@ impl IAudioProcessingObjectNotifications_Vtbl {
     }
 }
 pub trait IAudioProcessingObjectRT_Impl: Sized {
-    fn APOProcess(&mut self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY);
-    fn CalcInputFrames(&mut self, u32outputframecount: u32) -> u32;
-    fn CalcOutputFrames(&mut self, u32inputframecount: u32) -> u32;
+    fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY);
+    fn CalcInputFrames(&self, u32outputframecount: u32) -> u32;
+    fn CalcOutputFrames(&self, u32inputframecount: u32) -> u32;
 }
 impl IAudioProcessingObjectRT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioProcessingObjectRT_Impl, const OFFSET: isize>() -> IAudioProcessingObjectRT_Vtbl {
@@ -338,7 +338,7 @@ impl IAudioProcessingObjectRT_Vtbl {
     }
 }
 pub trait IAudioProcessingObjectRTQueueService_Impl: Sized {
-    fn GetRealTimeWorkQueue(&mut self) -> ::windows::core::Result<u32>;
+    fn GetRealTimeWorkQueue(&self) -> ::windows::core::Result<u32>;
 }
 impl IAudioProcessingObjectRTQueueService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioProcessingObjectRTQueueService_Impl, const OFFSET: isize>() -> IAudioProcessingObjectRTQueueService_Vtbl {
@@ -360,8 +360,8 @@ impl IAudioProcessingObjectRTQueueService_Vtbl {
     }
 }
 pub trait IAudioProcessingObjectVBR_Impl: Sized {
-    fn CalcMaxInputFrames(&mut self, u32maxoutputframecount: u32) -> ::windows::core::Result<u32>;
-    fn CalcMaxOutputFrames(&mut self, u32maxinputframecount: u32) -> ::windows::core::Result<u32>;
+    fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> ::windows::core::Result<u32>;
+    fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> ::windows::core::Result<u32>;
 }
 impl IAudioProcessingObjectVBR_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioProcessingObjectVBR_Impl, const OFFSET: isize>() -> IAudioProcessingObjectVBR_Vtbl {
@@ -408,7 +408,7 @@ impl IAudioSystemEffects_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSystemEffects2_Impl: Sized + IAudioSystemEffects_Impl {
-    fn GetEffectsList(&mut self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn GetEffectsList(&self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioSystemEffects2_Vtbl {
@@ -426,8 +426,8 @@ impl IAudioSystemEffects2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSystemEffects3_Impl: Sized + IAudioSystemEffects_Impl + IAudioSystemEffects2_Impl {
-    fn GetControllableSystemEffectsList(&mut self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn SetAudioSystemEffectState(&mut self, effectid: &::windows::core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::Result<()>;
+    fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn SetAudioSystemEffectState(&self, effectid: &::windows::core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioSystemEffects3_Vtbl {
@@ -454,9 +454,9 @@ impl IAudioSystemEffects3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioSystemEffectsCustomFormats_Impl: Sized {
-    fn GetFormatCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetFormat(&mut self, nformat: u32) -> ::windows::core::Result<IAudioMediaType>;
-    fn GetFormatRepresentation(&mut self, nformat: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetFormatCount(&self) -> ::windows::core::Result<u32>;
+    fn GetFormat(&self, nformat: u32) -> ::windows::core::Result<IAudioMediaType>;
+    fn GetFormatRepresentation(&self, nformat: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAudioSystemEffectsCustomFormats_Vtbl {

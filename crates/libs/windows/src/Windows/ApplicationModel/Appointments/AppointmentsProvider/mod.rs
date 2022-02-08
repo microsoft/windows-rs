@@ -58,6 +58,10 @@ impl ::core::fmt::Debug for AddAppointmentOperation {
 }
 unsafe impl ::windows::core::RuntimeType for AddAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation;{ec4a9af3-620d-4c69-add7-9794e918081f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AddAppointmentOperation {
     type Vtable = IAddAppointmentOperation_Vtbl;
@@ -320,6 +324,10 @@ impl ::core::fmt::Debug for RemoveAppointmentOperation {
 }
 unsafe impl ::windows::core::RuntimeType for RemoveAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation;{08b66aba-fe33-46cd-a50c-a8ffb3260537})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RemoveAppointmentOperation {
     type Vtable = IRemoveAppointmentOperation_Vtbl;
@@ -446,6 +454,10 @@ impl ::core::fmt::Debug for ReplaceAppointmentOperation {
 }
 unsafe impl ::windows::core::RuntimeType for ReplaceAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation;{f4903d9b-9e61-4de2-a732-2687c07d1de8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ReplaceAppointmentOperation {
     type Vtable = IReplaceAppointmentOperation_Vtbl;

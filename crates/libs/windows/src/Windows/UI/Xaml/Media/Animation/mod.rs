@@ -29,6 +29,10 @@ impl ::core::fmt::Debug for AddDeleteThemeTransition {
 }
 unsafe impl ::windows::core::RuntimeType for AddDeleteThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition;{adec852e-4424-4dab-99c1-3a04e36a3c48})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AddDeleteThemeTransition {
     type Vtable = IAddDeleteThemeTransition_Vtbl;
@@ -174,6 +178,10 @@ impl ::core::fmt::Debug for BackEase {
 }
 unsafe impl ::windows::core::RuntimeType for BackEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BackEase;{e47796e7-f805-4a8f-81c9-38e6472caa94})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BackEase {
     type Vtable = IBackEase_Vtbl;
@@ -307,6 +315,10 @@ impl ::core::fmt::Debug for BasicConnectedAnimationConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for BasicConnectedAnimationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration;{e675f9b5-a4d6-5353-83e6-c89e7cf8d456})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BasicConnectedAnimationConfiguration {
     type Vtable = IBasicConnectedAnimationConfiguration_Vtbl;
@@ -432,6 +444,10 @@ impl ::core::fmt::Debug for BeginStoryboard {
 }
 unsafe impl ::windows::core::RuntimeType for BeginStoryboard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BeginStoryboard;{64189fcd-49ec-4e52-a6f6-55324c921053})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BeginStoryboard {
     type Vtable = IBeginStoryboard_Vtbl;
@@ -597,6 +613,10 @@ impl ::core::fmt::Debug for BounceEase {
 }
 unsafe impl ::windows::core::RuntimeType for BounceEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BounceEase;{2bf1464e-fc71-47ed-85a1-3ba9577718b4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for BounceEase {
     type Vtable = IBounceEase_Vtbl;
@@ -717,6 +737,10 @@ impl ::core::fmt::Debug for CircleEase {
 }
 unsafe impl ::windows::core::RuntimeType for CircleEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.CircleEase;{53a3bdb2-9177-4e6e-a043-5082d889ab1f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CircleEase {
     type Vtable = ICircleEase_Vtbl;
@@ -837,9 +861,10 @@ impl ::core::fmt::Debug for ClockState {
 }
 unsafe impl ::windows::core::RuntimeType for ClockState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.ClockState;i4)");
-}
-impl ::windows::core::DefaultType for ClockState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
@@ -982,6 +1007,10 @@ impl ::core::fmt::Debug for ColorAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for ColorAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorAnimation;{b8ae8a15-0f63-4694-9467-bdafac1253ea})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ColorAnimation {
     type Vtable = IColorAnimation_Vtbl;
@@ -1136,6 +1165,10 @@ impl ::core::fmt::Debug for ColorAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::core::RuntimeType for ColorAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames;{f5c82640-13c3-42aa-9ae2-7e6b51c92f95})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ColorAnimationUsingKeyFrames {
     type Vtable = IColorAnimationUsingKeyFrames_Vtbl;
@@ -1296,6 +1329,10 @@ impl ::core::fmt::Debug for ColorKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for ColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorKeyFrame;{b51d82d9-0910-4589-a284-b0c9205858e9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ColorKeyFrame {
     type Vtable = IColorKeyFrame_Vtbl;
@@ -1499,6 +1536,10 @@ impl ::core::fmt::Debug for ColorKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ColorKeyFrameCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.ColorKeyFrame;{b51d82d9-0910-4589-a284-b0c9205858e9})))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ColorKeyFrameCollection {
@@ -1702,6 +1743,10 @@ impl ::core::fmt::Debug for CommonNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for CommonNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo;{50345692-a555-4624-a361-0a91c1706473})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CommonNavigationTransitionInfo {
     type Vtable = ICommonNavigationTransitionInfo_Vtbl;
@@ -1884,6 +1929,10 @@ impl ::core::fmt::Debug for ConnectedAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectedAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ConnectedAnimation;{3518628c-f387-4c25-ac98-44e86c3cadf0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ConnectedAnimation {
     type Vtable = IConnectedAnimation_Vtbl;
@@ -1965,9 +2014,10 @@ impl ::core::fmt::Debug for ConnectedAnimationComponent {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectedAnimationComponent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.ConnectedAnimationComponent;i4)");
-}
-impl ::windows::core::DefaultType for ConnectedAnimationComponent {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
@@ -1991,6 +2041,10 @@ impl ::core::fmt::Debug for ConnectedAnimationConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectedAnimationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration;{00218aae-cd8c-5651-92a0-c1db95c03998})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ConnectedAnimationConfiguration {
     type Vtable = IConnectedAnimationConfiguration_Vtbl;
@@ -2122,6 +2176,10 @@ impl ::core::fmt::Debug for ConnectedAnimationService {
 }
 unsafe impl ::windows::core::RuntimeType for ConnectedAnimationService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ConnectedAnimationService;{1c6875c9-19bb-4d47-b9aa-66c802dcb9ff})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ConnectedAnimationService {
     type Vtable = IConnectedAnimationService_Vtbl;
@@ -2247,6 +2305,10 @@ impl ::core::fmt::Debug for ContentThemeTransition {
 }
 unsafe impl ::windows::core::RuntimeType for ContentThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ContentThemeTransition;{f66fc5c3-5915-437d-8e3b-adf8e7f0ab57})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContentThemeTransition {
     type Vtable = IContentThemeTransition_Vtbl;
@@ -2448,6 +2510,10 @@ impl ::core::fmt::Debug for ContinuumNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for ContinuumNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo;{4be1dbad-8ba6-4004-8438-8a9017978543})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ContinuumNavigationTransitionInfo {
     type Vtable = IContinuumNavigationTransitionInfo_Vtbl;
@@ -2568,6 +2634,10 @@ impl ::core::fmt::Debug for CubicEase {
 }
 unsafe impl ::windows::core::RuntimeType for CubicEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.CubicEase;{1b94fc76-dad7-4354-b1a2-7969fbf6a70d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CubicEase {
     type Vtable = ICubicEase_Vtbl;
@@ -2701,6 +2771,10 @@ impl ::core::fmt::Debug for DirectConnectedAnimationConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for DirectConnectedAnimationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration;{ee5d736f-5738-5d86-b770-151948cf365e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DirectConnectedAnimationConfiguration {
     type Vtable = IDirectConnectedAnimationConfiguration_Vtbl;
@@ -2801,6 +2875,10 @@ impl ::core::fmt::Debug for DiscreteColorKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for DiscreteColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame;{230c08f4-e062-4cb1-8e2a-14093d73ed8c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DiscreteColorKeyFrame {
     type Vtable = IDiscreteColorKeyFrame_Vtbl;
@@ -2921,6 +2999,10 @@ impl ::core::fmt::Debug for DiscreteDoubleKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for DiscreteDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame;{f5f51f3a-ad11-49ce-8e1c-08fdf1447446})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DiscreteDoubleKeyFrame {
     type Vtable = IDiscreteDoubleKeyFrame_Vtbl;
@@ -3041,6 +3123,10 @@ impl ::core::fmt::Debug for DiscreteObjectKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for DiscreteObjectKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame;{c7dcde89-f12d-4a9c-8199-e7a9ece3a473})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DiscreteObjectKeyFrame {
     type Vtable = IDiscreteObjectKeyFrame_Vtbl;
@@ -3161,6 +3247,10 @@ impl ::core::fmt::Debug for DiscretePointKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for DiscretePointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame;{e0a9070d-4c42-4a90-983a-75f5a83a2fbe})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DiscretePointKeyFrame {
     type Vtable = IDiscretePointKeyFrame_Vtbl;
@@ -3392,6 +3482,10 @@ impl ::core::fmt::Debug for DoubleAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for DoubleAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleAnimation;{7e9f3d59-0f07-4bc9-977d-03763ff8154f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DoubleAnimation {
     type Vtable = IDoubleAnimation_Vtbl;
@@ -3546,6 +3640,10 @@ impl ::core::fmt::Debug for DoubleAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::core::RuntimeType for DoubleAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames;{4fee628f-bfee-4f75-83c2-a93b39488473})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DoubleAnimationUsingKeyFrames {
     type Vtable = IDoubleAnimationUsingKeyFrames_Vtbl;
@@ -3706,6 +3804,10 @@ impl ::core::fmt::Debug for DoubleKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for DoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleKeyFrame;{674456fd-e81e-4f4e-b4ad-0acfed9ecd68})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DoubleKeyFrame {
     type Vtable = IDoubleKeyFrame_Vtbl;
@@ -3909,6 +4011,10 @@ impl ::core::fmt::Debug for DoubleKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for DoubleKeyFrameCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.DoubleKeyFrame;{674456fd-e81e-4f4e-b4ad-0acfed9ecd68})))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for DoubleKeyFrameCollection {
@@ -4094,6 +4200,10 @@ impl ::core::fmt::Debug for DragItemThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for DragItemThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation;{0c7d5db5-7ed6-4949-b4e6-a78c9f4f978d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragItemThemeAnimation {
     type Vtable = IDragItemThemeAnimation_Vtbl;
@@ -4281,6 +4391,10 @@ impl ::core::fmt::Debug for DragOverThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for DragOverThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation;{72f762f7-7e51-4a6b-b937-dc4b4c1c5458})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DragOverThemeAnimation {
     type Vtable = IDragOverThemeAnimation_Vtbl;
@@ -4401,6 +4515,10 @@ impl ::core::fmt::Debug for DrillInNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for DrillInNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo;{3b86201a-45d3-463b-939e-c8595f439bcc})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DrillInNavigationTransitionInfo {
     type Vtable = IDrillInNavigationTransitionInfo_Vtbl;
@@ -4606,6 +4724,10 @@ impl ::core::fmt::Debug for DrillInThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for DrillInThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation;{b090b824-f1d2-41b8-87ba-78034126594c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DrillInThemeAnimation {
     type Vtable = IDrillInThemeAnimation_Vtbl;
@@ -4811,6 +4933,10 @@ impl ::core::fmt::Debug for DrillOutThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for DrillOutThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation;{d890ccdf-06d3-4f7e-8e4a-4fb76e256139})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DrillOutThemeAnimation {
     type Vtable = IDrillOutThemeAnimation_Vtbl;
@@ -4956,6 +5082,10 @@ impl ::core::fmt::Debug for DropTargetItemThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for DropTargetItemThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation;{1881c968-1824-462b-87e8-c357212b977b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for DropTargetItemThemeAnimation {
     type Vtable = IDropTargetItemThemeAnimation_Vtbl;
@@ -5101,6 +5231,10 @@ impl ::core::fmt::Debug for EasingColorKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for EasingColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame;{c733d630-f4b9-4934-9bdd-27ac5ed1cfd8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EasingColorKeyFrame {
     type Vtable = IEasingColorKeyFrame_Vtbl;
@@ -5246,6 +5380,10 @@ impl ::core::fmt::Debug for EasingDoubleKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for EasingDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame;{965adb8d-9a54-4108-b4ff-b5a5212cb338})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EasingDoubleKeyFrame {
     type Vtable = IEasingDoubleKeyFrame_Vtbl;
@@ -5392,6 +5530,10 @@ impl ::core::fmt::Debug for EasingFunctionBase {
 }
 unsafe impl ::windows::core::RuntimeType for EasingFunctionBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingFunctionBase;{c108383f-2c02-4151-8ecd-68ddaa3f0d9b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EasingFunctionBase {
     type Vtable = IEasingFunctionBase_Vtbl;
@@ -5492,9 +5634,10 @@ impl ::core::fmt::Debug for EasingMode {
 }
 unsafe impl ::windows::core::RuntimeType for EasingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.EasingMode;i4)");
-}
-impl ::windows::core::DefaultType for EasingMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
@@ -5551,6 +5694,10 @@ impl ::core::fmt::Debug for EasingPointKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for EasingPointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame;{b3c91380-6868-4225-a70b-3981cc0b2947})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EasingPointKeyFrame {
     type Vtable = IEasingPointKeyFrame_Vtbl;
@@ -5698,6 +5845,10 @@ impl ::core::fmt::Debug for EdgeUIThemeTransition {
 }
 unsafe impl ::windows::core::RuntimeType for EdgeUIThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition;{5c86c19b-49d7-19ec-cf19-83a73c6de75e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EdgeUIThemeTransition {
     type Vtable = IEdgeUIThemeTransition_Vtbl;
@@ -5863,6 +6014,10 @@ impl ::core::fmt::Debug for ElasticEase {
 }
 unsafe impl ::windows::core::RuntimeType for ElasticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ElasticEase;{ef5ba58c-b0b6-4a6c-9ca8-fb4233f12459})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ElasticEase {
     type Vtable = IElasticEase_Vtbl;
@@ -6006,6 +6161,10 @@ impl ::core::fmt::Debug for EntranceNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for EntranceNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo;{720a256b-1c8a-41ee-82ec-8a87c0cf47da})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EntranceNavigationTransitionInfo {
     type Vtable = IEntranceNavigationTransitionInfo_Vtbl;
@@ -6191,6 +6350,10 @@ impl ::core::fmt::Debug for EntranceThemeTransition {
 }
 unsafe impl ::windows::core::RuntimeType for EntranceThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EntranceThemeTransition;{07698c09-a8e3-419a-a01d-7410a0ae8ec8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for EntranceThemeTransition {
     type Vtable = IEntranceThemeTransition_Vtbl;
@@ -6336,6 +6499,10 @@ impl ::core::fmt::Debug for ExponentialEase {
 }
 unsafe impl ::windows::core::RuntimeType for ExponentialEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ExponentialEase;{7cb9e41d-f0bb-4bca-9da5-9ba3a11734c4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ExponentialEase {
     type Vtable = IExponentialEase_Vtbl;
@@ -6481,6 +6648,10 @@ impl ::core::fmt::Debug for FadeInThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for FadeInThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation;{6d4bc8f5-a918-4477-8078-554c68812ab8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FadeInThemeAnimation {
     type Vtable = IFadeInThemeAnimation_Vtbl;
@@ -6626,6 +6797,10 @@ impl ::core::fmt::Debug for FadeOutThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for FadeOutThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation;{89276ba9-ffd4-45b6-9b9a-ced48951e712})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FadeOutThemeAnimation {
     type Vtable = IFadeOutThemeAnimation_Vtbl;
@@ -6745,9 +6920,10 @@ impl ::core::fmt::Debug for FillBehavior {
 }
 unsafe impl ::windows::core::RuntimeType for FillBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.FillBehavior;i4)");
-}
-impl ::windows::core::DefaultType for FillBehavior {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
@@ -6805,6 +6981,10 @@ impl ::core::fmt::Debug for GravityConnectedAnimationConfiguration {
 }
 unsafe impl ::windows::core::RuntimeType for GravityConnectedAnimationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration;{c751a4b7-0459-5142-b891-aeaac1d41822})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GravityConnectedAnimationConfiguration {
     type Vtable = IGravityConnectedAnimationConfiguration_Vtbl;
@@ -9444,6 +9624,10 @@ impl ::core::fmt::Debug for KeySpline {
 }
 unsafe impl ::windows::core::RuntimeType for KeySpline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.KeySpline;{77a163bb-d5ca-4a32-ba0b-7dff988e58a0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for KeySpline {
     type Vtable = IKeySpline_Vtbl;
@@ -9541,10 +9725,10 @@ unsafe impl ::windows::core::Abi for KeyTime {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for KeyTime {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Media.Animation.KeyTime;struct(Windows.Foundation.TimeSpan;i8))");
-}
-#[cfg(feature = "Foundation")]
-impl ::windows::core::DefaultType for KeyTime {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for KeyTime {
@@ -9596,6 +9780,10 @@ impl ::core::fmt::Debug for KeyTimeHelper {
 }
 unsafe impl ::windows::core::RuntimeType for KeyTimeHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.KeyTimeHelper;{3643e480-4823-466a-abe5-5e79c8ed77ed})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for KeyTimeHelper {
     type Vtable = IKeyTimeHelper_Vtbl;
@@ -9676,6 +9864,10 @@ impl ::core::fmt::Debug for LinearColorKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for LinearColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame;{66fdb6ef-ac81-4611-b1d2-61f545983f03})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LinearColorKeyFrame {
     type Vtable = ILinearColorKeyFrame_Vtbl;
@@ -9796,6 +9988,10 @@ impl ::core::fmt::Debug for LinearDoubleKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for LinearDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame;{8efdf265-9a7b-431d-8f0c-14c56b5ea4d9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LinearDoubleKeyFrame {
     type Vtable = ILinearDoubleKeyFrame_Vtbl;
@@ -9916,6 +10112,10 @@ impl ::core::fmt::Debug for LinearPointKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for LinearPointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame;{e7c9b8ef-af24-49ee-84f1-a86600a4e319})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for LinearPointKeyFrame {
     type Vtable = ILinearPointKeyFrame_Vtbl;
@@ -10061,6 +10261,10 @@ impl ::core::fmt::Debug for NavigationThemeTransition {
 }
 unsafe impl ::windows::core::RuntimeType for NavigationThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.NavigationThemeTransition;{8833848c-4eb7-41f2-8799-9eef0a213b73})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for NavigationThemeTransition {
     type Vtable = INavigationThemeTransition_Vtbl;
@@ -10173,6 +10377,10 @@ impl ::core::fmt::Debug for NavigationTransitionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for NavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo;{a9b05091-ae4a-4372-8625-21b7a8b98ca4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for NavigationTransitionInfo {
     type Vtable = INavigationTransitionInfo_Vtbl;
@@ -10307,6 +10515,10 @@ impl ::core::fmt::Debug for ObjectAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::core::RuntimeType for ObjectAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames;{334a2d92-b74a-4c64-b9a6-58bcfa314f22})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ObjectAnimationUsingKeyFrames {
     type Vtable = IObjectAnimationUsingKeyFrames_Vtbl;
@@ -10467,6 +10679,10 @@ impl ::core::fmt::Debug for ObjectKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for ObjectKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ObjectKeyFrame;{9852a851-8593-48ee-a6a4-d5d4720f029a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ObjectKeyFrame {
     type Vtable = IObjectKeyFrame_Vtbl;
@@ -10670,6 +10886,10 @@ impl ::core::fmt::Debug for ObjectKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ObjectKeyFrameCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.ObjectKeyFrame;{9852a851-8593-48ee-a6a4-d5d4720f029a})))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ObjectKeyFrameCollection {
@@ -10857,6 +11077,10 @@ impl ::core::fmt::Debug for PaneThemeTransition {
 }
 unsafe impl ::windows::core::RuntimeType for PaneThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PaneThemeTransition;{4708eb8e-4bfc-ee46-d4f9-708def3fbb2b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PaneThemeTransition {
     type Vtable = IPaneThemeTransition_Vtbl;
@@ -11088,6 +11312,10 @@ impl ::core::fmt::Debug for PointAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for PointAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointAnimation;{30f04312-7726-4f88-b8e2-2fa54518963b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointAnimation {
     type Vtable = IPointAnimation_Vtbl;
@@ -11242,6 +11470,10 @@ impl ::core::fmt::Debug for PointAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::core::RuntimeType for PointAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames;{9b944f72-446a-41d0-a129-41a620f4595d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointAnimationUsingKeyFrames {
     type Vtable = IPointAnimationUsingKeyFrames_Vtbl;
@@ -11404,6 +11636,10 @@ impl ::core::fmt::Debug for PointKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for PointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointKeyFrame;{fcc88d01-7f82-4dae-8026-7b7e086878b3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointKeyFrame {
     type Vtable = IPointKeyFrame_Vtbl;
@@ -11607,6 +11843,10 @@ impl ::core::fmt::Debug for PointKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PointKeyFrameCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.PointKeyFrame;{fcc88d01-7f82-4dae-8026-7b7e086878b3})))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PointKeyFrameCollection {
@@ -11792,6 +12032,10 @@ impl ::core::fmt::Debug for PointerDownThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for PointerDownThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation;{b58e714e-c49d-4788-a233-0ae85d99dd5a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointerDownThemeAnimation {
     type Vtable = IPointerDownThemeAnimation_Vtbl;
@@ -11937,6 +12181,10 @@ impl ::core::fmt::Debug for PointerUpThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for PointerUpThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation;{e9e9d07d-6340-4828-ad12-690694b9910b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PointerUpThemeAnimation {
     type Vtable = IPointerUpThemeAnimation_Vtbl;
@@ -12122,6 +12370,10 @@ impl ::core::fmt::Debug for PopInThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for PopInThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PopInThemeAnimation;{196938c1-1c07-4c28-8847-f9f055b32855})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PopInThemeAnimation {
     type Vtable = IPopInThemeAnimation_Vtbl;
@@ -12267,6 +12519,10 @@ impl ::core::fmt::Debug for PopOutThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for PopOutThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation;{4786ab49-0e48-4e81-a2e5-cc5aa19e48d3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PopOutThemeAnimation {
     type Vtable = IPopOutThemeAnimation_Vtbl;
@@ -12432,6 +12688,10 @@ impl ::core::fmt::Debug for PopupThemeTransition {
 }
 unsafe impl ::windows::core::RuntimeType for PopupThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PopupThemeTransition;{47843552-4283-545e-c791-268dca22ce4b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PopupThemeTransition {
     type Vtable = IPopupThemeTransition_Vtbl;
@@ -12577,6 +12837,10 @@ impl ::core::fmt::Debug for PowerEase {
 }
 unsafe impl ::windows::core::RuntimeType for PowerEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PowerEase;{69c80579-eedf-405b-8680-d9606880c937})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PowerEase {
     type Vtable = IPowerEase_Vtbl;
@@ -12697,6 +12961,10 @@ impl ::core::fmt::Debug for QuadraticEase {
 }
 unsafe impl ::windows::core::RuntimeType for QuadraticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.QuadraticEase;{e1510e91-ef6d-44f0-803d-68d16de0ddfc})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for QuadraticEase {
     type Vtable = IQuadraticEase_Vtbl;
@@ -12817,6 +13085,10 @@ impl ::core::fmt::Debug for QuarticEase {
 }
 unsafe impl ::windows::core::RuntimeType for QuarticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.QuarticEase;{e8698814-fe42-4a05-b5b8-081f41157815})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for QuarticEase {
     type Vtable = IQuarticEase_Vtbl;
@@ -12937,6 +13209,10 @@ impl ::core::fmt::Debug for QuinticEase {
 }
 unsafe impl ::windows::core::RuntimeType for QuinticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.QuinticEase;{92ee793b-3c49-4108-aa11-ab786603da21})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for QuinticEase {
     type Vtable = IQuinticEase_Vtbl;
@@ -13057,6 +13333,10 @@ impl ::core::fmt::Debug for ReorderThemeTransition {
 }
 unsafe impl ::windows::core::RuntimeType for ReorderThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ReorderThemeTransition;{f2065c6c-d052-4ad1-8362-b71b36df7497})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for ReorderThemeTransition {
     type Vtable = IReorderThemeTransition_Vtbl;
@@ -13176,10 +13456,10 @@ unsafe impl ::windows::core::Abi for RepeatBehavior {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for RepeatBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Media.Animation.RepeatBehavior;f8;struct(Windows.Foundation.TimeSpan;i8);enum(Windows.UI.Xaml.Media.Animation.RepeatBehaviorType;i4))");
-}
-#[cfg(feature = "Foundation")]
-impl ::windows::core::DefaultType for RepeatBehavior {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::core::cmp::PartialEq for RepeatBehavior {
@@ -13271,6 +13551,10 @@ impl ::core::fmt::Debug for RepeatBehaviorHelper {
 }
 unsafe impl ::windows::core::RuntimeType for RepeatBehaviorHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper;{6863ab72-4997-47f9-87ad-37efb75993ea})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RepeatBehaviorHelper {
     type Vtable = IRepeatBehaviorHelper_Vtbl;
@@ -13351,9 +13635,10 @@ impl ::core::fmt::Debug for RepeatBehaviorType {
 }
 unsafe impl ::windows::core::RuntimeType for RepeatBehaviorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.RepeatBehaviorType;i4)");
-}
-impl ::windows::core::DefaultType for RepeatBehaviorType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
@@ -13450,6 +13735,10 @@ impl ::core::fmt::Debug for RepositionThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for RepositionThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation;{ecda24e8-8945-4949-a1bf-62109965a7e9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RepositionThemeAnimation {
     type Vtable = IRepositionThemeAnimation_Vtbl;
@@ -13595,6 +13884,10 @@ impl ::core::fmt::Debug for RepositionThemeTransition {
 }
 unsafe impl ::windows::core::RuntimeType for RepositionThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.RepositionThemeTransition;{88329b82-98f3-455a-ac53-2e7083b6e22c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for RepositionThemeTransition {
     type Vtable = IRepositionThemeTransition_Vtbl;
@@ -13715,6 +14008,10 @@ impl ::core::fmt::Debug for SineEase {
 }
 unsafe impl ::windows::core::RuntimeType for SineEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SineEase;{a9382962-230b-49da-9e0d-664987892343})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SineEase {
     type Vtable = ISineEase_Vtbl;
@@ -13835,9 +14132,10 @@ impl ::core::fmt::Debug for SlideNavigationTransitionEffect {
 }
 unsafe impl ::windows::core::RuntimeType for SlideNavigationTransitionEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionEffect;i4)");
-}
-impl ::windows::core::DefaultType for SlideNavigationTransitionEffect {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
@@ -13894,6 +14192,10 @@ impl ::core::fmt::Debug for SlideNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for SlideNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo;{d6ac9d77-2e03-405f-80ed-e62beef3668f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SlideNavigationTransitionInfo {
     type Vtable = ISlideNavigationTransitionInfo_Vtbl;
@@ -14039,6 +14341,10 @@ impl ::core::fmt::Debug for SplineColorKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for SplineColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame;{1a4a5941-1fe0-473a-8efe-4316d8c86229})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SplineColorKeyFrame {
     type Vtable = ISplineColorKeyFrame_Vtbl;
@@ -14184,6 +14490,10 @@ impl ::core::fmt::Debug for SplineDoubleKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for SplineDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame;{00d72d38-6b2b-4843-838e-c8b115eec801})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SplineDoubleKeyFrame {
     type Vtable = ISplineDoubleKeyFrame_Vtbl;
@@ -14329,6 +14639,10 @@ impl ::core::fmt::Debug for SplinePointKeyFrame {
 }
 unsafe impl ::windows::core::RuntimeType for SplinePointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame;{0f19f306-7036-494f-bc3c-780df0cc524a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SplinePointKeyFrame {
     type Vtable = ISplinePointKeyFrame_Vtbl;
@@ -14676,6 +14990,10 @@ impl ::core::fmt::Debug for SplitCloseThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for SplitCloseThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation;{4f799518-ff39-4e90-bb74-2abd56027402})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SplitCloseThemeAnimation {
     type Vtable = ISplitCloseThemeAnimation_Vtbl;
@@ -15023,6 +15341,10 @@ impl ::core::fmt::Debug for SplitOpenThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for SplitOpenThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation;{785fd7aa-5456-4639-8fd2-26bae6a5ffe4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SplitOpenThemeAnimation {
     type Vtable = ISplitOpenThemeAnimation_Vtbl;
@@ -15251,6 +15573,10 @@ impl ::core::fmt::Debug for Storyboard {
 }
 unsafe impl ::windows::core::RuntimeType for Storyboard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.Storyboard;{d45c1e6e-3594-460e-981a-32271bd3aa06})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Storyboard {
     type Vtable = IStoryboard_Vtbl;
@@ -15371,6 +15697,10 @@ impl ::core::fmt::Debug for SuppressNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::RuntimeType for SuppressNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo;{244d7b0c-b1b7-4871-9d3e-d56203a3a5b4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SuppressNavigationTransitionInfo {
     type Vtable = ISuppressNavigationTransitionInfo_Vtbl;
@@ -15556,6 +15886,10 @@ impl ::core::fmt::Debug for SwipeBackThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for SwipeBackThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation;{a38a4214-0bca-4d2d-95f7-ceba57fbaf60})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SwipeBackThemeAnimation {
     type Vtable = ISwipeBackThemeAnimation_Vtbl;
@@ -15741,6 +16075,10 @@ impl ::core::fmt::Debug for SwipeHintThemeAnimation {
 }
 unsafe impl ::windows::core::RuntimeType for SwipeHintThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation;{cdd067c0-580e-4e40-be98-f202d3d84365})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for SwipeHintThemeAnimation {
     type Vtable = ISwipeHintThemeAnimation_Vtbl;
@@ -16011,6 +16349,10 @@ impl ::core::fmt::Debug for Timeline {
 }
 unsafe impl ::windows::core::RuntimeType for Timeline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.Timeline;{0bc465dc-be4d-4d0d-9549-2208b715f40d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Timeline {
     type Vtable = ITimeline_Vtbl;
@@ -16214,6 +16556,10 @@ impl ::core::fmt::Debug for TimelineCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for TimelineCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.TimelineCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.Timeline;{0bc465dc-be4d-4d0d-9549-2208b715f40d})))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TimelineCollection {
@@ -16366,6 +16712,10 @@ impl ::core::fmt::Debug for Transition {
 }
 unsafe impl ::windows::core::RuntimeType for Transition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.Transition;{3c677c7c-01d0-4dce-b333-976f93312b08})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for Transition {
     type Vtable = ITransition_Vtbl;
@@ -16569,6 +16919,10 @@ impl ::core::fmt::Debug for TransitionCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for TransitionCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.TransitionCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.Transition;{3c677c7c-01d0-4dce-b333-976f93312b08})))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TransitionCollection {

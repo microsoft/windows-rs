@@ -1,8 +1,8 @@
 #[cfg(feature = "deprecated")]
 pub trait ISearchPaneQueryChangedEventArgs_Impl: Sized {
-    fn QueryText(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn LinguisticDetails(&mut self) -> ::windows::core::Result<SearchPaneQueryLinguisticDetails>;
+    fn QueryText(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn LinguisticDetails(&self) -> ::windows::core::Result<SearchPaneQueryLinguisticDetails>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for ISearchPaneQueryChangedEventArgs {

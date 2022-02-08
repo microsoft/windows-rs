@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintDocumentPackageStatusEvent_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn PackageStatusUpdated(&mut self, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::core::Result<()>;
+    fn PackageStatusUpdated(&self, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintDocumentPackageStatusEvent_Vtbl {
@@ -20,9 +20,9 @@ impl IPrintDocumentPackageStatusEvent_Vtbl {
     }
 }
 pub trait IPrintDocumentPackageTarget_Impl: Sized {
-    fn GetPackageTargetTypes(&mut self, targetcount: *mut u32, targettypes: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetPackageTarget(&mut self, guidtargettype: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn GetPackageTargetTypes(&self, targetcount: *mut u32, targettypes: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetPackageTarget(&self, guidtargettype: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 impl IPrintDocumentPackageTarget_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentPackageTarget_Impl, const OFFSET: isize>() -> IPrintDocumentPackageTarget_Vtbl {
@@ -54,7 +54,7 @@ impl IPrintDocumentPackageTarget_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrintDocumentPackageTargetFactory_Impl: Sized {
-    fn CreateDocumentPackageTargetForPrintJob(&mut self, printername: super::super::super::Foundation::PWSTR, jobname: super::super::super::Foundation::PWSTR, joboutputstream: &::core::option::Option<super::super::super::System::Com::IStream>, jobprintticketstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IPrintDocumentPackageTarget>;
+    fn CreateDocumentPackageTargetForPrintJob(&self, printername: super::super::super::Foundation::PWSTR, jobname: super::super::super::Foundation::PWSTR, joboutputstream: &::core::option::Option<super::super::super::System::Com::IStream>, jobprintticketstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IPrintDocumentPackageTarget>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrintDocumentPackageTargetFactory_Vtbl {
@@ -80,8 +80,8 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
     }
 }
 pub trait IXpsPrintJob_Impl: Sized {
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn GetJobStatus(&mut self) -> ::windows::core::Result<XPS_JOB_STATUS>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn GetJobStatus(&self) -> ::windows::core::Result<XPS_JOB_STATUS>;
 }
 impl IXpsPrintJob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsPrintJob_Impl, const OFFSET: isize>() -> IXpsPrintJob_Vtbl {
@@ -113,7 +113,7 @@ impl IXpsPrintJob_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXpsPrintJobStream_Impl: Sized + super::super::super::System::Com::ISequentialStream_Impl {
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IXpsPrintJobStream_Vtbl {

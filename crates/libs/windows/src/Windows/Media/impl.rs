@@ -1,6 +1,6 @@
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaExtension_Impl: Sized {
-    fn SetProperties(&mut self, configuration: &::core::option::Option<super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
+    fn SetProperties(&self, configuration: &::core::option::Option<super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IMediaExtension {
@@ -22,17 +22,17 @@ impl IMediaExtension_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IMediaFrame_Impl: Sized + super::Foundation::IClosable_Impl {
-    fn Type(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn IsReadOnly(&mut self) -> ::windows::core::Result<bool>;
-    fn SetRelativeTime(&mut self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn RelativeTime(&mut self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
-    fn SetSystemRelativeTime(&mut self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn SystemRelativeTime(&mut self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
-    fn SetDuration(&mut self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
-    fn Duration(&mut self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
-    fn SetIsDiscontinuous(&mut self, value: bool) -> ::windows::core::Result<()>;
-    fn IsDiscontinuous(&mut self) -> ::windows::core::Result<bool>;
-    fn ExtendedProperties(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet>;
+    fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsReadOnly(&self) -> ::windows::core::Result<bool>;
+    fn SetRelativeTime(&self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn RelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
+    fn SetSystemRelativeTime(&self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn SystemRelativeTime(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
+    fn SetDuration(&self, value: &::core::option::Option<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> ::windows::core::Result<()>;
+    fn Duration(&self) -> ::windows::core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
+    fn SetIsDiscontinuous(&self, value: bool) -> ::windows::core::Result<()>;
+    fn IsDiscontinuous(&self) -> ::windows::core::Result<bool>;
+    fn ExtendedProperties(&self) -> ::windows::core::Result<super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IMediaFrame {
@@ -166,9 +166,9 @@ impl IMediaFrame_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IMediaMarker_Impl: Sized {
-    fn Time(&mut self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
-    fn MediaMarkerType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Time(&self) -> ::windows::core::Result<super::Foundation::TimeSpan>;
+    fn MediaMarkerType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IMediaMarker {
@@ -226,7 +226,7 @@ impl IMediaMarker_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaMarkers_Impl: Sized {
-    fn Markers(&mut self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<IMediaMarker>>;
+    fn Markers(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<IMediaMarker>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IMediaMarkers {

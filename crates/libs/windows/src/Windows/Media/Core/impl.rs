@@ -1,11 +1,11 @@
 #[cfg(feature = "Foundation")]
 pub trait IMediaCue_Impl: Sized {
-    fn SetStartTime(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn StartTime(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetDuration(&mut self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn Duration(&mut self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
-    fn SetId(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetStartTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetDuration(&self, value: &super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan>;
+    fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IMediaCue {
@@ -92,11 +92,11 @@ impl IMediaSource_Vtbl {
     }
 }
 pub trait IMediaStreamDescriptor_Impl: Sized {
-    fn IsSelected(&mut self) -> ::windows::core::Result<bool>;
-    fn SetName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Name(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn IsSelected(&self) -> ::windows::core::Result<bool>;
+    fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IMediaStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.IMediaStreamDescriptor";
@@ -163,8 +163,8 @@ impl IMediaStreamDescriptor_Vtbl {
     }
 }
 pub trait IMediaStreamDescriptor2_Impl: Sized + IMediaStreamDescriptor_Impl {
-    fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IMediaStreamDescriptor2 {
     const NAME: &'static str = "Windows.Media.Core.IMediaStreamDescriptor2";
@@ -199,11 +199,11 @@ impl IMediaStreamDescriptor2_Vtbl {
     }
 }
 pub trait IMediaTrack_Impl: Sized {
-    fn Id(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn TrackKind(&mut self) -> ::windows::core::Result<MediaTrackKind>;
-    fn SetLabel(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Label(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn TrackKind(&self) -> ::windows::core::Result<MediaTrackKind>;
+    fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ::windows::core::RuntimeName for IMediaTrack {
     const NAME: &'static str = "Windows.Media.Core.IMediaTrack";
@@ -278,10 +278,10 @@ impl IMediaTrack_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait ISingleSelectMediaTrackList_Impl: Sized {
-    fn SelectedIndexChanged(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveSelectedIndexChanged(&mut self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SetSelectedIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn SelectedIndex(&mut self) -> ::windows::core::Result<i32>;
+    fn SelectedIndexChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveSelectedIndexChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn SetSelectedIndex(&self, value: i32) -> ::windows::core::Result<()>;
+    fn SelectedIndex(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ISingleSelectMediaTrackList {
@@ -338,7 +338,7 @@ impl ISingleSelectMediaTrackList_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait ITimedMetadataTrackProvider_Impl: Sized {
-    fn TimedMetadataTracks(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;
+    fn TimedMetadataTracks(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ITimedMetadataTrackProvider {

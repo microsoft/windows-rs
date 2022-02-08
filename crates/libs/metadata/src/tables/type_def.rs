@@ -157,49 +157,6 @@ impl TypeDef {
         self.has_attribute("NativeTypedefAttribute")
     }
 
-    // TODO: for sys definitions the features are less demanding since interfaces won't have dependencies
-    pub fn features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        if !keys.insert(self.row.clone()) {
-            return;
-        }
-
-        let namespace = self.namespace();
-
-        if !namespace.is_empty() {
-            features.insert(self.namespace());
-        }
-
-        for generic in &self.generics {
-            generic.features(features, keys);
-        }
-
-        match self.kind() {
-            TypeKind::Class => {
-                if let Some(def) = self.default_interface() {
-                    features.insert(def.namespace());
-                }
-            }
-            TypeKind::Struct => {
-                self.fields().for_each(|def| def.features(Some(self), features, keys));
-
-                if let Some(def) = self.is_convertible_to() {
-                    // TODO: wonky
-                    features.insert(def.type_name().namespace);
-                }
-            }
-            TypeKind::Delegate => self.invoke_method().signature(&[]).features(features, keys),
-            _ => {}
-        }
-
-        if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
-            for def in entry {
-                if let ElementType::TypeDef(def) = def {
-                    def.features(features, keys);
-                }
-            }
-        }
-    }
-
     pub fn is_udt(&self) -> bool {
         // TODO: should this just check whether the struct has > 1 fields rather than is_handle?
         self.kind() == TypeKind::Struct && !self.is_handle()

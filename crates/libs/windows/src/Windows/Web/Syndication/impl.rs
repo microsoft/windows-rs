@@ -1,17 +1,17 @@
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 pub trait ISyndicationClient_Impl: Sized {
-    fn ServerCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&mut self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn ProxyCredential(&mut self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&mut self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
-    fn MaxResponseBufferSize(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMaxResponseBufferSize(&mut self, value: u32) -> ::windows::core::Result<()>;
-    fn Timeout(&mut self) -> ::windows::core::Result<u32>;
-    fn SetTimeout(&mut self, value: u32) -> ::windows::core::Result<()>;
-    fn BypassCacheOnRetrieve(&mut self) -> ::windows::core::Result<bool>;
-    fn SetBypassCacheOnRetrieve(&mut self, value: bool) -> ::windows::core::Result<()>;
-    fn SetRequestHeader(&mut self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RetrieveFeedAsync(&mut self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
+    fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetServerCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn SetProxyCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn MaxResponseBufferSize(&self) -> ::windows::core::Result<u32>;
+    fn SetMaxResponseBufferSize(&self, value: u32) -> ::windows::core::Result<()>;
+    fn Timeout(&self) -> ::windows::core::Result<u32>;
+    fn SetTimeout(&self, value: u32) -> ::windows::core::Result<()>;
+    fn BypassCacheOnRetrieve(&self) -> ::windows::core::Result<bool>;
+    fn SetBypassCacheOnRetrieve(&self, value: bool) -> ::windows::core::Result<()>;
+    fn SetRequestHeader(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn RetrieveFeedAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 impl ::windows::core::RuntimeName for ISyndicationClient {
@@ -144,19 +144,19 @@ impl ISyndicationClient_Vtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait ISyndicationNode_Impl: Sized {
-    fn NodeName(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNodeName(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn NodeNamespace(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNodeNamespace(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn NodeValue(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNodeValue(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Language(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetLanguage(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn BaseUri(&mut self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetBaseUri(&mut self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
-    fn AttributeExtensions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>>;
-    fn ElementExtensions(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>>;
-    fn GetXmlDocument(&mut self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNodeName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn NodeNamespace(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNodeNamespace(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn NodeValue(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNodeValue(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn BaseUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
+    fn SetBaseUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn AttributeExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>>;
+    fn ElementExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>>;
+    fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISyndicationNode {
@@ -309,12 +309,12 @@ impl ISyndicationNode_Vtbl {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait ISyndicationText_Impl: Sized + ISyndicationNode_Impl {
-    fn Text(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetText(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Type(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetType(&mut self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Xml(&mut self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn SetXml(&mut self, value: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
+    fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn Xml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
+    fn SetXml(&self, value: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISyndicationText {

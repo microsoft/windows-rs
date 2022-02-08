@@ -1,16 +1,16 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDeviceModelPlugIn_Impl: Sized {
-    fn Initialize(&mut self, bstrxml: &super::super::Foundation::BSTR, cnummodels: u32, imodelposition: u32) -> ::windows::core::Result<()>;
-    fn GetNumChannels(&mut self) -> ::windows::core::Result<u32>;
-    fn DeviceToColorimetricColors(&mut self, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::core::Result<()>;
-    fn ColorimetricToDeviceColors(&mut self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF) -> ::windows::core::Result<f32>;
-    fn ColorimetricToDeviceColorsWithBlack(&mut self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows::core::Result<f32>;
-    fn SetTransformDeviceModelInfo(&mut self, imodelposition: u32, pidevicemodelother: &::core::option::Option<IDeviceModelPlugIn>) -> ::windows::core::Result<()>;
-    fn GetPrimarySamples(&mut self) -> ::windows::core::Result<PrimaryXYZColors>;
-    fn GetGamutBoundaryMeshSize(&mut self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGamutBoundaryMesh(&mut self, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::core::Result<()>;
-    fn GetNeutralAxisSize(&mut self) -> ::windows::core::Result<u32>;
-    fn GetNeutralAxis(&mut self, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows::core::Result<()>;
+    fn Initialize(&self, bstrxml: &super::super::Foundation::BSTR, cnummodels: u32, imodelposition: u32) -> ::windows::core::Result<()>;
+    fn GetNumChannels(&self) -> ::windows::core::Result<u32>;
+    fn DeviceToColorimetricColors(&self, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::core::Result<()>;
+    fn ColorimetricToDeviceColors(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF) -> ::windows::core::Result<f32>;
+    fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows::core::Result<f32>;
+    fn SetTransformDeviceModelInfo(&self, imodelposition: u32, pidevicemodelother: &::core::option::Option<IDeviceModelPlugIn>) -> ::windows::core::Result<()>;
+    fn GetPrimarySamples(&self) -> ::windows::core::Result<PrimaryXYZColors>;
+    fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::core::Result<()>;
+    fn GetNeutralAxisSize(&self) -> ::windows::core::Result<u32>;
+    fn GetNeutralAxis(&self, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDeviceModelPlugIn_Vtbl {
@@ -121,8 +121,8 @@ impl IDeviceModelPlugIn_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGamutMapModelPlugIn_Impl: Sized {
-    fn Initialize(&mut self, bstrxml: &super::super::Foundation::BSTR, psrcplugin: &::core::option::Option<IDeviceModelPlugIn>, pdestplugin: &::core::option::Option<IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>;
-    fn SourceToDestinationAppearanceColors(&mut self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()>;
+    fn Initialize(&self, bstrxml: &super::super::Foundation::BSTR, psrcplugin: &::core::option::Option<IDeviceModelPlugIn>, pdestplugin: &::core::option::Option<IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>;
+    fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IGamutMapModelPlugIn_Vtbl {

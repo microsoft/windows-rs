@@ -1,12 +1,12 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetPropertyInfo(&mut self, id: i32) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetProperty(&mut self, id: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn PutProperty(&mut self, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ResetProperty(&mut self, id: i32) -> ::windows::core::Result<()>;
-    fn Apply(&mut self) -> ::windows::core::Result<()>;
-    fn Restore(&mut self) -> ::windows::core::Result<()>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetPropertyInfo(&self, id: i32) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetProperty(&self, id: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ResetProperty(&self, id: i32) -> ::windows::core::Result<()>;
+    fn Apply(&self) -> ::windows::core::Result<()>;
+    fn Restore(&self) -> ::windows::core::Result<()>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISdo_Vtbl {
@@ -81,14 +81,14 @@ impl ISdo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdoCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, bstrname: &super::super::Foundation::BSTR, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, pitem: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
-    fn Reload(&mut self) -> ::windows::core::Result<()>;
-    fn IsNameUnique(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
-    fn Item(&mut self, name: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Add(&self, bstrname: &super::super::Foundation::BSTR, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Remove(&self, pitem: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn RemoveAll(&self) -> ::windows::core::Result<()>;
+    fn Reload(&self) -> ::windows::core::Result<()>;
+    fn IsNameUnique(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
+    fn Item(&self, name: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISdoCollection_Vtbl {
@@ -175,11 +175,11 @@ impl ISdoCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdoDictionaryOld_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn EnumAttributes(&mut self, id: *mut super::super::System::Com::VARIANT, pvalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetAttributeInfo(&mut self, id: ATTRIBUTEID, pinfoids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn EnumAttributeValues(&mut self, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Com::VARIANT, pvaluesdesc: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn CreateAttribute(&mut self, id: ATTRIBUTEID) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn GetAttributeID(&mut self, bstrattributename: &super::super::Foundation::BSTR) -> ::windows::core::Result<ATTRIBUTEID>;
+    fn EnumAttributes(&self, id: *mut super::super::System::Com::VARIANT, pvalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Com::VARIANT, pvaluesdesc: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn CreateAttribute(&self, id: ATTRIBUTEID) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn GetAttributeID(&self, bstrattributename: &super::super::Foundation::BSTR) -> ::windows::core::Result<ATTRIBUTEID>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISdoDictionaryOld_Vtbl {
@@ -242,15 +242,15 @@ impl ISdoDictionaryOld_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdoMachine_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Attach(&mut self, bstrcomputername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetDictionarySDO(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetServiceSDO(&mut self, edatastore: IASDATASTORE, bstrservicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetUserSDO(&mut self, edatastore: IASDATASTORE, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetOSType(&mut self) -> ::windows::core::Result<IASOSTYPE>;
-    fn GetDomainType(&mut self) -> ::windows::core::Result<IASDOMAINTYPE>;
-    fn IsDirectoryAvailable(&mut self) -> ::windows::core::Result<i16>;
-    fn GetAttachedComputer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetSDOSchema(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Attach(&self, bstrcomputername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetDictionarySDO(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetServiceSDO(&self, edatastore: IASDATASTORE, bstrservicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetUserSDO(&self, edatastore: IASDATASTORE, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetOSType(&self) -> ::windows::core::Result<IASOSTYPE>;
+    fn GetDomainType(&self) -> ::windows::core::Result<IASDOMAINTYPE>;
+    fn IsDirectoryAvailable(&self) -> ::windows::core::Result<i16>;
+    fn GetAttachedComputer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetSDOSchema(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISdoMachine_Vtbl {
@@ -367,11 +367,11 @@ impl ISdoMachine_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdoMachine2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ISdoMachine_Impl {
-    fn GetTemplatesSDO(&mut self, bstrservicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn EnableTemplates(&mut self) -> ::windows::core::Result<()>;
-    fn SyncConfigAgainstTemplates(&mut self, bstrservicename: &super::super::Foundation::BSTR, ppconfigroot: *mut ::core::option::Option<::windows::core::IUnknown>, pptemplatesroot: *mut ::core::option::Option<::windows::core::IUnknown>, bforcedsync: i16) -> ::windows::core::Result<()>;
-    fn ImportRemoteTemplates(&mut self, plocaltemplatesroot: &::core::option::Option<::windows::core::IUnknown>, bstrremotemachinename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Reload(&mut self) -> ::windows::core::Result<()>;
+    fn GetTemplatesSDO(&self, bstrservicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn EnableTemplates(&self) -> ::windows::core::Result<()>;
+    fn SyncConfigAgainstTemplates(&self, bstrservicename: &super::super::Foundation::BSTR, ppconfigroot: *mut ::core::option::Option<::windows::core::IUnknown>, pptemplatesroot: *mut ::core::option::Option<::windows::core::IUnknown>, bforcedsync: i16) -> ::windows::core::Result<()>;
+    fn ImportRemoteTemplates(&self, plocaltemplatesroot: &::core::option::Option<::windows::core::IUnknown>, bstrremotemachinename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Reload(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISdoMachine2_Vtbl {
@@ -422,10 +422,10 @@ impl ISdoMachine2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISdoServiceControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn StartService(&mut self) -> ::windows::core::Result<()>;
-    fn StopService(&mut self) -> ::windows::core::Result<()>;
-    fn GetServiceStatus(&mut self) -> ::windows::core::Result<i32>;
-    fn ResetService(&mut self) -> ::windows::core::Result<()>;
+    fn StartService(&self) -> ::windows::core::Result<()>;
+    fn StopService(&self) -> ::windows::core::Result<()>;
+    fn GetServiceStatus(&self) -> ::windows::core::Result<i32>;
+    fn ResetService(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISdoServiceControl_Vtbl {
@@ -470,9 +470,9 @@ impl ISdoServiceControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITemplateSdo_Impl: Sized + super::super::System::Com::IDispatch_Impl + ISdo_Impl {
-    fn AddToCollection(&mut self, bstrname: &super::super::Foundation::BSTR, pcollection: &::core::option::Option<super::super::System::Com::IDispatch>, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn AddToSdo(&mut self, bstrname: &super::super::Foundation::BSTR, psdotarget: &::core::option::Option<super::super::System::Com::IDispatch>, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn AddToSdoAsProperty(&mut self, psdotarget: &::core::option::Option<super::super::System::Com::IDispatch>, id: i32) -> ::windows::core::Result<()>;
+    fn AddToCollection(&self, bstrname: &super::super::Foundation::BSTR, pcollection: &::core::option::Option<super::super::System::Com::IDispatch>, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn AddToSdo(&self, bstrname: &super::super::Foundation::BSTR, psdotarget: &::core::option::Option<super::super::System::Com::IDispatch>, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn AddToSdoAsProperty(&self, psdotarget: &::core::option::Option<super::super::System::Com::IDispatch>, id: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITemplateSdo_Vtbl {

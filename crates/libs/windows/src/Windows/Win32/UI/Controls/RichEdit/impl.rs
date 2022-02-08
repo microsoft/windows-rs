@@ -1,21 +1,21 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait IRichEditOle_Impl: Sized {
-    fn GetClientSite(&mut self) -> ::windows::core::Result<super::super::super::System::Ole::IOleClientSite>;
-    fn GetObjectCount(&mut self) -> i32;
-    fn GetLinkCount(&mut self) -> i32;
-    fn GetObject(&mut self, iob: i32, lpreobject: *mut REOBJECT, dwflags: RICH_EDIT_GET_OBJECT_FLAGS) -> ::windows::core::Result<()>;
-    fn InsertObject(&mut self, lpreobject: *mut REOBJECT) -> ::windows::core::Result<()>;
-    fn ConvertObject(&mut self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn ActivateAs(&mut self, rclsid: *const ::windows::core::GUID, rclsidas: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetHostNames(&mut self, lpstrcontainerapp: super::super::super::Foundation::PSTR, lpstrcontainerobj: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn SetLinkAvailable(&mut self, iob: i32, favailable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetDvaspect(&mut self, iob: i32, dvaspect: u32) -> ::windows::core::Result<()>;
-    fn HandsOffStorage(&mut self, iob: i32) -> ::windows::core::Result<()>;
-    fn SaveCompleted(&mut self, iob: i32, lpstg: &::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>) -> ::windows::core::Result<()>;
-    fn InPlaceDeactivate(&mut self) -> ::windows::core::Result<()>;
-    fn ContextSensitiveHelp(&mut self, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetClipboardData(&mut self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
-    fn ImportDataObject(&mut self, lpdataobj: &::core::option::Option<super::super::super::System::Com::IDataObject>, cf: u16, hmetapict: isize) -> ::windows::core::Result<()>;
+    fn GetClientSite(&self) -> ::windows::core::Result<super::super::super::System::Ole::IOleClientSite>;
+    fn GetObjectCount(&self) -> i32;
+    fn GetLinkCount(&self) -> i32;
+    fn GetObject(&self, iob: i32, lpreobject: *mut REOBJECT, dwflags: RICH_EDIT_GET_OBJECT_FLAGS) -> ::windows::core::Result<()>;
+    fn InsertObject(&self, lpreobject: *mut REOBJECT) -> ::windows::core::Result<()>;
+    fn ConvertObject(&self, iob: i32, rclsidnew: *const ::windows::core::GUID, lpstrusertypenew: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn ActivateAs(&self, rclsid: *const ::windows::core::GUID, rclsidas: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetHostNames(&self, lpstrcontainerapp: super::super::super::Foundation::PSTR, lpstrcontainerobj: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn SetLinkAvailable(&self, iob: i32, favailable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetDvaspect(&self, iob: i32, dvaspect: u32) -> ::windows::core::Result<()>;
+    fn HandsOffStorage(&self, iob: i32) -> ::windows::core::Result<()>;
+    fn SaveCompleted(&self, iob: i32, lpstg: &::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>) -> ::windows::core::Result<()>;
+    fn InPlaceDeactivate(&self) -> ::windows::core::Result<()>;
+    fn ContextSensitiveHelp(&self, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn ImportDataObject(&self, lpdataobj: &::core::option::Option<super::super::super::System::Com::IDataObject>, cf: u16, hmetapict: isize) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl IRichEditOle_Vtbl {
@@ -132,16 +132,16 @@ impl IRichEditOle_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IRichEditOleCallback_Impl: Sized {
-    fn GetNewStorage(&mut self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::IStorage>;
-    fn GetInPlaceContext(&mut self, lplpframe: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OIFI) -> ::windows::core::Result<()>;
-    fn ShowContainerUI(&mut self, fshow: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn QueryInsertObject(&mut self, lpclsid: *mut ::windows::core::GUID, lpstg: &::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>, cp: i32) -> ::windows::core::Result<()>;
-    fn DeleteObject(&mut self, lpoleobj: &::core::option::Option<super::super::super::System::Ole::IOleObject>) -> ::windows::core::Result<()>;
-    fn QueryAcceptData(&mut self, lpdataobj: &::core::option::Option<super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: u32, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::Result<()>;
-    fn ContextSensitiveHelp(&mut self, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetClipboardData(&mut self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
-    fn GetDragDropEffect(&mut self, fdrag: super::super::super::Foundation::BOOL, grfkeystate: u32, pdweffect: *mut u32) -> ::windows::core::Result<()>;
-    fn GetContextMenu(&mut self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: &::core::option::Option<super::super::super::System::Ole::IOleObject>, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>;
+    fn GetNewStorage(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::IStorage>;
+    fn GetInPlaceContext(&self, lplpframe: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OIFI) -> ::windows::core::Result<()>;
+    fn ShowContainerUI(&self, fshow: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn QueryInsertObject(&self, lpclsid: *mut ::windows::core::GUID, lpstg: &::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>, cp: i32) -> ::windows::core::Result<()>;
+    fn DeleteObject(&self, lpoleobj: &::core::option::Option<super::super::super::System::Ole::IOleObject>) -> ::windows::core::Result<()>;
+    fn QueryAcceptData(&self, lpdataobj: &::core::option::Option<super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: u32, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::Result<()>;
+    fn ContextSensitiveHelp(&self, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn GetDragDropEffect(&self, fdrag: super::super::super::Foundation::BOOL, grfkeystate: u32, pdweffect: *mut u32) -> ::windows::core::Result<()>;
+    fn GetContextMenu(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: &::core::option::Option<super::super::super::System::Ole::IOleObject>, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IRichEditOleCallback_Vtbl {
@@ -222,7 +222,7 @@ impl IRichEditOleCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRicheditUiaOverrides_Impl: Sized {
-    fn GetPropertyOverrideValue(&mut self, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRicheditUiaOverrides_Vtbl {
@@ -251,25 +251,25 @@ impl ITextDisplays_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn GetSelection(&mut self) -> ::windows::core::Result<ITextSelection>;
-    fn GetStoryCount(&mut self) -> ::windows::core::Result<i32>;
-    fn GetStoryRanges(&mut self) -> ::windows::core::Result<ITextStoryRanges>;
-    fn GetSaved(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSaved(&mut self, value: tomConstants) -> ::windows::core::Result<()>;
-    fn GetDefaultTabStop(&mut self) -> ::windows::core::Result<f32>;
-    fn SetDefaultTabStop(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn New(&mut self) -> ::windows::core::Result<()>;
-    fn Open(&mut self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()>;
-    fn Save(&mut self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()>;
-    fn Freeze(&mut self) -> ::windows::core::Result<i32>;
-    fn Unfreeze(&mut self) -> ::windows::core::Result<i32>;
-    fn BeginEditCollection(&mut self) -> ::windows::core::Result<()>;
-    fn EndEditCollection(&mut self) -> ::windows::core::Result<()>;
-    fn Undo(&mut self, count: i32) -> ::windows::core::Result<i32>;
-    fn Redo(&mut self, count: i32) -> ::windows::core::Result<i32>;
-    fn Range(&mut self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange>;
-    fn RangeFromPoint(&mut self, x: i32, y: i32) -> ::windows::core::Result<ITextRange>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetSelection(&self) -> ::windows::core::Result<ITextSelection>;
+    fn GetStoryCount(&self) -> ::windows::core::Result<i32>;
+    fn GetStoryRanges(&self) -> ::windows::core::Result<ITextStoryRanges>;
+    fn GetSaved(&self) -> ::windows::core::Result<i32>;
+    fn SetSaved(&self, value: tomConstants) -> ::windows::core::Result<()>;
+    fn GetDefaultTabStop(&self) -> ::windows::core::Result<f32>;
+    fn SetDefaultTabStop(&self, value: f32) -> ::windows::core::Result<()>;
+    fn New(&self) -> ::windows::core::Result<()>;
+    fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()>;
+    fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()>;
+    fn Freeze(&self) -> ::windows::core::Result<i32>;
+    fn Unfreeze(&self) -> ::windows::core::Result<i32>;
+    fn BeginEditCollection(&self) -> ::windows::core::Result<()>;
+    fn EndEditCollection(&self) -> ::windows::core::Result<()>;
+    fn Undo(&self, count: i32) -> ::windows::core::Result<i32>;
+    fn Redo(&self, count: i32) -> ::windows::core::Result<i32>;
+    fn Range(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange>;
+    fn RangeFromPoint(&self, x: i32, y: i32) -> ::windows::core::Result<ITextRange>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextDocument_Vtbl {
@@ -470,50 +470,50 @@ impl ITextDocument_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextDocument2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextDocument_Impl {
-    fn GetCaretType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCaretType(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetDisplays(&mut self) -> ::windows::core::Result<ITextDisplays>;
-    fn GetDocumentFont(&mut self) -> ::windows::core::Result<ITextFont2>;
-    fn SetDocumentFont(&mut self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<()>;
-    fn GetDocumentPara(&mut self) -> ::windows::core::Result<ITextPara2>;
-    fn SetDocumentPara(&mut self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<()>;
-    fn GetEastAsianFlags(&mut self) -> ::windows::core::Result<tomConstants>;
-    fn GetGenerator(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetIMEInProgress(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetNotificationMode(&mut self) -> ::windows::core::Result<i32>;
-    fn SetNotificationMode(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetSelection2(&mut self) -> ::windows::core::Result<ITextSelection2>;
-    fn GetStoryRanges2(&mut self) -> ::windows::core::Result<ITextStoryRanges2>;
-    fn GetTypographyOptions(&mut self) -> ::windows::core::Result<i32>;
-    fn GetVersion(&mut self) -> ::windows::core::Result<i32>;
-    fn GetWindow(&mut self) -> ::windows::core::Result<i64>;
-    fn AttachMsgFilter(&mut self, pfilter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CheckTextLimit(&mut self, cch: i32, pcch: *const i32) -> ::windows::core::Result<()>;
-    fn GetCallManager(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetClientRect(&mut self, r#type: tomConstants, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()>;
-    fn GetEffectColor(&mut self, index: i32) -> ::windows::core::Result<i32>;
-    fn GetImmContext(&mut self) -> ::windows::core::Result<i64>;
-    fn GetPreferredFont(&mut self, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut super::super::super::Foundation::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, r#type: i32) -> ::windows::core::Result<i32>;
-    fn GetStrings(&mut self) -> ::windows::core::Result<ITextStrings>;
-    fn Notify(&mut self, notify: i32) -> ::windows::core::Result<()>;
-    fn Range2(&mut self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange2>;
-    fn RangeFromPoint2(&mut self, x: i32, y: i32, r#type: i32) -> ::windows::core::Result<ITextRange2>;
-    fn ReleaseCallManager(&mut self, pvoid: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn ReleaseImmContext(&mut self, context: i64) -> ::windows::core::Result<()>;
-    fn SetEffectColor(&mut self, index: i32, value: i32) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
-    fn SetTypographyOptions(&mut self, options: i32, mask: i32) -> ::windows::core::Result<()>;
-    fn SysBeep(&mut self) -> ::windows::core::Result<()>;
-    fn Update(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn UpdateWindow(&mut self) -> ::windows::core::Result<()>;
-    fn GetMathProperties(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMathProperties(&mut self, options: i32, mask: i32) -> ::windows::core::Result<()>;
-    fn GetActiveStory(&mut self) -> ::windows::core::Result<ITextStory>;
-    fn SetActiveStory(&mut self, pstory: &::core::option::Option<ITextStory>) -> ::windows::core::Result<()>;
-    fn GetMainStory(&mut self) -> ::windows::core::Result<ITextStory>;
-    fn GetNewStory(&mut self) -> ::windows::core::Result<ITextStory>;
-    fn GetStory(&mut self, index: i32) -> ::windows::core::Result<ITextStory>;
+    fn GetCaretType(&self) -> ::windows::core::Result<i32>;
+    fn SetCaretType(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetDisplays(&self) -> ::windows::core::Result<ITextDisplays>;
+    fn GetDocumentFont(&self) -> ::windows::core::Result<ITextFont2>;
+    fn SetDocumentFont(&self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<()>;
+    fn GetDocumentPara(&self) -> ::windows::core::Result<ITextPara2>;
+    fn SetDocumentPara(&self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<()>;
+    fn GetEastAsianFlags(&self) -> ::windows::core::Result<tomConstants>;
+    fn GetGenerator(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn SetIMEInProgress(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetNotificationMode(&self) -> ::windows::core::Result<i32>;
+    fn SetNotificationMode(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetSelection2(&self) -> ::windows::core::Result<ITextSelection2>;
+    fn GetStoryRanges2(&self) -> ::windows::core::Result<ITextStoryRanges2>;
+    fn GetTypographyOptions(&self) -> ::windows::core::Result<i32>;
+    fn GetVersion(&self) -> ::windows::core::Result<i32>;
+    fn GetWindow(&self) -> ::windows::core::Result<i64>;
+    fn AttachMsgFilter(&self, pfilter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CheckTextLimit(&self, cch: i32, pcch: *const i32) -> ::windows::core::Result<()>;
+    fn GetCallManager(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetClientRect(&self, r#type: tomConstants, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()>;
+    fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<i32>;
+    fn GetImmContext(&self) -> ::windows::core::Result<i64>;
+    fn GetPreferredFont(&self, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut super::super::super::Foundation::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32>;
+    fn GetStrings(&self) -> ::windows::core::Result<ITextStrings>;
+    fn Notify(&self, notify: i32) -> ::windows::core::Result<()>;
+    fn Range2(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange2>;
+    fn RangeFromPoint2(&self, x: i32, y: i32, r#type: i32) -> ::windows::core::Result<ITextRange2>;
+    fn ReleaseCallManager(&self, pvoid: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ReleaseImmContext(&self, context: i64) -> ::windows::core::Result<()>;
+    fn SetEffectColor(&self, index: i32, value: i32) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
+    fn SetTypographyOptions(&self, options: i32, mask: i32) -> ::windows::core::Result<()>;
+    fn SysBeep(&self) -> ::windows::core::Result<()>;
+    fn Update(&self, value: i32) -> ::windows::core::Result<()>;
+    fn UpdateWindow(&self) -> ::windows::core::Result<()>;
+    fn GetMathProperties(&self) -> ::windows::core::Result<i32>;
+    fn SetMathProperties(&self, options: i32, mask: i32) -> ::windows::core::Result<()>;
+    fn GetActiveStory(&self) -> ::windows::core::Result<ITextStory>;
+    fn SetActiveStory(&self, pstory: &::core::option::Option<ITextStory>) -> ::windows::core::Result<()>;
+    fn GetMainStory(&self) -> ::windows::core::Result<ITextStory>;
+    fn GetNewStory(&self) -> ::windows::core::Result<ITextStory>;
+    fn GetStory(&self, index: i32) -> ::windows::core::Result<ITextStory>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextDocument2_Vtbl {
@@ -936,30 +936,30 @@ impl ITextDocument2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextDocument2Old_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextDocument_Impl {
-    fn AttachMsgFilter(&mut self, pfilter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetEffectColor(&mut self, index: i32, cr: u32) -> ::windows::core::Result<()>;
-    fn GetEffectColor(&mut self, index: i32) -> ::windows::core::Result<u32>;
-    fn GetCaretType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCaretType(&mut self, carettype: i32) -> ::windows::core::Result<()>;
-    fn GetImmContext(&mut self) -> ::windows::core::Result<i64>;
-    fn ReleaseImmContext(&mut self, context: i64) -> ::windows::core::Result<()>;
-    fn GetPreferredFont(&mut self, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: *mut super::super::super::Foundation::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::Result<()>;
-    fn GetNotificationMode(&mut self) -> ::windows::core::Result<i32>;
-    fn SetNotificationMode(&mut self, mode: i32) -> ::windows::core::Result<()>;
-    fn GetClientRect(&mut self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()>;
-    fn GetSelection2(&mut self) -> ::windows::core::Result<ITextSelection>;
-    fn GetWindow(&mut self) -> ::windows::core::Result<i32>;
-    fn GetFEFlags(&mut self) -> ::windows::core::Result<i32>;
-    fn UpdateWindow(&mut self) -> ::windows::core::Result<()>;
-    fn CheckTextLimit(&mut self, cch: i32, pcch: *const i32) -> ::windows::core::Result<()>;
-    fn IMEInProgress(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn SysBeep(&mut self) -> ::windows::core::Result<()>;
-    fn Update(&mut self, mode: i32) -> ::windows::core::Result<()>;
-    fn Notify(&mut self, notify: i32) -> ::windows::core::Result<()>;
-    fn GetDocumentFont(&mut self) -> ::windows::core::Result<ITextFont>;
-    fn GetDocumentPara(&mut self) -> ::windows::core::Result<ITextPara>;
-    fn GetCallManager(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn ReleaseCallManager(&mut self, pvoid: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AttachMsgFilter(&self, pfilter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetEffectColor(&self, index: i32, cr: u32) -> ::windows::core::Result<()>;
+    fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<u32>;
+    fn GetCaretType(&self) -> ::windows::core::Result<i32>;
+    fn SetCaretType(&self, carettype: i32) -> ::windows::core::Result<()>;
+    fn GetImmContext(&self) -> ::windows::core::Result<i64>;
+    fn ReleaseImmContext(&self, context: i64) -> ::windows::core::Result<()>;
+    fn GetPreferredFont(&self, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: *mut super::super::super::Foundation::BSTR, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::Result<()>;
+    fn GetNotificationMode(&self) -> ::windows::core::Result<i32>;
+    fn SetNotificationMode(&self, mode: i32) -> ::windows::core::Result<()>;
+    fn GetClientRect(&self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()>;
+    fn GetSelection2(&self) -> ::windows::core::Result<ITextSelection>;
+    fn GetWindow(&self) -> ::windows::core::Result<i32>;
+    fn GetFEFlags(&self) -> ::windows::core::Result<i32>;
+    fn UpdateWindow(&self) -> ::windows::core::Result<()>;
+    fn CheckTextLimit(&self, cch: i32, pcch: *const i32) -> ::windows::core::Result<()>;
+    fn IMEInProgress(&self, value: i32) -> ::windows::core::Result<()>;
+    fn SysBeep(&self) -> ::windows::core::Result<()>;
+    fn Update(&self, mode: i32) -> ::windows::core::Result<()>;
+    fn Notify(&self, notify: i32) -> ::windows::core::Result<()>;
+    fn GetDocumentFont(&self) -> ::windows::core::Result<ITextFont>;
+    fn GetDocumentPara(&self) -> ::windows::core::Result<ITextPara>;
+    fn GetCallManager(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn ReleaseCallManager(&self, pvoid: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextDocument2Old_Vtbl {
@@ -1178,61 +1178,61 @@ impl ITextDocument2Old_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextFont_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn GetDuplicate(&mut self) -> ::windows::core::Result<ITextFont>;
-    fn SetDuplicate(&mut self, pfont: &::core::option::Option<ITextFont>) -> ::windows::core::Result<()>;
-    fn CanChange(&mut self) -> ::windows::core::Result<i32>;
-    fn IsEqual(&mut self, pfont: &::core::option::Option<ITextFont>) -> ::windows::core::Result<i32>;
-    fn Reset(&mut self, value: tomConstants) -> ::windows::core::Result<()>;
-    fn GetStyle(&mut self) -> ::windows::core::Result<i32>;
-    fn SetStyle(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetAllCaps(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAllCaps(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetAnimation(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAnimation(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetBackColor(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBackColor(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetBold(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBold(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetEmboss(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEmboss(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetForeColor(&mut self) -> ::windows::core::Result<i32>;
-    fn SetForeColor(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetHidden(&mut self) -> ::windows::core::Result<i32>;
-    fn SetHidden(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetEngrave(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEngrave(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetItalic(&mut self) -> ::windows::core::Result<i32>;
-    fn SetItalic(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetKerning(&mut self) -> ::windows::core::Result<f32>;
-    fn SetKerning(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn GetLanguageID(&mut self) -> ::windows::core::Result<i32>;
-    fn SetLanguageID(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetName(&mut self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetOutline(&mut self) -> ::windows::core::Result<i32>;
-    fn SetOutline(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetPosition(&mut self) -> ::windows::core::Result<f32>;
-    fn SetPosition(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn GetProtected(&mut self) -> ::windows::core::Result<i32>;
-    fn SetProtected(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetShadow(&mut self) -> ::windows::core::Result<i32>;
-    fn SetShadow(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetSize(&mut self) -> ::windows::core::Result<f32>;
-    fn SetSize(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn GetSmallCaps(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSmallCaps(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetSpacing(&mut self) -> ::windows::core::Result<f32>;
-    fn SetSpacing(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn GetStrikeThrough(&mut self) -> ::windows::core::Result<i32>;
-    fn SetStrikeThrough(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetSubscript(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSubscript(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetSuperscript(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSuperscript(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetUnderline(&mut self) -> ::windows::core::Result<i32>;
-    fn SetUnderline(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetWeight(&mut self) -> ::windows::core::Result<i32>;
-    fn SetWeight(&mut self, value: i32) -> ::windows::core::Result<()>;
+    fn GetDuplicate(&self) -> ::windows::core::Result<ITextFont>;
+    fn SetDuplicate(&self, pfont: &::core::option::Option<ITextFont>) -> ::windows::core::Result<()>;
+    fn CanChange(&self) -> ::windows::core::Result<i32>;
+    fn IsEqual(&self, pfont: &::core::option::Option<ITextFont>) -> ::windows::core::Result<i32>;
+    fn Reset(&self, value: tomConstants) -> ::windows::core::Result<()>;
+    fn GetStyle(&self) -> ::windows::core::Result<i32>;
+    fn SetStyle(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetAllCaps(&self) -> ::windows::core::Result<i32>;
+    fn SetAllCaps(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetAnimation(&self) -> ::windows::core::Result<i32>;
+    fn SetAnimation(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetBackColor(&self) -> ::windows::core::Result<i32>;
+    fn SetBackColor(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetBold(&self) -> ::windows::core::Result<i32>;
+    fn SetBold(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetEmboss(&self) -> ::windows::core::Result<i32>;
+    fn SetEmboss(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetForeColor(&self) -> ::windows::core::Result<i32>;
+    fn SetForeColor(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetHidden(&self) -> ::windows::core::Result<i32>;
+    fn SetHidden(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetEngrave(&self) -> ::windows::core::Result<i32>;
+    fn SetEngrave(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetItalic(&self) -> ::windows::core::Result<i32>;
+    fn SetItalic(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetKerning(&self) -> ::windows::core::Result<f32>;
+    fn SetKerning(&self, value: f32) -> ::windows::core::Result<()>;
+    fn GetLanguageID(&self) -> ::windows::core::Result<i32>;
+    fn SetLanguageID(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn SetName(&self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetOutline(&self) -> ::windows::core::Result<i32>;
+    fn SetOutline(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetPosition(&self) -> ::windows::core::Result<f32>;
+    fn SetPosition(&self, value: f32) -> ::windows::core::Result<()>;
+    fn GetProtected(&self) -> ::windows::core::Result<i32>;
+    fn SetProtected(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetShadow(&self) -> ::windows::core::Result<i32>;
+    fn SetShadow(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetSize(&self) -> ::windows::core::Result<f32>;
+    fn SetSize(&self, value: f32) -> ::windows::core::Result<()>;
+    fn GetSmallCaps(&self) -> ::windows::core::Result<i32>;
+    fn SetSmallCaps(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetSpacing(&self) -> ::windows::core::Result<f32>;
+    fn SetSpacing(&self, value: f32) -> ::windows::core::Result<()>;
+    fn GetStrikeThrough(&self) -> ::windows::core::Result<i32>;
+    fn SetStrikeThrough(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetSubscript(&self) -> ::windows::core::Result<i32>;
+    fn SetSubscript(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetSuperscript(&self) -> ::windows::core::Result<i32>;
+    fn SetSuperscript(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetUnderline(&self) -> ::windows::core::Result<i32>;
+    fn SetUnderline(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetWeight(&self) -> ::windows::core::Result<i32>;
+    fn SetWeight(&self, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextFont_Vtbl {
@@ -1745,52 +1745,52 @@ impl ITextFont_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextFont2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextFont_Impl {
-    fn GetCount(&mut self) -> ::windows::core::Result<i32>;
-    fn GetAutoLigatures(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAutoLigatures(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetAutospaceAlpha(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAutospaceAlpha(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetAutospaceNumeric(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAutospaceNumeric(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetAutospaceParens(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAutospaceParens(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCharRep(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCharRep(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCompressionMode(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCompressionMode(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCookie(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCookie(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetDoubleStrike(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDoubleStrike(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetDuplicate2(&mut self) -> ::windows::core::Result<ITextFont2>;
-    fn SetDuplicate2(&mut self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<()>;
-    fn GetLinkType(&mut self) -> ::windows::core::Result<i32>;
-    fn GetMathZone(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMathZone(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetModWidthPairs(&mut self) -> ::windows::core::Result<i32>;
-    fn SetModWidthPairs(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetModWidthSpace(&mut self) -> ::windows::core::Result<i32>;
-    fn SetModWidthSpace(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetOldNumbers(&mut self) -> ::windows::core::Result<i32>;
-    fn SetOldNumbers(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetOverlapping(&mut self) -> ::windows::core::Result<i32>;
-    fn SetOverlapping(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetPositionSubSuper(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPositionSubSuper(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetScaling(&mut self) -> ::windows::core::Result<i32>;
-    fn SetScaling(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetSpaceExtension(&mut self) -> ::windows::core::Result<f32>;
-    fn SetSpaceExtension(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn GetUnderlinePositionMode(&mut self) -> ::windows::core::Result<i32>;
-    fn SetUnderlinePositionMode(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetEffects(&mut self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()>;
-    fn GetEffects2(&mut self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, r#type: i32) -> ::windows::core::Result<i32>;
-    fn GetPropertyInfo(&mut self, index: i32, ptype: *mut i32, pvalue: *mut i32) -> ::windows::core::Result<()>;
-    fn IsEqual2(&mut self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<i32>;
-    fn SetEffects(&mut self, value: i32, mask: i32) -> ::windows::core::Result<()>;
-    fn SetEffects2(&mut self, value: i32, mask: i32) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<i32>;
+    fn GetAutoLigatures(&self) -> ::windows::core::Result<i32>;
+    fn SetAutoLigatures(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetAutospaceAlpha(&self) -> ::windows::core::Result<i32>;
+    fn SetAutospaceAlpha(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetAutospaceNumeric(&self) -> ::windows::core::Result<i32>;
+    fn SetAutospaceNumeric(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetAutospaceParens(&self) -> ::windows::core::Result<i32>;
+    fn SetAutospaceParens(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCharRep(&self) -> ::windows::core::Result<i32>;
+    fn SetCharRep(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCompressionMode(&self) -> ::windows::core::Result<i32>;
+    fn SetCompressionMode(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCookie(&self) -> ::windows::core::Result<i32>;
+    fn SetCookie(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetDoubleStrike(&self) -> ::windows::core::Result<i32>;
+    fn SetDoubleStrike(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetDuplicate2(&self) -> ::windows::core::Result<ITextFont2>;
+    fn SetDuplicate2(&self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<()>;
+    fn GetLinkType(&self) -> ::windows::core::Result<i32>;
+    fn GetMathZone(&self) -> ::windows::core::Result<i32>;
+    fn SetMathZone(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetModWidthPairs(&self) -> ::windows::core::Result<i32>;
+    fn SetModWidthPairs(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetModWidthSpace(&self) -> ::windows::core::Result<i32>;
+    fn SetModWidthSpace(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetOldNumbers(&self) -> ::windows::core::Result<i32>;
+    fn SetOldNumbers(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetOverlapping(&self) -> ::windows::core::Result<i32>;
+    fn SetOverlapping(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetPositionSubSuper(&self) -> ::windows::core::Result<i32>;
+    fn SetPositionSubSuper(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetScaling(&self) -> ::windows::core::Result<i32>;
+    fn SetScaling(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetSpaceExtension(&self) -> ::windows::core::Result<f32>;
+    fn SetSpaceExtension(&self, value: f32) -> ::windows::core::Result<()>;
+    fn GetUnderlinePositionMode(&self) -> ::windows::core::Result<i32>;
+    fn SetUnderlinePositionMode(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetEffects(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()>;
+    fn GetEffects2(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32>;
+    fn GetPropertyInfo(&self, index: i32, ptype: *mut i32, pvalue: *mut i32) -> ::windows::core::Result<()>;
+    fn IsEqual2(&self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<i32>;
+    fn SetEffects(&self, value: i32, mask: i32) -> ::windows::core::Result<()>;
+    fn SetEffects2(&self, value: i32, mask: i32) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextFont2_Vtbl {
@@ -2213,45 +2213,45 @@ impl ITextFont2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITextHost_Impl: Sized {
-    fn TxGetDC(&mut self) -> super::super::super::Graphics::Gdi::HDC;
-    fn TxReleaseDC(&mut self, hdc: super::super::super::Graphics::Gdi::HDC) -> i32;
-    fn TxShowScrollBar(&mut self, fnbar: i32, fshow: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-    fn TxEnableScrollBar(&mut self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL;
-    fn TxSetScrollRange(&mut self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-    fn TxSetScrollPos(&mut self, fnbar: i32, npos: i32, fredraw: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-    fn TxInvalidateRect(&mut self, prc: *mut super::super::super::Foundation::RECT, fmode: super::super::super::Foundation::BOOL);
-    fn TxViewChange(&mut self, fupdate: super::super::super::Foundation::BOOL);
-    fn TxCreateCaret(&mut self, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL;
-    fn TxShowCaret(&mut self, fshow: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-    fn TxSetCaretPos(&mut self, x: i32, y: i32) -> super::super::super::Foundation::BOOL;
-    fn TxSetTimer(&mut self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL;
-    fn TxKillTimer(&mut self, idtimer: u32);
-    fn TxScrollWindowEx(&mut self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD);
-    fn TxSetCapture(&mut self, fcapture: super::super::super::Foundation::BOOL);
-    fn TxSetFocus(&mut self);
-    fn TxSetCursor(&mut self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: super::super::super::Foundation::BOOL);
-    fn TxScreenToClient(&mut self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
-    fn TxClientToScreen(&mut self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
-    fn TxActivate(&mut self, ploldstate: *mut i32) -> ::windows::core::Result<()>;
-    fn TxDeactivate(&mut self, lnewstate: i32) -> ::windows::core::Result<()>;
-    fn TxGetClientRect(&mut self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn TxGetViewInset(&mut self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn TxGetCharFormat(&mut self, ppcf: *const *const CHARFORMATW) -> ::windows::core::Result<()>;
-    fn TxGetParaFormat(&mut self, pppf: *const *const PARAFORMAT) -> ::windows::core::Result<()>;
-    fn TxGetSysColor(&mut self, nindex: i32) -> u32;
-    fn TxGetBackStyle(&mut self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()>;
-    fn TxGetMaxLength(&mut self, plength: *mut u32) -> ::windows::core::Result<()>;
-    fn TxGetScrollBars(&mut self, pdwscrollbar: *mut u32) -> ::windows::core::Result<()>;
-    fn TxGetPasswordChar(&mut self) -> ::windows::core::Result<i8>;
-    fn TxGetAcceleratorPos(&mut self, pcp: *mut i32) -> ::windows::core::Result<()>;
-    fn TxGetExtent(&mut self, lpextent: *mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
-    fn OnTxCharFormatChange(&mut self, pcf: *const CHARFORMATW) -> ::windows::core::Result<()>;
-    fn OnTxParaFormatChange(&mut self, ppf: *const PARAFORMAT) -> ::windows::core::Result<()>;
-    fn TxGetPropertyBits(&mut self, dwmask: u32, pdwbits: *mut u32) -> ::windows::core::Result<()>;
-    fn TxNotify(&mut self, inotify: u32, pv: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn TxImmGetContext(&mut self) -> super::super::super::Globalization::HIMC;
-    fn TxImmReleaseContext(&mut self, himc: super::super::super::Globalization::HIMC);
-    fn TxGetSelectionBarWidth(&mut self, lselbarwidth: *mut i32) -> ::windows::core::Result<()>;
+    fn TxGetDC(&self) -> super::super::super::Graphics::Gdi::HDC;
+    fn TxReleaseDC(&self, hdc: super::super::super::Graphics::Gdi::HDC) -> i32;
+    fn TxShowScrollBar(&self, fnbar: i32, fshow: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+    fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL;
+    fn TxSetScrollRange(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+    fn TxSetScrollPos(&self, fnbar: i32, npos: i32, fredraw: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+    fn TxInvalidateRect(&self, prc: *mut super::super::super::Foundation::RECT, fmode: super::super::super::Foundation::BOOL);
+    fn TxViewChange(&self, fupdate: super::super::super::Foundation::BOOL);
+    fn TxCreateCaret(&self, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL;
+    fn TxShowCaret(&self, fshow: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+    fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL;
+    fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL;
+    fn TxKillTimer(&self, idtimer: u32);
+    fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD);
+    fn TxSetCapture(&self, fcapture: super::super::super::Foundation::BOOL);
+    fn TxSetFocus(&self);
+    fn TxSetCursor(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: super::super::super::Foundation::BOOL);
+    fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
+    fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
+    fn TxActivate(&self, ploldstate: *mut i32) -> ::windows::core::Result<()>;
+    fn TxDeactivate(&self, lnewstate: i32) -> ::windows::core::Result<()>;
+    fn TxGetClientRect(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn TxGetViewInset(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn TxGetCharFormat(&self, ppcf: *const *const CHARFORMATW) -> ::windows::core::Result<()>;
+    fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> ::windows::core::Result<()>;
+    fn TxGetSysColor(&self, nindex: i32) -> u32;
+    fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()>;
+    fn TxGetMaxLength(&self, plength: *mut u32) -> ::windows::core::Result<()>;
+    fn TxGetScrollBars(&self, pdwscrollbar: *mut u32) -> ::windows::core::Result<()>;
+    fn TxGetPasswordChar(&self) -> ::windows::core::Result<i8>;
+    fn TxGetAcceleratorPos(&self, pcp: *mut i32) -> ::windows::core::Result<()>;
+    fn TxGetExtent(&self, lpextent: *mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
+    fn OnTxCharFormatChange(&self, pcf: *const CHARFORMATW) -> ::windows::core::Result<()>;
+    fn OnTxParaFormatChange(&self, ppf: *const PARAFORMAT) -> ::windows::core::Result<()>;
+    fn TxGetPropertyBits(&self, dwmask: u32, pdwbits: *mut u32) -> ::windows::core::Result<()>;
+    fn TxNotify(&self, inotify: u32, pv: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn TxImmGetContext(&self) -> super::super::super::Globalization::HIMC;
+    fn TxImmReleaseContext(&self, himc: super::super::super::Globalization::HIMC);
+    fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITextHost_Vtbl {
@@ -2506,18 +2506,18 @@ impl ITextHost_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITextHost2_Impl: Sized + ITextHost_Impl {
-    fn TxIsDoubleClickPending(&mut self) -> super::super::super::Foundation::BOOL;
-    fn TxGetWindow(&mut self, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn TxSetForegroundWindow(&mut self) -> ::windows::core::Result<()>;
-    fn TxGetPalette(&mut self) -> super::super::super::Graphics::Gdi::HPALETTE;
-    fn TxGetEastAsianFlags(&mut self, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn TxSetCursor2(&mut self, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: super::super::super::Foundation::BOOL) -> super::super::WindowsAndMessaging::HCURSOR;
-    fn TxFreeTextServicesNotification(&mut self);
-    fn TxGetEditStyle(&mut self, dwitem: u32, pdwdata: *mut u32) -> ::windows::core::Result<()>;
-    fn TxGetWindowStyles(&mut self, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> ::windows::core::Result<()>;
-    fn TxShowDropCaret(&mut self, fshow: super::super::super::Foundation::BOOL, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn TxDestroyCaret(&mut self) -> ::windows::core::Result<()>;
-    fn TxGetHorzExtent(&mut self, plhorzextent: *mut i32) -> ::windows::core::Result<()>;
+    fn TxIsDoubleClickPending(&self) -> super::super::super::Foundation::BOOL;
+    fn TxGetWindow(&self, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn TxSetForegroundWindow(&self) -> ::windows::core::Result<()>;
+    fn TxGetPalette(&self) -> super::super::super::Graphics::Gdi::HPALETTE;
+    fn TxGetEastAsianFlags(&self, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn TxSetCursor2(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: super::super::super::Foundation::BOOL) -> super::super::WindowsAndMessaging::HCURSOR;
+    fn TxFreeTextServicesNotification(&self);
+    fn TxGetEditStyle(&self, dwitem: u32, pdwdata: *mut u32) -> ::windows::core::Result<()>;
+    fn TxGetWindowStyles(&self, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> ::windows::core::Result<()>;
+    fn TxShowDropCaret(&self, fshow: super::super::super::Foundation::BOOL, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn TxDestroyCaret(&self) -> ::windows::core::Result<()>;
+    fn TxGetHorzExtent(&self, plhorzextent: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITextHost2_Vtbl {
@@ -2604,54 +2604,54 @@ impl ITextHost2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextPara_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn GetDuplicate(&mut self) -> ::windows::core::Result<ITextPara>;
-    fn SetDuplicate(&mut self, ppara: &::core::option::Option<ITextPara>) -> ::windows::core::Result<()>;
-    fn CanChange(&mut self) -> ::windows::core::Result<i32>;
-    fn IsEqual(&mut self, ppara: &::core::option::Option<ITextPara>) -> ::windows::core::Result<i32>;
-    fn Reset(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetStyle(&mut self) -> ::windows::core::Result<i32>;
-    fn SetStyle(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetAlignment(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAlignment(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetHyphenation(&mut self) -> ::windows::core::Result<tomConstants>;
-    fn SetHyphenation(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetFirstLineIndent(&mut self) -> ::windows::core::Result<f32>;
-    fn GetKeepTogether(&mut self) -> ::windows::core::Result<tomConstants>;
-    fn SetKeepTogether(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetKeepWithNext(&mut self) -> ::windows::core::Result<tomConstants>;
-    fn SetKeepWithNext(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetLeftIndent(&mut self) -> ::windows::core::Result<f32>;
-    fn GetLineSpacing(&mut self) -> ::windows::core::Result<f32>;
-    fn GetLineSpacingRule(&mut self) -> ::windows::core::Result<i32>;
-    fn GetListAlignment(&mut self) -> ::windows::core::Result<i32>;
-    fn SetListAlignment(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetListLevelIndex(&mut self) -> ::windows::core::Result<i32>;
-    fn SetListLevelIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetListStart(&mut self) -> ::windows::core::Result<i32>;
-    fn SetListStart(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetListTab(&mut self) -> ::windows::core::Result<f32>;
-    fn SetListTab(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn GetListType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetListType(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetNoLineNumber(&mut self) -> ::windows::core::Result<i32>;
-    fn SetNoLineNumber(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetPageBreakBefore(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPageBreakBefore(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetRightIndent(&mut self) -> ::windows::core::Result<f32>;
-    fn SetRightIndent(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn SetIndents(&mut self, first: f32, left: f32, right: f32) -> ::windows::core::Result<()>;
-    fn SetLineSpacing(&mut self, rule: i32, spacing: f32) -> ::windows::core::Result<()>;
-    fn GetSpaceAfter(&mut self) -> ::windows::core::Result<f32>;
-    fn SetSpaceAfter(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn GetSpaceBefore(&mut self) -> ::windows::core::Result<f32>;
-    fn SetSpaceBefore(&mut self, value: f32) -> ::windows::core::Result<()>;
-    fn GetWidowControl(&mut self) -> ::windows::core::Result<i32>;
-    fn SetWidowControl(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetTabCount(&mut self) -> ::windows::core::Result<i32>;
-    fn AddTab(&mut self, tbpos: f32, tbalign: i32, tbleader: i32) -> ::windows::core::Result<()>;
-    fn ClearAllTabs(&mut self) -> ::windows::core::Result<()>;
-    fn DeleteTab(&mut self, tbpos: f32) -> ::windows::core::Result<()>;
-    fn GetTab(&mut self, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> ::windows::core::Result<()>;
+    fn GetDuplicate(&self) -> ::windows::core::Result<ITextPara>;
+    fn SetDuplicate(&self, ppara: &::core::option::Option<ITextPara>) -> ::windows::core::Result<()>;
+    fn CanChange(&self) -> ::windows::core::Result<i32>;
+    fn IsEqual(&self, ppara: &::core::option::Option<ITextPara>) -> ::windows::core::Result<i32>;
+    fn Reset(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetStyle(&self) -> ::windows::core::Result<i32>;
+    fn SetStyle(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetAlignment(&self) -> ::windows::core::Result<i32>;
+    fn SetAlignment(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetHyphenation(&self) -> ::windows::core::Result<tomConstants>;
+    fn SetHyphenation(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetFirstLineIndent(&self) -> ::windows::core::Result<f32>;
+    fn GetKeepTogether(&self) -> ::windows::core::Result<tomConstants>;
+    fn SetKeepTogether(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetKeepWithNext(&self) -> ::windows::core::Result<tomConstants>;
+    fn SetKeepWithNext(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetLeftIndent(&self) -> ::windows::core::Result<f32>;
+    fn GetLineSpacing(&self) -> ::windows::core::Result<f32>;
+    fn GetLineSpacingRule(&self) -> ::windows::core::Result<i32>;
+    fn GetListAlignment(&self) -> ::windows::core::Result<i32>;
+    fn SetListAlignment(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetListLevelIndex(&self) -> ::windows::core::Result<i32>;
+    fn SetListLevelIndex(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetListStart(&self) -> ::windows::core::Result<i32>;
+    fn SetListStart(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetListTab(&self) -> ::windows::core::Result<f32>;
+    fn SetListTab(&self, value: f32) -> ::windows::core::Result<()>;
+    fn GetListType(&self) -> ::windows::core::Result<i32>;
+    fn SetListType(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetNoLineNumber(&self) -> ::windows::core::Result<i32>;
+    fn SetNoLineNumber(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetPageBreakBefore(&self) -> ::windows::core::Result<i32>;
+    fn SetPageBreakBefore(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetRightIndent(&self) -> ::windows::core::Result<f32>;
+    fn SetRightIndent(&self, value: f32) -> ::windows::core::Result<()>;
+    fn SetIndents(&self, first: f32, left: f32, right: f32) -> ::windows::core::Result<()>;
+    fn SetLineSpacing(&self, rule: i32, spacing: f32) -> ::windows::core::Result<()>;
+    fn GetSpaceAfter(&self) -> ::windows::core::Result<f32>;
+    fn SetSpaceAfter(&self, value: f32) -> ::windows::core::Result<()>;
+    fn GetSpaceBefore(&self) -> ::windows::core::Result<f32>;
+    fn SetSpaceBefore(&self, value: f32) -> ::windows::core::Result<()>;
+    fn GetWidowControl(&self) -> ::windows::core::Result<i32>;
+    fn SetWidowControl(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetTabCount(&self) -> ::windows::core::Result<i32>;
+    fn AddTab(&self, tbpos: f32, tbalign: i32, tbleader: i32) -> ::windows::core::Result<()>;
+    fn ClearAllTabs(&self) -> ::windows::core::Result<()>;
+    fn DeleteTab(&self, tbpos: f32) -> ::windows::core::Result<()>;
+    fn GetTab(&self, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextPara_Vtbl {
@@ -3098,22 +3098,22 @@ impl ITextPara_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextPara2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextPara_Impl {
-    fn GetBorders(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetDuplicate2(&mut self) -> ::windows::core::Result<ITextPara2>;
-    fn SetDuplicate2(&mut self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<()>;
-    fn GetFontAlignment(&mut self) -> ::windows::core::Result<i32>;
-    fn SetFontAlignment(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetHangingPunctuation(&mut self) -> ::windows::core::Result<i32>;
-    fn SetHangingPunctuation(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetSnapToGrid(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSnapToGrid(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetTrimPunctuationAtStart(&mut self) -> ::windows::core::Result<i32>;
-    fn SetTrimPunctuationAtStart(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetEffects(&mut self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, r#type: i32) -> ::windows::core::Result<i32>;
-    fn IsEqual2(&mut self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<i32>;
-    fn SetEffects(&mut self, value: i32, mask: i32) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
+    fn GetBorders(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetDuplicate2(&self) -> ::windows::core::Result<ITextPara2>;
+    fn SetDuplicate2(&self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<()>;
+    fn GetFontAlignment(&self) -> ::windows::core::Result<i32>;
+    fn SetFontAlignment(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetHangingPunctuation(&self) -> ::windows::core::Result<i32>;
+    fn SetHangingPunctuation(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetSnapToGrid(&self) -> ::windows::core::Result<i32>;
+    fn SetSnapToGrid(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetTrimPunctuationAtStart(&self) -> ::windows::core::Result<i32>;
+    fn SetTrimPunctuationAtStart(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetEffects(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32>;
+    fn IsEqual2(&self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<i32>;
+    fn SetEffects(&self, value: i32, mask: i32) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextPara2_Vtbl {
@@ -3272,57 +3272,57 @@ impl ITextPara2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextRange_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn GetText(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetText(&mut self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetChar(&mut self) -> ::windows::core::Result<i32>;
-    fn SetChar(&mut self, char: i32) -> ::windows::core::Result<()>;
-    fn GetDuplicate(&mut self) -> ::windows::core::Result<ITextRange>;
-    fn GetFormattedText(&mut self) -> ::windows::core::Result<ITextRange>;
-    fn SetFormattedText(&mut self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<()>;
-    fn GetStart(&mut self) -> ::windows::core::Result<i32>;
-    fn SetStart(&mut self, cpfirst: i32) -> ::windows::core::Result<()>;
-    fn GetEnd(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEnd(&mut self, cplim: i32) -> ::windows::core::Result<()>;
-    fn GetFont(&mut self) -> ::windows::core::Result<ITextFont>;
-    fn SetFont(&mut self, pfont: &::core::option::Option<ITextFont>) -> ::windows::core::Result<()>;
-    fn GetPara(&mut self) -> ::windows::core::Result<ITextPara>;
-    fn SetPara(&mut self, ppara: &::core::option::Option<ITextPara>) -> ::windows::core::Result<()>;
-    fn GetStoryLength(&mut self) -> ::windows::core::Result<i32>;
-    fn GetStoryType(&mut self) -> ::windows::core::Result<i32>;
-    fn Collapse(&mut self, bstart: i32) -> ::windows::core::Result<()>;
-    fn Expand(&mut self, unit: i32) -> ::windows::core::Result<i32>;
-    fn GetIndex(&mut self, unit: i32) -> ::windows::core::Result<i32>;
-    fn SetIndex(&mut self, unit: i32, index: i32, extend: i32) -> ::windows::core::Result<()>;
-    fn SetRange(&mut self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()>;
-    fn InRange(&mut self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<i32>;
-    fn InStory(&mut self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<i32>;
-    fn IsEqual(&mut self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<i32>;
-    fn Select(&mut self) -> ::windows::core::Result<()>;
-    fn StartOf(&mut self, unit: i32, extend: i32) -> ::windows::core::Result<i32>;
-    fn EndOf(&mut self, unit: i32, extend: i32) -> ::windows::core::Result<i32>;
-    fn Move(&mut self, unit: i32, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveStart(&mut self, unit: i32, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveEnd(&mut self, unit: i32, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveWhile(&mut self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveStartWhile(&mut self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveEndWhile(&mut self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveUntil(&mut self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveStartUntil(&mut self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
-    fn MoveEndUntil(&mut self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
-    fn FindText(&mut self, bstr: &super::super::super::Foundation::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32>;
-    fn FindTextStart(&mut self, bstr: &super::super::super::Foundation::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32>;
-    fn FindTextEnd(&mut self, bstr: &super::super::super::Foundation::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32>;
-    fn Delete(&mut self, unit: i32, count: i32) -> ::windows::core::Result<i32>;
-    fn Cut(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn Copy(&mut self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn Paste(&mut self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()>;
-    fn CanPaste(&mut self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32>;
-    fn CanEdit(&mut self) -> ::windows::core::Result<i32>;
-    fn ChangeCase(&mut self, r#type: i32) -> ::windows::core::Result<()>;
-    fn GetPoint(&mut self, r#type: i32, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()>;
-    fn SetPoint(&mut self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()>;
-    fn ScrollIntoView(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetEmbeddedObject(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn SetText(&self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetChar(&self) -> ::windows::core::Result<i32>;
+    fn SetChar(&self, char: i32) -> ::windows::core::Result<()>;
+    fn GetDuplicate(&self) -> ::windows::core::Result<ITextRange>;
+    fn GetFormattedText(&self) -> ::windows::core::Result<ITextRange>;
+    fn SetFormattedText(&self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<()>;
+    fn GetStart(&self) -> ::windows::core::Result<i32>;
+    fn SetStart(&self, cpfirst: i32) -> ::windows::core::Result<()>;
+    fn GetEnd(&self) -> ::windows::core::Result<i32>;
+    fn SetEnd(&self, cplim: i32) -> ::windows::core::Result<()>;
+    fn GetFont(&self) -> ::windows::core::Result<ITextFont>;
+    fn SetFont(&self, pfont: &::core::option::Option<ITextFont>) -> ::windows::core::Result<()>;
+    fn GetPara(&self) -> ::windows::core::Result<ITextPara>;
+    fn SetPara(&self, ppara: &::core::option::Option<ITextPara>) -> ::windows::core::Result<()>;
+    fn GetStoryLength(&self) -> ::windows::core::Result<i32>;
+    fn GetStoryType(&self) -> ::windows::core::Result<i32>;
+    fn Collapse(&self, bstart: i32) -> ::windows::core::Result<()>;
+    fn Expand(&self, unit: i32) -> ::windows::core::Result<i32>;
+    fn GetIndex(&self, unit: i32) -> ::windows::core::Result<i32>;
+    fn SetIndex(&self, unit: i32, index: i32, extend: i32) -> ::windows::core::Result<()>;
+    fn SetRange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()>;
+    fn InRange(&self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<i32>;
+    fn InStory(&self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<i32>;
+    fn IsEqual(&self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<i32>;
+    fn Select(&self) -> ::windows::core::Result<()>;
+    fn StartOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32>;
+    fn EndOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32>;
+    fn Move(&self, unit: i32, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveStart(&self, unit: i32, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveEnd(&self, unit: i32, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
+    fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32>;
+    fn FindText(&self, bstr: &super::super::super::Foundation::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32>;
+    fn FindTextStart(&self, bstr: &super::super::super::Foundation::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32>;
+    fn FindTextEnd(&self, bstr: &super::super::super::Foundation::BSTR, count: i32, flags: i32) -> ::windows::core::Result<i32>;
+    fn Delete(&self, unit: i32, count: i32) -> ::windows::core::Result<i32>;
+    fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()>;
+    fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32>;
+    fn CanEdit(&self) -> ::windows::core::Result<i32>;
+    fn ChangeCase(&self, r#type: i32) -> ::windows::core::Result<()>;
+    fn GetPoint(&self, r#type: i32, px: *mut i32, py: *mut i32) -> ::windows::core::Result<()>;
+    fn SetPoint(&self, x: i32, y: i32, r#type: i32, extend: i32) -> ::windows::core::Result<()>;
+    fn ScrollIntoView(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetEmbeddedObject(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextRange_Vtbl {
@@ -3853,46 +3853,46 @@ impl ITextRange_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextRange2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextRange_Impl + ITextSelection_Impl {
-    fn GetCch(&mut self) -> ::windows::core::Result<i32>;
-    fn GetCells(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetColumn(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetCount(&mut self) -> ::windows::core::Result<i32>;
-    fn GetDuplicate2(&mut self) -> ::windows::core::Result<ITextRange2>;
-    fn GetFont2(&mut self) -> ::windows::core::Result<ITextFont2>;
-    fn SetFont2(&mut self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<()>;
-    fn GetFormattedText2(&mut self) -> ::windows::core::Result<ITextRange2>;
-    fn SetFormattedText2(&mut self, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
-    fn GetGravity(&mut self) -> ::windows::core::Result<i32>;
-    fn SetGravity(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetPara2(&mut self) -> ::windows::core::Result<ITextPara2>;
-    fn SetPara2(&mut self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<()>;
-    fn GetRow(&mut self) -> ::windows::core::Result<ITextRow>;
-    fn GetStartPara(&mut self) -> ::windows::core::Result<i32>;
-    fn GetTable(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetURL(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetURL(&mut self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AddSubrange(&mut self, cp1: i32, cp2: i32, activate: i32) -> ::windows::core::Result<()>;
-    fn BuildUpMath(&mut self, flags: i32) -> ::windows::core::Result<()>;
-    fn DeleteSubrange(&mut self, cpfirst: i32, cplim: i32) -> ::windows::core::Result<()>;
-    fn Find(&mut self, prange: &::core::option::Option<ITextRange2>, count: i32, flags: i32) -> ::windows::core::Result<i32>;
-    fn GetChar2(&mut self, pchar: *mut i32, offset: i32) -> ::windows::core::Result<()>;
-    fn GetDropCap(&mut self, pcline: *mut i32, pposition: *mut i32) -> ::windows::core::Result<()>;
-    fn GetInlineObject(&mut self, ptype: *mut i32, palign: *mut i32, pchar: *mut i32, pchar1: *mut i32, pchar2: *mut i32, pcount: *mut i32, ptexstyle: *mut i32, pccol: *mut i32, plevel: *mut i32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, r#type: i32) -> ::windows::core::Result<i32>;
-    fn GetRect(&mut self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32, phit: *mut i32) -> ::windows::core::Result<()>;
-    fn GetSubrange(&mut self, isubrange: i32, pcpfirst: *mut i32, pcplim: *mut i32) -> ::windows::core::Result<()>;
-    fn GetText2(&mut self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn HexToUnicode(&mut self) -> ::windows::core::Result<()>;
-    fn InsertTable(&mut self, ccol: i32, crow: i32, autofit: i32) -> ::windows::core::Result<()>;
-    fn Linearize(&mut self, flags: i32) -> ::windows::core::Result<()>;
-    fn SetActiveSubrange(&mut self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()>;
-    fn SetDropCap(&mut self, cline: i32, position: i32) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
-    fn SetText2(&mut self, flags: i32, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn UnicodeToHex(&mut self) -> ::windows::core::Result<()>;
-    fn SetInlineObject(&mut self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32) -> ::windows::core::Result<()>;
-    fn GetMathFunctionType(&mut self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
-    fn InsertImage(&mut self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &super::super::super::Foundation::BSTR, pstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn GetCch(&self) -> ::windows::core::Result<i32>;
+    fn GetCells(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetColumn(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetCount(&self) -> ::windows::core::Result<i32>;
+    fn GetDuplicate2(&self) -> ::windows::core::Result<ITextRange2>;
+    fn GetFont2(&self) -> ::windows::core::Result<ITextFont2>;
+    fn SetFont2(&self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<()>;
+    fn GetFormattedText2(&self) -> ::windows::core::Result<ITextRange2>;
+    fn SetFormattedText2(&self, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
+    fn GetGravity(&self) -> ::windows::core::Result<i32>;
+    fn SetGravity(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetPara2(&self) -> ::windows::core::Result<ITextPara2>;
+    fn SetPara2(&self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<()>;
+    fn GetRow(&self) -> ::windows::core::Result<ITextRow>;
+    fn GetStartPara(&self) -> ::windows::core::Result<i32>;
+    fn GetTable(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn SetURL(&self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn AddSubrange(&self, cp1: i32, cp2: i32, activate: i32) -> ::windows::core::Result<()>;
+    fn BuildUpMath(&self, flags: i32) -> ::windows::core::Result<()>;
+    fn DeleteSubrange(&self, cpfirst: i32, cplim: i32) -> ::windows::core::Result<()>;
+    fn Find(&self, prange: &::core::option::Option<ITextRange2>, count: i32, flags: i32) -> ::windows::core::Result<i32>;
+    fn GetChar2(&self, pchar: *mut i32, offset: i32) -> ::windows::core::Result<()>;
+    fn GetDropCap(&self, pcline: *mut i32, pposition: *mut i32) -> ::windows::core::Result<()>;
+    fn GetInlineObject(&self, ptype: *mut i32, palign: *mut i32, pchar: *mut i32, pchar1: *mut i32, pchar2: *mut i32, pcount: *mut i32, ptexstyle: *mut i32, pccol: *mut i32, plevel: *mut i32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32>;
+    fn GetRect(&self, r#type: i32, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32, phit: *mut i32) -> ::windows::core::Result<()>;
+    fn GetSubrange(&self, isubrange: i32, pcpfirst: *mut i32, pcplim: *mut i32) -> ::windows::core::Result<()>;
+    fn GetText2(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn HexToUnicode(&self) -> ::windows::core::Result<()>;
+    fn InsertTable(&self, ccol: i32, crow: i32, autofit: i32) -> ::windows::core::Result<()>;
+    fn Linearize(&self, flags: i32) -> ::windows::core::Result<()>;
+    fn SetActiveSubrange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()>;
+    fn SetDropCap(&self, cline: i32, position: i32) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
+    fn SetText2(&self, flags: i32, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn UnicodeToHex(&self) -> ::windows::core::Result<()>;
+    fn SetInlineObject(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32) -> ::windows::core::Result<()>;
+    fn GetMathFunctionType(&self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn InsertImage(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &super::super::super::Foundation::BSTR, pstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextRange2_Vtbl {
@@ -4249,52 +4249,52 @@ impl ITextRange2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextRow_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn GetAlignment(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAlignment(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellCount(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellCount(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellCountCache(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellCountCache(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellIndex(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellIndex(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellMargin(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellMargin(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetHeight(&mut self) -> ::windows::core::Result<i32>;
-    fn SetHeight(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetIndent(&mut self) -> ::windows::core::Result<i32>;
-    fn SetIndent(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetKeepTogether(&mut self) -> ::windows::core::Result<i32>;
-    fn SetKeepTogether(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetKeepWithNext(&mut self) -> ::windows::core::Result<i32>;
-    fn SetKeepWithNext(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetNestLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn GetRTL(&mut self) -> ::windows::core::Result<i32>;
-    fn SetRTL(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellAlignment(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellAlignment(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellColorBack(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellColorBack(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellColorFore(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellColorFore(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellMergeFlags(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellMergeFlags(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellShading(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellShading(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellVerticalText(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellVerticalText(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellWidth(&mut self) -> ::windows::core::Result<i32>;
-    fn SetCellWidth(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetCellBorderColors(&mut self, pcrleft: *mut i32, pcrtop: *mut i32, pcrright: *mut i32, pcrbottom: *mut i32) -> ::windows::core::Result<()>;
-    fn GetCellBorderWidths(&mut self, pduleft: *mut i32, pdutop: *mut i32, pduright: *mut i32, pdubottom: *mut i32) -> ::windows::core::Result<()>;
-    fn SetCellBorderColors(&mut self, crleft: i32, crtop: i32, crright: i32, crbottom: i32) -> ::windows::core::Result<()>;
-    fn SetCellBorderWidths(&mut self, duleft: i32, dutop: i32, duright: i32, dubottom: i32) -> ::windows::core::Result<()>;
-    fn Apply(&mut self, crow: i32, flags: tomConstants) -> ::windows::core::Result<()>;
-    fn CanChange(&mut self) -> ::windows::core::Result<i32>;
-    fn GetProperty(&mut self, r#type: i32) -> ::windows::core::Result<i32>;
-    fn Insert(&mut self, crow: i32) -> ::windows::core::Result<()>;
-    fn IsEqual(&mut self, prow: &::core::option::Option<ITextRow>) -> ::windows::core::Result<i32>;
-    fn Reset(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
+    fn GetAlignment(&self) -> ::windows::core::Result<i32>;
+    fn SetAlignment(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellCount(&self) -> ::windows::core::Result<i32>;
+    fn SetCellCount(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellCountCache(&self) -> ::windows::core::Result<i32>;
+    fn SetCellCountCache(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellIndex(&self) -> ::windows::core::Result<i32>;
+    fn SetCellIndex(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellMargin(&self) -> ::windows::core::Result<i32>;
+    fn SetCellMargin(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetHeight(&self) -> ::windows::core::Result<i32>;
+    fn SetHeight(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetIndent(&self) -> ::windows::core::Result<i32>;
+    fn SetIndent(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetKeepTogether(&self) -> ::windows::core::Result<i32>;
+    fn SetKeepTogether(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetKeepWithNext(&self) -> ::windows::core::Result<i32>;
+    fn SetKeepWithNext(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetNestLevel(&self) -> ::windows::core::Result<i32>;
+    fn GetRTL(&self) -> ::windows::core::Result<i32>;
+    fn SetRTL(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellAlignment(&self) -> ::windows::core::Result<i32>;
+    fn SetCellAlignment(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellColorBack(&self) -> ::windows::core::Result<i32>;
+    fn SetCellColorBack(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellColorFore(&self) -> ::windows::core::Result<i32>;
+    fn SetCellColorFore(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellMergeFlags(&self) -> ::windows::core::Result<i32>;
+    fn SetCellMergeFlags(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellShading(&self) -> ::windows::core::Result<i32>;
+    fn SetCellShading(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellVerticalText(&self) -> ::windows::core::Result<i32>;
+    fn SetCellVerticalText(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellWidth(&self) -> ::windows::core::Result<i32>;
+    fn SetCellWidth(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetCellBorderColors(&self, pcrleft: *mut i32, pcrtop: *mut i32, pcrright: *mut i32, pcrbottom: *mut i32) -> ::windows::core::Result<()>;
+    fn GetCellBorderWidths(&self, pduleft: *mut i32, pdutop: *mut i32, pduright: *mut i32, pdubottom: *mut i32) -> ::windows::core::Result<()>;
+    fn SetCellBorderColors(&self, crleft: i32, crtop: i32, crright: i32, crbottom: i32) -> ::windows::core::Result<()>;
+    fn SetCellBorderWidths(&self, duleft: i32, dutop: i32, duright: i32, dubottom: i32) -> ::windows::core::Result<()>;
+    fn Apply(&self, crow: i32, flags: tomConstants) -> ::windows::core::Result<()>;
+    fn CanChange(&self) -> ::windows::core::Result<i32>;
+    fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32>;
+    fn Insert(&self, crow: i32) -> ::windows::core::Result<()>;
+    fn IsEqual(&self, prow: &::core::option::Option<ITextRow>) -> ::windows::core::Result<i32>;
+    fn Reset(&self, value: i32) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextRow_Vtbl {
@@ -4711,16 +4711,16 @@ impl ITextRow_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextSelection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextRange_Impl {
-    fn GetFlags(&mut self) -> ::windows::core::Result<i32>;
-    fn SetFlags(&mut self, flags: i32) -> ::windows::core::Result<()>;
-    fn GetType(&mut self) -> ::windows::core::Result<i32>;
-    fn MoveLeft(&mut self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32>;
-    fn MoveRight(&mut self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32>;
-    fn MoveUp(&mut self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32>;
-    fn MoveDown(&mut self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32>;
-    fn HomeKey(&mut self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32>;
-    fn EndKey(&mut self, unit: i32, extend: i32) -> ::windows::core::Result<i32>;
-    fn TypeText(&mut self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetFlags(&self) -> ::windows::core::Result<i32>;
+    fn SetFlags(&self, flags: i32) -> ::windows::core::Result<()>;
+    fn GetType(&self) -> ::windows::core::Result<i32>;
+    fn MoveLeft(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32>;
+    fn MoveRight(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32>;
+    fn MoveUp(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32>;
+    fn MoveDown(&self, unit: i32, count: i32, extend: i32) -> ::windows::core::Result<i32>;
+    fn HomeKey(&self, unit: tomConstants, extend: i32) -> ::windows::core::Result<i32>;
+    fn EndKey(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32>;
+    fn TypeText(&self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextSelection_Vtbl {
@@ -4854,24 +4854,24 @@ impl ITextSelection2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextServices_Impl: Sized {
-    fn TxSendMessage(&mut self, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
-    fn TxDraw(&mut self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>;
-    fn TxGetHScroll(&mut self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn TxGetVScroll(&mut self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn OnTxSetCursor(&mut self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>;
-    fn TxQueryHitPoint(&mut self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()>;
-    fn OnTxInPlaceActivate(&mut self, prcclient: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn OnTxInPlaceDeactivate(&mut self) -> ::windows::core::Result<()>;
-    fn OnTxUIActivate(&mut self) -> ::windows::core::Result<()>;
-    fn OnTxUIDeactivate(&mut self) -> ::windows::core::Result<()>;
-    fn TxGetText(&mut self, pbstrtext: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TxSetText(&mut self, psztext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn TxGetCurTargetX(&mut self, param0: *mut i32) -> ::windows::core::Result<()>;
-    fn TxGetBaseLinePos(&mut self, param0: *mut i32) -> ::windows::core::Result<()>;
-    fn TxGetNaturalSize(&mut self, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()>;
-    fn TxGetDropTarget(&mut self) -> ::windows::core::Result<super::super::super::System::Ole::IDropTarget>;
-    fn OnTxPropertyBitsChange(&mut self, dwmask: u32, dwbits: u32) -> ::windows::core::Result<()>;
-    fn TxGetCachedSize(&mut self, pdwwidth: *mut u32, pdwheight: *mut u32) -> ::windows::core::Result<()>;
+    fn TxSendMessage(&self, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
+    fn TxDraw(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>;
+    fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnTxSetCursor(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>;
+    fn TxQueryHitPoint(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> ::windows::core::Result<()>;
+    fn OnTxInPlaceActivate(&self, prcclient: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn OnTxInPlaceDeactivate(&self) -> ::windows::core::Result<()>;
+    fn OnTxUIActivate(&self) -> ::windows::core::Result<()>;
+    fn OnTxUIDeactivate(&self) -> ::windows::core::Result<()>;
+    fn TxGetText(&self, pbstrtext: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TxSetText(&self, psztext: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn TxGetCurTargetX(&self, param0: *mut i32) -> ::windows::core::Result<()>;
+    fn TxGetBaseLinePos(&self, param0: *mut i32) -> ::windows::core::Result<()>;
+    fn TxGetNaturalSize(&self, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> ::windows::core::Result<()>;
+    fn TxGetDropTarget(&self) -> ::windows::core::Result<super::super::super::System::Ole::IDropTarget>;
+    fn OnTxPropertyBitsChange(&self, dwmask: u32, dwbits: u32) -> ::windows::core::Result<()>;
+    fn TxGetCachedSize(&self, pdwwidth: *mut u32, pdwheight: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextServices_Vtbl {
@@ -5015,8 +5015,8 @@ impl ITextServices_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextServices2_Impl: Sized + ITextServices_Impl {
-    fn TxGetNaturalSize2(&mut self, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> ::windows::core::Result<()>;
-    fn TxDrawD2D(&mut self, prendertarget: &::core::option::Option<super::super::super::Graphics::Direct2D::ID2D1RenderTarget>, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::Result<()>;
+    fn TxGetNaturalSize2(&self, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> ::windows::core::Result<()>;
+    fn TxDrawD2D(&self, prendertarget: &::core::option::Option<super::super::super::Graphics::Direct2D::ID2D1RenderTarget>, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextServices2_Vtbl {
@@ -5043,18 +5043,18 @@ impl ITextServices2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITextStory_Impl: Sized {
-    fn GetActive(&mut self) -> ::windows::core::Result<i32>;
-    fn SetActive(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetDisplay(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetIndex(&mut self) -> ::windows::core::Result<i32>;
-    fn GetType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetType(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, r#type: i32) -> ::windows::core::Result<i32>;
-    fn GetRange(&mut self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange2>;
-    fn GetText(&mut self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetFormattedText(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetProperty(&mut self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
-    fn SetText(&mut self, flags: i32, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetActive(&self) -> ::windows::core::Result<i32>;
+    fn SetActive(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetDisplay(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetIndex(&self) -> ::windows::core::Result<i32>;
+    fn GetType(&self) -> ::windows::core::Result<i32>;
+    fn SetType(&self, value: i32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32>;
+    fn GetRange(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange2>;
+    fn GetText(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn SetFormattedText(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
+    fn SetText(&self, flags: i32, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITextStory_Vtbl {
@@ -5183,9 +5183,9 @@ impl ITextStory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextStoryRanges_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<ITextRange>;
-    fn GetCount(&mut self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<ITextRange>;
+    fn GetCount(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextStoryRanges_Vtbl {
@@ -5236,7 +5236,7 @@ impl ITextStoryRanges_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextStoryRanges2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextStoryRanges_Impl {
-    fn Item2(&mut self, index: i32) -> ::windows::core::Result<ITextRange2>;
+    fn Item2(&self, index: i32) -> ::windows::core::Result<ITextRange2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextStoryRanges2_Vtbl {
@@ -5260,23 +5260,23 @@ impl ITextStoryRanges2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextStrings_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<ITextRange2>;
-    fn GetCount(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Append(&mut self, prange: &::core::option::Option<ITextRange2>, istring: i32) -> ::windows::core::Result<()>;
-    fn Cat2(&mut self, istring: i32) -> ::windows::core::Result<()>;
-    fn CatTop2(&mut self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DeleteRange(&mut self, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
-    fn EncodeFunction(&mut self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
-    fn GetCch(&mut self, istring: i32) -> ::windows::core::Result<i32>;
-    fn InsertNullStr(&mut self, istring: i32) -> ::windows::core::Result<()>;
-    fn MoveBoundary(&mut self, istring: i32, cch: i32) -> ::windows::core::Result<()>;
-    fn PrefixTop(&mut self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, istring: i32, cstring: i32) -> ::windows::core::Result<()>;
-    fn SetFormattedText(&mut self, pranged: &::core::option::Option<ITextRange2>, pranges: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
-    fn SetOpCp(&mut self, istring: i32, cp: i32) -> ::windows::core::Result<()>;
-    fn SuffixTop(&mut self, bstr: &super::super::super::Foundation::BSTR, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
-    fn Swap(&mut self) -> ::windows::core::Result<()>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<ITextRange2>;
+    fn GetCount(&self) -> ::windows::core::Result<i32>;
+    fn Add(&self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Append(&self, prange: &::core::option::Option<ITextRange2>, istring: i32) -> ::windows::core::Result<()>;
+    fn Cat2(&self, istring: i32) -> ::windows::core::Result<()>;
+    fn CatTop2(&self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn DeleteRange(&self, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
+    fn EncodeFunction(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
+    fn GetCch(&self, istring: i32) -> ::windows::core::Result<i32>;
+    fn InsertNullStr(&self, istring: i32) -> ::windows::core::Result<()>;
+    fn MoveBoundary(&self, istring: i32, cch: i32) -> ::windows::core::Result<()>;
+    fn PrefixTop(&self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Remove(&self, istring: i32, cstring: i32) -> ::windows::core::Result<()>;
+    fn SetFormattedText(&self, pranged: &::core::option::Option<ITextRange2>, pranges: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
+    fn SetOpCp(&self, istring: i32, cp: i32) -> ::windows::core::Result<()>;
+    fn SuffixTop(&self, bstr: &super::super::super::Foundation::BSTR, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
+    fn Swap(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextStrings_Vtbl {

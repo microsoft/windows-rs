@@ -174,10 +174,10 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
                 #features
                 unsafe impl ::windows::core::RuntimeType for #ident {
                     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
-                }
-                #features
-                impl ::windows::core::DefaultType for #ident {
                     type DefaultType = Self;
+                    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+                        Ok(*from)
+                    }
                 }
             });
         }

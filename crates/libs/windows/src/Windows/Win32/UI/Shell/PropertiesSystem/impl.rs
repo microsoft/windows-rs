@@ -1,5 +1,5 @@
 pub trait ICreateObject_Impl: Sized {
-    fn CreateObject(&mut self, clsid: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateObject(&self, clsid: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ICreateObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateObject_Impl, const OFFSET: isize>() -> ICreateObject_Vtbl {
@@ -15,7 +15,7 @@ impl ICreateObject_Vtbl {
     }
 }
 pub trait IDelayedPropertyStoreFactory_Impl: Sized + IPropertyStoreFactory_Impl {
-    fn GetDelayedPropertyStore(&mut self, flags: GETPROPERTYSTOREFLAGS, dwstoreid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetDelayedPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, dwstoreid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IDelayedPropertyStoreFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDelayedPropertyStoreFactory_Impl, const OFFSET: isize>() -> IDelayedPropertyStoreFactory_Vtbl {
@@ -32,7 +32,7 @@ impl IDelayedPropertyStoreFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInitializeWithFile_Impl: Sized {
-    fn Initialize(&mut self, pszfilepath: super::super::super::Foundation::PWSTR, grfmode: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pszfilepath: super::super::super::Foundation::PWSTR, grfmode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInitializeWithFile_Vtbl {
@@ -50,7 +50,7 @@ impl IInitializeWithFile_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInitializeWithStream_Impl: Sized {
-    fn Initialize(&mut self, pstream: &::core::option::Option<super::super::super::System::Com::IStream>, grfmode: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pstream: &::core::option::Option<super::super::super::System::Com::IStream>, grfmode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IInitializeWithStream_Vtbl {
@@ -68,10 +68,10 @@ impl IInitializeWithStream_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait INamedPropertyStore_Impl: Sized {
-    fn GetNamedValue(&mut self, pszname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetNamedValue(&mut self, pszname: super::super::super::Foundation::PWSTR, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn GetNameCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetNameAt(&mut self, iprop: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetNamedValue(&self, pszname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetNamedValue(&self, pszname: super::super::super::Foundation::PWSTR, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetNameCount(&self) -> ::windows::core::Result<u32>;
+    fn GetNameAt(&self, iprop: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl INamedPropertyStore_Vtbl {
@@ -127,8 +127,8 @@ impl INamedPropertyStore_Vtbl {
     }
 }
 pub trait IObjectWithPropertyKey_Impl: Sized {
-    fn SetPropertyKey(&mut self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
-    fn GetPropertyKey(&mut self) -> ::windows::core::Result<PROPERTYKEY>;
+    fn SetPropertyKey(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn GetPropertyKey(&self) -> ::windows::core::Result<PROPERTYKEY>;
 }
 impl IObjectWithPropertyKey_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectWithPropertyKey_Impl, const OFFSET: isize>() -> IObjectWithPropertyKey_Vtbl {
@@ -159,9 +159,9 @@ impl IObjectWithPropertyKey_Vtbl {
     }
 }
 pub trait IPersistSerializedPropStorage_Impl: Sized {
-    fn SetFlags(&mut self, flags: i32) -> ::windows::core::Result<()>;
-    fn SetPropertyStorage(&mut self, psps: *const SERIALIZEDPROPSTORAGE, cb: u32) -> ::windows::core::Result<()>;
-    fn GetPropertyStorage(&mut self, ppsps: *mut *mut SERIALIZEDPROPSTORAGE, pcb: *mut u32) -> ::windows::core::Result<()>;
+    fn SetFlags(&self, flags: i32) -> ::windows::core::Result<()>;
+    fn SetPropertyStorage(&self, psps: *const SERIALIZEDPROPSTORAGE, cb: u32) -> ::windows::core::Result<()>;
+    fn GetPropertyStorage(&self, ppsps: *mut *mut SERIALIZEDPROPSTORAGE, pcb: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IPersistSerializedPropStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPersistSerializedPropStorage_Impl, const OFFSET: isize>() -> IPersistSerializedPropStorage_Vtbl {
@@ -192,8 +192,8 @@ impl IPersistSerializedPropStorage_Vtbl {
     }
 }
 pub trait IPersistSerializedPropStorage2_Impl: Sized + IPersistSerializedPropStorage_Impl {
-    fn GetPropertyStorageSize(&mut self) -> ::windows::core::Result<u32>;
-    fn GetPropertyStorageBuffer(&mut self, psps: *mut SERIALIZEDPROPSTORAGE, cb: u32, pcbwritten: *mut u32) -> ::windows::core::Result<()>;
+    fn GetPropertyStorageSize(&self) -> ::windows::core::Result<u32>;
+    fn GetPropertyStorageBuffer(&self, psps: *mut SERIALIZEDPROPSTORAGE, cb: u32, pcbwritten: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IPersistSerializedPropStorage2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPersistSerializedPropStorage2_Impl, const OFFSET: isize>() -> IPersistSerializedPropStorage2_Vtbl {
@@ -225,7 +225,7 @@ impl IPersistSerializedPropStorage2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyChange_Impl: Sized + IObjectWithPropertyKey_Impl {
-    fn ApplyToPropVariant(&mut self, propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn ApplyToPropVariant(&self, propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPropertyChange_Vtbl {
@@ -248,13 +248,13 @@ impl IPropertyChange_Vtbl {
     }
 }
 pub trait IPropertyChangeArray_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, iindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn InsertAt(&mut self, iindex: u32, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
-    fn Append(&mut self, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
-    fn AppendOrReplace(&mut self, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
-    fn RemoveAt(&mut self, iindex: u32) -> ::windows::core::Result<()>;
-    fn IsKeyInArray(&mut self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, iindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn InsertAt(&self, iindex: u32, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
+    fn Append(&self, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
+    fn AppendOrReplace(&self, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
+    fn RemoveAt(&self, iindex: u32) -> ::windows::core::Result<()>;
+    fn IsKeyInArray(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
 }
 impl IPropertyChangeArray_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>() -> IPropertyChangeArray_Vtbl {
@@ -316,27 +316,27 @@ impl IPropertyChangeArray_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescription_Impl: Sized {
-    fn GetPropertyKey(&mut self) -> ::windows::core::Result<PROPERTYKEY>;
-    fn GetCanonicalName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetPropertyType(&mut self) -> ::windows::core::Result<u16>;
-    fn GetDisplayName(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetEditInvitation(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetTypeFlags(&mut self, mask: PROPDESC_TYPE_FLAGS) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS>;
-    fn GetViewFlags(&mut self) -> ::windows::core::Result<PROPDESC_VIEW_FLAGS>;
-    fn GetDefaultColumnWidth(&mut self) -> ::windows::core::Result<u32>;
-    fn GetDisplayType(&mut self) -> ::windows::core::Result<PROPDESC_DISPLAYTYPE>;
-    fn GetColumnState(&mut self) -> ::windows::core::Result<u32>;
-    fn GetGroupingRange(&mut self) -> ::windows::core::Result<PROPDESC_GROUPING_RANGE>;
-    fn GetRelativeDescriptionType(&mut self) -> ::windows::core::Result<PROPDESC_RELATIVEDESCRIPTION_TYPE>;
-    fn GetRelativeDescription(&mut self, propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: *mut super::super::super::Foundation::PWSTR, ppszdesc2: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetSortDescription(&mut self) -> ::windows::core::Result<PROPDESC_SORTDESCRIPTION>;
-    fn GetSortDescriptionLabel(&mut self, fdescending: super::super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetAggregationType(&mut self) -> ::windows::core::Result<PROPDESC_AGGREGATION_TYPE>;
-    fn GetConditionType(&mut self, pcontype: *mut PROPDESC_CONDITION_TYPE, popdefault: *mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> ::windows::core::Result<()>;
-    fn GetEnumTypeList(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CoerceToCanonicalValue(&mut self, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn FormatForDisplay(&mut self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn IsValueCanonical(&mut self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn GetPropertyKey(&self) -> ::windows::core::Result<PROPERTYKEY>;
+    fn GetCanonicalName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetPropertyType(&self) -> ::windows::core::Result<u16>;
+    fn GetDisplayName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetEditInvitation(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetTypeFlags(&self, mask: PROPDESC_TYPE_FLAGS) -> ::windows::core::Result<PROPDESC_TYPE_FLAGS>;
+    fn GetViewFlags(&self) -> ::windows::core::Result<PROPDESC_VIEW_FLAGS>;
+    fn GetDefaultColumnWidth(&self) -> ::windows::core::Result<u32>;
+    fn GetDisplayType(&self) -> ::windows::core::Result<PROPDESC_DISPLAYTYPE>;
+    fn GetColumnState(&self) -> ::windows::core::Result<u32>;
+    fn GetGroupingRange(&self) -> ::windows::core::Result<PROPDESC_GROUPING_RANGE>;
+    fn GetRelativeDescriptionType(&self) -> ::windows::core::Result<PROPDESC_RELATIVEDESCRIPTION_TYPE>;
+    fn GetRelativeDescription(&self, propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: *mut super::super::super::Foundation::PWSTR, ppszdesc2: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetSortDescription(&self) -> ::windows::core::Result<PROPDESC_SORTDESCRIPTION>;
+    fn GetSortDescriptionLabel(&self, fdescending: super::super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetAggregationType(&self) -> ::windows::core::Result<PROPDESC_AGGREGATION_TYPE>;
+    fn GetConditionType(&self, pcontype: *mut PROPDESC_CONDITION_TYPE, popdefault: *mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> ::windows::core::Result<()>;
+    fn GetEnumTypeList(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CoerceToCanonicalValue(&self, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn FormatForDisplay(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn IsValueCanonical(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IPropertyDescription_Vtbl {
@@ -573,7 +573,7 @@ impl IPropertyDescription_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescription2_Impl: Sized + IPropertyDescription_Impl {
-    fn GetImageReferenceForValue(&mut self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetImageReferenceForValue(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IPropertyDescription2_Vtbl {
@@ -597,8 +597,8 @@ impl IPropertyDescription2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescriptionAliasInfo_Impl: Sized + IPropertyDescription_Impl {
-    fn GetSortByAlias(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetAdditionalSortByAliases(&mut self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetSortByAlias(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetAdditionalSortByAliases(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IPropertyDescriptionAliasInfo_Vtbl {
@@ -624,8 +624,8 @@ impl IPropertyDescriptionAliasInfo_Vtbl {
     }
 }
 pub trait IPropertyDescriptionList_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, ielem: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, ielem: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IPropertyDescriptionList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyDescriptionList_Impl, const OFFSET: isize>() -> IPropertyDescriptionList_Vtbl {
@@ -657,7 +657,7 @@ impl IPropertyDescriptionList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescriptionRelatedPropertyInfo_Impl: Sized + IPropertyDescription_Impl {
-    fn GetRelatedProperty(&mut self, pszrelationshipname: super::super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetRelatedProperty(&self, pszrelationshipname: super::super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
@@ -675,10 +675,10 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 pub trait IPropertyDescriptionSearchInfo_Impl: Sized + IPropertyDescription_Impl {
-    fn GetSearchInfoFlags(&mut self) -> ::windows::core::Result<PROPDESC_SEARCHINFO_FLAGS>;
-    fn GetColumnIndexType(&mut self) -> ::windows::core::Result<PROPDESC_COLUMNINDEX_TYPE>;
-    fn GetProjectionString(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn GetMaxSize(&mut self) -> ::windows::core::Result<u32>;
+    fn GetSearchInfoFlags(&self) -> ::windows::core::Result<PROPDESC_SEARCHINFO_FLAGS>;
+    fn GetColumnIndexType(&self) -> ::windows::core::Result<PROPDESC_COLUMNINDEX_TYPE>;
+    fn GetProjectionString(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetMaxSize(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
 impl IPropertyDescriptionSearchInfo_Vtbl {
@@ -741,11 +741,11 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyEnumType_Impl: Sized {
-    fn GetEnumType(&mut self) -> ::windows::core::Result<PROPENUMTYPE>;
-    fn GetValue(&mut self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn GetRangeMinValue(&mut self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn GetRangeSetValue(&mut self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn GetDisplayText(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetEnumType(&self) -> ::windows::core::Result<PROPENUMTYPE>;
+    fn GetValue(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetRangeMinValue(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetRangeSetValue(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetDisplayText(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPropertyEnumType_Vtbl {
@@ -820,7 +820,7 @@ impl IPropertyEnumType_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyEnumType2_Impl: Sized + IPropertyEnumType_Impl {
-    fn GetImageReference(&mut self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn GetImageReference(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPropertyEnumType2_Vtbl {
@@ -844,10 +844,10 @@ impl IPropertyEnumType2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyEnumTypeList_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, itype: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetConditionAt(&mut self, nindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn FindMatchingIndex(&mut self, propvarcmp: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u32>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, itype: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetConditionAt(&self, nindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn FindMatchingIndex(&self, propvarcmp: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPropertyEnumTypeList_Vtbl {
@@ -898,11 +898,11 @@ impl IPropertyEnumTypeList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyStore_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, iprop: u32) -> ::windows::core::Result<PROPERTYKEY>;
-    fn GetValue(&mut self, key: *const PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetValue(&mut self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
-    fn Commit(&mut self) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, iprop: u32) -> ::windows::core::Result<PROPERTYKEY>;
+    fn GetValue(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetValue(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
+    fn Commit(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPropertyStore_Vtbl {
@@ -965,10 +965,10 @@ impl IPropertyStore_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyStoreCache_Impl: Sized + IPropertyStore_Impl {
-    fn GetState(&mut self, key: *const PROPERTYKEY) -> ::windows::core::Result<PSC_STATE>;
-    fn GetValueAndState(&mut self, key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: *mut PSC_STATE) -> ::windows::core::Result<()>;
-    fn SetState(&mut self, key: *const PROPERTYKEY, state: PSC_STATE) -> ::windows::core::Result<()>;
-    fn SetValueAndState(&mut self, key: *const PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> ::windows::core::Result<()>;
+    fn GetState(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<PSC_STATE>;
+    fn GetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: *mut PSC_STATE) -> ::windows::core::Result<()>;
+    fn SetState(&self, key: *const PROPERTYKEY, state: PSC_STATE) -> ::windows::core::Result<()>;
+    fn SetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPropertyStoreCache_Vtbl {
@@ -1012,7 +1012,7 @@ impl IPropertyStoreCache_Vtbl {
     }
 }
 pub trait IPropertyStoreCapabilities_Impl: Sized {
-    fn IsPropertyWritable(&mut self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
+    fn IsPropertyWritable(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
 }
 impl IPropertyStoreCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyStoreCapabilities_Impl, const OFFSET: isize>() -> IPropertyStoreCapabilities_Vtbl {
@@ -1028,8 +1028,8 @@ impl IPropertyStoreCapabilities_Vtbl {
     }
 }
 pub trait IPropertyStoreFactory_Impl: Sized {
-    fn GetPropertyStore(&mut self, flags: GETPROPERTYSTOREFLAGS, punkfactory: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetPropertyStoreForKeys(&mut self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, punkfactory: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetPropertyStoreForKeys(&self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IPropertyStoreFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyStoreFactory_Impl, const OFFSET: isize>() -> IPropertyStoreFactory_Vtbl {
@@ -1055,15 +1055,15 @@ impl IPropertyStoreFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertySystem_Impl: Sized {
-    fn GetPropertyDescription(&mut self, propkey: *const PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetPropertyDescriptionByName(&mut self, pszcanonicalname: super::super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetPropertyDescriptionListFromString(&mut self, pszproplist: super::super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn EnumeratePropertyDescriptions(&mut self, filteron: PROPDESC_ENUMFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn FormatForDisplay(&mut self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
-    fn FormatForDisplayAlloc(&mut self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
-    fn RegisterPropertySchema(&mut self, pszpath: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn UnregisterPropertySchema(&mut self, pszpath: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RefreshPropertySchema(&mut self) -> ::windows::core::Result<()>;
+    fn GetPropertyDescription(&self, propkey: *const PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetPropertyDescriptionByName(&self, pszcanonicalname: super::super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetPropertyDescriptionListFromString(&self, pszproplist: super::super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn EnumeratePropertyDescriptions(&self, filteron: PROPDESC_ENUMFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn FormatForDisplay(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
+    fn FormatForDisplayAlloc(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::PWSTR>;
+    fn RegisterPropertySchema(&self, pszpath: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn UnregisterPropertySchema(&self, pszpath: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RefreshPropertySchema(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPropertySystem_Vtbl {
@@ -1137,7 +1137,7 @@ impl IPropertySystem_Vtbl {
     }
 }
 pub trait IPropertySystemChangeNotify_Impl: Sized {
-    fn SchemaRefreshed(&mut self) -> ::windows::core::Result<()>;
+    fn SchemaRefreshed(&self) -> ::windows::core::Result<()>;
 }
 impl IPropertySystemChangeNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySystemChangeNotify_Impl, const OFFSET: isize>() -> IPropertySystemChangeNotify_Vtbl {
@@ -1154,14 +1154,14 @@ impl IPropertySystemChangeNotify_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPropertyUI_Impl: Sized {
-    fn ParsePropertyName(&mut self, pszname: super::super::super::Foundation::PWSTR, pfmtid: *mut ::windows::core::GUID, ppid: *mut u32, pcheaten: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCannonicalName(&mut self, fmtid: *const ::windows::core::GUID, pid: u32, pwsztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
-    fn GetDisplayName(&mut self, fmtid: *const ::windows::core::GUID, pid: u32, flags: PROPERTYUI_NAME_FLAGS, pwsztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
-    fn GetPropertyDescription(&mut self, fmtid: *const ::windows::core::GUID, pid: u32, pwsztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
-    fn GetDefaultWidth(&mut self, fmtid: *const ::windows::core::GUID, pid: u32) -> ::windows::core::Result<u32>;
-    fn GetFlags(&mut self, fmtid: *const ::windows::core::GUID, pid: u32) -> ::windows::core::Result<PROPERTYUI_FLAGS>;
-    fn FormatForDisplay(&mut self, fmtid: *const ::windows::core::GUID, pid: u32, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
-    fn GetHelpInfo(&mut self, fmtid: *const ::windows::core::GUID, pid: u32, pwszhelpfile: super::super::super::Foundation::PWSTR, cch: u32, puhelpid: *mut u32) -> ::windows::core::Result<()>;
+    fn ParsePropertyName(&self, pszname: super::super::super::Foundation::PWSTR, pfmtid: *mut ::windows::core::GUID, ppid: *mut u32, pcheaten: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCannonicalName(&self, fmtid: *const ::windows::core::GUID, pid: u32, pwsztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
+    fn GetDisplayName(&self, fmtid: *const ::windows::core::GUID, pid: u32, flags: PROPERTYUI_NAME_FLAGS, pwsztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
+    fn GetPropertyDescription(&self, fmtid: *const ::windows::core::GUID, pid: u32, pwsztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
+    fn GetDefaultWidth(&self, fmtid: *const ::windows::core::GUID, pid: u32) -> ::windows::core::Result<u32>;
+    fn GetFlags(&self, fmtid: *const ::windows::core::GUID, pid: u32) -> ::windows::core::Result<PROPERTYUI_FLAGS>;
+    fn FormatForDisplay(&self, fmtid: *const ::windows::core::GUID, pid: u32, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
+    fn GetHelpInfo(&self, fmtid: *const ::windows::core::GUID, pid: u32, pwszhelpfile: super::super::super::Foundation::PWSTR, cch: u32, puhelpid: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPropertyUI_Vtbl {

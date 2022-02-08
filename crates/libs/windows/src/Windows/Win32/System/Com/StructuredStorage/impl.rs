@@ -1,7 +1,7 @@
 pub trait IDirectWriterLock_Impl: Sized {
-    fn WaitForWriteAccess(&mut self, dwtimeout: u32) -> ::windows::core::Result<()>;
-    fn ReleaseWriteAccess(&mut self) -> ::windows::core::Result<()>;
-    fn HaveWriteAccess(&mut self) -> ::windows::core::Result<()>;
+    fn WaitForWriteAccess(&self, dwtimeout: u32) -> ::windows::core::Result<()>;
+    fn ReleaseWriteAccess(&self) -> ::windows::core::Result<()>;
+    fn HaveWriteAccess(&self) -> ::windows::core::Result<()>;
 }
 impl IDirectWriterLock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectWriterLock_Impl, const OFFSET: isize>() -> IDirectWriterLock_Vtbl {
@@ -33,10 +33,10 @@ impl IDirectWriterLock_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumSTATPROPSETSTG_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumSTATPROPSETSTG>;
+    fn Next(&self, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&self, celt: u32) -> ::windows::core::HRESULT;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumSTATPROPSETSTG>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumSTATPROPSETSTG_Vtbl {
@@ -81,10 +81,10 @@ impl IEnumSTATPROPSETSTG_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumSTATPROPSTG_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::HRESULT;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumSTATPROPSTG>;
+    fn Next(&self, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&self, celt: u32) -> ::windows::core::HRESULT;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumSTATPROPSTG>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumSTATPROPSTG_Vtbl {
@@ -129,10 +129,10 @@ impl IEnumSTATPROPSTG_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumSTATSTG_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut super::STATSTG, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumSTATSTG>;
+    fn Next(&self, celt: u32, rgelt: *mut super::STATSTG, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumSTATSTG>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumSTATSTG_Vtbl {
@@ -177,10 +177,10 @@ impl IEnumSTATSTG_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFillLockBytes_Impl: Sized {
-    fn FillAppend(&mut self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32>;
-    fn FillAt(&mut self, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32>;
-    fn SetFillSize(&mut self, ulsize: u64) -> ::windows::core::Result<()>;
-    fn Terminate(&mut self, bcanceled: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn FillAppend(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32>;
+    fn FillAt(&self, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32>;
+    fn SetFillSize(&self, ulsize: u64) -> ::windows::core::Result<()>;
+    fn Terminate(&self, bcanceled: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFillLockBytes_Vtbl {
@@ -231,11 +231,11 @@ impl IFillLockBytes_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ILayoutStorage_Impl: Sized {
-    fn LayoutScript(&mut self, pstoragelayout: *const super::StorageLayout, nentries: u32, glfinterleavedflag: u32) -> ::windows::core::Result<()>;
-    fn BeginMonitor(&mut self) -> ::windows::core::Result<()>;
-    fn EndMonitor(&mut self) -> ::windows::core::Result<()>;
-    fn ReLayoutDocfile(&mut self, pwcsnewdfname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn ReLayoutDocfileOnILockBytes(&mut self, pilockbytes: &::core::option::Option<ILockBytes>) -> ::windows::core::Result<()>;
+    fn LayoutScript(&self, pstoragelayout: *const super::StorageLayout, nentries: u32, glfinterleavedflag: u32) -> ::windows::core::Result<()>;
+    fn BeginMonitor(&self) -> ::windows::core::Result<()>;
+    fn EndMonitor(&self) -> ::windows::core::Result<()>;
+    fn ReLayoutDocfile(&self, pwcsnewdfname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ReLayoutDocfileOnILockBytes(&self, pilockbytes: &::core::option::Option<ILockBytes>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ILayoutStorage_Vtbl {
@@ -280,13 +280,13 @@ impl ILayoutStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ILockBytes_Impl: Sized {
-    fn ReadAt(&mut self, uloffset: u64, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()>;
-    fn WriteAt(&mut self, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32>;
-    fn Flush(&mut self) -> ::windows::core::Result<()>;
-    fn SetSize(&mut self, cb: u64) -> ::windows::core::Result<()>;
-    fn LockRegion(&mut self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
-    fn UnlockRegion(&mut self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
-    fn Stat(&mut self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()>;
+    fn ReadAt(&self, uloffset: u64, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()>;
+    fn WriteAt(&self, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32>;
+    fn Flush(&self) -> ::windows::core::Result<()>;
+    fn SetSize(&self, cb: u64) -> ::windows::core::Result<()>;
+    fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
+    fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
+    fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ILockBytes_Vtbl {
@@ -349,12 +349,12 @@ impl ILockBytes_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistStorage_Impl: Sized + super::IPersist_Impl {
-    fn IsDirty(&mut self) -> ::windows::core::Result<()>;
-    fn InitNew(&mut self, pstg: &::core::option::Option<IStorage>) -> ::windows::core::Result<()>;
-    fn Load(&mut self, pstg: &::core::option::Option<IStorage>) -> ::windows::core::Result<()>;
-    fn Save(&mut self, pstgsave: &::core::option::Option<IStorage>, fsameasload: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveCompleted(&mut self, pstgnew: &::core::option::Option<IStorage>) -> ::windows::core::Result<()>;
-    fn HandsOffStorage(&mut self) -> ::windows::core::Result<()>;
+    fn IsDirty(&self) -> ::windows::core::Result<()>;
+    fn InitNew(&self, pstg: &::core::option::Option<IStorage>) -> ::windows::core::Result<()>;
+    fn Load(&self, pstg: &::core::option::Option<IStorage>) -> ::windows::core::Result<()>;
+    fn Save(&self, pstgsave: &::core::option::Option<IStorage>, fsameasload: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveCompleted(&self, pstgnew: &::core::option::Option<IStorage>) -> ::windows::core::Result<()>;
+    fn HandsOffStorage(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPersistStorage_Vtbl {
@@ -405,8 +405,8 @@ impl IPersistStorage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IPropertyBag_Impl: Sized {
-    fn Read(&mut self, pszpropname: super::super::super::Foundation::PWSTR, pvar: *mut super::VARIANT, perrorlog: &::core::option::Option<super::IErrorLog>) -> ::windows::core::Result<()>;
-    fn Write(&mut self, pszpropname: super::super::super::Foundation::PWSTR, pvar: *const super::VARIANT) -> ::windows::core::Result<()>;
+    fn Read(&self, pszpropname: super::super::super::Foundation::PWSTR, pvar: *mut super::VARIANT, perrorlog: &::core::option::Option<super::IErrorLog>) -> ::windows::core::Result<()>;
+    fn Write(&self, pszpropname: super::super::super::Foundation::PWSTR, pvar: *const super::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IPropertyBag_Vtbl {
@@ -429,11 +429,11 @@ impl IPropertyBag_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IPropertyBag2_Impl: Sized {
-    fn Read(&mut self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: &::core::option::Option<super::IErrorLog>, pvarvalue: *mut super::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn Write(&mut self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
-    fn CountProperties(&mut self) -> ::windows::core::Result<u32>;
-    fn GetPropertyInfo(&mut self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> ::windows::core::Result<()>;
-    fn LoadObject(&mut self, pstrname: super::super::super::Foundation::PWSTR, dwhint: u32, punkobject: &::core::option::Option<::windows::core::IUnknown>, perrlog: &::core::option::Option<super::IErrorLog>) -> ::windows::core::Result<()>;
+    fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: &::core::option::Option<super::IErrorLog>, pvarvalue: *mut super::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
+    fn CountProperties(&self) -> ::windows::core::Result<u32>;
+    fn GetPropertyInfo(&self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> ::windows::core::Result<()>;
+    fn LoadObject(&self, pstrname: super::super::super::Foundation::PWSTR, dwhint: u32, punkobject: &::core::option::Option<::windows::core::IUnknown>, perrlog: &::core::option::Option<super::IErrorLog>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IPropertyBag2_Vtbl {
@@ -483,10 +483,10 @@ impl IPropertyBag2_Vtbl {
     }
 }
 pub trait IPropertySetStorage_Impl: Sized {
-    fn Create(&mut self, rfmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, grfmode: u32) -> ::windows::core::Result<IPropertyStorage>;
-    fn Open(&mut self, rfmtid: *const ::windows::core::GUID, grfmode: u32) -> ::windows::core::Result<IPropertyStorage>;
-    fn Delete(&mut self, rfmtid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Enum(&mut self) -> ::windows::core::Result<IEnumSTATPROPSETSTG>;
+    fn Create(&self, rfmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, grfmode: u32) -> ::windows::core::Result<IPropertyStorage>;
+    fn Open(&self, rfmtid: *const ::windows::core::GUID, grfmode: u32) -> ::windows::core::Result<IPropertyStorage>;
+    fn Delete(&self, rfmtid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Enum(&self) -> ::windows::core::Result<IEnumSTATPROPSETSTG>;
 }
 impl IPropertySetStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetStorage_Impl, const OFFSET: isize>() -> IPropertySetStorage_Vtbl {
@@ -542,18 +542,18 @@ impl IPropertySetStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPropertyStorage_Impl: Sized {
-    fn ReadMultiple(&mut self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> ::windows::core::Result<()>;
-    fn WriteMultiple(&mut self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: u32) -> ::windows::core::Result<()>;
-    fn DeleteMultiple(&mut self, cpspec: u32, rgpspec: *const PROPSPEC) -> ::windows::core::Result<()>;
-    fn ReadPropertyNames(&mut self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn WritePropertyNames(&mut self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn DeletePropertyNames(&mut self, cpropid: u32, rgpropid: *const u32) -> ::windows::core::Result<()>;
-    fn Commit(&mut self, grfcommitflags: u32) -> ::windows::core::Result<()>;
-    fn Revert(&mut self) -> ::windows::core::Result<()>;
-    fn Enum(&mut self) -> ::windows::core::Result<IEnumSTATPROPSTG>;
-    fn SetTimes(&mut self, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn SetClass(&mut self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn Stat(&mut self) -> ::windows::core::Result<STATPROPSETSTG>;
+    fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> ::windows::core::Result<()>;
+    fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: u32) -> ::windows::core::Result<()>;
+    fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC) -> ::windows::core::Result<()>;
+    fn ReadPropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn WritePropertyNames(&self, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn DeletePropertyNames(&self, cpropid: u32, rgpropid: *const u32) -> ::windows::core::Result<()>;
+    fn Commit(&self, grfcommitflags: u32) -> ::windows::core::Result<()>;
+    fn Revert(&self) -> ::windows::core::Result<()>;
+    fn Enum(&self) -> ::windows::core::Result<IEnumSTATPROPSTG>;
+    fn SetTimes(&self, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn SetClass(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Stat(&self) -> ::windows::core::Result<STATPROPSETSTG>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPropertyStorage_Vtbl {
@@ -652,7 +652,7 @@ impl IPropertyStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRootStorage_Impl: Sized {
-    fn SwitchToFile(&mut self, pszfile: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SwitchToFile(&self, pszfile: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRootStorage_Vtbl {
@@ -670,21 +670,21 @@ impl IRootStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStorage_Impl: Sized {
-    fn CreateStream(&mut self, pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, reserved1: u32, reserved2: u32) -> ::windows::core::Result<super::IStream>;
-    fn OpenStream(&mut self, pwcsname: super::super::super::Foundation::PWSTR, reserved1: *mut ::core::ffi::c_void, grfmode: STGM, reserved2: u32, ppstm: *mut ::core::option::Option<super::IStream>) -> ::windows::core::Result<()>;
-    fn CreateStorage(&mut self, pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, reserved1: u32, reserved2: u32) -> ::windows::core::Result<IStorage>;
-    fn OpenStorage(&mut self, pwcsname: super::super::super::Foundation::PWSTR, pstgpriority: &::core::option::Option<IStorage>, grfmode: STGM, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage>;
-    fn CopyTo(&mut self, ciidexclude: u32, rgiidexclude: *const ::windows::core::GUID, snbexclude: *const *const u16, pstgdest: &::core::option::Option<IStorage>) -> ::windows::core::Result<()>;
-    fn MoveElementTo(&mut self, pwcsname: super::super::super::Foundation::PWSTR, pstgdest: &::core::option::Option<IStorage>, pwcsnewname: super::super::super::Foundation::PWSTR, grfflags: STGMOVE) -> ::windows::core::Result<()>;
-    fn Commit(&mut self, grfcommitflags: STGC) -> ::windows::core::Result<()>;
-    fn Revert(&mut self) -> ::windows::core::Result<()>;
-    fn EnumElements(&mut self, reserved1: u32, reserved2: *mut ::core::ffi::c_void, reserved3: u32, ppenum: *mut ::core::option::Option<IEnumSTATSTG>) -> ::windows::core::Result<()>;
-    fn DestroyElement(&mut self, pwcsname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RenameElement(&mut self, pwcsoldname: super::super::super::Foundation::PWSTR, pwcsnewname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetElementTimes(&mut self, pwcsname: super::super::super::Foundation::PWSTR, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn SetClass(&mut self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetStateBits(&mut self, grfstatebits: u32, grfmask: u32) -> ::windows::core::Result<()>;
-    fn Stat(&mut self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()>;
+    fn CreateStream(&self, pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, reserved1: u32, reserved2: u32) -> ::windows::core::Result<super::IStream>;
+    fn OpenStream(&self, pwcsname: super::super::super::Foundation::PWSTR, reserved1: *mut ::core::ffi::c_void, grfmode: STGM, reserved2: u32, ppstm: *mut ::core::option::Option<super::IStream>) -> ::windows::core::Result<()>;
+    fn CreateStorage(&self, pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, reserved1: u32, reserved2: u32) -> ::windows::core::Result<IStorage>;
+    fn OpenStorage(&self, pwcsname: super::super::super::Foundation::PWSTR, pstgpriority: &::core::option::Option<IStorage>, grfmode: STGM, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage>;
+    fn CopyTo(&self, ciidexclude: u32, rgiidexclude: *const ::windows::core::GUID, snbexclude: *const *const u16, pstgdest: &::core::option::Option<IStorage>) -> ::windows::core::Result<()>;
+    fn MoveElementTo(&self, pwcsname: super::super::super::Foundation::PWSTR, pstgdest: &::core::option::Option<IStorage>, pwcsnewname: super::super::super::Foundation::PWSTR, grfflags: STGMOVE) -> ::windows::core::Result<()>;
+    fn Commit(&self, grfcommitflags: STGC) -> ::windows::core::Result<()>;
+    fn Revert(&self) -> ::windows::core::Result<()>;
+    fn EnumElements(&self, reserved1: u32, reserved2: *mut ::core::ffi::c_void, reserved3: u32, ppenum: *mut ::core::option::Option<IEnumSTATSTG>) -> ::windows::core::Result<()>;
+    fn DestroyElement(&self, pwcsname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RenameElement(&self, pwcsoldname: super::super::super::Foundation::PWSTR, pwcsnewname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetElementTimes(&self, pwcsname: super::super::super::Foundation::PWSTR, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
+    fn SetClass(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetStateBits(&self, grfstatebits: u32, grfmask: u32) -> ::windows::core::Result<()>;
+    fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IStorage_Vtbl {

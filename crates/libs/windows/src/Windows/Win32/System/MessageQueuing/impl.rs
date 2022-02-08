@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQApplication_Impl: Sized + super::Com::IDispatch_Impl {
-    fn MachineIdOfMachineName(&mut self, machinename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn MachineIdOfMachineName(&self, machinename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQApplication_Vtbl {
@@ -24,13 +24,13 @@ impl IMSMQApplication_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQApplication2_Impl: Sized + super::Com::IDispatch_Impl + IMSMQApplication_Impl {
-    fn RegisterCertificate(&mut self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn MachineNameOfMachineId(&mut self, bstrguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn MSMQVersionMajor(&mut self) -> ::windows::core::Result<i16>;
-    fn MSMQVersionMinor(&mut self) -> ::windows::core::Result<i16>;
-    fn MSMQVersionBuild(&mut self) -> ::windows::core::Result<i16>;
-    fn IsDsEnabled(&mut self) -> ::windows::core::Result<i16>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn RegisterCertificate(&self, flags: *const super::Com::VARIANT, externalcertificate: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn MachineNameOfMachineId(&self, bstrguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16>;
+    fn MSMQVersionMinor(&self) -> ::windows::core::Result<i16>;
+    fn MSMQVersionBuild(&self) -> ::windows::core::Result<i16>;
+    fn IsDsEnabled(&self) -> ::windows::core::Result<i16>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQApplication2_Vtbl {
@@ -123,16 +123,16 @@ impl IMSMQApplication2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQApplication3_Impl: Sized + super::Com::IDispatch_Impl + IMSMQApplication_Impl + IMSMQApplication2_Impl {
-    fn ActiveQueues(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn PrivateQueues(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn DirectoryServiceServer(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn IsConnected(&mut self) -> ::windows::core::Result<i16>;
-    fn BytesInAllQueues(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetMachine(&mut self, bstrmachine: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Machine(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Connect(&mut self) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self) -> ::windows::core::Result<()>;
-    fn Tidy(&mut self) -> ::windows::core::Result<()>;
+    fn ActiveQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn PrivateQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn DirectoryServiceServer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn IsConnected(&self) -> ::windows::core::Result<i16>;
+    fn BytesInAllQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetMachine(&self, bstrmachine: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Machine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Connect(&self) -> ::windows::core::Result<()>;
+    fn Disconnect(&self) -> ::windows::core::Result<()>;
+    fn Tidy(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQApplication3_Vtbl {
@@ -243,9 +243,9 @@ impl IMSMQApplication3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQCollection_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Item(&mut self, index: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, index: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQCollection_Vtbl {
@@ -296,7 +296,7 @@ impl IMSMQCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQCoordinatedTransactionDispenser_Impl: Sized + super::Com::IDispatch_Impl {
-    fn BeginTransaction(&mut self) -> ::windows::core::Result<IMSMQTransaction>;
+    fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQCoordinatedTransactionDispenser_Vtbl {
@@ -320,8 +320,8 @@ impl IMSMQCoordinatedTransactionDispenser_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQCoordinatedTransactionDispenser2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn BeginTransaction(&mut self) -> ::windows::core::Result<IMSMQTransaction2>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction2>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
@@ -360,8 +360,8 @@ impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQCoordinatedTransactionDispenser3_Impl: Sized + super::Com::IDispatch_Impl {
-    fn BeginTransaction(&mut self) -> ::windows::core::Result<IMSMQTransaction3>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction3>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
@@ -400,20 +400,20 @@ impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQDestination_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Open(&mut self) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn IsOpen(&mut self) -> ::windows::core::Result<i16>;
-    fn IADs(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn putref_IADs(&mut self, piads: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn ADsPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetADsPath(&mut self, bstradspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PathName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPathName(&mut self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FormatName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFormatName(&mut self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Destinations(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn putref_Destinations(&mut self, pdestinations: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Open(&self) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn IsOpen(&self) -> ::windows::core::Result<i16>;
+    fn IADs(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn putref_IADs(&self, piads: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetADsPath(&self, bstradspath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPathName(&self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFormatName(&self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Destinations(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn putref_Destinations(&self, pdestinations: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQDestination_Vtbl {
@@ -565,7 +565,7 @@ impl IMSMQEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQEvent2_Impl: Sized + super::Com::IDispatch_Impl + IMSMQEvent_Impl {
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQEvent2_Vtbl {
@@ -600,15 +600,15 @@ impl IMSMQEvent3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQManagement_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Init(&mut self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn FormatName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Machine(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn MessageCount(&mut self) -> ::windows::core::Result<i32>;
-    fn ForeignStatus(&mut self) -> ::windows::core::Result<i32>;
-    fn QueueType(&mut self) -> ::windows::core::Result<i32>;
-    fn IsLocal(&mut self) -> ::windows::core::Result<i16>;
-    fn TransactionalStatus(&mut self) -> ::windows::core::Result<i32>;
-    fn BytesInQueue(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Init(&self, machine: *const super::Com::VARIANT, pathname: *const super::Com::VARIANT, formatname: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Machine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn MessageCount(&self) -> ::windows::core::Result<i32>;
+    fn ForeignStatus(&self) -> ::windows::core::Result<i32>;
+    fn QueueType(&self) -> ::windows::core::Result<i32>;
+    fn IsLocal(&self) -> ::windows::core::Result<i16>;
+    fn TransactionalStatus(&self) -> ::windows::core::Result<i32>;
+    fn BytesInQueue(&self) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQManagement_Vtbl {
@@ -725,55 +725,55 @@ impl IMSMQManagement_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQMessage_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Class(&mut self) -> ::windows::core::Result<i32>;
-    fn PrivLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPrivLevel(&mut self, lprivlevel: i32) -> ::windows::core::Result<()>;
-    fn AuthLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthLevel(&mut self, lauthlevel: i32) -> ::windows::core::Result<()>;
-    fn IsAuthenticated(&mut self) -> ::windows::core::Result<i16>;
-    fn Delivery(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDelivery(&mut self, ldelivery: i32) -> ::windows::core::Result<()>;
-    fn Trace(&mut self) -> ::windows::core::Result<i32>;
-    fn SetTrace(&mut self, ltrace: i32) -> ::windows::core::Result<()>;
-    fn Priority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPriority(&mut self, lpriority: i32) -> ::windows::core::Result<()>;
-    fn Journal(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournal(&mut self, ljournal: i32) -> ::windows::core::Result<()>;
-    fn ResponseQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
-    fn putref_ResponseQueueInfo(&mut self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
-    fn AppSpecific(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAppSpecific(&mut self, lappspecific: i32) -> ::windows::core::Result<()>;
-    fn SourceMachineGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn BodyLength(&mut self) -> ::windows::core::Result<i32>;
-    fn Body(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetBody(&mut self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AdminQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
-    fn putref_AdminQueueInfo(&mut self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn CorrelationId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetCorrelationId(&mut self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Ack(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAck(&mut self, lack: i32) -> ::windows::core::Result<()>;
-    fn Label(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&mut self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MaxTimeToReachQueue(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxTimeToReachQueue(&mut self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
-    fn MaxTimeToReceive(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxTimeToReceive(&mut self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()>;
-    fn HashAlgorithm(&mut self) -> ::windows::core::Result<i32>;
-    fn SetHashAlgorithm(&mut self, lhashalg: i32) -> ::windows::core::Result<()>;
-    fn EncryptAlgorithm(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEncryptAlgorithm(&mut self, lencryptalg: i32) -> ::windows::core::Result<()>;
-    fn SentTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ArrivedTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn DestinationQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
-    fn SenderCertificate(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSenderCertificate(&mut self, varsendercert: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SenderId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SenderIdType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSenderIdType(&mut self, lsenderidtype: i32) -> ::windows::core::Result<()>;
-    fn Send(&mut self, destinationqueue: &::core::option::Option<IMSMQQueue>, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AttachCurrentSecurityContext(&mut self) -> ::windows::core::Result<()>;
+    fn Class(&self) -> ::windows::core::Result<i32>;
+    fn PrivLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
+    fn AuthLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()>;
+    fn IsAuthenticated(&self) -> ::windows::core::Result<i16>;
+    fn Delivery(&self) -> ::windows::core::Result<i32>;
+    fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()>;
+    fn Trace(&self) -> ::windows::core::Result<i32>;
+    fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()>;
+    fn Priority(&self) -> ::windows::core::Result<i32>;
+    fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()>;
+    fn Journal(&self) -> ::windows::core::Result<i32>;
+    fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()>;
+    fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn putref_ResponseQueueInfo(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
+    fn AppSpecific(&self) -> ::windows::core::Result<i32>;
+    fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()>;
+    fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn BodyLength(&self) -> ::windows::core::Result<i32>;
+    fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetBody(&self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn putref_AdminQueueInfo(&self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetCorrelationId(&self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Ack(&self) -> ::windows::core::Result<i32>;
+    fn SetAck(&self, lack: i32) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
+    fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()>;
+    fn HashAlgorithm(&self) -> ::windows::core::Result<i32>;
+    fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()>;
+    fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32>;
+    fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()>;
+    fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSenderCertificate(&self, varsendercert: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SenderIdType(&self) -> ::windows::core::Result<i32>;
+    fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()>;
+    fn Send(&self, destinationqueue: &::core::option::Option<IMSMQQueue>, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQMessage_Vtbl {
@@ -1250,81 +1250,81 @@ impl IMSMQMessage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Class(&mut self) -> ::windows::core::Result<i32>;
-    fn PrivLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPrivLevel(&mut self, lprivlevel: i32) -> ::windows::core::Result<()>;
-    fn AuthLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthLevel(&mut self, lauthlevel: i32) -> ::windows::core::Result<()>;
-    fn IsAuthenticated(&mut self) -> ::windows::core::Result<i16>;
-    fn Delivery(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDelivery(&mut self, ldelivery: i32) -> ::windows::core::Result<()>;
-    fn Trace(&mut self) -> ::windows::core::Result<i32>;
-    fn SetTrace(&mut self, ltrace: i32) -> ::windows::core::Result<()>;
-    fn Priority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPriority(&mut self, lpriority: i32) -> ::windows::core::Result<()>;
-    fn Journal(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournal(&mut self, ljournal: i32) -> ::windows::core::Result<()>;
-    fn ResponseQueueInfo_v1(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
-    fn putref_ResponseQueueInfo_v1(&mut self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
-    fn AppSpecific(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAppSpecific(&mut self, lappspecific: i32) -> ::windows::core::Result<()>;
-    fn SourceMachineGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn BodyLength(&mut self) -> ::windows::core::Result<i32>;
-    fn Body(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetBody(&mut self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AdminQueueInfo_v1(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
-    fn putref_AdminQueueInfo_v1(&mut self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn CorrelationId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetCorrelationId(&mut self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Ack(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAck(&mut self, lack: i32) -> ::windows::core::Result<()>;
-    fn Label(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&mut self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MaxTimeToReachQueue(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxTimeToReachQueue(&mut self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
-    fn MaxTimeToReceive(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxTimeToReceive(&mut self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()>;
-    fn HashAlgorithm(&mut self) -> ::windows::core::Result<i32>;
-    fn SetHashAlgorithm(&mut self, lhashalg: i32) -> ::windows::core::Result<()>;
-    fn EncryptAlgorithm(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEncryptAlgorithm(&mut self, lencryptalg: i32) -> ::windows::core::Result<()>;
-    fn SentTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ArrivedTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn DestinationQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo2>;
-    fn SenderCertificate(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSenderCertificate(&mut self, varsendercert: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SenderId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SenderIdType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSenderIdType(&mut self, lsenderidtype: i32) -> ::windows::core::Result<()>;
-    fn Send(&mut self, destinationqueue: &::core::option::Option<IMSMQQueue2>, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AttachCurrentSecurityContext(&mut self) -> ::windows::core::Result<()>;
-    fn SenderVersion(&mut self) -> ::windows::core::Result<i32>;
-    fn Extension(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetExtension(&mut self, varextension: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ConnectorTypeGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetConnectorTypeGuid(&mut self, bstrguidconnectortype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TransactionStatusQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo2>;
-    fn DestinationSymmetricKey(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetDestinationSymmetricKey(&mut self, vardestsymmkey: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Signature(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSignature(&mut self, varsignature: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AuthenticationProviderType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthenticationProviderType(&mut self, lauthprovtype: i32) -> ::windows::core::Result<()>;
-    fn AuthenticationProviderName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetAuthenticationProviderName(&mut self, bstrauthprovname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetSenderId(&mut self, varsenderid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn MsgClass(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMsgClass(&mut self, lmsgclass: i32) -> ::windows::core::Result<()>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn TransactionId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn IsFirstInTransaction(&mut self) -> ::windows::core::Result<i16>;
-    fn IsLastInTransaction(&mut self) -> ::windows::core::Result<i16>;
-    fn ResponseQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo2>;
-    fn putref_ResponseQueueInfo(&mut self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
-    fn AdminQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo2>;
-    fn putref_AdminQueueInfo(&mut self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
-    fn ReceivedAuthenticationLevel(&mut self) -> ::windows::core::Result<i16>;
+    fn Class(&self) -> ::windows::core::Result<i32>;
+    fn PrivLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
+    fn AuthLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()>;
+    fn IsAuthenticated(&self) -> ::windows::core::Result<i16>;
+    fn Delivery(&self) -> ::windows::core::Result<i32>;
+    fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()>;
+    fn Trace(&self) -> ::windows::core::Result<i32>;
+    fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()>;
+    fn Priority(&self) -> ::windows::core::Result<i32>;
+    fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()>;
+    fn Journal(&self) -> ::windows::core::Result<i32>;
+    fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()>;
+    fn ResponseQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
+    fn AppSpecific(&self) -> ::windows::core::Result<i32>;
+    fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()>;
+    fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn BodyLength(&self) -> ::windows::core::Result<i32>;
+    fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetBody(&self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AdminQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetCorrelationId(&self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Ack(&self) -> ::windows::core::Result<i32>;
+    fn SetAck(&self, lack: i32) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
+    fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()>;
+    fn HashAlgorithm(&self) -> ::windows::core::Result<i32>;
+    fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()>;
+    fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32>;
+    fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()>;
+    fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
+    fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSenderCertificate(&self, varsendercert: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SenderIdType(&self) -> ::windows::core::Result<i32>;
+    fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()>;
+    fn Send(&self, destinationqueue: &::core::option::Option<IMSMQQueue2>, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()>;
+    fn SenderVersion(&self) -> ::windows::core::Result<i32>;
+    fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetExtension(&self, varextension: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ConnectorTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
+    fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetDestinationSymmetricKey(&self, vardestsymmkey: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Signature(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSignature(&self, varsignature: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()>;
+    fn AuthenticationProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetAuthenticationProviderName(&self, bstrauthprovname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSenderId(&self, varsenderid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn MsgClass(&self) -> ::windows::core::Result<i32>;
+    fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn TransactionId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn IsFirstInTransaction(&self) -> ::windows::core::Result<i16>;
+    fn IsLastInTransaction(&self) -> ::windows::core::Result<i16>;
+    fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
+    fn putref_ResponseQueueInfo(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
+    fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
+    fn putref_AdminQueueInfo(&self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
+    fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQMessage2_Vtbl {
@@ -2053,97 +2053,97 @@ impl IMSMQMessage2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Class(&mut self) -> ::windows::core::Result<i32>;
-    fn PrivLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPrivLevel(&mut self, lprivlevel: i32) -> ::windows::core::Result<()>;
-    fn AuthLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthLevel(&mut self, lauthlevel: i32) -> ::windows::core::Result<()>;
-    fn IsAuthenticated(&mut self) -> ::windows::core::Result<i16>;
-    fn Delivery(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDelivery(&mut self, ldelivery: i32) -> ::windows::core::Result<()>;
-    fn Trace(&mut self) -> ::windows::core::Result<i32>;
-    fn SetTrace(&mut self, ltrace: i32) -> ::windows::core::Result<()>;
-    fn Priority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPriority(&mut self, lpriority: i32) -> ::windows::core::Result<()>;
-    fn Journal(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournal(&mut self, ljournal: i32) -> ::windows::core::Result<()>;
-    fn ResponseQueueInfo_v1(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
-    fn putref_ResponseQueueInfo_v1(&mut self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
-    fn AppSpecific(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAppSpecific(&mut self, lappspecific: i32) -> ::windows::core::Result<()>;
-    fn SourceMachineGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn BodyLength(&mut self) -> ::windows::core::Result<i32>;
-    fn Body(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetBody(&mut self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AdminQueueInfo_v1(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
-    fn putref_AdminQueueInfo_v1(&mut self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn CorrelationId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetCorrelationId(&mut self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Ack(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAck(&mut self, lack: i32) -> ::windows::core::Result<()>;
-    fn Label(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&mut self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MaxTimeToReachQueue(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxTimeToReachQueue(&mut self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
-    fn MaxTimeToReceive(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxTimeToReceive(&mut self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()>;
-    fn HashAlgorithm(&mut self) -> ::windows::core::Result<i32>;
-    fn SetHashAlgorithm(&mut self, lhashalg: i32) -> ::windows::core::Result<()>;
-    fn EncryptAlgorithm(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEncryptAlgorithm(&mut self, lencryptalg: i32) -> ::windows::core::Result<()>;
-    fn SentTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ArrivedTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn DestinationQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo3>;
-    fn SenderCertificate(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSenderCertificate(&mut self, varsendercert: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SenderId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SenderIdType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSenderIdType(&mut self, lsenderidtype: i32) -> ::windows::core::Result<()>;
-    fn Send(&mut self, destinationqueue: &::core::option::Option<super::Com::IDispatch>, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AttachCurrentSecurityContext(&mut self) -> ::windows::core::Result<()>;
-    fn SenderVersion(&mut self) -> ::windows::core::Result<i32>;
-    fn Extension(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetExtension(&mut self, varextension: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ConnectorTypeGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetConnectorTypeGuid(&mut self, bstrguidconnectortype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TransactionStatusQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo3>;
-    fn DestinationSymmetricKey(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetDestinationSymmetricKey(&mut self, vardestsymmkey: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Signature(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSignature(&mut self, varsignature: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AuthenticationProviderType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthenticationProviderType(&mut self, lauthprovtype: i32) -> ::windows::core::Result<()>;
-    fn AuthenticationProviderName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetAuthenticationProviderName(&mut self, bstrauthprovname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetSenderId(&mut self, varsenderid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn MsgClass(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMsgClass(&mut self, lmsgclass: i32) -> ::windows::core::Result<()>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn TransactionId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn IsFirstInTransaction(&mut self) -> ::windows::core::Result<i16>;
-    fn IsLastInTransaction(&mut self) -> ::windows::core::Result<i16>;
-    fn ResponseQueueInfo_v2(&mut self) -> ::windows::core::Result<IMSMQQueueInfo2>;
-    fn putref_ResponseQueueInfo_v2(&mut self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
-    fn AdminQueueInfo_v2(&mut self) -> ::windows::core::Result<IMSMQQueueInfo2>;
-    fn putref_AdminQueueInfo_v2(&mut self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
-    fn ReceivedAuthenticationLevel(&mut self) -> ::windows::core::Result<i16>;
-    fn ResponseQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo3>;
-    fn putref_ResponseQueueInfo(&mut self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo3>) -> ::windows::core::Result<()>;
-    fn AdminQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo3>;
-    fn putref_AdminQueueInfo(&mut self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo3>) -> ::windows::core::Result<()>;
-    fn ResponseDestination(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn putref_ResponseDestination(&mut self, pdestresponse: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn Destination(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn LookupId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn IsAuthenticated2(&mut self) -> ::windows::core::Result<i16>;
-    fn IsFirstInTransaction2(&mut self) -> ::windows::core::Result<i16>;
-    fn IsLastInTransaction2(&mut self) -> ::windows::core::Result<i16>;
-    fn AttachCurrentSecurityContext2(&mut self) -> ::windows::core::Result<()>;
-    fn SoapEnvelope(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CompoundMessage(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSoapHeader(&mut self, bstrsoapheader: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetSoapBody(&mut self, bstrsoapbody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Class(&self) -> ::windows::core::Result<i32>;
+    fn PrivLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
+    fn AuthLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()>;
+    fn IsAuthenticated(&self) -> ::windows::core::Result<i16>;
+    fn Delivery(&self) -> ::windows::core::Result<i32>;
+    fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()>;
+    fn Trace(&self) -> ::windows::core::Result<i32>;
+    fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()>;
+    fn Priority(&self) -> ::windows::core::Result<i32>;
+    fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()>;
+    fn Journal(&self) -> ::windows::core::Result<i32>;
+    fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()>;
+    fn ResponseQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
+    fn AppSpecific(&self) -> ::windows::core::Result<i32>;
+    fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()>;
+    fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn BodyLength(&self) -> ::windows::core::Result<i32>;
+    fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetBody(&self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AdminQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetCorrelationId(&self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Ack(&self) -> ::windows::core::Result<i32>;
+    fn SetAck(&self, lack: i32) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
+    fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()>;
+    fn HashAlgorithm(&self) -> ::windows::core::Result<i32>;
+    fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()>;
+    fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32>;
+    fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()>;
+    fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3>;
+    fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSenderCertificate(&self, varsendercert: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SenderIdType(&self) -> ::windows::core::Result<i32>;
+    fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()>;
+    fn Send(&self, destinationqueue: &::core::option::Option<super::Com::IDispatch>, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()>;
+    fn SenderVersion(&self) -> ::windows::core::Result<i32>;
+    fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetExtension(&self, varextension: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ConnectorTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3>;
+    fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetDestinationSymmetricKey(&self, vardestsymmkey: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Signature(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSignature(&self, varsignature: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()>;
+    fn AuthenticationProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetAuthenticationProviderName(&self, bstrauthprovname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSenderId(&self, varsenderid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn MsgClass(&self) -> ::windows::core::Result<i32>;
+    fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn TransactionId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn IsFirstInTransaction(&self) -> ::windows::core::Result<i16>;
+    fn IsLastInTransaction(&self) -> ::windows::core::Result<i16>;
+    fn ResponseQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
+    fn putref_ResponseQueueInfo_v2(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
+    fn AdminQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
+    fn putref_AdminQueueInfo_v2(&self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
+    fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16>;
+    fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3>;
+    fn putref_ResponseQueueInfo(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo3>) -> ::windows::core::Result<()>;
+    fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3>;
+    fn putref_AdminQueueInfo(&self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo3>) -> ::windows::core::Result<()>;
+    fn ResponseDestination(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn putref_ResponseDestination(&self, pdestresponse: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Destination(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn LookupId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn IsAuthenticated2(&self) -> ::windows::core::Result<i16>;
+    fn IsFirstInTransaction2(&self) -> ::windows::core::Result<i16>;
+    fn IsLastInTransaction2(&self) -> ::windows::core::Result<i16>;
+    fn AttachCurrentSecurityContext2(&self) -> ::windows::core::Result<()>;
+    fn SoapEnvelope(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CompoundMessage(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSoapHeader(&self, bstrsoapheader: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSoapBody(&self, bstrsoapbody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQMessage3_Vtbl {
@@ -3028,97 +3028,97 @@ impl IMSMQMessage3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Class(&mut self) -> ::windows::core::Result<i32>;
-    fn PrivLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPrivLevel(&mut self, lprivlevel: i32) -> ::windows::core::Result<()>;
-    fn AuthLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthLevel(&mut self, lauthlevel: i32) -> ::windows::core::Result<()>;
-    fn IsAuthenticated(&mut self) -> ::windows::core::Result<i16>;
-    fn Delivery(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDelivery(&mut self, ldelivery: i32) -> ::windows::core::Result<()>;
-    fn Trace(&mut self) -> ::windows::core::Result<i32>;
-    fn SetTrace(&mut self, ltrace: i32) -> ::windows::core::Result<()>;
-    fn Priority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPriority(&mut self, lpriority: i32) -> ::windows::core::Result<()>;
-    fn Journal(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournal(&mut self, ljournal: i32) -> ::windows::core::Result<()>;
-    fn ResponseQueueInfo_v1(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
-    fn putref_ResponseQueueInfo_v1(&mut self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
-    fn AppSpecific(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAppSpecific(&mut self, lappspecific: i32) -> ::windows::core::Result<()>;
-    fn SourceMachineGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn BodyLength(&mut self) -> ::windows::core::Result<i32>;
-    fn Body(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetBody(&mut self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AdminQueueInfo_v1(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
-    fn putref_AdminQueueInfo_v1(&mut self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
-    fn Id(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn CorrelationId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetCorrelationId(&mut self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Ack(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAck(&mut self, lack: i32) -> ::windows::core::Result<()>;
-    fn Label(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&mut self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MaxTimeToReachQueue(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxTimeToReachQueue(&mut self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
-    fn MaxTimeToReceive(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMaxTimeToReceive(&mut self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()>;
-    fn HashAlgorithm(&mut self) -> ::windows::core::Result<i32>;
-    fn SetHashAlgorithm(&mut self, lhashalg: i32) -> ::windows::core::Result<()>;
-    fn EncryptAlgorithm(&mut self) -> ::windows::core::Result<i32>;
-    fn SetEncryptAlgorithm(&mut self, lencryptalg: i32) -> ::windows::core::Result<()>;
-    fn SentTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ArrivedTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn DestinationQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo4>;
-    fn SenderCertificate(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSenderCertificate(&mut self, varsendercert: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SenderId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SenderIdType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetSenderIdType(&mut self, lsenderidtype: i32) -> ::windows::core::Result<()>;
-    fn Send(&mut self, destinationqueue: &::core::option::Option<super::Com::IDispatch>, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AttachCurrentSecurityContext(&mut self) -> ::windows::core::Result<()>;
-    fn SenderVersion(&mut self) -> ::windows::core::Result<i32>;
-    fn Extension(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetExtension(&mut self, varextension: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ConnectorTypeGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetConnectorTypeGuid(&mut self, bstrguidconnectortype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TransactionStatusQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo4>;
-    fn DestinationSymmetricKey(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetDestinationSymmetricKey(&mut self, vardestsymmkey: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Signature(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSignature(&mut self, varsignature: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AuthenticationProviderType(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthenticationProviderType(&mut self, lauthprovtype: i32) -> ::windows::core::Result<()>;
-    fn AuthenticationProviderName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetAuthenticationProviderName(&mut self, bstrauthprovname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetSenderId(&mut self, varsenderid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn MsgClass(&mut self) -> ::windows::core::Result<i32>;
-    fn SetMsgClass(&mut self, lmsgclass: i32) -> ::windows::core::Result<()>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn TransactionId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn IsFirstInTransaction(&mut self) -> ::windows::core::Result<i16>;
-    fn IsLastInTransaction(&mut self) -> ::windows::core::Result<i16>;
-    fn ResponseQueueInfo_v2(&mut self) -> ::windows::core::Result<IMSMQQueueInfo2>;
-    fn putref_ResponseQueueInfo_v2(&mut self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
-    fn AdminQueueInfo_v2(&mut self) -> ::windows::core::Result<IMSMQQueueInfo2>;
-    fn putref_AdminQueueInfo_v2(&mut self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
-    fn ReceivedAuthenticationLevel(&mut self) -> ::windows::core::Result<i16>;
-    fn ResponseQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo4>;
-    fn putref_ResponseQueueInfo(&mut self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo4>) -> ::windows::core::Result<()>;
-    fn AdminQueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo4>;
-    fn putref_AdminQueueInfo(&mut self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo4>) -> ::windows::core::Result<()>;
-    fn ResponseDestination(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn putref_ResponseDestination(&mut self, pdestresponse: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn Destination(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn LookupId(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn IsAuthenticated2(&mut self) -> ::windows::core::Result<i16>;
-    fn IsFirstInTransaction2(&mut self) -> ::windows::core::Result<i16>;
-    fn IsLastInTransaction2(&mut self) -> ::windows::core::Result<i16>;
-    fn AttachCurrentSecurityContext2(&mut self) -> ::windows::core::Result<()>;
-    fn SoapEnvelope(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn CompoundMessage(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSoapHeader(&mut self, bstrsoapheader: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetSoapBody(&mut self, bstrsoapbody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Class(&self) -> ::windows::core::Result<i32>;
+    fn PrivLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
+    fn AuthLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthLevel(&self, lauthlevel: i32) -> ::windows::core::Result<()>;
+    fn IsAuthenticated(&self) -> ::windows::core::Result<i16>;
+    fn Delivery(&self) -> ::windows::core::Result<i32>;
+    fn SetDelivery(&self, ldelivery: i32) -> ::windows::core::Result<()>;
+    fn Trace(&self) -> ::windows::core::Result<i32>;
+    fn SetTrace(&self, ltrace: i32) -> ::windows::core::Result<()>;
+    fn Priority(&self) -> ::windows::core::Result<i32>;
+    fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()>;
+    fn Journal(&self) -> ::windows::core::Result<i32>;
+    fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()>;
+    fn ResponseQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn putref_ResponseQueueInfo_v1(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
+    fn AppSpecific(&self) -> ::windows::core::Result<i32>;
+    fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()>;
+    fn SourceMachineGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn BodyLength(&self) -> ::windows::core::Result<i32>;
+    fn Body(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetBody(&self, varbody: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AdminQueueInfo_v1(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn putref_AdminQueueInfo_v1(&self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo>) -> ::windows::core::Result<()>;
+    fn Id(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn CorrelationId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetCorrelationId(&self, varmsgid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Ack(&self) -> ::windows::core::Result<i32>;
+    fn SetAck(&self, lack: i32) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxTimeToReachQueue(&self, lmaxtimetoreachqueue: i32) -> ::windows::core::Result<()>;
+    fn MaxTimeToReceive(&self) -> ::windows::core::Result<i32>;
+    fn SetMaxTimeToReceive(&self, lmaxtimetoreceive: i32) -> ::windows::core::Result<()>;
+    fn HashAlgorithm(&self) -> ::windows::core::Result<i32>;
+    fn SetHashAlgorithm(&self, lhashalg: i32) -> ::windows::core::Result<()>;
+    fn EncryptAlgorithm(&self) -> ::windows::core::Result<i32>;
+    fn SetEncryptAlgorithm(&self, lencryptalg: i32) -> ::windows::core::Result<()>;
+    fn SentTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ArrivedTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn DestinationQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4>;
+    fn SenderCertificate(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSenderCertificate(&self, varsendercert: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SenderId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SenderIdType(&self) -> ::windows::core::Result<i32>;
+    fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows::core::Result<()>;
+    fn Send(&self, destinationqueue: &::core::option::Option<super::Com::IDispatch>, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()>;
+    fn SenderVersion(&self) -> ::windows::core::Result<i32>;
+    fn Extension(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetExtension(&self, varextension: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ConnectorTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetConnectorTypeGuid(&self, bstrguidconnectortype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn TransactionStatusQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4>;
+    fn DestinationSymmetricKey(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetDestinationSymmetricKey(&self, vardestsymmkey: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Signature(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSignature(&self, varsignature: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthenticationProviderType(&self, lauthprovtype: i32) -> ::windows::core::Result<()>;
+    fn AuthenticationProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetAuthenticationProviderName(&self, bstrauthprovname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSenderId(&self, varsenderid: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn MsgClass(&self) -> ::windows::core::Result<i32>;
+    fn SetMsgClass(&self, lmsgclass: i32) -> ::windows::core::Result<()>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn TransactionId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn IsFirstInTransaction(&self) -> ::windows::core::Result<i16>;
+    fn IsLastInTransaction(&self) -> ::windows::core::Result<i16>;
+    fn ResponseQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
+    fn putref_ResponseQueueInfo_v2(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
+    fn AdminQueueInfo_v2(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
+    fn putref_AdminQueueInfo_v2(&self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
+    fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16>;
+    fn ResponseQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4>;
+    fn putref_ResponseQueueInfo(&self, pqinforesponse: &::core::option::Option<IMSMQQueueInfo4>) -> ::windows::core::Result<()>;
+    fn AdminQueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4>;
+    fn putref_AdminQueueInfo(&self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo4>) -> ::windows::core::Result<()>;
+    fn ResponseDestination(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn putref_ResponseDestination(&self, pdestresponse: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Destination(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn LookupId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn IsAuthenticated2(&self) -> ::windows::core::Result<i16>;
+    fn IsFirstInTransaction2(&self) -> ::windows::core::Result<i16>;
+    fn IsLastInTransaction2(&self) -> ::windows::core::Result<i16>;
+    fn AttachCurrentSecurityContext2(&self) -> ::windows::core::Result<()>;
+    fn SoapEnvelope(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn CompoundMessage(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSoapHeader(&self, bstrsoapheader: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetSoapBody(&self, bstrsoapbody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQMessage4_Vtbl {
@@ -4003,12 +4003,12 @@ impl IMSMQMessage4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQOutgoingQueueManagement_Impl: Sized + super::Com::IDispatch_Impl + IMSMQManagement_Impl {
-    fn State(&mut self) -> ::windows::core::Result<i32>;
-    fn NextHops(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn EodGetSendInfo(&mut self) -> ::windows::core::Result<IMSMQCollection>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn Pause(&mut self) -> ::windows::core::Result<()>;
-    fn EodResend(&mut self) -> ::windows::core::Result<()>;
+    fn State(&self) -> ::windows::core::Result<i32>;
+    fn NextHops(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn EodGetSendInfo(&self) -> ::windows::core::Result<IMSMQCollection>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
+    fn Pause(&self) -> ::windows::core::Result<()>;
+    fn EodResend(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQOutgoingQueueManagement_Vtbl {
@@ -4077,8 +4077,8 @@ impl IMSMQOutgoingQueueManagement_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQPrivateDestination_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Handle(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetHandle(&mut self, varhandle: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Handle(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetHandle(&self, varhandle: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQPrivateDestination_Vtbl {
@@ -4111,9 +4111,9 @@ impl IMSMQPrivateDestination_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQPrivateEvent_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Hwnd(&mut self) -> ::windows::core::Result<i32>;
-    fn FireArrivedEvent(&mut self, pq: &::core::option::Option<IMSMQQueue>, msgcursor: i32) -> ::windows::core::Result<()>;
-    fn FireArrivedErrorEvent(&mut self, pq: &::core::option::Option<IMSMQQueue>, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::Result<()>;
+    fn Hwnd(&self) -> ::windows::core::Result<i32>;
+    fn FireArrivedEvent(&self, pq: &::core::option::Option<IMSMQQueue>, msgcursor: i32) -> ::windows::core::Result<()>;
+    fn FireArrivedErrorEvent(&self, pq: &::core::option::Option<IMSMQQueue>, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQPrivateEvent_Vtbl {
@@ -4152,7 +4152,7 @@ impl IMSMQPrivateEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQuery_Impl: Sized + super::Com::IDispatch_Impl {
-    fn LookupQueue(&mut self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos>;
+    fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQuery_Vtbl {
@@ -4176,8 +4176,8 @@ impl IMSMQQuery_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQuery2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn LookupQueue(&mut self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos2>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos2>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQuery2_Vtbl {
@@ -4216,9 +4216,9 @@ impl IMSMQQuery2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQuery3_Impl: Sized + super::Com::IDispatch_Impl {
-    fn LookupQueue_v2(&mut self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos3>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn LookupQueue(&mut self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos3>;
+    fn LookupQueue_v2(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos3>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos3>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQuery3_Vtbl {
@@ -4281,9 +4281,9 @@ impl IMSMQQuery3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQuery4_Impl: Sized + super::Com::IDispatch_Impl {
-    fn LookupQueue_v2(&mut self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos4>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn LookupQueue(&mut self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos4>;
+    fn LookupQueue_v2(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos4>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos4>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQuery4_Vtbl {
@@ -4346,19 +4346,19 @@ impl IMSMQQuery4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueue_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Access(&mut self) -> ::windows::core::Result<i32>;
-    fn ShareMode(&mut self) -> ::windows::core::Result<i32>;
-    fn QueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
-    fn Handle(&mut self) -> ::windows::core::Result<i32>;
-    fn IsOpen(&mut self) -> ::windows::core::Result<i16>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn Receive(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn Peek(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn EnableNotification(&mut self, event: &::core::option::Option<IMSMQEvent>, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn ReceiveCurrent(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn PeekNext(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn PeekCurrent(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn Access(&self) -> ::windows::core::Result<i32>;
+    fn ShareMode(&self) -> ::windows::core::Result<i32>;
+    fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn Handle(&self) -> ::windows::core::Result<i32>;
+    fn IsOpen(&self) -> ::windows::core::Result<i16>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn EnableNotification(&self, event: &::core::option::Option<IMSMQEvent>, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueue_Vtbl {
@@ -4511,25 +4511,25 @@ impl IMSMQQueue_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueue2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Access(&mut self) -> ::windows::core::Result<i32>;
-    fn ShareMode(&mut self) -> ::windows::core::Result<i32>;
-    fn QueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo2>;
-    fn Handle(&mut self) -> ::windows::core::Result<i32>;
-    fn IsOpen(&mut self) -> ::windows::core::Result<i16>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn Receive_v1(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn Peek_v1(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn EnableNotification(&mut self, event: &::core::option::Option<IMSMQEvent2>, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn ReceiveCurrent_v1(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn PeekNext_v1(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn PeekCurrent_v1(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn Receive(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
-    fn Peek(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
-    fn ReceiveCurrent(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
-    fn PeekNext(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
-    fn PeekCurrent(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Access(&self) -> ::windows::core::Result<i32>;
+    fn ShareMode(&self) -> ::windows::core::Result<i32>;
+    fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
+    fn Handle(&self) -> ::windows::core::Result<i32>;
+    fn IsOpen(&self) -> ::windows::core::Result<i16>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn EnableNotification(&self, event: &::core::option::Option<IMSMQEvent2>, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
+    fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
+    fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
+    fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
+    fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueue2_Vtbl {
@@ -4754,38 +4754,38 @@ impl IMSMQQueue2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueue3_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Access(&mut self) -> ::windows::core::Result<i32>;
-    fn ShareMode(&mut self) -> ::windows::core::Result<i32>;
-    fn QueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo3>;
-    fn Handle(&mut self) -> ::windows::core::Result<i32>;
-    fn IsOpen(&mut self) -> ::windows::core::Result<i16>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn Receive_v1(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn Peek_v1(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn EnableNotification(&mut self, event: &::core::option::Option<IMSMQEvent3>, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn ReceiveCurrent_v1(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn PeekNext_v1(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn PeekCurrent_v1(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn Receive(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn Peek(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn ReceiveCurrent(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn PeekNext(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn PeekCurrent(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn Handle2(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ReceiveByLookupId(&mut self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn ReceiveNextByLookupId(&mut self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn ReceivePreviousByLookupId(&mut self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn ReceiveFirstByLookupId(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn ReceiveLastByLookupId(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn PeekByLookupId(&mut self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn PeekNextByLookupId(&mut self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn PeekPreviousByLookupId(&mut self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn PeekFirstByLookupId(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn PeekLastByLookupId(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
-    fn Purge(&mut self) -> ::windows::core::Result<()>;
-    fn IsOpen2(&mut self) -> ::windows::core::Result<i16>;
+    fn Access(&self) -> ::windows::core::Result<i32>;
+    fn ShareMode(&self) -> ::windows::core::Result<i32>;
+    fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo3>;
+    fn Handle(&self) -> ::windows::core::Result<i32>;
+    fn IsOpen(&self) -> ::windows::core::Result<i16>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn EnableNotification(&self, event: &::core::option::Option<IMSMQEvent3>, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Handle2(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ReceiveByLookupId(&self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn ReceiveNextByLookupId(&self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn ReceivePreviousByLookupId(&self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn ReceiveFirstByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn ReceiveLastByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn PeekByLookupId(&self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn PeekNextByLookupId(&self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn PeekPreviousByLookupId(&self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
+    fn Purge(&self) -> ::windows::core::Result<()>;
+    fn IsOpen2(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueue3_Vtbl {
@@ -5160,39 +5160,39 @@ impl IMSMQQueue3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueue4_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Access(&mut self) -> ::windows::core::Result<i32>;
-    fn ShareMode(&mut self) -> ::windows::core::Result<i32>;
-    fn QueueInfo(&mut self) -> ::windows::core::Result<IMSMQQueueInfo4>;
-    fn Handle(&mut self) -> ::windows::core::Result<i32>;
-    fn IsOpen(&mut self) -> ::windows::core::Result<i16>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn Receive_v1(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn Peek_v1(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn EnableNotification(&mut self, event: &::core::option::Option<IMSMQEvent3>, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn ReceiveCurrent_v1(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn PeekNext_v1(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn PeekCurrent_v1(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
-    fn Receive(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn Peek(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn ReceiveCurrent(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn PeekNext(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn PeekCurrent(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn Handle2(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ReceiveByLookupId(&mut self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn ReceiveNextByLookupId(&mut self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn ReceivePreviousByLookupId(&mut self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn ReceiveFirstByLookupId(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn ReceiveLastByLookupId(&mut self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn PeekByLookupId(&mut self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn PeekNextByLookupId(&mut self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn PeekPreviousByLookupId(&mut self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn PeekFirstByLookupId(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn PeekLastByLookupId(&mut self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
-    fn Purge(&mut self) -> ::windows::core::Result<()>;
-    fn IsOpen2(&mut self) -> ::windows::core::Result<i16>;
-    fn ReceiveByLookupIdAllowPeek(&mut self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn Access(&self) -> ::windows::core::Result<i32>;
+    fn ShareMode(&self) -> ::windows::core::Result<i32>;
+    fn QueueInfo(&self) -> ::windows::core::Result<IMSMQQueueInfo4>;
+    fn Handle(&self) -> ::windows::core::Result<i32>;
+    fn IsOpen(&self) -> ::windows::core::Result<i16>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn Receive_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn Peek_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn EnableNotification(&self, event: &::core::option::Option<IMSMQEvent3>, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn ReceiveCurrent_v1(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn PeekNext_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn PeekCurrent_v1(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
+    fn Receive(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn Peek(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn ReceiveCurrent(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Handle2(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ReceiveByLookupId(&self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn ReceiveNextByLookupId(&self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn ReceivePreviousByLookupId(&self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn ReceiveFirstByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn ReceiveLastByLookupId(&self, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn PeekByLookupId(&self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn PeekNextByLookupId(&self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn PeekPreviousByLookupId(&self, lookupid: &super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
+    fn Purge(&self) -> ::windows::core::Result<()>;
+    fn IsOpen2(&self) -> ::windows::core::Result<i16>;
+    fn ReceiveByLookupIdAllowPeek(&self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueue4_Vtbl {
@@ -5579,36 +5579,36 @@ impl IMSMQQueue4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo_Impl: Sized + super::Com::IDispatch_Impl {
-    fn QueueGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ServiceTypeGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceTypeGuid(&mut self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Label(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&mut self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PathName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPathName(&mut self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FormatName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFormatName(&mut self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsTransactional(&mut self) -> ::windows::core::Result<i16>;
-    fn PrivLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPrivLevel(&mut self, lprivlevel: i32) -> ::windows::core::Result<()>;
-    fn Journal(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournal(&mut self, ljournal: i32) -> ::windows::core::Result<()>;
-    fn Quota(&mut self) -> ::windows::core::Result<i32>;
-    fn SetQuota(&mut self, lquota: i32) -> ::windows::core::Result<()>;
-    fn BasePriority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBasePriority(&mut self, lbasepriority: i32) -> ::windows::core::Result<()>;
-    fn CreateTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ModifyTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn Authenticate(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthenticate(&mut self, lauthenticate: i32) -> ::windows::core::Result<()>;
-    fn JournalQuota(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournalQuota(&mut self, ljournalquota: i32) -> ::windows::core::Result<()>;
-    fn IsWorldReadable(&mut self) -> ::windows::core::Result<i16>;
-    fn Create(&mut self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Open(&mut self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue>;
-    fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Update(&mut self) -> ::windows::core::Result<()>;
+    fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetServiceTypeGuid(&self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPathName(&self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFormatName(&self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsTransactional(&self) -> ::windows::core::Result<i16>;
+    fn PrivLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
+    fn Journal(&self) -> ::windows::core::Result<i32>;
+    fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()>;
+    fn Quota(&self) -> ::windows::core::Result<i32>;
+    fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()>;
+    fn BasePriority(&self) -> ::windows::core::Result<i32>;
+    fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()>;
+    fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Authenticate(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()>;
+    fn JournalQuota(&self) -> ::windows::core::Result<i32>;
+    fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()>;
+    fn IsWorldReadable(&self) -> ::windows::core::Result<i16>;
+    fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Delete(&self) -> ::windows::core::Result<()>;
+    fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue>;
+    fn Refresh(&self) -> ::windows::core::Result<()>;
+    fn Update(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo_Vtbl {
@@ -5899,40 +5899,40 @@ impl IMSMQQueueInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn QueueGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ServiceTypeGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceTypeGuid(&mut self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Label(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&mut self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PathName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPathName(&mut self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FormatName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFormatName(&mut self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsTransactional(&mut self) -> ::windows::core::Result<i16>;
-    fn PrivLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPrivLevel(&mut self, lprivlevel: i32) -> ::windows::core::Result<()>;
-    fn Journal(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournal(&mut self, ljournal: i32) -> ::windows::core::Result<()>;
-    fn Quota(&mut self) -> ::windows::core::Result<i32>;
-    fn SetQuota(&mut self, lquota: i32) -> ::windows::core::Result<()>;
-    fn BasePriority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBasePriority(&mut self, lbasepriority: i32) -> ::windows::core::Result<()>;
-    fn CreateTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ModifyTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn Authenticate(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthenticate(&mut self, lauthenticate: i32) -> ::windows::core::Result<()>;
-    fn JournalQuota(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournalQuota(&mut self, ljournalquota: i32) -> ::windows::core::Result<()>;
-    fn IsWorldReadable(&mut self) -> ::windows::core::Result<i16>;
-    fn Create(&mut self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Open(&mut self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue2>;
-    fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Update(&mut self) -> ::windows::core::Result<()>;
-    fn PathNameDNS(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn Security(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSecurity(&mut self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetServiceTypeGuid(&self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPathName(&self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFormatName(&self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsTransactional(&self) -> ::windows::core::Result<i16>;
+    fn PrivLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
+    fn Journal(&self) -> ::windows::core::Result<i32>;
+    fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()>;
+    fn Quota(&self) -> ::windows::core::Result<i32>;
+    fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()>;
+    fn BasePriority(&self) -> ::windows::core::Result<i32>;
+    fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()>;
+    fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Authenticate(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()>;
+    fn JournalQuota(&self) -> ::windows::core::Result<i32>;
+    fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()>;
+    fn IsWorldReadable(&self) -> ::windows::core::Result<i16>;
+    fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Delete(&self) -> ::windows::core::Result<()>;
+    fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue2>;
+    fn Refresh(&self) -> ::windows::core::Result<()>;
+    fn Update(&self) -> ::windows::core::Result<()>;
+    fn PathNameDNS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSecurity(&self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo2_Vtbl {
@@ -6265,45 +6265,45 @@ impl IMSMQQueueInfo2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo3_Impl: Sized + super::Com::IDispatch_Impl {
-    fn QueueGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ServiceTypeGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceTypeGuid(&mut self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Label(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&mut self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PathName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPathName(&mut self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FormatName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFormatName(&mut self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsTransactional(&mut self) -> ::windows::core::Result<i16>;
-    fn PrivLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPrivLevel(&mut self, lprivlevel: i32) -> ::windows::core::Result<()>;
-    fn Journal(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournal(&mut self, ljournal: i32) -> ::windows::core::Result<()>;
-    fn Quota(&mut self) -> ::windows::core::Result<i32>;
-    fn SetQuota(&mut self, lquota: i32) -> ::windows::core::Result<()>;
-    fn BasePriority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBasePriority(&mut self, lbasepriority: i32) -> ::windows::core::Result<()>;
-    fn CreateTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ModifyTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn Authenticate(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthenticate(&mut self, lauthenticate: i32) -> ::windows::core::Result<()>;
-    fn JournalQuota(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournalQuota(&mut self, ljournalquota: i32) -> ::windows::core::Result<()>;
-    fn IsWorldReadable(&mut self) -> ::windows::core::Result<i16>;
-    fn Create(&mut self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Open(&mut self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue3>;
-    fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Update(&mut self) -> ::windows::core::Result<()>;
-    fn PathNameDNS(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn Security(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSecurity(&mut self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn IsTransactional2(&mut self) -> ::windows::core::Result<i16>;
-    fn IsWorldReadable2(&mut self) -> ::windows::core::Result<i16>;
-    fn MulticastAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetMulticastAddress(&mut self, bstrmulticastaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ADsPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetServiceTypeGuid(&self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPathName(&self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFormatName(&self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsTransactional(&self) -> ::windows::core::Result<i16>;
+    fn PrivLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
+    fn Journal(&self) -> ::windows::core::Result<i32>;
+    fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()>;
+    fn Quota(&self) -> ::windows::core::Result<i32>;
+    fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()>;
+    fn BasePriority(&self) -> ::windows::core::Result<i32>;
+    fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()>;
+    fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Authenticate(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()>;
+    fn JournalQuota(&self) -> ::windows::core::Result<i32>;
+    fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()>;
+    fn IsWorldReadable(&self) -> ::windows::core::Result<i16>;
+    fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Delete(&self) -> ::windows::core::Result<()>;
+    fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue3>;
+    fn Refresh(&self) -> ::windows::core::Result<()>;
+    fn Update(&self) -> ::windows::core::Result<()>;
+    fn PathNameDNS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSecurity(&self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn IsTransactional2(&self) -> ::windows::core::Result<i16>;
+    fn IsWorldReadable2(&self) -> ::windows::core::Result<i16>;
+    fn MulticastAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetMulticastAddress(&self, bstrmulticastaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo3_Vtbl {
@@ -6690,45 +6690,45 @@ impl IMSMQQueueInfo3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfo4_Impl: Sized + super::Com::IDispatch_Impl {
-    fn QueueGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ServiceTypeGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetServiceTypeGuid(&mut self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Label(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetLabel(&mut self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PathName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPathName(&mut self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn FormatName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetFormatName(&mut self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IsTransactional(&mut self) -> ::windows::core::Result<i16>;
-    fn PrivLevel(&mut self) -> ::windows::core::Result<i32>;
-    fn SetPrivLevel(&mut self, lprivlevel: i32) -> ::windows::core::Result<()>;
-    fn Journal(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournal(&mut self, ljournal: i32) -> ::windows::core::Result<()>;
-    fn Quota(&mut self) -> ::windows::core::Result<i32>;
-    fn SetQuota(&mut self, lquota: i32) -> ::windows::core::Result<()>;
-    fn BasePriority(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBasePriority(&mut self, lbasepriority: i32) -> ::windows::core::Result<()>;
-    fn CreateTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn ModifyTime(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn Authenticate(&mut self) -> ::windows::core::Result<i32>;
-    fn SetAuthenticate(&mut self, lauthenticate: i32) -> ::windows::core::Result<()>;
-    fn JournalQuota(&mut self) -> ::windows::core::Result<i32>;
-    fn SetJournalQuota(&mut self, ljournalquota: i32) -> ::windows::core::Result<()>;
-    fn IsWorldReadable(&mut self) -> ::windows::core::Result<i16>;
-    fn Create(&mut self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Delete(&mut self) -> ::windows::core::Result<()>;
-    fn Open(&mut self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue4>;
-    fn Refresh(&mut self) -> ::windows::core::Result<()>;
-    fn Update(&mut self) -> ::windows::core::Result<()>;
-    fn PathNameDNS(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn Security(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetSecurity(&mut self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn IsTransactional2(&mut self) -> ::windows::core::Result<i16>;
-    fn IsWorldReadable2(&mut self) -> ::windows::core::Result<i16>;
-    fn MulticastAddress(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetMulticastAddress(&mut self, bstrmulticastaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ADsPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn QueueGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ServiceTypeGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetServiceTypeGuid(&self, bstrguidservicetype: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Label(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetLabel(&self, bstrlabel: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn PathName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetPathName(&self, bstrpathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn FormatName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetFormatName(&self, bstrformatname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn IsTransactional(&self) -> ::windows::core::Result<i16>;
+    fn PrivLevel(&self) -> ::windows::core::Result<i32>;
+    fn SetPrivLevel(&self, lprivlevel: i32) -> ::windows::core::Result<()>;
+    fn Journal(&self) -> ::windows::core::Result<i32>;
+    fn SetJournal(&self, ljournal: i32) -> ::windows::core::Result<()>;
+    fn Quota(&self) -> ::windows::core::Result<i32>;
+    fn SetQuota(&self, lquota: i32) -> ::windows::core::Result<()>;
+    fn BasePriority(&self) -> ::windows::core::Result<i32>;
+    fn SetBasePriority(&self, lbasepriority: i32) -> ::windows::core::Result<()>;
+    fn CreateTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ModifyTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn Authenticate(&self) -> ::windows::core::Result<i32>;
+    fn SetAuthenticate(&self, lauthenticate: i32) -> ::windows::core::Result<()>;
+    fn JournalQuota(&self) -> ::windows::core::Result<i32>;
+    fn SetJournalQuota(&self, ljournalquota: i32) -> ::windows::core::Result<()>;
+    fn IsWorldReadable(&self) -> ::windows::core::Result<i16>;
+    fn Create(&self, istransactional: *const super::Com::VARIANT, isworldreadable: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Delete(&self) -> ::windows::core::Result<()>;
+    fn Open(&self, access: i32, sharemode: i32) -> ::windows::core::Result<IMSMQQueue4>;
+    fn Refresh(&self) -> ::windows::core::Result<()>;
+    fn Update(&self) -> ::windows::core::Result<()>;
+    fn PathNameDNS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetSecurity(&self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn IsTransactional2(&self) -> ::windows::core::Result<i16>;
+    fn IsWorldReadable2(&self) -> ::windows::core::Result<i16>;
+    fn MulticastAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetMulticastAddress(&self, bstrmulticastaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo4_Vtbl {
@@ -7115,8 +7115,8 @@ impl IMSMQQueueInfo4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfos_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Next(&mut self) -> ::windows::core::Result<IMSMQQueueInfo>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfos_Vtbl {
@@ -7145,9 +7145,9 @@ impl IMSMQQueueInfos_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfos2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Next(&mut self) -> ::windows::core::Result<IMSMQQueueInfo2>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfos2_Vtbl {
@@ -7192,9 +7192,9 @@ impl IMSMQQueueInfos2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfos3_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Next(&mut self) -> ::windows::core::Result<IMSMQQueueInfo3>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo3>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfos3_Vtbl {
@@ -7239,9 +7239,9 @@ impl IMSMQQueueInfos3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueInfos4_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Next(&mut self) -> ::windows::core::Result<IMSMQQueueInfo4>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo4>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfos4_Vtbl {
@@ -7286,9 +7286,9 @@ impl IMSMQQueueInfos4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQQueueManagement_Impl: Sized + super::Com::IDispatch_Impl + IMSMQManagement_Impl {
-    fn JournalMessageCount(&mut self) -> ::windows::core::Result<i32>;
-    fn BytesInJournal(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn EodGetReceiveInfo(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn JournalMessageCount(&self) -> ::windows::core::Result<i32>;
+    fn BytesInJournal(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn EodGetReceiveInfo(&self) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueManagement_Vtbl {
@@ -7339,9 +7339,9 @@ impl IMSMQQueueManagement_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransaction_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Transaction(&mut self) -> ::windows::core::Result<i32>;
-    fn Commit(&mut self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Abort(&mut self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Transaction(&self) -> ::windows::core::Result<i32>;
+    fn Commit(&self, fretaining: *const super::Com::VARIANT, grftc: *const super::Com::VARIANT, grfrm: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransaction_Vtbl {
@@ -7380,8 +7380,8 @@ impl IMSMQTransaction_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransaction2_Impl: Sized + super::Com::IDispatch_Impl + IMSMQTransaction_Impl {
-    fn InitNew(&mut self, vartransaction: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn InitNew(&self, vartransaction: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransaction2_Vtbl {
@@ -7414,7 +7414,7 @@ impl IMSMQTransaction2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransaction3_Impl: Sized + super::Com::IDispatch_Impl + IMSMQTransaction_Impl + IMSMQTransaction2_Impl {
-    fn ITransaction(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn ITransaction(&self) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransaction3_Vtbl {
@@ -7438,7 +7438,7 @@ impl IMSMQTransaction3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransactionDispenser_Impl: Sized + super::Com::IDispatch_Impl {
-    fn BeginTransaction(&mut self) -> ::windows::core::Result<IMSMQTransaction>;
+    fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransactionDispenser_Vtbl {
@@ -7462,8 +7462,8 @@ impl IMSMQTransactionDispenser_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransactionDispenser2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn BeginTransaction(&mut self) -> ::windows::core::Result<IMSMQTransaction2>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction2>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransactionDispenser2_Vtbl {
@@ -7502,8 +7502,8 @@ impl IMSMQTransactionDispenser2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQTransactionDispenser3_Impl: Sized + super::Com::IDispatch_Impl {
-    fn BeginTransaction(&mut self) -> ::windows::core::Result<IMSMQTransaction3>;
-    fn Properties(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction3>;
+    fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransactionDispenser3_Vtbl {

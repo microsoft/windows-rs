@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGameExplorer_Impl: Sized {
-    fn AddGame(&mut self, bstrgdfbinarypath: &super::Foundation::BSTR, bstrgameinstalldirectory: &super::Foundation::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RemoveGame(&mut self, guidinstanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn UpdateGame(&mut self, guidinstanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn VerifyAccess(&mut self, bstrgdfbinarypath: &super::Foundation::BSTR) -> ::windows::core::Result<super::Foundation::BOOL>;
+    fn AddGame(&self, bstrgdfbinarypath: &super::Foundation::BSTR, bstrgameinstalldirectory: &super::Foundation::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RemoveGame(&self, guidinstanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn UpdateGame(&self, guidinstanceid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn VerifyAccess(&self, bstrgdfbinarypath: &super::Foundation::BSTR) -> ::windows::core::Result<super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IGameExplorer_Vtbl {
@@ -48,9 +48,9 @@ impl IGameExplorer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGameExplorer2_Impl: Sized {
-    fn InstallGame(&mut self, binarygdfpath: super::Foundation::PWSTR, installdirectory: super::Foundation::PWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::Result<()>;
-    fn UninstallGame(&mut self, binarygdfpath: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn CheckAccess(&mut self, binarygdfpath: super::Foundation::PWSTR) -> ::windows::core::Result<super::Foundation::BOOL>;
+    fn InstallGame(&self, binarygdfpath: super::Foundation::PWSTR, installdirectory: super::Foundation::PWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows::core::Result<()>;
+    fn UninstallGame(&self, binarygdfpath: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CheckAccess(&self, binarygdfpath: super::Foundation::PWSTR) -> ::windows::core::Result<super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IGameExplorer2_Vtbl {
@@ -89,18 +89,18 @@ impl IGameExplorer2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGameStatistics_Impl: Sized {
-    fn GetMaxCategoryLength(&mut self) -> ::windows::core::Result<u32>;
-    fn GetMaxNameLength(&mut self) -> ::windows::core::Result<u32>;
-    fn GetMaxValueLength(&mut self) -> ::windows::core::Result<u32>;
-    fn GetMaxCategories(&mut self) -> ::windows::core::Result<u16>;
-    fn GetMaxStatsPerCategory(&mut self) -> ::windows::core::Result<u16>;
-    fn SetCategoryTitle(&mut self, categoryindex: u16, title: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetCategoryTitle(&mut self, categoryindex: u16) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetStatistic(&mut self, categoryindex: u16, statindex: u16, pname: *mut super::Foundation::PWSTR, pvalue: *mut super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetStatistic(&mut self, categoryindex: u16, statindex: u16, name: super::Foundation::PWSTR, value: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Save(&mut self, trackchanges: super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetLastPlayedCategory(&mut self, categoryindex: u32) -> ::windows::core::Result<()>;
-    fn GetLastPlayedCategory(&mut self) -> ::windows::core::Result<u32>;
+    fn GetMaxCategoryLength(&self) -> ::windows::core::Result<u32>;
+    fn GetMaxNameLength(&self) -> ::windows::core::Result<u32>;
+    fn GetMaxValueLength(&self) -> ::windows::core::Result<u32>;
+    fn GetMaxCategories(&self) -> ::windows::core::Result<u16>;
+    fn GetMaxStatsPerCategory(&self) -> ::windows::core::Result<u16>;
+    fn SetCategoryTitle(&self, categoryindex: u16, title: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetCategoryTitle(&self, categoryindex: u16) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: *mut super::Foundation::PWSTR, pvalue: *mut super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetStatistic(&self, categoryindex: u16, statindex: u16, name: super::Foundation::PWSTR, value: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Save(&self, trackchanges: super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetLastPlayedCategory(&self, categoryindex: u32) -> ::windows::core::Result<()>;
+    fn GetLastPlayedCategory(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IGameStatistics_Vtbl {
@@ -229,8 +229,8 @@ impl IGameStatistics_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGameStatisticsMgr_Impl: Sized {
-    fn GetGameStatistics(&mut self, gdfbinarypath: super::Foundation::PWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::core::Result<()>;
-    fn RemoveGameStatistics(&mut self, gdfbinarypath: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetGameStatistics(&self, gdfbinarypath: super::Foundation::PWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut ::core::option::Option<IGameStatistics>) -> ::windows::core::Result<()>;
+    fn RemoveGameStatistics(&self, gdfbinarypath: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IGameStatisticsMgr_Vtbl {
@@ -257,12 +257,12 @@ impl IGameStatisticsMgr_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXblIdpAuthManager_Impl: Sized {
-    fn SetGamerAccount(&mut self, msaaccountid: super::Foundation::PWSTR, xuid: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetGamerAccount(&mut self, msaaccountid: *mut super::Foundation::PWSTR, xuid: *mut super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetAppViewInitialized(&mut self, appsid: super::Foundation::PWSTR, msaaccountid: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetEnvironment(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetSandbox(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetTokenAndSignatureWithTokenResult(&mut self, msaaccountid: super::Foundation::PWSTR, appsid: super::Foundation::PWSTR, msatarget: super::Foundation::PWSTR, msapolicy: super::Foundation::PWSTR, httpmethod: super::Foundation::PWSTR, uri: super::Foundation::PWSTR, headers: super::Foundation::PWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> ::windows::core::Result<IXblIdpAuthTokenResult>;
+    fn SetGamerAccount(&self, msaaccountid: super::Foundation::PWSTR, xuid: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetGamerAccount(&self, msaaccountid: *mut super::Foundation::PWSTR, xuid: *mut super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetAppViewInitialized(&self, appsid: super::Foundation::PWSTR, msaaccountid: super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetEnvironment(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetSandbox(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetTokenAndSignatureWithTokenResult(&self, msaaccountid: super::Foundation::PWSTR, appsid: super::Foundation::PWSTR, msatarget: super::Foundation::PWSTR, msapolicy: super::Foundation::PWSTR, httpmethod: super::Foundation::PWSTR, uri: super::Foundation::PWSTR, headers: super::Foundation::PWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> ::windows::core::Result<IXblIdpAuthTokenResult>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXblIdpAuthManager_Vtbl {
@@ -331,26 +331,26 @@ impl IXblIdpAuthManager_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXblIdpAuthTokenResult_Impl: Sized {
-    fn GetStatus(&mut self) -> ::windows::core::Result<XBL_IDP_AUTH_TOKEN_STATUS>;
-    fn GetErrorCode(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn GetToken(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetSignature(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetSandbox(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetEnvironment(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetMsaAccountId(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetXuid(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetGamertag(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetAgeGroup(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetPrivileges(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetMsaTarget(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetMsaPolicy(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetMsaAppId(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetRedirect(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetMessage(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetHelpId(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetEnforcementBans(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetRestrictions(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetTitleRestrictions(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetStatus(&self) -> ::windows::core::Result<XBL_IDP_AUTH_TOKEN_STATUS>;
+    fn GetErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn GetToken(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetSignature(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetSandbox(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetEnvironment(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetMsaAccountId(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetXuid(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetAgeGroup(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetPrivileges(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetMsaTarget(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetMsaPolicy(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetMsaAppId(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetRedirect(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetMessage(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetHelpId(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetEnforcementBans(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetRestrictions(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetTitleRestrictions(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXblIdpAuthTokenResult_Vtbl {
@@ -605,9 +605,9 @@ impl IXblIdpAuthTokenResult_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXblIdpAuthTokenResult2_Impl: Sized {
-    fn GetModernGamertag(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetModernGamertagSuffix(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
-    fn GetUniqueModernGamertag(&mut self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetModernGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetModernGamertagSuffix(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
+    fn GetUniqueModernGamertag(&self) -> ::windows::core::Result<super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXblIdpAuthTokenResult2_Vtbl {

@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrintDialogCallback_Impl: Sized {
-    fn InitDone(&mut self) -> ::windows::core::Result<()>;
-    fn SelectionChange(&mut self) -> ::windows::core::Result<()>;
-    fn HandleMessage(&mut self, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
+    fn InitDone(&self) -> ::windows::core::Result<()>;
+    fn SelectionChange(&self) -> ::windows::core::Result<()>;
+    fn HandleMessage(&self, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPrintDialogCallback_Vtbl {
@@ -35,9 +35,9 @@ impl IPrintDialogCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IPrintDialogServices_Impl: Sized {
-    fn GetCurrentDevMode(&mut self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCurrentPrinterName(&mut self, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetCurrentPortName(&mut self, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCurrentPrinterName(&self, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetCurrentPortName(&self, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IPrintDialogServices_Vtbl {

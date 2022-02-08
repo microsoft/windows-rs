@@ -1,14 +1,14 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocInterface_Impl: Sized {
-    fn GetDeviceSignature(&mut self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetFriendlyName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn IsDot11d(&mut self, pf11d: *mut u8) -> ::windows::core::Result<()>;
-    fn IsAdHocCapable(&mut self, pfadhoccapable: *mut u8) -> ::windows::core::Result<()>;
-    fn IsRadioOn(&mut self, pfisradioon: *mut u8) -> ::windows::core::Result<()>;
-    fn GetActiveNetwork(&mut self) -> ::windows::core::Result<IDot11AdHocNetwork>;
-    fn GetIEnumSecuritySettings(&mut self) -> ::windows::core::Result<IEnumDot11AdHocSecuritySettings>;
-    fn GetIEnumDot11AdHocNetworks(&mut self, pfilterguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
-    fn GetStatus(&mut self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
+    fn GetDeviceSignature(&self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetFriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn IsDot11d(&self, pf11d: *mut u8) -> ::windows::core::Result<()>;
+    fn IsAdHocCapable(&self, pfadhoccapable: *mut u8) -> ::windows::core::Result<()>;
+    fn IsRadioOn(&self, pfisradioon: *mut u8) -> ::windows::core::Result<()>;
+    fn GetActiveNetwork(&self) -> ::windows::core::Result<IDot11AdHocNetwork>;
+    fn GetIEnumSecuritySettings(&self) -> ::windows::core::Result<IEnumDot11AdHocSecuritySettings>;
+    fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
+    fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDot11AdHocInterface_Vtbl {
@@ -100,7 +100,7 @@ impl IDot11AdHocInterface_Vtbl {
     }
 }
 pub trait IDot11AdHocInterfaceNotificationSink_Impl: Sized {
-    fn OnConnectionStatusChange(&mut self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
+    fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
 }
 impl IDot11AdHocInterfaceNotificationSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocInterfaceNotificationSink_Impl, const OFFSET: isize>() -> IDot11AdHocInterfaceNotificationSink_Vtbl {
@@ -117,11 +117,11 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocManager_Impl: Sized {
-    fn CreateNetwork(&mut self, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: &::core::option::Option<IDot11AdHocInterface>, psecurity: &::core::option::Option<IDot11AdHocSecuritySettings>, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
-    fn CommitCreatedNetwork(&mut self, piadhoc: &::core::option::Option<IDot11AdHocNetwork>, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
-    fn GetIEnumDot11AdHocNetworks(&mut self, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
-    fn GetIEnumDot11AdHocInterfaces(&mut self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces>;
-    fn GetNetwork(&mut self, networksignature: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
+    fn CreateNetwork(&self, name: super::super::Foundation::PWSTR, password: super::super::Foundation::PWSTR, geographicalid: i32, pinterface: &::core::option::Option<IDot11AdHocInterface>, psecurity: &::core::option::Option<IDot11AdHocSecuritySettings>, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
+    fn CommitCreatedNetwork(&self, piadhoc: &::core::option::Option<IDot11AdHocNetwork>, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
+    fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
+    fn GetIEnumDot11AdHocInterfaces(&self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces>;
+    fn GetNetwork(&self, networksignature: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDot11AdHocManager_Vtbl {
@@ -189,10 +189,10 @@ impl IDot11AdHocManager_Vtbl {
     }
 }
 pub trait IDot11AdHocManagerNotificationSink_Impl: Sized {
-    fn OnNetworkAdd(&mut self, piadhocnetwork: &::core::option::Option<IDot11AdHocNetwork>) -> ::windows::core::Result<()>;
-    fn OnNetworkRemove(&mut self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn OnInterfaceAdd(&mut self, piadhocinterface: &::core::option::Option<IDot11AdHocInterface>) -> ::windows::core::Result<()>;
-    fn OnInterfaceRemove(&mut self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnNetworkAdd(&self, piadhocnetwork: &::core::option::Option<IDot11AdHocNetwork>) -> ::windows::core::Result<()>;
+    fn OnNetworkRemove(&self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn OnInterfaceAdd(&self, piadhocinterface: &::core::option::Option<IDot11AdHocInterface>) -> ::windows::core::Result<()>;
+    fn OnInterfaceRemove(&self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl IDot11AdHocManagerNotificationSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocManagerNotificationSink_Impl, const OFFSET: isize>() -> IDot11AdHocManagerNotificationSink_Vtbl {
@@ -230,18 +230,18 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocNetwork_Impl: Sized {
-    fn GetStatus(&mut self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
-    fn GetSSID(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn HasProfile(&mut self, pf11d: *mut u8) -> ::windows::core::Result<()>;
-    fn GetProfileName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn DeleteProfile(&mut self) -> ::windows::core::Result<()>;
-    fn GetSignalQuality(&mut self, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSecuritySetting(&mut self) -> ::windows::core::Result<IDot11AdHocSecuritySettings>;
-    fn GetContextGuid(&mut self, pcontextguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetSignature(&mut self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetInterface(&mut self) -> ::windows::core::Result<IDot11AdHocInterface>;
-    fn Connect(&mut self, passphrase: super::super::Foundation::PWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self) -> ::windows::core::Result<()>;
+    fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
+    fn GetSSID(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn HasProfile(&self, pf11d: *mut u8) -> ::windows::core::Result<()>;
+    fn GetProfileName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn DeleteProfile(&self) -> ::windows::core::Result<()>;
+    fn GetSignalQuality(&self, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSecuritySetting(&self) -> ::windows::core::Result<IDot11AdHocSecuritySettings>;
+    fn GetContextGuid(&self, pcontextguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetSignature(&self, psignature: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetInterface(&self) -> ::windows::core::Result<IDot11AdHocInterface>;
+    fn Connect(&self, passphrase: super::super::Foundation::PWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
+    fn Disconnect(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDot11AdHocNetwork_Vtbl {
@@ -351,8 +351,8 @@ impl IDot11AdHocNetwork_Vtbl {
     }
 }
 pub trait IDot11AdHocNetworkNotificationSink_Impl: Sized {
-    fn OnStatusChange(&mut self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
-    fn OnConnectFail(&mut self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::core::Result<()>;
+    fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
+    fn OnConnectFail(&self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::core::Result<()>;
 }
 impl IDot11AdHocNetworkNotificationSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetworkNotificationSink_Impl, const OFFSET: isize>() -> IDot11AdHocNetworkNotificationSink_Vtbl {
@@ -377,8 +377,8 @@ impl IDot11AdHocNetworkNotificationSink_Vtbl {
     }
 }
 pub trait IDot11AdHocSecuritySettings_Impl: Sized {
-    fn GetDot11AuthAlgorithm(&mut self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::Result<()>;
-    fn GetDot11CipherAlgorithm(&mut self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::core::Result<()>;
+    fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::Result<()>;
+    fn GetDot11CipherAlgorithm(&self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::core::Result<()>;
 }
 impl IDot11AdHocSecuritySettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocSecuritySettings_Impl, const OFFSET: isize>() -> IDot11AdHocSecuritySettings_Vtbl {
@@ -403,10 +403,10 @@ impl IDot11AdHocSecuritySettings_Vtbl {
     }
 }
 pub trait IEnumDot11AdHocInterfaces_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces>;
 }
 impl IEnumDot11AdHocInterfaces_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDot11AdHocInterfaces_Impl, const OFFSET: isize>() -> IEnumDot11AdHocInterfaces_Vtbl {
@@ -449,10 +449,10 @@ impl IEnumDot11AdHocInterfaces_Vtbl {
     }
 }
 pub trait IEnumDot11AdHocNetworks_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocNetwork>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocNetwork>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
 }
 impl IEnumDot11AdHocNetworks_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDot11AdHocNetworks_Impl, const OFFSET: isize>() -> IEnumDot11AdHocNetworks_Vtbl {
@@ -495,10 +495,10 @@ impl IEnumDot11AdHocNetworks_Vtbl {
     }
 }
 pub trait IEnumDot11AdHocSecuritySettings_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocSecuritySettings>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumDot11AdHocSecuritySettings>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IDot11AdHocSecuritySettings>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocSecuritySettings>;
 }
 impl IEnumDot11AdHocSecuritySettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDot11AdHocSecuritySettings_Impl, const OFFSET: isize>() -> IEnumDot11AdHocSecuritySettings_Vtbl {

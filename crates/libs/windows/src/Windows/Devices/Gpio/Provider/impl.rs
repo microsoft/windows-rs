@@ -1,6 +1,6 @@
 pub trait IGpioControllerProvider_Impl: Sized {
-    fn PinCount(&mut self) -> ::windows::core::Result<i32>;
-    fn OpenPinProvider(&mut self, pin: i32, sharingmode: ProviderGpioSharingMode) -> ::windows::core::Result<IGpioPinProvider>;
+    fn PinCount(&self) -> ::windows::core::Result<i32>;
+    fn OpenPinProvider(&self, pin: i32, sharingmode: ProviderGpioSharingMode) -> ::windows::core::Result<IGpioPinProvider>;
 }
 impl ::windows::core::RuntimeName for IGpioControllerProvider {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioControllerProvider";
@@ -43,17 +43,17 @@ impl IGpioControllerProvider_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IGpioPinProvider_Impl: Sized {
-    fn ValueChanged(&mut self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
-    fn RemoveValueChanged(&mut self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn DebounceTimeout(&mut self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetDebounceTimeout(&mut self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
-    fn PinNumber(&mut self) -> ::windows::core::Result<i32>;
-    fn SharingMode(&mut self) -> ::windows::core::Result<ProviderGpioSharingMode>;
-    fn IsDriveModeSupported(&mut self, drivemode: ProviderGpioPinDriveMode) -> ::windows::core::Result<bool>;
-    fn GetDriveMode(&mut self) -> ::windows::core::Result<ProviderGpioPinDriveMode>;
-    fn SetDriveMode(&mut self, value: ProviderGpioPinDriveMode) -> ::windows::core::Result<()>;
-    fn Write(&mut self, value: ProviderGpioPinValue) -> ::windows::core::Result<()>;
-    fn Read(&mut self) -> ::windows::core::Result<ProviderGpioPinValue>;
+    fn ValueChanged(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn RemoveValueChanged(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn DebounceTimeout(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan>;
+    fn SetDebounceTimeout(&self, value: &super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>;
+    fn PinNumber(&self) -> ::windows::core::Result<i32>;
+    fn SharingMode(&self) -> ::windows::core::Result<ProviderGpioSharingMode>;
+    fn IsDriveModeSupported(&self, drivemode: ProviderGpioPinDriveMode) -> ::windows::core::Result<bool>;
+    fn GetDriveMode(&self) -> ::windows::core::Result<ProviderGpioPinDriveMode>;
+    fn SetDriveMode(&self, value: ProviderGpioPinDriveMode) -> ::windows::core::Result<()>;
+    fn Write(&self, value: ProviderGpioPinValue) -> ::windows::core::Result<()>;
+    fn Read(&self) -> ::windows::core::Result<ProviderGpioPinValue>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IGpioPinProvider {
@@ -187,7 +187,7 @@ impl IGpioPinProvider_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IGpioProvider_Impl: Sized {
-    fn GetControllers(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>>;
+    fn GetControllers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IGpioProvider {

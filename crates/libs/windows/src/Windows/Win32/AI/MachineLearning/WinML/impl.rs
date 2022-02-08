@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorAttributes_Impl: Sized {
-    fn GetAttributeElementCount(&mut self, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32>;
-    fn GetAttribute(&mut self, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetStringAttributeElementLength(&mut self, name: super::super::super::Foundation::PSTR, elementindex: u32) -> ::windows::core::Result<u32>;
-    fn GetStringAttributeElement(&mut self, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn GetAttributeElementCount(&self, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType) -> ::windows::core::Result<u32>;
+    fn GetAttribute(&self, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetStringAttributeElementLength(&self, name: super::super::super::Foundation::PSTR, elementindex: u32) -> ::windows::core::Result<u32>;
+    fn GetStringAttributeElement(&self, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorAttributes_Vtbl {
@@ -53,7 +53,7 @@ impl IMLOperatorAttributes_Vtbl {
     }
 }
 pub trait IMLOperatorKernel_Impl: Sized {
-    fn Compute(&mut self, context: &::core::option::Option<IMLOperatorKernelContext>) -> ::windows::core::Result<()>;
+    fn Compute(&self, context: &::core::option::Option<IMLOperatorKernelContext>) -> ::windows::core::Result<()>;
 }
 impl IMLOperatorKernel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernel_Impl, const OFFSET: isize>() -> IMLOperatorKernel_Vtbl {
@@ -69,11 +69,11 @@ impl IMLOperatorKernel_Vtbl {
     }
 }
 pub trait IMLOperatorKernelContext_Impl: Sized {
-    fn GetInputTensor(&mut self, inputindex: u32) -> ::windows::core::Result<IMLOperatorTensor>;
-    fn GetOutputTensor(&mut self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32) -> ::windows::core::Result<IMLOperatorTensor>;
-    fn GetOutputTensor2(&mut self, outputindex: u32) -> ::windows::core::Result<IMLOperatorTensor>;
-    fn AllocateTemporaryData(&mut self, size: usize) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetExecutionInterface(&mut self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
+    fn GetInputTensor(&self, inputindex: u32) -> ::windows::core::Result<IMLOperatorTensor>;
+    fn GetOutputTensor(&self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32) -> ::windows::core::Result<IMLOperatorTensor>;
+    fn GetOutputTensor2(&self, outputindex: u32) -> ::windows::core::Result<IMLOperatorTensor>;
+    fn AllocateTemporaryData(&self, size: usize) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
 }
 impl IMLOperatorKernelContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelContext_Impl, const OFFSET: isize>() -> IMLOperatorKernelContext_Vtbl {
@@ -141,15 +141,15 @@ impl IMLOperatorKernelContext_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorKernelCreationContext_Impl: Sized + IMLOperatorAttributes_Impl {
-    fn GetInputCount(&mut self) -> u32;
-    fn GetOutputCount(&mut self) -> u32;
-    fn IsInputValid(&mut self, inputindex: u32) -> bool;
-    fn IsOutputValid(&mut self, outputindex: u32) -> bool;
-    fn GetInputEdgeDescription(&mut self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
-    fn GetOutputEdgeDescription(&mut self, outputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
-    fn HasTensorShapeDescription(&mut self) -> bool;
-    fn GetTensorShapeDescription(&mut self) -> ::windows::core::Result<IMLOperatorTensorShapeDescription>;
-    fn GetExecutionInterface(&mut self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
+    fn GetInputCount(&self) -> u32;
+    fn GetOutputCount(&self) -> u32;
+    fn IsInputValid(&self, inputindex: u32) -> bool;
+    fn IsOutputValid(&self, outputindex: u32) -> bool;
+    fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
+    fn GetOutputEdgeDescription(&self, outputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
+    fn HasTensorShapeDescription(&self) -> bool;
+    fn GetTensorShapeDescription(&self) -> ::windows::core::Result<IMLOperatorTensorShapeDescription>;
+    fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorKernelCreationContext_Vtbl {
@@ -235,7 +235,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
     }
 }
 pub trait IMLOperatorKernelFactory_Impl: Sized {
-    fn CreateKernel(&mut self, context: &::core::option::Option<IMLOperatorKernelCreationContext>) -> ::windows::core::Result<IMLOperatorKernel>;
+    fn CreateKernel(&self, context: &::core::option::Option<IMLOperatorKernelCreationContext>) -> ::windows::core::Result<IMLOperatorKernel>;
 }
 impl IMLOperatorKernelFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelFactory_Impl, const OFFSET: isize>() -> IMLOperatorKernelFactory_Vtbl {
@@ -258,8 +258,8 @@ impl IMLOperatorKernelFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorRegistry_Impl: Sized {
-    fn RegisterOperatorSetSchema(&mut self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: &::core::option::Option<IMLOperatorTypeInferrer>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
-    fn RegisterOperatorKernel(&mut self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: &::core::option::Option<IMLOperatorKernelFactory>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
+    fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: &::core::option::Option<IMLOperatorTypeInferrer>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
+    fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: &::core::option::Option<IMLOperatorKernelFactory>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorRegistry_Vtbl {
@@ -286,14 +286,14 @@ impl IMLOperatorRegistry_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorShapeInferenceContext_Impl: Sized + IMLOperatorAttributes_Impl {
-    fn GetInputCount(&mut self) -> u32;
-    fn GetOutputCount(&mut self) -> u32;
-    fn IsInputValid(&mut self, inputindex: u32) -> bool;
-    fn IsOutputValid(&mut self, outputindex: u32) -> bool;
-    fn GetInputEdgeDescription(&mut self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
-    fn GetInputTensorDimensionCount(&mut self, inputindex: u32) -> ::windows::core::Result<u32>;
-    fn GetInputTensorShape(&mut self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
-    fn SetOutputTensorShape(&mut self, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::core::Result<()>;
+    fn GetInputCount(&self) -> u32;
+    fn GetOutputCount(&self) -> u32;
+    fn IsInputValid(&self, inputindex: u32) -> bool;
+    fn IsOutputValid(&self, outputindex: u32) -> bool;
+    fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
+    fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows::core::Result<u32>;
+    fn GetInputTensorShape(&self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
+    fn SetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorShapeInferenceContext_Vtbl {
@@ -367,7 +367,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
     }
 }
 pub trait IMLOperatorShapeInferrer_Impl: Sized {
-    fn InferOutputShapes(&mut self, context: &::core::option::Option<IMLOperatorShapeInferenceContext>) -> ::windows::core::Result<()>;
+    fn InferOutputShapes(&self, context: &::core::option::Option<IMLOperatorShapeInferenceContext>) -> ::windows::core::Result<()>;
 }
 impl IMLOperatorShapeInferrer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorShapeInferrer_Impl, const OFFSET: isize>() -> IMLOperatorShapeInferrer_Vtbl {
@@ -383,13 +383,13 @@ impl IMLOperatorShapeInferrer_Vtbl {
     }
 }
 pub trait IMLOperatorTensor_Impl: Sized {
-    fn GetDimensionCount(&mut self) -> u32;
-    fn GetShape(&mut self, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
-    fn GetTensorDataType(&mut self) -> MLOperatorTensorDataType;
-    fn IsCpuData(&mut self) -> bool;
-    fn IsDataInterface(&mut self) -> bool;
-    fn GetData(&mut self) -> *mut ::core::ffi::c_void;
-    fn GetDataInterface(&mut self, datainterface: *mut ::core::option::Option<::windows::core::IUnknown>);
+    fn GetDimensionCount(&self) -> u32;
+    fn GetShape(&self, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
+    fn GetTensorDataType(&self) -> MLOperatorTensorDataType;
+    fn IsCpuData(&self) -> bool;
+    fn IsDataInterface(&self) -> bool;
+    fn GetData(&self) -> *mut ::core::ffi::c_void;
+    fn GetDataInterface(&self, datainterface: *mut ::core::option::Option<::windows::core::IUnknown>);
 }
 impl IMLOperatorTensor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTensor_Impl, const OFFSET: isize>() -> IMLOperatorTensor_Vtbl {
@@ -444,11 +444,11 @@ impl IMLOperatorTensor_Vtbl {
     }
 }
 pub trait IMLOperatorTensorShapeDescription_Impl: Sized {
-    fn GetInputTensorDimensionCount(&mut self, inputindex: u32) -> ::windows::core::Result<u32>;
-    fn GetInputTensorShape(&mut self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
-    fn HasOutputShapeDescription(&mut self) -> bool;
-    fn GetOutputTensorDimensionCount(&mut self, outputindex: u32) -> ::windows::core::Result<u32>;
-    fn GetOutputTensorShape(&mut self, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
+    fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows::core::Result<u32>;
+    fn GetInputTensorShape(&self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
+    fn HasOutputShapeDescription(&self) -> bool;
+    fn GetOutputTensorDimensionCount(&self, outputindex: u32) -> ::windows::core::Result<u32>;
+    fn GetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IMLOperatorTensorShapeDescription_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTensorShapeDescription_Impl, const OFFSET: isize>() -> IMLOperatorTensorShapeDescription_Vtbl {
@@ -504,12 +504,12 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLOperatorTypeInferenceContext_Impl: Sized + IMLOperatorAttributes_Impl {
-    fn GetInputCount(&mut self) -> u32;
-    fn GetOutputCount(&mut self) -> u32;
-    fn IsInputValid(&mut self, inputindex: u32) -> bool;
-    fn IsOutputValid(&mut self, outputindex: u32) -> bool;
-    fn GetInputEdgeDescription(&mut self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
-    fn SetOutputEdgeDescription(&mut self, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::core::Result<()>;
+    fn GetInputCount(&self) -> u32;
+    fn GetOutputCount(&self) -> u32;
+    fn IsInputValid(&self, inputindex: u32) -> bool;
+    fn IsOutputValid(&self, outputindex: u32) -> bool;
+    fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
+    fn SetOutputEdgeDescription(&self, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMLOperatorTypeInferenceContext_Vtbl {
@@ -565,7 +565,7 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
     }
 }
 pub trait IMLOperatorTypeInferrer_Impl: Sized {
-    fn InferOutputTypes(&mut self, context: &::core::option::Option<IMLOperatorTypeInferenceContext>) -> ::windows::core::Result<()>;
+    fn InferOutputTypes(&self, context: &::core::option::Option<IMLOperatorTypeInferenceContext>) -> ::windows::core::Result<()>;
 }
 impl IMLOperatorTypeInferrer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTypeInferrer_Impl, const OFFSET: isize>() -> IMLOperatorTypeInferrer_Vtbl {
@@ -582,9 +582,9 @@ impl IMLOperatorTypeInferrer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait IWinMLEvaluationContext_Impl: Sized {
-    fn BindValue(&mut self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::core::Result<()>;
-    fn GetValueByName(&mut self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<*mut WINML_BINDING_DESC>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::core::Result<()>;
+    fn GetValueByName(&self, name: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<*mut WINML_BINDING_DESC>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl IWinMLEvaluationContext_Vtbl {
@@ -623,10 +623,10 @@ impl IWinMLEvaluationContext_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWinMLModel_Impl: Sized {
-    fn GetDescription(&mut self) -> ::windows::core::Result<*mut WINML_MODEL_DESC>;
-    fn EnumerateMetadata(&mut self, index: u32, pkey: *mut super::super::super::Foundation::PWSTR, pvalue: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn EnumerateModelInputs(&mut self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC>;
-    fn EnumerateModelOutputs(&mut self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC>;
+    fn GetDescription(&self) -> ::windows::core::Result<*mut WINML_MODEL_DESC>;
+    fn EnumerateMetadata(&self, index: u32, pkey: *mut super::super::super::Foundation::PWSTR, pvalue: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn EnumerateModelInputs(&self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC>;
+    fn EnumerateModelOutputs(&self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IWinMLModel_Vtbl {
@@ -683,9 +683,9 @@ impl IWinMLModel_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait IWinMLRuntime_Impl: Sized {
-    fn LoadModel(&mut self, path: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IWinMLModel>;
-    fn CreateEvaluationContext(&mut self, device: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>) -> ::windows::core::Result<IWinMLEvaluationContext>;
-    fn EvaluateModel(&mut self, pcontext: &::core::option::Option<IWinMLEvaluationContext>) -> ::windows::core::Result<()>;
+    fn LoadModel(&self, path: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<IWinMLModel>;
+    fn CreateEvaluationContext(&self, device: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>) -> ::windows::core::Result<IWinMLEvaluationContext>;
+    fn EvaluateModel(&self, pcontext: &::core::option::Option<IWinMLEvaluationContext>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl IWinMLRuntime_Vtbl {
@@ -729,7 +729,7 @@ impl IWinMLRuntime_Vtbl {
     }
 }
 pub trait IWinMLRuntimeFactory_Impl: Sized {
-    fn CreateRuntime(&mut self, runtimetype: WINML_RUNTIME_TYPE) -> ::windows::core::Result<IWinMLRuntime>;
+    fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> ::windows::core::Result<IWinMLRuntime>;
 }
 impl IWinMLRuntimeFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLRuntimeFactory_Impl, const OFFSET: isize>() -> IWinMLRuntimeFactory_Vtbl {

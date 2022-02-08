@@ -1,5 +1,5 @@
 pub trait II2cControllerProvider_Impl: Sized {
-    fn GetDeviceProvider(&mut self, settings: &::core::option::Option<ProviderI2cConnectionSettings>) -> ::windows::core::Result<II2cDeviceProvider>;
+    fn GetDeviceProvider(&self, settings: &::core::option::Option<ProviderI2cConnectionSettings>) -> ::windows::core::Result<II2cDeviceProvider>;
 }
 impl ::windows::core::RuntimeName for II2cControllerProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cControllerProvider";
@@ -29,13 +29,13 @@ impl II2cControllerProvider_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait II2cDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
-    fn DeviceId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Write(&mut self, buffer: &[u8]) -> ::windows::core::Result<()>;
-    fn WritePartial(&mut self, buffer: &[u8]) -> ::windows::core::Result<ProviderI2cTransferResult>;
-    fn Read(&mut self, buffer: &mut [u8]) -> ::windows::core::Result<()>;
-    fn ReadPartial(&mut self, buffer: &mut [u8]) -> ::windows::core::Result<ProviderI2cTransferResult>;
-    fn WriteRead(&mut self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()>;
-    fn WriteReadPartial(&mut self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<ProviderI2cTransferResult>;
+    fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Write(&self, buffer: &[u8]) -> ::windows::core::Result<()>;
+    fn WritePartial(&self, buffer: &[u8]) -> ::windows::core::Result<ProviderI2cTransferResult>;
+    fn Read(&self, buffer: &mut [u8]) -> ::windows::core::Result<()>;
+    fn ReadPartial(&self, buffer: &mut [u8]) -> ::windows::core::Result<ProviderI2cTransferResult>;
+    fn WriteRead(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()>;
+    fn WriteReadPartial(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<ProviderI2cTransferResult>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for II2cDeviceProvider {
@@ -124,7 +124,7 @@ impl II2cDeviceProvider_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait II2cProvider_Impl: Sized {
-    fn GetControllersAsync(&mut self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>;
+    fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for II2cProvider {

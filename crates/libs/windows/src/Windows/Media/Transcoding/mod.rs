@@ -239,6 +239,10 @@ impl ::core::fmt::Debug for MediaTranscoder {
 }
 unsafe impl ::windows::core::RuntimeType for MediaTranscoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.MediaTranscoder;{190c99d2-a0aa-4d34-86bc-eed1b12c2f5b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for MediaTranscoder {
     type Vtable = IMediaTranscoder_Vtbl;
@@ -318,9 +322,10 @@ impl ::core::fmt::Debug for MediaVideoProcessingAlgorithm {
 }
 unsafe impl ::windows::core::RuntimeType for MediaVideoProcessingAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
-}
-impl ::windows::core::DefaultType for MediaVideoProcessingAlgorithm {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Media_Transcoding'*"]
 #[repr(transparent)]
@@ -370,6 +375,10 @@ impl ::core::fmt::Debug for PrepareTranscodeResult {
 }
 unsafe impl ::windows::core::RuntimeType for PrepareTranscodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.PrepareTranscodeResult;{05f25dce-994f-4a34-9d68-97ccce1730d6})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PrepareTranscodeResult {
     type Vtable = IPrepareTranscodeResult_Vtbl;
@@ -451,9 +460,10 @@ impl ::core::fmt::Debug for TranscodeFailureReason {
 }
 unsafe impl ::windows::core::RuntimeType for TranscodeFailureReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.TranscodeFailureReason;i4)");
-}
-impl ::windows::core::DefaultType for TranscodeFailureReason {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

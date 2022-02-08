@@ -217,6 +217,10 @@ impl ::core::fmt::Debug for AppInstallItem {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem;{49d3dfab-168a-4cbf-a93a-9e448c82737d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppInstallItem {
     type Vtable = IAppInstallItem_Vtbl;
@@ -705,6 +709,10 @@ impl ::core::fmt::Debug for AppInstallManager {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager;{9353e170-8441-4b45-bd72-7c2fa925beee})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppInstallManager {
     type Vtable = IAppInstallManager_Vtbl;
@@ -786,6 +794,10 @@ impl ::core::fmt::Debug for AppInstallManagerItemEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallManagerItemEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs;{bc505743-4674-4dd1-957e-c25682086a14})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppInstallManagerItemEventArgs {
     type Vtable = IAppInstallManagerItemEventArgs_Vtbl;
@@ -1063,6 +1075,10 @@ impl ::core::fmt::Debug for AppInstallOptions {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions;{c9808300-1cb8-4eb6-8c9f-6a30c64a5b51})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppInstallOptions {
     type Vtable = IAppInstallOptions_Vtbl;
@@ -1154,9 +1170,10 @@ impl ::core::fmt::Debug for AppInstallState {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallState;i4)");
-}
-impl ::windows::core::DefaultType for AppInstallState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
@@ -1246,6 +1263,10 @@ impl ::core::fmt::Debug for AppInstallStatus {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus;{936dccfa-2450-4126-88b1-6127a644dd5c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppInstallStatus {
     type Vtable = IAppInstallStatus_Vtbl;
@@ -1326,9 +1347,10 @@ impl ::core::fmt::Debug for AppInstallType {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallType;i4)");
-}
-impl ::windows::core::DefaultType for AppInstallType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
@@ -1361,9 +1383,10 @@ impl ::core::fmt::Debug for AppInstallationToastNotificationMode {
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallationToastNotificationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode;i4)");
-}
-impl ::windows::core::DefaultType for AppInstallationToastNotificationMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
@@ -1434,6 +1457,10 @@ impl ::core::fmt::Debug for AppUpdateOptions {
 }
 unsafe impl ::windows::core::RuntimeType for AppUpdateOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions;{26f0b02f-c2f3-4aea-af8c-6308dd9db85f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for AppUpdateOptions {
     type Vtable = IAppUpdateOptions_Vtbl;
@@ -1515,9 +1542,10 @@ impl ::core::fmt::Debug for AutoUpdateSetting {
 }
 unsafe impl ::windows::core::RuntimeType for AutoUpdateSetting {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.AutoUpdateSetting;i4)");
-}
-impl ::windows::core::DefaultType for AutoUpdateSetting {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
@@ -1550,6 +1578,10 @@ impl ::core::fmt::Debug for GetEntitlementResult {
 }
 unsafe impl ::windows::core::RuntimeType for GetEntitlementResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult;{74fc843f-1a9e-4609-8e4d-819086d08a3d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for GetEntitlementResult {
     type Vtable = IGetEntitlementResult_Vtbl;
@@ -1631,9 +1663,10 @@ impl ::core::fmt::Debug for GetEntitlementStatus {
 }
 unsafe impl ::windows::core::RuntimeType for GetEntitlementStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus;i4)");
-}
-impl ::windows::core::DefaultType for GetEntitlementStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]

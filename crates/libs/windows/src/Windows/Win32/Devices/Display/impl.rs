@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICloneViewHelper_Impl: Sized {
-    fn GetConnectedIDs(&mut self, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()>;
-    fn GetActiveTopology(&mut self, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>;
-    fn SetActiveTopology(&mut self, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>;
-    fn Commit(&mut self, ffinalcall: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetConnectedIDs(&self, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()>;
+    fn GetActiveTopology(&self, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>;
+    fn SetActiveTopology(&self, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>;
+    fn Commit(&self, ffinalcall: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICloneViewHelper_Vtbl {
@@ -42,12 +42,12 @@ impl ICloneViewHelper_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IViewHelper_Impl: Sized {
-    fn GetConnectedIDs(&mut self, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()>;
-    fn GetActiveTopology(&mut self, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>;
-    fn SetActiveTopology(&mut self, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>;
-    fn Commit(&mut self) -> ::windows::core::Result<()>;
-    fn SetConfiguration(&mut self, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<u32>;
-    fn GetProceedOnNewConfiguration(&mut self) -> ::windows::core::Result<()>;
+    fn GetConnectedIDs(&self, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()>;
+    fn GetActiveTopology(&self, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()>;
+    fn SetActiveTopology(&self, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()>;
+    fn Commit(&self) -> ::windows::core::Result<()>;
+    fn SetConfiguration(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<u32>;
+    fn GetProceedOnNewConfiguration(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IViewHelper_Vtbl {

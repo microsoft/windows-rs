@@ -1,6 +1,6 @@
 #[cfg(feature = "Foundation")]
 pub trait IInkPointFactory_Impl: Sized {
-    fn CreateInkPoint(&mut self, position: &super::super::super::Foundation::Point, pressure: f32) -> ::windows::core::Result<InkPoint>;
+    fn CreateInkPoint(&self, position: &super::super::super::Foundation::Point, pressure: f32) -> ::windows::core::Result<InkPoint>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IInkPointFactory {
@@ -28,7 +28,7 @@ impl IInkPointFactory_Vtbl {
     }
 }
 pub trait IInkPresenterRulerFactory_Impl: Sized {
-    fn Create(&mut self, inkpresenter: &::core::option::Option<InkPresenter>) -> ::windows::core::Result<InkPresenterRuler>;
+    fn Create(&self, inkpresenter: &::core::option::Option<InkPresenter>) -> ::windows::core::Result<InkPresenterRuler>;
 }
 impl ::windows::core::RuntimeName for IInkPresenterRulerFactory {
     const NAME: &'static str = "Windows.UI.Input.Inking.IInkPresenterRulerFactory";
@@ -55,15 +55,15 @@ impl IInkPresenterRulerFactory_Vtbl {
 }
 #[cfg(feature = "Foundation_Numerics")]
 pub trait IInkPresenterStencil_Impl: Sized {
-    fn Kind(&mut self) -> ::windows::core::Result<InkPresenterStencilKind>;
-    fn IsVisible(&mut self) -> ::windows::core::Result<bool>;
-    fn SetIsVisible(&mut self, value: bool) -> ::windows::core::Result<()>;
-    fn BackgroundColor(&mut self) -> ::windows::core::Result<super::super::Color>;
-    fn SetBackgroundColor(&mut self, value: &super::super::Color) -> ::windows::core::Result<()>;
-    fn ForegroundColor(&mut self) -> ::windows::core::Result<super::super::Color>;
-    fn SetForegroundColor(&mut self, value: &super::super::Color) -> ::windows::core::Result<()>;
-    fn Transform(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix3x2>;
-    fn SetTransform(&mut self, value: &super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
+    fn Kind(&self) -> ::windows::core::Result<InkPresenterStencilKind>;
+    fn IsVisible(&self) -> ::windows::core::Result<bool>;
+    fn SetIsVisible(&self, value: bool) -> ::windows::core::Result<()>;
+    fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Color>;
+    fn SetBackgroundColor(&self, value: &super::super::Color) -> ::windows::core::Result<()>;
+    fn ForegroundColor(&self) -> ::windows::core::Result<super::super::Color>;
+    fn SetForegroundColor(&self, value: &super::super::Color) -> ::windows::core::Result<()>;
+    fn Transform(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Matrix3x2>;
+    fn SetTransform(&self, value: &super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeName for IInkPresenterStencil {
@@ -171,9 +171,9 @@ impl IInkPresenterStencil_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IInkRecognizerContainer_Impl: Sized {
-    fn SetDefaultRecognizer(&mut self, recognizer: &::core::option::Option<InkRecognizer>) -> ::windows::core::Result<()>;
-    fn RecognizeAsync(&mut self, strokecollection: &::core::option::Option<InkStrokeContainer>, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>;
-    fn GetRecognizers(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>>;
+    fn SetDefaultRecognizer(&self, recognizer: &::core::option::Option<InkRecognizer>) -> ::windows::core::Result<()>;
+    fn RecognizeAsync(&self, strokecollection: &::core::option::Option<InkStrokeContainer>, recognitiontarget: InkRecognitionTarget) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>>;
+    fn GetRecognizers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognizer>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IInkRecognizerContainer {
@@ -224,20 +224,20 @@ impl IInkRecognizerContainer_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IInkStrokeContainer_Impl: Sized {
-    fn BoundingRect(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn AddStroke(&mut self, stroke: &::core::option::Option<InkStroke>) -> ::windows::core::Result<()>;
-    fn DeleteSelected(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn MoveSelected(&mut self, translation: &super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn SelectWithPolyLine(&mut self, polyline: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn SelectWithLine(&mut self, from: &super::super::super::Foundation::Point, to: &super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn CopySelectedToClipboard(&mut self) -> ::windows::core::Result<()>;
-    fn PasteFromClipboard(&mut self, position: &super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
-    fn CanPasteFromClipboard(&mut self) -> ::windows::core::Result<bool>;
-    fn LoadAsync(&mut self, inputstream: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>;
-    fn SaveAsync(&mut self, outputstream: &::core::option::Option<super::super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
-    fn UpdateRecognitionResults(&mut self, recognitionresults: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>) -> ::windows::core::Result<()>;
-    fn GetStrokes(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>>;
-    fn GetRecognitionResults(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
+    fn BoundingRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn AddStroke(&self, stroke: &::core::option::Option<InkStroke>) -> ::windows::core::Result<()>;
+    fn DeleteSelected(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn MoveSelected(&self, translation: &super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn SelectWithPolyLine(&self, polyline: &::core::option::Option<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>>) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn SelectWithLine(&self, from: &super::super::super::Foundation::Point, to: &super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn CopySelectedToClipboard(&self) -> ::windows::core::Result<()>;
+    fn PasteFromClipboard(&self, position: &super::super::super::Foundation::Point) -> ::windows::core::Result<super::super::super::Foundation::Rect>;
+    fn CanPasteFromClipboard(&self) -> ::windows::core::Result<bool>;
+    fn LoadAsync(&self, inputstream: &::core::option::Option<super::super::super::Storage::Streams::IInputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncActionWithProgress<u64>>;
+    fn SaveAsync(&self, outputstream: &::core::option::Option<super::super::super::Storage::Streams::IOutputStream>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
+    fn UpdateRecognitionResults(&self, recognitionresults: &::core::option::Option<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>) -> ::windows::core::Result<()>;
+    fn GetStrokes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkStroke>>;
+    fn GetRecognitionResults(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IInkStrokeContainer {

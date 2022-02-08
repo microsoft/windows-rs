@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDDVideoPortContainer_Impl: Sized {
-    fn CreateVideoPort(&mut self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut ::core::option::Option<IDirectDrawVideoPort>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn EnumVideoPorts(&mut self, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMVIDEOCALLBACK) -> ::windows::core::Result<()>;
-    fn GetVideoPortConnectInfo(&mut self, param0: u32, pcinfo: *mut u32, param2: *mut DDVIDEOPORTCONNECT) -> ::windows::core::Result<()>;
-    fn QueryVideoPortStatus(&mut self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> ::windows::core::Result<()>;
+    fn CreateVideoPort(&self, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut ::core::option::Option<IDirectDrawVideoPort>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn EnumVideoPorts(&self, param0: u32, param1: *mut DDVIDEOPORTCAPS, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMVIDEOCALLBACK) -> ::windows::core::Result<()>;
+    fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: *mut u32, param2: *mut DDVIDEOPORTCONNECT) -> ::windows::core::Result<()>;
+    fn QueryVideoPortStatus(&self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDDVideoPortContainer_Vtbl {
@@ -42,26 +42,26 @@ impl IDDVideoPortContainer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw_Impl: Sized {
-    fn Compact(&mut self) -> ::windows::core::Result<()>;
-    fn CreateClipper(&mut self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CreatePalette(&mut self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CreateSurface(&mut self, param0: *mut DDSURFACEDESC, param1: *mut ::core::option::Option<IDirectDrawSurface>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn DuplicateSurface(&mut self, param0: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<IDirectDrawSurface>;
-    fn EnumDisplayModes(&mut self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()>;
-    fn EnumSurfaces(&mut self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
-    fn FlipToGDISurface(&mut self) -> ::windows::core::Result<()>;
-    fn GetCaps(&mut self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()>;
-    fn GetDisplayMode(&mut self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
-    fn GetFourCCCodes(&mut self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGDISurface(&mut self) -> ::windows::core::Result<IDirectDrawSurface>;
-    fn GetMonitorFrequency(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn GetScanLine(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn GetVerticalBlankStatus(&mut self, param0: *mut i32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RestoreDisplayMode(&mut self) -> ::windows::core::Result<()>;
-    fn SetCooperativeLevel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn SetDisplayMode(&mut self, param0: u32, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn WaitForVerticalBlank(&mut self, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn Compact(&self) -> ::windows::core::Result<()>;
+    fn CreateClipper(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateSurface(&self, param0: *mut DDSURFACEDESC, param1: *mut ::core::option::Option<IDirectDrawSurface>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn DuplicateSurface(&self, param0: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<IDirectDrawSurface>;
+    fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()>;
+    fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
+    fn FlipToGDISurface(&self) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()>;
+    fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
+    fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface>;
+    fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn GetScanLine(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RestoreDisplayMode(&self) -> ::windows::core::Result<()>;
+    fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDraw_Vtbl {
@@ -208,27 +208,27 @@ impl IDirectDraw_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw2_Impl: Sized {
-    fn Compact(&mut self) -> ::windows::core::Result<()>;
-    fn CreateClipper(&mut self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CreatePalette(&mut self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CreateSurface(&mut self, param0: *mut DDSURFACEDESC, param1: *mut ::core::option::Option<IDirectDrawSurface>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn DuplicateSurface(&mut self, param0: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<IDirectDrawSurface>;
-    fn EnumDisplayModes(&mut self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()>;
-    fn EnumSurfaces(&mut self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
-    fn FlipToGDISurface(&mut self) -> ::windows::core::Result<()>;
-    fn GetCaps(&mut self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()>;
-    fn GetDisplayMode(&mut self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
-    fn GetFourCCCodes(&mut self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGDISurface(&mut self) -> ::windows::core::Result<IDirectDrawSurface>;
-    fn GetMonitorFrequency(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn GetScanLine(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn GetVerticalBlankStatus(&mut self, param0: *mut i32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RestoreDisplayMode(&mut self) -> ::windows::core::Result<()>;
-    fn SetCooperativeLevel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn SetDisplayMode(&mut self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
-    fn WaitForVerticalBlank(&mut self, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn GetAvailableVidMem(&mut self, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> ::windows::core::Result<()>;
+    fn Compact(&self) -> ::windows::core::Result<()>;
+    fn CreateClipper(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateSurface(&self, param0: *mut DDSURFACEDESC, param1: *mut ::core::option::Option<IDirectDrawSurface>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn DuplicateSurface(&self, param0: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<IDirectDrawSurface>;
+    fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()>;
+    fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
+    fn FlipToGDISurface(&self) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()>;
+    fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
+    fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface>;
+    fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn GetScanLine(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RestoreDisplayMode(&self) -> ::windows::core::Result<()>;
+    fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
+    fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn GetAvailableVidMem(&self, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDraw2_Vtbl {
@@ -381,31 +381,31 @@ impl IDirectDraw2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw4_Impl: Sized {
-    fn Compact(&mut self) -> ::windows::core::Result<()>;
-    fn CreateClipper(&mut self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CreatePalette(&mut self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CreateSurface(&mut self, param0: *mut DDSURFACEDESC2, param1: *mut ::core::option::Option<IDirectDrawSurface4>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn DuplicateSurface(&mut self, param0: &::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<IDirectDrawSurface4>;
-    fn EnumDisplayModes(&mut self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()>;
-    fn EnumSurfaces(&mut self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()>;
-    fn FlipToGDISurface(&mut self) -> ::windows::core::Result<()>;
-    fn GetCaps(&mut self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()>;
-    fn GetDisplayMode(&mut self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
-    fn GetFourCCCodes(&mut self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGDISurface(&mut self) -> ::windows::core::Result<IDirectDrawSurface4>;
-    fn GetMonitorFrequency(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn GetScanLine(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn GetVerticalBlankStatus(&mut self, param0: *mut i32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RestoreDisplayMode(&mut self) -> ::windows::core::Result<()>;
-    fn SetCooperativeLevel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn SetDisplayMode(&mut self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
-    fn WaitForVerticalBlank(&mut self, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn GetAvailableVidMem(&mut self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSurfaceFromDC(&mut self, param0: super::Gdi::HDC) -> ::windows::core::Result<IDirectDrawSurface4>;
-    fn RestoreAllSurfaces(&mut self) -> ::windows::core::Result<()>;
-    fn TestCooperativeLevel(&mut self) -> ::windows::core::Result<()>;
-    fn GetDeviceIdentifier(&mut self, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> ::windows::core::Result<()>;
+    fn Compact(&self) -> ::windows::core::Result<()>;
+    fn CreateClipper(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateSurface(&self, param0: *mut DDSURFACEDESC2, param1: *mut ::core::option::Option<IDirectDrawSurface4>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn DuplicateSurface(&self, param0: &::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<IDirectDrawSurface4>;
+    fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()>;
+    fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()>;
+    fn FlipToGDISurface(&self) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()>;
+    fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
+    fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface4>;
+    fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn GetScanLine(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RestoreDisplayMode(&self) -> ::windows::core::Result<()>;
+    fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
+    fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSurfaceFromDC(&self, param0: super::Gdi::HDC) -> ::windows::core::Result<IDirectDrawSurface4>;
+    fn RestoreAllSurfaces(&self) -> ::windows::core::Result<()>;
+    fn TestCooperativeLevel(&self) -> ::windows::core::Result<()>;
+    fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDraw4_Vtbl {
@@ -588,33 +588,33 @@ impl IDirectDraw4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDraw7_Impl: Sized {
-    fn Compact(&mut self) -> ::windows::core::Result<()>;
-    fn CreateClipper(&mut self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CreatePalette(&mut self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CreateSurface(&mut self, param0: *mut DDSURFACEDESC2, param1: *mut ::core::option::Option<IDirectDrawSurface7>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn DuplicateSurface(&mut self, param0: &::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<IDirectDrawSurface7>;
-    fn EnumDisplayModes(&mut self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()>;
-    fn EnumSurfaces(&mut self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()>;
-    fn FlipToGDISurface(&mut self) -> ::windows::core::Result<()>;
-    fn GetCaps(&mut self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()>;
-    fn GetDisplayMode(&mut self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
-    fn GetFourCCCodes(&mut self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGDISurface(&mut self) -> ::windows::core::Result<IDirectDrawSurface7>;
-    fn GetMonitorFrequency(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn GetScanLine(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn GetVerticalBlankStatus(&mut self, param0: *mut i32) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn RestoreDisplayMode(&mut self) -> ::windows::core::Result<()>;
-    fn SetCooperativeLevel(&mut self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
-    fn SetDisplayMode(&mut self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
-    fn WaitForVerticalBlank(&mut self, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn GetAvailableVidMem(&mut self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSurfaceFromDC(&mut self, param0: super::Gdi::HDC) -> ::windows::core::Result<IDirectDrawSurface7>;
-    fn RestoreAllSurfaces(&mut self) -> ::windows::core::Result<()>;
-    fn TestCooperativeLevel(&mut self) -> ::windows::core::Result<()>;
-    fn GetDeviceIdentifier(&mut self, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> ::windows::core::Result<()>;
-    fn StartModeTest(&mut self, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn EvaluateMode(&mut self, param0: u32, param1: *mut u32) -> ::windows::core::Result<()>;
+    fn Compact(&self) -> ::windows::core::Result<()>;
+    fn CreateClipper(&self, param0: u32, param1: *mut ::core::option::Option<IDirectDrawClipper>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreatePalette(&self, param0: u32, param1: *mut super::Gdi::PALETTEENTRY, param2: *mut ::core::option::Option<IDirectDrawPalette>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateSurface(&self, param0: *mut DDSURFACEDESC2, param1: *mut ::core::option::Option<IDirectDrawSurface7>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn DuplicateSurface(&self, param0: &::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<IDirectDrawSurface7>;
+    fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()>;
+    fn EnumSurfaces(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: &LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()>;
+    fn FlipToGDISurface(&self) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut DDCAPS_DX7, param1: *mut DDCAPS_DX7) -> ::windows::core::Result<()>;
+    fn GetDisplayMode(&self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
+    fn GetFourCCCodes(&self, param0: *mut u32, param1: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface7>;
+    fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn GetScanLine(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn RestoreDisplayMode(&self) -> ::windows::core::Result<()>;
+    fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
+    fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()>;
+    fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn GetAvailableVidMem(&self, param0: *mut DDSCAPS2, param1: *mut u32, param2: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSurfaceFromDC(&self, param0: super::Gdi::HDC) -> ::windows::core::Result<IDirectDrawSurface7>;
+    fn RestoreAllSurfaces(&self) -> ::windows::core::Result<()>;
+    fn TestCooperativeLevel(&self) -> ::windows::core::Result<()>;
+    fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER2, param1: u32) -> ::windows::core::Result<()>;
+    fn StartModeTest(&self, param0: *mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn EvaluateMode(&self, param0: u32, param1: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDraw7_Vtbl {
@@ -809,12 +809,12 @@ impl IDirectDraw7_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawClipper_Impl: Sized {
-    fn GetClipList(&mut self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows::core::Result<()>;
-    fn GetHWnd(&mut self, param0: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: &::core::option::Option<IDirectDraw>, param1: u32) -> ::windows::core::Result<()>;
-    fn IsClipListChanged(&mut self, param0: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetClipList(&mut self, param0: *mut super::Gdi::RGNDATA, param1: u32) -> ::windows::core::Result<()>;
-    fn SetHWnd(&mut self, param0: u32, param1: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn GetClipList(&self, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows::core::Result<()>;
+    fn GetHWnd(&self, param0: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: &::core::option::Option<IDirectDraw>, param1: u32) -> ::windows::core::Result<()>;
+    fn IsClipListChanged(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetClipList(&self, param0: *mut super::Gdi::RGNDATA, param1: u32) -> ::windows::core::Result<()>;
+    fn SetHWnd(&self, param0: u32, param1: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawClipper_Vtbl {
@@ -864,8 +864,8 @@ impl IDirectDrawClipper_Vtbl {
     }
 }
 pub trait IDirectDrawColorControl_Impl: Sized {
-    fn GetColorControls(&mut self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
-    fn SetColorControls(&mut self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
+    fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
+    fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
 }
 impl IDirectDrawColorControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawColorControl_Impl, const OFFSET: isize>() -> IDirectDrawColorControl_Vtbl {
@@ -890,8 +890,8 @@ impl IDirectDrawColorControl_Vtbl {
     }
 }
 pub trait IDirectDrawGammaControl_Impl: Sized {
-    fn GetGammaRamp(&mut self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::Result<()>;
-    fn SetGammaRamp(&mut self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::Result<()>;
+    fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::Result<()>;
+    fn SetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::Result<()>;
 }
 impl IDirectDrawGammaControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawGammaControl_Impl, const OFFSET: isize>() -> IDirectDrawGammaControl_Vtbl {
@@ -916,9 +916,9 @@ impl IDirectDrawGammaControl_Vtbl {
     }
 }
 pub trait IDirectDrawKernel_Impl: Sized {
-    fn GetCaps(&mut self, param0: *mut DDKERNELCAPS) -> ::windows::core::Result<()>;
-    fn GetKernelHandle(&mut self, param0: *mut usize) -> ::windows::core::Result<()>;
-    fn ReleaseKernelHandle(&mut self) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> ::windows::core::Result<()>;
+    fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::core::Result<()>;
+    fn ReleaseKernelHandle(&self) -> ::windows::core::Result<()>;
 }
 impl IDirectDrawKernel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawKernel_Impl, const OFFSET: isize>() -> IDirectDrawKernel_Vtbl {
@@ -950,10 +950,10 @@ impl IDirectDrawKernel_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDirectDrawPalette_Impl: Sized {
-    fn GetCaps(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn GetEntries(&mut self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: &::core::option::Option<IDirectDraw>, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()>;
-    fn SetEntries(&mut self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: &::core::option::Option<IDirectDraw>, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()>;
+    fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDrawPalette_Vtbl {
@@ -992,39 +992,39 @@ impl IDirectDrawPalette_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface_Impl: Sized {
-    fn AddAttachedSurface(&mut self, param0: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()>;
-    fn AddOverlayDirtyRect(&mut self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn Blt(&mut self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>;
-    fn BltBatch(&mut self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn BltFast(&mut self, param0: u32, param1: u32, param2: &::core::option::Option<IDirectDrawSurface>, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>;
-    fn DeleteAttachedSurface(&mut self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()>;
-    fn EnumAttachedSurfaces(&mut self, param0: *mut ::core::ffi::c_void, param1: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
-    fn EnumOverlayZOrders(&mut self, param0: u32, param1: *mut ::core::ffi::c_void, param2: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
-    fn Flip(&mut self, param0: &::core::option::Option<IDirectDrawSurface>, param1: u32) -> ::windows::core::Result<()>;
-    fn GetAttachedSurface(&mut self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()>;
-    fn GetBltStatus(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetCaps(&mut self, param0: *mut DDSCAPS) -> ::windows::core::Result<()>;
-    fn GetClipper(&mut self) -> ::windows::core::Result<IDirectDrawClipper>;
-    fn GetColorKey(&mut self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
-    fn GetDC(&mut self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
-    fn GetFlipStatus(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetOverlayPosition(&mut self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()>;
-    fn GetPalette(&mut self) -> ::windows::core::Result<IDirectDrawPalette>;
-    fn GetPixelFormat(&mut self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()>;
-    fn GetSurfaceDesc(&mut self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: &::core::option::Option<IDirectDraw>, param1: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
-    fn IsLost(&mut self) -> ::windows::core::Result<()>;
-    fn Lock(&mut self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn ReleaseDC(&mut self, param0: super::Gdi::HDC) -> ::windows::core::Result<()>;
-    fn Restore(&mut self) -> ::windows::core::Result<()>;
-    fn SetClipper(&mut self, param0: &::core::option::Option<IDirectDrawClipper>) -> ::windows::core::Result<()>;
-    fn SetColorKey(&mut self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
-    fn SetOverlayPosition(&mut self, param0: i32, param1: i32) -> ::windows::core::Result<()>;
-    fn SetPalette(&mut self, param0: &::core::option::Option<IDirectDrawPalette>) -> ::windows::core::Result<()>;
-    fn Unlock(&mut self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn UpdateOverlay(&mut self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>;
-    fn UpdateOverlayDisplay(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn UpdateOverlayZOrder(&mut self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()>;
+    fn AddAttachedSurface(&self, param0: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()>;
+    fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>;
+    fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn BltFast(&self, param0: u32, param1: u32, param2: &::core::option::Option<IDirectDrawSurface>, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>;
+    fn DeleteAttachedSurface(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()>;
+    fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
+    fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
+    fn Flip(&self, param0: &::core::option::Option<IDirectDrawSurface>, param1: u32) -> ::windows::core::Result<()>;
+    fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()>;
+    fn GetBltStatus(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut DDSCAPS) -> ::windows::core::Result<()>;
+    fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper>;
+    fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
+    fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
+    fn GetFlipStatus(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()>;
+    fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette>;
+    fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()>;
+    fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: &::core::option::Option<IDirectDraw>, param1: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
+    fn IsLost(&self) -> ::windows::core::Result<()>;
+    fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn ReleaseDC(&self, param0: super::Gdi::HDC) -> ::windows::core::Result<()>;
+    fn Restore(&self) -> ::windows::core::Result<()>;
+    fn SetClipper(&self, param0: &::core::option::Option<IDirectDrawClipper>) -> ::windows::core::Result<()>;
+    fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
+    fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows::core::Result<()>;
+    fn SetPalette(&self, param0: &::core::option::Option<IDirectDrawPalette>) -> ::windows::core::Result<()>;
+    fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>;
+    fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn UpdateOverlayZOrder(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawSurface_Vtbl {
@@ -1249,42 +1249,42 @@ impl IDirectDrawSurface_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface2_Impl: Sized {
-    fn AddAttachedSurface(&mut self, param0: &::core::option::Option<IDirectDrawSurface2>) -> ::windows::core::Result<()>;
-    fn AddOverlayDirtyRect(&mut self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn Blt(&mut self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface2>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>;
-    fn BltBatch(&mut self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn BltFast(&mut self, param0: u32, param1: u32, param2: &::core::option::Option<IDirectDrawSurface2>, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>;
-    fn DeleteAttachedSurface(&mut self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface2>) -> ::windows::core::Result<()>;
-    fn EnumAttachedSurfaces(&mut self, param0: *mut ::core::ffi::c_void, param1: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
-    fn EnumOverlayZOrders(&mut self, param0: u32, param1: *mut ::core::ffi::c_void, param2: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
-    fn Flip(&mut self, param0: &::core::option::Option<IDirectDrawSurface2>, param1: u32) -> ::windows::core::Result<()>;
-    fn GetAttachedSurface(&mut self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface2>) -> ::windows::core::Result<()>;
-    fn GetBltStatus(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetCaps(&mut self, param0: *mut DDSCAPS) -> ::windows::core::Result<()>;
-    fn GetClipper(&mut self) -> ::windows::core::Result<IDirectDrawClipper>;
-    fn GetColorKey(&mut self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
-    fn GetDC(&mut self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
-    fn GetFlipStatus(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetOverlayPosition(&mut self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()>;
-    fn GetPalette(&mut self) -> ::windows::core::Result<IDirectDrawPalette>;
-    fn GetPixelFormat(&mut self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()>;
-    fn GetSurfaceDesc(&mut self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: &::core::option::Option<IDirectDraw>, param1: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
-    fn IsLost(&mut self) -> ::windows::core::Result<()>;
-    fn Lock(&mut self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn ReleaseDC(&mut self, param0: super::Gdi::HDC) -> ::windows::core::Result<()>;
-    fn Restore(&mut self) -> ::windows::core::Result<()>;
-    fn SetClipper(&mut self, param0: &::core::option::Option<IDirectDrawClipper>) -> ::windows::core::Result<()>;
-    fn SetColorKey(&mut self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
-    fn SetOverlayPosition(&mut self, param0: i32, param1: i32) -> ::windows::core::Result<()>;
-    fn SetPalette(&mut self, param0: &::core::option::Option<IDirectDrawPalette>) -> ::windows::core::Result<()>;
-    fn Unlock(&mut self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn UpdateOverlay(&mut self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface2>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>;
-    fn UpdateOverlayDisplay(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn UpdateOverlayZOrder(&mut self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface2>) -> ::windows::core::Result<()>;
-    fn GetDDInterface(&mut self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn PageLock(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn PageUnlock(&mut self, param0: u32) -> ::windows::core::Result<()>;
+    fn AddAttachedSurface(&self, param0: &::core::option::Option<IDirectDrawSurface2>) -> ::windows::core::Result<()>;
+    fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface2>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>;
+    fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn BltFast(&self, param0: u32, param1: u32, param2: &::core::option::Option<IDirectDrawSurface2>, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>;
+    fn DeleteAttachedSurface(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface2>) -> ::windows::core::Result<()>;
+    fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
+    fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
+    fn Flip(&self, param0: &::core::option::Option<IDirectDrawSurface2>, param1: u32) -> ::windows::core::Result<()>;
+    fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface2>) -> ::windows::core::Result<()>;
+    fn GetBltStatus(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut DDSCAPS) -> ::windows::core::Result<()>;
+    fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper>;
+    fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
+    fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
+    fn GetFlipStatus(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()>;
+    fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette>;
+    fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()>;
+    fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: &::core::option::Option<IDirectDraw>, param1: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
+    fn IsLost(&self) -> ::windows::core::Result<()>;
+    fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn ReleaseDC(&self, param0: super::Gdi::HDC) -> ::windows::core::Result<()>;
+    fn Restore(&self) -> ::windows::core::Result<()>;
+    fn SetClipper(&self, param0: &::core::option::Option<IDirectDrawClipper>) -> ::windows::core::Result<()>;
+    fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
+    fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows::core::Result<()>;
+    fn SetPalette(&self, param0: &::core::option::Option<IDirectDrawPalette>) -> ::windows::core::Result<()>;
+    fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface2>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>;
+    fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn UpdateOverlayZOrder(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface2>) -> ::windows::core::Result<()>;
+    fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn PageLock(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn PageUnlock(&self, param0: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawSurface2_Vtbl {
@@ -1527,43 +1527,43 @@ impl IDirectDrawSurface2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface3_Impl: Sized {
-    fn AddAttachedSurface(&mut self, param0: &::core::option::Option<IDirectDrawSurface3>) -> ::windows::core::Result<()>;
-    fn AddOverlayDirtyRect(&mut self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn Blt(&mut self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface3>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>;
-    fn BltBatch(&mut self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn BltFast(&mut self, param0: u32, param1: u32, param2: &::core::option::Option<IDirectDrawSurface3>, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>;
-    fn DeleteAttachedSurface(&mut self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface3>) -> ::windows::core::Result<()>;
-    fn EnumAttachedSurfaces(&mut self, param0: *mut ::core::ffi::c_void, param1: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
-    fn EnumOverlayZOrders(&mut self, param0: u32, param1: *mut ::core::ffi::c_void, param2: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
-    fn Flip(&mut self, param0: &::core::option::Option<IDirectDrawSurface3>, param1: u32) -> ::windows::core::Result<()>;
-    fn GetAttachedSurface(&mut self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface3>) -> ::windows::core::Result<()>;
-    fn GetBltStatus(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetCaps(&mut self, param0: *mut DDSCAPS) -> ::windows::core::Result<()>;
-    fn GetClipper(&mut self) -> ::windows::core::Result<IDirectDrawClipper>;
-    fn GetColorKey(&mut self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
-    fn GetDC(&mut self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
-    fn GetFlipStatus(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetOverlayPosition(&mut self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()>;
-    fn GetPalette(&mut self) -> ::windows::core::Result<IDirectDrawPalette>;
-    fn GetPixelFormat(&mut self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()>;
-    fn GetSurfaceDesc(&mut self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: &::core::option::Option<IDirectDraw>, param1: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
-    fn IsLost(&mut self) -> ::windows::core::Result<()>;
-    fn Lock(&mut self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn ReleaseDC(&mut self, param0: super::Gdi::HDC) -> ::windows::core::Result<()>;
-    fn Restore(&mut self) -> ::windows::core::Result<()>;
-    fn SetClipper(&mut self, param0: &::core::option::Option<IDirectDrawClipper>) -> ::windows::core::Result<()>;
-    fn SetColorKey(&mut self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
-    fn SetOverlayPosition(&mut self, param0: i32, param1: i32) -> ::windows::core::Result<()>;
-    fn SetPalette(&mut self, param0: &::core::option::Option<IDirectDrawPalette>) -> ::windows::core::Result<()>;
-    fn Unlock(&mut self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn UpdateOverlay(&mut self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface3>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>;
-    fn UpdateOverlayDisplay(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn UpdateOverlayZOrder(&mut self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface3>) -> ::windows::core::Result<()>;
-    fn GetDDInterface(&mut self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn PageLock(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn PageUnlock(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn SetSurfaceDesc(&mut self, param0: *mut DDSURFACEDESC, param1: u32) -> ::windows::core::Result<()>;
+    fn AddAttachedSurface(&self, param0: &::core::option::Option<IDirectDrawSurface3>) -> ::windows::core::Result<()>;
+    fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface3>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>;
+    fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn BltFast(&self, param0: u32, param1: u32, param2: &::core::option::Option<IDirectDrawSurface3>, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>;
+    fn DeleteAttachedSurface(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface3>) -> ::windows::core::Result<()>;
+    fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
+    fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: &LPDDENUMSURFACESCALLBACK) -> ::windows::core::Result<()>;
+    fn Flip(&self, param0: &::core::option::Option<IDirectDrawSurface3>, param1: u32) -> ::windows::core::Result<()>;
+    fn GetAttachedSurface(&self, param0: *mut DDSCAPS, param1: *mut ::core::option::Option<IDirectDrawSurface3>) -> ::windows::core::Result<()>;
+    fn GetBltStatus(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut DDSCAPS) -> ::windows::core::Result<()>;
+    fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper>;
+    fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
+    fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
+    fn GetFlipStatus(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()>;
+    fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette>;
+    fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()>;
+    fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: &::core::option::Option<IDirectDraw>, param1: *mut DDSURFACEDESC) -> ::windows::core::Result<()>;
+    fn IsLost(&self) -> ::windows::core::Result<()>;
+    fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn ReleaseDC(&self, param0: super::Gdi::HDC) -> ::windows::core::Result<()>;
+    fn Restore(&self) -> ::windows::core::Result<()>;
+    fn SetClipper(&self, param0: &::core::option::Option<IDirectDrawClipper>) -> ::windows::core::Result<()>;
+    fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
+    fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows::core::Result<()>;
+    fn SetPalette(&self, param0: &::core::option::Option<IDirectDrawPalette>) -> ::windows::core::Result<()>;
+    fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface3>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>;
+    fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn UpdateOverlayZOrder(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface3>) -> ::windows::core::Result<()>;
+    fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn PageLock(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn PageUnlock(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC, param1: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawSurface3_Vtbl {
@@ -1812,48 +1812,48 @@ impl IDirectDrawSurface3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface4_Impl: Sized {
-    fn AddAttachedSurface(&mut self, param0: &::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<()>;
-    fn AddOverlayDirtyRect(&mut self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn Blt(&mut self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface4>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>;
-    fn BltBatch(&mut self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn BltFast(&mut self, param0: u32, param1: u32, param2: &::core::option::Option<IDirectDrawSurface4>, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>;
-    fn DeleteAttachedSurface(&mut self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<()>;
-    fn EnumAttachedSurfaces(&mut self, param0: *mut ::core::ffi::c_void, param1: &LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()>;
-    fn EnumOverlayZOrders(&mut self, param0: u32, param1: *mut ::core::ffi::c_void, param2: &LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()>;
-    fn Flip(&mut self, param0: &::core::option::Option<IDirectDrawSurface4>, param1: u32) -> ::windows::core::Result<()>;
-    fn GetAttachedSurface(&mut self, param0: *mut DDSCAPS2, param1: *mut ::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<()>;
-    fn GetBltStatus(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetCaps(&mut self, param0: *mut DDSCAPS2) -> ::windows::core::Result<()>;
-    fn GetClipper(&mut self) -> ::windows::core::Result<IDirectDrawClipper>;
-    fn GetColorKey(&mut self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
-    fn GetDC(&mut self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
-    fn GetFlipStatus(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetOverlayPosition(&mut self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()>;
-    fn GetPalette(&mut self) -> ::windows::core::Result<IDirectDrawPalette>;
-    fn GetPixelFormat(&mut self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()>;
-    fn GetSurfaceDesc(&mut self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: &::core::option::Option<IDirectDraw>, param1: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
-    fn IsLost(&mut self) -> ::windows::core::Result<()>;
-    fn Lock(&mut self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn ReleaseDC(&mut self, param0: super::Gdi::HDC) -> ::windows::core::Result<()>;
-    fn Restore(&mut self) -> ::windows::core::Result<()>;
-    fn SetClipper(&mut self, param0: &::core::option::Option<IDirectDrawClipper>) -> ::windows::core::Result<()>;
-    fn SetColorKey(&mut self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
-    fn SetOverlayPosition(&mut self, param0: i32, param1: i32) -> ::windows::core::Result<()>;
-    fn SetPalette(&mut self, param0: &::core::option::Option<IDirectDrawPalette>) -> ::windows::core::Result<()>;
-    fn Unlock(&mut self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn UpdateOverlay(&mut self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface4>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>;
-    fn UpdateOverlayDisplay(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn UpdateOverlayZOrder(&mut self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<()>;
-    fn GetDDInterface(&mut self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn PageLock(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn PageUnlock(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn SetSurfaceDesc(&mut self, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows::core::Result<()>;
-    fn SetPrivateData(&mut self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows::core::Result<()>;
-    fn GetPrivateData(&mut self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows::core::Result<()>;
-    fn FreePrivateData(&mut self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetUniquenessValue(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn ChangeUniquenessValue(&mut self) -> ::windows::core::Result<()>;
+    fn AddAttachedSurface(&self, param0: &::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<()>;
+    fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface4>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>;
+    fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn BltFast(&self, param0: u32, param1: u32, param2: &::core::option::Option<IDirectDrawSurface4>, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>;
+    fn DeleteAttachedSurface(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<()>;
+    fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: &LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()>;
+    fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: &LPDDENUMSURFACESCALLBACK2) -> ::windows::core::Result<()>;
+    fn Flip(&self, param0: &::core::option::Option<IDirectDrawSurface4>, param1: u32) -> ::windows::core::Result<()>;
+    fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut ::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<()>;
+    fn GetBltStatus(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut DDSCAPS2) -> ::windows::core::Result<()>;
+    fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper>;
+    fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
+    fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
+    fn GetFlipStatus(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()>;
+    fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette>;
+    fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()>;
+    fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: &::core::option::Option<IDirectDraw>, param1: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
+    fn IsLost(&self) -> ::windows::core::Result<()>;
+    fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn ReleaseDC(&self, param0: super::Gdi::HDC) -> ::windows::core::Result<()>;
+    fn Restore(&self) -> ::windows::core::Result<()>;
+    fn SetClipper(&self, param0: &::core::option::Option<IDirectDrawClipper>) -> ::windows::core::Result<()>;
+    fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
+    fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows::core::Result<()>;
+    fn SetPalette(&self, param0: &::core::option::Option<IDirectDrawPalette>) -> ::windows::core::Result<()>;
+    fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface4>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>;
+    fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn UpdateOverlayZOrder(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface4>) -> ::windows::core::Result<()>;
+    fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn PageLock(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn PageUnlock(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows::core::Result<()>;
+    fn SetPrivateData(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows::core::Result<()>;
+    fn GetPrivateData(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows::core::Result<()>;
+    fn FreePrivateData(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetUniquenessValue(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn ChangeUniquenessValue(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawSurface4_Vtbl {
@@ -2132,52 +2132,52 @@ impl IDirectDrawSurface4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirectDrawSurface7_Impl: Sized {
-    fn AddAttachedSurface(&mut self, param0: &::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<()>;
-    fn AddOverlayDirtyRect(&mut self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn Blt(&mut self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface7>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>;
-    fn BltBatch(&mut self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()>;
-    fn BltFast(&mut self, param0: u32, param1: u32, param2: &::core::option::Option<IDirectDrawSurface7>, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>;
-    fn DeleteAttachedSurface(&mut self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<()>;
-    fn EnumAttachedSurfaces(&mut self, param0: *mut ::core::ffi::c_void, param1: &LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()>;
-    fn EnumOverlayZOrders(&mut self, param0: u32, param1: *mut ::core::ffi::c_void, param2: &LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()>;
-    fn Flip(&mut self, param0: &::core::option::Option<IDirectDrawSurface7>, param1: u32) -> ::windows::core::Result<()>;
-    fn GetAttachedSurface(&mut self, param0: *mut DDSCAPS2, param1: *mut ::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<()>;
-    fn GetBltStatus(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetCaps(&mut self, param0: *mut DDSCAPS2) -> ::windows::core::Result<()>;
-    fn GetClipper(&mut self) -> ::windows::core::Result<IDirectDrawClipper>;
-    fn GetColorKey(&mut self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
-    fn GetDC(&mut self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
-    fn GetFlipStatus(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetOverlayPosition(&mut self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()>;
-    fn GetPalette(&mut self) -> ::windows::core::Result<IDirectDrawPalette>;
-    fn GetPixelFormat(&mut self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()>;
-    fn GetSurfaceDesc(&mut self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
-    fn Initialize(&mut self, param0: &::core::option::Option<IDirectDraw>, param1: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
-    fn IsLost(&mut self) -> ::windows::core::Result<()>;
-    fn Lock(&mut self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
-    fn ReleaseDC(&mut self, param0: super::Gdi::HDC) -> ::windows::core::Result<()>;
-    fn Restore(&mut self) -> ::windows::core::Result<()>;
-    fn SetClipper(&mut self, param0: &::core::option::Option<IDirectDrawClipper>) -> ::windows::core::Result<()>;
-    fn SetColorKey(&mut self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
-    fn SetOverlayPosition(&mut self, param0: i32, param1: i32) -> ::windows::core::Result<()>;
-    fn SetPalette(&mut self, param0: &::core::option::Option<IDirectDrawPalette>) -> ::windows::core::Result<()>;
-    fn Unlock(&mut self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn UpdateOverlay(&mut self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface7>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>;
-    fn UpdateOverlayDisplay(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn UpdateOverlayZOrder(&mut self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<()>;
-    fn GetDDInterface(&mut self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn PageLock(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn PageUnlock(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn SetSurfaceDesc(&mut self, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows::core::Result<()>;
-    fn SetPrivateData(&mut self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows::core::Result<()>;
-    fn GetPrivateData(&mut self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows::core::Result<()>;
-    fn FreePrivateData(&mut self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetUniquenessValue(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn ChangeUniquenessValue(&mut self) -> ::windows::core::Result<()>;
-    fn SetPriority(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetPriority(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn SetLOD(&mut self, param0: u32) -> ::windows::core::Result<()>;
-    fn GetLOD(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn AddAttachedSurface(&self, param0: &::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<()>;
+    fn AddOverlayDirtyRect(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn Blt(&self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface7>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::Result<()>;
+    fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn BltFast(&self, param0: u32, param1: u32, param2: &::core::option::Option<IDirectDrawSurface7>, param3: *mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>;
+    fn DeleteAttachedSurface(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<()>;
+    fn EnumAttachedSurfaces(&self, param0: *mut ::core::ffi::c_void, param1: &LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()>;
+    fn EnumOverlayZOrders(&self, param0: u32, param1: *mut ::core::ffi::c_void, param2: &LPDDENUMSURFACESCALLBACK7) -> ::windows::core::Result<()>;
+    fn Flip(&self, param0: &::core::option::Option<IDirectDrawSurface7>, param1: u32) -> ::windows::core::Result<()>;
+    fn GetAttachedSurface(&self, param0: *mut DDSCAPS2, param1: *mut ::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<()>;
+    fn GetBltStatus(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetCaps(&self, param0: *mut DDSCAPS2) -> ::windows::core::Result<()>;
+    fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper>;
+    fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
+    fn GetDC(&self, param0: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
+    fn GetFlipStatus(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetOverlayPosition(&self, param0: *mut i32, param1: *mut i32) -> ::windows::core::Result<()>;
+    fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette>;
+    fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()>;
+    fn GetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
+    fn Initialize(&self, param0: &::core::option::Option<IDirectDraw>, param1: *mut DDSURFACEDESC2) -> ::windows::core::Result<()>;
+    fn IsLost(&self) -> ::windows::core::Result<()>;
+    fn Lock(&self, param0: *mut super::super::Foundation::RECT, param1: *mut DDSURFACEDESC2, param2: u32, param3: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn ReleaseDC(&self, param0: super::Gdi::HDC) -> ::windows::core::Result<()>;
+    fn Restore(&self) -> ::windows::core::Result<()>;
+    fn SetClipper(&self, param0: &::core::option::Option<IDirectDrawClipper>) -> ::windows::core::Result<()>;
+    fn SetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()>;
+    fn SetOverlayPosition(&self, param0: i32, param1: i32) -> ::windows::core::Result<()>;
+    fn SetPalette(&self, param0: &::core::option::Option<IDirectDrawPalette>) -> ::windows::core::Result<()>;
+    fn Unlock(&self, param0: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn UpdateOverlay(&self, param0: *mut super::super::Foundation::RECT, param1: &::core::option::Option<IDirectDrawSurface7>, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::Result<()>;
+    fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn UpdateOverlayZOrder(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface7>) -> ::windows::core::Result<()>;
+    fn GetDDInterface(&self, param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn PageLock(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn PageUnlock(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC2, param1: u32) -> ::windows::core::Result<()>;
+    fn SetPrivateData(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32) -> ::windows::core::Result<()>;
+    fn GetPrivateData(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> ::windows::core::Result<()>;
+    fn FreePrivateData(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetUniquenessValue(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn ChangeUniquenessValue(&self) -> ::windows::core::Result<()>;
+    fn SetPriority(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetPriority(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn SetLOD(&self, param0: u32) -> ::windows::core::Result<()>;
+    fn GetLOD(&self, param0: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawSurface7_Vtbl {
@@ -2479,8 +2479,8 @@ impl IDirectDrawSurface7_Vtbl {
     }
 }
 pub trait IDirectDrawSurfaceKernel_Impl: Sized {
-    fn GetKernelHandle(&mut self, param0: *mut usize) -> ::windows::core::Result<()>;
-    fn ReleaseKernelHandle(&mut self) -> ::windows::core::Result<()>;
+    fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::core::Result<()>;
+    fn ReleaseKernelHandle(&self) -> ::windows::core::Result<()>;
 }
 impl IDirectDrawSurfaceKernel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawSurfaceKernel_Impl, const OFFSET: isize>() -> IDirectDrawSurfaceKernel_Vtbl {
@@ -2506,20 +2506,20 @@ impl IDirectDrawSurfaceKernel_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectDrawVideoPort_Impl: Sized {
-    fn Flip(&mut self, param0: &::core::option::Option<IDirectDrawSurface>, param1: u32) -> ::windows::core::Result<()>;
-    fn GetBandwidthInfo(&mut self, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> ::windows::core::Result<()>;
-    fn GetColorControls(&mut self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
-    fn GetInputFormats(&mut self, lpnumformats: *mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> ::windows::core::Result<()>;
-    fn GetOutputFormats(&mut self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: *mut DDPIXELFORMAT, param3: u32) -> ::windows::core::Result<()>;
-    fn GetFieldPolarity(&mut self, param0: *mut i32) -> ::windows::core::Result<()>;
-    fn GetVideoLine(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn GetVideoSignalStatus(&mut self, param0: *mut u32) -> ::windows::core::Result<()>;
-    fn SetColorControls(&mut self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
-    fn SetTargetSurface(&mut self, param0: &::core::option::Option<IDirectDrawSurface>, param1: u32) -> ::windows::core::Result<()>;
-    fn StartVideo(&mut self, param0: *mut DDVIDEOPORTINFO) -> ::windows::core::Result<()>;
-    fn StopVideo(&mut self) -> ::windows::core::Result<()>;
-    fn UpdateVideo(&mut self, param0: *mut DDVIDEOPORTINFO) -> ::windows::core::Result<()>;
-    fn WaitForSync(&mut self, param0: u32, param1: u32, param2: u32) -> ::windows::core::Result<()>;
+    fn Flip(&self, param0: &::core::option::Option<IDirectDrawSurface>, param1: u32) -> ::windows::core::Result<()>;
+    fn GetBandwidthInfo(&self, param0: *mut DDPIXELFORMAT, param1: u32, param2: u32, param3: u32, param4: *mut DDVIDEOPORTBANDWIDTH) -> ::windows::core::Result<()>;
+    fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
+    fn GetInputFormats(&self, lpnumformats: *mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> ::windows::core::Result<()>;
+    fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: *mut DDPIXELFORMAT, param3: u32) -> ::windows::core::Result<()>;
+    fn GetFieldPolarity(&self, param0: *mut i32) -> ::windows::core::Result<()>;
+    fn GetVideoLine(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn GetVideoSignalStatus(&self, param0: *mut u32) -> ::windows::core::Result<()>;
+    fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
+    fn SetTargetSurface(&self, param0: &::core::option::Option<IDirectDrawSurface>, param1: u32) -> ::windows::core::Result<()>;
+    fn StartVideo(&self, param0: *mut DDVIDEOPORTINFO) -> ::windows::core::Result<()>;
+    fn StopVideo(&self) -> ::windows::core::Result<()>;
+    fn UpdateVideo(&self, param0: *mut DDVIDEOPORTINFO) -> ::windows::core::Result<()>;
+    fn WaitForSync(&self, param0: u32, param1: u32, param2: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectDrawVideoPort_Vtbl {
@@ -2618,8 +2618,8 @@ impl IDirectDrawVideoPort_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectDrawVideoPortNotify_Impl: Sized {
-    fn AcquireNotification(&mut self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows::core::Result<()>;
-    fn ReleaseNotification(&mut self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
+    fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows::core::Result<()>;
+    fn ReleaseNotification(&self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectDrawVideoPortNotify_Vtbl {

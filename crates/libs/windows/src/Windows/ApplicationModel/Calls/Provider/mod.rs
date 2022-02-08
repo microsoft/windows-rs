@@ -192,6 +192,10 @@ impl ::core::fmt::Debug for PhoneCallOrigin {
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallOrigin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin;{20613479-0ef9-4454-871c-afb66a14b6a5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for PhoneCallOrigin {
     type Vtable = IPhoneCallOrigin_Vtbl;

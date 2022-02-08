@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAsyncGetSendNotificationCookie_Impl: Sized + IPrintAsyncCookie_Impl {
-    fn FinishAsyncCallWithData(&mut self, param0: &::core::option::Option<IPrintAsyncNotifyDataObject>, param1: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn FinishAsyncCallWithData(&self, param0: &::core::option::Option<IPrintAsyncNotifyDataObject>, param1: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAsyncGetSendNotificationCookie_Vtbl {
@@ -18,9 +18,9 @@ impl IAsyncGetSendNotificationCookie_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAsyncGetSrvReferralCookie_Impl: Sized {
-    fn FinishAsyncCall(&mut self, param0: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn CancelAsyncCall(&mut self, param0: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn FinishAsyncCallWithData(&mut self, param0: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn FinishAsyncCall(&self, param0: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn CancelAsyncCall(&self, param0: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn FinishAsyncCallWithData(&self, param0: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAsyncGetSrvReferralCookie_Vtbl {
@@ -52,11 +52,11 @@ impl IAsyncGetSrvReferralCookie_Vtbl {
     }
 }
 pub trait IBidiAsyncNotifyChannel_Impl: Sized + IPrintAsyncNotifyChannel_Impl {
-    fn CreateNotificationChannel(&mut self) -> ::windows::core::Result<()>;
-    fn GetPrintName(&mut self, param0: *const ::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
-    fn GetChannelNotificationType(&mut self, param0: *const ::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
-    fn AsyncGetNotificationSendResponse(&mut self, param0: &::core::option::Option<IPrintAsyncNotifyDataObject>, param1: &::core::option::Option<IAsyncGetSendNotificationCookie>) -> ::windows::core::Result<()>;
-    fn AsyncCloseChannel(&mut self, param0: &::core::option::Option<IPrintAsyncNotifyDataObject>, param1: &::core::option::Option<IPrintAsyncCookie>) -> ::windows::core::Result<()>;
+    fn CreateNotificationChannel(&self) -> ::windows::core::Result<()>;
+    fn GetPrintName(&self, param0: *const ::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
+    fn GetChannelNotificationType(&self, param0: *const ::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
+    fn AsyncGetNotificationSendResponse(&self, param0: &::core::option::Option<IPrintAsyncNotifyDataObject>, param1: &::core::option::Option<IAsyncGetSendNotificationCookie>) -> ::windows::core::Result<()>;
+    fn AsyncCloseChannel(&self, param0: &::core::option::Option<IPrintAsyncNotifyDataObject>, param1: &::core::option::Option<IPrintAsyncCookie>) -> ::windows::core::Result<()>;
 }
 impl IBidiAsyncNotifyChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBidiAsyncNotifyChannel_Impl, const OFFSET: isize>() -> IBidiAsyncNotifyChannel_Vtbl {
@@ -100,11 +100,11 @@ impl IBidiAsyncNotifyChannel_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBidiRequest_Impl: Sized {
-    fn SetSchema(&mut self, pszschema: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetInputData(&mut self, dwtype: u32, pdata: *const u8, usize: u32) -> ::windows::core::Result<()>;
-    fn GetResult(&mut self) -> ::windows::core::Result<::windows::core::HRESULT>;
-    fn GetOutputData(&mut self, dwindex: u32, ppszschema: *mut super::super::Foundation::PWSTR, pdwtype: *mut u32, ppdata: *mut *mut u8, usize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetEnumCount(&mut self) -> ::windows::core::Result<u32>;
+    fn SetSchema(&self, pszschema: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetInputData(&self, dwtype: u32, pdata: *const u8, usize: u32) -> ::windows::core::Result<()>;
+    fn GetResult(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
+    fn GetOutputData(&self, dwindex: u32, ppszschema: *mut super::super::Foundation::PWSTR, pdwtype: *mut u32, ppdata: *mut *mut u8, usize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetEnumCount(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBidiRequest_Vtbl {
@@ -161,9 +161,9 @@ impl IBidiRequest_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBidiRequestContainer_Impl: Sized {
-    fn AddRequest(&mut self, prequest: &::core::option::Option<IBidiRequest>) -> ::windows::core::Result<()>;
-    fn GetEnumObject(&mut self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown>;
-    fn GetRequestCount(&mut self) -> ::windows::core::Result<u32>;
+    fn AddRequest(&self, prequest: &::core::option::Option<IBidiRequest>) -> ::windows::core::Result<()>;
+    fn GetEnumObject(&self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown>;
+    fn GetRequestCount(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IBidiRequestContainer_Vtbl {
@@ -208,10 +208,10 @@ impl IBidiRequestContainer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBidiSpl_Impl: Sized {
-    fn BindDevice(&mut self, pszdevicename: super::super::Foundation::PWSTR, dwaccess: u32) -> ::windows::core::Result<()>;
-    fn UnbindDevice(&mut self) -> ::windows::core::Result<()>;
-    fn SendRecv(&mut self, pszaction: super::super::Foundation::PWSTR, prequest: &::core::option::Option<IBidiRequest>) -> ::windows::core::Result<()>;
-    fn MultiSendRecv(&mut self, pszaction: super::super::Foundation::PWSTR, prequestcontainer: &::core::option::Option<IBidiRequestContainer>) -> ::windows::core::Result<()>;
+    fn BindDevice(&self, pszdevicename: super::super::Foundation::PWSTR, dwaccess: u32) -> ::windows::core::Result<()>;
+    fn UnbindDevice(&self) -> ::windows::core::Result<()>;
+    fn SendRecv(&self, pszaction: super::super::Foundation::PWSTR, prequest: &::core::option::Option<IBidiRequest>) -> ::windows::core::Result<()>;
+    fn MultiSendRecv(&self, pszaction: super::super::Foundation::PWSTR, prequestcontainer: &::core::option::Option<IBidiRequestContainer>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBidiSpl_Vtbl {
@@ -250,10 +250,10 @@ impl IBidiSpl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IBidiSpl2_Impl: Sized {
-    fn BindDevice(&mut self, pszdevicename: super::super::Foundation::PWSTR, dwaccess: u32) -> ::windows::core::Result<()>;
-    fn UnbindDevice(&mut self) -> ::windows::core::Result<()>;
-    fn SendRecvXMLString(&mut self, bstrrequest: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SendRecvXMLStream(&mut self, psrequest: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn BindDevice(&self, pszdevicename: super::super::Foundation::PWSTR, dwaccess: u32) -> ::windows::core::Result<()>;
+    fn UnbindDevice(&self) -> ::windows::core::Result<()>;
+    fn SendRecvXMLString(&self, bstrrequest: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SendRecvXMLStream(&self, psrequest: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IBidiSpl2_Vtbl {
@@ -304,9 +304,9 @@ impl IBidiSpl2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFixedDocument_Impl: Sized {
-    fn GetUri(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPrintTicket(&mut self) -> ::windows::core::Result<IPartPrintTicket>;
-    fn SetPrintTicket(&mut self, pprintticket: &::core::option::Option<IPartPrintTicket>) -> ::windows::core::Result<()>;
+    fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPrintTicket(&self) -> ::windows::core::Result<IPartPrintTicket>;
+    fn SetPrintTicket(&self, pprintticket: &::core::option::Option<IPartPrintTicket>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFixedDocument_Vtbl {
@@ -351,9 +351,9 @@ impl IFixedDocument_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFixedDocumentSequence_Impl: Sized {
-    fn GetUri(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetPrintTicket(&mut self) -> ::windows::core::Result<IPartPrintTicket>;
-    fn SetPrintTicket(&mut self, pprintticket: &::core::option::Option<IPartPrintTicket>) -> ::windows::core::Result<()>;
+    fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetPrintTicket(&self) -> ::windows::core::Result<IPartPrintTicket>;
+    fn SetPrintTicket(&self, pprintticket: &::core::option::Option<IPartPrintTicket>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFixedDocumentSequence_Vtbl {
@@ -398,13 +398,13 @@ impl IFixedDocumentSequence_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFixedPage_Impl: Sized + IPartBase_Impl {
-    fn GetPrintTicket(&mut self) -> ::windows::core::Result<IPartPrintTicket>;
-    fn GetPagePart(&mut self, uri: super::super::Foundation::PWSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetWriteStream(&mut self) -> ::windows::core::Result<IPrintWriteStream>;
-    fn SetPrintTicket(&mut self, ppprintticket: &::core::option::Option<IPartPrintTicket>) -> ::windows::core::Result<()>;
-    fn SetPagePart(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn DeleteResource(&mut self, uri: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetXpsPartIterator(&mut self) -> ::windows::core::Result<IXpsPartIterator>;
+    fn GetPrintTicket(&self) -> ::windows::core::Result<IPartPrintTicket>;
+    fn GetPagePart(&self, uri: super::super::Foundation::PWSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetWriteStream(&self) -> ::windows::core::Result<IPrintWriteStream>;
+    fn SetPrintTicket(&self, ppprintticket: &::core::option::Option<IPartPrintTicket>) -> ::windows::core::Result<()>;
+    fn SetPagePart(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn DeleteResource(&self, uri: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetXpsPartIterator(&self) -> ::windows::core::Result<IXpsPartIterator>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IFixedPage_Vtbl {
@@ -485,7 +485,7 @@ impl IFixedPage_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IImgCreateErrorInfo_Impl: Sized + super::super::System::Ole::ICreateErrorInfo_Impl {
-    fn AttachToErrorInfo(&mut self, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::Result<()>;
+    fn AttachToErrorInfo(&self, perrorinfo: *mut __MIDL___MIDL_itf_imgerror_0000_0000_0001) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IImgCreateErrorInfo_Vtbl {
@@ -506,13 +506,13 @@ impl IImgCreateErrorInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IImgErrorInfo_Impl: Sized + super::super::System::Com::IErrorInfo_Impl {
-    fn GetDeveloperDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetUserErrorId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetUserParameterCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetUserParameter(&mut self, cparam: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetUserFallback(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetExceptionId(&mut self) -> ::windows::core::Result<u32>;
-    fn DetachErrorInfo(&mut self) -> ::windows::core::Result<__MIDL___MIDL_itf_imgerror_0000_0000_0001>;
+    fn GetDeveloperDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetUserErrorId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetUserParameterCount(&self) -> ::windows::core::Result<u32>;
+    fn GetUserParameter(&self, cparam: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetUserFallback(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetExceptionId(&self) -> ::windows::core::Result<u32>;
+    fn DetachErrorInfo(&self) -> ::windows::core::Result<__MIDL___MIDL_itf_imgerror_0000_0000_0001>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IImgErrorInfo_Vtbl {
@@ -610,8 +610,8 @@ impl IImgErrorInfo_Vtbl {
     }
 }
 pub trait IInterFilterCommunicator_Impl: Sized {
-    fn RequestReader(&mut self, ppireader: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn RequestWriter(&mut self, ppiwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RequestReader(&self, ppireader: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RequestWriter(&self, ppiwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IInterFilterCommunicator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInterFilterCommunicator_Impl, const OFFSET: isize>() -> IInterFilterCommunicator_Vtbl {
@@ -637,10 +637,10 @@ impl IInterFilterCommunicator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPartBase_Impl: Sized {
-    fn GetUri(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetStream(&mut self) -> ::windows::core::Result<IPrintReadStream>;
-    fn GetPartCompression(&mut self) -> ::windows::core::Result<EXpsCompressionOptions>;
-    fn SetPartCompression(&mut self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()>;
+    fn GetUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream>;
+    fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions>;
+    fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPartBase_Vtbl {
@@ -708,7 +708,7 @@ impl IPartColorProfile_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPartDiscardControl_Impl: Sized {
-    fn GetDiscardProperties(&mut self, urisentinelpage: *mut super::super::Foundation::BSTR, uriparttodiscard: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetDiscardProperties(&self, urisentinelpage: *mut super::super::Foundation::BSTR, uriparttodiscard: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPartDiscardControl_Vtbl {
@@ -726,9 +726,9 @@ impl IPartDiscardControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPartFont_Impl: Sized + IPartBase_Impl {
-    fn GetFontProperties(&mut self, pcontenttype: *mut super::super::Foundation::BSTR, pfontoptions: *mut EXpsFontOptions) -> ::windows::core::Result<()>;
-    fn SetFontContent(&mut self, pcontenttype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetFontOptions(&mut self, options: EXpsFontOptions) -> ::windows::core::Result<()>;
+    fn GetFontProperties(&self, pcontenttype: *mut super::super::Foundation::BSTR, pfontoptions: *mut EXpsFontOptions) -> ::windows::core::Result<()>;
+    fn SetFontContent(&self, pcontenttype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetFontOptions(&self, options: EXpsFontOptions) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPartFont_Vtbl {
@@ -761,7 +761,7 @@ impl IPartFont_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPartFont2_Impl: Sized + IPartBase_Impl + IPartFont_Impl {
-    fn GetFontRestriction(&mut self) -> ::windows::core::Result<EXpsFontRestriction>;
+    fn GetFontRestriction(&self) -> ::windows::core::Result<EXpsFontRestriction>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPartFont2_Vtbl {
@@ -785,8 +785,8 @@ impl IPartFont2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPartImage_Impl: Sized + IPartBase_Impl {
-    fn GetImageProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetImageContent(&mut self, pcontenttype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetImageProperties(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetImageContent(&self, pcontenttype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPartImage_Vtbl {
@@ -841,8 +841,8 @@ impl IPartResourceDictionary_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPartThumbnail_Impl: Sized + IPartBase_Impl {
-    fn GetThumbnailProperties(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetThumbnailContent(&mut self, pcontenttype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetThumbnailProperties(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetThumbnailContent(&self, pcontenttype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPartThumbnail_Vtbl {
@@ -874,8 +874,8 @@ impl IPartThumbnail_Vtbl {
     }
 }
 pub trait IPrintAsyncCookie_Impl: Sized {
-    fn FinishAsyncCall(&mut self, param0: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn CancelAsyncCall(&mut self, param0: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn FinishAsyncCall(&self, param0: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn CancelAsyncCall(&self, param0: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 impl IPrintAsyncCookie_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintAsyncCookie_Impl, const OFFSET: isize>() -> IPrintAsyncCookie_Vtbl {
@@ -900,7 +900,7 @@ impl IPrintAsyncCookie_Vtbl {
     }
 }
 pub trait IPrintAsyncNewChannelCookie_Impl: Sized + IPrintAsyncCookie_Impl {
-    fn FinishAsyncCallWithData(&mut self, param0: *const ::core::option::Option<IPrintAsyncNotifyChannel>, param1: u32) -> ::windows::core::Result<()>;
+    fn FinishAsyncCallWithData(&self, param0: *const ::core::option::Option<IPrintAsyncNotifyChannel>, param1: u32) -> ::windows::core::Result<()>;
 }
 impl IPrintAsyncNewChannelCookie_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintAsyncNewChannelCookie_Impl, const OFFSET: isize>() -> IPrintAsyncNewChannelCookie_Vtbl {
@@ -916,8 +916,8 @@ impl IPrintAsyncNewChannelCookie_Vtbl {
     }
 }
 pub trait IPrintAsyncNotify_Impl: Sized {
-    fn CreatePrintAsyncNotifyChannel(&mut self, param0: u32, param1: *const ::windows::core::GUID, param2: PrintAsyncNotifyUserFilter, param3: PrintAsyncNotifyConversationStyle, param4: &::core::option::Option<IPrintAsyncNotifyCallback>) -> ::windows::core::Result<IPrintAsyncNotifyChannel>;
-    fn CreatePrintAsyncNotifyRegistration(&mut self, param0: *const ::windows::core::GUID, param1: PrintAsyncNotifyUserFilter, param2: PrintAsyncNotifyConversationStyle, param3: &::core::option::Option<IPrintAsyncNotifyCallback>) -> ::windows::core::Result<IPrintAsyncNotifyRegistration>;
+    fn CreatePrintAsyncNotifyChannel(&self, param0: u32, param1: *const ::windows::core::GUID, param2: PrintAsyncNotifyUserFilter, param3: PrintAsyncNotifyConversationStyle, param4: &::core::option::Option<IPrintAsyncNotifyCallback>) -> ::windows::core::Result<IPrintAsyncNotifyChannel>;
+    fn CreatePrintAsyncNotifyRegistration(&self, param0: *const ::windows::core::GUID, param1: PrintAsyncNotifyUserFilter, param2: PrintAsyncNotifyConversationStyle, param3: &::core::option::Option<IPrintAsyncNotifyCallback>) -> ::windows::core::Result<IPrintAsyncNotifyRegistration>;
 }
 impl IPrintAsyncNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintAsyncNotify_Impl, const OFFSET: isize>() -> IPrintAsyncNotify_Vtbl {
@@ -954,8 +954,8 @@ impl IPrintAsyncNotify_Vtbl {
     }
 }
 pub trait IPrintAsyncNotifyCallback_Impl: Sized {
-    fn OnEventNotify(&mut self, pchannel: &::core::option::Option<IPrintAsyncNotifyChannel>, pdata: &::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
-    fn ChannelClosed(&mut self, pchannel: &::core::option::Option<IPrintAsyncNotifyChannel>, pdata: &::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
+    fn OnEventNotify(&self, pchannel: &::core::option::Option<IPrintAsyncNotifyChannel>, pdata: &::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
+    fn ChannelClosed(&self, pchannel: &::core::option::Option<IPrintAsyncNotifyChannel>, pdata: &::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
 }
 impl IPrintAsyncNotifyCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintAsyncNotifyCallback_Impl, const OFFSET: isize>() -> IPrintAsyncNotifyCallback_Vtbl {
@@ -980,8 +980,8 @@ impl IPrintAsyncNotifyCallback_Vtbl {
     }
 }
 pub trait IPrintAsyncNotifyChannel_Impl: Sized {
-    fn SendNotification(&mut self, pdata: &::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
-    fn CloseChannel(&mut self, pdata: &::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
+    fn SendNotification(&self, pdata: &::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
+    fn CloseChannel(&self, pdata: &::core::option::Option<IPrintAsyncNotifyDataObject>) -> ::windows::core::Result<()>;
 }
 impl IPrintAsyncNotifyChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintAsyncNotifyChannel_Impl, const OFFSET: isize>() -> IPrintAsyncNotifyChannel_Vtbl {
@@ -1006,8 +1006,8 @@ impl IPrintAsyncNotifyChannel_Vtbl {
     }
 }
 pub trait IPrintAsyncNotifyDataObject_Impl: Sized {
-    fn AcquireData(&mut self, ppnotificationdata: *mut *mut u8, psize: *mut u32, ppschema: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn ReleaseData(&mut self) -> ::windows::core::Result<()>;
+    fn AcquireData(&self, ppnotificationdata: *mut *mut u8, psize: *mut u32, ppschema: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn ReleaseData(&self) -> ::windows::core::Result<()>;
 }
 impl IPrintAsyncNotifyDataObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintAsyncNotifyDataObject_Impl, const OFFSET: isize>() -> IPrintAsyncNotifyDataObject_Vtbl {
@@ -1032,8 +1032,8 @@ impl IPrintAsyncNotifyDataObject_Vtbl {
     }
 }
 pub trait IPrintAsyncNotifyRegistration_Impl: Sized {
-    fn RegisterForNotifications(&mut self) -> ::windows::core::Result<()>;
-    fn UnregisterForNotifications(&mut self) -> ::windows::core::Result<()>;
+    fn RegisterForNotifications(&self) -> ::windows::core::Result<()>;
+    fn UnregisterForNotifications(&self) -> ::windows::core::Result<()>;
 }
 impl IPrintAsyncNotifyRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintAsyncNotifyRegistration_Impl, const OFFSET: isize>() -> IPrintAsyncNotifyRegistration_Vtbl {
@@ -1059,9 +1059,9 @@ impl IPrintAsyncNotifyRegistration_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrintAsyncNotifyServerReferral_Impl: Sized {
-    fn GetServerReferral(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn AsyncGetServerReferral(&mut self, param0: &::core::option::Option<IAsyncGetSrvReferralCookie>) -> ::windows::core::Result<()>;
-    fn SetServerReferral(&mut self, prmtserverreferral: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetServerReferral(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn AsyncGetServerReferral(&self, param0: &::core::option::Option<IAsyncGetSrvReferralCookie>) -> ::windows::core::Result<()>;
+    fn SetServerReferral(&self, prmtserverreferral: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPrintAsyncNotifyServerReferral_Vtbl {
@@ -1099,7 +1099,7 @@ impl IPrintAsyncNotifyServerReferral_Vtbl {
     }
 }
 pub trait IPrintBidiAsyncNotifyRegistration_Impl: Sized + IPrintAsyncNotifyRegistration_Impl {
-    fn AsyncGetNewChannel(&mut self, param0: &::core::option::Option<IPrintAsyncNewChannelCookie>) -> ::windows::core::Result<()>;
+    fn AsyncGetNewChannel(&self, param0: &::core::option::Option<IPrintAsyncNewChannelCookie>) -> ::windows::core::Result<()>;
 }
 impl IPrintBidiAsyncNotifyRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintBidiAsyncNotifyRegistration_Impl, const OFFSET: isize>() -> IPrintBidiAsyncNotifyRegistration_Vtbl {
@@ -1116,7 +1116,7 @@ impl IPrintBidiAsyncNotifyRegistration_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrintClassObjectFactory_Impl: Sized {
-    fn GetPrintClassObject(&mut self, pszprintername: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetPrintClassObject(&self, pszprintername: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPrintClassObjectFactory_Vtbl {
@@ -1134,15 +1134,15 @@ impl IPrintClassObjectFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IPrintCoreHelper_Impl: Sized {
-    fn GetOption(&mut self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: super::super::Foundation::PSTR) -> ::windows::core::Result<super::super::Foundation::PSTR>;
-    fn SetOptions(&mut self, pdevmode: *mut super::Gdi::DEVMODEA, cbsize: u32, bresolveconflicts: super::super::Foundation::BOOL, pfopairs: *const PRINT_FEATURE_OPTION, cpairs: u32, pcpairswritten: *mut u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn EnumConstrainedOptions(&mut self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pconstrainedoptionlist: *mut *mut *mut super::super::Foundation::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>;
-    fn WhyConstrained(&mut self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pszoptionkeyword: super::super::Foundation::PSTR, ppfoconstraints: *mut *mut PRINT_FEATURE_OPTION, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>;
-    fn EnumFeatures(&mut self, pfeaturelist: *mut *mut *mut super::super::Foundation::PSTR, pdwnumfeatures: *mut u32) -> ::windows::core::Result<()>;
-    fn EnumOptions(&mut self, pszfeaturekeyword: super::super::Foundation::PSTR, poptionlist: *mut *mut *mut super::super::Foundation::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>;
-    fn GetFontSubstitution(&mut self, psztruetypefontname: super::super::Foundation::PWSTR, ppszdevfontname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetFontSubstitution(&mut self, psztruetypefontname: super::super::Foundation::PWSTR, pszdevfontname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn CreateInstanceOfMSXMLObject(&mut self, rclsid: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclscontext: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetOption(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: super::super::Foundation::PSTR) -> ::windows::core::Result<super::super::Foundation::PSTR>;
+    fn SetOptions(&self, pdevmode: *mut super::Gdi::DEVMODEA, cbsize: u32, bresolveconflicts: super::super::Foundation::BOOL, pfopairs: *const PRINT_FEATURE_OPTION, cpairs: u32, pcpairswritten: *mut u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn EnumConstrainedOptions(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pconstrainedoptionlist: *mut *mut *mut super::super::Foundation::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>;
+    fn WhyConstrained(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pszoptionkeyword: super::super::Foundation::PSTR, ppfoconstraints: *mut *mut PRINT_FEATURE_OPTION, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>;
+    fn EnumFeatures(&self, pfeaturelist: *mut *mut *mut super::super::Foundation::PSTR, pdwnumfeatures: *mut u32) -> ::windows::core::Result<()>;
+    fn EnumOptions(&self, pszfeaturekeyword: super::super::Foundation::PSTR, poptionlist: *mut *mut *mut super::super::Foundation::PSTR, pdwnumoptions: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFontSubstitution(&self, psztruetypefontname: super::super::Foundation::PWSTR, ppszdevfontname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetFontSubstitution(&self, psztruetypefontname: super::super::Foundation::PWSTR, pszdevfontname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn CreateInstanceOfMSXMLObject(&self, rclsid: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclscontext: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IPrintCoreHelper_Vtbl {
@@ -1217,9 +1217,9 @@ impl IPrintCoreHelper_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IPrintCoreHelperPS_Impl: Sized + IPrintCoreHelper_Impl {
-    fn GetGlobalAttribute(&mut self, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetFeatureAttribute(&mut self, pszfeaturekeyword: super::super::Foundation::PSTR, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()>;
-    fn GetOptionAttribute(&mut self, pszfeaturekeyword: super::super::Foundation::PSTR, pszoptionkeyword: super::super::Foundation::PSTR, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGlobalAttribute(&self, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFeatureAttribute(&self, pszfeaturekeyword: super::super::Foundation::PSTR, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetOptionAttribute(&self, pszfeaturekeyword: super::super::Foundation::PSTR, pszoptionkeyword: super::super::Foundation::PSTR, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IPrintCoreHelperPS_Vtbl {
@@ -1252,8 +1252,8 @@ impl IPrintCoreHelperPS_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IPrintCoreHelperUni_Impl: Sized + IPrintCoreHelper_Impl {
-    fn CreateGDLSnapshot(&mut self, pdevmode: *mut super::Gdi::DEVMODEA, cbsize: u32, dwflags: u32, ppsnapshotstream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn CreateDefaultGDLSnapshot(&mut self, dwflags: u32) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn CreateGDLSnapshot(&self, pdevmode: *mut super::Gdi::DEVMODEA, cbsize: u32, dwflags: u32, ppsnapshotstream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn CreateDefaultGDLSnapshot(&self, dwflags: u32) -> ::windows::core::Result<super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IPrintCoreHelperUni_Vtbl {
@@ -1286,7 +1286,7 @@ impl IPrintCoreHelperUni_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IPrintCoreHelperUni2_Impl: Sized + IPrintCoreHelper_Impl + IPrintCoreHelperUni_Impl {
-    fn GetNamedCommand(&mut self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszcommandname: super::super::Foundation::PWSTR, ppcommandbytes: *mut *mut u8, pcbcommandsize: *mut u32) -> ::windows::core::Result<()>;
+    fn GetNamedCommand(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszcommandname: super::super::Foundation::PWSTR, ppcommandbytes: *mut *mut u8, pcbcommandsize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IPrintCoreHelperUni2_Vtbl {
@@ -1304,16 +1304,16 @@ impl IPrintCoreHelperUni2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrintCoreUI2_Impl: Sized + IPrintOemDriverUI_Impl {
-    fn GetOptions(&mut self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeaturesrequested: *const i8, cbin: u32, pmszfeatureoptionbuf: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
-    fn SetOptions(&mut self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeatureoptionbuf: *const i8, cbin: u32) -> ::windows::core::Result<u32>;
-    fn EnumConstrainedOptions(&mut self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pmszconstrainedoptionlist: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
-    fn WhyConstrained(&mut self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pszoptionkeyword: super::super::Foundation::PSTR, pmszreasonlist: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
-    fn GetGlobalAttribute(&mut self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
-    fn GetFeatureAttribute(&mut self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
-    fn GetOptionAttribute(&mut self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pszoptionkeyword: super::super::Foundation::PSTR, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
-    fn EnumFeatures(&mut self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeaturelist: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
-    fn EnumOptions(&mut self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pmszoptionlist: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
-    fn QuerySimulationSupport(&mut self, hprinter: super::super::Foundation::HANDLE, dwlevel: u32, pcaps: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
+    fn GetOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeaturesrequested: *const i8, cbin: u32, pmszfeatureoptionbuf: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
+    fn SetOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeatureoptionbuf: *const i8, cbin: u32) -> ::windows::core::Result<u32>;
+    fn EnumConstrainedOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pmszconstrainedoptionlist: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
+    fn WhyConstrained(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pszoptionkeyword: super::super::Foundation::PSTR, pmszreasonlist: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
+    fn GetGlobalAttribute(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
+    fn GetFeatureAttribute(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
+    fn GetOptionAttribute(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pszoptionkeyword: super::super::Foundation::PSTR, pszattribute: super::super::Foundation::PSTR, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
+    fn EnumFeatures(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeaturelist: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
+    fn EnumOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: super::super::Foundation::PSTR, pmszoptionlist: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
+    fn QuerySimulationSupport(&self, hprinter: super::super::Foundation::HANDLE, dwlevel: u32, pcaps: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPrintCoreUI2_Vtbl {
@@ -1394,13 +1394,13 @@ impl IPrintCoreUI2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrintJob_Impl: Sized {
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Id(&mut self) -> ::windows::core::Result<u32>;
-    fn PrintedPages(&mut self) -> ::windows::core::Result<u32>;
-    fn TotalPages(&mut self) -> ::windows::core::Result<u32>;
-    fn Status(&mut self) -> ::windows::core::Result<PrintJobStatus>;
-    fn SubmissionTime(&mut self) -> ::windows::core::Result<f64>;
-    fn RequestCancel(&mut self) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Id(&self) -> ::windows::core::Result<u32>;
+    fn PrintedPages(&self) -> ::windows::core::Result<u32>;
+    fn TotalPages(&self) -> ::windows::core::Result<u32>;
+    fn Status(&self) -> ::windows::core::Result<PrintJobStatus>;
+    fn SubmissionTime(&self) -> ::windows::core::Result<f64>;
+    fn RequestCancel(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPrintJob_Vtbl {
@@ -1493,9 +1493,9 @@ impl IPrintJob_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintJobCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, ulindex: u32) -> ::windows::core::Result<IPrintJob>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrintJob>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintJobCollection_Vtbl {
@@ -1546,8 +1546,8 @@ impl IPrintJobCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IPrintOemCommon_Impl: Sized {
-    fn GetInfo(&mut self, dwmode: u32, pbuffer: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
-    fn DevMode(&mut self, dwmode: u32, poemdmparam: *mut OEMDMPARAM) -> ::windows::core::Result<()>;
+    fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()>;
+    fn DevMode(&self, dwmode: u32, poemdmparam: *mut OEMDMPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IPrintOemCommon_Vtbl {
@@ -1574,9 +1574,9 @@ impl IPrintOemCommon_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrintOemDriverUI_Impl: Sized {
-    fn DrvGetDriverSetting(&mut self, pci: *mut ::core::ffi::c_void, feature: super::super::Foundation::PSTR, poutput: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> ::windows::core::Result<()>;
-    fn DrvUpgradeRegistrySetting(&mut self, hprinter: super::super::Foundation::HANDLE, pfeature: super::super::Foundation::PSTR, poption: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
-    fn DrvUpdateUISetting(&mut self, pci: *mut ::core::ffi::c_void, poptitem: *mut ::core::ffi::c_void, dwpreviousselection: u32, dwmode: u32) -> ::windows::core::Result<()>;
+    fn DrvGetDriverSetting(&self, pci: *mut ::core::ffi::c_void, feature: super::super::Foundation::PSTR, poutput: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> ::windows::core::Result<()>;
+    fn DrvUpgradeRegistrySetting(&self, hprinter: super::super::Foundation::HANDLE, pfeature: super::super::Foundation::PSTR, poption: super::super::Foundation::PSTR) -> ::windows::core::Result<()>;
+    fn DrvUpdateUISetting(&self, pci: *mut ::core::ffi::c_void, poptitem: *mut ::core::ffi::c_void, dwpreviousselection: u32, dwmode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPrintOemDriverUI_Vtbl {
@@ -1609,18 +1609,18 @@ impl IPrintOemDriverUI_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IPrintOemUI_Impl: Sized + IPrintOemCommon_Impl {
-    fn PublishDriverInterface(&mut self, piunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CommonUIProp(&mut self, dwmode: u32, poemcuipparam: *const OEMCUIPPARAM) -> ::windows::core::Result<()>;
-    fn DocumentPropertySheets(&mut self, ppsuiinfo: *mut PROPSHEETUI_INFO, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn DevicePropertySheets(&mut self, ppsuiinfo: *const PROPSHEETUI_INFO, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn DevQueryPrintEx(&mut self, poemuiobj: *const OEMUIOBJ, pdqpinfo: *const DEVQUERYPRINT_INFO, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn DeviceCapabilitiesA(&mut self, poemuiobj: *mut OEMUIOBJ, hprinter: super::super::Foundation::HANDLE, pdevicename: super::super::Foundation::PWSTR, wcapability: u16, poutput: *mut ::core::ffi::c_void, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, dwold: u32, dwresult: *mut u32) -> ::windows::core::Result<()>;
-    fn UpgradePrinter(&mut self, dwlevel: u32, pdriverupgradeinfo: *const u8) -> ::windows::core::Result<()>;
-    fn PrinterEvent(&mut self, pprintername: super::super::Foundation::PWSTR, idriverevent: i32, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn DriverEvent(&mut self, dwdriverevent: u32, dwlevel: u32, pdriverinfo: *const u8, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn QueryColorProfile(&mut self, hprinter: super::super::Foundation::HANDLE, poemuiobj: *const OEMUIOBJ, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, ulquerymode: u32, pvprofiledata: *mut ::core::ffi::c_void, pcbprofiledata: *mut u32, pflprofiledata: *mut u32) -> ::windows::core::Result<()>;
-    fn FontInstallerDlgProc(&mut self, hwnd: super::super::Foundation::HWND, usmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn UpdateExternalFonts(&mut self, hprinter: super::super::Foundation::HANDLE, hheap: super::super::Foundation::HANDLE, pwstrcartridges: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn PublishDriverInterface(&self, piunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CommonUIProp(&self, dwmode: u32, poemcuipparam: *const OEMCUIPPARAM) -> ::windows::core::Result<()>;
+    fn DocumentPropertySheets(&self, ppsuiinfo: *mut PROPSHEETUI_INFO, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn DevicePropertySheets(&self, ppsuiinfo: *const PROPSHEETUI_INFO, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn DevQueryPrintEx(&self, poemuiobj: *const OEMUIOBJ, pdqpinfo: *const DEVQUERYPRINT_INFO, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn DeviceCapabilitiesA(&self, poemuiobj: *mut OEMUIOBJ, hprinter: super::super::Foundation::HANDLE, pdevicename: super::super::Foundation::PWSTR, wcapability: u16, poutput: *mut ::core::ffi::c_void, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, dwold: u32, dwresult: *mut u32) -> ::windows::core::Result<()>;
+    fn UpgradePrinter(&self, dwlevel: u32, pdriverupgradeinfo: *const u8) -> ::windows::core::Result<()>;
+    fn PrinterEvent(&self, pprintername: super::super::Foundation::PWSTR, idriverevent: i32, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn DriverEvent(&self, dwdriverevent: u32, dwlevel: u32, pdriverinfo: *const u8, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn QueryColorProfile(&self, hprinter: super::super::Foundation::HANDLE, poemuiobj: *const OEMUIOBJ, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, ulquerymode: u32, pvprofiledata: *mut ::core::ffi::c_void, pcbprofiledata: *mut u32, pflprofiledata: *mut u32) -> ::windows::core::Result<()>;
+    fn FontInstallerDlgProc(&self, hwnd: super::super::Foundation::HWND, usmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn UpdateExternalFonts(&self, hprinter: super::super::Foundation::HANDLE, hheap: super::super::Foundation::HANDLE, pwstrcartridges: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IPrintOemUI_Vtbl {
@@ -1707,9 +1707,9 @@ impl IPrintOemUI_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IPrintOemUI2_Impl: Sized + IPrintOemCommon_Impl + IPrintOemUI_Impl {
-    fn QueryJobAttributes(&mut self, hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, dwlevel: u32, lpattributeinfo: *const u8) -> ::windows::core::Result<()>;
-    fn HideStandardUI(&mut self, dwmode: u32) -> ::windows::core::Result<()>;
-    fn DocumentEvent(&mut self, hprinter: super::super::Foundation::HANDLE, hdc: super::Gdi::HDC, iesc: i32, cbin: u32, pvin: *mut ::core::ffi::c_void, cbout: u32, pvout: *mut ::core::ffi::c_void, piresult: *mut i32) -> ::windows::core::Result<()>;
+    fn QueryJobAttributes(&self, hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, dwlevel: u32, lpattributeinfo: *const u8) -> ::windows::core::Result<()>;
+    fn HideStandardUI(&self, dwmode: u32) -> ::windows::core::Result<()>;
+    fn DocumentEvent(&self, hprinter: super::super::Foundation::HANDLE, hdc: super::Gdi::HDC, iesc: i32, cbin: u32, pvin: *mut ::core::ffi::c_void, cbout: u32, pvout: *mut ::core::ffi::c_void, piresult: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IPrintOemUI2_Vtbl {
@@ -1742,9 +1742,9 @@ impl IPrintOemUI2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IPrintOemUIMXDC_Impl: Sized {
-    fn AdjustImageableArea(&mut self, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const ::core::ffi::c_void, prclimageablearea: *mut super::super::Foundation::RECTL) -> ::windows::core::Result<()>;
-    fn AdjustImageCompression(&mut self, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const ::core::ffi::c_void, pcompressionmode: *mut i32) -> ::windows::core::Result<()>;
-    fn AdjustDPI(&mut self, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const ::core::ffi::c_void, pdpi: *mut i32) -> ::windows::core::Result<()>;
+    fn AdjustImageableArea(&self, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const ::core::ffi::c_void, prclimageablearea: *mut super::super::Foundation::RECTL) -> ::windows::core::Result<()>;
+    fn AdjustImageCompression(&self, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const ::core::ffi::c_void, pcompressionmode: *mut i32) -> ::windows::core::Result<()>;
+    fn AdjustDPI(&self, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const ::core::ffi::c_void, pdpi: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IPrintOemUIMXDC_Vtbl {
@@ -1776,9 +1776,9 @@ impl IPrintOemUIMXDC_Vtbl {
     }
 }
 pub trait IPrintPipelineFilter_Impl: Sized {
-    fn InitializeFilter(&mut self, pinegotiation: &::core::option::Option<IInterFilterCommunicator>, pipropertybag: &::core::option::Option<IPrintPipelinePropertyBag>, pipipelinecontrol: &::core::option::Option<IPrintPipelineManagerControl>) -> ::windows::core::Result<()>;
-    fn ShutdownOperation(&mut self) -> ::windows::core::Result<()>;
-    fn StartOperation(&mut self) -> ::windows::core::Result<()>;
+    fn InitializeFilter(&self, pinegotiation: &::core::option::Option<IInterFilterCommunicator>, pipropertybag: &::core::option::Option<IPrintPipelinePropertyBag>, pipipelinecontrol: &::core::option::Option<IPrintPipelineManagerControl>) -> ::windows::core::Result<()>;
+    fn ShutdownOperation(&self) -> ::windows::core::Result<()>;
+    fn StartOperation(&self) -> ::windows::core::Result<()>;
 }
 impl IPrintPipelineFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPipelineFilter_Impl, const OFFSET: isize>() -> IPrintPipelineFilter_Vtbl {
@@ -1810,8 +1810,8 @@ impl IPrintPipelineFilter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintPipelineManagerControl_Impl: Sized {
-    fn RequestShutdown(&mut self, hrreason: ::windows::core::HRESULT, preason: &::core::option::Option<IImgErrorInfo>) -> ::windows::core::Result<()>;
-    fn FilterFinished(&mut self) -> ::windows::core::Result<()>;
+    fn RequestShutdown(&self, hrreason: ::windows::core::HRESULT, preason: &::core::option::Option<IImgErrorInfo>) -> ::windows::core::Result<()>;
+    fn FilterFinished(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintPipelineManagerControl_Vtbl {
@@ -1837,7 +1837,7 @@ impl IPrintPipelineManagerControl_Vtbl {
     }
 }
 pub trait IPrintPipelineProgressReport_Impl: Sized {
-    fn ReportProgress(&mut self, update: EXpsJobConsumption) -> ::windows::core::Result<()>;
+    fn ReportProgress(&self, update: EXpsJobConsumption) -> ::windows::core::Result<()>;
 }
 impl IPrintPipelineProgressReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintPipelineProgressReport_Impl, const OFFSET: isize>() -> IPrintPipelineProgressReport_Vtbl {
@@ -1854,9 +1854,9 @@ impl IPrintPipelineProgressReport_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintPipelinePropertyBag_Impl: Sized {
-    fn AddProperty(&mut self, pszname: super::super::Foundation::PWSTR, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, pszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn DeleteProperty(&mut self, pszname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    fn AddProperty(&self, pszname: super::super::Foundation::PWSTR, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, pszname: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn DeleteProperty(&self, pszname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintPipelinePropertyBag_Vtbl {
@@ -1895,9 +1895,9 @@ impl IPrintPipelinePropertyBag_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub trait IPrintPreviewDxgiPackageTarget_Impl: Sized {
-    fn SetJobPageCount(&mut self, counttype: PageCountType, count: u32) -> ::windows::core::Result<()>;
-    fn DrawPage(&mut self, jobpagenumber: u32, pageimage: &::core::option::Option<super::Dxgi::IDXGISurface>, dpix: f32, dpiy: f32) -> ::windows::core::Result<()>;
-    fn InvalidatePreview(&mut self) -> ::windows::core::Result<()>;
+    fn SetJobPageCount(&self, counttype: PageCountType, count: u32) -> ::windows::core::Result<()>;
+    fn DrawPage(&self, jobpagenumber: u32, pageimage: &::core::option::Option<super::Dxgi::IDXGISurface>, dpix: f32, dpiy: f32) -> ::windows::core::Result<()>;
+    fn InvalidatePreview(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 impl IPrintPreviewDxgiPackageTarget_Vtbl {
@@ -1930,8 +1930,8 @@ impl IPrintPreviewDxgiPackageTarget_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrintReadStream_Impl: Sized {
-    fn Seek(&mut self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64>;
-    fn ReadBytes(&mut self, pvbuffer: *mut ::core::ffi::c_void, cbrequested: u32, pcbread: *mut u32, pbendoffile: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64>;
+    fn ReadBytes(&self, pvbuffer: *mut ::core::ffi::c_void, cbrequested: u32, pcbread: *mut u32, pbendoffile: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPrintReadStream_Vtbl {
@@ -1963,7 +1963,7 @@ impl IPrintReadStream_Vtbl {
     }
 }
 pub trait IPrintReadStreamFactory_Impl: Sized {
-    fn GetStream(&mut self) -> ::windows::core::Result<IPrintReadStream>;
+    fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream>;
 }
 impl IPrintReadStreamFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintReadStreamFactory_Impl, const OFFSET: isize>() -> IPrintReadStreamFactory_Vtbl {
@@ -1986,8 +1986,8 @@ impl IPrintReadStreamFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaAsyncOperation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Start(&mut self) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn Start(&self) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaAsyncOperation_Vtbl {
@@ -2014,7 +2014,7 @@ impl IPrintSchemaAsyncOperation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaAsyncOperationEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Completed(&mut self, pticket: &::core::option::Option<IPrintSchemaTicket>, hroperation: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn Completed(&self, pticket: &::core::option::Option<IPrintSchemaTicket>, hroperation: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaAsyncOperationEvent_Vtbl {
@@ -2032,13 +2032,13 @@ impl IPrintSchemaAsyncOperationEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaCapabilities_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl {
-    fn GetFeatureByKeyName(&mut self, bstrkeyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
-    fn GetFeature(&mut self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
-    fn PageImageableSize(&mut self) -> ::windows::core::Result<IPrintSchemaPageImageableSize>;
-    fn JobCopiesAllDocumentsMinValue(&mut self) -> ::windows::core::Result<u32>;
-    fn JobCopiesAllDocumentsMaxValue(&mut self) -> ::windows::core::Result<u32>;
-    fn GetSelectedOptionInPrintTicket(&mut self, pfeature: &::core::option::Option<IPrintSchemaFeature>) -> ::windows::core::Result<IPrintSchemaOption>;
-    fn GetOptions(&mut self, pfeature: &::core::option::Option<IPrintSchemaFeature>) -> ::windows::core::Result<IPrintSchemaOptionCollection>;
+    fn GetFeatureByKeyName(&self, bstrkeyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
+    fn GetFeature(&self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
+    fn PageImageableSize(&self) -> ::windows::core::Result<IPrintSchemaPageImageableSize>;
+    fn JobCopiesAllDocumentsMinValue(&self) -> ::windows::core::Result<u32>;
+    fn JobCopiesAllDocumentsMaxValue(&self) -> ::windows::core::Result<u32>;
+    fn GetSelectedOptionInPrintTicket(&self, pfeature: &::core::option::Option<IPrintSchemaFeature>) -> ::windows::core::Result<IPrintSchemaOption>;
+    fn GetOptions(&self, pfeature: &::core::option::Option<IPrintSchemaFeature>) -> ::windows::core::Result<IPrintSchemaOptionCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaCapabilities_Vtbl {
@@ -2137,7 +2137,7 @@ impl IPrintSchemaCapabilities_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaCapabilities2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaCapabilities_Impl {
-    fn GetParameterDefinition(&mut self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaParameterDefinition>;
+    fn GetParameterDefinition(&self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaParameterDefinition>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaCapabilities2_Vtbl {
@@ -2161,7 +2161,7 @@ impl IPrintSchemaCapabilities2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaDisplayableElement_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl {
-    fn DisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaDisplayableElement_Vtbl {
@@ -2185,9 +2185,9 @@ impl IPrintSchemaDisplayableElement_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaElement_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn XmlNode(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn NamespaceUri(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn NamespaceUri(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaElement_Vtbl {
@@ -2238,11 +2238,11 @@ impl IPrintSchemaElement_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaFeature_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaDisplayableElement_Impl {
-    fn SelectedOption(&mut self) -> ::windows::core::Result<IPrintSchemaOption>;
-    fn SetSelectedOption(&mut self, poption: &::core::option::Option<IPrintSchemaOption>) -> ::windows::core::Result<()>;
-    fn SelectionType(&mut self) -> ::windows::core::Result<PrintSchemaSelectionType>;
-    fn GetOption(&mut self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaOption>;
-    fn DisplayUI(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SelectedOption(&self) -> ::windows::core::Result<IPrintSchemaOption>;
+    fn SetSelectedOption(&self, poption: &::core::option::Option<IPrintSchemaOption>) -> ::windows::core::Result<()>;
+    fn SelectionType(&self) -> ::windows::core::Result<PrintSchemaSelectionType>;
+    fn GetOption(&self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaOption>;
+    fn DisplayUI(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaFeature_Vtbl {
@@ -2311,7 +2311,7 @@ impl IPrintSchemaFeature_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaNUpOption_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaDisplayableElement_Impl + IPrintSchemaOption_Impl {
-    fn PagesPerSheet(&mut self) -> ::windows::core::Result<u32>;
+    fn PagesPerSheet(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaNUpOption_Vtbl {
@@ -2335,9 +2335,9 @@ impl IPrintSchemaNUpOption_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaOption_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaDisplayableElement_Impl {
-    fn Selected(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Constrained(&mut self) -> ::windows::core::Result<PrintSchemaConstrainedSetting>;
-    fn GetPropertyValue(&mut self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Selected(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Constrained(&self) -> ::windows::core::Result<PrintSchemaConstrainedSetting>;
+    fn GetPropertyValue(&self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaOption_Vtbl {
@@ -2388,9 +2388,9 @@ impl IPrintSchemaOption_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaOptionCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, ulindex: u32) -> ::windows::core::Result<IPrintSchemaOption>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrintSchemaOption>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaOptionCollection_Vtbl {
@@ -2441,12 +2441,12 @@ impl IPrintSchemaOptionCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaPageImageableSize_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl {
-    fn ImageableSizeWidthInMicrons(&mut self) -> ::windows::core::Result<u32>;
-    fn ImageableSizeHeightInMicrons(&mut self) -> ::windows::core::Result<u32>;
-    fn OriginWidthInMicrons(&mut self) -> ::windows::core::Result<u32>;
-    fn OriginHeightInMicrons(&mut self) -> ::windows::core::Result<u32>;
-    fn ExtentWidthInMicrons(&mut self) -> ::windows::core::Result<u32>;
-    fn ExtentHeightInMicrons(&mut self) -> ::windows::core::Result<u32>;
+    fn ImageableSizeWidthInMicrons(&self) -> ::windows::core::Result<u32>;
+    fn ImageableSizeHeightInMicrons(&self) -> ::windows::core::Result<u32>;
+    fn OriginWidthInMicrons(&self) -> ::windows::core::Result<u32>;
+    fn OriginHeightInMicrons(&self) -> ::windows::core::Result<u32>;
+    fn ExtentWidthInMicrons(&self) -> ::windows::core::Result<u32>;
+    fn ExtentHeightInMicrons(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaPageImageableSize_Vtbl {
@@ -2533,8 +2533,8 @@ impl IPrintSchemaPageImageableSize_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaPageMediaSizeOption_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaDisplayableElement_Impl + IPrintSchemaOption_Impl {
-    fn WidthInMicrons(&mut self) -> ::windows::core::Result<u32>;
-    fn HeightInMicrons(&mut self) -> ::windows::core::Result<u32>;
+    fn WidthInMicrons(&self) -> ::windows::core::Result<u32>;
+    fn HeightInMicrons(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaPageMediaSizeOption_Vtbl {
@@ -2573,11 +2573,11 @@ impl IPrintSchemaPageMediaSizeOption_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaParameterDefinition_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaDisplayableElement_Impl {
-    fn UserInputRequired(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn UnitType(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DataType(&mut self) -> ::windows::core::Result<PrintSchemaParameterDataType>;
-    fn RangeMin(&mut self) -> ::windows::core::Result<i32>;
-    fn RangeMax(&mut self) -> ::windows::core::Result<i32>;
+    fn UserInputRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn UnitType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DataType(&self) -> ::windows::core::Result<PrintSchemaParameterDataType>;
+    fn RangeMin(&self) -> ::windows::core::Result<i32>;
+    fn RangeMax(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaParameterDefinition_Vtbl {
@@ -2652,8 +2652,8 @@ impl IPrintSchemaParameterDefinition_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaParameterInitializer_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl {
-    fn Value(&mut self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetValue(&mut self, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetValue(&self, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaParameterInitializer_Vtbl {
@@ -2686,14 +2686,14 @@ impl IPrintSchemaParameterInitializer_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaTicket_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl {
-    fn GetFeatureByKeyName(&mut self, bstrkeyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
-    fn GetFeature(&mut self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
-    fn ValidateAsync(&mut self) -> ::windows::core::Result<IPrintSchemaAsyncOperation>;
-    fn CommitAsync(&mut self, pprintticketcommit: &::core::option::Option<IPrintSchemaTicket>) -> ::windows::core::Result<IPrintSchemaAsyncOperation>;
-    fn NotifyXmlChanged(&mut self) -> ::windows::core::Result<()>;
-    fn GetCapabilities(&mut self) -> ::windows::core::Result<IPrintSchemaCapabilities>;
-    fn JobCopiesAllDocuments(&mut self) -> ::windows::core::Result<u32>;
-    fn SetJobCopiesAllDocuments(&mut self, uljobcopiesalldocuments: u32) -> ::windows::core::Result<()>;
+    fn GetFeatureByKeyName(&self, bstrkeyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
+    fn GetFeature(&self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
+    fn ValidateAsync(&self) -> ::windows::core::Result<IPrintSchemaAsyncOperation>;
+    fn CommitAsync(&self, pprintticketcommit: &::core::option::Option<IPrintSchemaTicket>) -> ::windows::core::Result<IPrintSchemaAsyncOperation>;
+    fn NotifyXmlChanged(&self) -> ::windows::core::Result<()>;
+    fn GetCapabilities(&self) -> ::windows::core::Result<IPrintSchemaCapabilities>;
+    fn JobCopiesAllDocuments(&self) -> ::windows::core::Result<u32>;
+    fn SetJobCopiesAllDocuments(&self, uljobcopiesalldocuments: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaTicket_Vtbl {
@@ -2792,7 +2792,7 @@ impl IPrintSchemaTicket_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrintSchemaTicket2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrintSchemaElement_Impl + IPrintSchemaTicket_Impl {
-    fn GetParameterInitializer(&mut self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaParameterInitializer>;
+    fn GetParameterInitializer(&self, bstrname: &super::super::Foundation::BSTR, bstrnamespaceuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrintSchemaParameterInitializer>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintSchemaTicket2_Vtbl {
@@ -2816,13 +2816,13 @@ impl IPrintSchemaTicket2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IPrintTicketProvider_Impl: Sized {
-    fn GetSupportedVersions(&mut self, hprinter: super::super::Foundation::HANDLE, ppversions: *mut *mut i32, cversions: *mut i32) -> ::windows::core::Result<()>;
-    fn BindPrinter(&mut self, hprinter: super::super::Foundation::HANDLE, version: i32, poptions: *mut SHIMOPTS, pdevmodeflags: *mut u32, cnamespaces: *mut i32, ppnamespaces: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn QueryDeviceNamespace(&mut self, pdefaultnamespace: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ConvertPrintTicketToDevMode(&mut self, pprintticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>, cbdevmodein: u32, pdevmodein: *mut super::Gdi::DEVMODEA, pcbdevmodeout: *mut u32, ppdevmodeout: *mut *mut super::Gdi::DEVMODEA) -> ::windows::core::Result<()>;
-    fn ConvertDevModeToPrintTicket(&mut self, cbdevmode: u32, pdevmode: *mut super::Gdi::DEVMODEA, pprintticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows::core::Result<()>;
-    fn GetPrintCapabilities(&mut self, pprintticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2>;
-    fn ValidatePrintTicket(&mut self, pbaseticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows::core::Result<()>;
+    fn GetSupportedVersions(&self, hprinter: super::super::Foundation::HANDLE, ppversions: *mut *mut i32, cversions: *mut i32) -> ::windows::core::Result<()>;
+    fn BindPrinter(&self, hprinter: super::super::Foundation::HANDLE, version: i32, poptions: *mut SHIMOPTS, pdevmodeflags: *mut u32, cnamespaces: *mut i32, ppnamespaces: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn QueryDeviceNamespace(&self, pdefaultnamespace: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ConvertPrintTicketToDevMode(&self, pprintticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>, cbdevmodein: u32, pdevmodein: *mut super::Gdi::DEVMODEA, pcbdevmodeout: *mut u32, ppdevmodeout: *mut *mut super::Gdi::DEVMODEA) -> ::windows::core::Result<()>;
+    fn ConvertDevModeToPrintTicket(&self, cbdevmode: u32, pdevmode: *mut super::Gdi::DEVMODEA, pprintticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows::core::Result<()>;
+    fn GetPrintCapabilities(&self, pprintticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2>;
+    fn ValidatePrintTicket(&self, pbaseticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IPrintTicketProvider_Vtbl {
@@ -2885,8 +2885,8 @@ impl IPrintTicketProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IPrintTicketProvider2_Impl: Sized + IPrintTicketProvider_Impl {
-    fn GetPrintDeviceCapabilities(&mut self, pprintticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2>;
-    fn GetPrintDeviceResources(&mut self, pszlocalename: super::super::Foundation::PWSTR, pprintticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2>;
+    fn GetPrintDeviceCapabilities(&self, pprintticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2>;
+    fn GetPrintDeviceResources(&self, pszlocalename: super::super::Foundation::PWSTR, pprintticket: &::core::option::Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IPrintTicketProvider2_Vtbl {
@@ -2924,7 +2924,7 @@ impl IPrintTicketProvider2_Vtbl {
     }
 }
 pub trait IPrintUnidiAsyncNotifyRegistration_Impl: Sized + IPrintAsyncNotifyRegistration_Impl {
-    fn AsyncGetNotification(&mut self, param0: &::core::option::Option<IAsyncGetSendNotificationCookie>) -> ::windows::core::Result<()>;
+    fn AsyncGetNotification(&self, param0: &::core::option::Option<IAsyncGetSendNotificationCookie>) -> ::windows::core::Result<()>;
 }
 impl IPrintUnidiAsyncNotifyRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintUnidiAsyncNotifyRegistration_Impl, const OFFSET: isize>() -> IPrintUnidiAsyncNotifyRegistration_Vtbl {
@@ -2940,8 +2940,8 @@ impl IPrintUnidiAsyncNotifyRegistration_Vtbl {
     }
 }
 pub trait IPrintWriteStream_Impl: Sized {
-    fn WriteBytes(&mut self, pvbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<u32>;
-    fn Close(&mut self);
+    fn WriteBytes(&self, pvbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<u32>;
+    fn Close(&self);
 }
 impl IPrintWriteStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWriteStream_Impl, const OFFSET: isize>() -> IPrintWriteStream_Vtbl {
@@ -2972,7 +2972,7 @@ impl IPrintWriteStream_Vtbl {
     }
 }
 pub trait IPrintWriteStreamFlush_Impl: Sized {
-    fn FlushData(&mut self) -> ::windows::core::Result<()>;
+    fn FlushData(&self) -> ::windows::core::Result<()>;
 }
 impl IPrintWriteStreamFlush_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWriteStreamFlush_Impl, const OFFSET: isize>() -> IPrintWriteStreamFlush_Vtbl {
@@ -2989,7 +2989,7 @@ impl IPrintWriteStreamFlush_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrinterBidiSetRequestCallback_Impl: Sized {
-    fn Completed(&mut self, bstrresponse: &super::super::Foundation::BSTR, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn Completed(&self, bstrresponse: &super::super::Foundation::BSTR, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IPrinterBidiSetRequestCallback_Vtbl {
@@ -3006,7 +3006,7 @@ impl IPrinterBidiSetRequestCallback_Vtbl {
     }
 }
 pub trait IPrinterExtensionAsyncOperation_Impl: Sized {
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 impl IPrinterExtensionAsyncOperation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterExtensionAsyncOperation_Impl, const OFFSET: isize>() -> IPrinterExtensionAsyncOperation_Vtbl {
@@ -3023,10 +3023,10 @@ impl IPrinterExtensionAsyncOperation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterExtensionContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn PrinterQueue(&mut self) -> ::windows::core::Result<IPrinterQueue>;
-    fn PrintSchemaTicket(&mut self) -> ::windows::core::Result<IPrintSchemaTicket>;
-    fn DriverProperties(&mut self) -> ::windows::core::Result<IPrinterPropertyBag>;
-    fn UserProperties(&mut self) -> ::windows::core::Result<IPrinterPropertyBag>;
+    fn PrinterQueue(&self) -> ::windows::core::Result<IPrinterQueue>;
+    fn PrintSchemaTicket(&self) -> ::windows::core::Result<IPrintSchemaTicket>;
+    fn DriverProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag>;
+    fn UserProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterExtensionContext_Vtbl {
@@ -3089,9 +3089,9 @@ impl IPrinterExtensionContext_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterExtensionContextCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Count(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, ulindex: u32) -> ::windows::core::Result<IPrinterExtensionContext>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Count(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrinterExtensionContext>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterExtensionContextCollection_Vtbl {
@@ -3142,8 +3142,8 @@ impl IPrinterExtensionContextCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterExtensionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OnDriverEvent(&mut self, peventargs: &::core::option::Option<IPrinterExtensionEventArgs>) -> ::windows::core::Result<()>;
-    fn OnPrinterQueuesEnumerated(&mut self, pcontextcollection: &::core::option::Option<IPrinterExtensionContextCollection>) -> ::windows::core::Result<()>;
+    fn OnDriverEvent(&self, peventargs: &::core::option::Option<IPrinterExtensionEventArgs>) -> ::windows::core::Result<()>;
+    fn OnPrinterQueuesEnumerated(&self, pcontextcollection: &::core::option::Option<IPrinterExtensionContextCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterExtensionEvent_Vtbl {
@@ -3170,13 +3170,13 @@ impl IPrinterExtensionEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterExtensionEventArgs_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrinterExtensionContext_Impl {
-    fn BidiNotification(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ReasonId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn Request(&mut self) -> ::windows::core::Result<IPrinterExtensionRequest>;
-    fn SourceApplication(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DetailedReasonId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn WindowModal(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn WindowParent(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn BidiNotification(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ReasonId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn Request(&self) -> ::windows::core::Result<IPrinterExtensionRequest>;
+    fn SourceApplication(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn DetailedReasonId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn WindowModal(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn WindowParent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterExtensionEventArgs_Vtbl {
@@ -3274,8 +3274,8 @@ impl IPrinterExtensionEventArgs_Vtbl {
     }
 }
 pub trait IPrinterExtensionManager_Impl: Sized {
-    fn EnableEvents(&mut self, printerdriverid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn DisableEvents(&mut self) -> ::windows::core::Result<()>;
+    fn EnableEvents(&self, printerdriverid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn DisableEvents(&self) -> ::windows::core::Result<()>;
 }
 impl IPrinterExtensionManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinterExtensionManager_Impl, const OFFSET: isize>() -> IPrinterExtensionManager_Vtbl {
@@ -3301,8 +3301,8 @@ impl IPrinterExtensionManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterExtensionRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Cancel(&mut self, hrstatus: ::windows::core::HRESULT, bstrlogmessage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Complete(&mut self) -> ::windows::core::Result<()>;
+    fn Cancel(&self, hrstatus: ::windows::core::HRESULT, bstrlogmessage: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Complete(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterExtensionRequest_Vtbl {
@@ -3329,16 +3329,16 @@ impl IPrinterExtensionRequest_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterPropertyBag_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetBool(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetBool(&mut self, bstrname: &super::super::Foundation::BSTR, bvalue: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetInt32(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
-    fn SetInt32(&mut self, bstrname: &super::super::Foundation::BSTR, nvalue: i32) -> ::windows::core::Result<()>;
-    fn GetString(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetString(&mut self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetBytes(&mut self, bstrname: &super::super::Foundation::BSTR, pcbvalue: *mut u32, ppvalue: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn SetBytes(&mut self, bstrname: &super::super::Foundation::BSTR, cbvalue: u32, pvalue: *const u8) -> ::windows::core::Result<()>;
-    fn GetReadStream(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn GetWriteStream(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn GetBool(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetBool(&self, bstrname: &super::super::Foundation::BSTR, bvalue: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetInt32(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn SetInt32(&self, bstrname: &super::super::Foundation::BSTR, nvalue: i32) -> ::windows::core::Result<()>;
+    fn GetString(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetString(&self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetBytes(&self, bstrname: &super::super::Foundation::BSTR, pcbvalue: *mut u32, ppvalue: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn SetBytes(&self, bstrname: &super::super::Foundation::BSTR, cbvalue: u32, pvalue: *const u8) -> ::windows::core::Result<()>;
+    fn GetReadStream(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
+    fn GetWriteStream(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterPropertyBag_Vtbl {
@@ -3443,10 +3443,10 @@ impl IPrinterPropertyBag_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Handle(&mut self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SendBidiQuery(&mut self, bstrbidiquery: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetProperties(&mut self) -> ::windows::core::Result<IPrinterPropertyBag>;
+    fn Handle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SendBidiQuery(&self, bstrbidiquery: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterQueue_Vtbl {
@@ -3503,8 +3503,8 @@ impl IPrinterQueue_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterQueue2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrinterQueue_Impl {
-    fn SendBidiSetRequestAsync(&mut self, bstrbidirequest: &super::super::Foundation::BSTR, pcallback: &::core::option::Option<IPrinterBidiSetRequestCallback>) -> ::windows::core::Result<IPrinterExtensionAsyncOperation>;
-    fn GetPrinterQueueView(&mut self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::Result<IPrinterQueueView>;
+    fn SendBidiSetRequestAsync(&self, bstrbidirequest: &super::super::Foundation::BSTR, pcallback: &::core::option::Option<IPrinterBidiSetRequestCallback>) -> ::windows::core::Result<IPrinterExtensionAsyncOperation>;
+    fn GetPrinterQueueView(&self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::Result<IPrinterQueueView>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterQueue2_Vtbl {
@@ -3543,7 +3543,7 @@ impl IPrinterQueue2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterQueueEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OnBidiResponseReceived(&mut self, bstrresponse: &super::super::Foundation::BSTR, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnBidiResponseReceived(&self, bstrresponse: &super::super::Foundation::BSTR, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterQueueEvent_Vtbl {
@@ -3564,7 +3564,7 @@ impl IPrinterQueueEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterQueueView_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SetViewRange(&mut self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::Result<()>;
+    fn SetViewRange(&self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterQueueView_Vtbl {
@@ -3582,7 +3582,7 @@ impl IPrinterQueueView_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterQueueViewEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OnChanged(&mut self, pcollection: &::core::option::Option<IPrintJobCollection>, ulviewoffset: u32, ulviewsize: u32, ulcountjobsinprintqueue: u32) -> ::windows::core::Result<()>;
+    fn OnChanged(&self, pcollection: &::core::option::Option<IPrintJobCollection>, ulviewoffset: u32, ulviewsize: u32, ulcountjobsinprintqueue: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterQueueViewEvent_Vtbl {
@@ -3600,9 +3600,9 @@ impl IPrinterQueueViewEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterScriptContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn DriverProperties(&mut self) -> ::windows::core::Result<IPrinterScriptablePropertyBag>;
-    fn QueueProperties(&mut self) -> ::windows::core::Result<IPrinterScriptablePropertyBag>;
-    fn UserProperties(&mut self) -> ::windows::core::Result<IPrinterScriptablePropertyBag>;
+    fn DriverProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag>;
+    fn QueueProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag>;
+    fn UserProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterScriptContext_Vtbl {
@@ -3653,16 +3653,16 @@ impl IPrinterScriptContext_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterScriptablePropertyBag_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetBool(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetBool(&mut self, bstrname: &super::super::Foundation::BSTR, bvalue: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetInt32(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
-    fn SetInt32(&mut self, bstrname: &super::super::Foundation::BSTR, nvalue: i32) -> ::windows::core::Result<()>;
-    fn GetString(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetString(&mut self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetBytes(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn SetBytes(&mut self, bstrname: &super::super::Foundation::BSTR, parray: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn GetReadStream(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrinterScriptableStream>;
-    fn GetWriteStream(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrinterScriptableStream>;
+    fn GetBool(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetBool(&self, bstrname: &super::super::Foundation::BSTR, bvalue: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetInt32(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn SetInt32(&self, bstrname: &super::super::Foundation::BSTR, nvalue: i32) -> ::windows::core::Result<()>;
+    fn GetString(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn SetString(&self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetBytes(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn SetBytes(&self, bstrname: &super::super::Foundation::BSTR, parray: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn GetReadStream(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrinterScriptableStream>;
+    fn GetWriteStream(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IPrinterScriptableStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterScriptablePropertyBag_Vtbl {
@@ -3773,7 +3773,7 @@ impl IPrinterScriptablePropertyBag_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterScriptablePropertyBag2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrinterScriptablePropertyBag_Impl {
-    fn GetReadStreamAsXML(&mut self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetReadStreamAsXML(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterScriptablePropertyBag2_Vtbl {
@@ -3797,8 +3797,8 @@ impl IPrinterScriptablePropertyBag2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterScriptableSequentialStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Read(&mut self, cbread: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn Write(&mut self, parray: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<i32>;
+    fn Read(&self, cbread: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn Write(&self, parray: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterScriptableSequentialStream_Vtbl {
@@ -3837,9 +3837,9 @@ impl IPrinterScriptableSequentialStream_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPrinterScriptableStream_Impl: Sized + super::super::System::Com::IDispatch_Impl + IPrinterScriptableSequentialStream_Impl {
-    fn Commit(&mut self) -> ::windows::core::Result<()>;
-    fn Seek(&mut self, loffset: i32, streamseek: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<i32>;
-    fn SetSize(&mut self, lsize: i32) -> ::windows::core::Result<()>;
+    fn Commit(&self) -> ::windows::core::Result<()>;
+    fn Seek(&self, loffset: i32, streamseek: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<i32>;
+    fn SetSize(&self, lsize: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrinterScriptableStream_Vtbl {
@@ -3877,8 +3877,8 @@ impl IPrinterScriptableStream_Vtbl {
     }
 }
 pub trait IXpsDocument_Impl: Sized {
-    fn GetThumbnail(&mut self) -> ::windows::core::Result<IPartThumbnail>;
-    fn SetThumbnail(&mut self, pthumbnail: &::core::option::Option<IPartThumbnail>) -> ::windows::core::Result<()>;
+    fn GetThumbnail(&self) -> ::windows::core::Result<IPartThumbnail>;
+    fn SetThumbnail(&self, pthumbnail: &::core::option::Option<IPartThumbnail>) -> ::windows::core::Result<()>;
 }
 impl IXpsDocument_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsDocument_Impl, const OFFSET: isize>() -> IXpsDocument_Vtbl {
@@ -3910,13 +3910,13 @@ impl IXpsDocument_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsDocumentConsumer_Impl: Sized {
-    fn SendXpsUnknown(&mut self, punknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SendXpsDocument(&mut self, pixpsdocument: &::core::option::Option<IXpsDocument>) -> ::windows::core::Result<()>;
-    fn SendFixedDocumentSequence(&mut self, pifixeddocumentsequence: &::core::option::Option<IFixedDocumentSequence>) -> ::windows::core::Result<()>;
-    fn SendFixedDocument(&mut self, pifixeddocument: &::core::option::Option<IFixedDocument>) -> ::windows::core::Result<()>;
-    fn SendFixedPage(&mut self, pifixedpage: &::core::option::Option<IFixedPage>) -> ::windows::core::Result<()>;
-    fn CloseSender(&mut self) -> ::windows::core::Result<()>;
-    fn GetNewEmptyPart(&mut self, uri: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void, ppwritestream: *mut ::core::option::Option<IPrintWriteStream>) -> ::windows::core::Result<()>;
+    fn SendXpsUnknown(&self, punknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SendXpsDocument(&self, pixpsdocument: &::core::option::Option<IXpsDocument>) -> ::windows::core::Result<()>;
+    fn SendFixedDocumentSequence(&self, pifixeddocumentsequence: &::core::option::Option<IFixedDocumentSequence>) -> ::windows::core::Result<()>;
+    fn SendFixedDocument(&self, pifixeddocument: &::core::option::Option<IFixedDocument>) -> ::windows::core::Result<()>;
+    fn SendFixedPage(&self, pifixedpage: &::core::option::Option<IFixedPage>) -> ::windows::core::Result<()>;
+    fn CloseSender(&self) -> ::windows::core::Result<()>;
+    fn GetNewEmptyPart(&self, uri: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void, ppwritestream: *mut ::core::option::Option<IPrintWriteStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsDocumentConsumer_Vtbl {
@@ -3972,7 +3972,7 @@ impl IXpsDocumentConsumer_Vtbl {
     }
 }
 pub trait IXpsDocumentProvider_Impl: Sized {
-    fn GetXpsPart(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetXpsPart(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl IXpsDocumentProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsDocumentProvider_Impl, const OFFSET: isize>() -> IXpsDocumentProvider_Vtbl {
@@ -3995,10 +3995,10 @@ impl IXpsDocumentProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXpsPartIterator_Impl: Sized {
-    fn Reset(&mut self);
-    fn Current(&mut self, puri: *mut super::super::Foundation::BSTR, ppxpspart: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn IsDone(&mut self) -> super::super::Foundation::BOOL;
-    fn Next(&mut self);
+    fn Reset(&self);
+    fn Current(&self, puri: *mut super::super::Foundation::BSTR, ppxpspart: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn IsDone(&self) -> super::super::Foundation::BOOL;
+    fn Next(&self);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IXpsPartIterator_Vtbl {
@@ -4037,7 +4037,7 @@ impl IXpsPartIterator_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IXpsRasterizationFactory_Impl: Sized {
-    fn CreateRasterizer(&mut self, xpspage: &::core::option::Option<super::super::Storage::Xps::IXpsOMPage>, dpi: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE) -> ::windows::core::Result<IXpsRasterizer>;
+    fn CreateRasterizer(&self, xpspage: &::core::option::Option<super::super::Storage::Xps::IXpsOMPage>, dpi: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE) -> ::windows::core::Result<IXpsRasterizer>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 impl IXpsRasterizationFactory_Vtbl {
@@ -4061,7 +4061,7 @@ impl IXpsRasterizationFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IXpsRasterizationFactory1_Impl: Sized {
-    fn CreateRasterizer(&mut self, xpspage: &::core::option::Option<super::super::Storage::Xps::IXpsOMPage>, dpi: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT) -> ::windows::core::Result<IXpsRasterizer>;
+    fn CreateRasterizer(&self, xpspage: &::core::option::Option<super::super::Storage::Xps::IXpsOMPage>, dpi: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT) -> ::windows::core::Result<IXpsRasterizer>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 impl IXpsRasterizationFactory1_Vtbl {
@@ -4085,7 +4085,7 @@ impl IXpsRasterizationFactory1_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IXpsRasterizationFactory2_Impl: Sized {
-    fn CreateRasterizer(&mut self, xpspage: &::core::option::Option<super::super::Storage::Xps::IXpsOMPage>, dpix: f32, dpiy: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT, backgroundcolor: XPSRAS_BACKGROUND_COLOR) -> ::windows::core::Result<IXpsRasterizer>;
+    fn CreateRasterizer(&self, xpspage: &::core::option::Option<super::super::Storage::Xps::IXpsOMPage>, dpix: f32, dpiy: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT, backgroundcolor: XPSRAS_BACKGROUND_COLOR) -> ::windows::core::Result<IXpsRasterizer>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 impl IXpsRasterizationFactory2_Vtbl {
@@ -4109,8 +4109,8 @@ impl IXpsRasterizationFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IXpsRasterizer_Impl: Sized {
-    fn RasterizeRect(&mut self, x: i32, y: i32, width: i32, height: i32, notificationcallback: &::core::option::Option<IXpsRasterizerNotificationCallback>) -> ::windows::core::Result<super::Imaging::IWICBitmap>;
-    fn SetMinimalLineWidth(&mut self, width: i32) -> ::windows::core::Result<()>;
+    fn RasterizeRect(&self, x: i32, y: i32, width: i32, height: i32, notificationcallback: &::core::option::Option<IXpsRasterizerNotificationCallback>) -> ::windows::core::Result<super::Imaging::IWICBitmap>;
+    fn SetMinimalLineWidth(&self, width: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
 impl IXpsRasterizer_Vtbl {
@@ -4142,7 +4142,7 @@ impl IXpsRasterizer_Vtbl {
     }
 }
 pub trait IXpsRasterizerNotificationCallback_Impl: Sized {
-    fn Continue(&mut self) -> ::windows::core::Result<()>;
+    fn Continue(&self) -> ::windows::core::Result<()>;
 }
 impl IXpsRasterizerNotificationCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsRasterizerNotificationCallback_Impl, const OFFSET: isize>() -> IXpsRasterizerNotificationCallback_Vtbl {

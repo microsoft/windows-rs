@@ -1,54 +1,54 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInertiaProcessor_Impl: Sized {
-    fn InitialOriginX(&mut self) -> ::windows::core::Result<f32>;
-    fn SetInitialOriginX(&mut self, x: f32) -> ::windows::core::Result<()>;
-    fn InitialOriginY(&mut self) -> ::windows::core::Result<f32>;
-    fn SetInitialOriginY(&mut self, y: f32) -> ::windows::core::Result<()>;
-    fn InitialVelocityX(&mut self) -> ::windows::core::Result<f32>;
-    fn SetInitialVelocityX(&mut self, x: f32) -> ::windows::core::Result<()>;
-    fn InitialVelocityY(&mut self) -> ::windows::core::Result<f32>;
-    fn SetInitialVelocityY(&mut self, y: f32) -> ::windows::core::Result<()>;
-    fn InitialAngularVelocity(&mut self) -> ::windows::core::Result<f32>;
-    fn SetInitialAngularVelocity(&mut self, velocity: f32) -> ::windows::core::Result<()>;
-    fn InitialExpansionVelocity(&mut self) -> ::windows::core::Result<f32>;
-    fn SetInitialExpansionVelocity(&mut self, velocity: f32) -> ::windows::core::Result<()>;
-    fn InitialRadius(&mut self) -> ::windows::core::Result<f32>;
-    fn SetInitialRadius(&mut self, radius: f32) -> ::windows::core::Result<()>;
-    fn BoundaryLeft(&mut self) -> ::windows::core::Result<f32>;
-    fn SetBoundaryLeft(&mut self, left: f32) -> ::windows::core::Result<()>;
-    fn BoundaryTop(&mut self) -> ::windows::core::Result<f32>;
-    fn SetBoundaryTop(&mut self, top: f32) -> ::windows::core::Result<()>;
-    fn BoundaryRight(&mut self) -> ::windows::core::Result<f32>;
-    fn SetBoundaryRight(&mut self, right: f32) -> ::windows::core::Result<()>;
-    fn BoundaryBottom(&mut self) -> ::windows::core::Result<f32>;
-    fn SetBoundaryBottom(&mut self, bottom: f32) -> ::windows::core::Result<()>;
-    fn ElasticMarginLeft(&mut self) -> ::windows::core::Result<f32>;
-    fn SetElasticMarginLeft(&mut self, left: f32) -> ::windows::core::Result<()>;
-    fn ElasticMarginTop(&mut self) -> ::windows::core::Result<f32>;
-    fn SetElasticMarginTop(&mut self, top: f32) -> ::windows::core::Result<()>;
-    fn ElasticMarginRight(&mut self) -> ::windows::core::Result<f32>;
-    fn SetElasticMarginRight(&mut self, right: f32) -> ::windows::core::Result<()>;
-    fn ElasticMarginBottom(&mut self) -> ::windows::core::Result<f32>;
-    fn SetElasticMarginBottom(&mut self, bottom: f32) -> ::windows::core::Result<()>;
-    fn DesiredDisplacement(&mut self) -> ::windows::core::Result<f32>;
-    fn SetDesiredDisplacement(&mut self, displacement: f32) -> ::windows::core::Result<()>;
-    fn DesiredRotation(&mut self) -> ::windows::core::Result<f32>;
-    fn SetDesiredRotation(&mut self, rotation: f32) -> ::windows::core::Result<()>;
-    fn DesiredExpansion(&mut self) -> ::windows::core::Result<f32>;
-    fn SetDesiredExpansion(&mut self, expansion: f32) -> ::windows::core::Result<()>;
-    fn DesiredDeceleration(&mut self) -> ::windows::core::Result<f32>;
-    fn SetDesiredDeceleration(&mut self, deceleration: f32) -> ::windows::core::Result<()>;
-    fn DesiredAngularDeceleration(&mut self) -> ::windows::core::Result<f32>;
-    fn SetDesiredAngularDeceleration(&mut self, deceleration: f32) -> ::windows::core::Result<()>;
-    fn DesiredExpansionDeceleration(&mut self) -> ::windows::core::Result<f32>;
-    fn SetDesiredExpansionDeceleration(&mut self, deceleration: f32) -> ::windows::core::Result<()>;
-    fn InitialTimestamp(&mut self) -> ::windows::core::Result<u32>;
-    fn SetInitialTimestamp(&mut self, timestamp: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Process(&mut self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn ProcessTime(&mut self, timestamp: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
-    fn Complete(&mut self) -> ::windows::core::Result<()>;
-    fn CompleteTime(&mut self, timestamp: u32) -> ::windows::core::Result<()>;
+    fn InitialOriginX(&self) -> ::windows::core::Result<f32>;
+    fn SetInitialOriginX(&self, x: f32) -> ::windows::core::Result<()>;
+    fn InitialOriginY(&self) -> ::windows::core::Result<f32>;
+    fn SetInitialOriginY(&self, y: f32) -> ::windows::core::Result<()>;
+    fn InitialVelocityX(&self) -> ::windows::core::Result<f32>;
+    fn SetInitialVelocityX(&self, x: f32) -> ::windows::core::Result<()>;
+    fn InitialVelocityY(&self) -> ::windows::core::Result<f32>;
+    fn SetInitialVelocityY(&self, y: f32) -> ::windows::core::Result<()>;
+    fn InitialAngularVelocity(&self) -> ::windows::core::Result<f32>;
+    fn SetInitialAngularVelocity(&self, velocity: f32) -> ::windows::core::Result<()>;
+    fn InitialExpansionVelocity(&self) -> ::windows::core::Result<f32>;
+    fn SetInitialExpansionVelocity(&self, velocity: f32) -> ::windows::core::Result<()>;
+    fn InitialRadius(&self) -> ::windows::core::Result<f32>;
+    fn SetInitialRadius(&self, radius: f32) -> ::windows::core::Result<()>;
+    fn BoundaryLeft(&self) -> ::windows::core::Result<f32>;
+    fn SetBoundaryLeft(&self, left: f32) -> ::windows::core::Result<()>;
+    fn BoundaryTop(&self) -> ::windows::core::Result<f32>;
+    fn SetBoundaryTop(&self, top: f32) -> ::windows::core::Result<()>;
+    fn BoundaryRight(&self) -> ::windows::core::Result<f32>;
+    fn SetBoundaryRight(&self, right: f32) -> ::windows::core::Result<()>;
+    fn BoundaryBottom(&self) -> ::windows::core::Result<f32>;
+    fn SetBoundaryBottom(&self, bottom: f32) -> ::windows::core::Result<()>;
+    fn ElasticMarginLeft(&self) -> ::windows::core::Result<f32>;
+    fn SetElasticMarginLeft(&self, left: f32) -> ::windows::core::Result<()>;
+    fn ElasticMarginTop(&self) -> ::windows::core::Result<f32>;
+    fn SetElasticMarginTop(&self, top: f32) -> ::windows::core::Result<()>;
+    fn ElasticMarginRight(&self) -> ::windows::core::Result<f32>;
+    fn SetElasticMarginRight(&self, right: f32) -> ::windows::core::Result<()>;
+    fn ElasticMarginBottom(&self) -> ::windows::core::Result<f32>;
+    fn SetElasticMarginBottom(&self, bottom: f32) -> ::windows::core::Result<()>;
+    fn DesiredDisplacement(&self) -> ::windows::core::Result<f32>;
+    fn SetDesiredDisplacement(&self, displacement: f32) -> ::windows::core::Result<()>;
+    fn DesiredRotation(&self) -> ::windows::core::Result<f32>;
+    fn SetDesiredRotation(&self, rotation: f32) -> ::windows::core::Result<()>;
+    fn DesiredExpansion(&self) -> ::windows::core::Result<f32>;
+    fn SetDesiredExpansion(&self, expansion: f32) -> ::windows::core::Result<()>;
+    fn DesiredDeceleration(&self) -> ::windows::core::Result<f32>;
+    fn SetDesiredDeceleration(&self, deceleration: f32) -> ::windows::core::Result<()>;
+    fn DesiredAngularDeceleration(&self) -> ::windows::core::Result<f32>;
+    fn SetDesiredAngularDeceleration(&self, deceleration: f32) -> ::windows::core::Result<()>;
+    fn DesiredExpansionDeceleration(&self) -> ::windows::core::Result<f32>;
+    fn SetDesiredExpansionDeceleration(&self, deceleration: f32) -> ::windows::core::Result<()>;
+    fn InitialTimestamp(&self) -> ::windows::core::Result<u32>;
+    fn SetInitialTimestamp(&self, timestamp: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Process(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn ProcessTime(&self, timestamp: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
+    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn CompleteTime(&self, timestamp: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IInertiaProcessor_Vtbl {
@@ -500,27 +500,27 @@ impl IInertiaProcessor_Vtbl {
     }
 }
 pub trait IManipulationProcessor_Impl: Sized {
-    fn SupportedManipulations(&mut self) -> ::windows::core::Result<MANIPULATION_PROCESSOR_MANIPULATIONS>;
-    fn SetSupportedManipulations(&mut self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::Result<()>;
-    fn PivotPointX(&mut self) -> ::windows::core::Result<f32>;
-    fn SetPivotPointX(&mut self, pivotpointx: f32) -> ::windows::core::Result<()>;
-    fn PivotPointY(&mut self) -> ::windows::core::Result<f32>;
-    fn SetPivotPointY(&mut self, pivotpointy: f32) -> ::windows::core::Result<()>;
-    fn PivotRadius(&mut self) -> ::windows::core::Result<f32>;
-    fn SetPivotRadius(&mut self, pivotradius: f32) -> ::windows::core::Result<()>;
-    fn CompleteManipulation(&mut self) -> ::windows::core::Result<()>;
-    fn ProcessDown(&mut self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()>;
-    fn ProcessMove(&mut self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()>;
-    fn ProcessUp(&mut self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()>;
-    fn ProcessDownWithTime(&mut self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()>;
-    fn ProcessMoveWithTime(&mut self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()>;
-    fn ProcessUpWithTime(&mut self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()>;
-    fn GetVelocityX(&mut self) -> ::windows::core::Result<f32>;
-    fn GetVelocityY(&mut self) -> ::windows::core::Result<f32>;
-    fn GetExpansionVelocity(&mut self) -> ::windows::core::Result<f32>;
-    fn GetAngularVelocity(&mut self) -> ::windows::core::Result<f32>;
-    fn MinimumScaleRotateRadius(&mut self) -> ::windows::core::Result<f32>;
-    fn SetMinimumScaleRotateRadius(&mut self, minradius: f32) -> ::windows::core::Result<()>;
+    fn SupportedManipulations(&self) -> ::windows::core::Result<MANIPULATION_PROCESSOR_MANIPULATIONS>;
+    fn SetSupportedManipulations(&self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::Result<()>;
+    fn PivotPointX(&self) -> ::windows::core::Result<f32>;
+    fn SetPivotPointX(&self, pivotpointx: f32) -> ::windows::core::Result<()>;
+    fn PivotPointY(&self) -> ::windows::core::Result<f32>;
+    fn SetPivotPointY(&self, pivotpointy: f32) -> ::windows::core::Result<()>;
+    fn PivotRadius(&self) -> ::windows::core::Result<f32>;
+    fn SetPivotRadius(&self, pivotradius: f32) -> ::windows::core::Result<()>;
+    fn CompleteManipulation(&self) -> ::windows::core::Result<()>;
+    fn ProcessDown(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()>;
+    fn ProcessMove(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()>;
+    fn ProcessUp(&self, manipulatorid: u32, x: f32, y: f32) -> ::windows::core::Result<()>;
+    fn ProcessDownWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()>;
+    fn ProcessMoveWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()>;
+    fn ProcessUpWithTime(&self, manipulatorid: u32, x: f32, y: f32, timestamp: u32) -> ::windows::core::Result<()>;
+    fn GetVelocityX(&self) -> ::windows::core::Result<f32>;
+    fn GetVelocityY(&self) -> ::windows::core::Result<f32>;
+    fn GetExpansionVelocity(&self) -> ::windows::core::Result<f32>;
+    fn GetAngularVelocity(&self) -> ::windows::core::Result<f32>;
+    fn MinimumScaleRotateRadius(&self) -> ::windows::core::Result<f32>;
+    fn SetMinimumScaleRotateRadius(&self, minradius: f32) -> ::windows::core::Result<()>;
 }
 impl IManipulationProcessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationProcessor_Impl, const OFFSET: isize>() -> IManipulationProcessor_Vtbl {
@@ -713,9 +713,9 @@ impl IManipulationProcessor_Vtbl {
     }
 }
 pub trait _IManipulationEvents_Impl: Sized {
-    fn ManipulationStarted(&mut self, x: f32, y: f32) -> ::windows::core::Result<()>;
-    fn ManipulationDelta(&mut self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()>;
-    fn ManipulationCompleted(&mut self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()>;
+    fn ManipulationStarted(&self, x: f32, y: f32) -> ::windows::core::Result<()>;
+    fn ManipulationDelta(&self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()>;
+    fn ManipulationCompleted(&self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()>;
 }
 impl _IManipulationEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IManipulationEvents_Impl, const OFFSET: isize>() -> _IManipulationEvents_Vtbl {

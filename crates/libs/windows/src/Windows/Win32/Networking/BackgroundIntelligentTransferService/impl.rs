@@ -1,10 +1,10 @@
 pub trait AsyncIBackgroundCopyCallback_Impl: Sized {
-    fn Begin_JobTransferred(&mut self, pjob: &::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
-    fn Finish_JobTransferred(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_JobError(&mut self, pjob: &::core::option::Option<IBackgroundCopyJob>, perror: &::core::option::Option<IBackgroundCopyError>) -> ::windows::core::Result<()>;
-    fn Finish_JobError(&mut self) -> ::windows::core::Result<()>;
-    fn Begin_JobModification(&mut self, pjob: &::core::option::Option<IBackgroundCopyJob>, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn Finish_JobModification(&mut self) -> ::windows::core::Result<()>;
+    fn Begin_JobTransferred(&self, pjob: &::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
+    fn Finish_JobTransferred(&self) -> ::windows::core::Result<()>;
+    fn Begin_JobError(&self, pjob: &::core::option::Option<IBackgroundCopyJob>, perror: &::core::option::Option<IBackgroundCopyError>) -> ::windows::core::Result<()>;
+    fn Finish_JobError(&self) -> ::windows::core::Result<()>;
+    fn Begin_JobModification(&self, pjob: &::core::option::Option<IBackgroundCopyJob>, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn Finish_JobModification(&self) -> ::windows::core::Result<()>;
 }
 impl AsyncIBackgroundCopyCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIBackgroundCopyCallback_Impl, const OFFSET: isize>() -> AsyncIBackgroundCopyCallback_Vtbl {
@@ -54,10 +54,10 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBITSExtensionSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn EnableBITSUploads(&mut self) -> ::windows::core::Result<()>;
-    fn DisableBITSUploads(&mut self) -> ::windows::core::Result<()>;
-    fn GetCleanupTaskName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn GetCleanupTask(&mut self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn EnableBITSUploads(&self) -> ::windows::core::Result<()>;
+    fn DisableBITSUploads(&self) -> ::windows::core::Result<()>;
+    fn GetCleanupTaskName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetCleanupTask(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBITSExtensionSetup_Vtbl {
@@ -108,7 +108,7 @@ impl IBITSExtensionSetup_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBITSExtensionSetupFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetObject(&mut self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IBITSExtensionSetup>;
+    fn GetObject(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IBITSExtensionSetup>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBITSExtensionSetupFactory_Vtbl {
@@ -131,9 +131,9 @@ impl IBITSExtensionSetupFactory_Vtbl {
     }
 }
 pub trait IBackgroundCopyCallback_Impl: Sized {
-    fn JobTransferred(&mut self, pjob: &::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
-    fn JobError(&mut self, pjob: &::core::option::Option<IBackgroundCopyJob>, perror: &::core::option::Option<IBackgroundCopyError>) -> ::windows::core::Result<()>;
-    fn JobModification(&mut self, pjob: &::core::option::Option<IBackgroundCopyJob>, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn JobTransferred(&self, pjob: &::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
+    fn JobError(&self, pjob: &::core::option::Option<IBackgroundCopyJob>, perror: &::core::option::Option<IBackgroundCopyError>) -> ::windows::core::Result<()>;
+    fn JobModification(&self, pjob: &::core::option::Option<IBackgroundCopyJob>, dwreserved: u32) -> ::windows::core::Result<()>;
 }
 impl IBackgroundCopyCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyCallback_Impl, const OFFSET: isize>() -> IBackgroundCopyCallback_Vtbl {
@@ -164,9 +164,9 @@ impl IBackgroundCopyCallback_Vtbl {
     }
 }
 pub trait IBackgroundCopyCallback1_Impl: Sized {
-    fn OnStatus(&mut self, pgroup: &::core::option::Option<IBackgroundCopyGroup>, pjob: &::core::option::Option<IBackgroundCopyJob1>, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows::core::Result<()>;
-    fn OnProgress(&mut self, progresstype: u32, pgroup: &::core::option::Option<IBackgroundCopyGroup>, pjob: &::core::option::Option<IBackgroundCopyJob1>, dwfileindex: u32, dwprogressvalue: u32) -> ::windows::core::Result<()>;
-    fn OnProgressEx(&mut self, progresstype: u32, pgroup: &::core::option::Option<IBackgroundCopyGroup>, pjob: &::core::option::Option<IBackgroundCopyJob1>, dwfileindex: u32, dwprogressvalue: u32, dwbytearraysize: u32, pbyte: *const u8) -> ::windows::core::Result<()>;
+    fn OnStatus(&self, pgroup: &::core::option::Option<IBackgroundCopyGroup>, pjob: &::core::option::Option<IBackgroundCopyJob1>, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows::core::Result<()>;
+    fn OnProgress(&self, progresstype: u32, pgroup: &::core::option::Option<IBackgroundCopyGroup>, pjob: &::core::option::Option<IBackgroundCopyJob1>, dwfileindex: u32, dwprogressvalue: u32) -> ::windows::core::Result<()>;
+    fn OnProgressEx(&self, progresstype: u32, pgroup: &::core::option::Option<IBackgroundCopyGroup>, pjob: &::core::option::Option<IBackgroundCopyJob1>, dwfileindex: u32, dwprogressvalue: u32, dwbytearraysize: u32, pbyte: *const u8) -> ::windows::core::Result<()>;
 }
 impl IBackgroundCopyCallback1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyCallback1_Impl, const OFFSET: isize>() -> IBackgroundCopyCallback1_Vtbl {
@@ -197,7 +197,7 @@ impl IBackgroundCopyCallback1_Vtbl {
     }
 }
 pub trait IBackgroundCopyCallback2_Impl: Sized + IBackgroundCopyCallback_Impl {
-    fn FileTransferred(&mut self, pjob: &::core::option::Option<IBackgroundCopyJob>, pfile: &::core::option::Option<IBackgroundCopyFile>) -> ::windows::core::Result<()>;
+    fn FileTransferred(&self, pjob: &::core::option::Option<IBackgroundCopyJob>, pfile: &::core::option::Option<IBackgroundCopyFile>) -> ::windows::core::Result<()>;
 }
 impl IBackgroundCopyCallback2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyCallback2_Impl, const OFFSET: isize>() -> IBackgroundCopyCallback2_Vtbl {
@@ -213,7 +213,7 @@ impl IBackgroundCopyCallback2_Vtbl {
     }
 }
 pub trait IBackgroundCopyCallback3_Impl: Sized + IBackgroundCopyCallback_Impl + IBackgroundCopyCallback2_Impl {
-    fn FileRangesTransferred(&mut self, job: &::core::option::Option<IBackgroundCopyJob>, file: &::core::option::Option<IBackgroundCopyFile>, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
+    fn FileRangesTransferred(&self, job: &::core::option::Option<IBackgroundCopyJob>, file: &::core::option::Option<IBackgroundCopyFile>, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
 }
 impl IBackgroundCopyCallback3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyCallback3_Impl, const OFFSET: isize>() -> IBackgroundCopyCallback3_Vtbl {
@@ -230,11 +230,11 @@ impl IBackgroundCopyCallback3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyError_Impl: Sized {
-    fn GetError(&mut self, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn GetFile(&mut self) -> ::windows::core::Result<IBackgroundCopyFile>;
-    fn GetErrorDescription(&mut self, languageid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetErrorContextDescription(&mut self, languageid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetProtocol(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetError(&self, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn GetFile(&self) -> ::windows::core::Result<IBackgroundCopyFile>;
+    fn GetErrorDescription(&self, languageid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetErrorContextDescription(&self, languageid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetProtocol(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyError_Vtbl {
@@ -303,9 +303,9 @@ impl IBackgroundCopyError_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile_Impl: Sized {
-    fn GetRemoteName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetLocalName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetProgress(&mut self) -> ::windows::core::Result<BG_FILE_PROGRESS>;
+    fn GetRemoteName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetLocalName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile_Vtbl {
@@ -356,8 +356,8 @@ impl IBackgroundCopyFile_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile2_Impl: Sized + IBackgroundCopyFile_Impl {
-    fn GetFileRanges(&mut self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()>;
-    fn SetRemoteName(&mut self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()>;
+    fn SetRemoteName(&self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile2_Vtbl {
@@ -384,10 +384,10 @@ impl IBackgroundCopyFile2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile3_Impl: Sized + IBackgroundCopyFile_Impl + IBackgroundCopyFile2_Impl {
-    fn GetTemporaryName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetValidationState(&mut self, state: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn GetValidationState(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsDownloadedFromPeer(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetTemporaryName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetValidationState(&self, state: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetValidationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsDownloadedFromPeer(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile3_Vtbl {
@@ -444,7 +444,7 @@ impl IBackgroundCopyFile3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile4_Impl: Sized + IBackgroundCopyFile_Impl + IBackgroundCopyFile2_Impl + IBackgroundCopyFile3_Impl {
-    fn GetPeerDownloadStats(&mut self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows::core::Result<()>;
+    fn GetPeerDownloadStats(&self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile4_Vtbl {
@@ -462,8 +462,8 @@ impl IBackgroundCopyFile4_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile5_Impl: Sized + IBackgroundCopyFile_Impl + IBackgroundCopyFile2_Impl + IBackgroundCopyFile3_Impl + IBackgroundCopyFile4_Impl {
-    fn SetProperty(&mut self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: &BITS_FILE_PROPERTY_VALUE) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, propertyid: BITS_FILE_PROPERTY_ID) -> ::windows::core::Result<BITS_FILE_PROPERTY_VALUE>;
+    fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: &BITS_FILE_PROPERTY_VALUE) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID) -> ::windows::core::Result<BITS_FILE_PROPERTY_VALUE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile5_Vtbl {
@@ -496,9 +496,9 @@ impl IBackgroundCopyFile5_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile6_Impl: Sized + IBackgroundCopyFile_Impl + IBackgroundCopyFile2_Impl + IBackgroundCopyFile3_Impl + IBackgroundCopyFile4_Impl + IBackgroundCopyFile5_Impl {
-    fn UpdateDownloadPosition(&mut self, offset: u64) -> ::windows::core::Result<()>;
-    fn RequestFileRanges(&mut self, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
-    fn GetFilledFileRanges(&mut self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()>;
+    fn UpdateDownloadPosition(&self, offset: u64) -> ::windows::core::Result<()>;
+    fn RequestFileRanges(&self, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
+    fn GetFilledFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyFile6_Vtbl {
@@ -531,21 +531,21 @@ impl IBackgroundCopyFile6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IBackgroundCopyGroup_Impl: Sized {
-    fn GetProp(&mut self, propid: GROUPPROP) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProp(&mut self, propid: GROUPPROP, pvarval: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetProgress(&mut self, dwflags: u32) -> ::windows::core::Result<u32>;
-    fn GetStatus(&mut self, pdwstatus: *mut u32, pdwjobindex: *mut u32) -> ::windows::core::Result<()>;
-    fn GetJob(&mut self, jobid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob1>;
-    fn SuspendGroup(&mut self) -> ::windows::core::Result<()>;
-    fn ResumeGroup(&mut self) -> ::windows::core::Result<()>;
-    fn CancelGroup(&mut self) -> ::windows::core::Result<()>;
-    fn Size(&mut self) -> ::windows::core::Result<u32>;
-    fn GroupID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn CreateJob(&mut self, guidjobid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob1>;
-    fn EnumJobs(&mut self, dwflags: u32) -> ::windows::core::Result<IEnumBackgroundCopyJobs1>;
-    fn SwitchToForeground(&mut self) -> ::windows::core::Result<()>;
-    fn QueryNewJobInterface(&mut self, iid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn SetNotificationPointer(&mut self, iid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetProp(&self, propid: GROUPPROP) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetProp(&self, propid: GROUPPROP, pvarval: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProgress(&self, dwflags: u32) -> ::windows::core::Result<u32>;
+    fn GetStatus(&self, pdwstatus: *mut u32, pdwjobindex: *mut u32) -> ::windows::core::Result<()>;
+    fn GetJob(&self, jobid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob1>;
+    fn SuspendGroup(&self) -> ::windows::core::Result<()>;
+    fn ResumeGroup(&self) -> ::windows::core::Result<()>;
+    fn CancelGroup(&self) -> ::windows::core::Result<()>;
+    fn Size(&self) -> ::windows::core::Result<u32>;
+    fn GroupID(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CreateJob(&self, guidjobid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob1>;
+    fn EnumJobs(&self, dwflags: u32) -> ::windows::core::Result<IEnumBackgroundCopyJobs1>;
+    fn SwitchToForeground(&self) -> ::windows::core::Result<()>;
+    fn QueryNewJobInterface(&self, iid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn SetNotificationPointer(&self, iid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBackgroundCopyGroup_Vtbl {
@@ -698,38 +698,38 @@ impl IBackgroundCopyGroup_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob_Impl: Sized {
-    fn AddFileSet(&mut self, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> ::windows::core::Result<()>;
-    fn AddFile(&mut self, remoteurl: super::super::Foundation::PWSTR, localname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn EnumFiles(&mut self) -> ::windows::core::Result<IEnumBackgroundCopyFiles>;
-    fn Suspend(&mut self) -> ::windows::core::Result<()>;
-    fn Resume(&mut self) -> ::windows::core::Result<()>;
-    fn Cancel(&mut self) -> ::windows::core::Result<()>;
-    fn Complete(&mut self) -> ::windows::core::Result<()>;
-    fn GetId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetType(&mut self) -> ::windows::core::Result<BG_JOB_TYPE>;
-    fn GetProgress(&mut self) -> ::windows::core::Result<BG_JOB_PROGRESS>;
-    fn GetTimes(&mut self) -> ::windows::core::Result<BG_JOB_TIMES>;
-    fn GetState(&mut self) -> ::windows::core::Result<BG_JOB_STATE>;
-    fn GetError(&mut self) -> ::windows::core::Result<IBackgroundCopyError>;
-    fn GetOwner(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetDisplayName(&mut self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetDisplayName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetDescription(&mut self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetPriority(&mut self, val: BG_JOB_PRIORITY) -> ::windows::core::Result<()>;
-    fn GetPriority(&mut self) -> ::windows::core::Result<BG_JOB_PRIORITY>;
-    fn SetNotifyFlags(&mut self, val: u32) -> ::windows::core::Result<()>;
-    fn GetNotifyFlags(&mut self) -> ::windows::core::Result<u32>;
-    fn SetNotifyInterface(&mut self, val: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetNotifyInterface(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn SetMinimumRetryDelay(&mut self, seconds: u32) -> ::windows::core::Result<()>;
-    fn GetMinimumRetryDelay(&mut self) -> ::windows::core::Result<u32>;
-    fn SetNoProgressTimeout(&mut self, seconds: u32) -> ::windows::core::Result<()>;
-    fn GetNoProgressTimeout(&mut self) -> ::windows::core::Result<u32>;
-    fn GetErrorCount(&mut self) -> ::windows::core::Result<u32>;
-    fn SetProxySettings(&mut self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: super::super::Foundation::PWSTR, proxybypasslist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetProxySettings(&mut self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut super::super::Foundation::PWSTR, pproxybypasslist: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn TakeOwnership(&mut self) -> ::windows::core::Result<()>;
+    fn AddFileSet(&self, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> ::windows::core::Result<()>;
+    fn AddFile(&self, remoteurl: super::super::Foundation::PWSTR, localname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn EnumFiles(&self) -> ::windows::core::Result<IEnumBackgroundCopyFiles>;
+    fn Suspend(&self) -> ::windows::core::Result<()>;
+    fn Resume(&self) -> ::windows::core::Result<()>;
+    fn Cancel(&self) -> ::windows::core::Result<()>;
+    fn Complete(&self) -> ::windows::core::Result<()>;
+    fn GetId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetType(&self) -> ::windows::core::Result<BG_JOB_TYPE>;
+    fn GetProgress(&self) -> ::windows::core::Result<BG_JOB_PROGRESS>;
+    fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES>;
+    fn GetState(&self) -> ::windows::core::Result<BG_JOB_STATE>;
+    fn GetError(&self) -> ::windows::core::Result<IBackgroundCopyError>;
+    fn GetOwner(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetDisplayName(&self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetDescription(&self, val: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetPriority(&self, val: BG_JOB_PRIORITY) -> ::windows::core::Result<()>;
+    fn GetPriority(&self) -> ::windows::core::Result<BG_JOB_PRIORITY>;
+    fn SetNotifyFlags(&self, val: u32) -> ::windows::core::Result<()>;
+    fn GetNotifyFlags(&self) -> ::windows::core::Result<u32>;
+    fn SetNotifyInterface(&self, val: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetNotifyInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn SetMinimumRetryDelay(&self, seconds: u32) -> ::windows::core::Result<()>;
+    fn GetMinimumRetryDelay(&self) -> ::windows::core::Result<u32>;
+    fn SetNoProgressTimeout(&self, seconds: u32) -> ::windows::core::Result<()>;
+    fn GetNoProgressTimeout(&self) -> ::windows::core::Result<u32>;
+    fn GetErrorCount(&self) -> ::windows::core::Result<u32>;
+    fn SetProxySettings(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: super::super::Foundation::PWSTR, proxybypasslist: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut super::super::Foundation::PWSTR, pproxybypasslist: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn TakeOwnership(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob_Vtbl {
@@ -1032,14 +1032,14 @@ impl IBackgroundCopyJob_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob1_Impl: Sized {
-    fn CancelJob(&mut self) -> ::windows::core::Result<()>;
-    fn GetProgress(&mut self, dwflags: u32) -> ::windows::core::Result<u32>;
-    fn GetStatus(&mut self, pdwstatus: *mut u32, pdwwin32result: *mut u32, pdwtransportresult: *mut u32, pdwnumofretries: *mut u32) -> ::windows::core::Result<()>;
-    fn AddFiles(&mut self, cfilecount: u32, ppfileset: *const *const FILESETINFO) -> ::windows::core::Result<()>;
-    fn GetFile(&mut self, cfileindex: u32) -> ::windows::core::Result<FILESETINFO>;
-    fn GetFileCount(&mut self) -> ::windows::core::Result<u32>;
-    fn SwitchToForeground(&mut self) -> ::windows::core::Result<()>;
-    fn JobID(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn CancelJob(&self) -> ::windows::core::Result<()>;
+    fn GetProgress(&self, dwflags: u32) -> ::windows::core::Result<u32>;
+    fn GetStatus(&self, pdwstatus: *mut u32, pdwwin32result: *mut u32, pdwtransportresult: *mut u32, pdwnumofretries: *mut u32) -> ::windows::core::Result<()>;
+    fn AddFiles(&self, cfilecount: u32, ppfileset: *const *const FILESETINFO) -> ::windows::core::Result<()>;
+    fn GetFile(&self, cfileindex: u32) -> ::windows::core::Result<FILESETINFO>;
+    fn GetFileCount(&self) -> ::windows::core::Result<u32>;
+    fn SwitchToForeground(&self) -> ::windows::core::Result<()>;
+    fn JobID(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob1_Vtbl {
@@ -1126,14 +1126,14 @@ impl IBackgroundCopyJob1_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob2_Impl: Sized + IBackgroundCopyJob_Impl {
-    fn SetNotifyCmdLine(&mut self, program: super::super::Foundation::PWSTR, parameters: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetNotifyCmdLine(&mut self, pprogram: *mut super::super::Foundation::PWSTR, pparameters: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetReplyProgress(&mut self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> ::windows::core::Result<()>;
-    fn GetReplyData(&mut self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()>;
-    fn SetReplyFileName(&mut self, replyfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetReplyFileName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetCredentials(&mut self, credentials: *const BG_AUTH_CREDENTIALS) -> ::windows::core::Result<()>;
-    fn RemoveCredentials(&mut self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()>;
+    fn SetNotifyCmdLine(&self, program: super::super::Foundation::PWSTR, parameters: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetNotifyCmdLine(&self, pprogram: *mut super::super::Foundation::PWSTR, pparameters: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> ::windows::core::Result<()>;
+    fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows::core::Result<()>;
+    fn SetReplyFileName(&self, replyfilename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetReplyFileName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetCredentials(&self, credentials: *const BG_AUTH_CREDENTIALS) -> ::windows::core::Result<()>;
+    fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob2_Vtbl {
@@ -1202,10 +1202,10 @@ impl IBackgroundCopyJob2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob3_Impl: Sized + IBackgroundCopyJob_Impl + IBackgroundCopyJob2_Impl {
-    fn ReplaceRemotePrefix(&mut self, oldprefix: super::super::Foundation::PWSTR, newprefix: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddFileWithRanges(&mut self, remoteurl: super::super::Foundation::PWSTR, localname: super::super::Foundation::PWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
-    fn SetFileACLFlags(&mut self, flags: u32) -> ::windows::core::Result<()>;
-    fn GetFileACLFlags(&mut self) -> ::windows::core::Result<u32>;
+    fn ReplaceRemotePrefix(&self, oldprefix: super::super::Foundation::PWSTR, newprefix: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddFileWithRanges(&self, remoteurl: super::super::Foundation::PWSTR, localname: super::super::Foundation::PWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::Result<()>;
+    fn SetFileACLFlags(&self, flags: u32) -> ::windows::core::Result<()>;
+    fn GetFileACLFlags(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob3_Vtbl {
@@ -1250,12 +1250,12 @@ impl IBackgroundCopyJob3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob4_Impl: Sized + IBackgroundCopyJob_Impl + IBackgroundCopyJob2_Impl + IBackgroundCopyJob3_Impl {
-    fn SetPeerCachingFlags(&mut self, flags: u32) -> ::windows::core::Result<()>;
-    fn GetPeerCachingFlags(&mut self) -> ::windows::core::Result<u32>;
-    fn GetOwnerIntegrityLevel(&mut self) -> ::windows::core::Result<u32>;
-    fn GetOwnerElevationState(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetMaximumDownloadTime(&mut self, timeout: u32) -> ::windows::core::Result<()>;
-    fn GetMaximumDownloadTime(&mut self) -> ::windows::core::Result<u32>;
+    fn SetPeerCachingFlags(&self, flags: u32) -> ::windows::core::Result<()>;
+    fn GetPeerCachingFlags(&self) -> ::windows::core::Result<u32>;
+    fn GetOwnerIntegrityLevel(&self) -> ::windows::core::Result<u32>;
+    fn GetOwnerElevationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetMaximumDownloadTime(&self, timeout: u32) -> ::windows::core::Result<()>;
+    fn GetMaximumDownloadTime(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob4_Vtbl {
@@ -1330,8 +1330,8 @@ impl IBackgroundCopyJob4_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob5_Impl: Sized + IBackgroundCopyJob_Impl + IBackgroundCopyJob2_Impl + IBackgroundCopyJob3_Impl + IBackgroundCopyJob4_Impl {
-    fn SetProperty(&mut self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: &BITS_JOB_PROPERTY_VALUE) -> ::windows::core::Result<()>;
-    fn GetProperty(&mut self, propertyid: BITS_JOB_PROPERTY_ID) -> ::windows::core::Result<BITS_JOB_PROPERTY_VALUE>;
+    fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: &BITS_JOB_PROPERTY_VALUE) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID) -> ::windows::core::Result<BITS_JOB_PROPERTY_VALUE>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJob5_Vtbl {
@@ -1364,14 +1364,14 @@ impl IBackgroundCopyJob5_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJobHttpOptions_Impl: Sized {
-    fn SetClientCertificateByID(&mut self, storelocation: BG_CERT_STORE_LOCATION, storename: super::super::Foundation::PWSTR, pcerthashblob: *const u8) -> ::windows::core::Result<()>;
-    fn SetClientCertificateByName(&mut self, storelocation: BG_CERT_STORE_LOCATION, storename: super::super::Foundation::PWSTR, subjectname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn RemoveClientCertificate(&mut self) -> ::windows::core::Result<()>;
-    fn GetClientCertificate(&mut self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut super::super::Foundation::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetCustomHeaders(&mut self, requestheaders: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetCustomHeaders(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetSecurityFlags(&mut self, flags: u32) -> ::windows::core::Result<()>;
-    fn GetSecurityFlags(&mut self) -> ::windows::core::Result<u32>;
+    fn SetClientCertificateByID(&self, storelocation: BG_CERT_STORE_LOCATION, storename: super::super::Foundation::PWSTR, pcerthashblob: *const u8) -> ::windows::core::Result<()>;
+    fn SetClientCertificateByName(&self, storelocation: BG_CERT_STORE_LOCATION, storename: super::super::Foundation::PWSTR, subjectname: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn RemoveClientCertificate(&self) -> ::windows::core::Result<()>;
+    fn GetClientCertificate(&self, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut super::super::Foundation::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetCustomHeaders(&self, requestheaders: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetCustomHeaders(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetSecurityFlags(&self, flags: u32) -> ::windows::core::Result<()>;
+    fn GetSecurityFlags(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJobHttpOptions_Vtbl {
@@ -1446,8 +1446,8 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJobHttpOptions2_Impl: Sized + IBackgroundCopyJobHttpOptions_Impl {
-    fn SetHttpMethod(&mut self, method: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetHttpMethod(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetHttpMethod(&self, method: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetHttpMethod(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJobHttpOptions2_Vtbl {
@@ -1480,8 +1480,8 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJobHttpOptions3_Impl: Sized + IBackgroundCopyJobHttpOptions_Impl + IBackgroundCopyJobHttpOptions2_Impl {
-    fn SetServerCertificateValidationInterface(&mut self, certvalidationcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn MakeCustomHeadersWriteOnly(&mut self) -> ::windows::core::Result<()>;
+    fn SetServerCertificateValidationInterface(&self, certvalidationcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn MakeCustomHeadersWriteOnly(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyJobHttpOptions3_Vtbl {
@@ -1508,10 +1508,10 @@ impl IBackgroundCopyJobHttpOptions3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyManager_Impl: Sized {
-    fn CreateJob(&mut self, displayname: super::super::Foundation::PWSTR, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
-    fn GetJob(&mut self, jobid: *const ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob>;
-    fn EnumJobs(&mut self, dwflags: u32) -> ::windows::core::Result<IEnumBackgroundCopyJobs>;
-    fn GetErrorDescription(&mut self, hresult: ::windows::core::HRESULT, languageid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn CreateJob(&self, displayname: super::super::Foundation::PWSTR, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()>;
+    fn GetJob(&self, jobid: *const ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob>;
+    fn EnumJobs(&self, dwflags: u32) -> ::windows::core::Result<IEnumBackgroundCopyJobs>;
+    fn GetErrorDescription(&self, hresult: ::windows::core::HRESULT, languageid: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBackgroundCopyManager_Vtbl {
@@ -1567,9 +1567,9 @@ impl IBackgroundCopyManager_Vtbl {
     }
 }
 pub trait IBackgroundCopyQMgr_Impl: Sized {
-    fn CreateGroup(&mut self, guidgroupid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyGroup>;
-    fn GetGroup(&mut self, groupid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyGroup>;
-    fn EnumGroups(&mut self, dwflags: u32) -> ::windows::core::Result<IEnumBackgroundCopyGroups>;
+    fn CreateGroup(&self, guidgroupid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyGroup>;
+    fn GetGroup(&self, groupid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyGroup>;
+    fn EnumGroups(&self, dwflags: u32) -> ::windows::core::Result<IEnumBackgroundCopyGroups>;
 }
 impl IBackgroundCopyQMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyQMgr_Impl, const OFFSET: isize>() -> IBackgroundCopyQMgr_Vtbl {
@@ -1618,7 +1618,7 @@ impl IBackgroundCopyQMgr_Vtbl {
     }
 }
 pub trait IBackgroundCopyServerCertificateValidationCallback_Impl: Sized {
-    fn ValidateServerCertificate(&mut self, job: &::core::option::Option<IBackgroundCopyJob>, file: &::core::option::Option<IBackgroundCopyFile>, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> ::windows::core::Result<()>;
+    fn ValidateServerCertificate(&self, job: &::core::option::Option<IBackgroundCopyJob>, file: &::core::option::Option<IBackgroundCopyFile>, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> ::windows::core::Result<()>;
 }
 impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyServerCertificateValidationCallback_Impl, const OFFSET: isize>() -> IBackgroundCopyServerCertificateValidationCallback_Vtbl {
@@ -1635,9 +1635,9 @@ impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeer_Impl: Sized {
-    fn GetPeerName(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn IsAuthenticated(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn IsAvailable(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn GetPeerName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn IsAuthenticated(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn IsAvailable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBitsPeer_Vtbl {
@@ -1688,20 +1688,20 @@ impl IBitsPeer_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeerCacheAdministration_Impl: Sized {
-    fn GetMaximumCacheSize(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMaximumCacheSize(&mut self, bytes: u32) -> ::windows::core::Result<()>;
-    fn GetMaximumContentAge(&mut self) -> ::windows::core::Result<u32>;
-    fn SetMaximumContentAge(&mut self, seconds: u32) -> ::windows::core::Result<()>;
-    fn GetConfigurationFlags(&mut self) -> ::windows::core::Result<u32>;
-    fn SetConfigurationFlags(&mut self, flags: u32) -> ::windows::core::Result<()>;
-    fn EnumRecords(&mut self) -> ::windows::core::Result<IEnumBitsPeerCacheRecords>;
-    fn GetRecord(&mut self, id: *const ::windows::core::GUID) -> ::windows::core::Result<IBitsPeerCacheRecord>;
-    fn ClearRecords(&mut self) -> ::windows::core::Result<()>;
-    fn DeleteRecord(&mut self, id: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn DeleteUrl(&mut self, url: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn EnumPeers(&mut self) -> ::windows::core::Result<IEnumBitsPeers>;
-    fn ClearPeers(&mut self) -> ::windows::core::Result<()>;
-    fn DiscoverPeers(&mut self) -> ::windows::core::Result<()>;
+    fn GetMaximumCacheSize(&self) -> ::windows::core::Result<u32>;
+    fn SetMaximumCacheSize(&self, bytes: u32) -> ::windows::core::Result<()>;
+    fn GetMaximumContentAge(&self) -> ::windows::core::Result<u32>;
+    fn SetMaximumContentAge(&self, seconds: u32) -> ::windows::core::Result<()>;
+    fn GetConfigurationFlags(&self) -> ::windows::core::Result<u32>;
+    fn SetConfigurationFlags(&self, flags: u32) -> ::windows::core::Result<()>;
+    fn EnumRecords(&self) -> ::windows::core::Result<IEnumBitsPeerCacheRecords>;
+    fn GetRecord(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<IBitsPeerCacheRecord>;
+    fn ClearRecords(&self) -> ::windows::core::Result<()>;
+    fn DeleteRecord(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn DeleteUrl(&self, url: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn EnumPeers(&self) -> ::windows::core::Result<IEnumBitsPeers>;
+    fn ClearPeers(&self) -> ::windows::core::Result<()>;
+    fn DiscoverPeers(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBitsPeerCacheAdministration_Vtbl {
@@ -1836,13 +1836,13 @@ impl IBitsPeerCacheAdministration_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeerCacheRecord_Impl: Sized {
-    fn GetId(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetOriginUrl(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetFileSize(&mut self) -> ::windows::core::Result<u64>;
-    fn GetFileModificationTime(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn GetLastAccessTime(&mut self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
-    fn IsFileValidated(&mut self) -> ::windows::core::Result<()>;
-    fn GetFileRanges(&mut self, prangecount: *mut u32, ppranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()>;
+    fn GetId(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetOriginUrl(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetFileSize(&self) -> ::windows::core::Result<u64>;
+    fn GetFileModificationTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn GetLastAccessTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
+    fn IsFileValidated(&self) -> ::windows::core::Result<()>;
+    fn GetFileRanges(&self, prangecount: *mut u32, ppranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBitsPeerCacheRecord_Vtbl {
@@ -1929,11 +1929,11 @@ impl IBitsPeerCacheRecord_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBitsTokenOptions_Impl: Sized {
-    fn SetHelperTokenFlags(&mut self, usageflags: BG_TOKEN) -> ::windows::core::Result<()>;
-    fn GetHelperTokenFlags(&mut self) -> ::windows::core::Result<BG_TOKEN>;
-    fn SetHelperToken(&mut self) -> ::windows::core::Result<()>;
-    fn ClearHelperToken(&mut self) -> ::windows::core::Result<()>;
-    fn GetHelperTokenSid(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetHelperTokenFlags(&self, usageflags: BG_TOKEN) -> ::windows::core::Result<()>;
+    fn GetHelperTokenFlags(&self) -> ::windows::core::Result<BG_TOKEN>;
+    fn SetHelperToken(&self) -> ::windows::core::Result<()>;
+    fn ClearHelperToken(&self) -> ::windows::core::Result<()>;
+    fn GetHelperTokenSid(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBitsTokenOptions_Vtbl {
@@ -1989,11 +1989,11 @@ impl IBitsTokenOptions_Vtbl {
     }
 }
 pub trait IEnumBackgroundCopyFiles_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IBackgroundCopyFile>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumBackgroundCopyFiles>;
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBackgroundCopyFile>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumBackgroundCopyFiles>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
 }
 impl IEnumBackgroundCopyFiles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumBackgroundCopyFiles_Impl, const OFFSET: isize>() -> IEnumBackgroundCopyFiles_Vtbl {
@@ -2048,11 +2048,11 @@ impl IEnumBackgroundCopyFiles_Vtbl {
     }
 }
 pub trait IEnumBackgroundCopyGroups_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumBackgroundCopyGroups>;
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
+    fn Next(&self, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumBackgroundCopyGroups>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
 }
 impl IEnumBackgroundCopyGroups_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumBackgroundCopyGroups_Impl, const OFFSET: isize>() -> IEnumBackgroundCopyGroups_Vtbl {
@@ -2107,11 +2107,11 @@ impl IEnumBackgroundCopyGroups_Vtbl {
     }
 }
 pub trait IEnumBackgroundCopyJobs_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IBackgroundCopyJob>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumBackgroundCopyJobs>;
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBackgroundCopyJob>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumBackgroundCopyJobs>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
 }
 impl IEnumBackgroundCopyJobs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumBackgroundCopyJobs_Impl, const OFFSET: isize>() -> IEnumBackgroundCopyJobs_Vtbl {
@@ -2166,11 +2166,11 @@ impl IEnumBackgroundCopyJobs_Vtbl {
     }
 }
 pub trait IEnumBackgroundCopyJobs1_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumBackgroundCopyJobs1>;
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
+    fn Next(&self, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumBackgroundCopyJobs1>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
 }
 impl IEnumBackgroundCopyJobs1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumBackgroundCopyJobs1_Impl, const OFFSET: isize>() -> IEnumBackgroundCopyJobs1_Vtbl {
@@ -2225,11 +2225,11 @@ impl IEnumBackgroundCopyJobs1_Vtbl {
     }
 }
 pub trait IEnumBitsPeerCacheRecords_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IBitsPeerCacheRecord>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumBitsPeerCacheRecords>;
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBitsPeerCacheRecord>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumBitsPeerCacheRecords>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
 }
 impl IEnumBitsPeerCacheRecords_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumBitsPeerCacheRecords_Impl, const OFFSET: isize>() -> IEnumBitsPeerCacheRecords_Vtbl {
@@ -2284,11 +2284,11 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
     }
 }
 pub trait IEnumBitsPeers_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut ::core::option::Option<IBitsPeer>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumBitsPeers>;
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IBitsPeer>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumBitsPeers>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
 }
 impl IEnumBitsPeers_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumBitsPeers_Impl, const OFFSET: isize>() -> IEnumBitsPeers_Vtbl {

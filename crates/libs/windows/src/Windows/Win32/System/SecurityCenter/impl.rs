@@ -1,6 +1,6 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSCDefaultProduct_Impl: Sized + super::Com::IDispatch_Impl {
-    fn SetDefaultProduct(&mut self, etype: SECURITY_PRODUCT_TYPE, pguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSCDefaultProduct_Vtbl {
@@ -18,9 +18,9 @@ impl IWSCDefaultProduct_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSCProductList_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Initialize(&mut self, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::Result<()>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Item(&mut self, index: u32) -> ::windows::core::Result<IWscProduct>;
+    fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::Result<()>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Item(&self, index: u32) -> ::windows::core::Result<IWscProduct>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSCProductList_Vtbl {
@@ -65,13 +65,13 @@ impl IWSCProductList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWscProduct_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ProductName(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProductState(&mut self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_STATE>;
-    fn SignatureStatus(&mut self) -> ::windows::core::Result<WSC_SECURITY_SIGNATURE_STATUS>;
-    fn RemediationPath(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProductStateTimestamp(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProductGuid(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProductIsDefault(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn ProductName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ProductState(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_STATE>;
+    fn SignatureStatus(&self) -> ::windows::core::Result<WSC_SECURITY_SIGNATURE_STATUS>;
+    fn RemediationPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ProductStateTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ProductGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn ProductIsDefault(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWscProduct_Vtbl {
@@ -170,12 +170,12 @@ impl IWscProduct_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWscProduct2_Impl: Sized + super::Com::IDispatch_Impl + IWscProduct_Impl {
-    fn AntivirusScanSubstatus(&mut self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
-    fn AntivirusSettingsSubstatus(&mut self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
-    fn AntivirusProtectionUpdateSubstatus(&mut self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
-    fn FirewallDomainProfileSubstatus(&mut self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
-    fn FirewallPrivateProfileSubstatus(&mut self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
-    fn FirewallPublicProfileSubstatus(&mut self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
+    fn AntivirusScanSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
+    fn AntivirusSettingsSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
+    fn AntivirusProtectionUpdateSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
+    fn FirewallDomainProfileSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
+    fn FirewallPrivateProfileSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
+    fn FirewallPublicProfileSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWscProduct2_Vtbl {
@@ -262,7 +262,7 @@ impl IWscProduct2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWscProduct3_Impl: Sized + super::Com::IDispatch_Impl + IWscProduct_Impl + IWscProduct2_Impl {
-    fn AntivirusDaysUntilExpired(&mut self) -> ::windows::core::Result<u32>;
+    fn AntivirusDaysUntilExpired(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWscProduct3_Vtbl {

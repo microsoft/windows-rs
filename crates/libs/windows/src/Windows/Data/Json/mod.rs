@@ -213,6 +213,10 @@ impl ::core::fmt::Debug for IJsonValue {
 }
 unsafe impl ::windows::core::RuntimeType for IJsonValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IJsonValue {
     type Vtable = IJsonValue_Vtbl;
@@ -510,6 +514,10 @@ impl ::core::fmt::Debug for JsonArray {
 }
 unsafe impl ::windows::core::RuntimeType for JsonArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonArray;{08c1ddb6-0cbd-4a9a-b5d3-2f852dc37e81})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for JsonArray {
     type Vtable = IJsonArray_Vtbl;
@@ -727,9 +735,10 @@ impl ::core::fmt::Debug for JsonErrorStatus {
 }
 unsafe impl ::windows::core::RuntimeType for JsonErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
-}
-impl ::windows::core::DefaultType for JsonErrorStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
@@ -1012,6 +1021,10 @@ impl ::core::fmt::Debug for JsonObject {
 }
 unsafe impl ::windows::core::RuntimeType for JsonObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonObject;{064e24dd-29c2-4f83-9ac1-9ee11578beb3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for JsonObject {
     type Vtable = IJsonObject_Vtbl;
@@ -1318,6 +1331,10 @@ impl ::core::fmt::Debug for JsonValue {
 }
 unsafe impl ::windows::core::RuntimeType for JsonValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonValue;{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for JsonValue {
     type Vtable = IJsonValue_Vtbl;
@@ -1449,9 +1466,10 @@ impl ::core::fmt::Debug for JsonValueType {
 }
 unsafe impl ::windows::core::RuntimeType for JsonValueType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonValueType;i4)");
-}
-impl ::windows::core::DefaultType for JsonValueType {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

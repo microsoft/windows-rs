@@ -1,30 +1,30 @@
 #[cfg(feature = "ApplicationModel_Activation")]
 pub trait IApplicationOverrides_Impl: Sized {
-    fn OnActivated(&mut self, args: &::core::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnActivated(&self, args: &::core::option::Option<super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnLaunched(&mut self, args: &::core::option::Option<super::super::ApplicationModel::Activation::LaunchActivatedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnLaunched(&self, args: &::core::option::Option<super::super::ApplicationModel::Activation::LaunchActivatedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnFileActivated(&mut self, args: &::core::option::Option<super::super::ApplicationModel::Activation::FileActivatedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnFileActivated(&self, args: &::core::option::Option<super::super::ApplicationModel::Activation::FileActivatedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnSearchActivated(&mut self, args: &::core::option::Option<super::super::ApplicationModel::Activation::SearchActivatedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnSearchActivated(&self, args: &::core::option::Option<super::super::ApplicationModel::Activation::SearchActivatedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnShareTargetActivated(&mut self, args: &::core::option::Option<super::super::ApplicationModel::Activation::ShareTargetActivatedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnShareTargetActivated(&self, args: &::core::option::Option<super::super::ApplicationModel::Activation::ShareTargetActivatedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnFileOpenPickerActivated(&mut self, args: &::core::option::Option<super::super::ApplicationModel::Activation::FileOpenPickerActivatedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnFileOpenPickerActivated(&self, args: &::core::option::Option<super::super::ApplicationModel::Activation::FileOpenPickerActivatedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnFileSavePickerActivated(&mut self, args: &::core::option::Option<super::super::ApplicationModel::Activation::FileSavePickerActivatedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnFileSavePickerActivated(&self, args: &::core::option::Option<super::super::ApplicationModel::Activation::FileSavePickerActivatedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnCachedFileUpdaterActivated(&mut self, args: &::core::option::Option<super::super::ApplicationModel::Activation::CachedFileUpdaterActivatedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnCachedFileUpdaterActivated(&self, args: &::core::option::Option<super::super::ApplicationModel::Activation::CachedFileUpdaterActivatedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnWindowCreated(&mut self, args: &::core::option::Option<WindowCreatedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnWindowCreated(&self, args: &::core::option::Option<WindowCreatedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -99,7 +99,7 @@ impl IApplicationOverrides_Vtbl {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 pub trait IApplicationOverrides2_Impl: Sized {
-    fn OnBackgroundActivated(&mut self, args: &::core::option::Option<super::super::ApplicationModel::Activation::BackgroundActivatedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnBackgroundActivated(&self, args: &::core::option::Option<super::super::ApplicationModel::Activation::BackgroundActivatedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -126,9 +126,9 @@ impl IApplicationOverrides2_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Controls")]
 pub trait IDataTemplateExtension_Impl: Sized {
-    fn ResetTemplate(&mut self) -> ::windows::core::Result<()>;
-    fn ProcessBinding(&mut self, phase: u32) -> ::windows::core::Result<bool>;
-    fn ProcessBindings(&mut self, arg: &::core::option::Option<Controls::ContainerContentChangingEventArgs>) -> ::windows::core::Result<i32>;
+    fn ResetTemplate(&self) -> ::windows::core::Result<()>;
+    fn ProcessBinding(&self, phase: u32) -> ::windows::core::Result<bool>;
+    fn ProcessBindings(&self, arg: &::core::option::Option<Controls::ContainerContentChangingEventArgs>) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "UI_Xaml_Controls")]
 impl ::windows::core::RuntimeName for IDataTemplateExtension {
@@ -178,8 +178,8 @@ impl IDataTemplateExtension_Vtbl {
     }
 }
 pub trait IElementFactory_Impl: Sized {
-    fn GetElement(&mut self, args: &::core::option::Option<ElementFactoryGetArgs>) -> ::windows::core::Result<UIElement>;
-    fn RecycleElement(&mut self, args: &::core::option::Option<ElementFactoryRecycleArgs>) -> ::windows::core::Result<()>;
+    fn GetElement(&self, args: &::core::option::Option<ElementFactoryGetArgs>) -> ::windows::core::Result<UIElement>;
+    fn RecycleElement(&self, args: &::core::option::Option<ElementFactoryRecycleArgs>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IElementFactory {
     const NAME: &'static str = "Windows.UI.Xaml.IElementFactory";
@@ -215,9 +215,9 @@ impl IElementFactory_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IFrameworkElementOverrides_Impl: Sized {
-    fn MeasureOverride(&mut self, availablesize: &super::super::Foundation::Size) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn ArrangeOverride(&mut self, finalsize: &super::super::Foundation::Size) -> ::windows::core::Result<super::super::Foundation::Size>;
-    fn OnApplyTemplate(&mut self) -> ::windows::core::Result<()> {
+    fn MeasureOverride(&self, availablesize: &super::super::Foundation::Size) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn ArrangeOverride(&self, finalsize: &super::super::Foundation::Size) -> ::windows::core::Result<super::super::Foundation::Size>;
+    fn OnApplyTemplate(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -269,7 +269,7 @@ impl IFrameworkElementOverrides_Vtbl {
     }
 }
 pub trait IFrameworkElementOverrides2_Impl: Sized {
-    fn GoToElementStateCore(&mut self, statename: &::windows::core::HSTRING, usetransitions: bool) -> ::windows::core::Result<bool>;
+    fn GoToElementStateCore(&self, statename: &::windows::core::HSTRING, usetransitions: bool) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IFrameworkElementOverrides2 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementOverrides2";
@@ -299,11 +299,11 @@ impl IFrameworkElementOverrides2_Vtbl {
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers"))]
 pub trait IUIElementOverrides_Impl: Sized {
-    fn OnCreateAutomationPeer(&mut self) -> ::windows::core::Result<Automation::Peers::AutomationPeer>;
-    fn OnDisconnectVisualChildren(&mut self) -> ::windows::core::Result<()> {
+    fn OnCreateAutomationPeer(&self) -> ::windows::core::Result<Automation::Peers::AutomationPeer>;
+    fn OnDisconnectVisualChildren(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn FindSubElementsForTouchTargeting(&mut self, point: &super::super::Foundation::Point, boundingrect: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Point>>>;
+    fn FindSubElementsForTouchTargeting(&self, point: &super::super::Foundation::Point, boundingrect: &super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Point>>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "UI_Xaml_Automation_Peers"))]
 impl ::windows::core::RuntimeName for IUIElementOverrides {
@@ -354,8 +354,8 @@ impl IUIElementOverrides_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Input"))]
 pub trait IUIElementOverrides7_Impl: Sized {
-    fn GetChildrenInTabFocusOrder(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<DependencyObject>>;
-    fn OnProcessKeyboardAccelerators(&mut self, args: &::core::option::Option<Input::ProcessKeyboardAcceleratorEventArgs>) -> ::windows::core::Result<()> {
+    fn GetChildrenInTabFocusOrder(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<DependencyObject>>;
+    fn OnProcessKeyboardAccelerators(&self, args: &::core::option::Option<Input::ProcessKeyboardAcceleratorEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -395,10 +395,10 @@ impl IUIElementOverrides7_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Input")]
 pub trait IUIElementOverrides8_Impl: Sized {
-    fn OnKeyboardAcceleratorInvoked(&mut self, args: &::core::option::Option<Input::KeyboardAcceleratorInvokedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnKeyboardAcceleratorInvoked(&self, args: &::core::option::Option<Input::KeyboardAcceleratorInvokedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
-    fn OnBringIntoViewRequested(&mut self, e: &::core::option::Option<BringIntoViewRequestedEventArgs>) -> ::windows::core::Result<()> {
+    fn OnBringIntoViewRequested(&self, e: &::core::option::Option<BringIntoViewRequestedEventArgs>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -431,7 +431,7 @@ impl IUIElementOverrides8_Vtbl {
 }
 #[cfg(feature = "UI_Composition")]
 pub trait IUIElementOverrides9_Impl: Sized {
-    fn PopulatePropertyInfoOverride(&mut self, propertyname: &::windows::core::HSTRING, animationpropertyinfo: &::core::option::Option<super::Composition::AnimationPropertyInfo>) -> ::windows::core::Result<()> {
+    fn PopulatePropertyInfoOverride(&self, propertyname: &::windows::core::HSTRING, animationpropertyinfo: &::core::option::Option<super::Composition::AnimationPropertyInfo>) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }
@@ -458,7 +458,7 @@ impl IUIElementOverrides9_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Controls")]
 pub trait IVisualStateManagerOverrides_Impl: Sized {
-    fn GoToStateCore(&mut self, control: &::core::option::Option<Controls::Control>, templateroot: &::core::option::Option<FrameworkElement>, statename: &::windows::core::HSTRING, group: &::core::option::Option<VisualStateGroup>, state: &::core::option::Option<VisualState>, usetransitions: bool) -> ::windows::core::Result<bool>;
+    fn GoToStateCore(&self, control: &::core::option::Option<Controls::Control>, templateroot: &::core::option::Option<FrameworkElement>, statename: &::windows::core::HSTRING, group: &::core::option::Option<VisualStateGroup>, state: &::core::option::Option<VisualState>, usetransitions: bool) -> ::windows::core::Result<bool>;
 }
 #[cfg(feature = "UI_Xaml_Controls")]
 impl ::windows::core::RuntimeName for IVisualStateManagerOverrides {

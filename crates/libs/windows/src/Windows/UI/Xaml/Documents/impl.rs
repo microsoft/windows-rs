@@ -1,5 +1,5 @@
 pub trait ITextElementOverrides_Impl: Sized {
-    fn OnDisconnectVisualChildren(&mut self) -> ::windows::core::Result<()> {
+    fn OnDisconnectVisualChildren(&self) -> ::windows::core::Result<()> {
         ::core::result::Result::Ok(())
     }
 }

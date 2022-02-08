@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrintManagerInterop_Impl: Sized {
-    fn GetForWindow(&mut self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ShowPrintUIForWindowAsync(&mut self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ShowPrintUIForWindowAsync(&self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPrintManagerInterop {
@@ -32,9 +32,9 @@ impl IPrintManagerInterop_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
 pub trait IPrintWorkflowConfigurationNative_Impl: Sized {
-    fn PrinterQueue(&mut self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterQueue>;
-    fn DriverProperties(&mut self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag>;
-    fn UserProperties(&mut self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag>;
+    fn PrinterQueue(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterQueue>;
+    fn DriverProperties(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag>;
+    fn UserProperties(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag>;
 }
 #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
 impl IPrintWorkflowConfigurationNative_Vtbl {
@@ -85,8 +85,8 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IPrintWorkflowObjectModelSourceFileContentNative_Impl: Sized {
-    fn StartXpsOMGeneration(&mut self, receiver: &::core::option::Option<IPrintWorkflowXpsReceiver>) -> ::windows::core::Result<()>;
-    fn ObjectFactory(&mut self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1>;
+    fn StartXpsOMGeneration(&self, receiver: &::core::option::Option<IPrintWorkflowXpsReceiver>) -> ::windows::core::Result<()>;
+    fn ObjectFactory(&self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
@@ -119,7 +119,7 @@ impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IPrintWorkflowXpsObjectModelTargetPackageNative_Impl: Sized {
-    fn DocumentPackageTarget(&mut self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsDocumentPackageTarget>;
+    fn DocumentPackageTarget(&self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsDocumentPackageTarget>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
@@ -143,11 +143,11 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 pub trait IPrintWorkflowXpsReceiver_Impl: Sized {
-    fn SetDocumentSequencePrintTicket(&mut self, documentsequenceprintticket: &::core::option::Option<super::super::Com::IStream>) -> ::windows::core::Result<()>;
-    fn SetDocumentSequenceUri(&mut self, documentsequenceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddDocumentData(&mut self, documentid: u32, documentprintticket: &::core::option::Option<super::super::Com::IStream>, documenturi: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn AddPage(&mut self, documentid: u32, pageid: u32, pagereference: &::core::option::Option<super::super::super::Storage::Xps::IXpsOMPageReference>, pageuri: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
+    fn SetDocumentSequencePrintTicket(&self, documentsequenceprintticket: &::core::option::Option<super::super::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SetDocumentSequenceUri(&self, documentsequenceuri: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddDocumentData(&self, documentid: u32, documentprintticket: &::core::option::Option<super::super::Com::IStream>, documenturi: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn AddPage(&self, documentid: u32, pageid: u32, pagereference: &::core::option::Option<super::super::super::Storage::Xps::IXpsOMPageReference>, pageuri: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 impl IPrintWorkflowXpsReceiver_Vtbl {
@@ -192,7 +192,7 @@ impl IPrintWorkflowXpsReceiver_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 pub trait IPrintWorkflowXpsReceiver2_Impl: Sized + IPrintWorkflowXpsReceiver_Impl {
-    fn Failed(&mut self, xpserror: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn Failed(&self, xpserror: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 impl IPrintWorkflowXpsReceiver2_Vtbl {
@@ -210,8 +210,8 @@ impl IPrintWorkflowXpsReceiver2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrinting3DManagerInterop_Impl: Sized {
-    fn GetForWindow(&mut self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ShowPrintUIForWindowAsync(&mut self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, printmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ShowPrintUIForWindowAsync(&self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPrinting3DManagerInterop {

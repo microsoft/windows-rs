@@ -30,9 +30,10 @@ impl ::core::fmt::Debug for I2cBusSpeed {
 }
 unsafe impl ::windows::core::RuntimeType for I2cBusSpeed {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cBusSpeed;i4)");
-}
-impl ::windows::core::DefaultType for I2cBusSpeed {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
@@ -108,6 +109,10 @@ impl ::core::fmt::Debug for I2cConnectionSettings {
 }
 unsafe impl ::windows::core::RuntimeType for I2cConnectionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cConnectionSettings;{f2db1307-ab6f-4639-a767-54536dc3460f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for I2cConnectionSettings {
     type Vtable = II2cConnectionSettings_Vtbl;
@@ -210,6 +215,10 @@ impl ::core::fmt::Debug for I2cController {
 }
 unsafe impl ::windows::core::RuntimeType for I2cController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cController;{c48ab1b2-87a0-4166-8e3e-b4b8f97cd729})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for I2cController {
     type Vtable = II2cController_Vtbl;
@@ -371,6 +380,10 @@ impl ::core::fmt::Debug for I2cDevice {
 }
 unsafe impl ::windows::core::RuntimeType for I2cDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cDevice;{8636c136-b9c5-4f70-9449-cc46dc6f57eb})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for I2cDevice {
     type Vtable = II2cDevice_Vtbl;
@@ -476,9 +489,10 @@ impl ::core::fmt::Debug for I2cSharingMode {
 }
 unsafe impl ::windows::core::RuntimeType for I2cSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cSharingMode;i4)");
-}
-impl ::windows::core::DefaultType for I2cSharingMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: 'Devices_I2c'*"]
@@ -502,9 +516,10 @@ unsafe impl ::windows::core::Abi for I2cTransferResult {
 }
 unsafe impl ::windows::core::RuntimeType for I2cTransferResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.I2c.I2cTransferResult;enum(Windows.Devices.I2c.I2cTransferStatus;i4);u4)");
-}
-impl ::windows::core::DefaultType for I2cTransferResult {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 impl ::core::cmp::PartialEq for I2cTransferResult {
     fn eq(&self, other: &Self) -> bool {
@@ -549,9 +564,10 @@ impl ::core::fmt::Debug for I2cTransferStatus {
 }
 unsafe impl ::windows::core::RuntimeType for I2cTransferStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cTransferStatus;i4)");
-}
-impl ::windows::core::DefaultType for I2cTransferStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -725,6 +741,10 @@ impl ::core::fmt::Debug for II2cDeviceStatics {
 }
 unsafe impl ::windows::core::RuntimeType for II2cDeviceStatics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{91a33be3-7334-4512-96bc-fbae9459f5f6}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for II2cDeviceStatics {
     type Vtable = II2cDeviceStatics_Vtbl;

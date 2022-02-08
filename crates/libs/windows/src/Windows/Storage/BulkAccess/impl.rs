@@ -1,15 +1,15 @@
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemInformation_Impl: Sized {
-    fn MusicProperties(&mut self) -> ::windows::core::Result<super::FileProperties::MusicProperties>;
-    fn VideoProperties(&mut self) -> ::windows::core::Result<super::FileProperties::VideoProperties>;
-    fn ImageProperties(&mut self) -> ::windows::core::Result<super::FileProperties::ImageProperties>;
-    fn DocumentProperties(&mut self) -> ::windows::core::Result<super::FileProperties::DocumentProperties>;
-    fn BasicProperties(&mut self) -> ::windows::core::Result<super::FileProperties::BasicProperties>;
-    fn Thumbnail(&mut self) -> ::windows::core::Result<super::FileProperties::StorageItemThumbnail>;
-    fn ThumbnailUpdated(&mut self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveThumbnailUpdated(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PropertiesUpdated(&mut self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemovePropertiesUpdated(&mut self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn MusicProperties(&self) -> ::windows::core::Result<super::FileProperties::MusicProperties>;
+    fn VideoProperties(&self) -> ::windows::core::Result<super::FileProperties::VideoProperties>;
+    fn ImageProperties(&self) -> ::windows::core::Result<super::FileProperties::ImageProperties>;
+    fn DocumentProperties(&self) -> ::windows::core::Result<super::FileProperties::DocumentProperties>;
+    fn BasicProperties(&self) -> ::windows::core::Result<super::FileProperties::BasicProperties>;
+    fn Thumbnail(&self) -> ::windows::core::Result<super::FileProperties::StorageItemThumbnail>;
+    fn ThumbnailUpdated(&self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveThumbnailUpdated(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
+    fn PropertiesUpdated(&self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemovePropertiesUpdated(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageItemInformation {

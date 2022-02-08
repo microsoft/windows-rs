@@ -38,9 +38,10 @@ impl ::core::fmt::Debug for AudioRenderCategory {
 }
 unsafe impl ::windows::core::RuntimeType for AudioRenderCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
-}
-impl ::windows::core::DefaultType for AudioRenderCategory {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

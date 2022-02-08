@@ -1,6 +1,6 @@
 pub trait IObjectArray_Impl: Sized {
-    fn GetCount(&mut self) -> ::windows::core::Result<u32>;
-    fn GetAt(&mut self, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetCount(&self) -> ::windows::core::Result<u32>;
+    fn GetAt(&self, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IObjectArray_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectArray_Impl, const OFFSET: isize>() -> IObjectArray_Vtbl {
@@ -31,10 +31,10 @@ impl IObjectArray_Vtbl {
     }
 }
 pub trait IObjectCollection_Impl: Sized + IObjectArray_Impl {
-    fn AddObject(&mut self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn AddFromArray(&mut self, poasource: &::core::option::Option<IObjectArray>) -> ::windows::core::Result<()>;
-    fn RemoveObjectAt(&mut self, uiindex: u32) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn AddObject(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AddFromArray(&self, poasource: &::core::option::Option<IObjectArray>) -> ::windows::core::Result<()>;
+    fn RemoveObjectAt(&self, uiindex: u32) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
 }
 impl IObjectCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectCollection_Impl, const OFFSET: isize>() -> IObjectCollection_Vtbl {

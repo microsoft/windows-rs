@@ -1,10 +1,10 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAVIEditStream_Impl: Sized {
-    fn Cut(&mut self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()>;
-    fn Copy(&mut self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()>;
-    fn Paste(&mut self, plpos: *mut i32, pllength: *mut i32, pstream: &::core::option::Option<IAVIStream>, lstart: i32, lend: i32) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IAVIStream>;
-    fn SetInfo(&mut self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()>;
+    fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()>;
+    fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()>;
+    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: &::core::option::Option<IAVIStream>, lstart: i32, lend: i32) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IAVIStream>;
+    fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAVIEditStream_Vtbl {
@@ -55,13 +55,13 @@ impl IAVIEditStream_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAVIFile_Impl: Sized {
-    fn Info(&mut self, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::Result<()>;
-    fn GetStream(&mut self, ppstream: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::core::Result<()>;
-    fn CreateStream(&mut self, ppstream: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::core::Result<()>;
-    fn WriteData(&mut self, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::Result<()>;
-    fn ReadData(&mut self, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::Result<()>;
-    fn EndRecord(&mut self) -> ::windows::core::Result<()>;
-    fn DeleteStream(&mut self, fcctype: u32, lparam: i32) -> ::windows::core::Result<()>;
+    fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::Result<()>;
+    fn GetStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::core::Result<()>;
+    fn CreateStream(&self, ppstream: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::core::Result<()>;
+    fn WriteData(&self, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::Result<()>;
+    fn ReadData(&self, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::Result<()>;
+    fn EndRecord(&self) -> ::windows::core::Result<()>;
+    fn DeleteStream(&self, fcctype: u32, lparam: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAVIFile_Vtbl {
@@ -118,7 +118,7 @@ impl IAVIFile_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAVIPersistFile_Impl: Sized + super::super::System::Com::IPersist_Impl + super::super::System::Com::IPersistFile_Impl {
-    fn Reserved1(&mut self) -> ::windows::core::Result<()>;
+    fn Reserved1(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAVIPersistFile_Vtbl {
@@ -136,17 +136,17 @@ impl IAVIPersistFile_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAVIStream_Impl: Sized {
-    fn Create(&mut self, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn Info(&mut self, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::Result<()>;
-    fn FindSample(&mut self, lpos: i32, lflags: i32) -> i32;
-    fn ReadFormat(&mut self, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::Result<()>;
-    fn SetFormat(&mut self, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::Result<()>;
-    fn Read(&mut self, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::Result<()>;
-    fn Write(&mut self, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::Result<()>;
-    fn Delete(&mut self, lstart: i32, lsamples: i32) -> ::windows::core::Result<()>;
-    fn ReadData(&mut self, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::Result<()>;
-    fn WriteData(&mut self, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::Result<()>;
-    fn SetInfo(&mut self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()>;
+    fn Create(&self, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::Result<()>;
+    fn FindSample(&self, lpos: i32, lflags: i32) -> i32;
+    fn ReadFormat(&self, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::Result<()>;
+    fn SetFormat(&self, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::Result<()>;
+    fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::Result<()>;
+    fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::Result<()>;
+    fn Delete(&self, lstart: i32, lsamples: i32) -> ::windows::core::Result<()>;
+    fn ReadData(&self, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::Result<()>;
+    fn WriteData(&self, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::Result<()>;
+    fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAVIStream_Vtbl {
@@ -226,8 +226,8 @@ impl IAVIStream_Vtbl {
     }
 }
 pub trait IAVIStreaming_Impl: Sized {
-    fn Begin(&mut self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()>;
-    fn End(&mut self) -> ::windows::core::Result<()>;
+    fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()>;
+    fn End(&self) -> ::windows::core::Result<()>;
 }
 impl IAVIStreaming_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAVIStreaming_Impl, const OFFSET: isize>() -> IAVIStreaming_Vtbl {
@@ -249,10 +249,10 @@ impl IAVIStreaming_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IGetFrame_Impl: Sized {
-    fn GetFrame(&mut self, lpos: i32) -> *mut ::core::ffi::c_void;
-    fn Begin(&mut self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()>;
-    fn End(&mut self) -> ::windows::core::Result<()>;
-    fn SetFormat(&mut self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::Result<()>;
+    fn GetFrame(&self, lpos: i32) -> *mut ::core::ffi::c_void;
+    fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()>;
+    fn End(&self) -> ::windows::core::Result<()>;
+    fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IGetFrame_Vtbl {

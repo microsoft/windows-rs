@@ -11,15 +11,15 @@ impl AppEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Column_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Width(&mut self) -> ::windows::core::Result<i32>;
-    fn SetWidth(&mut self, width: i32) -> ::windows::core::Result<()>;
-    fn DisplayPosition(&mut self) -> ::windows::core::Result<i32>;
-    fn SetDisplayPosition(&mut self, index: i32) -> ::windows::core::Result<()>;
-    fn Hidden(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetHidden(&mut self, hidden: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetAsSortColumn(&mut self, sortorder: _ColumnSortOrder) -> ::windows::core::Result<()>;
-    fn IsSortColumn(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn Width(&self) -> ::windows::core::Result<i32>;
+    fn SetWidth(&self, width: i32) -> ::windows::core::Result<()>;
+    fn DisplayPosition(&self) -> ::windows::core::Result<i32>;
+    fn SetDisplayPosition(&self, index: i32) -> ::windows::core::Result<()>;
+    fn Hidden(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetHidden(&self, hidden: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetAsSortColumn(&self, sortorder: _ColumnSortOrder) -> ::windows::core::Result<()>;
+    fn IsSortColumn(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Column_Vtbl {
@@ -118,9 +118,9 @@ impl Column_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Columns_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<Column>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<Column>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Columns_Vtbl {
@@ -171,9 +171,9 @@ impl Columns_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ContextMenu_Impl: Sized + super::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, indexorpath: &super::Com::VARIANT) -> ::windows::core::Result<MenuItem>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, indexorpath: &super::Com::VARIANT) -> ::windows::core::Result<MenuItem>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ContextMenu_Vtbl {
@@ -224,22 +224,22 @@ impl ContextMenu_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Document_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Save(&mut self) -> ::windows::core::Result<()>;
-    fn SaveAs(&mut self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Close(&mut self, savechanges: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Views(&mut self) -> ::windows::core::Result<Views>;
-    fn SnapIns(&mut self) -> ::windows::core::Result<SnapIns>;
-    fn ActiveView(&mut self) -> ::windows::core::Result<View>;
-    fn Name(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn SetName(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Location(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn IsSaved(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Mode(&mut self) -> ::windows::core::Result<_DocumentMode>;
-    fn SetMode(&mut self, mode: _DocumentMode) -> ::windows::core::Result<()>;
-    fn RootNode(&mut self) -> ::windows::core::Result<Node>;
-    fn ScopeNamespace(&mut self) -> ::windows::core::Result<ScopeNamespace>;
-    fn CreateProperties(&mut self) -> ::windows::core::Result<Properties>;
-    fn Application(&mut self) -> ::windows::core::Result<_Application>;
+    fn Save(&self) -> ::windows::core::Result<()>;
+    fn SaveAs(&self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Close(&self, savechanges: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Views(&self) -> ::windows::core::Result<Views>;
+    fn SnapIns(&self) -> ::windows::core::Result<SnapIns>;
+    fn ActiveView(&self) -> ::windows::core::Result<View>;
+    fn Name(&self) -> ::windows::core::Result<*mut u16>;
+    fn SetName(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Location(&self) -> ::windows::core::Result<*mut u16>;
+    fn IsSaved(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Mode(&self) -> ::windows::core::Result<_DocumentMode>;
+    fn SetMode(&self, mode: _DocumentMode) -> ::windows::core::Result<()>;
+    fn RootNode(&self) -> ::windows::core::Result<Node>;
+    fn ScopeNamespace(&self) -> ::windows::core::Result<ScopeNamespace>;
+    fn CreateProperties(&self) -> ::windows::core::Result<Properties>;
+    fn Application(&self) -> ::windows::core::Result<_Application>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Document_Vtbl {
@@ -416,13 +416,13 @@ impl Document_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Extension_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn Vendor(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn Version(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn Extensions(&mut self) -> ::windows::core::Result<Extensions>;
-    fn SnapinCLSID(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn EnableAllExtensions(&mut self, enable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Enable(&mut self, enable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<*mut u16>;
+    fn Vendor(&self) -> ::windows::core::Result<*mut u16>;
+    fn Version(&self) -> ::windows::core::Result<*mut u16>;
+    fn Extensions(&self) -> ::windows::core::Result<Extensions>;
+    fn SnapinCLSID(&self) -> ::windows::core::Result<*mut u16>;
+    fn EnableAllExtensions(&self, enable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Enable(&self, enable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Extension_Vtbl {
@@ -509,9 +509,9 @@ impl Extension_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Extensions_Impl: Sized + super::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<Extension>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<Extension>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Extensions_Vtbl {
@@ -562,17 +562,17 @@ impl Extensions_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Frame_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Maximize(&mut self) -> ::windows::core::Result<()>;
-    fn Minimize(&mut self) -> ::windows::core::Result<()>;
-    fn Restore(&mut self) -> ::windows::core::Result<()>;
-    fn Top(&mut self) -> ::windows::core::Result<i32>;
-    fn SetTop(&mut self, top: i32) -> ::windows::core::Result<()>;
-    fn Bottom(&mut self) -> ::windows::core::Result<i32>;
-    fn SetBottom(&mut self, bottom: i32) -> ::windows::core::Result<()>;
-    fn Left(&mut self) -> ::windows::core::Result<i32>;
-    fn SetLeft(&mut self, left: i32) -> ::windows::core::Result<()>;
-    fn Right(&mut self) -> ::windows::core::Result<i32>;
-    fn SetRight(&mut self, right: i32) -> ::windows::core::Result<()>;
+    fn Maximize(&self) -> ::windows::core::Result<()>;
+    fn Minimize(&self) -> ::windows::core::Result<()>;
+    fn Restore(&self) -> ::windows::core::Result<()>;
+    fn Top(&self) -> ::windows::core::Result<i32>;
+    fn SetTop(&self, top: i32) -> ::windows::core::Result<()>;
+    fn Bottom(&self) -> ::windows::core::Result<i32>;
+    fn SetBottom(&self, bottom: i32) -> ::windows::core::Result<()>;
+    fn Left(&self) -> ::windows::core::Result<i32>;
+    fn SetLeft(&self, left: i32) -> ::windows::core::Result<()>;
+    fn Right(&self) -> ::windows::core::Result<i32>;
+    fn SetRight(&self, right: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Frame_Vtbl {
@@ -676,10 +676,10 @@ impl Frame_Vtbl {
     }
 }
 pub trait IColumnData_Impl: Sized {
-    fn SetColumnConfigData(&mut self, pcolid: *const SColumnSetID, pcolsetdata: *const MMC_COLUMN_SET_DATA) -> ::windows::core::Result<()>;
-    fn GetColumnConfigData(&mut self, pcolid: *const SColumnSetID) -> ::windows::core::Result<*mut MMC_COLUMN_SET_DATA>;
-    fn SetColumnSortData(&mut self, pcolid: *const SColumnSetID, pcolsortdata: *const MMC_SORT_SET_DATA) -> ::windows::core::Result<()>;
-    fn GetColumnSortData(&mut self, pcolid: *const SColumnSetID) -> ::windows::core::Result<*mut MMC_SORT_SET_DATA>;
+    fn SetColumnConfigData(&self, pcolid: *const SColumnSetID, pcolsetdata: *const MMC_COLUMN_SET_DATA) -> ::windows::core::Result<()>;
+    fn GetColumnConfigData(&self, pcolid: *const SColumnSetID) -> ::windows::core::Result<*mut MMC_COLUMN_SET_DATA>;
+    fn SetColumnSortData(&self, pcolid: *const SColumnSetID, pcolsortdata: *const MMC_SORT_SET_DATA) -> ::windows::core::Result<()>;
+    fn GetColumnSortData(&self, pcolid: *const SColumnSetID) -> ::windows::core::Result<*mut MMC_SORT_SET_DATA>;
 }
 impl IColumnData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColumnData_Impl, const OFFSET: isize>() -> IColumnData_Vtbl {
@@ -729,13 +729,13 @@ impl IColumnData_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IComponent_Impl: Sized {
-    fn Initialize(&mut self, lpconsole: &::core::option::Option<IConsole>) -> ::windows::core::Result<()>;
-    fn Notify(&mut self, lpdataobject: &::core::option::Option<super::Com::IDataObject>, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn Destroy(&mut self, cookie: isize) -> ::windows::core::Result<()>;
-    fn QueryDataObject(&mut self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDataObject>;
-    fn GetResultViewType(&mut self, cookie: isize, ppviewtype: *mut super::super::Foundation::PWSTR, pviewoptions: *mut i32) -> ::windows::core::Result<()>;
-    fn GetDisplayInfo(&mut self, presultdataitem: *mut RESULTDATAITEM) -> ::windows::core::Result<()>;
-    fn CompareObjects(&mut self, lpdataobjecta: &::core::option::Option<super::Com::IDataObject>, lpdataobjectb: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, lpconsole: &::core::option::Option<IConsole>) -> ::windows::core::Result<()>;
+    fn Notify(&self, lpdataobject: &::core::option::Option<super::Com::IDataObject>, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn Destroy(&self, cookie: isize) -> ::windows::core::Result<()>;
+    fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDataObject>;
+    fn GetResultViewType(&self, cookie: isize, ppviewtype: *mut super::super::Foundation::PWSTR, pviewoptions: *mut i32) -> ::windows::core::Result<()>;
+    fn GetDisplayInfo(&self, presultdataitem: *mut RESULTDATAITEM) -> ::windows::core::Result<()>;
+    fn CompareObjects(&self, lpdataobjecta: &::core::option::Option<super::Com::IDataObject>, lpdataobjectb: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IComponent_Vtbl {
@@ -798,9 +798,9 @@ impl IComponent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IComponent2_Impl: Sized + IComponent_Impl {
-    fn QueryDispatch(&mut self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn GetResultViewType2(&mut self, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> ::windows::core::Result<()>;
-    fn RestoreResultView(&mut self, cookie: isize, presultviewtype: *const RESULT_VIEW_TYPE_INFO) -> ::windows::core::Result<()>;
+    fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn GetResultViewType2(&self, cookie: isize, presultviewtype: *mut RESULT_VIEW_TYPE_INFO) -> ::windows::core::Result<()>;
+    fn RestoreResultView(&self, cookie: isize, presultviewtype: *const RESULT_VIEW_TYPE_INFO) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IComponent2_Vtbl {
@@ -839,13 +839,13 @@ impl IComponent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IComponentData_Impl: Sized {
-    fn Initialize(&mut self, punknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn CreateComponent(&mut self) -> ::windows::core::Result<IComponent>;
-    fn Notify(&mut self, lpdataobject: &::core::option::Option<super::Com::IDataObject>, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn Destroy(&mut self) -> ::windows::core::Result<()>;
-    fn QueryDataObject(&mut self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDataObject>;
-    fn GetDisplayInfo(&mut self, pscopedataitem: *mut SCOPEDATAITEM) -> ::windows::core::Result<()>;
-    fn CompareObjects(&mut self, lpdataobjecta: &::core::option::Option<super::Com::IDataObject>, lpdataobjectb: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, punknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateComponent(&self) -> ::windows::core::Result<IComponent>;
+    fn Notify(&self, lpdataobject: &::core::option::Option<super::Com::IDataObject>, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param3: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn Destroy(&self) -> ::windows::core::Result<()>;
+    fn QueryDataObject(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDataObject>;
+    fn GetDisplayInfo(&self, pscopedataitem: *mut SCOPEDATAITEM) -> ::windows::core::Result<()>;
+    fn CompareObjects(&self, lpdataobjecta: &::core::option::Option<super::Com::IDataObject>, lpdataobjectb: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IComponentData_Vtbl {
@@ -914,7 +914,7 @@ impl IComponentData_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IComponentData2_Impl: Sized + IComponentData_Impl {
-    fn QueryDispatch(&mut self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IComponentData2_Vtbl {
@@ -938,17 +938,17 @@ impl IComponentData2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IConsole_Impl: Sized {
-    fn SetHeader(&mut self, pheader: &::core::option::Option<IHeaderCtrl>) -> ::windows::core::Result<()>;
-    fn SetToolbar(&mut self, ptoolbar: &::core::option::Option<IToolbar>) -> ::windows::core::Result<()>;
-    fn QueryResultView(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn QueryScopeImageList(&mut self) -> ::windows::core::Result<IImageList>;
-    fn QueryResultImageList(&mut self) -> ::windows::core::Result<IImageList>;
-    fn UpdateAllViews(&mut self, lpdataobject: &::core::option::Option<super::Com::IDataObject>, data: super::super::Foundation::LPARAM, hint: isize) -> ::windows::core::Result<()>;
-    fn MessageBox(&mut self, lpsztext: super::super::Foundation::PWSTR, lpsztitle: super::super::Foundation::PWSTR, fustyle: u32) -> ::windows::core::Result<i32>;
-    fn QueryConsoleVerb(&mut self) -> ::windows::core::Result<IConsoleVerb>;
-    fn SelectScopeItem(&mut self, hscopeitem: isize) -> ::windows::core::Result<()>;
-    fn GetMainWindow(&mut self) -> ::windows::core::Result<super::super::Foundation::HWND>;
-    fn NewWindow(&mut self, hscopeitem: isize, loptions: u32) -> ::windows::core::Result<()>;
+    fn SetHeader(&self, pheader: &::core::option::Option<IHeaderCtrl>) -> ::windows::core::Result<()>;
+    fn SetToolbar(&self, ptoolbar: &::core::option::Option<IToolbar>) -> ::windows::core::Result<()>;
+    fn QueryResultView(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn QueryScopeImageList(&self) -> ::windows::core::Result<IImageList>;
+    fn QueryResultImageList(&self) -> ::windows::core::Result<IImageList>;
+    fn UpdateAllViews(&self, lpdataobject: &::core::option::Option<super::Com::IDataObject>, data: super::super::Foundation::LPARAM, hint: isize) -> ::windows::core::Result<()>;
+    fn MessageBox(&self, lpsztext: super::super::Foundation::PWSTR, lpsztitle: super::super::Foundation::PWSTR, fustyle: u32) -> ::windows::core::Result<i32>;
+    fn QueryConsoleVerb(&self) -> ::windows::core::Result<IConsoleVerb>;
+    fn SelectScopeItem(&self, hscopeitem: isize) -> ::windows::core::Result<()>;
+    fn GetMainWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
+    fn NewWindow(&self, hscopeitem: isize, loptions: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IConsole_Vtbl {
@@ -1065,9 +1065,9 @@ impl IConsole_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IConsole2_Impl: Sized + IConsole_Impl {
-    fn Expand(&mut self, hitem: isize, bexpand: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn IsTaskpadViewPreferred(&mut self) -> ::windows::core::Result<()>;
-    fn SetStatusText(&mut self, pszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn Expand(&self, hitem: isize, bexpand: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn IsTaskpadViewPreferred(&self) -> ::windows::core::Result<()>;
+    fn SetStatusText(&self, pszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IConsole2_Vtbl {
@@ -1100,7 +1100,7 @@ impl IConsole2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IConsole3_Impl: Sized + IConsole_Impl + IConsole2_Impl {
-    fn RenameScopeItem(&mut self, hscopeitem: isize) -> ::windows::core::Result<()>;
+    fn RenameScopeItem(&self, hscopeitem: isize) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IConsole3_Vtbl {
@@ -1118,13 +1118,13 @@ impl IConsole3_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IConsoleNameSpace_Impl: Sized {
-    fn InsertItem(&mut self, item: *mut SCOPEDATAITEM) -> ::windows::core::Result<()>;
-    fn DeleteItem(&mut self, hitem: isize, fdeletethis: i32) -> ::windows::core::Result<()>;
-    fn SetItem(&mut self, item: *const SCOPEDATAITEM) -> ::windows::core::Result<()>;
-    fn GetItem(&mut self, item: *mut SCOPEDATAITEM) -> ::windows::core::Result<()>;
-    fn GetChildItem(&mut self, item: isize, pitemchild: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()>;
-    fn GetNextItem(&mut self, item: isize, pitemnext: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()>;
-    fn GetParentItem(&mut self, item: isize, pitemparent: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()>;
+    fn InsertItem(&self, item: *mut SCOPEDATAITEM) -> ::windows::core::Result<()>;
+    fn DeleteItem(&self, hitem: isize, fdeletethis: i32) -> ::windows::core::Result<()>;
+    fn SetItem(&self, item: *const SCOPEDATAITEM) -> ::windows::core::Result<()>;
+    fn GetItem(&self, item: *mut SCOPEDATAITEM) -> ::windows::core::Result<()>;
+    fn GetChildItem(&self, item: isize, pitemchild: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()>;
+    fn GetNextItem(&self, item: isize, pitemnext: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()>;
+    fn GetParentItem(&self, item: isize, pitemparent: *mut isize, pcookie: *mut isize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IConsoleNameSpace_Vtbl {
@@ -1181,8 +1181,8 @@ impl IConsoleNameSpace_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IConsoleNameSpace2_Impl: Sized + IConsoleNameSpace_Impl {
-    fn Expand(&mut self, hitem: isize) -> ::windows::core::Result<()>;
-    fn AddExtension(&mut self, hitem: isize, lpclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn Expand(&self, hitem: isize) -> ::windows::core::Result<()>;
+    fn AddExtension(&self, hitem: isize, lpclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IConsoleNameSpace2_Vtbl {
@@ -1208,8 +1208,8 @@ impl IConsoleNameSpace2_Vtbl {
     }
 }
 pub trait IConsolePower_Impl: Sized {
-    fn SetExecutionState(&mut self, dwadd: u32, dwremove: u32) -> ::windows::core::Result<()>;
-    fn ResetIdleTimer(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
+    fn SetExecutionState(&self, dwadd: u32, dwremove: u32) -> ::windows::core::Result<()>;
+    fn ResetIdleTimer(&self, dwflags: u32) -> ::windows::core::Result<()>;
 }
 impl IConsolePower_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConsolePower_Impl, const OFFSET: isize>() -> IConsolePower_Vtbl {
@@ -1235,7 +1235,7 @@ impl IConsolePower_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IConsolePowerSink_Impl: Sized {
-    fn OnPowerBroadcast(&mut self, nevent: u32, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::LRESULT>;
+    fn OnPowerBroadcast(&self, nevent: u32, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::LRESULT>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IConsolePowerSink_Vtbl {
@@ -1259,10 +1259,10 @@ impl IConsolePowerSink_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IConsoleVerb_Impl: Sized {
-    fn GetVerbState(&mut self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetVerbState(&mut self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetDefaultVerb(&mut self, ecmdid: MMC_CONSOLE_VERB) -> ::windows::core::Result<()>;
-    fn GetDefaultVerb(&mut self) -> ::windows::core::Result<MMC_CONSOLE_VERB>;
+    fn GetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetDefaultVerb(&self, ecmdid: MMC_CONSOLE_VERB) -> ::windows::core::Result<()>;
+    fn GetDefaultVerb(&self) -> ::windows::core::Result<MMC_CONSOLE_VERB>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IConsoleVerb_Vtbl {
@@ -1313,7 +1313,7 @@ impl IConsoleVerb_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContextMenuCallback_Impl: Sized {
-    fn AddItem(&mut self, pitem: *const CONTEXTMENUITEM) -> ::windows::core::Result<()>;
+    fn AddItem(&self, pitem: *const CONTEXTMENUITEM) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContextMenuCallback_Vtbl {
@@ -1331,7 +1331,7 @@ impl IContextMenuCallback_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IContextMenuCallback2_Impl: Sized {
-    fn AddItem(&mut self, pitem: *const CONTEXTMENUITEM2) -> ::windows::core::Result<()>;
+    fn AddItem(&self, pitem: *const CONTEXTMENUITEM2) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContextMenuCallback2_Vtbl {
@@ -1349,10 +1349,10 @@ impl IContextMenuCallback2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IContextMenuProvider_Impl: Sized + IContextMenuCallback_Impl {
-    fn EmptyMenuList(&mut self) -> ::windows::core::Result<()>;
-    fn AddPrimaryExtensionItems(&mut self, piextension: &::core::option::Option<::windows::core::IUnknown>, pidataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
-    fn AddThirdPartyExtensionItems(&mut self, pidataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
-    fn ShowContextMenu(&mut self, hwndparent: super::super::Foundation::HWND, xpos: i32, ypos: i32) -> ::windows::core::Result<i32>;
+    fn EmptyMenuList(&self) -> ::windows::core::Result<()>;
+    fn AddPrimaryExtensionItems(&self, piextension: &::core::option::Option<::windows::core::IUnknown>, pidataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn AddThirdPartyExtensionItems(&self, pidataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn ShowContextMenu(&self, hwndparent: super::super::Foundation::HWND, xpos: i32, ypos: i32) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IContextMenuProvider_Vtbl {
@@ -1396,9 +1396,9 @@ impl IContextMenuProvider_Vtbl {
     }
 }
 pub trait IControlbar_Impl: Sized {
-    fn Create(&mut self, ntype: MMC_CONTROL_TYPE, pextendcontrolbar: &::core::option::Option<IExtendControlbar>) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Attach(&mut self, ntype: MMC_CONTROL_TYPE, lpunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Detach(&mut self, lpunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Create(&self, ntype: MMC_CONTROL_TYPE, pextendcontrolbar: &::core::option::Option<IExtendControlbar>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Attach(&self, ntype: MMC_CONTROL_TYPE, lpunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Detach(&self, lpunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IControlbar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlbar_Impl, const OFFSET: isize>() -> IControlbar_Vtbl {
@@ -1436,7 +1436,7 @@ impl IControlbar_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDisplayHelp_Impl: Sized {
-    fn ShowTopic(&mut self, pszhelptopic: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn ShowTopic(&self, pszhelptopic: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDisplayHelp_Vtbl {
@@ -1454,10 +1454,10 @@ impl IDisplayHelp_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumTASK_Impl: Sized {
-    fn Next(&mut self, celt: u32, rgelt: *mut MMC_TASK, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumTASK>;
+    fn Next(&self, celt: u32, rgelt: *mut MMC_TASK, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumTASK>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumTASK_Vtbl {
@@ -1502,8 +1502,8 @@ impl IEnumTASK_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExtendContextMenu_Impl: Sized {
-    fn AddMenuItems(&mut self, pidataobject: &::core::option::Option<super::Com::IDataObject>, picallback: &::core::option::Option<IContextMenuCallback>, pinsertionallowed: *mut i32) -> ::windows::core::Result<()>;
-    fn Command(&mut self, lcommandid: i32, pidataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn AddMenuItems(&self, pidataobject: &::core::option::Option<super::Com::IDataObject>, picallback: &::core::option::Option<IContextMenuCallback>, pinsertionallowed: *mut i32) -> ::windows::core::Result<()>;
+    fn Command(&self, lcommandid: i32, pidataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IExtendContextMenu_Vtbl {
@@ -1530,8 +1530,8 @@ impl IExtendContextMenu_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IExtendControlbar_Impl: Sized {
-    fn SetControlbar(&mut self, pcontrolbar: &::core::option::Option<IControlbar>) -> ::windows::core::Result<()>;
-    fn ControlbarNotify(&mut self, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn SetControlbar(&self, pcontrolbar: &::core::option::Option<IControlbar>) -> ::windows::core::Result<()>;
+    fn ControlbarNotify(&self, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IExtendControlbar_Vtbl {
@@ -1558,8 +1558,8 @@ impl IExtendControlbar_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExtendPropertySheet_Impl: Sized {
-    fn CreatePropertyPages(&mut self, lpprovider: &::core::option::Option<IPropertySheetCallback>, handle: isize, lpidataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
-    fn QueryPagesFor(&mut self, lpdataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn CreatePropertyPages(&self, lpprovider: &::core::option::Option<IPropertySheetCallback>, handle: isize, lpidataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn QueryPagesFor(&self, lpdataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IExtendPropertySheet_Vtbl {
@@ -1586,7 +1586,7 @@ impl IExtendPropertySheet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IExtendPropertySheet2_Impl: Sized + IExtendPropertySheet_Impl {
-    fn GetWatermarks(&mut self, lpidataobject: &::core::option::Option<super::Com::IDataObject>, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn GetWatermarks(&self, lpidataobject: &::core::option::Option<super::Com::IDataObject>, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IExtendPropertySheet2_Vtbl {
@@ -1604,12 +1604,12 @@ impl IExtendPropertySheet2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IExtendTaskPad_Impl: Sized {
-    fn TaskNotify(&mut self, pdo: &::core::option::Option<super::Com::IDataObject>, arg: *const super::Com::VARIANT, param2: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn EnumTasks(&mut self, pdo: &::core::option::Option<super::Com::IDataObject>, sztaskgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<IEnumTASK>;
-    fn GetTitle(&mut self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetDescriptiveText(&mut self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetBackground(&mut self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<MMC_TASK_DISPLAY_OBJECT>;
-    fn GetListPadInfo(&mut self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<MMC_LISTPAD_INFO>;
+    fn TaskNotify(&self, pdo: &::core::option::Option<super::Com::IDataObject>, arg: *const super::Com::VARIANT, param2: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn EnumTasks(&self, pdo: &::core::option::Option<super::Com::IDataObject>, sztaskgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<IEnumTASK>;
+    fn GetTitle(&self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetDescriptiveText(&self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetBackground(&self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<MMC_TASK_DISPLAY_OBJECT>;
+    fn GetListPadInfo(&self, pszgroup: super::super::Foundation::PWSTR) -> ::windows::core::Result<MMC_LISTPAD_INFO>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IExtendTaskPad_Vtbl {
@@ -1690,7 +1690,7 @@ impl IExtendTaskPad_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExtendView_Impl: Sized {
-    fn GetViews(&mut self, pdataobject: &::core::option::Option<super::Com::IDataObject>, pviewextensioncallback: &::core::option::Option<IViewExtensionCallback>) -> ::windows::core::Result<()>;
+    fn GetViews(&self, pdataobject: &::core::option::Option<super::Com::IDataObject>, pviewextensioncallback: &::core::option::Option<IViewExtensionCallback>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IExtendView_Vtbl {
@@ -1708,12 +1708,12 @@ impl IExtendView_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHeaderCtrl_Impl: Sized {
-    fn InsertColumn(&mut self, ncol: i32, title: super::super::Foundation::PWSTR, nformat: i32, nwidth: i32) -> ::windows::core::Result<()>;
-    fn DeleteColumn(&mut self, ncol: i32) -> ::windows::core::Result<()>;
-    fn SetColumnText(&mut self, ncol: i32, title: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn GetColumnText(&mut self, ncol: i32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn SetColumnWidth(&mut self, ncol: i32, nwidth: i32) -> ::windows::core::Result<()>;
-    fn GetColumnWidth(&mut self, ncol: i32) -> ::windows::core::Result<i32>;
+    fn InsertColumn(&self, ncol: i32, title: super::super::Foundation::PWSTR, nformat: i32, nwidth: i32) -> ::windows::core::Result<()>;
+    fn DeleteColumn(&self, ncol: i32) -> ::windows::core::Result<()>;
+    fn SetColumnText(&self, ncol: i32, title: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn GetColumnText(&self, ncol: i32) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn SetColumnWidth(&self, ncol: i32, nwidth: i32) -> ::windows::core::Result<()>;
+    fn GetColumnWidth(&self, ncol: i32) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IHeaderCtrl_Vtbl {
@@ -1776,9 +1776,9 @@ impl IHeaderCtrl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHeaderCtrl2_Impl: Sized + IHeaderCtrl_Impl {
-    fn SetChangeTimeOut(&mut self, utimeout: u32) -> ::windows::core::Result<()>;
-    fn SetColumnFilter(&mut self, ncolumn: u32, dwtype: u32, pfilterdata: *const MMC_FILTERDATA) -> ::windows::core::Result<()>;
-    fn GetColumnFilter(&mut self, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> ::windows::core::Result<()>;
+    fn SetChangeTimeOut(&self, utimeout: u32) -> ::windows::core::Result<()>;
+    fn SetColumnFilter(&self, ncolumn: u32, dwtype: u32, pfilterdata: *const MMC_FILTERDATA) -> ::windows::core::Result<()>;
+    fn GetColumnFilter(&self, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IHeaderCtrl2_Vtbl {
@@ -1810,8 +1810,8 @@ impl IHeaderCtrl2_Vtbl {
     }
 }
 pub trait IImageList_Impl: Sized {
-    fn ImageListSetIcon(&mut self, picon: *const isize, nloc: i32) -> ::windows::core::Result<()>;
-    fn ImageListSetStrip(&mut self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: u32) -> ::windows::core::Result<()>;
+    fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> ::windows::core::Result<()>;
+    fn ImageListSetStrip(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: u32) -> ::windows::core::Result<()>;
 }
 impl IImageList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImageList_Impl, const OFFSET: isize>() -> IImageList_Vtbl {
@@ -1836,7 +1836,7 @@ impl IImageList_Vtbl {
     }
 }
 pub trait IMMCVersionInfo_Impl: Sized {
-    fn GetMMCVersion(&mut self, pversionmajor: *mut i32, pversionminor: *mut i32) -> ::windows::core::Result<()>;
+    fn GetMMCVersion(&self, pversionmajor: *mut i32, pversionminor: *mut i32) -> ::windows::core::Result<()>;
 }
 impl IMMCVersionInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMMCVersionInfo_Impl, const OFFSET: isize>() -> IMMCVersionInfo_Vtbl {
@@ -1853,9 +1853,9 @@ impl IMMCVersionInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMenuButton_Impl: Sized {
-    fn AddButton(&mut self, idcommand: i32, lpbuttontext: super::super::Foundation::PWSTR, lptooltiptext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetButton(&mut self, idcommand: i32, lpbuttontext: super::super::Foundation::PWSTR, lptooltiptext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetButtonState(&mut self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddButton(&self, idcommand: i32, lpbuttontext: super::super::Foundation::PWSTR, lptooltiptext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetButton(&self, idcommand: i32, lpbuttontext: super::super::Foundation::PWSTR, lptooltiptext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMenuButton_Vtbl {
@@ -1888,10 +1888,10 @@ impl IMenuButton_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMessageView_Impl: Sized {
-    fn SetTitleText(&mut self, psztitletext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetBodyText(&mut self, pszbodytext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetIcon(&mut self, id: IconIdentifier) -> ::windows::core::Result<()>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
+    fn SetTitleText(&self, psztitletext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetBodyText(&self, pszbodytext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetIcon(&self, id: IconIdentifier) -> ::windows::core::Result<()>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IMessageView_Vtbl {
@@ -1930,7 +1930,7 @@ impl IMessageView_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait INodeProperties_Impl: Sized {
-    fn GetProperty(&mut self, pdataobject: &::core::option::Option<super::Com::IDataObject>, szpropertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<*mut u16>;
+    fn GetProperty(&self, pdataobject: &::core::option::Option<super::Com::IDataObject>, szpropertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<*mut u16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl INodeProperties_Vtbl {
@@ -1954,8 +1954,8 @@ impl INodeProperties_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Controls")]
 pub trait IPropertySheetCallback_Impl: Sized {
-    fn AddPage(&mut self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows::core::Result<()>;
-    fn RemovePage(&mut self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows::core::Result<()>;
+    fn AddPage(&self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows::core::Result<()>;
+    fn RemovePage(&self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Controls")]
 impl IPropertySheetCallback_Vtbl {
@@ -1982,11 +1982,11 @@ impl IPropertySheetCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPropertySheetProvider_Impl: Sized {
-    fn CreatePropertySheet(&mut self, title: super::super::Foundation::PWSTR, r#type: u8, cookie: isize, pidataobjectm: &::core::option::Option<super::Com::IDataObject>, dwoptions: u32) -> ::windows::core::Result<()>;
-    fn FindPropertySheet(&mut self, hitem: isize, lpcomponent: &::core::option::Option<IComponent>, lpdataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
-    fn AddPrimaryPages(&mut self, lpunknown: &::core::option::Option<::windows::core::IUnknown>, bcreatehandle: super::super::Foundation::BOOL, hnotifywindow: super::super::Foundation::HWND, bscopepane: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn AddExtensionPages(&mut self) -> ::windows::core::Result<()>;
-    fn Show(&mut self, window: isize, page: i32) -> ::windows::core::Result<()>;
+    fn CreatePropertySheet(&self, title: super::super::Foundation::PWSTR, r#type: u8, cookie: isize, pidataobjectm: &::core::option::Option<super::Com::IDataObject>, dwoptions: u32) -> ::windows::core::Result<()>;
+    fn FindPropertySheet(&self, hitem: isize, lpcomponent: &::core::option::Option<IComponent>, lpdataobject: &::core::option::Option<super::Com::IDataObject>) -> ::windows::core::Result<()>;
+    fn AddPrimaryPages(&self, lpunknown: &::core::option::Option<::windows::core::IUnknown>, bcreatehandle: super::super::Foundation::BOOL, hnotifywindow: super::super::Foundation::HWND, bscopepane: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddExtensionPages(&self) -> ::windows::core::Result<()>;
+    fn Show(&self, window: isize, page: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPropertySheetProvider_Vtbl {
@@ -2030,9 +2030,9 @@ impl IPropertySheetProvider_Vtbl {
     }
 }
 pub trait IRequiredExtensions_Impl: Sized {
-    fn EnableAllExtensions(&mut self) -> ::windows::core::Result<()>;
-    fn GetFirstExtension(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
-    fn GetNextExtension(&mut self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn EnableAllExtensions(&self) -> ::windows::core::Result<()>;
+    fn GetFirstExtension(&self) -> ::windows::core::Result<::windows::core::GUID>;
+    fn GetNextExtension(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl IRequiredExtensions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRequiredExtensions_Impl, const OFFSET: isize>() -> IRequiredExtensions_Vtbl {
@@ -2076,21 +2076,21 @@ impl IRequiredExtensions_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResultData_Impl: Sized {
-    fn InsertItem(&mut self, item: *mut RESULTDATAITEM) -> ::windows::core::Result<()>;
-    fn DeleteItem(&mut self, itemid: isize, ncol: i32) -> ::windows::core::Result<()>;
-    fn FindItemByLParam(&mut self, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<isize>;
-    fn DeleteAllRsltItems(&mut self) -> ::windows::core::Result<()>;
-    fn SetItem(&mut self, item: *const RESULTDATAITEM) -> ::windows::core::Result<()>;
-    fn GetItem(&mut self, item: *mut RESULTDATAITEM) -> ::windows::core::Result<()>;
-    fn GetNextItem(&mut self, item: *mut RESULTDATAITEM) -> ::windows::core::Result<()>;
-    fn ModifyItemState(&mut self, nindex: i32, itemid: isize, uadd: u32, uremove: u32) -> ::windows::core::Result<()>;
-    fn ModifyViewStyle(&mut self, add: MMC_RESULT_VIEW_STYLE, remove: MMC_RESULT_VIEW_STYLE) -> ::windows::core::Result<()>;
-    fn SetViewMode(&mut self, lviewmode: i32) -> ::windows::core::Result<()>;
-    fn GetViewMode(&mut self) -> ::windows::core::Result<i32>;
-    fn UpdateItem(&mut self, itemid: isize) -> ::windows::core::Result<()>;
-    fn Sort(&mut self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
-    fn SetDescBarText(&mut self, desctext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetItemCount(&mut self, nitemcount: i32, dwoptions: u32) -> ::windows::core::Result<()>;
+    fn InsertItem(&self, item: *mut RESULTDATAITEM) -> ::windows::core::Result<()>;
+    fn DeleteItem(&self, itemid: isize, ncol: i32) -> ::windows::core::Result<()>;
+    fn FindItemByLParam(&self, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<isize>;
+    fn DeleteAllRsltItems(&self) -> ::windows::core::Result<()>;
+    fn SetItem(&self, item: *const RESULTDATAITEM) -> ::windows::core::Result<()>;
+    fn GetItem(&self, item: *mut RESULTDATAITEM) -> ::windows::core::Result<()>;
+    fn GetNextItem(&self, item: *mut RESULTDATAITEM) -> ::windows::core::Result<()>;
+    fn ModifyItemState(&self, nindex: i32, itemid: isize, uadd: u32, uremove: u32) -> ::windows::core::Result<()>;
+    fn ModifyViewStyle(&self, add: MMC_RESULT_VIEW_STYLE, remove: MMC_RESULT_VIEW_STYLE) -> ::windows::core::Result<()>;
+    fn SetViewMode(&self, lviewmode: i32) -> ::windows::core::Result<()>;
+    fn GetViewMode(&self) -> ::windows::core::Result<i32>;
+    fn UpdateItem(&self, itemid: isize) -> ::windows::core::Result<()>;
+    fn Sort(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn SetDescBarText(&self, desctext: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetItemCount(&self, nitemcount: i32, dwoptions: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IResultData_Vtbl {
@@ -2207,7 +2207,7 @@ impl IResultData_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResultData2_Impl: Sized + IResultData_Impl {
-    fn RenameResultItem(&mut self, itemid: isize) -> ::windows::core::Result<()>;
+    fn RenameResultItem(&self, itemid: isize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IResultData2_Vtbl {
@@ -2225,7 +2225,7 @@ impl IResultData2_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResultDataCompare_Impl: Sized {
-    fn Compare(&mut self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> ::windows::core::Result<()>;
+    fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IResultDataCompare_Vtbl {
@@ -2243,7 +2243,7 @@ impl IResultDataCompare_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResultDataCompareEx_Impl: Sized {
-    fn Compare(&mut self, prdc: *const RDCOMPARE) -> ::windows::core::Result<i32>;
+    fn Compare(&self, prdc: *const RDCOMPARE) -> ::windows::core::Result<i32>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IResultDataCompareEx_Vtbl {
@@ -2267,9 +2267,9 @@ impl IResultDataCompareEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResultOwnerData_Impl: Sized {
-    fn FindItem(&mut self, pfindinfo: *const RESULTFINDINFO) -> ::windows::core::Result<i32>;
-    fn CacheHint(&mut self, nstartindex: i32, nendindex: i32) -> ::windows::core::Result<()>;
-    fn SortItems(&mut self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn FindItem(&self, pfindinfo: *const RESULTFINDINFO) -> ::windows::core::Result<i32>;
+    fn CacheHint(&self, nstartindex: i32, nendindex: i32) -> ::windows::core::Result<()>;
+    fn SortItems(&self, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IResultOwnerData_Vtbl {
@@ -2308,11 +2308,11 @@ impl IResultOwnerData_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ISnapinAbout_Impl: Sized {
-    fn GetSnapinDescription(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetProvider(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetSnapinVersion(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
-    fn GetSnapinImage(&mut self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HICON>;
-    fn GetStaticFolderImage(&mut self, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSnapinDescription(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetProvider(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetSnapinVersion(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetSnapinImage(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HICON>;
+    fn GetStaticFolderImage(&self, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ISnapinAbout_Vtbl {
@@ -2381,7 +2381,7 @@ impl ISnapinAbout_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISnapinHelp_Impl: Sized {
-    fn GetHelpTopic(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetHelpTopic(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISnapinHelp_Vtbl {
@@ -2405,7 +2405,7 @@ impl ISnapinHelp_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISnapinHelp2_Impl: Sized + ISnapinHelp_Impl {
-    fn GetLinkedTopics(&mut self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
+    fn GetLinkedTopics(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISnapinHelp2_Vtbl {
@@ -2429,9 +2429,9 @@ impl ISnapinHelp2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISnapinProperties_Impl: Sized {
-    fn Initialize(&mut self, pproperties: &::core::option::Option<Properties>) -> ::windows::core::Result<()>;
-    fn QueryPropertyNames(&mut self, pcallback: &::core::option::Option<ISnapinPropertiesCallback>) -> ::windows::core::Result<()>;
-    fn PropertiesChanged(&mut self, cproperties: i32, pproperties: *const MMC_SNAPIN_PROPERTY) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pproperties: &::core::option::Option<Properties>) -> ::windows::core::Result<()>;
+    fn QueryPropertyNames(&self, pcallback: &::core::option::Option<ISnapinPropertiesCallback>) -> ::windows::core::Result<()>;
+    fn PropertiesChanged(&self, cproperties: i32, pproperties: *const MMC_SNAPIN_PROPERTY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISnapinProperties_Vtbl {
@@ -2464,7 +2464,7 @@ impl ISnapinProperties_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISnapinPropertiesCallback_Impl: Sized {
-    fn AddPropertyName(&mut self, pszpropname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
+    fn AddPropertyName(&self, pszpropname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ISnapinPropertiesCallback_Vtbl {
@@ -2482,13 +2482,13 @@ impl ISnapinPropertiesCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IStringTable_Impl: Sized {
-    fn AddString(&mut self, pszadd: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
-    fn GetString(&mut self, stringid: u32, cchbuffer: u32, lpbuffer: super::super::Foundation::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>;
-    fn GetStringLength(&mut self, stringid: u32) -> ::windows::core::Result<u32>;
-    fn DeleteString(&mut self, stringid: u32) -> ::windows::core::Result<()>;
-    fn DeleteAllStrings(&mut self) -> ::windows::core::Result<()>;
-    fn FindString(&mut self, pszfind: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
-    fn Enumerate(&mut self) -> ::windows::core::Result<super::Com::IEnumString>;
+    fn AddString(&self, pszadd: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn GetString(&self, stringid: u32, cchbuffer: u32, lpbuffer: super::super::Foundation::PWSTR, pcchout: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStringLength(&self, stringid: u32) -> ::windows::core::Result<u32>;
+    fn DeleteString(&self, stringid: u32) -> ::windows::core::Result<()>;
+    fn DeleteAllStrings(&self) -> ::windows::core::Result<()>;
+    fn FindString(&self, pszfind: super::super::Foundation::PWSTR) -> ::windows::core::Result<u32>;
+    fn Enumerate(&self) -> ::windows::core::Result<super::Com::IEnumString>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IStringTable_Vtbl {
@@ -2569,12 +2569,12 @@ impl IStringTable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IToolbar_Impl: Sized {
-    fn AddBitmap(&mut self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: u32) -> ::windows::core::Result<()>;
-    fn AddButtons(&mut self, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> ::windows::core::Result<()>;
-    fn InsertButton(&mut self, nindex: i32, lpbutton: *const MMCBUTTON) -> ::windows::core::Result<()>;
-    fn DeleteButton(&mut self, nindex: i32) -> ::windows::core::Result<()>;
-    fn GetButtonState(&mut self, idcommand: i32, nstate: MMC_BUTTON_STATE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetButtonState(&mut self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddBitmap(&self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: u32) -> ::windows::core::Result<()>;
+    fn AddButtons(&self, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> ::windows::core::Result<()>;
+    fn InsertButton(&self, nindex: i32, lpbutton: *const MMCBUTTON) -> ::windows::core::Result<()>;
+    fn DeleteButton(&self, nindex: i32) -> ::windows::core::Result<()>;
+    fn GetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetButtonState(&self, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IToolbar_Vtbl {
@@ -2631,7 +2631,7 @@ impl IToolbar_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IViewExtensionCallback_Impl: Sized {
-    fn AddView(&mut self, pextviewdata: *const MMC_EXT_VIEW_DATA) -> ::windows::core::Result<()>;
+    fn AddView(&self, pextviewdata: *const MMC_EXT_VIEW_DATA) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IViewExtensionCallback_Vtbl {
@@ -2649,12 +2649,12 @@ impl IViewExtensionCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait MenuItem_Impl: Sized + super::Com::IDispatch_Impl {
-    fn DisplayName(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn LanguageIndependentName(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn Path(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn LanguageIndependentPath(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn Execute(&mut self) -> ::windows::core::Result<()>;
-    fn Enabled(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn DisplayName(&self) -> ::windows::core::Result<*mut u16>;
+    fn LanguageIndependentName(&self) -> ::windows::core::Result<*mut u16>;
+    fn Path(&self) -> ::windows::core::Result<*mut u16>;
+    fn LanguageIndependentPath(&self) -> ::windows::core::Result<*mut u16>;
+    fn Execute(&self) -> ::windows::core::Result<()>;
+    fn Enabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl MenuItem_Vtbl {
@@ -2735,11 +2735,11 @@ impl MenuItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Node_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn Property(&mut self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<*mut u16>;
-    fn Bookmark(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn IsScopeNode(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Nodetype(&mut self) -> ::windows::core::Result<*mut u16>;
+    fn Name(&self) -> ::windows::core::Result<*mut u16>;
+    fn Property(&self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<*mut u16>;
+    fn Bookmark(&self) -> ::windows::core::Result<*mut u16>;
+    fn IsScopeNode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Nodetype(&self) -> ::windows::core::Result<*mut u16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Node_Vtbl {
@@ -2814,9 +2814,9 @@ impl Node_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Nodes_Impl: Sized + super::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<Node>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<Node>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Nodes_Vtbl {
@@ -2867,10 +2867,10 @@ impl Nodes_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Properties_Impl: Sized + super::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<Property>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Remove(&mut self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<Property>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Remove(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Properties_Vtbl {
@@ -2927,9 +2927,9 @@ impl Properties_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Property_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Value(&mut self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetValue(&mut self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Name(&mut self) -> ::windows::core::Result<*mut u16>;
+    fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn SetValue(&self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<*mut u16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Property_Vtbl {
@@ -2974,11 +2974,11 @@ impl Property_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ScopeNamespace_Impl: Sized + super::Com::IDispatch_Impl {
-    fn GetParent(&mut self, node: &::core::option::Option<Node>) -> ::windows::core::Result<Node>;
-    fn GetChild(&mut self, node: &::core::option::Option<Node>) -> ::windows::core::Result<Node>;
-    fn GetNext(&mut self, node: &::core::option::Option<Node>) -> ::windows::core::Result<Node>;
-    fn GetRoot(&mut self) -> ::windows::core::Result<Node>;
-    fn Expand(&mut self, node: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
+    fn GetParent(&self, node: &::core::option::Option<Node>) -> ::windows::core::Result<Node>;
+    fn GetChild(&self, node: &::core::option::Option<Node>) -> ::windows::core::Result<Node>;
+    fn GetNext(&self, node: &::core::option::Option<Node>) -> ::windows::core::Result<Node>;
+    fn GetRoot(&self) -> ::windows::core::Result<Node>;
+    fn Expand(&self, node: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ScopeNamespace_Vtbl {
@@ -3047,13 +3047,13 @@ impl ScopeNamespace_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait SnapIn_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Name(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn Vendor(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn Version(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn Extensions(&mut self) -> ::windows::core::Result<Extensions>;
-    fn SnapinCLSID(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn Properties(&mut self) -> ::windows::core::Result<Properties>;
-    fn EnableAllExtensions(&mut self, enable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Name(&self) -> ::windows::core::Result<*mut u16>;
+    fn Vendor(&self) -> ::windows::core::Result<*mut u16>;
+    fn Version(&self) -> ::windows::core::Result<*mut u16>;
+    fn Extensions(&self) -> ::windows::core::Result<Extensions>;
+    fn SnapinCLSID(&self) -> ::windows::core::Result<*mut u16>;
+    fn Properties(&self) -> ::windows::core::Result<Properties>;
+    fn EnableAllExtensions(&self, enable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl SnapIn_Vtbl {
@@ -3146,11 +3146,11 @@ impl SnapIn_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait SnapIns_Impl: Sized + super::Com::IDispatch_Impl {
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<SnapIn>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, snapinnameorclsid: &super::super::Foundation::BSTR, parentsnapin: &super::Com::VARIANT, properties: &super::Com::VARIANT) -> ::windows::core::Result<SnapIn>;
-    fn Remove(&mut self, snapin: &::core::option::Option<SnapIn>) -> ::windows::core::Result<()>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<SnapIn>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Add(&self, snapinnameorclsid: &super::super::Foundation::BSTR, parentsnapin: &super::Com::VARIANT, properties: &super::Com::VARIANT) -> ::windows::core::Result<SnapIn>;
+    fn Remove(&self, snapin: &::core::option::Option<SnapIn>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl SnapIns_Vtbl {
@@ -3219,48 +3219,48 @@ impl SnapIns_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait View_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ActiveScopeNode(&mut self) -> ::windows::core::Result<Node>;
-    fn SetActiveScopeNode(&mut self, node: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
-    fn Selection(&mut self) -> ::windows::core::Result<Nodes>;
-    fn ListItems(&mut self) -> ::windows::core::Result<Nodes>;
-    fn SnapinScopeObject(&mut self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn SnapinSelectionObject(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn Is(&mut self, view: &::core::option::Option<View>) -> ::windows::core::Result<i16>;
-    fn Document(&mut self) -> ::windows::core::Result<Document>;
-    fn SelectAll(&mut self) -> ::windows::core::Result<()>;
-    fn Select(&mut self, node: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
-    fn Deselect(&mut self, node: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
-    fn IsSelected(&mut self, node: &::core::option::Option<Node>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn DisplayScopeNodePropertySheet(&mut self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DisplaySelectionPropertySheet(&mut self) -> ::windows::core::Result<()>;
-    fn CopyScopeNode(&mut self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn CopySelection(&mut self) -> ::windows::core::Result<()>;
-    fn DeleteScopeNode(&mut self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DeleteSelection(&mut self) -> ::windows::core::Result<()>;
-    fn RenameScopeNode(&mut self, newname: &super::super::Foundation::BSTR, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn RenameSelectedItem(&mut self, newname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ScopeNodeContextMenu(&mut self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<ContextMenu>;
-    fn SelectionContextMenu(&mut self) -> ::windows::core::Result<ContextMenu>;
-    fn RefreshScopeNode(&mut self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn RefreshSelection(&mut self) -> ::windows::core::Result<()>;
-    fn ExecuteSelectionMenuItem(&mut self, menuitempath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ExecuteScopeNodeMenuItem(&mut self, menuitempath: &super::super::Foundation::BSTR, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ExecuteShellCommand(&mut self, command: &super::super::Foundation::BSTR, directory: &super::super::Foundation::BSTR, parameters: &super::super::Foundation::BSTR, windowstate: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Frame(&mut self) -> ::windows::core::Result<Frame>;
-    fn Close(&mut self) -> ::windows::core::Result<()>;
-    fn ScopeTreeVisible(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetScopeTreeVisible(&mut self, visible: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Back(&mut self) -> ::windows::core::Result<()>;
-    fn Forward(&mut self) -> ::windows::core::Result<()>;
-    fn SetStatusBarText(&mut self, statusbartext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Memento(&mut self) -> ::windows::core::Result<*mut u16>;
-    fn ViewMemento(&mut self, memento: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Columns(&mut self) -> ::windows::core::Result<Columns>;
-    fn CellContents(&mut self, node: &::core::option::Option<Node>, column: i32) -> ::windows::core::Result<*mut u16>;
-    fn ExportList(&mut self, file: &super::super::Foundation::BSTR, exportoptions: _ExportListOptions) -> ::windows::core::Result<()>;
-    fn ListViewMode(&mut self) -> ::windows::core::Result<_ListViewMode>;
-    fn SetListViewMode(&mut self, mode: _ListViewMode) -> ::windows::core::Result<()>;
-    fn ControlObject(&mut self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn ActiveScopeNode(&self) -> ::windows::core::Result<Node>;
+    fn SetActiveScopeNode(&self, node: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
+    fn Selection(&self) -> ::windows::core::Result<Nodes>;
+    fn ListItems(&self) -> ::windows::core::Result<Nodes>;
+    fn SnapinScopeObject(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn SnapinSelectionObject(&self) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Is(&self, view: &::core::option::Option<View>) -> ::windows::core::Result<i16>;
+    fn Document(&self) -> ::windows::core::Result<Document>;
+    fn SelectAll(&self) -> ::windows::core::Result<()>;
+    fn Select(&self, node: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
+    fn Deselect(&self, node: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
+    fn IsSelected(&self, node: &::core::option::Option<Node>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn DisplayScopeNodePropertySheet(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DisplaySelectionPropertySheet(&self) -> ::windows::core::Result<()>;
+    fn CopyScopeNode(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn CopySelection(&self) -> ::windows::core::Result<()>;
+    fn DeleteScopeNode(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteSelection(&self) -> ::windows::core::Result<()>;
+    fn RenameScopeNode(&self, newname: &super::super::Foundation::BSTR, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RenameSelectedItem(&self, newname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ScopeNodeContextMenu(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<ContextMenu>;
+    fn SelectionContextMenu(&self) -> ::windows::core::Result<ContextMenu>;
+    fn RefreshScopeNode(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RefreshSelection(&self) -> ::windows::core::Result<()>;
+    fn ExecuteSelectionMenuItem(&self, menuitempath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn ExecuteScopeNodeMenuItem(&self, menuitempath: &super::super::Foundation::BSTR, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ExecuteShellCommand(&self, command: &super::super::Foundation::BSTR, directory: &super::super::Foundation::BSTR, parameters: &super::super::Foundation::BSTR, windowstate: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Frame(&self) -> ::windows::core::Result<Frame>;
+    fn Close(&self) -> ::windows::core::Result<()>;
+    fn ScopeTreeVisible(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetScopeTreeVisible(&self, visible: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Back(&self) -> ::windows::core::Result<()>;
+    fn Forward(&self) -> ::windows::core::Result<()>;
+    fn SetStatusBarText(&self, statusbartext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Memento(&self) -> ::windows::core::Result<*mut u16>;
+    fn ViewMemento(&self, memento: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Columns(&self) -> ::windows::core::Result<Columns>;
+    fn CellContents(&self, node: &::core::option::Option<Node>, column: i32) -> ::windows::core::Result<*mut u16>;
+    fn ExportList(&self, file: &super::super::Foundation::BSTR, exportoptions: _ExportListOptions) -> ::windows::core::Result<()>;
+    fn ListViewMode(&self) -> ::windows::core::Result<_ListViewMode>;
+    fn SetListViewMode(&self, mode: _ListViewMode) -> ::windows::core::Result<()>;
+    fn ControlObject(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl View_Vtbl {
@@ -3629,10 +3629,10 @@ impl View_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Views_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Item(&mut self, index: i32) -> ::windows::core::Result<View>;
-    fn Count(&mut self) -> ::windows::core::Result<i32>;
-    fn Add(&mut self, node: &::core::option::Option<Node>, viewoptions: _ViewOptions) -> ::windows::core::Result<()>;
-    fn _NewEnum(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Item(&self, index: i32) -> ::windows::core::Result<View>;
+    fn Count(&self) -> ::windows::core::Result<i32>;
+    fn Add(&self, node: &::core::option::Option<Node>, viewoptions: _ViewOptions) -> ::windows::core::Result<()>;
+    fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Views_Vtbl {
@@ -3689,18 +3689,18 @@ impl Views_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _AppEvents_Impl: Sized + super::Com::IDispatch_Impl {
-    fn OnQuit(&mut self, application: &::core::option::Option<_Application>) -> ::windows::core::Result<()>;
-    fn OnDocumentOpen(&mut self, document: &::core::option::Option<Document>, new: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn OnDocumentClose(&mut self, document: &::core::option::Option<Document>) -> ::windows::core::Result<()>;
-    fn OnSnapInAdded(&mut self, document: &::core::option::Option<Document>, snapin: &::core::option::Option<SnapIn>) -> ::windows::core::Result<()>;
-    fn OnSnapInRemoved(&mut self, document: &::core::option::Option<Document>, snapin: &::core::option::Option<SnapIn>) -> ::windows::core::Result<()>;
-    fn OnNewView(&mut self, view: &::core::option::Option<View>) -> ::windows::core::Result<()>;
-    fn OnViewClose(&mut self, view: &::core::option::Option<View>) -> ::windows::core::Result<()>;
-    fn OnViewChange(&mut self, view: &::core::option::Option<View>, newownernode: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
-    fn OnSelectionChange(&mut self, view: &::core::option::Option<View>, newnodes: &::core::option::Option<Nodes>) -> ::windows::core::Result<()>;
-    fn OnContextMenuExecuted(&mut self, menuitem: &::core::option::Option<MenuItem>) -> ::windows::core::Result<()>;
-    fn OnToolbarButtonClicked(&mut self) -> ::windows::core::Result<()>;
-    fn OnListUpdated(&mut self, view: &::core::option::Option<View>) -> ::windows::core::Result<()>;
+    fn OnQuit(&self, application: &::core::option::Option<_Application>) -> ::windows::core::Result<()>;
+    fn OnDocumentOpen(&self, document: &::core::option::Option<Document>, new: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnDocumentClose(&self, document: &::core::option::Option<Document>) -> ::windows::core::Result<()>;
+    fn OnSnapInAdded(&self, document: &::core::option::Option<Document>, snapin: &::core::option::Option<SnapIn>) -> ::windows::core::Result<()>;
+    fn OnSnapInRemoved(&self, document: &::core::option::Option<Document>, snapin: &::core::option::Option<SnapIn>) -> ::windows::core::Result<()>;
+    fn OnNewView(&self, view: &::core::option::Option<View>) -> ::windows::core::Result<()>;
+    fn OnViewClose(&self, view: &::core::option::Option<View>) -> ::windows::core::Result<()>;
+    fn OnViewChange(&self, view: &::core::option::Option<View>, newownernode: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
+    fn OnSelectionChange(&self, view: &::core::option::Option<View>, newnodes: &::core::option::Option<Nodes>) -> ::windows::core::Result<()>;
+    fn OnContextMenuExecuted(&self, menuitem: &::core::option::Option<MenuItem>) -> ::windows::core::Result<()>;
+    fn OnToolbarButtonClicked(&self) -> ::windows::core::Result<()>;
+    fn OnListUpdated(&self, view: &::core::option::Option<View>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _AppEvents_Vtbl {
@@ -3787,18 +3787,18 @@ impl _AppEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _Application_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Help(&mut self);
-    fn Quit(&mut self);
-    fn Document(&mut self) -> ::windows::core::Result<Document>;
-    fn Load(&mut self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Frame(&mut self) -> ::windows::core::Result<Frame>;
-    fn Visible(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn Show(&mut self) -> ::windows::core::Result<()>;
-    fn Hide(&mut self) -> ::windows::core::Result<()>;
-    fn UserControl(&mut self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
-    fn SetUserControl(&mut self, usercontrol: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn VersionMajor(&mut self) -> ::windows::core::Result<i32>;
-    fn VersionMinor(&mut self) -> ::windows::core::Result<i32>;
+    fn Help(&self);
+    fn Quit(&self);
+    fn Document(&self) -> ::windows::core::Result<Document>;
+    fn Load(&self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn Frame(&self) -> ::windows::core::Result<Frame>;
+    fn Visible(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn Show(&self) -> ::windows::core::Result<()>;
+    fn Hide(&self) -> ::windows::core::Result<()>;
+    fn UserControl(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn SetUserControl(&self, usercontrol: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn VersionMajor(&self) -> ::windows::core::Result<i32>;
+    fn VersionMinor(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _Application_Vtbl {
@@ -3921,8 +3921,8 @@ impl _Application_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _EventConnector_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ConnectTo(&mut self, application: &::core::option::Option<_Application>) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self) -> ::windows::core::Result<()>;
+    fn ConnectTo(&self, application: &::core::option::Option<_Application>) -> ::windows::core::Result<()>;
+    fn Disconnect(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _EventConnector_Vtbl {

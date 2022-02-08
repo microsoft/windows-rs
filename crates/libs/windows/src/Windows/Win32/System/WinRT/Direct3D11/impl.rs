@@ -1,5 +1,5 @@
 pub trait IDirect3DDxgiInterfaceAccess_Impl: Sized {
-    fn GetInterface(&mut self, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetInterface(&self, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IDirect3DDxgiInterfaceAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDxgiInterfaceAccess_Impl, const OFFSET: isize>() -> IDirect3DDxgiInterfaceAccess_Vtbl {

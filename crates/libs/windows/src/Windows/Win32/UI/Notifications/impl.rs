@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait INotificationActivationCallback_Impl: Sized {
-    fn Activate(&mut self, appusermodelid: super::super::Foundation::PWSTR, invokedargs: super::super::Foundation::PWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::Result<()>;
+    fn Activate(&self, appusermodelid: super::super::Foundation::PWSTR, invokedargs: super::super::Foundation::PWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl INotificationActivationCallback_Vtbl {

@@ -58,9 +58,10 @@ impl ::core::ops::Not for CachedFileOptions {
 }
 unsafe impl ::windows::core::RuntimeType for CachedFileOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileOptions;u4)");
-}
-impl ::windows::core::DefaultType for CachedFileOptions {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
@@ -91,9 +92,10 @@ impl ::core::fmt::Debug for CachedFileTarget {
 }
 unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
-}
-impl ::windows::core::DefaultType for CachedFileTarget {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 pub struct CachedFileUpdater {}
@@ -209,6 +211,10 @@ impl ::core::fmt::Debug for CachedFileUpdaterUI {
 }
 unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.CachedFileUpdaterUI;{9e6f41e6-baf2-4a97-b600-9333f5df80fd})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for CachedFileUpdaterUI {
     type Vtable = ICachedFileUpdaterUI_Vtbl;
@@ -335,6 +341,10 @@ impl ::core::fmt::Debug for FileUpdateRequest {
 }
 unsafe impl ::windows::core::RuntimeType for FileUpdateRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequest;{40c82536-c1fe-4d93-a792-1e736bc70837})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileUpdateRequest {
     type Vtable = IFileUpdateRequest_Vtbl;
@@ -411,6 +421,10 @@ impl ::core::fmt::Debug for FileUpdateRequestDeferral {
 }
 unsafe impl ::windows::core::RuntimeType for FileUpdateRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestDeferral;{ffcedb2b-8ade-44a5-bb00-164c4e72f13a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileUpdateRequestDeferral {
     type Vtable = IFileUpdateRequestDeferral_Vtbl;
@@ -490,6 +504,10 @@ impl ::core::fmt::Debug for FileUpdateRequestedEventArgs {
 }
 unsafe impl ::windows::core::RuntimeType for FileUpdateRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.FileUpdateRequestedEventArgs;{7b0a9342-3905-438d-aaef-78ae265f8dd2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for FileUpdateRequestedEventArgs {
     type Vtable = IFileUpdateRequestedEventArgs_Vtbl;
@@ -571,9 +589,10 @@ impl ::core::fmt::Debug for FileUpdateStatus {
 }
 unsafe impl ::windows::core::RuntimeType for FileUpdateStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
-}
-impl ::windows::core::DefaultType for FileUpdateStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -893,6 +912,10 @@ impl ::core::fmt::Debug for IStorageProviderHandlerFactory {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageProviderHandlerFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6154dc3a-fc1d-5aae-9e23-e8659a22c5f6}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderHandlerFactory {
     type Vtable = IStorageProviderHandlerFactory_Vtbl;
@@ -1026,6 +1049,10 @@ impl ::core::fmt::Debug for IStorageProviderItemPropertySource {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageProviderItemPropertySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8f6f9c3e-f632-4a9b-8d99-d2d7a11df56a}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderItemPropertySource {
     type Vtable = IStorageProviderItemPropertySource_Vtbl;
@@ -1111,6 +1138,10 @@ impl ::core::fmt::Debug for IStorageProviderPropertyCapabilities {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageProviderPropertyCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{658d2f0e-63b7-4567-acf9-51abe301dda5}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderPropertyCapabilities {
     type Vtable = IStorageProviderPropertyCapabilities_Vtbl;
@@ -1243,6 +1274,10 @@ impl ::core::fmt::Debug for IStorageProviderStatusSource {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageProviderStatusSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2e316bb2-fd43-5335-b3c4-a962ee31d17e}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderStatusSource {
     type Vtable = IStorageProviderStatusSource_Vtbl;
@@ -1456,6 +1491,10 @@ impl ::core::fmt::Debug for IStorageProviderUriSource {
 }
 unsafe impl ::windows::core::RuntimeType for IStorageProviderUriSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b29806d1-8be0-4962-8bb6-0d4c2e14d47a}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for IStorageProviderUriSource {
     type Vtable = IStorageProviderUriSource_Vtbl;
@@ -1497,9 +1536,10 @@ impl ::core::fmt::Debug for ReadActivationMode {
 }
 unsafe impl ::windows::core::RuntimeType for ReadActivationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
-}
-impl ::windows::core::DefaultType for ReadActivationMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
@@ -1612,6 +1652,10 @@ impl ::core::fmt::Debug for StorageProviderError {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderError;{47f2780b-ef7f-5910-bf83-331d89256615})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageProviderError {
     type Vtable = IStorageProviderError_Vtbl;
@@ -1715,6 +1759,10 @@ impl ::core::fmt::Debug for StorageProviderErrorCommand {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderErrorCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderErrorCommand;{b6b18aed-bb65-5f26-86e4-1d3e34d54477})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageProviderErrorCommand {
     type Vtable = IStorageProviderErrorCommand_Vtbl;
@@ -1816,6 +1864,10 @@ impl ::core::fmt::Debug for StorageProviderFileTypeInfo {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderFileTypeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderFileTypeInfo;{1955b9c1-0184-5a88-87df-4544f464365d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageProviderFileTypeInfo {
     type Vtable = IStorageProviderFileTypeInfo_Vtbl;
@@ -1935,6 +1987,10 @@ impl ::core::fmt::Debug for StorageProviderGetContentInfoForPathResult {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderGetContentInfoForPathResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult;{2564711d-aa89-4d12-82e3-f72a92e33966})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageProviderGetContentInfoForPathResult {
     type Vtable = IStorageProviderGetContentInfoForPathResult_Vtbl;
@@ -2041,6 +2097,10 @@ impl ::core::fmt::Debug for StorageProviderGetPathForContentUriResult {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderGetPathForContentUriResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderGetPathForContentUriResult;{63711a9d-4118-45a6-acb6-22c49d019f40})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageProviderGetPathForContentUriResult {
     type Vtable = IStorageProviderGetPathForContentUriResult_Vtbl;
@@ -2148,9 +2208,10 @@ impl ::core::ops::Not for StorageProviderHardlinkPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHardlinkPolicy;u4)");
-}
-impl ::windows::core::DefaultType for StorageProviderHardlinkPolicy {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
@@ -2183,9 +2244,10 @@ impl ::core::fmt::Debug for StorageProviderHydrationPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
-}
-impl ::windows::core::DefaultType for StorageProviderHydrationPolicy {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
@@ -2247,9 +2309,10 @@ impl ::core::ops::Not for StorageProviderHydrationPolicyModifier {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicyModifier;u4)");
-}
-impl ::windows::core::DefaultType for StorageProviderHydrationPolicyModifier {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
@@ -2318,9 +2381,10 @@ impl ::core::ops::Not for StorageProviderInSyncPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderInSyncPolicy;u4)");
-}
-impl ::windows::core::DefaultType for StorageProviderInSyncPolicy {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 pub struct StorageProviderItemProperties {}
@@ -2411,6 +2475,10 @@ impl ::core::fmt::Debug for StorageProviderItemProperty {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderItemProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderItemProperty;{476cb558-730b-4188-b7b5-63b716ed476d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageProviderItemProperty {
     type Vtable = IStorageProviderItemProperty_Vtbl;
@@ -2517,6 +2585,10 @@ impl ::core::fmt::Debug for StorageProviderItemPropertyDefinition {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderItemPropertyDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderItemPropertyDefinition;{c5b383bb-ff1f-4298-831e-ff1c08089690})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageProviderItemPropertyDefinition {
     type Vtable = IStorageProviderItemPropertyDefinition_Vtbl;
@@ -2596,9 +2668,10 @@ impl ::core::fmt::Debug for StorageProviderPopulationPolicy {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
-}
-impl ::windows::core::DefaultType for StorageProviderPopulationPolicy {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
@@ -2629,9 +2702,10 @@ impl ::core::fmt::Debug for StorageProviderProtectionMode {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
-}
-impl ::windows::core::DefaultType for StorageProviderProtectionMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
@@ -2666,9 +2740,10 @@ impl ::core::fmt::Debug for StorageProviderState {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
-}
-impl ::windows::core::DefaultType for StorageProviderState {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
@@ -2738,6 +2813,10 @@ impl ::core::fmt::Debug for StorageProviderStatus {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderStatus;{ff6e761d-fb8b-56c3-9e7a-05309d191fb4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageProviderStatus {
     type Vtable = IStorageProviderStatus_Vtbl;
@@ -3048,6 +3127,10 @@ impl ::core::fmt::Debug for StorageProviderSyncRootInfo {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderSyncRootInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Provider.StorageProviderSyncRootInfo;{7c1305c4-99f9-41ac-8904-ab055d654926})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
 }
 unsafe impl ::windows::core::Interface for StorageProviderSyncRootInfo {
     type Vtable = IStorageProviderSyncRootInfo_Vtbl;
@@ -3182,9 +3265,10 @@ impl ::core::fmt::Debug for StorageProviderUriSourceStatus {
 }
 unsafe impl ::windows::core::RuntimeType for StorageProviderUriSourceStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUriSourceStatus;i4)");
-}
-impl ::windows::core::DefaultType for StorageProviderUriSourceStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
@@ -3217,9 +3301,10 @@ impl ::core::fmt::Debug for UIStatus {
 }
 unsafe impl ::windows::core::RuntimeType for UIStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.UIStatus;i4)");
-}
-impl ::windows::core::DefaultType for UIStatus {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
@@ -3251,9 +3336,10 @@ impl ::core::fmt::Debug for WriteActivationMode {
 }
 unsafe impl ::windows::core::RuntimeType for WriteActivationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.WriteActivationMode;i4)");
-}
-impl ::windows::core::DefaultType for WriteActivationMode {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

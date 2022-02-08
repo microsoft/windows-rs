@@ -1,26 +1,26 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDiskQuotaControl_Impl: Sized + super::super::System::Com::IConnectionPointContainer_Impl {
-    fn Initialize(&mut self, pszpath: super::super::Foundation::PWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetQuotaState(&mut self, dwstate: u32) -> ::windows::core::Result<()>;
-    fn GetQuotaState(&mut self, pdwstate: *mut u32) -> ::windows::core::Result<()>;
-    fn SetQuotaLogFlags(&mut self, dwflags: u32) -> ::windows::core::Result<()>;
-    fn GetQuotaLogFlags(&mut self, pdwflags: *mut u32) -> ::windows::core::Result<()>;
-    fn SetDefaultQuotaThreshold(&mut self, llthreshold: i64) -> ::windows::core::Result<()>;
-    fn GetDefaultQuotaThreshold(&mut self, pllthreshold: *mut i64) -> ::windows::core::Result<()>;
-    fn GetDefaultQuotaThresholdText(&mut self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
-    fn SetDefaultQuotaLimit(&mut self, lllimit: i64) -> ::windows::core::Result<()>;
-    fn GetDefaultQuotaLimit(&mut self, plllimit: *mut i64) -> ::windows::core::Result<()>;
-    fn GetDefaultQuotaLimitText(&mut self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
-    fn AddUserSid(&mut self, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>;
-    fn AddUserName(&mut self, pszlogonname: super::super::Foundation::PWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>;
-    fn DeleteUser(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
-    fn FindUserSid(&mut self, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>;
-    fn FindUserName(&mut self, pszlogonname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IDiskQuotaUser>;
-    fn CreateEnumUsers(&mut self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::core::Result<()>;
-    fn CreateUserBatch(&mut self) -> ::windows::core::Result<IDiskQuotaUserBatch>;
-    fn InvalidateSidNameCache(&mut self) -> ::windows::core::Result<()>;
-    fn GiveUserNameResolutionPriority(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
-    fn ShutdownNameResolution(&mut self) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pszpath: super::super::Foundation::PWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetQuotaState(&self, dwstate: u32) -> ::windows::core::Result<()>;
+    fn GetQuotaState(&self, pdwstate: *mut u32) -> ::windows::core::Result<()>;
+    fn SetQuotaLogFlags(&self, dwflags: u32) -> ::windows::core::Result<()>;
+    fn GetQuotaLogFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()>;
+    fn SetDefaultQuotaThreshold(&self, llthreshold: i64) -> ::windows::core::Result<()>;
+    fn GetDefaultQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::core::Result<()>;
+    fn GetDefaultQuotaThresholdText(&self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
+    fn SetDefaultQuotaLimit(&self, lllimit: i64) -> ::windows::core::Result<()>;
+    fn GetDefaultQuotaLimit(&self, plllimit: *mut i64) -> ::windows::core::Result<()>;
+    fn GetDefaultQuotaLimitText(&self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
+    fn AddUserSid(&self, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>;
+    fn AddUserName(&self, pszlogonname: super::super::Foundation::PWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>;
+    fn DeleteUser(&self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
+    fn FindUserSid(&self, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>;
+    fn FindUserName(&self, pszlogonname: super::super::Foundation::PWSTR) -> ::windows::core::Result<IDiskQuotaUser>;
+    fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::core::Result<()>;
+    fn CreateUserBatch(&self) -> ::windows::core::Result<IDiskQuotaUserBatch>;
+    fn InvalidateSidNameCache(&self) -> ::windows::core::Result<()>;
+    fn GiveUserNameResolutionPriority(&self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
+    fn ShutdownNameResolution(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDiskQuotaControl_Vtbl {
@@ -190,7 +190,7 @@ impl IDiskQuotaControl_Vtbl {
     }
 }
 pub trait IDiskQuotaEvents_Impl: Sized {
-    fn OnUserNameChanged(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
+    fn OnUserNameChanged(&self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
 }
 impl IDiskQuotaEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaEvents_Impl, const OFFSET: isize>() -> IDiskQuotaEvents_Vtbl {
@@ -207,21 +207,21 @@ impl IDiskQuotaEvents_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDiskQuotaUser_Impl: Sized {
-    fn GetID(&mut self, pulid: *mut u32) -> ::windows::core::Result<()>;
-    fn GetName(&mut self, pszaccountcontainer: super::super::Foundation::PWSTR, cchaccountcontainer: u32, pszlogonname: super::super::Foundation::PWSTR, cchlogonname: u32, pszdisplayname: super::super::Foundation::PWSTR, cchdisplayname: u32) -> ::windows::core::Result<()>;
-    fn GetSidLength(&mut self, pdwlength: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSid(&mut self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::Result<()>;
-    fn GetQuotaThreshold(&mut self, pllthreshold: *mut i64) -> ::windows::core::Result<()>;
-    fn GetQuotaThresholdText(&mut self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
-    fn GetQuotaLimit(&mut self, plllimit: *mut i64) -> ::windows::core::Result<()>;
-    fn GetQuotaLimitText(&mut self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
-    fn GetQuotaUsed(&mut self, pllused: *mut i64) -> ::windows::core::Result<()>;
-    fn GetQuotaUsedText(&mut self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
-    fn GetQuotaInformation(&mut self, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::Result<()>;
-    fn SetQuotaThreshold(&mut self, llthreshold: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SetQuotaLimit(&mut self, lllimit: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn Invalidate(&mut self) -> ::windows::core::Result<()>;
-    fn GetAccountStatus(&mut self, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
+    fn GetID(&self, pulid: *mut u32) -> ::windows::core::Result<()>;
+    fn GetName(&self, pszaccountcontainer: super::super::Foundation::PWSTR, cchaccountcontainer: u32, pszlogonname: super::super::Foundation::PWSTR, cchlogonname: u32, pszdisplayname: super::super::Foundation::PWSTR, cchdisplayname: u32) -> ::windows::core::Result<()>;
+    fn GetSidLength(&self, pdwlength: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSid(&self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::Result<()>;
+    fn GetQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::core::Result<()>;
+    fn GetQuotaThresholdText(&self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
+    fn GetQuotaLimit(&self, plllimit: *mut i64) -> ::windows::core::Result<()>;
+    fn GetQuotaLimitText(&self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
+    fn GetQuotaUsed(&self, pllused: *mut i64) -> ::windows::core::Result<()>;
+    fn GetQuotaUsedText(&self, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> ::windows::core::Result<()>;
+    fn GetQuotaInformation(&self, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::Result<()>;
+    fn SetQuotaThreshold(&self, llthreshold: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetQuotaLimit(&self, lllimit: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Invalidate(&self) -> ::windows::core::Result<()>;
+    fn GetAccountStatus(&self, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IDiskQuotaUser_Vtbl {
@@ -325,10 +325,10 @@ impl IDiskQuotaUser_Vtbl {
     }
 }
 pub trait IDiskQuotaUserBatch_Impl: Sized {
-    fn Add(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
-    fn Remove(&mut self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
-    fn RemoveAll(&mut self) -> ::windows::core::Result<()>;
-    fn FlushToDisk(&mut self) -> ::windows::core::Result<()>;
+    fn Add(&self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
+    fn Remove(&self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
+    fn RemoveAll(&self) -> ::windows::core::Result<()>;
+    fn FlushToDisk(&self) -> ::windows::core::Result<()>;
 }
 impl IDiskQuotaUserBatch_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>() -> IDiskQuotaUserBatch_Vtbl {
@@ -365,10 +365,10 @@ impl IDiskQuotaUserBatch_Vtbl {
     }
 }
 pub trait IEnumDiskQuotaUsers_Impl: Sized {
-    fn Next(&mut self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&mut self, cusers: u32) -> ::windows::core::Result<()>;
-    fn Reset(&mut self) -> ::windows::core::Result<()>;
-    fn Clone(&mut self) -> ::windows::core::Result<IEnumDiskQuotaUsers>;
+    fn Next(&self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Skip(&self, cusers: u32) -> ::windows::core::Result<()>;
+    fn Reset(&self) -> ::windows::core::Result<()>;
+    fn Clone(&self) -> ::windows::core::Result<IEnumDiskQuotaUsers>;
 }
 impl IEnumDiskQuotaUsers_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>() -> IEnumDiskQuotaUsers_Vtbl {

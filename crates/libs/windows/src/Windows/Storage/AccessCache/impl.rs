@@ -1,21 +1,21 @@
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IStorageItemAccessList_Impl: Sized {
-    fn AddOverloadDefaultMetadata(&mut self, file: &::core::option::Option<super::IStorageItem>) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Add(&mut self, file: &::core::option::Option<super::IStorageItem>, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn AddOrReplaceOverloadDefaultMetadata(&mut self, token: &::windows::core::HSTRING, file: &::core::option::Option<super::IStorageItem>) -> ::windows::core::Result<()>;
-    fn AddOrReplace(&mut self, token: &::windows::core::HSTRING, file: &::core::option::Option<super::IStorageItem>, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn GetItemAsync(&mut self, token: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>>;
-    fn GetFileAsync(&mut self, token: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>;
-    fn GetFolderAsync(&mut self, token: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>;
-    fn GetItemWithOptionsAsync(&mut self, token: &::windows::core::HSTRING, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>>;
-    fn GetFileWithOptionsAsync(&mut self, token: &::windows::core::HSTRING, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>;
-    fn GetFolderWithOptionsAsync(&mut self, token: &::windows::core::HSTRING, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>;
-    fn Remove(&mut self, token: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn ContainsItem(&mut self, token: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
-    fn Clear(&mut self) -> ::windows::core::Result<()>;
-    fn CheckAccess(&mut self, file: &::core::option::Option<super::IStorageItem>) -> ::windows::core::Result<bool>;
-    fn Entries(&mut self) -> ::windows::core::Result<AccessListEntryView>;
-    fn MaximumItemsAllowed(&mut self) -> ::windows::core::Result<u32>;
+    fn AddOverloadDefaultMetadata(&self, file: &::core::option::Option<super::IStorageItem>) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn Add(&self, file: &::core::option::Option<super::IStorageItem>, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn AddOrReplaceOverloadDefaultMetadata(&self, token: &::windows::core::HSTRING, file: &::core::option::Option<super::IStorageItem>) -> ::windows::core::Result<()>;
+    fn AddOrReplace(&self, token: &::windows::core::HSTRING, file: &::core::option::Option<super::IStorageItem>, metadata: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn GetItemAsync(&self, token: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>>;
+    fn GetFileAsync(&self, token: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>;
+    fn GetFolderAsync(&self, token: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>;
+    fn GetItemWithOptionsAsync(&self, token: &::windows::core::HSTRING, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>>;
+    fn GetFileWithOptionsAsync(&self, token: &::windows::core::HSTRING, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>>;
+    fn GetFolderWithOptionsAsync(&self, token: &::windows::core::HSTRING, options: AccessCacheOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>>;
+    fn Remove(&self, token: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn ContainsItem(&self, token: &::windows::core::HSTRING) -> ::windows::core::Result<bool>;
+    fn Clear(&self) -> ::windows::core::Result<()>;
+    fn CheckAccess(&self, file: &::core::option::Option<super::IStorageItem>) -> ::windows::core::Result<bool>;
+    fn Entries(&self) -> ::windows::core::Result<AccessListEntryView>;
+    fn MaximumItemsAllowed(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IStorageItemAccessList {

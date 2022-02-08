@@ -1,6 +1,6 @@
 #[cfg(feature = "Foundation")]
 pub trait IDirect3DDevice_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
-    fn Trim(&mut self) -> ::windows::core::Result<()>;
+    fn Trim(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IDirect3DDevice {
@@ -22,7 +22,7 @@ impl IDirect3DDevice_Vtbl {
 }
 #[cfg(feature = "Foundation")]
 pub trait IDirect3DSurface_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
-    fn Description(&mut self) -> ::windows::core::Result<Direct3DSurfaceDescription>;
+    fn Description(&self) -> ::windows::core::Result<Direct3DSurfaceDescription>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IDirect3DSurface {

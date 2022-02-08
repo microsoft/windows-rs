@@ -1,6 +1,6 @@
 #[cfg(feature = "Foundation")]
 pub trait IHttpFilter_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
-    fn SendRequestAsync(&mut self, request: &::core::option::Option<super::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
+    fn SendRequestAsync(&self, request: &::core::option::Option<super::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IHttpFilter {

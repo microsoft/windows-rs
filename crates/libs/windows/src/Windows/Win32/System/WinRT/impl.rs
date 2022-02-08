@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAccountsSettingsPaneInterop_Impl: Sized {
-    fn GetForWindow(&mut self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, accountssettingspane: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ShowManageAccountsForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ShowAddAccountForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, accountssettingspane: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ShowManageAccountsForWindowAsync(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ShowAddAccountForWindowAsync(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IAccountsSettingsPaneInterop {
@@ -38,7 +38,7 @@ impl IAccountsSettingsPaneInterop_Vtbl {
     }
 }
 pub trait IActivationFactory_Impl: Sized {
-    fn ActivateInstance(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+    fn ActivateInstance(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
 impl ::windows::core::RuntimeName for IActivationFactory {
     const NAME: &'static str = "";
@@ -66,7 +66,7 @@ impl IActivationFactory_Vtbl {
     }
 }
 pub trait IAgileReference_Impl: Sized {
-    fn Resolve(&mut self, riid: *const ::windows::core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Resolve(&self, riid: *const ::windows::core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IAgileReference_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAgileReference_Impl, const OFFSET: isize>() -> IAgileReference_Vtbl {
@@ -82,7 +82,7 @@ impl IAgileReference_Vtbl {
     }
 }
 pub trait IApartmentShutdown_Impl: Sized {
-    fn OnUninitialize(&mut self, ui64apartmentidentifier: u64);
+    fn OnUninitialize(&self, ui64apartmentidentifier: u64);
 }
 impl IApartmentShutdown_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApartmentShutdown_Impl, const OFFSET: isize>() -> IApartmentShutdown_Vtbl {
@@ -98,7 +98,7 @@ impl IApartmentShutdown_Vtbl {
     }
 }
 pub trait IAppServiceConnectionExtendedExecution_Impl: Sized {
-    fn OpenForExtendedExecutionAsync(&mut self, riid: *const ::windows::core::GUID, operation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn OpenForExtendedExecutionAsync(&self, riid: *const ::windows::core::GUID, operation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IAppServiceConnectionExtendedExecution_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAppServiceConnectionExtendedExecution_Impl, const OFFSET: isize>() -> IAppServiceConnectionExtendedExecution_Vtbl {
@@ -117,7 +117,7 @@ impl IAppServiceConnectionExtendedExecution_Vtbl {
     }
 }
 pub trait IBufferByteAccess_Impl: Sized {
-    fn Buffer(&mut self) -> ::windows::core::Result<*mut u8>;
+    fn Buffer(&self) -> ::windows::core::Result<*mut u8>;
 }
 impl IBufferByteAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBufferByteAccess_Impl, const OFFSET: isize>() -> IBufferByteAccess_Vtbl {
@@ -139,11 +139,11 @@ impl IBufferByteAccess_Vtbl {
     }
 }
 pub trait ICastingController_Impl: Sized {
-    fn Initialize(&mut self, castingengine: &::core::option::Option<::windows::core::IUnknown>, castingsource: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Connect(&mut self) -> ::windows::core::Result<()>;
-    fn Disconnect(&mut self) -> ::windows::core::Result<()>;
-    fn Advise(&mut self, eventhandler: &::core::option::Option<ICastingEventHandler>) -> ::windows::core::Result<u32>;
-    fn UnAdvise(&mut self, cookie: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, castingengine: &::core::option::Option<::windows::core::IUnknown>, castingsource: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Connect(&self) -> ::windows::core::Result<()>;
+    fn Disconnect(&self) -> ::windows::core::Result<()>;
+    fn Advise(&self, eventhandler: &::core::option::Option<ICastingEventHandler>) -> ::windows::core::Result<u32>;
+    fn UnAdvise(&self, cookie: u32) -> ::windows::core::Result<()>;
 }
 impl ICastingController_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICastingController_Impl, const OFFSET: isize>() -> ICastingController_Vtbl {
@@ -193,8 +193,8 @@ impl ICastingController_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICastingEventHandler_Impl: Sized {
-    fn OnStateChanged(&mut self, newstate: CASTING_CONNECTION_STATE) -> ::windows::core::Result<()>;
-    fn OnError(&mut self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn OnStateChanged(&self, newstate: CASTING_CONNECTION_STATE) -> ::windows::core::Result<()>;
+    fn OnError(&self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ICastingEventHandler_Vtbl {
@@ -221,8 +221,8 @@ impl ICastingEventHandler_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ICastingSourceInfo_Impl: Sized {
-    fn GetController(&mut self) -> ::windows::core::Result<ICastingController>;
-    fn GetProperties(&mut self) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore>;
+    fn GetController(&self) -> ::windows::core::Result<ICastingController>;
+    fn GetProperties(&self) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ICastingSourceInfo_Vtbl {
@@ -260,9 +260,9 @@ impl ICastingSourceInfo_Vtbl {
     }
 }
 pub trait ICorrelationVectorInformation_Impl: Sized {
-    fn LastCorrelationVectorForThread(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn NextCorrelationVectorForThread(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNextCorrelationVectorForThread(&mut self, cv: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn LastCorrelationVectorForThread(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn NextCorrelationVectorForThread(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn SetNextCorrelationVectorForThread(&self, cv: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICorrelationVectorInformation {
     const NAME: &'static str = "";
@@ -308,7 +308,7 @@ impl ICorrelationVectorInformation_Vtbl {
     }
 }
 pub trait ICorrelationVectorSource_Impl: Sized {
-    fn CorrelationVector(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn CorrelationVector(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
 impl ICorrelationVectorSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICorrelationVectorSource_Impl, const OFFSET: isize>() -> ICorrelationVectorSource_Vtbl {
@@ -331,7 +331,7 @@ impl ICorrelationVectorSource_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDragDropManagerInterop_Impl: Sized {
-    fn GetForWindow(&mut self, hwnd: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, hwnd: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDragDropManagerInterop {
@@ -356,7 +356,7 @@ impl IDragDropManagerInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHolographicSpaceInterop_Impl: Sized {
-    fn CreateForWindow(&mut self, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, holographicspace: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateForWindow(&self, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, holographicspace: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IHolographicSpaceInterop {
@@ -381,7 +381,7 @@ impl IHolographicSpaceInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInputPaneInterop_Impl: Sized {
-    fn GetForWindow(&mut self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, inputpane: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, inputpane: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IInputPaneInterop {
@@ -402,7 +402,7 @@ impl IInputPaneInterop_Vtbl {
     }
 }
 pub trait ILanguageExceptionErrorInfo_Impl: Sized {
-    fn GetLanguageException(&mut self) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn GetLanguageException(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 impl ILanguageExceptionErrorInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionErrorInfo_Impl, const OFFSET: isize>() -> ILanguageExceptionErrorInfo_Vtbl {
@@ -424,9 +424,9 @@ impl ILanguageExceptionErrorInfo_Vtbl {
     }
 }
 pub trait ILanguageExceptionErrorInfo2_Impl: Sized + ILanguageExceptionErrorInfo_Impl {
-    fn GetPreviousLanguageExceptionErrorInfo(&mut self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2>;
-    fn CapturePropagationContext(&mut self, languageexception: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn GetPropagationContextHead(&mut self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2>;
+    fn GetPreviousLanguageExceptionErrorInfo(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2>;
+    fn CapturePropagationContext(&self, languageexception: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetPropagationContextHead(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2>;
 }
 impl ILanguageExceptionErrorInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionErrorInfo2_Impl, const OFFSET: isize>() -> ILanguageExceptionErrorInfo2_Vtbl {
@@ -469,7 +469,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
     }
 }
 pub trait ILanguageExceptionStackBackTrace_Impl: Sized {
-    fn GetStackBackTrace(&mut self, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStackBackTrace(&self, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows::core::Result<()>;
 }
 impl ILanguageExceptionStackBackTrace_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionStackBackTrace_Impl, const OFFSET: isize>() -> ILanguageExceptionStackBackTrace_Vtbl {
@@ -485,7 +485,7 @@ impl ILanguageExceptionStackBackTrace_Vtbl {
     }
 }
 pub trait ILanguageExceptionTransform_Impl: Sized {
-    fn GetTransformedRestrictedErrorInfo(&mut self) -> ::windows::core::Result<IRestrictedErrorInfo>;
+    fn GetTransformedRestrictedErrorInfo(&self) -> ::windows::core::Result<IRestrictedErrorInfo>;
 }
 impl ILanguageExceptionTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILanguageExceptionTransform_Impl, const OFFSET: isize>() -> ILanguageExceptionTransform_Vtbl {
@@ -510,7 +510,7 @@ impl ILanguageExceptionTransform_Vtbl {
     }
 }
 pub trait IMemoryBufferByteAccess_Impl: Sized {
-    fn GetBuffer(&mut self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::Result<()>;
+    fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IMemoryBufferByteAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMemoryBufferByteAccess_Impl, const OFFSET: isize>() -> IMemoryBufferByteAccess_Vtbl {
@@ -526,7 +526,7 @@ impl IMemoryBufferByteAccess_Vtbl {
     }
 }
 pub trait IMessageDispatcher_Impl: Sized {
-    fn PumpMessages(&mut self) -> ::windows::core::Result<()>;
+    fn PumpMessages(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMessageDispatcher {
     const NAME: &'static str = "";
@@ -546,8 +546,8 @@ impl IMessageDispatcher_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPlayToManagerInterop_Impl: Sized {
-    fn GetForWindow(&mut self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, playtomanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn ShowPlayToUIForWindow(&mut self, appwindow: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, playtomanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn ShowPlayToUIForWindow(&self, appwindow: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPlayToManagerInterop {
@@ -578,8 +578,8 @@ impl IPlayToManagerInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRestrictedErrorInfo_Impl: Sized {
-    fn GetErrorDetails(&mut self, description: *mut super::super::Foundation::BSTR, error: *mut ::windows::core::HRESULT, restricteddescription: *mut super::super::Foundation::BSTR, capabilitysid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn GetReference(&mut self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn GetErrorDetails(&self, description: *mut super::super::Foundation::BSTR, error: *mut ::windows::core::HRESULT, restricteddescription: *mut super::super::Foundation::BSTR, capabilitysid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn GetReference(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRestrictedErrorInfo_Vtbl {
@@ -612,7 +612,7 @@ impl IRestrictedErrorInfo_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRoMetaDataLocator_Impl: Sized {
-    fn Locate(&mut self, nameelement: super::super::Foundation::PWSTR, metadatadestination: &::core::option::Option<IRoSimpleMetaDataBuilder>) -> ::windows::core::Result<()>;
+    fn Locate(&self, nameelement: super::super::Foundation::PWSTR, metadatadestination: &::core::option::Option<IRoSimpleMetaDataBuilder>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRoMetaDataLocator_Vtbl {
@@ -630,16 +630,16 @@ impl IRoMetaDataLocator_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRoSimpleMetaDataBuilder_Impl: Sized {
-    fn SetWinRtInterface(&mut self, iid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetDelegate(&mut self, iid: &::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetInterfaceGroupSimpleDefault(&mut self, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetInterfaceGroupParameterizedDefault(&mut self, name: super::super::Foundation::PWSTR, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetRuntimeClassSimpleDefault(&mut self, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SetRuntimeClassParameterizedDefault(&mut self, name: super::super::Foundation::PWSTR, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetStruct(&mut self, name: super::super::Foundation::PWSTR, numfields: u32, fieldtypenames: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetEnum(&mut self, name: super::super::Foundation::PWSTR, basetype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
-    fn SetParameterizedInterface(&mut self, piid: &::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()>;
-    fn SetParameterizedDelegate(&mut self, piid: &::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()>;
+    fn SetWinRtInterface(&self, iid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetDelegate(&self, iid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetInterfaceGroupSimpleDefault(&self, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetInterfaceGroupParameterizedDefault(&self, name: super::super::Foundation::PWSTR, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetRuntimeClassSimpleDefault(&self, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SetRuntimeClassParameterizedDefault(&self, name: super::super::Foundation::PWSTR, elementcount: u32, defaultinterfacenameelements: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetStruct(&self, name: super::super::Foundation::PWSTR, numfields: u32, fieldtypenames: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetEnum(&self, name: super::super::Foundation::PWSTR, basetype: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
+    fn SetParameterizedInterface(&self, piid: &::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()>;
+    fn SetParameterizedDelegate(&self, piid: &::windows::core::GUID, numargs: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRoSimpleMetaDataBuilder_Vtbl {
@@ -713,7 +713,7 @@ impl IRoSimpleMetaDataBuilder_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IShareWindowCommandEventArgsInterop_Impl: Sized {
-    fn GetWindow(&mut self) -> ::windows::core::Result<super::super::Foundation::HWND>;
+    fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IShareWindowCommandEventArgsInterop_Vtbl {
@@ -737,7 +737,7 @@ impl IShareWindowCommandEventArgsInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IShareWindowCommandSourceInterop_Impl: Sized {
-    fn GetForWindow(&mut self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, sharewindowcommandsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, sharewindowcommandsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IShareWindowCommandSourceInterop_Vtbl {
@@ -755,7 +755,7 @@ impl IShareWindowCommandSourceInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpatialInteractionManagerInterop_Impl: Sized {
-    fn GetForWindow(&mut self, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, spatialinteractionmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, spatialinteractionmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ISpatialInteractionManagerInterop {
@@ -780,7 +780,7 @@ impl ISpatialInteractionManagerInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISystemMediaTransportControlsInterop_Impl: Sized {
-    fn GetForWindow(&mut self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, mediatransportcontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, mediatransportcontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ISystemMediaTransportControlsInterop {
@@ -805,7 +805,7 @@ impl ISystemMediaTransportControlsInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIViewSettingsInterop_Impl: Sized {
-    fn GetForWindow(&mut self, hwnd: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, hwnd: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IUIViewSettingsInterop {
@@ -827,7 +827,7 @@ impl IUIViewSettingsInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUserActivityInterop_Impl: Sized {
-    fn CreateSessionForWindow(&mut self, window: super::super::Foundation::HWND, iid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateSessionForWindow(&self, window: super::super::Foundation::HWND, iid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IUserActivityInterop {
@@ -852,7 +852,7 @@ impl IUserActivityInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUserActivityRequestManagerInterop_Impl: Sized {
-    fn GetForWindow(&mut self, window: super::super::Foundation::HWND, iid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetForWindow(&self, window: super::super::Foundation::HWND, iid: *const ::windows::core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IUserActivityRequestManagerInterop {
@@ -876,7 +876,7 @@ impl IUserActivityRequestManagerInterop_Vtbl {
     }
 }
 pub trait IUserActivitySourceHostInterop_Impl: Sized {
-    fn SetActivitySourceHost(&mut self, activitysourcehost: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetActivitySourceHost(&self, activitysourcehost: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IUserActivitySourceHostInterop {
     const NAME: &'static str = "";
@@ -899,7 +899,7 @@ impl IUserActivitySourceHostInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUserConsentVerifierInterop_Impl: Sized {
-    fn RequestVerificationForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, message: &::windows::core::HSTRING, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RequestVerificationForWindowAsync(&self, appwindow: super::super::Foundation::HWND, message: &::windows::core::HSTRING, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IUserConsentVerifierInterop {
@@ -923,7 +923,7 @@ impl IUserConsentVerifierInterop_Vtbl {
     }
 }
 pub trait IWeakReference_Impl: Sized {
-    fn Resolve(&mut self, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Resolve(&self, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl IWeakReference_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWeakReference_Impl, const OFFSET: isize>() -> IWeakReference_Vtbl {
@@ -939,7 +939,7 @@ impl IWeakReference_Vtbl {
     }
 }
 pub trait IWeakReferenceSource_Impl: Sized {
-    fn GetWeakReference(&mut self) -> ::windows::core::Result<IWeakReference>;
+    fn GetWeakReference(&self) -> ::windows::core::Result<IWeakReference>;
 }
 impl IWeakReferenceSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWeakReferenceSource_Impl, const OFFSET: isize>() -> IWeakReferenceSource_Vtbl {
@@ -962,8 +962,8 @@ impl IWeakReferenceSource_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWebAuthenticationCoreManagerInterop_Impl: Sized {
-    fn RequestTokenForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, request: &::core::option::Option<::windows::core::IInspectable>, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn RequestTokenWithWebAccountForWindowAsync(&mut self, appwindow: super::super::Foundation::HWND, request: &::core::option::Option<::windows::core::IInspectable>, webaccount: &::core::option::Option<::windows::core::IInspectable>, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RequestTokenForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: &::core::option::Option<::windows::core::IInspectable>, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn RequestTokenWithWebAccountForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: &::core::option::Option<::windows::core::IInspectable>, webaccount: &::core::option::Option<::windows::core::IInspectable>, riid: *const ::windows::core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IWebAuthenticationCoreManagerInterop {

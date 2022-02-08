@@ -28,9 +28,10 @@ impl ::core::fmt::Debug for TextPatternRangeEndpoint {
 }
 unsafe impl ::windows::core::RuntimeType for TextPatternRangeEndpoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Text.TextPatternRangeEndpoint;i4)");
-}
-impl ::windows::core::DefaultType for TextPatternRangeEndpoint {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Text'*"]
 #[repr(transparent)]
@@ -66,9 +67,10 @@ impl ::core::fmt::Debug for TextUnit {
 }
 unsafe impl ::windows::core::RuntimeType for TextUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Automation.Text.TextUnit;i4)");
-}
-impl ::windows::core::DefaultType for TextUnit {
     type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
