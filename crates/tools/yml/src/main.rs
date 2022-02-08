@@ -102,6 +102,11 @@ jobs:
 }
 
 fn build_yml() {
+    let reader = metadata::TypeReader::get();
+    let metadata_root = reader.types.get_namespace("Windows").unwrap();
+    let trees = metadata::collect_trees(&["Windows.Win32.Interop"], &metadata_root);
+    let features = metadata::features(&trees, &metadata_root.namespace);
+
     let root = std::path::PathBuf::from(metadata::workspace_dir());
     let mut yml = r#"################################################################################
 ##
@@ -170,7 +175,11 @@ jobs:
     - name: Update toolchain
       run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
     - name: Run cargo check
-      run: cd crates/libs/sys && cargo check --features all_stable_features
+      run: cd crates/libs/sys && cargo check --features "#
+        .to_string();
+
+    yml.push_str(&features.join(","));
+    yml.push_str(r#"
 
   cargo_sys_nightly:
     name: Check windows-sys (nightly)
@@ -194,8 +203,7 @@ jobs:
     - name: Install clippy
       run: rustup component add clippy      
     - name: Run cargo clippy
-      run: |"#
-        .to_string();
+      run: |"#);
 
     for name in crates(&root) {
         yml.push_str(&format!("\n        cargo clippy -p {} &&", name));

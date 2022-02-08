@@ -12,8 +12,7 @@ fn main() {
     let reader = metadata::TypeReader::get();
     let root = reader.types.get_namespace("Windows").unwrap();
 
-    let mut trees = Vec::new();
-    collect_trees(&output, root.namespace, root, &mut trees);
+    let trees = collect_trees(&output, root);
     trees.par_iter().for_each(|tree| gen_tree(&output, root.namespace, tree));
 
     output.pop();
@@ -76,36 +75,24 @@ use_raw_dylib = []
     )
     .unwrap();
 
-    let mut all_features = Vec::new();
-
-    // Skip the root Windows tree while writing features
-    for tree in trees.iter().skip(1) {
-        // TODO: don't include parent features automatically
-        let feature = tree.namespace[root.namespace.len() + 1..].replace('.', "_");
-
+    for feature in metadata::features(&trees, &root.namespace) {
         if let Some(pos) = feature.rfind('_') {
             let dependency = &feature[..pos];
-
             file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes()).unwrap();
         } else {
             file.write_all(format!("{} = []\n", feature).as_bytes()).unwrap();
         }
-        all_features.push(format!("\"{}\"", feature));
     }
-
-    file.write_all(format!("all_stable_features = [{}]\n", all_features.join(", ")).as_bytes()).unwrap();
 }
 
-fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a metadata::TypeTree, trees: &mut Vec<&'a metadata::TypeTree>) {
-    if EXCLUDE_NAMESPACES.iter().any(|&x| x == tree.namespace) {
-        return;
+fn collect_trees<'a>(output: &std::path::Path, tree: &'a metadata::TypeTree) -> Vec<&'a metadata::TypeTree> {
+    let trees = metadata::collect_trees(&EXCLUDE_NAMESPACES, tree);
+    for tree in &trees {
+        let mut path = std::path::PathBuf::from(output);
+        path.push(tree.namespace.replace('.', "/"));
+        std::fs::create_dir_all(&path).unwrap();
     }
-
-    trees.push(tree);
-    tree.namespaces.values().for_each(|tree| collect_trees(output, root, tree, trees));
-    let mut path = std::path::PathBuf::from(output);
-    path.push(tree.namespace.replace('.', "/"));
-    std::fs::create_dir_all(&path).unwrap();
+    trees
 }
 
 fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &metadata::TypeTree) {
