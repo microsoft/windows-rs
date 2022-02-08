@@ -4,8 +4,7 @@ use std::io::prelude::*;
 const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
 
 fn main() {
-    let mut output = std::path::PathBuf::from(metadata::workspace_dir());
-    output.push("crates/libs/sys/src/Windows");
+    let mut output = std::path::PathBuf::from("crates/libs/sys/src/Windows");
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 

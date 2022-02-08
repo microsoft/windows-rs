@@ -67,9 +67,7 @@ fn main() -> std::io::Result<()> {
         tokens += &bindgen::gen_type(name, &gen);
     }
 
-    let mut path: std::path::PathBuf = metadata::workspace_dir().into();
-    path.push("crates/libs/windows/src/core/bindings.rs");
-
+    let path = std::path::Path::new("crates/libs/windows/src/core/bindings.rs");
     std::fs::write(&path, tokens)?;
 
     let mut cmd = ::std::process::Command::new("rustfmt");

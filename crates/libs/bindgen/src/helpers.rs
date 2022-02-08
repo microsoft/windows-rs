@@ -511,7 +511,7 @@ fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &
         if param.signature.by_ref {
             quote! { &mut ::windows::core::Array<#kind> }
         } else {
-            let kind = if let ElementType::GenericParam(_) = param.signature.kind {
+            let kind = if param.signature.is_generic() {
                 quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
             } else if param.signature.kind.is_nullable() {
                 quote! { ::core::option::Option<#kind> }
@@ -526,7 +526,7 @@ fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &
             }
         }
     } else if param.param.is_input() {
-        if let ElementType::GenericParam(_) = param.signature.kind {
+        if param.signature.is_generic() {
             quote! { &<#kind as ::windows::core::RuntimeType>::DefaultType }
         } else if param.signature.kind.is_primitive() {
             quote! { #kind }
