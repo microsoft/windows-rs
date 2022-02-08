@@ -179,7 +179,8 @@ jobs:
         .to_string();
 
     yml.push_str(&features.join(","));
-    yml.push_str(r#"
+    yml.push_str(
+        r#"
 
   cargo_sys_nightly:
     name: Check windows-sys (nightly)
@@ -203,7 +204,8 @@ jobs:
     - name: Install clippy
       run: rustup component add clippy      
     - name: Run cargo clippy
-      run: |"#);
+      run: |"#,
+    );
 
     for name in crates(&root) {
         yml.push_str(&format!("\n        cargo clippy -p {} &&", name));
