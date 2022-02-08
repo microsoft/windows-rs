@@ -37,20 +37,4 @@ impl ConstantValue {
             _ => unimplemented!(),
         }
     }
-
-    pub fn unwrap_string(&self) -> &str {
-        match self {
-            Self::String(value) => value,
-            _ => unimplemented!(),
-        }
-    }
-
-    #[must_use]
-    pub fn next(&self) -> Self {
-        match self {
-            Self::U32(value) => Self::U32(value + 1),
-            Self::I32(value) => Self::I32(value + 1),
-            _ => unimplemented!(),
-        }
-    }
 }
