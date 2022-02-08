@@ -136,14 +136,6 @@ impl ElementType {
         }
     }
 
-    pub fn features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        match self {
-            Self::TypeDef(def) => def.features(features, keys),
-            Self::Array((signature, _)) => signature.kind.features(features, keys),
-            _ => {}
-        }
-    }
-
     pub fn is_nullable(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_nullable(),
