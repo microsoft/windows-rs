@@ -17,7 +17,7 @@ fn collect_trees_internal<'a>(excluded_namespaces: &[&str], tree: &'a TypeTree, 
     }
 }
 
-pub fn features(trees: &Vec<&TypeTree>, root_namespace: &str) -> Vec<String> {
+pub fn features(trees: &[&TypeTree], root_namespace: &str) -> Vec<String> {
     let child_namespace_position = root_namespace.len() + 1;
 
     // Skip the root Windows tree while writing features

@@ -75,7 +75,7 @@ use_raw_dylib = []
     )
     .unwrap();
 
-    for feature in metadata::features(&trees, &root.namespace) {
+    for feature in metadata::features(&trees, root.namespace) {
         if let Some(pos) = feature.rfind('_') {
             let dependency = &feature[..pos];
             file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes()).unwrap();
