@@ -10,6 +10,10 @@ pub struct Signature {
 }
 
 impl Signature {
+    pub fn is_generic(&self) -> bool {
+        matches!(self.kind, ElementType::GenericParam(_))
+    }
+
     pub fn is_blittable(&self) -> bool {
         self.pointers > 0 || self.kind.is_blittable()
     }
