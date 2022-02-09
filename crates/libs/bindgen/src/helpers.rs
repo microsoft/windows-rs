@@ -96,10 +96,11 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
 
     let (trailing_return_type, return_type, udt_return_type) = if is_winrt {
         if let Some(return_sig) = &signature.return_sig {
-            let tokens = gen_abi_sig(return_sig, gen);
-            if return_sig.is_array {
+            if let ElementType::WinrtArray(kind) = return_sig {
+                let tokens = gen_abi_sig(kind, gen);
                 (quote! { result_size__: *mut u32, result__: *mut *mut #tokens }, quote! { -> #hresult }, quote! {})
             } else {
+                let tokens = gen_abi_sig(return_sig, gen);
                 (quote! { result__: *mut #tokens }, quote! { -> #hresult }, quote! {})
             }
         } else {

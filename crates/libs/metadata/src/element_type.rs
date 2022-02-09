@@ -30,8 +30,8 @@ pub enum ElementType {
     TypeDef(TypeDef),
     Const(Box<Self>),
     Pointer(Box<Self>),
-    WinrtSlice(Box<Self>),
     WinrtArray(Box<Self>),
+    WinrtArrayRef(Box<Self>),
     Win32Array((Box<Self>, u32)),
 }
 
@@ -212,13 +212,17 @@ impl ElementType {
 
     pub fn deref(&self) -> Self {
         match self {
+            // TODO: need to unwrap/rewrap Const?
             ElementType::Pointer(kind) => *kind.clone(),
             _ => unimplemented!(),
         }
     }
 
-    pub fn is_winrt_slice(&self) -> bool {
-        matches!(self, ElementType::WinrtSlice(_))
+    pub fn to_const(&self) -> Self {
+        match self {
+            ElementType::Const(_) => self.clone(),
+            _ => ElementType::Const(Box::new(self.clone()))
+        }
     }
 
     #[must_use]

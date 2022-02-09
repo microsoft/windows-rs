@@ -123,13 +123,13 @@ impl TypeReader {
     pub fn signature_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[ElementType]) -> Option<ElementType> {
         let is_const = blob.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
 
-        let is_winrt_array = blob.read_expected(0x10);
+        let by_ref = blob.read_expected(0x10);
 
         if blob.read_expected(0x01) {
             return None;
         }
 
-        let is_winrt_slice = blob.read_expected(0x1D);
+        let is_array = blob.read_expected(0x1D);
 
         let mut pointers = 0;
 
@@ -143,10 +143,10 @@ impl TypeReader {
             kind = ElementType::Pointer(Box::new(kind));
         }
 
-        Some(if is_winrt_array {
+        Some(if by_ref {
+            ElementType::WinrtArrayRef(Box::new(kind))
+        } else if is_array {
             ElementType::WinrtArray(Box::new(kind))
-        } else if is_winrt_slice {
-            ElementType::WinrtSlice(Box::new(kind))
         } else if is_const {
                 ElementType::Const(Box::new(kind))
         } else {

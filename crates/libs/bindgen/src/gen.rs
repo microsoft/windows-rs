@@ -121,10 +121,12 @@ impl Gen<'_> {
         }
     }
 
+    // TODO: move to windows-metadata
     fn element_requirements(&self, def: &ElementType, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
+        // TODO: this should just be def.requirements()
         match def {
             ElementType::TypeDef(def) => self.type_requirements(def, namespaces, keys),
-            ElementType::Array((signature, _)) => self.element_requirements(signature, namespaces, keys),
+            ElementType::Win32Array((signature, _)) => self.element_requirements(signature, namespaces, keys),
             _ => {}
         }
     }
@@ -172,7 +174,7 @@ impl Gen<'_> {
     }
 
     fn method_requirements(&self, def: &MethodSignature, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
-        def.return_sig.iter().for_each(|def| self.element_requirements(&def.kind, namespaces, keys));
+        def.return_sig.iter().for_each(|def| self.element_requirements(def, namespaces, keys));
         def.params.iter().for_each(|def| self.element_requirements(&def.signature, namespaces, keys));
     }
 
@@ -185,7 +187,7 @@ impl Gen<'_> {
     }
 
     fn field_requirements(&self, def: &Field, enclosing: Option<&TypeDef>, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
-        self.element_requirements(&def.signature(enclosing).kind, namespaces, keys);
+        self.element_requirements(&def.signature(enclosing), namespaces, keys);
     }
 }
 
