@@ -176,7 +176,7 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
                 quote! {}
             } else {
                 let sig = f.signature(Some(def));
-                if sig.kind.is_callback() {
+                if sig.is_callback() {
                     quote! {
                         self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
                     }

@@ -260,7 +260,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
     for (position, param) in params.iter().enumerate() {
         let name = gen_param_name(&param.param);
-        let kind = gen_element_name(&param.signature.kind, gen);
+        let kind = gen_element_name(&param.signature, gen);
 
         if param.signature.is_array {
             if param.signature.by_ref {
@@ -268,7 +268,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             } else {
                 let kind = if param.signature.is_generic() {
                     quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
-                } else if param.signature.kind.is_nullable() {
+                } else if param.signature.is_nullable() {
                     quote! { ::core::option::Option<#kind> }
                 } else {
                     kind
@@ -287,7 +287,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             } else {
                 result.combine(&quote! { #name: #kind, });
             }
-        } else if param.signature.kind.is_nullable() {
+        } else if param.signature.is_nullable() {
             result.combine(&quote! { #name: &mut ::core::option::Option<#kind>, });
         } else if param.signature.is_generic() {
             result.combine(&quote! { &mut <#kind as ::windows::core::RuntimeType>::DefaultType, });
@@ -327,12 +327,12 @@ pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
             } else {
                 quote! { #name.into_param().abi() }
             }
-        } else if param.signature.kind.is_blittable() {
+        } else if param.signature.is_blittable() {
             quote! { #name }
         } else {
             quote! { ::core::mem::transmute_copy(#name) }
         }
-    } else if param.signature.kind.is_blittable() {
+    } else if param.signature.is_blittable() {
         quote! { #name }
     } else {
         quote! { #name as *mut _ as _ }

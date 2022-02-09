@@ -1,5 +1,6 @@
 use super::*;
 
+// TODO: rename to Signature?
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
 pub enum ElementType {
     Void,
@@ -23,11 +24,15 @@ pub enum ElementType {
     IInspectable,
     HRESULT,
     TypeName,
-    GenericParam(String),
-    Array((Box<Signature>, u32)),
+    GenericParam(String), // TODO: can be &'static str?
     MethodDef(MethodDef),
     Field(Field),
     TypeDef(TypeDef),
+    Const(Box<Self>),
+    Pointer((Box<Self>, usize)),
+    WinrtSlice(Box<Self>),
+    WinrtArray(Box<Self>),
+    Win32Array((Box<Self>, u32)),
 }
 
 impl Default for ElementType {
@@ -126,7 +131,7 @@ impl ElementType {
         match self {
             Self::TypeDef(t) => t.is_blittable(),
             Self::String | Self::IInspectable | Self::IUnknown | Self::GenericParam(_) => false,
-            Self::Array((kind, _)) => kind.is_blittable(),
+            Self::Win32Array((kind, _)) => kind.is_blittable(),
             _ => true,
         }
     }
@@ -148,7 +153,7 @@ impl ElementType {
 
     pub fn is_callback_array(&self) -> bool {
         match self {
-            Self::Array((kind, _)) => kind.kind.is_callback(),
+            Self::Win32Array((kind, _)) => kind.is_callback(),
             _ => false,
         }
     }
@@ -157,6 +162,7 @@ impl ElementType {
         match self {
             Self::TypeDef(t) => t.is_primitive(),
             Self::Bool | Self::Char | Self::I8 | Self::U8 | Self::I16 | Self::U16 | Self::I32 | Self::U32 | Self::I64 | Self::U64 | Self::F32 | Self::F64 | Self::ISize | Self::USize | Self::HRESULT => true,
+            Self::Pointer(_) => true,
             _ => false,
         }
     }
@@ -172,7 +178,7 @@ impl ElementType {
     pub fn has_union(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.has_union(),
-            Self::Array((kind, _)) => kind.has_union(),
+            Self::Win32Array((kind, _)) => kind.has_union(),
             _ => false,
         }
     }
@@ -180,7 +186,7 @@ impl ElementType {
     pub fn has_pack(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.has_pack(),
-            Self::Array((kind, _)) => kind.has_pack(),
+            Self::Win32Array((kind, _)) => kind.has_pack(),
             _ => false,
         }
     }
@@ -190,6 +196,23 @@ impl ElementType {
             Self::TypeDef(def) => def.is_handle(),
             _ => false,
         }
+    }
+
+    pub fn is_generic(&self) -> bool {
+        matches!(self, ElementType::GenericParam(_))
+    }
+
+    pub fn is_pointer(&self) -> bool {
+        match self {
+            // TODO: Const is always a possible wrapper type?
+            ElementType::Pointer(_) => true,
+            ElementType::Const(kind) => kind.is_pointer(),
+            _ => false,
+        }
+    }
+
+    pub fn is_winrt_slice(&self) -> bool {
+        matches!(self, ElementType::WinrtSlice(_))
     }
 
     #[must_use]

@@ -403,7 +403,7 @@ pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream) -> TokenStrea
 fn gen_win32_invoke_arg(param: &MethodParam) -> TokenStream {
     let name = gen_param_name(&param.param);
 
-    if param.signature.pointers == 0 && param.signature.kind.is_nullable() {
+    if param.signature.pointers == 0 && param.signature.is_nullable() {
         quote! { ::core::mem::transmute(&#name) }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }
@@ -424,7 +424,7 @@ fn gen_winrt_invoke_arg(param: &MethodParam) -> TokenStream {
             quote! { ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
         }
     } else if param.param.is_input() {
-        if param.signature.kind.is_primitive() {
+        if param.signature.is_primitive() {
             quote! { #name }
         } else if param.signature.is_const {
             quote! { ::core::mem::transmute_copy(&#name) }
@@ -505,7 +505,7 @@ fn gen_win32_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
 }
 
 fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &Gen) -> TokenStream {
-    let kind = gen_element_name(&param.signature.kind, gen);
+    let kind = gen_element_name(&param.signature, gen);
 
     let sig = if param.signature.is_array {
         if param.signature.by_ref {
@@ -513,7 +513,7 @@ fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &
         } else {
             let kind = if param.signature.is_generic() {
                 quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
-            } else if param.signature.kind.is_nullable() {
+            } else if param.signature.is_nullable() {
                 quote! { ::core::option::Option<#kind> }
             } else {
                 kind
@@ -528,14 +528,14 @@ fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &
     } else if param.param.is_input() {
         if param.signature.is_generic() {
             quote! { &<#kind as ::windows::core::RuntimeType>::DefaultType }
-        } else if param.signature.kind.is_primitive() {
+        } else if param.signature.is_primitive() {
             quote! { #kind }
-        } else if param.signature.kind.is_nullable() {
+        } else if param.signature.is_nullable() {
             quote! { &::core::option::Option<#kind> }
         } else {
             quote! { &#kind }
         }
-    } else if param.signature.kind.is_nullable() {
+    } else if param.signature.is_nullable() {
         quote! { &mut ::core::option::Option<#kind> }
     } else {
         quote! { &mut #kind }

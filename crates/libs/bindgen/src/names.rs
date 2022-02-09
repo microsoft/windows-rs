@@ -173,8 +173,8 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_abi_element_name(sig: &Signature, gen: &Gen) -> TokenStream {
-    match &sig.kind {
+pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
+    match kind {
         ElementType::String => {
             quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
         }

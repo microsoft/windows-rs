@@ -26,7 +26,7 @@ impl Field {
         self.0.file.attributes(HasAttribute::Field(self.clone()))
     }
 
-    pub fn signature(&self, enclosing: Option<&TypeDef>) -> Signature {
+    pub fn signature(&self, enclosing: Option<&TypeDef>) -> ElementType {
         let mut blob = self.0.blob(2);
         blob.read_unsigned();
         blob.read_modifiers();

@@ -2,7 +2,7 @@ use super::*;
 
 pub struct MethodSignature {
     pub params: Vec<MethodParam>,
-    pub return_sig: Option<Signature>,
+    pub return_sig: Option<ElementType>,
     pub return_param: Option<Param>,
     pub preserve_sig: bool,
 }
@@ -10,7 +10,7 @@ pub struct MethodSignature {
 #[derive(Clone)]
 pub struct MethodParam {
     pub param: Param,
-    pub signature: Signature,
+    pub signature: ElementType,
 }
 
 impl MethodSignature {
@@ -20,13 +20,13 @@ impl MethodSignature {
         }
 
         if let Some(return_sig) = &self.return_sig {
-            match &return_sig.kind {
+            match return_sig {
                 ElementType::HRESULT => {
                     if self.params.len() >= 2 {
                         let guid = &self.params[self.params.len() - 2];
                         let object = &self.params[self.params.len() - 1];
 
-                        if guid.signature.kind == ElementType::GUID && !guid.param.flags().output() && object.signature.kind == ElementType::Void && object.param.is_com_out_ptr() {
+                        if guid.signature == ElementType::GUID && !guid.param.flags().output() && object.signature == ElementType::Void && object.param.is_com_out_ptr() {
                             if object.param.is_optional() {
                                 return SignatureKind::QueryOptional;
                             } else {
@@ -66,7 +66,9 @@ impl MethodSignature {
 
 impl MethodParam {
     fn is_retval(&self) -> bool {
-        if self.signature.pointers == 0 {
+        // TODO: why aren't we just using the retval flag?
+
+        if !self.signature.is_pointer() {
             return false;
         }
 
@@ -77,7 +79,7 @@ impl MethodParam {
             return false;
         }
 
-        match &self.signature.kind {
+        match &self.signature {
             ElementType::Void => false,
             ElementType::TypeDef(def) => def.kind() != TypeKind::Delegate,
             _ => true,
@@ -85,6 +87,6 @@ impl MethodParam {
     }
 
     pub fn is_convertible(&self) -> bool {
-        self.param.is_input() && !self.signature.is_array && self.signature.pointers == 0 && self.signature.kind.is_convertible()
+        self.param.is_input() && !self.signature.is_winrt_slice() && !self.signature.is_pointer() && self.signature.is_convertible()
     }
 }

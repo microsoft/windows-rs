@@ -124,7 +124,7 @@ impl Gen<'_> {
     fn element_requirements(&self, def: &ElementType, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
         match def {
             ElementType::TypeDef(def) => self.type_requirements(def, namespaces, keys),
-            ElementType::Array((signature, _)) => self.element_requirements(&signature.kind, namespaces, keys),
+            ElementType::Array((signature, _)) => self.element_requirements(signature, namespaces, keys),
             _ => {}
         }
     }
@@ -173,7 +173,7 @@ impl Gen<'_> {
 
     fn method_requirements(&self, def: &MethodSignature, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
         def.return_sig.iter().for_each(|def| self.element_requirements(&def.kind, namespaces, keys));
-        def.params.iter().for_each(|def| self.element_requirements(&def.signature.kind, namespaces, keys));
+        def.params.iter().for_each(|def| self.element_requirements(&def.signature, namespaces, keys));
     }
 
     fn type_and_method_requirements(&self, def: &TypeDef, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {

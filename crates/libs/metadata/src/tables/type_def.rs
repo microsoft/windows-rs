@@ -252,7 +252,7 @@ impl TypeDef {
 
                 for field in self.fields() {
                     result.push(';');
-                    result.push_str(&field.signature(Some(self)).kind.type_signature());
+                    result.push_str(&field.signature(Some(self)).type_signature());
                 }
 
                 result.push(')');
@@ -273,7 +273,7 @@ impl TypeDef {
             if let Some(constant) = field.constant() {
                 return constant.value_type();
             } else {
-                return field.signature(Some(self)).kind;
+                return field.signature(Some(self));
             }
         }
 

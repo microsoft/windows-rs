@@ -1,11 +1,11 @@
 use super::*;
 
-pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
-    gen_sig_with_const(sig, gen, sig.is_const)
+pub fn gen_sig(sig: &ElementType, gen: &Gen) -> TokenStream {
+    gen_sig_with_const(sig, gen)
 }
 
-pub fn gen_abi_sig(sig: &Signature, gen: &Gen) -> TokenStream {
-    gen_abi_sig_with_const(sig, gen, sig.is_const)
+pub fn gen_abi_sig(sig: &ElementType, gen: &Gen) -> TokenStream {
+    gen_abi_sig_with_const(sig, gen)
 }
 
 pub fn gen_param_sig(param: &MethodParam, gen: &Gen) -> TokenStream {
@@ -44,7 +44,7 @@ pub fn gen_param_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_abi_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
+fn gen_abi_sig_with_const(sig: &ElementType, gen: &Gen, is_const: bool) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for _ in 0..sig.pointers {
@@ -59,7 +59,7 @@ fn gen_abi_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenSt
     tokens
 }
 
-pub fn gen_result_sig(sig: &Signature, gen: &Gen) -> TokenStream {
+pub fn gen_result_sig(sig: &ElementType, gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for _ in 0..sig.pointers {
@@ -74,7 +74,7 @@ pub fn gen_result_sig(sig: &Signature, gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
+fn gen_sig_with_const(sig: &ElementType, gen: &Gen, is_const: bool) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for _ in 0..sig.pointers {
@@ -87,7 +87,7 @@ fn gen_sig_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream
 
     let kind = gen_element_name(&sig.kind, gen);
 
-    if sig.kind.is_nullable() && !gen.sys {
+    if sig.is_nullable() && !gen.sys {
         tokens.combine(&quote! {
             ::core::option::Option<#kind>
         });

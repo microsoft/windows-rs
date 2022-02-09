@@ -8,7 +8,7 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
     let cfg = gen.field_cfg(def).gen_with_doc(gen);
 
     if let Some(constant) = def.constant() {
-        if signature.kind == constant.value_type() {
+        if signature == constant.value_type() {
             let value = gen_constant_type_value(&constant.value());
             quote! {
                 #cfg
@@ -18,13 +18,13 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
             let kind = gen_sig(&signature, gen);
             let value = gen_constant_value(&constant.value());
 
-            let value = if signature.kind.underlying_type() == constant.value_type() {
+            let value = if signature.underlying_type() == constant.value_type() {
                 value
             } else {
                 quote! { #value as _ }
             };
 
-            if !gen.sys && signature.kind.has_replacement() {
+            if !gen.sys && signature.has_replacement() {
                 quote! {
                     #cfg
                     pub const #name: #kind = #kind(#value);

@@ -119,16 +119,17 @@ impl TypeReader {
         self.expect_type_def(type_name)
     }
 
-    pub fn signature_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[ElementType]) -> Option<Signature> {
+    // TODO: rename since its not longer signature?
+    pub fn signature_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[ElementType]) -> Option<ElementType> {
         let is_const = blob.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
 
-        let by_ref = blob.read_expected(0x10);
+        let is_winrt_array = blob.read_expected(0x10);
 
         if blob.read_expected(0x01) {
             return None;
         }
 
-        let is_array = blob.read_expected(0x1D);
+        let is_winrt_slice = blob.read_expected(0x1D);
 
         let mut pointers = 0;
 
@@ -138,7 +139,23 @@ impl TypeReader {
 
         let kind = self.type_from_blob(blob, enclosing, generics);
 
-        Some(Signature { kind, pointers, by_ref, is_const, is_array })
+        Some(if is_winrt_array {
+            ElementType::WinrtArray(Box::new(kind))
+        } else if is_winrt_slice {
+            ElementType::WinrtSlice(Box::new(kind))
+        } else {
+            let kind = if pointers > 0 {
+                ElementType::Pointer((Box::new(kind), pointers))
+            } else {
+                kind
+            };
+
+            if is_const {
+                ElementType::Const(Box::new(kind))
+            } else {
+                kind
+            }
+        })
     }
 
     pub fn type_from_code(&'static self, code: &TypeDefOrRef, enclosing: Option<&TypeDef>, generics: &[ElementType]) -> ElementType {
@@ -179,7 +196,7 @@ impl TypeReader {
                 let _rank = blob.read_unsigned();
                 let _bounds_count = blob.read_unsigned();
                 let bounds = blob.read_unsigned();
-                ElementType::Array((Box::new(kind), bounds))
+                ElementType::Win32Array((Box::new(kind), bounds))
             }
             0x15 => {
                 blob.read_unsigned();
