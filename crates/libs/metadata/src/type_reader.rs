@@ -137,24 +137,20 @@ impl TypeReader {
             pointers += 1;
         }
 
-        let kind = self.type_from_blob(blob, enclosing, generics);
+        let mut kind = self.type_from_blob(blob, enclosing, generics);
+
+        for _ in 0..pointers {
+            kind = ElementType::Pointer(Box::new(kind));
+        }
 
         Some(if is_winrt_array {
             ElementType::WinrtArray(Box::new(kind))
         } else if is_winrt_slice {
             ElementType::WinrtSlice(Box::new(kind))
-        } else {
-            let kind = if pointers > 0 {
-                ElementType::Pointer((Box::new(kind), pointers))
-            } else {
-                kind
-            };
-
-            if is_const {
+        } else if is_const {
                 ElementType::Const(Box::new(kind))
-            } else {
-                kind
-            }
+        } else {
+            kind
         })
     }
 

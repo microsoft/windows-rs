@@ -29,7 +29,7 @@ pub enum ElementType {
     Field(Field),
     TypeDef(TypeDef),
     Const(Box<Self>),
-    Pointer((Box<Self>, usize)),
+    Pointer(Box<Self>),
     WinrtSlice(Box<Self>),
     WinrtArray(Box<Self>),
     Win32Array((Box<Self>, u32)),
@@ -204,7 +204,6 @@ impl ElementType {
 
     pub fn is_pointer(&self) -> bool {
         match self {
-            // TODO: Const is always a possible wrapper type?
             ElementType::Pointer(_) => true,
             ElementType::Const(kind) => kind.is_pointer(),
             _ => false,
