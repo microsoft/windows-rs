@@ -169,6 +169,17 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
         ElementType::MethodDef(def) => def.name().into(),
         ElementType::Field(field) => field.name().into(),
         ElementType::TypeDef(t) => gen_type_name(t, gen),
+        ElementType::MutPtr(kind) => {
+            let kind = gen_element_name(kind, gen);
+            quote! { *mut #kind }
+        }
+        ElementType::ConstPtr(kind) => {
+            let kind = gen_element_name(kind, gen);
+            quote! { *const #kind }
+        }
+        // TODO: should these handle more?
+        ElementType::WinrtArray(kind) => gen_element_name(kind, gen),
+        ElementType::WinrtArrayRef(kind) => gen_element_name(kind, gen),
         _ => unimplemented!(),
     }
 }
@@ -202,6 +213,14 @@ pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
             }
             _ => quote! { ::windows::core::RawPtr },
         },
+        ElementType::MutPtr(kind) => {
+            let kind = gen_abi_element_name(kind, gen);
+            quote! { *mut #kind }
+        }
+        ElementType::ConstPtr(kind) => {
+            let kind = gen_abi_element_name(kind, gen);
+            quote! { *const #kind }
+        }
         _ => gen_element_name(&sig, gen),
     }
 }
