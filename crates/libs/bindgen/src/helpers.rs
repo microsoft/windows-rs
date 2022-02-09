@@ -503,14 +503,18 @@ fn gen_win32_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_default_type(def: &ElementType, gen: &Gen) -> TokenStream {
-    let kind = gen_element_name(def, gen);
-
-     if def.is_generic() {
-        quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
-    } else if def.is_nullable() {
-        quote! { ::core::option::Option<#kind> }
+    if let ElementType::WinrtArray(def) = def {
+        gen_default_type(def, gen)
     } else {
-        kind
+        let kind = gen_element_name(def, gen);
+
+        if def.is_generic() {
+            quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
+        } else if def.is_nullable() {
+            quote! { ::core::option::Option<#kind> }
+        } else {
+            kind
+        }
     }
 }
 

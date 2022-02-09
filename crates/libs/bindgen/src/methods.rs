@@ -274,7 +274,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             }
         } else {
             if param.signature.is_winrt_array() {
-                result.combine(&quote! { #name: &mut [#kind], });
+                result.combine(&quote! { #name: &mut [#default_type], });
             } else if param.signature.is_winrt_array_ref() {
                 result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
             } else if param.signature.is_nullable() {
