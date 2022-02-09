@@ -176,8 +176,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_win32_params(leading_params, gen);
 
-            let mut return_sig = signature.params[signature.params.len() - 1].signature.clone();
-            return_sig.pointers -= 1;
+            let return_sig = signature.params[signature.params.len() - 1].signature.deref();
             let return_type_tokens = gen_result_sig(&return_sig, gen);
             let abi_return_type_tokens = gen_abi_sig(&return_sig, gen);
 

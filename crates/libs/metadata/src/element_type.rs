@@ -210,6 +210,13 @@ impl ElementType {
         }
     }
 
+    pub fn deref(&self) -> Self {
+        match self {
+            ElementType::Pointer(kind) => *kind.clone(),
+            _ => unimplemented!(),
+        }
+    }
+
     pub fn is_winrt_slice(&self) -> bool {
         matches!(self, ElementType::WinrtSlice(_))
     }
