@@ -160,7 +160,7 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::HRESULT }
         }
-        ElementType::Array((kind, len)) => {
+        ElementType::Win32Array((kind, len)) => {
             let name = gen_sig(kind, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
@@ -181,8 +181,8 @@ pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
         ElementType::IUnknown | ElementType::IInspectable => {
             quote! { *mut ::core::ffi::c_void }
         }
-        ElementType::Array((kind, len)) => {
-            let name = gen_abi_sig(kind, gen);
+        ElementType::Win32Array((kind, len)) => {
+            let name = gen_abi_element_name(kind, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
@@ -194,7 +194,7 @@ pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
             TypeKind::Enum => gen_type_name(def, gen),
             TypeKind::Struct => {
                 let tokens = gen_type_name(def, gen);
-                if def.is_blittable() || sig.pointers > 0 {
+                if def.is_blittable() || sig.is_pointer() {
                     tokens
                 } else {
                     quote! { ::core::mem::ManuallyDrop<#tokens> }
@@ -202,7 +202,7 @@ pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
             }
             _ => quote! { ::windows::core::RawPtr },
         },
-        _ => gen_element_name(&sig.kind, gen),
+        _ => gen_element_name(&sig, gen),
     }
 }
 

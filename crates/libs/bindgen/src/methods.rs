@@ -21,8 +21,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     let interface_name = gen_type_name(def, gen);
 
     let return_type_tokens = if let Some(return_sig) = &signature.return_sig {
-        let tokens = gen_result_sig(return_sig, gen);
-        if return_sig.is_array {
+        let tokens = gen_element_name(return_sig, gen);
+        if return_sig.is_winrt_array() {
             quote! { ::windows::core::Array<#tokens> }
         } else {
             quote! { #tokens }
@@ -32,8 +32,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     };
 
     let return_arg = if let Some(return_sig) = &signature.return_sig {
-        if return_sig.is_array {
-            let return_sig = gen_element_name(&return_sig.kind, gen);
+        if return_sig.is_winrt_array() {
+            let return_sig = gen_element_name(&return_sig, gen);
             quote! { ::windows::core::Array::<#return_sig>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
         } else {
             quote! { &mut result__ }
@@ -50,7 +50,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     };
 
     let (vcall, vcall_none) = if let Some(return_sig) = &signature.return_sig {
-        if return_sig.is_array {
+        if return_sig.is_winrt_array() {
             (
                 quote! {
                     let mut result__: #return_type_tokens = ::core::mem::zeroed();
@@ -177,8 +177,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let params = gen_win32_params(leading_params, gen);
 
             let return_sig = signature.params[signature.params.len() - 1].signature.deref();
-            let return_type_tokens = gen_result_sig(&return_sig, gen);
-            let abi_return_type_tokens = gen_abi_sig(&return_sig, gen);
+            let return_type_tokens = gen_element_name(&return_sig, gen);
+            let abi_return_type_tokens = gen_abi_element_name(&return_sig, gen);
 
             quote! {
                 #cfg
@@ -247,52 +247,44 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
     for (position, param) in params.iter().enumerate() {
         let name = gen_param_name(&param.param);
-        let kind = if param.is_convertible() { format!("Param{}", position).into() } else { gen_param_sig(param, gen) };
+        let kind = if param.is_convertible() { format!("Param{}", position).into() } else { gen_sig(&param.signature, gen) };
         tokens.combine(&quote! { #name: #kind, });
     }
 
     tokens
 }
 
+// TODO: very similar to gen_winrt_produce_type
 pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut result = quote! {};
 
     for (position, param) in params.iter().enumerate() {
         let name = gen_param_name(&param.param);
         let kind = gen_element_name(&param.signature, gen);
+        let default_type = gen_default_type(&param.signature, gen);
 
-        if param.signature.is_array {
-            if param.signature.by_ref {
-                result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
-            } else {
-                let kind = if param.signature.is_generic() {
-                    quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
-                } else if param.signature.is_nullable() {
-                    quote! { ::core::option::Option<#kind> }
-                } else {
-                    kind
-                };
-
-                if param.param.is_input() {
-                    result.combine(&quote! { #name: &[#kind], });
-                } else {
-                    result.combine(&quote! { #name: &mut [#kind], });
-                }
-            }
-        } else if param.param.is_input() {
-            if param.is_convertible() {
+        if param.param.is_input() {
+            if param.signature.is_winrt_array() {
+                result.combine(&quote! { #name: &[#default_type], });
+            } else if param.is_convertible() {
                 let kind: TokenStream = format!("Param{}", position).into();
                 result.combine(&quote! { #name: #kind, });
             } else {
                 result.combine(&quote! { #name: #kind, });
             }
-        } else if param.signature.is_nullable() {
-            result.combine(&quote! { #name: &mut ::core::option::Option<#kind>, });
-        } else if param.signature.is_generic() {
-            result.combine(&quote! { &mut <#kind as ::windows::core::RuntimeType>::DefaultType, });
         } else {
-            result.combine(&quote! { #name: &mut #kind, });
-        };
+            if param.signature.is_winrt_array() {
+                result.combine(&quote! { #name: &mut [#kind], });
+            } else if param.signature.is_winrt_array_ref() {
+                result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
+            } if param.signature.is_nullable() {
+                result.combine(&quote! { #name: &mut ::core::option::Option<#kind>, });
+            } else if param.signature.is_generic() {
+                result.combine(&quote! { &mut <#kind as ::windows::core::RuntimeType>::DefaultType, });
+            } else {
+                result.combine(&quote! { #name: &mut #kind, });
+            }
+        }
     }
 
     result
@@ -311,17 +303,11 @@ pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
 pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
     let name = gen_param_name(&param.param);
 
-    if param.signature.is_array {
-        if param.param.is_input() {
+    if param.param.is_input() {
+        if param.signature.is_winrt_array() {
             quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()) }
-        } else if param.signature.by_ref {
-            quote! { #name.set_abi_len(), #name as *mut _ as _ }
-        } else {
-            quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name) }
-        }
-    } else if param.param.is_input() {
-        if param.is_convertible() {
-            if param.signature.is_const {
+        } else if param.is_convertible() {
+            if param.signature.is_winrt_const_ref() {
                 quote! { &#name.into_param().abi() }
             } else {
                 quote! { #name.into_param().abi() }
@@ -331,9 +317,15 @@ pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
         } else {
             quote! { ::core::mem::transmute_copy(#name) }
         }
-    } else if param.signature.is_blittable() {
-        quote! { #name }
     } else {
-        quote! { #name as *mut _ as _ }
+        if param.signature.is_winrt_array() {
+            quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name) }
+        } else if param.signature.is_winrt_array_ref() {
+            quote! { #name.set_abi_len(), #name as *mut _ as _ }
+        }  else if param.signature.is_blittable() {
+            quote! { #name }
+        } else {
+            quote! { #name as *mut _ as _ }
+        }
     }
 }

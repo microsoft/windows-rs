@@ -87,6 +87,6 @@ impl MethodParam {
     }
 
     pub fn is_convertible(&self) -> bool {
-        self.param.is_input() && !matches!(self.signature, ElementType::WinrtArray(_)) && !self.signature.is_pointer() && self.signature.is_convertible()
+        self.param.is_input() && !self.signature.is_winrt_array() && !self.signature.is_pointer() && self.signature.is_convertible()
     }
 }

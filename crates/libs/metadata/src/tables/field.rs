@@ -30,7 +30,13 @@ impl Field {
         let mut blob = self.0.blob(2);
         blob.read_unsigned();
         blob.read_modifiers();
-        TypeReader::get().signature_from_blob(&mut blob, enclosing, &[]).expect("Field")
+        let def = TypeReader::get().signature_from_blob(&mut blob, enclosing, &[]).expect("Field");
+
+        if self.is_const() {
+            def.to_const()
+        } else {
+            def
+        }
     }
 
     pub fn is_blittable(&self, enclosing: Option<&TypeDef>) -> bool {

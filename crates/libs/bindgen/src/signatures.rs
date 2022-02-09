@@ -1,19 +1,16 @@
 use super::*;
 
+// TODO: replace with gen_default_type?
 pub fn gen_sig(sig: &ElementType, gen: &Gen) -> TokenStream {
-    gen_sig_with_const(sig, gen)
-}
+    let kind = gen_element_name(sig, gen);
 
-pub fn gen_abi_sig(sig: &ElementType, gen: &Gen) -> TokenStream {
-    gen_abi_sig_with_const(sig, gen)
-}
-
-pub fn gen_param_sig(param: &MethodParam, gen: &Gen) -> TokenStream {
-    gen_sig_with_const(&param.signature, gen, !param.param.flags().output())
-}
-
-pub fn gen_abi_param_sig(param: &MethodParam, gen: &Gen) -> TokenStream {
-    gen_abi_sig_with_const(&param.signature, gen, !param.param.flags().output())
+    if sig.is_nullable() && !gen.sys {
+        quote! {
+            ::core::option::Option<#kind>
+        }
+    } else {
+        kind
+    }
 }
 
 // TODO: suspect - check for UDT
@@ -32,7 +29,7 @@ pub fn gen_param_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream {
     for (position, param) in params.iter().enumerate() {
         if param.is_convertible() {
             let name: TokenStream = format!("Param{}", position).into();
-            let into = gen_element_name(&param.signature.kind, gen);
+            let into = gen_element_name(&param.signature, gen);
             tokens.combine(&quote! { #name: ::windows::core::IntoParam<'a, #into>, });
         }
     }
@@ -42,58 +39,4 @@ pub fn gen_param_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream {
     } else {
         tokens
     }
-}
-
-fn gen_abi_sig_with_const(sig: &ElementType, gen: &Gen, is_const: bool) -> TokenStream {
-    let mut tokens = TokenStream::new();
-
-    for _ in 0..sig.pointers {
-        if is_const {
-            tokens.combine(&quote! { *const });
-        } else {
-            tokens.combine(&quote! { *mut });
-        }
-    }
-
-    tokens.combine(&gen_abi_element_name(sig, gen));
-    tokens
-}
-
-pub fn gen_result_sig(sig: &ElementType, gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::new();
-
-    for _ in 0..sig.pointers {
-        if sig.is_const {
-            tokens.combine(&quote! { *const });
-        } else {
-            tokens.combine(&quote! { *mut });
-        }
-    }
-
-    tokens.combine(&gen_element_name(&sig.kind, gen));
-    tokens
-}
-
-fn gen_sig_with_const(sig: &ElementType, gen: &Gen, is_const: bool) -> TokenStream {
-    let mut tokens = TokenStream::new();
-
-    for _ in 0..sig.pointers {
-        if is_const {
-            tokens.combine(&quote! { *const });
-        } else {
-            tokens.combine(&quote! { *mut });
-        }
-    }
-
-    let kind = gen_element_name(&sig.kind, gen);
-
-    if sig.is_nullable() && !gen.sys {
-        tokens.combine(&quote! {
-            ::core::option::Option<#kind>
-        });
-    } else {
-        tokens.combine(&kind)
-    }
-
-    tokens
 }

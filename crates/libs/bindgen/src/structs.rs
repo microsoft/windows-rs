@@ -49,8 +49,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
 
     let fields = def.fields().map(|f| {
         let name = gen_ident(f.name());
-        let mut sig = f.signature(Some(def));
-        sig.is_const = sig.is_const || f.is_const();
+        let sig = f.signature(Some(def));
         let sig = gen_sig(&sig, gen);
 
         if f.is_literal() {

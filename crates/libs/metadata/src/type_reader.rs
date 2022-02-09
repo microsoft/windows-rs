@@ -121,15 +121,15 @@ impl TypeReader {
 
     // TODO: rename since its not longer signature?
     pub fn signature_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[ElementType]) -> Option<ElementType> {
-        let is_const = blob.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
+        let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
 
-        let by_ref = blob.read_expected(0x10);
+        let is_winrt_array_ref = blob.read_expected(0x10);
 
         if blob.read_expected(0x01) {
             return None;
         }
 
-        let is_array = blob.read_expected(0x1D);
+        let is_winrt_array = blob.read_expected(0x1D);
 
         let mut pointers = 0;
 
@@ -140,15 +140,15 @@ impl TypeReader {
         let mut kind = self.type_from_blob(blob, enclosing, generics);
 
         for _ in 0..pointers {
-            kind = ElementType::Pointer(Box::new(kind));
+            kind = ElementType::MutPtr(Box::new(kind));
         }
 
-        Some(if by_ref {
+        Some(if is_winrt_array_ref {
             ElementType::WinrtArrayRef(Box::new(kind))
-        } else if is_array {
+        } else if is_winrt_array {
             ElementType::WinrtArray(Box::new(kind))
-        } else if is_const {
-                ElementType::Const(Box::new(kind))
+        } else if is_winrt_const_ref {
+                ElementType::WinrtConstRef(Box::new(kind))
         } else {
             kind
         })

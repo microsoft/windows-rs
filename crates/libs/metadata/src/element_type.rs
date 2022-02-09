@@ -28,11 +28,12 @@ pub enum ElementType {
     MethodDef(MethodDef),
     Field(Field),
     TypeDef(TypeDef),
-    Const(Box<Self>),
-    Pointer(Box<Self>),
+    MutPtr(Box<Self>),
+    ConstPtr(Box<Self>),
     WinrtArray(Box<Self>),
     WinrtArrayRef(Box<Self>),
     Win32Array((Box<Self>, u32)),
+    WinrtConstRef(Box<Self>),
 }
 
 impl Default for ElementType {
@@ -161,8 +162,7 @@ impl ElementType {
     pub fn is_primitive(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_primitive(),
-            Self::Bool | Self::Char | Self::I8 | Self::U8 | Self::I16 | Self::U16 | Self::I32 | Self::U32 | Self::I64 | Self::U64 | Self::F32 | Self::F64 | Self::ISize | Self::USize | Self::HRESULT => true,
-            Self::Pointer(_) => true,
+            Self::Bool | Self::Char | Self::I8 | Self::U8 | Self::I16 | Self::U16 | Self::I32 | Self::U32 | Self::I64 | Self::U64 | Self::F32 | Self::F64 | Self::ISize | Self::USize | Self::HRESULT | Self::ConstPtr(_) | Self::MutPtr(_) => true,
             _ => false,
         }
     }
@@ -204,25 +204,37 @@ impl ElementType {
 
     pub fn is_pointer(&self) -> bool {
         match self {
-            ElementType::Pointer(_) => true,
-            ElementType::Const(kind) => kind.is_pointer(),
+            ElementType::ConstPtr(_) | ElementType::MutPtr(_) => true,
             _ => false,
         }
     }
 
     pub fn deref(&self) -> Self {
         match self {
-            // TODO: need to unwrap/rewrap Const?
-            ElementType::Pointer(kind) => *kind.clone(),
+            ElementType::ConstPtr(kind) => *kind.clone(),
+            ElementType::MutPtr(kind) => *kind.clone(),
             _ => unimplemented!(),
         }
     }
 
+    // TODO: Make this own?
     pub fn to_const(&self) -> Self {
         match self {
-            ElementType::Const(_) => self.clone(),
-            _ => ElementType::Const(Box::new(self.clone()))
+            ElementType::MutPtr(kind) => ElementType::ConstPtr(Box::new(kind.to_const())),
+            _ => self.clone()
         }
+    }
+
+    pub fn is_winrt_array(&self) -> bool {
+        matches!(self, ElementType::WinrtArray(_))
+    }
+
+    pub fn is_winrt_array_ref(&self) -> bool {
+        matches!(self, ElementType::WinrtArrayRef(_))
+    }
+
+    pub fn is_winrt_const_ref(&self) -> bool {
+        matches!(self, ElementType::WinrtConstRef(_))
     }
 
     #[must_use]
