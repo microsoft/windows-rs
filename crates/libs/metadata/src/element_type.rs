@@ -210,6 +210,14 @@ impl ElementType {
         }
     }
 
+    pub fn is_void(&self) -> bool {
+        match self {
+            ElementType::ConstPtr(kind) | ElementType::MutPtr(kind) => kind.is_void(),
+            ElementType::Void => true,
+            _ => false,
+        }
+    }
+
     pub fn deref(&self) -> Self {
         match self {
             ElementType::ConstPtr(kind) => *kind.clone(),

@@ -66,9 +66,13 @@ impl MethodSignature {
 
 impl MethodParam {
     fn is_retval(&self) -> bool {
-        // TODO: why aren't we just using the retval flag?
+        // TODO: why aren't we just using the retval flag? This is super brittle.
 
         if !self.signature.is_pointer() {
+            return false;
+        }
+
+        if self.signature.is_void() {
             return false;
         }
 
@@ -80,7 +84,6 @@ impl MethodParam {
         }
 
         match &self.signature {
-            ElementType::Void => false,
             ElementType::TypeDef(def) => def.kind() != TypeKind::Delegate,
             _ => true,
         }
