@@ -221,6 +221,9 @@ pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
             let kind = gen_abi_element_name(kind, gen);
             quote! { *const #kind }
         }
+        // TODO: should these handle more?
+        ElementType::WinrtArray(kind) => gen_abi_element_name(kind, gen),
+        ElementType::WinrtArrayRef(kind) => gen_abi_element_name(kind, gen),
         _ => gen_element_name(&sig, gen),
     }
 }
