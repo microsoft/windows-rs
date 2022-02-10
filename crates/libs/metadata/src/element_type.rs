@@ -1,6 +1,6 @@
 use super::*;
 
-// TODO: rename to Signature?
+// TODO: rename to "Signature?"
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
 pub enum ElementType {
     Void,
@@ -23,7 +23,7 @@ pub enum ElementType {
     IUnknown,
     IInspectable,
     HRESULT,
-    TypeName,
+    TypeName, // Used for parsing attribute blobs
     GenericParam(String), // TODO: can be &'static str?
     MethodDef(MethodDef),
     Field(Field),

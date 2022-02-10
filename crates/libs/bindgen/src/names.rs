@@ -180,7 +180,8 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
         // TODO: should these handle more?
         ElementType::WinrtArray(kind) => gen_element_name(kind, gen),
         ElementType::WinrtArrayRef(kind) => gen_element_name(kind, gen),
-        _ => unimplemented!(),
+        ElementType::WinrtConstRef(kind) => gen_element_name(kind, gen),
+        ElementType::TypeName => unimplemented!(),
     }
 }
 

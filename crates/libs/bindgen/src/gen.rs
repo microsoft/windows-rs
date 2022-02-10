@@ -129,6 +129,8 @@ impl Gen<'_> {
             ElementType::Win32Array((kind, _)) => self.element_requirements(kind, namespaces, keys),
             ElementType::ConstPtr(kind) => self.element_requirements(kind, namespaces, keys),
             ElementType::MutPtr(kind) => self.element_requirements(kind, namespaces, keys),
+            ElementType::WinrtArray(kind) => self.element_requirements(kind, namespaces, keys),
+            ElementType::WinrtArrayRef(kind) => self.element_requirements(kind, namespaces, keys),
             _ => {}
         }
     }

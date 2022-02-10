@@ -143,12 +143,14 @@ impl TypeReader {
             kind = ElementType::MutPtr(Box::new(kind));
         }
 
-        Some(if is_winrt_array_ref {
-            ElementType::WinrtArrayRef(Box::new(kind))
-        } else if is_winrt_array {
-            ElementType::WinrtArray(Box::new(kind))
+        Some(if is_winrt_array {
+            if is_winrt_array_ref {
+                ElementType::WinrtArrayRef(Box::new(kind))
+            } else {
+                ElementType::WinrtArray(Box::new(kind))
+            }
         } else if is_winrt_const_ref {
-                ElementType::WinrtConstRef(Box::new(kind))
+            ElementType::WinrtConstRef(Box::new(kind))
         } else {
             kind
         })
