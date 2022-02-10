@@ -170,11 +170,12 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
         ElementType::Field(field) => field.name().into(),
         ElementType::TypeDef(t) => gen_type_name(t, gen),
         ElementType::MutPtr(kind) => {
-            let kind = gen_element_name(kind, gen);
+            let kind = gen_default_type(kind, gen);
             quote! { *mut #kind }
         }
         ElementType::ConstPtr(kind) => {
-            let kind = gen_element_name(kind, gen);
+            // TODO: does it need the default here?
+            let kind = gen_default_type(kind, gen);
             quote! { *const #kind }
         }
         // TODO: should these handle more?
