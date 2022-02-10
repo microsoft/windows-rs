@@ -65,6 +65,6 @@ mod tests {
         assert_eq!(f.len(), 4);
 
         let s = f[0].signature(None);
-        assert!(s.kind == ElementType::F32);
+        assert!(s == ElementType::F32);
     }
 }

@@ -83,10 +83,8 @@ impl MethodParam {
             return false;
         }
 
-        match &self.signature {
-            ElementType::TypeDef(def) => def.kind() != TypeKind::Delegate,
-            _ => true,
-        }
+        // TODO: why exclude callbacks?
+        !self.signature.is_callback()
     }
 
     pub fn is_convertible(&self) -> bool {

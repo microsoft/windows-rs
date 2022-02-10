@@ -148,6 +148,7 @@ impl ElementType {
 
     pub fn is_callback(&self) -> bool {
         match self {
+            ElementType::ConstPtr(kind) | ElementType::MutPtr(kind) => kind.is_callback(),
             Self::TypeDef(def) => def.is_callback(),
             _ => false,
         }
