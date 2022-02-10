@@ -126,7 +126,9 @@ impl Gen<'_> {
         // TODO: this should just be def.requirements()
         match def {
             ElementType::TypeDef(def) => self.type_requirements(def, namespaces, keys),
-            ElementType::Win32Array((signature, _)) => self.element_requirements(signature, namespaces, keys),
+            ElementType::Win32Array((kind, _)) => self.element_requirements(kind, namespaces, keys),
+            ElementType::ConstPtr(kind) => self.element_requirements(kind, namespaces, keys),
+            ElementType::MutPtr(kind) => self.element_requirements(kind, namespaces, keys),
             _ => {}
         }
     }
