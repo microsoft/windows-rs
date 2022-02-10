@@ -141,6 +141,7 @@ impl ElementType {
         match self {
             Self::TypeDef(t) => t.is_convertible(),
             Self::String | Self::IInspectable | Self::GUID | Self::IUnknown | Self::GenericParam(_) => true,
+            Self::WinrtConstRef(kind) => kind.is_convertible(),
             _ => false,
         }
     }
