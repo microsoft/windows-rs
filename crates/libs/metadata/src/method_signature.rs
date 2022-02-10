@@ -26,7 +26,7 @@ impl MethodSignature {
                         let guid = &self.params[self.params.len() - 2];
                         let object = &self.params[self.params.len() - 1];
 
-                        if guid.signature == ElementType::GUID && !guid.param.flags().output() && object.signature == ElementType::Void && object.param.is_com_out_ptr() {
+                        if guid.signature == ElementType::ConstPtr(Box::new(ElementType::GUID)) && !guid.param.flags().output() && object.signature == ElementType::MutPtr(Box::new(ElementType::MutPtr(Box::new(ElementType::Void)))) && object.param.is_com_out_ptr() {
                             if object.param.is_optional() {
                                 return SignatureKind::QueryOptional;
                             } else {
