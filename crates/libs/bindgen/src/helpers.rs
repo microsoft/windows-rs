@@ -121,12 +121,11 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
     let params = signature.params.iter().map(|p| {
         let name = gen_param_name(&p.param);
         if is_winrt {
-            let signature = &p.signature;
-            let abi = gen_abi_element_name(signature, gen);
+            let abi = gen_abi_element_name(&p.signature, gen);
             let abi_size_name = gen_ident(&format!("{}_array_size", p.param.name()));
 
             if p.param.is_input() {
-                if signature.is_winrt_array() {
+                if p.signature.is_winrt_array() {
                     quote! { #abi_size_name: u32, #name: *const #abi, }
                 } else if p.signature.is_winrt_const_ref() {
                     quote! { #name: &#abi, }
@@ -134,7 +133,7 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
                     quote! { #name: #abi, }
                 }
             } else {
-                if signature.is_winrt_array() {
+                if p.signature.is_winrt_array() {
                     quote! { #abi_size_name: u32, #name: *mut #abi, }
                 } else if p.signature.is_winrt_array_ref() {
                     quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi, }
