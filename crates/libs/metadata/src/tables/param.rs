@@ -25,6 +25,7 @@ impl Param {
     }
 
     pub fn is_input(&self) -> bool {
+        // TODO: this needs to be !output test.
         self.flags().input()
     }
 
