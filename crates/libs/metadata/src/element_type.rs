@@ -23,7 +23,7 @@ pub enum ElementType {
     IUnknown,
     IInspectable,
     HRESULT,
-    TypeName, // Used for parsing attribute blobs
+    TypeName,             // Used for parsing attribute blobs
     GenericParam(String), // TODO: can be &'static str?
     MethodDef(MethodDef),
     Field(Field),
@@ -205,10 +205,7 @@ impl ElementType {
     }
 
     pub fn is_pointer(&self) -> bool {
-        match self {
-            ElementType::ConstPtr(_) | ElementType::MutPtr(_) => true,
-            _ => false,
-        }
+        matches!(self, ElementType::ConstPtr(_) | ElementType::MutPtr(_))
     }
 
     pub fn is_void(&self) -> bool {
@@ -231,7 +228,7 @@ impl ElementType {
     pub fn to_const(&self) -> Self {
         match self {
             ElementType::MutPtr(kind) => ElementType::ConstPtr(Box::new(kind.to_const())),
-            _ => self.clone()
+            _ => self.clone(),
         }
     }
 

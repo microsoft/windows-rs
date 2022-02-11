@@ -231,7 +231,7 @@ fn gen_abi_element_name_impl(sig: &ElementType, ptr: bool, gen: &Gen) -> TokenSt
         // TODO: should these handle more?
         ElementType::WinrtArray(kind) => gen_abi_element_name_impl(kind, ptr, gen),
         ElementType::WinrtArrayRef(kind) => gen_abi_element_name_impl(kind, ptr, gen),
-        _ => gen_element_name(&sig, gen),
+        _ => gen_element_name(sig, gen),
     }
 }
 

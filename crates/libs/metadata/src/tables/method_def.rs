@@ -112,11 +112,8 @@ impl MethodDef {
                 } else {
                     let signature = reader.signature_from_blob(&mut blob, None, generics).expect("MethodDef");
 
-                    let signature = if !param.flags().output() {
-                        signature.to_const()
-                    } else {
-                        signature
-                    };
+                    // TODO: why not param.is_input
+                    let signature = if !param.flags().output() { signature.to_const() } else { signature };
 
                     Some(MethodParam { param, signature })
                 }
