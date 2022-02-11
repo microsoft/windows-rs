@@ -212,7 +212,7 @@ fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenS
                 let name = f.name();
                 let ident = gen_ident(name);
                 let signature = f.signature(Some(def));
-                if signature.is_callback() {
+                if !signature.is_pointer() && signature.is_callback() {
                     quote! { .field(#name, &self.#ident.map(|f| f as usize)) }
                 } else if signature.is_callback_array() {
                     quote! {}

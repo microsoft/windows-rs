@@ -187,6 +187,11 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
+    gen_abi_element_name_impl(sig, false, gen)
+}
+
+// TODO: this is only because we're trying to avoid the ManuallyDrop below - I don't think that matters so may want to scrap this once we have parity.
+fn gen_abi_element_name_impl(sig: &ElementType, ptr: bool, gen: &Gen) -> TokenStream {
     match sig {
         ElementType::String => {
             quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
@@ -195,7 +200,7 @@ pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
             quote! { *mut ::core::ffi::c_void }
         }
         ElementType::Win32Array((kind, len)) => {
-            let name = gen_abi_element_name(kind, gen);
+            let name = gen_abi_element_name_impl(kind, ptr, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
@@ -207,7 +212,7 @@ pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
             TypeKind::Enum => gen_type_name(def, gen),
             TypeKind::Struct => {
                 let tokens = gen_type_name(def, gen);
-                if def.is_blittable() || sig.is_pointer() {
+                if def.is_blittable() || ptr {
                     tokens
                 } else {
                     quote! { ::core::mem::ManuallyDrop<#tokens> }
@@ -216,16 +221,16 @@ pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
             _ => quote! { ::windows::core::RawPtr },
         },
         ElementType::MutPtr(kind) => {
-            let kind = gen_abi_element_name(kind, gen);
+            let kind = gen_abi_element_name_impl(kind, true, gen);
             quote! { *mut #kind }
         }
         ElementType::ConstPtr(kind) => {
-            let kind = gen_abi_element_name(kind, gen);
+            let kind = gen_abi_element_name_impl(kind, true, gen);
             quote! { *const #kind }
         }
         // TODO: should these handle more?
-        ElementType::WinrtArray(kind) => gen_abi_element_name(kind, gen),
-        ElementType::WinrtArrayRef(kind) => gen_abi_element_name(kind, gen),
+        ElementType::WinrtArray(kind) => gen_abi_element_name_impl(kind, ptr, gen),
+        ElementType::WinrtArrayRef(kind) => gen_abi_element_name_impl(kind, ptr, gen),
         _ => gen_element_name(&sig, gen),
     }
 }

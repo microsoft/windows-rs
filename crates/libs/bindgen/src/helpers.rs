@@ -509,7 +509,7 @@ pub fn gen_default_type(def: &ElementType, gen: &Gen) -> TokenStream {
 
         if def.is_generic() {
             quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
-        } else if def.is_nullable() {
+        } else if def.is_nullable() && !gen.sys {
             quote! { ::core::option::Option<#kind> }
         } else {
             kind
