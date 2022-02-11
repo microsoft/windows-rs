@@ -145,7 +145,7 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let mut tokens = quote! {};
 
-    for def in &[Signature::IUnknown, Signature::IInspectable] {
+    for def in &[Type::IUnknown, Type::IInspectable] {
         let into = gen_element_name(def, gen);
         let cfg = cfg.gen(gen);
         tokens.combine(&quote! {

@@ -92,7 +92,7 @@ impl MethodDef {
         self.0.file.equal_range(TableIndex::ImplMap, 1, MemberForwarded::MethodDef(self.clone()).encode()).map(ImplMap).next()
     }
 
-    pub fn signature(&self, generics: &[Signature]) -> MethodSignature {
+    pub fn signature(&self, generics: &[Type]) -> MethodSignature {
         let reader = TypeReader::get();
         let params = self.params();
 

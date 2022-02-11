@@ -29,28 +29,28 @@ impl Attribute {
 
         for _ in 0..fixed_arg_count {
             let arg = match reader.type_from_blob(&mut sig, None, &[]) {
-                Signature::I8 => ConstantValue::I8(values.read_i8()),
-                Signature::U8 => ConstantValue::U8(values.read_u8()),
-                Signature::I16 => ConstantValue::I16(values.read_i16()),
-                Signature::U16 => ConstantValue::U16(values.read_u16()),
-                Signature::I32 => ConstantValue::I32(values.read_i32()),
-                Signature::U32 => ConstantValue::U32(values.read_u32()),
-                Signature::I64 => ConstantValue::I64(values.read_i64()),
-                Signature::U64 => ConstantValue::U64(values.read_u64()),
-                Signature::String => ConstantValue::String(values.read_str().to_string()),
-                Signature::TypeName => {
+                Type::I8 => ConstantValue::I8(values.read_i8()),
+                Type::U8 => ConstantValue::U8(values.read_u8()),
+                Type::I16 => ConstantValue::I16(values.read_i16()),
+                Type::U16 => ConstantValue::U16(values.read_u16()),
+                Type::I32 => ConstantValue::I32(values.read_i32()),
+                Type::U32 => ConstantValue::U32(values.read_u32()),
+                Type::I64 => ConstantValue::I64(values.read_i64()),
+                Type::U64 => ConstantValue::U64(values.read_u64()),
+                Type::String => ConstantValue::String(values.read_str().to_string()),
+                Type::TypeName => {
                     let name = values.read_str();
                     ConstantValue::TypeDef(reader.expect_type_def(TypeName::parse(name)).clone())
                 }
-                Signature::TypeDef(def) => match def.underlying_type() {
-                    Signature::I8 => ConstantValue::I8(values.read_i8()),
-                    Signature::U8 => ConstantValue::U8(values.read_u8()),
-                    Signature::I16 => ConstantValue::I16(values.read_i16()),
-                    Signature::U16 => ConstantValue::U16(values.read_u16()),
-                    Signature::I32 => ConstantValue::I32(values.read_i32()),
-                    Signature::U32 => ConstantValue::U32(values.read_u32()),
-                    Signature::I64 => ConstantValue::I64(values.read_i64()),
-                    Signature::U64 => ConstantValue::U64(values.read_u64()),
+                Type::TypeDef(def) => match def.underlying_type() {
+                    Type::I8 => ConstantValue::I8(values.read_i8()),
+                    Type::U8 => ConstantValue::U8(values.read_u8()),
+                    Type::I16 => ConstantValue::I16(values.read_i16()),
+                    Type::U16 => ConstantValue::U16(values.read_u16()),
+                    Type::I32 => ConstantValue::I32(values.read_i32()),
+                    Type::U32 => ConstantValue::U32(values.read_u32()),
+                    Type::I64 => ConstantValue::I64(values.read_i64()),
+                    Type::U64 => ConstantValue::U64(values.read_u64()),
                     _ => unimplemented!(),
                 },
                 _ => unimplemented!(),

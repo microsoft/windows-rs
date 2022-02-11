@@ -54,8 +54,8 @@ fn load_functions(tree: &TypeTree, libraries: &mut BTreeMap<String, BTreeMap<&'s
     tree.namespaces.values().for_each(|tree| load_functions(tree, libraries));
 }
 
-fn load_function(def: &Signature, libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>) {
-    if let Signature::MethodDef(def) = def {
+fn load_function(def: &Type, libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>) {
+    if let Type::MethodDef(def) = def {
         let library = def.impl_map().expect("Function").scope().name().to_lowercase();
 
         let params = def.signature(&[]).size();

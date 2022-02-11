@@ -24,7 +24,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
     if def.fields().next().is_none() {
         if let Some(guid) = GUID::from_attributes(def.attributes()) {
             let value = gen_guid(&guid, gen);
-            let guid = gen_element_name(&Signature::GUID, gen);
+            let guid = gen_element_name(&Type::GUID, gen);
             return quote! { pub const #name: #guid = #value; };
         } else if name.as_str().ends_with("Vtbl") {
             // This just omits some useless struct declarations like `IDDVideoPortContainerVtbl`

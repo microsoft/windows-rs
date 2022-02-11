@@ -26,8 +26,8 @@ impl Field {
         self.0.file.attributes(HasAttribute::Field(self.clone()))
     }
 
-    // TODO: all the references to "signature" should be changed to something... ore just rename Signature to Signature.
-    pub fn signature(&self, enclosing: Option<&TypeDef>) -> Signature {
+    // TODO: all the references to "signature" should be changed to something... ore just rename Type to Type.
+    pub fn signature(&self, enclosing: Option<&TypeDef>) -> Type {
         let mut blob = self.0.blob(2);
         blob.read_unsigned();
         blob.read_modifiers();
@@ -65,6 +65,6 @@ mod tests {
         assert_eq!(f.len(), 4);
 
         let s = f[0].signature(None);
-        assert!(s == Signature::F32);
+        assert!(s == Type::F32);
     }
 }

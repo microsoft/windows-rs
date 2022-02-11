@@ -44,8 +44,8 @@ impl Gen<'_> {
         }
     }
 
-    pub(crate) fn element_cfg(&self, def: &Signature) -> Cfg {
-        if let Signature::TypeDef(def) = def {
+    pub(crate) fn element_cfg(&self, def: &Type) -> Cfg {
+        if let Type::TypeDef(def) = def {
             self.type_cfg(def)
         } else {
             Default::default()
@@ -70,7 +70,7 @@ impl Gen<'_> {
         self.type_and_method_requirements(def, &mut features, &mut keys);
 
         for def in def.vtable_types() {
-            if let Signature::TypeDef(def) = def {
+            if let Type::TypeDef(def) = def {
                 self.type_and_method_requirements(&def, &mut features, &mut keys);
             }
         }
@@ -122,15 +122,15 @@ impl Gen<'_> {
     }
 
     // TODO: move to windows-metadata
-    fn element_requirements(&self, def: &Signature, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
+    fn element_requirements(&self, def: &Type, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
         // TODO: this should just be def.requirements()
         match def {
-            Signature::TypeDef(def) => self.type_requirements(def, namespaces, keys),
-            Signature::Win32Array((kind, _)) => self.element_requirements(kind, namespaces, keys),
-            Signature::ConstPtr((kind, _)) => self.element_requirements(kind, namespaces, keys),
-            Signature::MutPtr((kind, _)) => self.element_requirements(kind, namespaces, keys),
-            Signature::WinrtArray(kind) => self.element_requirements(kind, namespaces, keys),
-            Signature::WinrtArrayRef(kind) => self.element_requirements(kind, namespaces, keys),
+            Type::TypeDef(def) => self.type_requirements(def, namespaces, keys),
+            Type::Win32Array((kind, _)) => self.element_requirements(kind, namespaces, keys),
+            Type::ConstPtr((kind, _)) => self.element_requirements(kind, namespaces, keys),
+            Type::MutPtr((kind, _)) => self.element_requirements(kind, namespaces, keys),
+            Type::WinrtArray(kind) => self.element_requirements(kind, namespaces, keys),
+            Type::WinrtArrayRef(kind) => self.element_requirements(kind, namespaces, keys),
             _ => {}
         }
     }
@@ -155,7 +155,7 @@ impl Gen<'_> {
             TypeKind::Interface => {
                 if !def.is_winrt() {
                     for def in def.vtable_types() {
-                        if let Signature::TypeDef(def) = def {
+                        if let Type::TypeDef(def) = def {
                             self.add_namespace(def.namespace(), namespaces);
                         }
                     }
@@ -170,7 +170,7 @@ impl Gen<'_> {
 
         if let Some(entry) = TypeReader::get().get_type_entry(def.type_name()) {
             for def in entry {
-                if let Signature::TypeDef(def) = def {
+                if let Type::TypeDef(def) = def {
                     self.type_requirements(def, namespaces, keys);
                 }
             }

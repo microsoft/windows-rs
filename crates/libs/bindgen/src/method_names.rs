@@ -20,7 +20,7 @@ impl MethodNames {
 
     pub fn add_vtable_types(&mut self, def: &TypeDef) {
         for def in def.vtable_types() {
-            if let Signature::TypeDef(def) = def {
+            if let Type::TypeDef(def) = def {
                 for method in def.methods() {
                     self.add(&method);
                 }

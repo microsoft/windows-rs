@@ -1,7 +1,7 @@
 use super::*;
 
 // TODO: replace with gen_default_type?
-pub fn gen_sig(sig: &Signature, gen: &Gen) -> TokenStream {
+pub fn gen_sig(sig: &Type, gen: &Gen) -> TokenStream {
     let kind = gen_element_name(sig, gen);
 
     if sig.is_nullable() && !gen.sys {

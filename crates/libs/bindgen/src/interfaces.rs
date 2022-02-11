@@ -72,8 +72,8 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
     for def in vtable_types {
         match def {
-            Signature::IUnknown | Signature::IInspectable => {}
-            Signature::TypeDef(def) => {
+            Type::IUnknown | Type::IInspectable => {}
+            Type::TypeDef(def) => {
                 methods.combine(&gen_methods_impl(&def, InterfaceKind::Default, &mut method_names, &mut virtual_names, bases, gen));
             }
             _ => unimplemented!(),

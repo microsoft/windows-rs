@@ -38,11 +38,11 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_function_if(entry: &[Signature], gen: &Gen) -> TokenStream {
+fn gen_function_if(entry: &[Type], gen: &Gen) -> TokenStream {
     let mut tokens = TokenStream::new();
 
     for def in entry {
-        if let Signature::MethodDef(def) = def {
+        if let Type::MethodDef(def) = def {
             tokens.combine(&gen_sys_function(def, gen));
         }
     }

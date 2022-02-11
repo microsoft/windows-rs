@@ -123,66 +123,66 @@ pub fn gen_param_name(param: &Param) -> TokenStream {
     gen_ident(&param.name().to_lowercase())
 }
 
-pub fn gen_element_name(def: &Signature, gen: &Gen) -> TokenStream {
+pub fn gen_element_name(def: &Type, gen: &Gen) -> TokenStream {
     match def {
-        Signature::Void => quote! { ::core::ffi::c_void },
-        Signature::Bool => quote! { bool },
-        Signature::Char => quote! { u16 },
-        Signature::I8 => quote! { i8 },
-        Signature::U8 => quote! { u8 },
-        Signature::I16 => quote! { i16 },
-        Signature::U16 => quote! { u16 },
-        Signature::I32 => quote! { i32 },
-        Signature::U32 => quote! { u32 },
-        Signature::I64 => quote! { i64 },
-        Signature::U64 => quote! { u64 },
-        Signature::F32 => quote! { f32 },
-        Signature::F64 => quote! { f64 },
-        Signature::ISize => quote! { isize },
-        Signature::USize => quote! { usize },
-        Signature::String => {
+        Type::Void => quote! { ::core::ffi::c_void },
+        Type::Bool => quote! { bool },
+        Type::Char => quote! { u16 },
+        Type::I8 => quote! { i8 },
+        Type::U8 => quote! { u8 },
+        Type::I16 => quote! { i16 },
+        Type::U16 => quote! { u16 },
+        Type::I32 => quote! { i32 },
+        Type::U32 => quote! { u32 },
+        Type::I64 => quote! { i64 },
+        Type::U64 => quote! { u64 },
+        Type::F32 => quote! { f32 },
+        Type::F64 => quote! { f64 },
+        Type::ISize => quote! { isize },
+        Type::USize => quote! { usize },
+        Type::String => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::HSTRING }
         }
-        Signature::IInspectable => {
+        Type::IInspectable => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::IInspectable }
         }
-        Signature::GUID => {
+        Type::GUID => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::GUID }
         }
-        Signature::IUnknown => {
+        Type::IUnknown => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::IUnknown }
         }
-        Signature::HRESULT => {
+        Type::HRESULT => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::HRESULT }
         }
-        Signature::Win32Array((kind, len)) => {
+        Type::Win32Array((kind, len)) => {
             let name = gen_sig(kind, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
-        Signature::GenericParam(generic) => generic.into(),
-        Signature::MethodDef(def) => def.name().into(),
-        Signature::Field(field) => field.name().into(),
-        Signature::TypeDef(t) => gen_type_name(t, gen),
-        Signature::MutPtr((kind, pointers)) => {
+        Type::GenericParam(generic) => generic.into(),
+        Type::MethodDef(def) => def.name().into(),
+        Type::Field(field) => field.name().into(),
+        Type::TypeDef(t) => gen_type_name(t, gen),
+        Type::MutPtr((kind, pointers)) => {
             let pointers = gen_mut_ptrs(*pointers);
             let kind = gen_default_type(kind, gen);
             quote! { #pointers #kind }
         }
-        Signature::ConstPtr((kind, pointers)) => {
+        Type::ConstPtr((kind, pointers)) => {
             let pointers = gen_const_ptrs(*pointers);
             let kind = gen_default_type(kind, gen);
             quote! { #pointers #kind }
         }
-        Signature::WinrtArray(kind) => gen_element_name(kind, gen),
-        Signature::WinrtArrayRef(kind) => gen_element_name(kind, gen),
-        Signature::WinrtConstRef(kind) => gen_element_name(kind, gen),
-        Signature::TypeName => unimplemented!(),
+        Type::WinrtArray(kind) => gen_element_name(kind, gen),
+        Type::WinrtArrayRef(kind) => gen_element_name(kind, gen),
+        Type::WinrtConstRef(kind) => gen_element_name(kind, gen),
+        Type::TypeName => unimplemented!(),
     }
 }
 
@@ -194,29 +194,29 @@ fn gen_const_ptrs(pointers: usize) -> TokenStream {
     "*const ".repeat(pointers).into()
 }
 
-pub fn gen_abi_element_name(sig: &Signature, gen: &Gen) -> TokenStream {
+pub fn gen_abi_element_name(sig: &Type, gen: &Gen) -> TokenStream {
     gen_abi_element_name_impl(sig, false, gen)
 }
 
 // TODO: this is only because we're trying to avoid the ManuallyDrop below - I don't think that matters so may want to scrap this once we have parity.
-fn gen_abi_element_name_impl(sig: &Signature, ptr: bool, gen: &Gen) -> TokenStream {
+fn gen_abi_element_name_impl(sig: &Type, ptr: bool, gen: &Gen) -> TokenStream {
     match sig {
-        Signature::String => {
+        Type::String => {
             quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
         }
-        Signature::IUnknown | Signature::IInspectable => {
+        Type::IUnknown | Type::IInspectable => {
             quote! { *mut ::core::ffi::c_void }
         }
-        Signature::Win32Array((kind, len)) => {
+        Type::Win32Array((kind, len)) => {
             let name = gen_abi_element_name_impl(kind, ptr, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
-        Signature::GenericParam(generic) => {
+        Type::GenericParam(generic) => {
             let name = gen_ident(generic);
             quote! { <#name as ::windows::core::Abi>::Abi }
         }
-        Signature::TypeDef(def) => match def.kind() {
+        Type::TypeDef(def) => match def.kind() {
             TypeKind::Enum => gen_type_name(def, gen),
             TypeKind::Struct => {
                 let tokens = gen_type_name(def, gen);
@@ -228,18 +228,18 @@ fn gen_abi_element_name_impl(sig: &Signature, ptr: bool, gen: &Gen) -> TokenStre
             }
             _ => quote! { ::windows::core::RawPtr },
         },
-        Signature::MutPtr((kind, pointers)) => {
+        Type::MutPtr((kind, pointers)) => {
             let pointers = gen_mut_ptrs(*pointers);
             let kind = gen_abi_element_name_impl(kind, true, gen);
             quote! { #pointers #kind }
         }
-        Signature::ConstPtr((kind, pointers)) => {
+        Type::ConstPtr((kind, pointers)) => {
             let pointers = gen_const_ptrs(*pointers);
             let kind = gen_abi_element_name_impl(kind, true, gen);
             quote! { #pointers #kind }
         }
-        Signature::WinrtArray(kind) => gen_abi_element_name_impl(kind, ptr, gen),
-        Signature::WinrtArrayRef(kind) => gen_abi_element_name_impl(kind, ptr, gen),
+        Type::WinrtArray(kind) => gen_abi_element_name_impl(kind, ptr, gen),
+        Type::WinrtArrayRef(kind) => gen_abi_element_name_impl(kind, ptr, gen),
         _ => gen_element_name(sig, gen),
     }
 }

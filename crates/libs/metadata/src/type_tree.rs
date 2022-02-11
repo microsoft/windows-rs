@@ -5,7 +5,7 @@ pub use std::collections::BTreeMap;
 // the code gen to be stable.
 pub struct TypeTree {
     pub namespace: &'static str,
-    pub types: BTreeMap<&'static str, Vec<Signature>>,
+    pub types: BTreeMap<&'static str, Vec<Type>>,
     pub namespaces: BTreeMap<&'static str, TypeTree>,
 }
 
@@ -23,11 +23,11 @@ impl TypeTree {
         }
     }
 
-    pub fn insert_type(&mut self, name: &'static str, def: Signature) {
+    pub fn insert_type(&mut self, name: &'static str, def: Type) {
         self.types.entry(name).or_default().push(def);
     }
 
-    pub fn get_type(&self, name: &str) -> Option<&Vec<Signature>> {
+    pub fn get_type(&self, name: &str) -> Option<&Vec<Type>> {
         self.types.get(name)
     }
 

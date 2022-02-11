@@ -79,7 +79,7 @@ pub fn gen_namespace_impl(gen: &Gen) -> String {
 
     for entry in tree.types.values() {
         for def in entry {
-            if let Signature::TypeDef(def) = def {
+            if let Type::TypeDef(def) = def {
                 let def = &def.clone().with_generics();
                 tokens.combine(&implements::gen(def, gen));
             }
@@ -101,10 +101,10 @@ fn gen_non_sys_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_type_impl(def: &Signature, gen: &Gen) -> TokenStream {
+fn gen_type_impl(def: &Type, gen: &Gen) -> TokenStream {
     match def {
-        Signature::Field(def) => constants::gen(def, gen),
-        Signature::TypeDef(def) => {
+        Type::Field(def) => constants::gen(def, gen),
+        Type::TypeDef(def) => {
             let def = &def.clone().with_generics();
             match def.kind() {
                 TypeKind::Class => classes::gen(def, gen),
@@ -120,7 +120,7 @@ fn gen_type_impl(def: &Signature, gen: &Gen) -> TokenStream {
                 }
             }
         }
-        Signature::MethodDef(def) => {
+        Type::MethodDef(def) => {
             if !gen.sys {
                 gen_function(def, gen)
             } else {

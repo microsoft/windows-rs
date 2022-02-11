@@ -2,7 +2,7 @@ use super::*;
 
 pub struct MethodSignature {
     pub params: Vec<MethodParam>,
-    pub return_sig: Option<Signature>,
+    pub return_sig: Option<Type>,
     pub return_param: Option<Param>,
     pub preserve_sig: bool,
 }
@@ -10,7 +10,7 @@ pub struct MethodSignature {
 #[derive(Clone)]
 pub struct MethodParam {
     pub param: Param,
-    pub signature: Signature,
+    pub signature: Type,
 }
 
 impl MethodSignature {
@@ -21,12 +21,12 @@ impl MethodSignature {
 
         if let Some(return_sig) = &self.return_sig {
             match return_sig {
-                Signature::HRESULT => {
+                Type::HRESULT => {
                     if self.params.len() >= 2 {
                         let guid = &self.params[self.params.len() - 2];
                         let object = &self.params[self.params.len() - 1];
 
-                        if guid.signature == Signature::ConstPtr((Box::new(Signature::GUID), 1)) && !guid.param.flags().output() && object.signature == Signature::MutPtr((Box::new(Signature::Void), 2)) && object.param.is_com_out_ptr() {
+                        if guid.signature == Type::ConstPtr((Box::new(Type::GUID), 1)) && !guid.param.flags().output() && object.signature == Type::MutPtr((Box::new(Type::Void), 2)) && object.param.is_com_out_ptr() {
                             if object.param.is_optional() {
                                 return SignatureKind::QueryOptional;
                             } else {
@@ -46,7 +46,7 @@ impl MethodSignature {
 
                     return SignatureKind::ResultVoid;
                 }
-                Signature::TypeDef(def) if def.type_name() == TypeName::NTSTATUS => {
+                Type::TypeDef(def) if def.type_name() == TypeName::NTSTATUS => {
                     return SignatureKind::ResultVoid;
                 }
                 _ if return_sig.is_udt() => {

@@ -38,7 +38,7 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
         }
     } else if let Some(guid) = GUID::from_attributes(def.attributes()) {
         let value = gen_guid(&guid, gen);
-        let guid = gen_element_name(&Signature::GUID, gen);
+        let guid = gen_element_name(&Type::GUID, gen);
         quote! { pub const #name: #guid = #value; }
     } else if let Some((guid, id)) = get_property_key(def.attributes()) {
         let kind = gen_sig(&signature, gen);

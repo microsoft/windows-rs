@@ -25,7 +25,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut matches = quote! { iid == &<#type_ident<#(#generics)*> as ::windows::core::Interface>::IID };
 
     for def in def.vtable_types() {
-        if let Signature::TypeDef(def) = def {
+        if let Type::TypeDef(def) = def {
             requires.combine(&gen_required_trait(&def, gen));
 
             let name = gen_ident(def.name());
@@ -87,9 +87,9 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut methods = quote! {};
 
     match def.vtable_types().last() {
-        Some(Signature::IUnknown) => methods.combine(&quote! { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), }),
-        Some(Signature::IInspectable) => methods.combine(&quote! { base: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, OFFSET>(), }),
-        Some(Signature::TypeDef(def)) => {
+        Some(Type::IUnknown) => methods.combine(&quote! { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), }),
+        Some(Type::IInspectable) => methods.combine(&quote! { base: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, OFFSET>(), }),
+        Some(Type::TypeDef(def)) => {
             let vtbl = gen_vtbl_ident(def, gen);
             let namespace = gen.namespace(def.namespace());
             methods.combine(&quote! { base: #namespace #vtbl::new::<Identity, Impl, OFFSET>(), });
