@@ -515,30 +515,23 @@ pub fn gen_default_type(def: &Signature, gen: &Gen) -> TokenStream {
 
 // TODO: Move all the functions that follow this pattern into a common rs file.
 fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &Gen) -> TokenStream {
-    // TODO: just use default everywhere
-    let kind = gen_element_name(&param.signature, gen);
     let default_type = gen_default_type(&param.signature, gen);
 
     let sig = if param.param.is_input() {
         if param.signature.is_winrt_array() {
             quote! { &[#default_type] }
-        } else if param.signature.is_generic() {
-            quote! { &<#kind as ::windows::core::RuntimeType>::DefaultType }
         } else if param.signature.is_primitive() {
-            quote! { #kind }
-        } else if param.signature.is_nullable() {
-            quote! { &::core::option::Option<#kind> }
+            quote! { #default_type }
         } else {
-            quote! { &#kind }
+            quote! { &#default_type }
         }
     } else if param.signature.is_winrt_array() {
         quote! { &mut [#default_type] }
     } else if param.signature.is_winrt_array_ref() {
+        let kind = gen_element_name(&param.signature, gen);
         quote! { &mut ::windows::core::Array<#kind> }
-    } else if param.signature.is_nullable() {
-        quote! { &mut ::core::option::Option<#kind> }
     } else {
-        quote! { &mut #kind }
+        quote! { &mut #default_type }
     };
 
     if include_param_names {
