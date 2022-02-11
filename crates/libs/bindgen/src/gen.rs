@@ -44,8 +44,8 @@ impl Gen<'_> {
         }
     }
 
-    pub(crate) fn element_cfg(&self, def: &ElementType) -> Cfg {
-        if let ElementType::TypeDef(def) = def {
+    pub(crate) fn element_cfg(&self, def: &Type) -> Cfg {
+        if let Type::TypeDef(def) = def {
             self.type_cfg(def)
         } else {
             Default::default()
@@ -70,7 +70,7 @@ impl Gen<'_> {
         self.type_and_method_requirements(def, &mut features, &mut keys);
 
         for def in def.vtable_types() {
-            if let ElementType::TypeDef(def) = def {
+            if let Type::TypeDef(def) = def {
                 self.type_and_method_requirements(&def, &mut features, &mut keys);
             }
         }
@@ -121,10 +121,16 @@ impl Gen<'_> {
         }
     }
 
-    fn element_requirements(&self, def: &ElementType, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
+    // TODO: move to windows-metadata
+    fn element_requirements(&self, def: &Type, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
+        // TODO: this should just be def.requirements()
         match def {
-            ElementType::TypeDef(def) => self.type_requirements(def, namespaces, keys),
-            ElementType::Array((signature, _)) => self.element_requirements(&signature.kind, namespaces, keys),
+            Type::TypeDef(def) => self.type_requirements(def, namespaces, keys),
+            Type::Win32Array((kind, _)) => self.element_requirements(kind, namespaces, keys),
+            Type::ConstPtr((kind, _)) => self.element_requirements(kind, namespaces, keys),
+            Type::MutPtr((kind, _)) => self.element_requirements(kind, namespaces, keys),
+            Type::WinrtArray(kind) => self.element_requirements(kind, namespaces, keys),
+            Type::WinrtArrayRef(kind) => self.element_requirements(kind, namespaces, keys),
             _ => {}
         }
     }
@@ -149,7 +155,7 @@ impl Gen<'_> {
             TypeKind::Interface => {
                 if !def.is_winrt() {
                     for def in def.vtable_types() {
-                        if let ElementType::TypeDef(def) = def {
+                        if let Type::TypeDef(def) = def {
                             self.add_namespace(def.namespace(), namespaces);
                         }
                     }
@@ -164,7 +170,7 @@ impl Gen<'_> {
 
         if let Some(entry) = TypeReader::get().get_type_entry(def.type_name()) {
             for def in entry {
-                if let ElementType::TypeDef(def) = def {
+                if let Type::TypeDef(def) = def {
                     self.type_requirements(def, namespaces, keys);
                 }
             }
@@ -172,8 +178,8 @@ impl Gen<'_> {
     }
 
     fn method_requirements(&self, def: &MethodSignature, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
-        def.return_sig.iter().for_each(|def| self.element_requirements(&def.kind, namespaces, keys));
-        def.params.iter().for_each(|def| self.element_requirements(&def.signature.kind, namespaces, keys));
+        def.return_sig.iter().for_each(|def| self.element_requirements(def, namespaces, keys));
+        def.params.iter().for_each(|def| self.element_requirements(&def.signature, namespaces, keys));
     }
 
     fn type_and_method_requirements(&self, def: &TypeDef, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
@@ -185,7 +191,7 @@ impl Gen<'_> {
     }
 
     fn field_requirements(&self, def: &Field, enclosing: Option<&TypeDef>, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
-        self.element_requirements(&def.signature(enclosing).kind, namespaces, keys);
+        self.element_requirements(&def.signature(enclosing), namespaces, keys);
     }
 }
 

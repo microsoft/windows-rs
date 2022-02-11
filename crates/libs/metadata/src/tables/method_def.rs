@@ -92,7 +92,7 @@ impl MethodDef {
         self.0.file.equal_range(TableIndex::ImplMap, 1, MemberForwarded::MethodDef(self.clone()).encode()).map(ImplMap).next()
     }
 
-    pub fn signature(&self, generics: &[ElementType]) -> MethodSignature {
+    pub fn signature(&self, generics: &[Type]) -> MethodSignature {
         let reader = TypeReader::get();
         let params = self.params();
 
@@ -110,7 +110,12 @@ impl MethodDef {
                     return_param = Some(param);
                     None
                 } else {
-                    Some(MethodParam { param, signature: reader.signature_from_blob(&mut blob, None, generics).expect("MethodDef") })
+                    let signature = reader.signature_from_blob(&mut blob, None, generics).expect("MethodDef");
+
+                    // TODO: why not param.is_input
+                    let signature = if !param.flags().output() { signature.to_const() } else { signature };
+
+                    Some(MethodParam { param, signature })
                 }
             })
             .collect();

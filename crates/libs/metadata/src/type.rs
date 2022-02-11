@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
-pub enum ElementType {
+pub enum Type {
     Void,
     Bool,
     Char,
@@ -22,27 +22,32 @@ pub enum ElementType {
     IUnknown,
     IInspectable,
     HRESULT,
-    TypeName,
-    GenericParam(String),
-    Array((Box<Signature>, u32)),
+    TypeName,             // Used for parsing attribute blobs
+    GenericParam(String), // TODO: can be &'static str?
     MethodDef(MethodDef),
     Field(Field),
     TypeDef(TypeDef),
+    MutPtr((Box<Self>, usize)),
+    ConstPtr((Box<Self>, usize)),
+    Win32Array((Box<Self>, u32)),
+    WinrtArray(Box<Self>),
+    WinrtArrayRef(Box<Self>),
+    WinrtConstRef(Box<Self>),
 }
 
-impl Default for ElementType {
+impl Default for Type {
     fn default() -> Self {
         Self::Void
     }
 }
 
-impl From<TypeDef> for ElementType {
+impl From<TypeDef> for Type {
     fn from(def: TypeDef) -> Self {
         Self::TypeDef(def.with_generics())
     }
 }
 
-impl ElementType {
+impl Type {
     pub fn size(&self) -> usize {
         match self {
             Self::I64 | Self::U64 | Self::F64 => 2,
@@ -126,7 +131,7 @@ impl ElementType {
         match self {
             Self::TypeDef(t) => t.is_blittable(),
             Self::String | Self::IInspectable | Self::IUnknown | Self::GenericParam(_) => false,
-            Self::Array((kind, _)) => kind.is_blittable(),
+            Self::Win32Array((kind, _)) => kind.is_blittable(),
             _ => true,
         }
     }
@@ -135,12 +140,15 @@ impl ElementType {
         match self {
             Self::TypeDef(t) => t.is_convertible(),
             Self::String | Self::IInspectable | Self::GUID | Self::IUnknown | Self::GenericParam(_) => true,
+            Self::WinrtConstRef(kind) => kind.is_convertible(),
             _ => false,
         }
     }
 
     pub fn is_callback(&self) -> bool {
         match self {
+            // TODO: do we need to know there's a callback behind the pointer?
+            Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => kind.is_callback(),
             Self::TypeDef(def) => def.is_callback(),
             _ => false,
         }
@@ -148,7 +156,7 @@ impl ElementType {
 
     pub fn is_callback_array(&self) -> bool {
         match self {
-            Self::Array((kind, _)) => kind.kind.is_callback(),
+            Self::Win32Array((kind, _)) => kind.is_callback(),
             _ => false,
         }
     }
@@ -156,7 +164,7 @@ impl ElementType {
     pub fn is_primitive(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_primitive(),
-            Self::Bool | Self::Char | Self::I8 | Self::U8 | Self::I16 | Self::U16 | Self::I32 | Self::U32 | Self::I64 | Self::U64 | Self::F32 | Self::F64 | Self::ISize | Self::USize | Self::HRESULT => true,
+            Self::Bool | Self::Char | Self::I8 | Self::U8 | Self::I16 | Self::U16 | Self::I32 | Self::U32 | Self::I64 | Self::U64 | Self::F32 | Self::F64 | Self::ISize | Self::USize | Self::HRESULT | Self::ConstPtr(_) | Self::MutPtr(_) => true,
             _ => false,
         }
     }
@@ -172,7 +180,7 @@ impl ElementType {
     pub fn has_union(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.has_union(),
-            Self::Array((kind, _)) => kind.has_union(),
+            Self::Win32Array((kind, _)) => kind.has_union(),
             _ => false,
         }
     }
@@ -180,7 +188,7 @@ impl ElementType {
     pub fn has_pack(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.has_pack(),
-            Self::Array((kind, _)) => kind.has_pack(),
+            Self::Win32Array((kind, _)) => kind.has_pack(),
             _ => false,
         }
     }
@@ -192,11 +200,57 @@ impl ElementType {
         }
     }
 
+    pub fn is_generic(&self) -> bool {
+        matches!(self, Type::GenericParam(_))
+    }
+
+    pub fn is_pointer(&self) -> bool {
+        matches!(self, Type::ConstPtr(_) | Type::MutPtr(_))
+    }
+
+    pub fn is_void(&self) -> bool {
+        match self {
+            // TODO: do we care about void behind pointers?
+            Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => kind.is_void(),
+            Type::Void => true,
+            _ => false,
+        }
+    }
+
+    pub fn deref(&self) -> Self {
+        match self {
+            Type::ConstPtr((kind, 1)) => *kind.clone(),
+            Type::MutPtr((kind, 1)) => *kind.clone(),
+            Type::ConstPtr((kind, pointers)) => Type::ConstPtr((kind.clone(), pointers - 1)),
+            Type::MutPtr((kind, pointers)) => Type::MutPtr((kind.clone(), pointers - 1)),
+            _ => unimplemented!(),
+        }
+    }
+
+    pub fn to_const(self) -> Self {
+        match self {
+            Type::MutPtr((kind, pointers)) => Type::ConstPtr((kind, pointers)),
+            _ => self,
+        }
+    }
+
+    pub fn is_winrt_array(&self) -> bool {
+        matches!(self, Type::WinrtArray(_))
+    }
+
+    pub fn is_winrt_array_ref(&self) -> bool {
+        matches!(self, Type::WinrtArrayRef(_))
+    }
+
+    pub fn is_winrt_const_ref(&self) -> bool {
+        matches!(self, Type::WinrtConstRef(_))
+    }
+
     #[must_use]
-    pub fn underlying_type(&self) -> ElementType {
+    pub fn underlying_type(&self) -> Type {
         match self {
             Self::TypeDef(def) => def.underlying_type(),
-            Self::HRESULT => ElementType::I32,
+            Self::HRESULT => Type::I32,
             _ => self.clone(),
         }
     }

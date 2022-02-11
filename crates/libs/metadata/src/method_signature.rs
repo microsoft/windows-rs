@@ -2,7 +2,7 @@ use super::*;
 
 pub struct MethodSignature {
     pub params: Vec<MethodParam>,
-    pub return_sig: Option<Signature>,
+    pub return_sig: Option<Type>,
     pub return_param: Option<Param>,
     pub preserve_sig: bool,
 }
@@ -10,7 +10,7 @@ pub struct MethodSignature {
 #[derive(Clone)]
 pub struct MethodParam {
     pub param: Param,
-    pub signature: Signature,
+    pub signature: Type,
 }
 
 impl MethodSignature {
@@ -20,13 +20,13 @@ impl MethodSignature {
         }
 
         if let Some(return_sig) = &self.return_sig {
-            match &return_sig.kind {
-                ElementType::HRESULT => {
+            match return_sig {
+                Type::HRESULT => {
                     if self.params.len() >= 2 {
                         let guid = &self.params[self.params.len() - 2];
                         let object = &self.params[self.params.len() - 1];
 
-                        if guid.signature.kind == ElementType::GUID && !guid.param.flags().output() && object.signature.kind == ElementType::Void && object.param.is_com_out_ptr() {
+                        if guid.signature == Type::ConstPtr((Box::new(Type::GUID), 1)) && !guid.param.flags().output() && object.signature == Type::MutPtr((Box::new(Type::Void), 2)) && object.param.is_com_out_ptr() {
                             if object.param.is_optional() {
                                 return SignatureKind::QueryOptional;
                             } else {
@@ -46,7 +46,7 @@ impl MethodSignature {
 
                     return SignatureKind::ResultVoid;
                 }
-                ElementType::TypeDef(def) if def.type_name() == TypeName::NTSTATUS => {
+                Type::TypeDef(def) if def.type_name() == TypeName::NTSTATUS => {
                     return SignatureKind::ResultVoid;
                 }
                 _ if return_sig.is_udt() => {
@@ -66,7 +66,13 @@ impl MethodSignature {
 
 impl MethodParam {
     fn is_retval(&self) -> bool {
-        if self.signature.pointers == 0 {
+        // TODO: why aren't we just using the retval flag? This is super brittle.
+
+        if !self.signature.is_pointer() {
+            return false;
+        }
+
+        if self.signature.is_void() {
             return false;
         }
 
@@ -77,14 +83,11 @@ impl MethodParam {
             return false;
         }
 
-        match &self.signature.kind {
-            ElementType::Void => false,
-            ElementType::TypeDef(def) => def.kind() != TypeKind::Delegate,
-            _ => true,
-        }
+        // TODO: find a way to treat this like COM interface result values.
+        !self.signature.is_callback()
     }
 
     pub fn is_convertible(&self) -> bool {
-        self.param.is_input() && !self.signature.is_array && self.signature.pointers == 0 && self.signature.kind.is_convertible()
+        self.param.is_input() && !self.signature.is_winrt_array() && !self.signature.is_pointer() && self.signature.is_convertible()
     }
 }

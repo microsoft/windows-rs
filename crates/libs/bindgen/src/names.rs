@@ -123,78 +123,104 @@ pub fn gen_param_name(param: &Param) -> TokenStream {
     gen_ident(&param.name().to_lowercase())
 }
 
-pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
+pub fn gen_element_name(def: &Type, gen: &Gen) -> TokenStream {
     match def {
-        ElementType::Void => quote! { ::core::ffi::c_void },
-        ElementType::Bool => quote! { bool },
-        ElementType::Char => quote! { u16 },
-        ElementType::I8 => quote! { i8 },
-        ElementType::U8 => quote! { u8 },
-        ElementType::I16 => quote! { i16 },
-        ElementType::U16 => quote! { u16 },
-        ElementType::I32 => quote! { i32 },
-        ElementType::U32 => quote! { u32 },
-        ElementType::I64 => quote! { i64 },
-        ElementType::U64 => quote! { u64 },
-        ElementType::F32 => quote! { f32 },
-        ElementType::F64 => quote! { f64 },
-        ElementType::ISize => quote! { isize },
-        ElementType::USize => quote! { usize },
-        ElementType::String => {
+        Type::Void => quote! { ::core::ffi::c_void },
+        Type::Bool => quote! { bool },
+        Type::Char => quote! { u16 },
+        Type::I8 => quote! { i8 },
+        Type::U8 => quote! { u8 },
+        Type::I16 => quote! { i16 },
+        Type::U16 => quote! { u16 },
+        Type::I32 => quote! { i32 },
+        Type::U32 => quote! { u32 },
+        Type::I64 => quote! { i64 },
+        Type::U64 => quote! { u64 },
+        Type::F32 => quote! { f32 },
+        Type::F64 => quote! { f64 },
+        Type::ISize => quote! { isize },
+        Type::USize => quote! { usize },
+        Type::String => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::HSTRING }
         }
-        ElementType::IInspectable => {
+        Type::IInspectable => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::IInspectable }
         }
-        ElementType::GUID => {
+        Type::GUID => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::GUID }
         }
-        ElementType::IUnknown => {
+        Type::IUnknown => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::IUnknown }
         }
-        ElementType::HRESULT => {
+        Type::HRESULT => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::HRESULT }
         }
-        ElementType::Array((kind, len)) => {
+        Type::Win32Array((kind, len)) => {
             let name = gen_sig(kind, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
-        ElementType::GenericParam(generic) => generic.into(),
-        ElementType::MethodDef(def) => def.name().into(),
-        ElementType::Field(field) => field.name().into(),
-        ElementType::TypeDef(t) => gen_type_name(t, gen),
-        _ => unimplemented!(),
+        Type::GenericParam(generic) => generic.into(),
+        Type::MethodDef(def) => def.name().into(),
+        Type::Field(field) => field.name().into(),
+        Type::TypeDef(t) => gen_type_name(t, gen),
+        Type::MutPtr((kind, pointers)) => {
+            let pointers = gen_mut_ptrs(*pointers);
+            let kind = gen_default_type(kind, gen);
+            quote! { #pointers #kind }
+        }
+        Type::ConstPtr((kind, pointers)) => {
+            let pointers = gen_const_ptrs(*pointers);
+            let kind = gen_default_type(kind, gen);
+            quote! { #pointers #kind }
+        }
+        Type::WinrtArray(kind) => gen_element_name(kind, gen),
+        Type::WinrtArrayRef(kind) => gen_element_name(kind, gen),
+        Type::WinrtConstRef(kind) => gen_element_name(kind, gen),
+        Type::TypeName => unimplemented!(),
     }
 }
 
-pub fn gen_abi_element_name(sig: &Signature, gen: &Gen) -> TokenStream {
-    match &sig.kind {
-        ElementType::String => {
+fn gen_mut_ptrs(pointers: usize) -> TokenStream {
+    "*mut ".repeat(pointers).into()
+}
+
+fn gen_const_ptrs(pointers: usize) -> TokenStream {
+    "*const ".repeat(pointers).into()
+}
+
+pub fn gen_abi_element_name(sig: &Type, gen: &Gen) -> TokenStream {
+    gen_abi_element_name_impl(sig, false, gen)
+}
+
+// TODO: this is only because we're trying to avoid the ManuallyDrop below - I don't think that matters so may want to scrap this once we have parity.
+fn gen_abi_element_name_impl(sig: &Type, ptr: bool, gen: &Gen) -> TokenStream {
+    match sig {
+        Type::String => {
             quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
         }
-        ElementType::IUnknown | ElementType::IInspectable => {
+        Type::IUnknown | Type::IInspectable => {
             quote! { *mut ::core::ffi::c_void }
         }
-        ElementType::Array((kind, len)) => {
-            let name = gen_abi_sig(kind, gen);
+        Type::Win32Array((kind, len)) => {
+            let name = gen_abi_element_name_impl(kind, ptr, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
-        ElementType::GenericParam(generic) => {
+        Type::GenericParam(generic) => {
             let name = gen_ident(generic);
             quote! { <#name as ::windows::core::Abi>::Abi }
         }
-        ElementType::TypeDef(def) => match def.kind() {
+        Type::TypeDef(def) => match def.kind() {
             TypeKind::Enum => gen_type_name(def, gen),
             TypeKind::Struct => {
                 let tokens = gen_type_name(def, gen);
-                if def.is_blittable() || sig.pointers > 0 {
+                if def.is_blittable() || ptr {
                     tokens
                 } else {
                     quote! { ::core::mem::ManuallyDrop<#tokens> }
@@ -202,7 +228,19 @@ pub fn gen_abi_element_name(sig: &Signature, gen: &Gen) -> TokenStream {
             }
             _ => quote! { ::windows::core::RawPtr },
         },
-        _ => gen_element_name(&sig.kind, gen),
+        Type::MutPtr((kind, pointers)) => {
+            let pointers = gen_mut_ptrs(*pointers);
+            let kind = gen_abi_element_name_impl(kind, true, gen);
+            quote! { #pointers #kind }
+        }
+        Type::ConstPtr((kind, pointers)) => {
+            let pointers = gen_const_ptrs(*pointers);
+            let kind = gen_abi_element_name_impl(kind, true, gen);
+            quote! { #pointers #kind }
+        }
+        Type::WinrtArray(kind) => gen_abi_element_name_impl(kind, ptr, gen),
+        Type::WinrtArrayRef(kind) => gen_abi_element_name_impl(kind, ptr, gen),
+        _ => gen_element_name(sig, gen),
     }
 }
 

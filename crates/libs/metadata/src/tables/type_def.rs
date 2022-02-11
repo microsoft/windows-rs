@@ -4,7 +4,7 @@ pub use std::collections::BTreeSet;
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct TypeDef {
     pub row: Row,
-    pub generics: Vec<ElementType>,
+    pub generics: Vec<Type>,
 }
 
 impl From<Row> for TypeDef {
@@ -16,7 +16,7 @@ impl From<Row> for TypeDef {
 impl TypeDef {
     #[must_use]
     pub fn with_generics(mut self) -> Self {
-        self.generics = self.generic_params().map(|generic| ElementType::GenericParam(generic.name().to_string())).collect();
+        self.generics = self.generic_params().map(|generic| Type::GenericParam(generic.name().to_string())).collect();
         self
     }
 
@@ -45,7 +45,7 @@ impl TypeDef {
     pub fn default_interface(&self) -> Option<Self> {
         for interface in self.interface_impls() {
             if interface.is_default() {
-                if let ElementType::TypeDef(def) = interface.generic_interface(&self.generics) {
+                if let Type::TypeDef(def) = interface.generic_interface(&self.generics) {
                     return Some(def);
                 }
             }
@@ -55,13 +55,13 @@ impl TypeDef {
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
-        self.interface_impls().filter_map(move |i| if let ElementType::TypeDef(def) = i.generic_interface(&self.generics) { Some(def) } else { None })
+        self.interface_impls().filter_map(move |i| if let Type::TypeDef(def) = i.generic_interface(&self.generics) { Some(def) } else { None })
     }
 
     pub fn required_interfaces(&self) -> Vec<Self> {
         fn walk(result: &mut Vec<TypeDef>, parent: &TypeDef) {
             for child in parent.interface_impls() {
-                if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
+                if let Type::TypeDef(def) = child.generic_interface(&parent.generics) {
                     if !result.iter().any(|element| element == &def) {
                         walk(result, &def);
                         result.push(def);
@@ -79,7 +79,7 @@ impl TypeDef {
     pub fn class_interfaces(&self) -> Vec<(Self, InterfaceKind)> {
         fn walk(result: &mut Vec<(TypeDef, InterfaceKind)>, parent: &TypeDef, is_base: bool) {
             for child in parent.interface_impls() {
-                if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
+                if let Type::TypeDef(def) = child.generic_interface(&parent.generics) {
                     let kind = if !is_base && child.is_default() {
                         InterfaceKind::Default
                     } else if child.is_overridable() {
@@ -201,7 +201,7 @@ impl TypeDef {
 
         if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
             for def in entry {
-                if let ElementType::TypeDef(def) = def {
+                if let Type::TypeDef(def) = def {
                     if has_union(def) {
                         return true;
                     }
@@ -231,7 +231,7 @@ impl TypeDef {
 
         if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
             for def in entry {
-                if let ElementType::TypeDef(def) = def {
+                if let Type::TypeDef(def) = def {
                     if has_pack(def) {
                         return true;
                     }
@@ -252,7 +252,7 @@ impl TypeDef {
 
                 for field in self.fields() {
                     result.push(';');
-                    result.push_str(&field.signature(Some(self)).kind.type_signature());
+                    result.push_str(&field.signature(Some(self)).type_signature());
                 }
 
                 result.push(')');
@@ -268,12 +268,12 @@ impl TypeDef {
         }
     }
 
-    pub fn underlying_type(&self) -> ElementType {
+    pub fn underlying_type(&self) -> Type {
         if let Some(field) = self.fields().next() {
             if let Some(constant) = field.constant() {
                 return constant.value_type();
             } else {
-                return field.signature(Some(self)).kind;
+                return field.signature(Some(self));
             }
         }
 
@@ -341,9 +341,9 @@ impl TypeDef {
         while let Some(base) = next
             .interface_impls()
             .filter_map(|i| match i.generic_interface(&[]) {
-                ElementType::TypeDef(def) => Some(def),
-                ElementType::IUnknown => None,
-                ElementType::IInspectable => {
+                Type::TypeDef(def) => Some(def),
+                Type::IUnknown => None,
+                Type::IInspectable => {
                     inspectable = true;
                     None
                 }
@@ -358,30 +358,30 @@ impl TypeDef {
         (result, inspectable)
     }
 
-    pub fn vtable_types(&self) -> Vec<ElementType> {
+    pub fn vtable_types(&self) -> Vec<Type> {
         let mut result = Vec::new();
 
         if self.is_winrt() {
-            result.push(ElementType::IUnknown);
+            result.push(Type::IUnknown);
             if self.kind() != TypeKind::Delegate {
-                result.push(ElementType::IInspectable);
+                result.push(Type::IInspectable);
             }
         } else {
             let mut next = self.clone();
 
             while let Some(base) = next.interface_impls().map(|i| i.generic_interface(&[])).next() {
                 match base {
-                    ElementType::TypeDef(ref def) => {
+                    Type::TypeDef(ref def) => {
                         next = def.clone();
                         result.insert(0, base);
                     }
-                    ElementType::IInspectable => {
-                        result.insert(0, ElementType::IUnknown);
-                        result.insert(1, ElementType::IInspectable);
+                    Type::IInspectable => {
+                        result.insert(0, Type::IUnknown);
+                        result.insert(1, Type::IInspectable);
                         break;
                     }
-                    ElementType::IUnknown => {
-                        result.insert(0, ElementType::IUnknown);
+                    Type::IUnknown => {
+                        result.insert(0, Type::IUnknown);
                         break;
                     }
                     _ => unimplemented!(),
@@ -423,7 +423,7 @@ impl TypeDef {
     pub fn has_flags(&self) -> bool {
         // Win32 enums use the Flags attribute. WinRT enums don't have the Flags attribute but are paritioned merely based
         // on whether they are signed.
-        self.has_attribute("FlagsAttribute") || (self.is_winrt() && self.underlying_type() == ElementType::U32)
+        self.has_attribute("FlagsAttribute") || (self.is_winrt() && self.underlying_type() == Type::U32)
     }
 
     pub fn is_exclusive(&self) -> bool {
@@ -450,7 +450,7 @@ impl TypeDef {
         })
     }
 
-    pub fn is_convertible_to(&self) -> Option<&ElementType> {
+    pub fn is_convertible_to(&self) -> Option<&Type> {
         self.attributes().find_map(|attribute| {
             if attribute.name() == "AlsoUsableForAttribute" {
                 if let Some((_, ConstantValue::String(name))) = attribute.args().get(0) {
@@ -531,7 +531,7 @@ impl TypeDef {
                     if let ConstantValue::TypeDef(def) = arg {
                         for child in def.interface_impls() {
                             if child.is_overridable() {
-                                if let ElementType::TypeDef(def) = child.generic_interface(&def.generics) {
+                                if let Type::TypeDef(def) = child.generic_interface(&def.generics) {
                                     if def.name() == self.name() {
                                         return true;
                                     }

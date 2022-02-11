@@ -26,11 +26,18 @@ impl Field {
         self.0.file.attributes(HasAttribute::Field(self.clone()))
     }
 
-    pub fn signature(&self, enclosing: Option<&TypeDef>) -> Signature {
+    // TODO: all the references to "signature" should be changed to something... ore just rename Type to Type.
+    pub fn signature(&self, enclosing: Option<&TypeDef>) -> Type {
         let mut blob = self.0.blob(2);
         blob.read_unsigned();
         blob.read_modifiers();
-        TypeReader::get().signature_from_blob(&mut blob, enclosing, &[]).expect("Field")
+        let def = TypeReader::get().signature_from_blob(&mut blob, enclosing, &[]).expect("Field");
+
+        if self.is_const() {
+            def.to_const()
+        } else {
+            def
+        }
     }
 
     pub fn is_blittable(&self, enclosing: Option<&TypeDef>) -> bool {
@@ -58,6 +65,6 @@ mod tests {
         assert_eq!(f.len(), 4);
 
         let s = f[0].signature(None);
-        assert!(s.kind == ElementType::F32);
+        assert!(s == Type::F32);
     }
 }

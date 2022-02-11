@@ -24,7 +24,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
     if def.fields().next().is_none() {
         if let Some(guid) = GUID::from_attributes(def.attributes()) {
             let value = gen_guid(&guid, gen);
-            let guid = gen_element_name(&ElementType::GUID, gen);
+            let guid = gen_element_name(&Type::GUID, gen);
             return quote! { pub const #name: #guid = #value; };
         } else if name.as_str().ends_with("Vtbl") {
             // This just omits some useless struct declarations like `IDDVideoPortContainerVtbl`
@@ -49,8 +49,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
 
     let fields = def.fields().map(|f| {
         let name = gen_ident(f.name());
-        let mut sig = f.signature(Some(def));
-        sig.is_const = sig.is_const || f.is_const();
+        let sig = f.signature(Some(def));
         let sig = gen_sig(&sig, gen);
 
         if f.is_literal() {
@@ -176,7 +175,7 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
                 quote! {}
             } else {
                 let sig = f.signature(Some(def));
-                if sig.kind.is_callback() {
+                if sig.is_callback() {
                     quote! {
                         self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
                     }
@@ -213,7 +212,7 @@ fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenS
                 let name = f.name();
                 let ident = gen_ident(name);
                 let signature = f.signature(Some(def));
-                if signature.is_callback() {
+                if !signature.is_pointer() && signature.is_callback() {
                     quote! { .field(#name, &self.#ident.map(|f| f as usize)) }
                 } else if signature.is_callback_array() {
                     quote! {}
