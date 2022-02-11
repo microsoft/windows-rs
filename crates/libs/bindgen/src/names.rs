@@ -194,13 +194,13 @@ fn gen_const_ptrs(pointers: usize) -> TokenStream {
     "*const ".repeat(pointers).into()
 }
 
-pub fn gen_abi_element_name(sig: &Type, gen: &Gen) -> TokenStream {
-    gen_abi_element_name_impl(sig, false, gen)
+pub fn gen_abi_element_name(ty: &Type, gen: &Gen) -> TokenStream {
+    gen_abi_element_name_impl(ty, false, gen)
 }
 
 // TODO: this is only because we're trying to avoid the ManuallyDrop below - I don't think that matters so may want to scrap this once we have parity.
-fn gen_abi_element_name_impl(sig: &Type, ptr: bool, gen: &Gen) -> TokenStream {
-    match sig {
+fn gen_abi_element_name_impl(ty: &Type, ptr: bool, gen: &Gen) -> TokenStream {
+    match ty {
         Type::String => {
             quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
         }
@@ -240,7 +240,7 @@ fn gen_abi_element_name_impl(sig: &Type, ptr: bool, gen: &Gen) -> TokenStream {
         }
         Type::WinrtArray(kind) => gen_abi_element_name_impl(kind, ptr, gen),
         Type::WinrtArrayRef(kind) => gen_abi_element_name_impl(kind, ptr, gen),
-        _ => gen_element_name(sig, gen),
+        _ => gen_element_name(ty, gen),
     }
 }
 

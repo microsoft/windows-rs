@@ -26,12 +26,11 @@ impl Field {
         self.0.file.attributes(HasAttribute::Field(self.clone()))
     }
 
-    // TODO: all the references to "signature" should be changed to something... ore just rename Type to Type.
-    pub fn signature(&self, enclosing: Option<&TypeDef>) -> Type {
+    pub fn get_type(&self, enclosing: Option<&TypeDef>) -> Type {
         let mut blob = self.0.blob(2);
         blob.read_unsigned();
         blob.read_modifiers();
-        let def = TypeReader::get().signature_from_blob(&mut blob, enclosing, &[]).expect("Field");
+        let def = TypeReader::get().type_from_blob(&mut blob, enclosing, &[]).expect("Field");
 
         if self.is_const() {
             def.to_const()
@@ -41,7 +40,7 @@ impl Field {
     }
 
     pub fn is_blittable(&self, enclosing: Option<&TypeDef>) -> bool {
-        self.signature(enclosing).is_blittable()
+        self.get_type(enclosing).is_blittable()
     }
 
     pub fn is_const(&self) -> bool {
@@ -64,7 +63,7 @@ mod tests {
         let f: Vec<Field> = r.fields().collect();
         assert_eq!(f.len(), 4);
 
-        let s = f[0].signature(None);
+        let s = f[0].get_type(None);
         assert!(s == Type::F32);
     }
 }

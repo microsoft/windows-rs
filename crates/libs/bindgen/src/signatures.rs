@@ -1,10 +1,10 @@
 use super::*;
 
 // TODO: replace with gen_default_type?
-pub fn gen_sig(sig: &Type, gen: &Gen) -> TokenStream {
-    let kind = gen_element_name(sig, gen);
+pub fn gen_sig(ty: &Type, gen: &Gen) -> TokenStream {
+    let kind = gen_element_name(ty, gen);
 
-    if sig.is_nullable() && !gen.sys {
+    if ty.is_nullable() && !gen.sys {
         quote! {
             ::core::option::Option<#kind>
         }
@@ -14,9 +14,9 @@ pub fn gen_sig(sig: &Type, gen: &Gen) -> TokenStream {
 }
 
 // TODO: suspect - check for UDT
-pub fn gen_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
-    if let Some(return_sig) = &signature.return_sig {
-        let tokens = gen_sig(return_sig, gen);
+pub fn gen_return_sig(signature: &Signature, gen: &Gen) -> TokenStream {
+    if let Some(return_type) = &signature.return_type {
+        let tokens = gen_sig(return_type, gen);
         quote! { -> #tokens }
     } else {
         quote! {}
@@ -29,7 +29,7 @@ pub fn gen_param_constraints(params: &[MethodParam], gen: &Gen) -> TokenStream {
     for (position, param) in params.iter().enumerate() {
         if param.is_convertible() {
             let name: TokenStream = format!("Param{}", position).into();
-            let into = gen_element_name(&param.signature, gen);
+            let into = gen_element_name(&param.ty, gen);
             tokens.combine(&quote! { #name: ::windows::core::IntoParam<'a, #into>, });
         }
     }

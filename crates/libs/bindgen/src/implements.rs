@@ -54,7 +54,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         // If it can be implemented but is exclusive and has no return value then
         // it is a Xaml override so give it a default implementation to make it easier
         // to override individual methods for Xaml notifications.
-        if def.is_exclusive() && method.signature(&def.generics).return_sig.is_none() {
+        if def.is_exclusive() && method.signature(&def.generics).return_type.is_none() {
             quote! {
                 fn #name #signature {
                     ::core::result::Result::Ok(())

@@ -143,7 +143,7 @@ impl TypeDef {
 
     pub fn size(&self) -> usize {
         if self.kind() == TypeKind::Struct {
-            self.fields().fold(0, |sum, field| sum + field.signature(Some(self)).size())
+            self.fields().fold(0, |sum, field| sum + field.get_type(Some(self)).size())
         } else {
             1
         }
@@ -191,7 +191,7 @@ impl TypeDef {
             if def.is_union() {
                 true
             } else {
-                def.fields().any(|f| f.signature(Some(def)).has_union())
+                def.fields().any(|f| f.get_type(Some(def)).has_union())
             }
         }
 
@@ -221,7 +221,7 @@ impl TypeDef {
             if def.class_layout().is_some() {
                 true
             } else {
-                def.fields().any(|f| f.signature(Some(def)).has_pack())
+                def.fields().any(|f| f.get_type(Some(def)).has_pack())
             }
         }
 
@@ -252,7 +252,7 @@ impl TypeDef {
 
                 for field in self.fields() {
                     result.push(';');
-                    result.push_str(&field.signature(Some(self)).type_signature());
+                    result.push_str(&field.get_type(Some(self)).type_signature());
                 }
 
                 result.push(')');
@@ -273,7 +273,7 @@ impl TypeDef {
             if let Some(constant) = field.constant() {
                 return constant.value_type();
             } else {
-                return field.signature(Some(self));
+                return field.get_type(Some(self));
             }
         }
 
