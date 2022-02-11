@@ -83,7 +83,7 @@ impl MethodParam {
             return false;
         }
 
-        // TODO: why exclude callbacks?
+        // TODO: find a way to treat this like COM interface result values.
         !self.signature.is_callback()
     }
 
