@@ -254,7 +254,6 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     tokens
 }
 
-// TODO: very similar to gen_winrt_produce_type
 pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut result = quote! {};
 
@@ -276,12 +275,8 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             result.combine(&quote! { #name: &mut [#default_type], });
         } else if param.signature.is_winrt_array_ref() {
             result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
-        } else if param.signature.is_nullable() {
-            result.combine(&quote! { #name: &mut ::core::option::Option<#kind>, });
-        } else if param.signature.is_generic() {
-            result.combine(&quote! { &mut <#kind as ::windows::core::RuntimeType>::DefaultType, });
         } else {
-            result.combine(&quote! { #name: &mut #kind, });
+            result.combine(&quote! { #name: &mut #default_type, });
         }
     }
 

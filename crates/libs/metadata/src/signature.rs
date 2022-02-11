@@ -227,7 +227,6 @@ impl Signature {
         }
     }
 
-    // TODO: Make this own?
     pub fn to_const(self) -> Self {
         match self {
             Signature::MutPtr((kind, pointers)) => Signature::ConstPtr((kind, pointers)),

@@ -175,12 +175,10 @@ pub fn gen_element_name(def: &Signature, gen: &Gen) -> TokenStream {
             quote! { #pointers #kind }
         }
         Signature::ConstPtr((kind, pointers)) => {
-            // TODO: does it need the default here?
             let pointers = gen_const_ptrs(*pointers);
             let kind = gen_default_type(kind, gen);
             quote! { #pointers #kind }
         }
-        // TODO: should these handle more?
         Signature::WinrtArray(kind) => gen_element_name(kind, gen),
         Signature::WinrtArrayRef(kind) => gen_element_name(kind, gen),
         Signature::WinrtConstRef(kind) => gen_element_name(kind, gen),
@@ -240,7 +238,6 @@ fn gen_abi_element_name_impl(sig: &Signature, ptr: bool, gen: &Gen) -> TokenStre
             let kind = gen_abi_element_name_impl(kind, true, gen);
             quote! { #pointers #kind }
         }
-        // TODO: should these handle more?
         Signature::WinrtArray(kind) => gen_abi_element_name_impl(kind, ptr, gen),
         Signature::WinrtArrayRef(kind) => gen_abi_element_name_impl(kind, ptr, gen),
         _ => gen_element_name(sig, gen),

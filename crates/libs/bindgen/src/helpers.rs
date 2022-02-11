@@ -513,7 +513,6 @@ pub fn gen_default_type(def: &Signature, gen: &Gen) -> TokenStream {
     }
 }
 
-// TODO: Move all the functions that follow this pattern into a common rs file.
 fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &Gen) -> TokenStream {
     let default_type = gen_default_type(&param.signature, gen);
 
