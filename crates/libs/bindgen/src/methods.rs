@@ -20,9 +20,9 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     let params = gen_winrt_params(params, gen);
     let interface_name = gen_type_name(def, gen);
 
-    let return_type_tokens = if let Some(return_sig) = &signature.return_sig {
-        let tokens = gen_element_name(return_sig, gen);
-        if return_sig.is_winrt_array() {
+    let return_type_tokens = if let Some(return_type) = &signature.return_type {
+        let tokens = gen_element_name(return_type, gen);
+        if return_type.is_winrt_array() {
             quote! { ::windows::core::Array<#tokens> }
         } else {
             quote! { #tokens }
@@ -31,10 +31,10 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         quote! { () }
     };
 
-    let return_arg = if let Some(return_sig) = &signature.return_sig {
-        if return_sig.is_winrt_array() {
-            let return_sig = gen_element_name(return_sig, gen);
-            quote! { ::windows::core::Array::<#return_sig>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
+    let return_arg = if let Some(return_type) = &signature.return_type {
+        if return_type.is_winrt_array() {
+            let return_type = gen_element_name(return_type, gen);
+            quote! { ::windows::core::Array::<#return_type>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
         } else {
             quote! { &mut result__ }
         }
@@ -49,8 +49,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         _ => quote! {},
     };
 
-    let (vcall, vcall_none) = if let Some(return_sig) = &signature.return_sig {
-        if return_sig.is_winrt_array() {
+    let (vcall, vcall_none) = if let Some(return_type) = &signature.return_type {
+        if return_type.is_winrt_array() {
             (
                 quote! {
                     let mut result__: #return_type_tokens = ::core::mem::zeroed();
@@ -60,7 +60,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
                 quote! {},
             )
         } else {
-            let abi_type_name = gen_abi_element_name(return_sig, gen);
+            let abi_type_name = gen_abi_element_name(return_type, gen);
             let args = quote! { #(#args,)* };
 
             (
@@ -176,9 +176,9 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_win32_params(leading_params, gen);
 
-            let return_sig = signature.params[signature.params.len() - 1].signature.deref();
-            let return_type_tokens = gen_element_name(&return_sig, gen);
-            let abi_return_type_tokens = gen_abi_element_name(&return_sig, gen);
+            let return_type = signature.params[signature.params.len() - 1].ty.deref();
+            let return_type_tokens = gen_element_name(&return_type, gen);
+            let abi_return_type_tokens = gen_abi_element_name(&return_type, gen);
 
             quote! {
                 #cfg
@@ -204,12 +204,12 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
             // TODO: why is this using gen_abi_element_name?
-            let return_sig = gen_abi_element_name(&signature.return_sig.unwrap(), gen);
+            let return_type = gen_abi_element_name(&signature.return_type.unwrap(), gen);
 
             quote! {
                 #cfg
-                pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
-                    let mut result__: #return_sig = :: core::mem::zeroed();
+                pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
+                    let mut result__: #return_type = :: core::mem::zeroed();
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
                     result__
                 }
@@ -219,11 +219,11 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, method_names: &mut Meth
             let params = gen_win32_params(&signature.params, gen);
             let args = signature.params.iter().map(gen_win32_abi_arg);
             // TODO: why gen_return_sig exists? Don't we always know it will be not ReturnVoid?
-            let return_sig = gen_return_sig(&signature, gen);
+            let return_type = gen_return_sig(&signature, gen);
 
             quote! {
                 #cfg
-                pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
+                pub unsafe fn #name<#constraints>(&self, #params) #return_type {
                     ::core::mem::transmute((::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #(#args,)*))
                 }
             }
@@ -246,8 +246,8 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut tokens = quote! {};
 
     for (position, param) in params.iter().enumerate() {
-        let name = gen_param_name(&param.param);
-        let kind = if param.is_convertible() { format!("Param{}", position).into() } else { gen_sig(&param.signature, gen) };
+        let name = gen_param_name(&param.def);
+        let kind = if param.is_convertible() { format!("Param{}", position).into() } else { gen_default_type(&param.ty, gen) };
         tokens.combine(&quote! { #name: #kind, });
     }
 
@@ -258,12 +258,12 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
     let mut result = quote! {};
 
     for (position, param) in params.iter().enumerate() {
-        let name = gen_param_name(&param.param);
-        let kind = gen_element_name(&param.signature, gen);
-        let default_type = gen_default_type(&param.signature, gen);
+        let name = gen_param_name(&param.def);
+        let kind = gen_element_name(&param.ty, gen);
+        let default_type = gen_default_type(&param.ty, gen);
 
-        if param.param.is_input() {
-            if param.signature.is_winrt_array() {
+        if param.def.is_input() {
+            if param.ty.is_winrt_array() {
                 result.combine(&quote! { #name: &[#default_type], });
             } else if param.is_convertible() {
                 let kind: TokenStream = format!("Param{}", position).into();
@@ -271,9 +271,9 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
             } else {
                 result.combine(&quote! { #name: #kind, });
             }
-        } else if param.signature.is_winrt_array() {
+        } else if param.ty.is_winrt_array() {
             result.combine(&quote! { #name: &mut [#default_type], });
-        } else if param.signature.is_winrt_array_ref() {
+        } else if param.ty.is_winrt_array_ref() {
             result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
         } else {
             result.combine(&quote! { #name: &mut #default_type, });
@@ -284,7 +284,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 }
 
 pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
-    let name = gen_param_name(&param.param);
+    let name = gen_param_name(&param.def);
 
     if param.is_convertible() {
         quote! { #name.into_param().abi() }
@@ -294,27 +294,27 @@ pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
 }
 
 pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
-    let name = gen_param_name(&param.param);
+    let name = gen_param_name(&param.def);
 
-    if param.param.is_input() {
-        if param.signature.is_winrt_array() {
+    if param.def.is_input() {
+        if param.ty.is_winrt_array() {
             quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()) }
         } else if param.is_convertible() {
-            if param.signature.is_winrt_const_ref() {
+            if param.ty.is_winrt_const_ref() {
                 quote! { &#name.into_param().abi() }
             } else {
                 quote! { #name.into_param().abi() }
             }
-        } else if param.signature.is_blittable() {
+        } else if param.ty.is_blittable() {
             quote! { #name }
         } else {
             quote! { ::core::mem::transmute_copy(#name) }
         }
-    } else if param.signature.is_winrt_array() {
+    } else if param.ty.is_winrt_array() {
         quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name) }
-    } else if param.signature.is_winrt_array_ref() {
+    } else if param.ty.is_winrt_array_ref() {
         quote! { #name.set_abi_len(), #name as *mut _ as _ }
-    } else if param.signature.is_blittable() {
+    } else if param.ty.is_blittable() {
         quote! { #name }
     } else {
         quote! { #name as *mut _ as _ }

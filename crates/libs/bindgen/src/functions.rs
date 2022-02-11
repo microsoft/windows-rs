@@ -61,8 +61,8 @@ fn gen_sys_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     }
 
     let params = signature.params.iter().map(|p| {
-        let name = gen_param_name(&p.param);
-        let tokens = gen_sig(&p.signature, gen);
+        let name = gen_param_name(&p.def);
+        let tokens = gen_default_type(&p.ty, gen);
         quote! { #name: #tokens }
     });
 
@@ -78,8 +78,8 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let constraints = gen_param_constraints(&signature.params, gen);
 
     let abi_params = signature.params.iter().map(|p| {
-        let name = gen_param_name(&p.param);
-        let tokens = gen_abi_element_name(&p.signature, gen);
+        let name = gen_param_name(&p.def);
+        let tokens = gen_abi_element_name(&p.ty, gen);
         quote! { #name: #tokens }
     });
 
@@ -150,9 +150,9 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let leading_params = &signature.params[..signature.params.len() - 1];
             let args = leading_params.iter().map(gen_win32_abi_arg);
             let params = gen_win32_params(leading_params, gen);
-            let return_sig = signature.params[signature.params.len() - 1].signature.deref();
-            let return_type_tokens = gen_element_name(&return_sig, gen);
-            let abi_return_type_tokens = gen_abi_element_name(&return_sig, gen);
+            let return_type = signature.params[signature.params.len() - 1].ty.deref();
+            let return_type_tokens = gen_element_name(&return_type, gen);
+            let abi_return_type_tokens = gen_abi_element_name(&return_type, gen);
 
             quote! {
                 #cfg

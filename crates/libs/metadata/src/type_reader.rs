@@ -119,47 +119,10 @@ impl TypeReader {
         self.expect_type_def(type_name)
     }
 
-    // TODO: rename since its not longer signature?
-    pub fn signature_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[Type]) -> Option<Type> {
-        let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
-
-        let is_winrt_array_ref = blob.read_expected(0x10);
-
-        if blob.read_expected(0x01) {
-            return None;
-        }
-
-        let is_winrt_array = blob.read_expected(0x1D);
-
-        let mut pointers = 0;
-
-        while blob.read_expected(0x0f) {
-            pointers += 1;
-        }
-
-        let mut kind = self.type_from_blob(blob, enclosing, generics);
-
-        if pointers > 0 {
-            kind = Type::MutPtr((Box::new(kind), pointers));
-        }
-
-        Some(if is_winrt_array {
-            if is_winrt_array_ref {
-                Type::WinrtArrayRef(Box::new(kind))
-            } else {
-                Type::WinrtArray(Box::new(kind))
-            }
-        } else if is_winrt_const_ref {
-            Type::WinrtConstRef(Box::new(kind))
-        } else {
-            kind
-        })
-    }
-
     pub fn type_from_code(&'static self, code: &TypeDefOrRef, enclosing: Option<&TypeDef>, generics: &[Type]) -> Type {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.blob();
-            return self.type_from_blob(&mut blob, enclosing, generics);
+            return self.type_from_blob_impl(&mut blob, enclosing, generics);
         }
 
         let full_name = code.type_name();
@@ -179,7 +142,43 @@ impl TypeReader {
         code.resolve(enclosing).into()
     }
 
-    pub fn type_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[Type]) -> Type {
+    pub fn type_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[Type]) -> Option<Type> {
+        let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
+
+        let is_winrt_array_ref = blob.read_expected(0x10);
+
+        if blob.read_expected(0x01) {
+            return None;
+        }
+
+        let is_winrt_array = blob.read_expected(0x1D);
+
+        let mut pointers = 0;
+
+        while blob.read_expected(0x0f) {
+            pointers += 1;
+        }
+
+        let mut kind = self.type_from_blob_impl(blob, enclosing, generics);
+
+        if pointers > 0 {
+            kind = Type::MutPtr((Box::new(kind), pointers));
+        }
+
+        Some(if is_winrt_array {
+            if is_winrt_array_ref {
+                Type::WinrtArrayRef(Box::new(kind))
+            } else {
+                Type::WinrtArray(Box::new(kind))
+            }
+        } else if is_winrt_const_ref {
+            Type::WinrtConstRef(Box::new(kind))
+        } else {
+            kind
+        })
+    }
+
+    fn type_from_blob_impl(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[Type]) -> Type {
         let code = blob.read_unsigned();
 
         if let Some(code) = Type::from_code(code) {
@@ -190,7 +189,7 @@ impl TypeReader {
             0x11 | 0x12 => self.type_from_code(&TypeDefOrRef::decode(blob.file, blob.read_unsigned()), enclosing, generics),
             0x13 => generics.get(blob.read_unsigned() as usize).unwrap_or(&Type::Void).clone(),
             0x14 => {
-                let kind = self.signature_from_blob(blob, enclosing, generics).unwrap();
+                let kind = self.type_from_blob(blob, enclosing, generics).unwrap();
                 let _rank = blob.read_unsigned();
                 let _bounds_count = blob.read_unsigned();
                 let bounds = blob.read_unsigned();
@@ -203,7 +202,7 @@ impl TypeReader {
                 let args = blob.read_unsigned();
 
                 for _ in 0..args {
-                    def.generics.push(self.type_from_blob(blob, enclosing, generics));
+                    def.generics.push(self.type_from_blob_impl(blob, enclosing, generics));
                 }
 
                 Type::TypeDef(def)

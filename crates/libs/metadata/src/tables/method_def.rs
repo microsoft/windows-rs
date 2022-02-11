@@ -92,7 +92,7 @@ impl MethodDef {
         self.0.file.equal_range(TableIndex::ImplMap, 1, MemberForwarded::MethodDef(self.clone()).encode()).map(ImplMap).next()
     }
 
-    pub fn signature(&self, generics: &[Type]) -> MethodSignature {
+    pub fn signature(&self, generics: &[Type]) -> Signature {
         let reader = TypeReader::get();
         let params = self.params();
 
@@ -100,26 +100,26 @@ impl MethodDef {
         blob.read_unsigned();
         blob.read_unsigned(); // parameter count
 
-        let return_sig = reader.signature_from_blob(&mut blob, None, generics);
+        let return_type = reader.type_from_blob(&mut blob, None, generics);
         let mut return_param = None;
         let preserve_sig = self.preserve_sig();
 
         let params = params
-            .filter_map(|param| {
-                if param.sequence() == 0 {
-                    return_param = Some(param);
+            .filter_map(|def| {
+                if def.sequence() == 0 {
+                    return_param = Some(def);
                     None
                 } else {
-                    let signature = reader.signature_from_blob(&mut blob, None, generics).expect("MethodDef");
+                    let ty = reader.type_from_blob(&mut blob, None, generics).expect("MethodDef");
 
-                    // TODO: why not param.is_input
-                    let signature = if !param.flags().output() { signature.to_const() } else { signature };
+                    // TODO: why not def.is_input
+                    let ty = if !def.flags().output() { ty.to_const() } else { ty };
 
-                    Some(MethodParam { param, signature })
+                    Some(MethodParam { def, ty })
                 }
             })
             .collect();
 
-        MethodSignature { params, return_sig, return_param, preserve_sig }
+        Signature { params, return_type, return_param, preserve_sig }
     }
 }

@@ -79,8 +79,8 @@ pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_signature(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let signature = def.fields().next().map(|field| field.signature(Some(def))).unwrap();
+    let def = def.fields().next().map(|field| field.get_type(Some(def))).unwrap();
     // TODO: scrap this in favor of explicit PCWSTR and PCSTR structs
-    let signature = signature.to_const();
-    gen_sig(&signature, gen)
+    let def = def.to_const();
+    gen_default_type(&def, gen)
 }
