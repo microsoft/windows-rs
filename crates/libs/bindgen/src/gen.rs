@@ -127,8 +127,8 @@ impl Gen<'_> {
         match def {
             Signature::TypeDef(def) => self.type_requirements(def, namespaces, keys),
             Signature::Win32Array((kind, _)) => self.element_requirements(kind, namespaces, keys),
-            Signature::ConstPtr(kind) => self.element_requirements(kind, namespaces, keys),
-            Signature::MutPtr(kind) => self.element_requirements(kind, namespaces, keys),
+            Signature::ConstPtr((kind, _)) => self.element_requirements(kind, namespaces, keys),
+            Signature::MutPtr((kind, _)) => self.element_requirements(kind, namespaces, keys),
             Signature::WinrtArray(kind) => self.element_requirements(kind, namespaces, keys),
             Signature::WinrtArrayRef(kind) => self.element_requirements(kind, namespaces, keys),
             _ => {}

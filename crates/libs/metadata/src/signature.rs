@@ -1,6 +1,5 @@
 use super::*;
 
-// TODO: rename to "Signature?"
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
 pub enum Signature {
     Void,
@@ -28,11 +27,11 @@ pub enum Signature {
     MethodDef(MethodDef),
     Field(Field),
     TypeDef(TypeDef),
-    MutPtr(Box<Self>),
-    ConstPtr(Box<Self>),
+    MutPtr((Box<Self>, usize)),
+    ConstPtr((Box<Self>, usize)),
+    Win32Array((Box<Self>, u32)),
     WinrtArray(Box<Self>),
     WinrtArrayRef(Box<Self>),
-    Win32Array((Box<Self>, u32)),
     WinrtConstRef(Box<Self>),
 }
 
@@ -148,7 +147,8 @@ impl Signature {
 
     pub fn is_callback(&self) -> bool {
         match self {
-            Signature::ConstPtr(kind) | Signature::MutPtr(kind) => kind.is_callback(),
+            // TODO: do we need to know there's a callback behind the pointer?
+            Signature::ConstPtr((kind, _)) | Signature::MutPtr((kind, _)) => kind.is_callback(),
             Self::TypeDef(def) => def.is_callback(),
             _ => false,
         }
@@ -210,7 +210,8 @@ impl Signature {
 
     pub fn is_void(&self) -> bool {
         match self {
-            Signature::ConstPtr(kind) | Signature::MutPtr(kind) => kind.is_void(),
+            // TODO: do we care about void behind pointers?
+            Signature::ConstPtr((kind, _)) | Signature::MutPtr((kind, _)) => kind.is_void(),
             Signature::Void => true,
             _ => false,
         }
@@ -218,17 +219,19 @@ impl Signature {
 
     pub fn deref(&self) -> Self {
         match self {
-            Signature::ConstPtr(kind) => *kind.clone(),
-            Signature::MutPtr(kind) => *kind.clone(),
+            Signature::ConstPtr((kind, 1)) => *kind.clone(),
+            Signature::MutPtr((kind, 1)) => *kind.clone(),
+            Signature::ConstPtr((kind, pointers)) => Signature::ConstPtr((kind.clone(), pointers - 1)),
+            Signature::MutPtr((kind, pointers)) => Signature::MutPtr((kind.clone(), pointers - 1)),
             _ => unimplemented!(),
         }
     }
 
     // TODO: Make this own?
-    pub fn to_const(&self) -> Self {
+    pub fn to_const(self) -> Self {
         match self {
-            Signature::MutPtr(kind) => Signature::ConstPtr(Box::new(kind.to_const())),
-            _ => self.clone(),
+            Signature::MutPtr((kind, pointers)) => Signature::ConstPtr((kind, pointers)),
+            _ => self,
         }
     }
 

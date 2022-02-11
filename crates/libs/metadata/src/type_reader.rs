@@ -139,8 +139,8 @@ impl TypeReader {
 
         let mut kind = self.type_from_blob(blob, enclosing, generics);
 
-        for _ in 0..pointers {
-            kind = Signature::MutPtr(Box::new(kind));
+        if pointers > 0 {
+            kind = Signature::MutPtr((Box::new(kind), pointers));
         }
 
         Some(if is_winrt_array {

@@ -169,14 +169,16 @@ pub fn gen_element_name(def: &Signature, gen: &Gen) -> TokenStream {
         Signature::MethodDef(def) => def.name().into(),
         Signature::Field(field) => field.name().into(),
         Signature::TypeDef(t) => gen_type_name(t, gen),
-        Signature::MutPtr(kind) => {
+        Signature::MutPtr((kind, pointers)) => {
+            let pointers = gen_mut_ptrs(*pointers);
             let kind = gen_default_type(kind, gen);
-            quote! { *mut #kind }
+            quote! { #pointers #kind }
         }
-        Signature::ConstPtr(kind) => {
+        Signature::ConstPtr((kind, pointers)) => {
             // TODO: does it need the default here?
+            let pointers = gen_const_ptrs(*pointers);
             let kind = gen_default_type(kind, gen);
-            quote! { *const #kind }
+            quote! { #pointers #kind }
         }
         // TODO: should these handle more?
         Signature::WinrtArray(kind) => gen_element_name(kind, gen),
@@ -184,6 +186,14 @@ pub fn gen_element_name(def: &Signature, gen: &Gen) -> TokenStream {
         Signature::WinrtConstRef(kind) => gen_element_name(kind, gen),
         Signature::TypeName => unimplemented!(),
     }
+}
+
+fn gen_mut_ptrs(pointers: usize) -> TokenStream {
+    "*mut ".repeat(pointers).into()
+}
+
+fn gen_const_ptrs(pointers: usize) -> TokenStream {
+    "*const ".repeat(pointers).into()
 }
 
 pub fn gen_abi_element_name(sig: &Signature, gen: &Gen) -> TokenStream {
@@ -220,13 +230,15 @@ fn gen_abi_element_name_impl(sig: &Signature, ptr: bool, gen: &Gen) -> TokenStre
             }
             _ => quote! { ::windows::core::RawPtr },
         },
-        Signature::MutPtr(kind) => {
+        Signature::MutPtr((kind, pointers)) => {
+            let pointers = gen_mut_ptrs(*pointers);
             let kind = gen_abi_element_name_impl(kind, true, gen);
-            quote! { *mut #kind }
+            quote! { #pointers #kind }
         }
-        Signature::ConstPtr(kind) => {
+        Signature::ConstPtr((kind, pointers)) => {
+            let pointers = gen_const_ptrs(*pointers);
             let kind = gen_abi_element_name_impl(kind, true, gen);
-            quote! { *const #kind }
+            quote! { #pointers #kind }
         }
         // TODO: should these handle more?
         Signature::WinrtArray(kind) => gen_abi_element_name_impl(kind, ptr, gen),
