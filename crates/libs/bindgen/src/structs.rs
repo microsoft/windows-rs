@@ -49,15 +49,15 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
 
     let fields = def.fields().map(|f| {
         let name = gen_ident(f.name());
-        let sig = f.get_type(Some(def));
-        let sig = gen_sig(&sig, gen);
+        let ty = f.get_type(Some(def));
+        let ty = gen_default_type(&ty, gen);
 
         if f.is_literal() {
             quote! {}
         } else if !gen.sys && is_union && !f.is_blittable(Some(def)) {
-            quote! { pub #name: ::core::mem::ManuallyDrop<#sig>, }
+            quote! { pub #name: ::core::mem::ManuallyDrop<#ty>, }
         } else {
-            quote! { pub #name: #sig, }
+            quote! { pub #name: #ty, }
         }
     });
 
@@ -174,8 +174,8 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
             if f.is_literal() {
                 quote! {}
             } else {
-                let sig = f.get_type(Some(def));
-                if sig.is_callback() {
+                let ty = f.get_type(Some(def));
+                if ty.is_callback() {
                     quote! {
                         self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
                     }

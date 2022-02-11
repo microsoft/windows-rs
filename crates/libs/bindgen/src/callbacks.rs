@@ -10,7 +10,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     let params = signature.params.iter().map(|p| {
         let name = gen_param_name(&p.def);
-        let tokens = gen_sig(&p.ty, gen);
+        let tokens = gen_default_type(&p.ty, gen);
         quote! { #name: #tokens }
     });
 

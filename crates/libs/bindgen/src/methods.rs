@@ -247,7 +247,7 @@ pub fn gen_win32_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
 
     for (position, param) in params.iter().enumerate() {
         let name = gen_param_name(&param.def);
-        let kind = if param.is_convertible() { format!("Param{}", position).into() } else { gen_sig(&param.ty, gen) };
+        let kind = if param.is_convertible() { format!("Param{}", position).into() } else { gen_default_type(&param.ty, gen) };
         tokens.combine(&quote! { #name: #kind, });
     }
 

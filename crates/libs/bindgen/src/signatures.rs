@@ -1,22 +1,9 @@
 use super::*;
 
-// TODO: replace with gen_default_type?
-pub fn gen_sig(ty: &Type, gen: &Gen) -> TokenStream {
-    let kind = gen_element_name(ty, gen);
-
-    if ty.is_nullable() && !gen.sys {
-        quote! {
-            ::core::option::Option<#kind>
-        }
-    } else {
-        kind
-    }
-}
-
 // TODO: suspect - check for UDT
 pub fn gen_return_sig(signature: &Signature, gen: &Gen) -> TokenStream {
     if let Some(return_type) = &signature.return_type {
-        let tokens = gen_sig(return_type, gen);
+        let tokens = gen_default_type(return_type, gen);
         quote! { -> #tokens }
     } else {
         quote! {}

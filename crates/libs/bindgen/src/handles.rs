@@ -82,5 +82,5 @@ fn gen_signature(def: &TypeDef, gen: &Gen) -> TokenStream {
     let def = def.fields().next().map(|field| field.get_type(Some(def))).unwrap();
     // TODO: scrap this in favor of explicit PCWSTR and PCSTR structs
     let def = def.to_const();
-    gen_sig(&def, gen)
+    gen_default_type(&def, gen)
 }

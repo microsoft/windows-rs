@@ -111,7 +111,7 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
             let tokens = gen_abi_element_name(return_type, gen);
             (quote! {}, quote! {}, quote! { result__: *mut #tokens, })
         } else {
-            let tokens = gen_sig(return_type, gen);
+            let tokens = gen_default_type(return_type, gen);
             (quote! {}, quote! { -> #tokens }, quote! {})
         }
     } else {
@@ -488,7 +488,7 @@ pub fn gen_impl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
 
 fn gen_win32_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.def);
-    let kind = gen_sig(&param.ty, gen);
+    let kind = gen_default_type(&param.ty, gen);
 
     if param.def.is_input() && !param.ty.is_primitive() {
         quote! { #name: &#kind, }

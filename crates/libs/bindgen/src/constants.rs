@@ -15,7 +15,7 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
                 pub const #name: #value;
             }
         } else {
-            let kind = gen_sig(&ty, gen);
+            let kind = gen_default_type(&ty, gen);
             let value = gen_constant_value(&constant.value());
 
             let value = if ty.underlying_type() == constant.value_type() {
@@ -41,7 +41,7 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
         let guid = gen_element_name(&Type::GUID, gen);
         quote! { pub const #name: #guid = #value; }
     } else if let Some((guid, id)) = get_property_key(def.attributes()) {
-        let kind = gen_sig(&ty, gen);
+        let kind = gen_default_type(&ty, gen);
         let guid = gen_guid(&guid, gen);
         quote! {
             #cfg

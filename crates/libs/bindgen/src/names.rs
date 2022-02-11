@@ -161,7 +161,7 @@ pub fn gen_element_name(def: &Type, gen: &Gen) -> TokenStream {
             quote! { ::#crate_name::core::HRESULT }
         }
         Type::Win32Array((kind, len)) => {
-            let name = gen_sig(kind, gen);
+            let name = gen_default_type(kind, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
