@@ -2,7 +2,7 @@ use super::*;
 
 // TODO: rename to "Signature?"
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
-pub enum ElementType {
+pub enum Signature {
     Void,
     Bool,
     Char,
@@ -36,19 +36,19 @@ pub enum ElementType {
     WinrtConstRef(Box<Self>),
 }
 
-impl Default for ElementType {
+impl Default for Signature {
     fn default() -> Self {
         Self::Void
     }
 }
 
-impl From<TypeDef> for ElementType {
+impl From<TypeDef> for Signature {
     fn from(def: TypeDef) -> Self {
         Self::TypeDef(def.with_generics())
     }
 }
 
-impl ElementType {
+impl Signature {
     pub fn size(&self) -> usize {
         match self {
             Self::I64 | Self::U64 | Self::F64 => 2,
@@ -148,7 +148,7 @@ impl ElementType {
 
     pub fn is_callback(&self) -> bool {
         match self {
-            ElementType::ConstPtr(kind) | ElementType::MutPtr(kind) => kind.is_callback(),
+            Signature::ConstPtr(kind) | Signature::MutPtr(kind) => kind.is_callback(),
             Self::TypeDef(def) => def.is_callback(),
             _ => false,
         }
@@ -201,25 +201,25 @@ impl ElementType {
     }
 
     pub fn is_generic(&self) -> bool {
-        matches!(self, ElementType::GenericParam(_))
+        matches!(self, Signature::GenericParam(_))
     }
 
     pub fn is_pointer(&self) -> bool {
-        matches!(self, ElementType::ConstPtr(_) | ElementType::MutPtr(_))
+        matches!(self, Signature::ConstPtr(_) | Signature::MutPtr(_))
     }
 
     pub fn is_void(&self) -> bool {
         match self {
-            ElementType::ConstPtr(kind) | ElementType::MutPtr(kind) => kind.is_void(),
-            ElementType::Void => true,
+            Signature::ConstPtr(kind) | Signature::MutPtr(kind) => kind.is_void(),
+            Signature::Void => true,
             _ => false,
         }
     }
 
     pub fn deref(&self) -> Self {
         match self {
-            ElementType::ConstPtr(kind) => *kind.clone(),
-            ElementType::MutPtr(kind) => *kind.clone(),
+            Signature::ConstPtr(kind) => *kind.clone(),
+            Signature::MutPtr(kind) => *kind.clone(),
             _ => unimplemented!(),
         }
     }
@@ -227,28 +227,28 @@ impl ElementType {
     // TODO: Make this own?
     pub fn to_const(&self) -> Self {
         match self {
-            ElementType::MutPtr(kind) => ElementType::ConstPtr(Box::new(kind.to_const())),
+            Signature::MutPtr(kind) => Signature::ConstPtr(Box::new(kind.to_const())),
             _ => self.clone(),
         }
     }
 
     pub fn is_winrt_array(&self) -> bool {
-        matches!(self, ElementType::WinrtArray(_))
+        matches!(self, Signature::WinrtArray(_))
     }
 
     pub fn is_winrt_array_ref(&self) -> bool {
-        matches!(self, ElementType::WinrtArrayRef(_))
+        matches!(self, Signature::WinrtArrayRef(_))
     }
 
     pub fn is_winrt_const_ref(&self) -> bool {
-        matches!(self, ElementType::WinrtConstRef(_))
+        matches!(self, Signature::WinrtConstRef(_))
     }
 
     #[must_use]
-    pub fn underlying_type(&self) -> ElementType {
+    pub fn underlying_type(&self) -> Signature {
         match self {
             Self::TypeDef(def) => def.underlying_type(),
-            Self::HRESULT => ElementType::I32,
+            Self::HRESULT => Signature::I32,
             _ => self.clone(),
         }
     }

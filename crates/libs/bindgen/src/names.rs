@@ -123,92 +123,92 @@ pub fn gen_param_name(param: &Param) -> TokenStream {
     gen_ident(&param.name().to_lowercase())
 }
 
-pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
+pub fn gen_element_name(def: &Signature, gen: &Gen) -> TokenStream {
     match def {
-        ElementType::Void => quote! { ::core::ffi::c_void },
-        ElementType::Bool => quote! { bool },
-        ElementType::Char => quote! { u16 },
-        ElementType::I8 => quote! { i8 },
-        ElementType::U8 => quote! { u8 },
-        ElementType::I16 => quote! { i16 },
-        ElementType::U16 => quote! { u16 },
-        ElementType::I32 => quote! { i32 },
-        ElementType::U32 => quote! { u32 },
-        ElementType::I64 => quote! { i64 },
-        ElementType::U64 => quote! { u64 },
-        ElementType::F32 => quote! { f32 },
-        ElementType::F64 => quote! { f64 },
-        ElementType::ISize => quote! { isize },
-        ElementType::USize => quote! { usize },
-        ElementType::String => {
+        Signature::Void => quote! { ::core::ffi::c_void },
+        Signature::Bool => quote! { bool },
+        Signature::Char => quote! { u16 },
+        Signature::I8 => quote! { i8 },
+        Signature::U8 => quote! { u8 },
+        Signature::I16 => quote! { i16 },
+        Signature::U16 => quote! { u16 },
+        Signature::I32 => quote! { i32 },
+        Signature::U32 => quote! { u32 },
+        Signature::I64 => quote! { i64 },
+        Signature::U64 => quote! { u64 },
+        Signature::F32 => quote! { f32 },
+        Signature::F64 => quote! { f64 },
+        Signature::ISize => quote! { isize },
+        Signature::USize => quote! { usize },
+        Signature::String => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::HSTRING }
         }
-        ElementType::IInspectable => {
+        Signature::IInspectable => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::IInspectable }
         }
-        ElementType::GUID => {
+        Signature::GUID => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::GUID }
         }
-        ElementType::IUnknown => {
+        Signature::IUnknown => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::IUnknown }
         }
-        ElementType::HRESULT => {
+        Signature::HRESULT => {
             let crate_name = gen_crate_name(gen);
             quote! { ::#crate_name::core::HRESULT }
         }
-        ElementType::Win32Array((kind, len)) => {
+        Signature::Win32Array((kind, len)) => {
             let name = gen_sig(kind, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
-        ElementType::GenericParam(generic) => generic.into(),
-        ElementType::MethodDef(def) => def.name().into(),
-        ElementType::Field(field) => field.name().into(),
-        ElementType::TypeDef(t) => gen_type_name(t, gen),
-        ElementType::MutPtr(kind) => {
+        Signature::GenericParam(generic) => generic.into(),
+        Signature::MethodDef(def) => def.name().into(),
+        Signature::Field(field) => field.name().into(),
+        Signature::TypeDef(t) => gen_type_name(t, gen),
+        Signature::MutPtr(kind) => {
             let kind = gen_default_type(kind, gen);
             quote! { *mut #kind }
         }
-        ElementType::ConstPtr(kind) => {
+        Signature::ConstPtr(kind) => {
             // TODO: does it need the default here?
             let kind = gen_default_type(kind, gen);
             quote! { *const #kind }
         }
         // TODO: should these handle more?
-        ElementType::WinrtArray(kind) => gen_element_name(kind, gen),
-        ElementType::WinrtArrayRef(kind) => gen_element_name(kind, gen),
-        ElementType::WinrtConstRef(kind) => gen_element_name(kind, gen),
-        ElementType::TypeName => unimplemented!(),
+        Signature::WinrtArray(kind) => gen_element_name(kind, gen),
+        Signature::WinrtArrayRef(kind) => gen_element_name(kind, gen),
+        Signature::WinrtConstRef(kind) => gen_element_name(kind, gen),
+        Signature::TypeName => unimplemented!(),
     }
 }
 
-pub fn gen_abi_element_name(sig: &ElementType, gen: &Gen) -> TokenStream {
+pub fn gen_abi_element_name(sig: &Signature, gen: &Gen) -> TokenStream {
     gen_abi_element_name_impl(sig, false, gen)
 }
 
 // TODO: this is only because we're trying to avoid the ManuallyDrop below - I don't think that matters so may want to scrap this once we have parity.
-fn gen_abi_element_name_impl(sig: &ElementType, ptr: bool, gen: &Gen) -> TokenStream {
+fn gen_abi_element_name_impl(sig: &Signature, ptr: bool, gen: &Gen) -> TokenStream {
     match sig {
-        ElementType::String => {
+        Signature::String => {
             quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
         }
-        ElementType::IUnknown | ElementType::IInspectable => {
+        Signature::IUnknown | Signature::IInspectable => {
             quote! { *mut ::core::ffi::c_void }
         }
-        ElementType::Win32Array((kind, len)) => {
+        Signature::Win32Array((kind, len)) => {
             let name = gen_abi_element_name_impl(kind, ptr, gen);
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
-        ElementType::GenericParam(generic) => {
+        Signature::GenericParam(generic) => {
             let name = gen_ident(generic);
             quote! { <#name as ::windows::core::Abi>::Abi }
         }
-        ElementType::TypeDef(def) => match def.kind() {
+        Signature::TypeDef(def) => match def.kind() {
             TypeKind::Enum => gen_type_name(def, gen),
             TypeKind::Struct => {
                 let tokens = gen_type_name(def, gen);
@@ -220,17 +220,17 @@ fn gen_abi_element_name_impl(sig: &ElementType, ptr: bool, gen: &Gen) -> TokenSt
             }
             _ => quote! { ::windows::core::RawPtr },
         },
-        ElementType::MutPtr(kind) => {
+        Signature::MutPtr(kind) => {
             let kind = gen_abi_element_name_impl(kind, true, gen);
             quote! { *mut #kind }
         }
-        ElementType::ConstPtr(kind) => {
+        Signature::ConstPtr(kind) => {
             let kind = gen_abi_element_name_impl(kind, true, gen);
             quote! { *const #kind }
         }
         // TODO: should these handle more?
-        ElementType::WinrtArray(kind) => gen_abi_element_name_impl(kind, ptr, gen),
-        ElementType::WinrtArrayRef(kind) => gen_abi_element_name_impl(kind, ptr, gen),
+        Signature::WinrtArray(kind) => gen_abi_element_name_impl(kind, ptr, gen),
+        Signature::WinrtArrayRef(kind) => gen_abi_element_name_impl(kind, ptr, gen),
         _ => gen_element_name(sig, gen),
     }
 }

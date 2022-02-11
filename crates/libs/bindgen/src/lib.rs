@@ -38,7 +38,7 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
     let mut tokens = String::new();
 
     for def in reader.get_type_entry(TypeName::parse(name)).iter().flat_map(|entry| entry.iter()) {
-        tokens.push_str(gen_element_type(def, gen).as_str());
+        tokens.push_str(gen_type_impl(def, gen).as_str());
     }
 
     assert!(!tokens.is_empty(), "`{}` not found", name);
@@ -79,7 +79,7 @@ pub fn gen_namespace_impl(gen: &Gen) -> String {
 
     for entry in tree.types.values() {
         for def in entry {
-            if let ElementType::TypeDef(def) = def {
+            if let Signature::TypeDef(def) = def {
                 let def = &def.clone().with_generics();
                 tokens.combine(&implements::gen(def, gen));
             }
@@ -94,17 +94,17 @@ fn gen_non_sys_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
 
     for entry in tree.types.values() {
         for def in entry {
-            tokens.combine(&gen_element_type(def, gen));
+            tokens.combine(&gen_type_impl(def, gen));
         }
     }
 
     tokens
 }
 
-fn gen_element_type(def: &ElementType, gen: &Gen) -> TokenStream {
+fn gen_type_impl(def: &Signature, gen: &Gen) -> TokenStream {
     match def {
-        ElementType::Field(def) => constants::gen(def, gen),
-        ElementType::TypeDef(def) => {
+        Signature::Field(def) => constants::gen(def, gen),
+        Signature::TypeDef(def) => {
             let def = &def.clone().with_generics();
             match def.kind() {
                 TypeKind::Class => classes::gen(def, gen),
@@ -120,7 +120,7 @@ fn gen_element_type(def: &ElementType, gen: &Gen) -> TokenStream {
                 }
             }
         }
-        ElementType::MethodDef(def) => {
+        Signature::MethodDef(def) => {
             if !gen.sys {
                 gen_function(def, gen)
             } else {

@@ -92,11 +92,11 @@ pub fn gen_runtime_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
     let is_winrt = def.is_winrt();
     let signature = method.signature(&def.generics);
-    let hresult = gen_element_name(&ElementType::HRESULT, gen);
+    let hresult = gen_element_name(&Signature::HRESULT, gen);
 
     let (trailing_return_type, return_type, udt_return_type) = if is_winrt {
         if let Some(return_sig) = &signature.return_sig {
-            if let ElementType::WinrtArray(kind) = return_sig {
+            if let Signature::WinrtArray(kind) = return_sig {
                 let tokens = gen_abi_element_name(kind, gen);
                 (quote! { result_size__: *mut u32, result__: *mut *mut #tokens }, quote! { -> #hresult }, quote! {})
             } else {
@@ -158,9 +158,9 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     method_names.add_vtable_types(def);
 
     match def.vtable_types().last() {
-        Some(ElementType::IUnknown) => methods.combine(&quote! { pub base: ::windows::core::IUnknownVtbl, }),
-        Some(ElementType::IInspectable) => methods.combine(&quote! { pub base: ::windows::core::IInspectableVtbl, }),
-        Some(ElementType::TypeDef(def)) => {
+        Some(Signature::IUnknown) => methods.combine(&quote! { pub base: ::windows::core::IUnknownVtbl, }),
+        Some(Signature::IInspectable) => methods.combine(&quote! { pub base: ::windows::core::IInspectableVtbl, }),
+        Some(Signature::TypeDef(def)) => {
             let vtbl = gen_vtbl_ident(def, gen);
             let namespace = gen.namespace(def.namespace());
             methods.combine(&quote! { pub base: #namespace #vtbl, });
@@ -252,7 +252,7 @@ pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
 }
 
 pub fn gen_guid(value: &GUID, gen: &Gen) -> TokenStream {
-    let guid = gen_element_name(&ElementType::GUID, gen);
+    let guid = gen_element_name(&Signature::GUID, gen);
 
     if gen.sys {
         let a = Literal::u32_unsuffixed(value.0);
@@ -309,7 +309,7 @@ pub fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
                 const NAME: &'static str = #runtime_name;
             }
         }
-    } else if def.vtable_types().iter().any(|e| e == &ElementType::IInspectable) {
+    } else if def.vtable_types().iter().any(|e| e == &Signature::IInspectable) {
         quote! {
             #cfg
             impl ::windows::core::RuntimeName for #name {
@@ -497,8 +497,8 @@ fn gen_win32_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_default_type(def: &ElementType, gen: &Gen) -> TokenStream {
-    if let ElementType::WinrtArray(def) = def {
+pub fn gen_default_type(def: &Signature, gen: &Gen) -> TokenStream {
+    if let Signature::WinrtArray(def) = def {
         gen_default_type(def, gen)
     } else {
         let kind = gen_element_name(def, gen);

@@ -58,16 +58,16 @@ impl TypeReader {
                 let namespace = types.insert_namespace(type_name.namespace, 0);
 
                 if def.is_winrt() || extends != TypeName::Object {
-                    namespace.insert_type(type_name.name, ElementType::TypeDef(def));
+                    namespace.insert_type(type_name.name, Signature::TypeDef(def));
                 } else {
                     for field in def.fields() {
                         let name = field.name();
-                        namespace.insert_type(name, ElementType::Field(field));
+                        namespace.insert_type(name, Signature::Field(field));
                     }
 
                     for method in def.methods() {
                         let name = method.name();
-                        namespace.insert_type(name, ElementType::MethodDef(method));
+                        namespace.insert_type(name, Signature::MethodDef(method));
                     }
                 }
             }
@@ -91,11 +91,11 @@ impl TypeReader {
         self.nested.get(&enclosing.row)
     }
 
-    pub fn get_type_entry<T: HasTypeName>(&'static self, type_name: T) -> Option<&Vec<ElementType>> {
+    pub fn get_type_entry<T: HasTypeName>(&'static self, type_name: T) -> Option<&Vec<Signature>> {
         self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name()))
     }
 
-    pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<&ElementType> {
+    pub fn get_type<T: HasTypeName>(&'static self, type_name: T) -> Option<&Signature> {
         self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name())).and_then(|entry| entry.first())
     }
 
@@ -104,7 +104,7 @@ impl TypeReader {
     }
 
     pub fn expect_type_def<T: HasTypeName>(&'static self, type_name: T) -> TypeDef {
-        self.get_type(type_name).and_then(|def| if let ElementType::TypeDef(def) = def { Some(def.clone()) } else { None }).unwrap_or_else(|| panic!("Expected type not found `{}.{}`", type_name.namespace(), type_name.name()))
+        self.get_type(type_name).and_then(|def| if let Signature::TypeDef(def) = def { Some(def.clone()) } else { None }).unwrap_or_else(|| panic!("Expected type not found `{}.{}`", type_name.namespace(), type_name.name()))
     }
 
     pub fn expect_type_ref(&'static self, enclosing: Option<&TypeDef>, type_ref: &TypeRef) -> TypeDef {
@@ -120,7 +120,7 @@ impl TypeReader {
     }
 
     // TODO: rename since its not longer signature?
-    pub fn signature_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[ElementType]) -> Option<ElementType> {
+    pub fn signature_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[Signature]) -> Option<Signature> {
         let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
 
         let is_winrt_array_ref = blob.read_expected(0x10);
@@ -140,23 +140,23 @@ impl TypeReader {
         let mut kind = self.type_from_blob(blob, enclosing, generics);
 
         for _ in 0..pointers {
-            kind = ElementType::MutPtr(Box::new(kind));
+            kind = Signature::MutPtr(Box::new(kind));
         }
 
         Some(if is_winrt_array {
             if is_winrt_array_ref {
-                ElementType::WinrtArrayRef(Box::new(kind))
+                Signature::WinrtArrayRef(Box::new(kind))
             } else {
-                ElementType::WinrtArray(Box::new(kind))
+                Signature::WinrtArray(Box::new(kind))
             }
         } else if is_winrt_const_ref {
-            ElementType::WinrtConstRef(Box::new(kind))
+            Signature::WinrtConstRef(Box::new(kind))
         } else {
             kind
         })
     }
 
-    pub fn type_from_code(&'static self, code: &TypeDefOrRef, enclosing: Option<&TypeDef>, generics: &[ElementType]) -> ElementType {
+    pub fn type_from_code(&'static self, code: &TypeDefOrRef, enclosing: Option<&TypeDef>, generics: &[Signature]) -> Signature {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.blob();
             return self.type_from_blob(&mut blob, enclosing, generics);
@@ -179,22 +179,22 @@ impl TypeReader {
         code.resolve(enclosing).into()
     }
 
-    pub fn type_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[ElementType]) -> ElementType {
+    pub fn type_from_blob(&'static self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &[Signature]) -> Signature {
         let code = blob.read_unsigned();
 
-        if let Some(code) = ElementType::from_code(code) {
+        if let Some(code) = Signature::from_code(code) {
             return code;
         }
 
         match code {
             0x11 | 0x12 => self.type_from_code(&TypeDefOrRef::decode(blob.file, blob.read_unsigned()), enclosing, generics),
-            0x13 => generics.get(blob.read_unsigned() as usize).unwrap_or(&ElementType::Void).clone(),
+            0x13 => generics.get(blob.read_unsigned() as usize).unwrap_or(&Signature::Void).clone(),
             0x14 => {
                 let kind = self.signature_from_blob(blob, enclosing, generics).unwrap();
                 let _rank = blob.read_unsigned();
                 let _bounds_count = blob.read_unsigned();
                 let bounds = blob.read_unsigned();
-                ElementType::Win32Array((Box::new(kind), bounds))
+                Signature::Win32Array((Box::new(kind), bounds))
             }
             0x15 => {
                 blob.read_unsigned();
@@ -206,7 +206,7 @@ impl TypeReader {
                     def.generics.push(self.type_from_blob(blob, enclosing, generics));
                 }
 
-                ElementType::TypeDef(def)
+                Signature::TypeDef(def)
             }
             _ => unimplemented!(),
         }
@@ -225,4 +225,4 @@ fn is_well_known(type_name: TypeName) -> bool {
 
 const REMAP_TYPES: [(TypeName, TypeName); 1] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2)];
 
-const WELL_KNOWN_TYPES: [(TypeName, ElementType); 9] = [(TypeName::GUID, ElementType::GUID), (TypeName::IUnknown, ElementType::IUnknown), (TypeName::HResult, ElementType::HRESULT), (TypeName::HRESULT, ElementType::HRESULT), (TypeName::HSTRING, ElementType::String), (TypeName::IInspectable, ElementType::IInspectable), (TypeName::LARGE_INTEGER, ElementType::I64), (TypeName::ULARGE_INTEGER, ElementType::U64), (TypeName::Type, ElementType::TypeName)];
+const WELL_KNOWN_TYPES: [(TypeName, Signature); 9] = [(TypeName::GUID, Signature::GUID), (TypeName::IUnknown, Signature::IUnknown), (TypeName::HResult, Signature::HRESULT), (TypeName::HRESULT, Signature::HRESULT), (TypeName::HSTRING, Signature::String), (TypeName::IInspectable, Signature::IInspectable), (TypeName::LARGE_INTEGER, Signature::I64), (TypeName::ULARGE_INTEGER, Signature::U64), (TypeName::Type, Signature::TypeName)];
