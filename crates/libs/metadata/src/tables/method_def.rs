@@ -111,10 +111,7 @@ impl MethodDef {
                     None
                 } else {
                     let ty = reader.type_from_blob(&mut blob, None, generics).expect("MethodDef");
-
-                    // TODO: why not def.is_input
                     let ty = if !def.flags().output() { ty.to_const() } else { ty };
-
                     Some(MethodParam { def, ty })
                 }
             })

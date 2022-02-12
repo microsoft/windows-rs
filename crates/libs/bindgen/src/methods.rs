@@ -262,7 +262,7 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
         let kind = gen_element_name(&param.ty, gen);
         let default_type = gen_default_type(&param.ty, gen);
 
-        if param.def.is_input() {
+        if param.def.flags().input() {
             if param.ty.is_winrt_array() {
                 result.combine(&quote! { #name: &[#default_type], });
             } else if param.is_convertible() {
@@ -296,7 +296,7 @@ pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
 pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
     let name = gen_param_name(&param.def);
 
-    if param.def.is_input() {
+    if param.def.flags().input() {
         if param.ty.is_winrt_array() {
             quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()) }
         } else if param.is_convertible() {

@@ -124,7 +124,7 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
             let abi = gen_abi_element_name(&p.ty, gen);
             let abi_size_name = gen_ident(&format!("{}_array_size", p.def.name()));
 
-            if p.def.is_input() {
+            if p.def.flags().input() {
                 if p.ty.is_winrt_array() {
                     quote! { #abi_size_name: u32, #name: *const #abi, }
                 } else if p.ty.is_winrt_const_ref() {
@@ -411,7 +411,7 @@ fn gen_winrt_invoke_arg(param: &MethodParam) -> TokenStream {
     let name = gen_param_name(&param.def);
     let abi_size_name: TokenStream = format!("{}_array_size", param.def.name()).into();
 
-    if param.def.is_input() {
+    if param.def.flags().input() {
         if param.ty.is_winrt_array() {
             quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
         } else if param.ty.is_primitive() {
@@ -490,7 +490,7 @@ fn gen_win32_produce_type(param: &MethodParam, gen: &Gen) -> TokenStream {
     let name = gen_param_name(&param.def);
     let kind = gen_default_type(&param.ty, gen);
 
-    if param.def.is_input() && !param.ty.is_primitive() {
+    if param.def.flags().input() && !param.ty.is_primitive() {
         quote! { #name: &#kind, }
     } else {
         quote! { #name: #kind, }
@@ -516,7 +516,7 @@ pub fn gen_default_type(def: &Type, gen: &Gen) -> TokenStream {
 fn gen_winrt_produce_type(param: &MethodParam, include_param_names: bool, gen: &Gen) -> TokenStream {
     let default_type = gen_default_type(&param.ty, gen);
 
-    let sig = if param.def.is_input() {
+    let sig = if param.def.flags().input() {
         if param.ty.is_winrt_array() {
             quote! { &[#default_type] }
         } else if param.ty.is_primitive() {
