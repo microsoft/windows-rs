@@ -27,7 +27,7 @@ impl Signature {
                         let object = &self.params[self.params.len() - 1];
 
                         if guid.ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !guid.def.flags().output() && object.ty == Type::MutPtr((Box::new(Type::Void), 2)) && object.def.is_com_out_ptr() {
-                            if object.def.is_optional() {
+                            if object.def.flags().optional() {
                                 return SignatureKind::QueryOptional;
                             } else {
                                 return SignatureKind::Query;
@@ -88,6 +88,6 @@ impl MethodParam {
     }
 
     pub fn is_convertible(&self) -> bool {
-        self.def.is_input() && !self.ty.is_winrt_array() && !self.ty.is_pointer() && self.ty.is_convertible()
+        self.def.flags().input() && !self.ty.is_winrt_array() && !self.ty.is_pointer() && self.ty.is_convertible()
     }
 }

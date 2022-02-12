@@ -24,15 +24,6 @@ impl Param {
         self.attributes().any(|attribute| attribute.name() == name)
     }
 
-    pub fn is_input(&self) -> bool {
-        // TODO: this needs to be !output test.
-        self.flags().input()
-    }
-
-    pub fn is_optional(&self) -> bool {
-        self.flags().optional()
-    }
-
     pub fn is_com_out_ptr(&self) -> bool {
         self.has_attribute("ComOutPtrAttribute")
     }
