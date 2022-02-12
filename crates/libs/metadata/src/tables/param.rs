@@ -24,7 +24,6 @@ impl Param {
         self.attributes().any(|attribute| attribute.name() == name)
     }
 
-
     pub fn is_com_out_ptr(&self) -> bool {
         self.has_attribute("ComOutPtrAttribute")
     }
