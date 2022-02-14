@@ -117,6 +117,7 @@ jobs:
         cargo clippy -p test_implement &&
         cargo clippy -p test_implement_class_factory &&
         cargo clippy -p test_implement_data_object &&
+        cargo clippy -p test_implement_drop_target &&
         cargo clippy -p test_implement_identity &&
         cargo clippy -p test_implement_map &&
         cargo clippy -p test_implement_no_use &&
