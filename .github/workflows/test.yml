@@ -130,6 +130,7 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_implement &&
         cargo test --target ${{ matrix.target }} -p test_implement_class_factory &&
         cargo test --target ${{ matrix.target }} -p test_implement_data_object &&
+        cargo test --target ${{ matrix.target }} -p test_implement_drop_target &&
         cargo test --target ${{ matrix.target }} -p test_implement_identity &&
         cargo test --target ${{ matrix.target }} -p test_implement_map &&
         cargo test --target ${{ matrix.target }} -p test_implement_no_use &&

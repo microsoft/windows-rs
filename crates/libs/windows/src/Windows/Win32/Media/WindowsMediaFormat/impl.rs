@@ -232,12 +232,12 @@ impl INSSBuffer3_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidbufferproperty: ::windows::core::GUID, pvbufferproperty: *const ::core::ffi::c_void, dwbufferpropertysize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProperty(::core::mem::transmute_copy(&guidbufferproperty), ::core::mem::transmute_copy(&pvbufferproperty), ::core::mem::transmute_copy(&dwbufferpropertysize)).into()
+            (*this).SetProperty(::core::mem::transmute(&guidbufferproperty), ::core::mem::transmute_copy(&pvbufferproperty), ::core::mem::transmute_copy(&dwbufferpropertysize)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidbufferproperty: ::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetProperty(::core::mem::transmute_copy(&guidbufferproperty), ::core::mem::transmute_copy(&pvbufferproperty), ::core::mem::transmute_copy(&pdwbufferpropertysize)).into()
+            (*this).GetProperty(::core::mem::transmute(&guidbufferproperty), ::core::mem::transmute_copy(&pvbufferproperty), ::core::mem::transmute_copy(&pdwbufferpropertysize)).into()
         }
         Self {
             base: INSSBuffer2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -349,7 +349,7 @@ impl IWMAddressAccess2_Vtbl {
         unsafe extern "system" fn AddAccessEntryEx<Identity: ::windows::core::IUnknownImpl, Impl: IWMAddressAccess2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, bstraddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrmask: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddAccessEntryEx(::core::mem::transmute_copy(&aetype), ::core::mem::transmute_copy(&bstraddress), ::core::mem::transmute_copy(&bstrmask)).into()
+            (*this).AddAccessEntryEx(::core::mem::transmute_copy(&aetype), ::core::mem::transmute(&bstraddress), ::core::mem::transmute(&bstrmask)).into()
         }
         Self {
             base: IWMAddressAccess_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -989,7 +989,7 @@ impl IWMDRMTranscryptor_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMTranscryptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Initialize(::core::mem::transmute_copy(&bstrfilename), ::core::mem::transmute_copy(&pblicenserequestmsg), ::core::mem::transmute_copy(&cblicenserequestmsg), ::core::mem::transmute_copy(&pplicenseresponsemsg), ::core::mem::transmute(&pcallback), ::core::mem::transmute_copy(&pvcontext)).into()
+            (*this).Initialize(::core::mem::transmute(&bstrfilename), ::core::mem::transmute_copy(&pblicenserequestmsg), ::core::mem::transmute_copy(&cblicenserequestmsg), ::core::mem::transmute_copy(&pplicenseresponsemsg), ::core::mem::transmute(&pcallback), ::core::mem::transmute_copy(&pvcontext)).into()
         }
         unsafe extern "system" fn Seek<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMTranscryptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hnstime: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1163,7 +1163,7 @@ impl IWMDeviceRegistration_Vtbl {
         unsafe extern "system" fn RegisterDevice<Identity: ::windows::core::IUnknownImpl, Impl: IWMDeviceRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RegisterDevice(::core::mem::transmute_copy(&dwregistertype), ::core::mem::transmute_copy(&pbcertificate), ::core::mem::transmute_copy(&cbcertificate), ::core::mem::transmute_copy(&serialnumber)) {
+            match (*this).RegisterDevice(::core::mem::transmute_copy(&dwregistertype), ::core::mem::transmute_copy(&pbcertificate), ::core::mem::transmute_copy(&cbcertificate), ::core::mem::transmute(&serialnumber)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppdevice = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1174,7 +1174,7 @@ impl IWMDeviceRegistration_Vtbl {
         unsafe extern "system" fn UnregisterDevice<Identity: ::windows::core::IUnknownImpl, Impl: IWMDeviceRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterDevice(::core::mem::transmute_copy(&dwregistertype), ::core::mem::transmute_copy(&pbcertificate), ::core::mem::transmute_copy(&cbcertificate), ::core::mem::transmute_copy(&serialnumber)).into()
+            (*this).UnregisterDevice(::core::mem::transmute_copy(&dwregistertype), ::core::mem::transmute_copy(&pbcertificate), ::core::mem::transmute_copy(&cbcertificate), ::core::mem::transmute(&serialnumber)).into()
         }
         unsafe extern "system" fn GetRegistrationStats<Identity: ::windows::core::IUnknownImpl, Impl: IWMDeviceRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwregistertype: u32, pcregistereddevices: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1212,7 +1212,7 @@ impl IWMDeviceRegistration_Vtbl {
         unsafe extern "system" fn GetRegisteredDeviceByID<Identity: ::windows::core::IUnknownImpl, Impl: IWMDeviceRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRegisteredDeviceByID(::core::mem::transmute_copy(&dwregistertype), ::core::mem::transmute_copy(&pbcertificate), ::core::mem::transmute_copy(&cbcertificate), ::core::mem::transmute_copy(&serialnumber)) {
+            match (*this).GetRegisteredDeviceByID(::core::mem::transmute_copy(&dwregistertype), ::core::mem::transmute_copy(&pbcertificate), ::core::mem::transmute_copy(&cbcertificate), ::core::mem::transmute(&serialnumber)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppdevice = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4087,7 +4087,7 @@ impl IWMRegisteredDevice_Vtbl {
         unsafe extern "system" fn GetAttributeByName<Identity: ::windows::core::IUnknownImpl, Impl: IWMRegisteredDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetAttributeByName(::core::mem::transmute_copy(&bstrname)) {
+            match (*this).GetAttributeByName(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4098,7 +4098,7 @@ impl IWMRegisteredDevice_Vtbl {
         unsafe extern "system" fn SetAttributeByName<Identity: ::windows::core::IUnknownImpl, Impl: IWMRegisteredDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAttributeByName(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrvalue)).into()
+            (*this).SetAttributeByName(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrvalue)).into()
         }
         unsafe extern "system" fn Approve<Identity: ::windows::core::IUnknownImpl, Impl: IWMRegisteredDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fapprove: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4255,17 +4255,17 @@ impl IWMSInternalAdminNetSource_Vtbl {
         unsafe extern "system" fn SetCredentials<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCredentials(::core::mem::transmute_copy(&bstrrealm), ::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrpassword), ::core::mem::transmute_copy(&fpersist), ::core::mem::transmute_copy(&fconfirmedgood)).into()
+            (*this).SetCredentials(::core::mem::transmute(&bstrrealm), ::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrpassword), ::core::mem::transmute_copy(&fpersist), ::core::mem::transmute_copy(&fconfirmedgood)).into()
         }
         unsafe extern "system" fn GetCredentials<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCredentials(::core::mem::transmute_copy(&bstrrealm), ::core::mem::transmute_copy(&pbstrname), ::core::mem::transmute_copy(&pbstrpassword), ::core::mem::transmute_copy(&pfconfirmedgood)).into()
+            (*this).GetCredentials(::core::mem::transmute(&bstrrealm), ::core::mem::transmute_copy(&pbstrname), ::core::mem::transmute_copy(&pbstrpassword), ::core::mem::transmute_copy(&pfconfirmedgood)).into()
         }
         unsafe extern "system" fn DeleteCredentials<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteCredentials(::core::mem::transmute_copy(&bstrrealm)).into()
+            (*this).DeleteCredentials(::core::mem::transmute(&bstrrealm)).into()
         }
         unsafe extern "system" fn GetCredentialFlags<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdwflags: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4286,7 +4286,7 @@ impl IWMSInternalAdminNetSource_Vtbl {
         unsafe extern "system" fn FindProxyForURL<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrhost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FindProxyForURL(::core::mem::transmute_copy(&bstrprotocol), ::core::mem::transmute_copy(&bstrhost), ::core::mem::transmute_copy(&pfproxyenabled), ::core::mem::transmute_copy(&pbstrproxyserver), ::core::mem::transmute_copy(&pdwproxyport), ::core::mem::transmute_copy(&pdwproxycontext)).into()
+            (*this).FindProxyForURL(::core::mem::transmute(&bstrprotocol), ::core::mem::transmute(&bstrhost), ::core::mem::transmute_copy(&pfproxyenabled), ::core::mem::transmute_copy(&pbstrproxyserver), ::core::mem::transmute_copy(&pdwproxyport), ::core::mem::transmute_copy(&pdwproxycontext)).into()
         }
         unsafe extern "system" fn RegisterProxyFailure<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrparam: ::windows::core::HRESULT, dwproxycontext: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4341,22 +4341,22 @@ impl IWMSInternalAdminNetSource2_Vtbl {
         unsafe extern "system" fn SetCredentialsEx<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCredentialsEx(::core::mem::transmute_copy(&bstrrealm), ::core::mem::transmute_copy(&bstrurl), ::core::mem::transmute_copy(&fproxy), ::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrpassword), ::core::mem::transmute_copy(&fpersist), ::core::mem::transmute_copy(&fconfirmedgood)).into()
+            (*this).SetCredentialsEx(::core::mem::transmute(&bstrrealm), ::core::mem::transmute(&bstrurl), ::core::mem::transmute_copy(&fproxy), ::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrpassword), ::core::mem::transmute_copy(&fpersist), ::core::mem::transmute_copy(&fconfirmedgood)).into()
         }
         unsafe extern "system" fn GetCredentialsEx<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCredentialsEx(::core::mem::transmute_copy(&bstrrealm), ::core::mem::transmute_copy(&bstrurl), ::core::mem::transmute_copy(&fproxy), ::core::mem::transmute_copy(&pdwurlpolicy), ::core::mem::transmute_copy(&pbstrname), ::core::mem::transmute_copy(&pbstrpassword), ::core::mem::transmute_copy(&pfconfirmedgood)).into()
+            (*this).GetCredentialsEx(::core::mem::transmute(&bstrrealm), ::core::mem::transmute(&bstrurl), ::core::mem::transmute_copy(&fproxy), ::core::mem::transmute_copy(&pdwurlpolicy), ::core::mem::transmute_copy(&pbstrname), ::core::mem::transmute_copy(&pbstrpassword), ::core::mem::transmute_copy(&pfconfirmedgood)).into()
         }
         unsafe extern "system" fn DeleteCredentialsEx<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteCredentialsEx(::core::mem::transmute_copy(&bstrrealm), ::core::mem::transmute_copy(&bstrurl), ::core::mem::transmute_copy(&fproxy)).into()
+            (*this).DeleteCredentialsEx(::core::mem::transmute(&bstrrealm), ::core::mem::transmute(&bstrurl), ::core::mem::transmute_copy(&fproxy)).into()
         }
         unsafe extern "system" fn FindProxyForURLEx<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrhost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FindProxyForURLEx(::core::mem::transmute_copy(&bstrprotocol), ::core::mem::transmute_copy(&bstrhost), ::core::mem::transmute_copy(&bstrurl), ::core::mem::transmute_copy(&pfproxyenabled), ::core::mem::transmute_copy(&pbstrproxyserver), ::core::mem::transmute_copy(&pdwproxyport), ::core::mem::transmute_copy(&pdwproxycontext)).into()
+            (*this).FindProxyForURLEx(::core::mem::transmute(&bstrprotocol), ::core::mem::transmute(&bstrhost), ::core::mem::transmute(&bstrurl), ::core::mem::transmute_copy(&pfproxyenabled), ::core::mem::transmute_copy(&pbstrproxyserver), ::core::mem::transmute_copy(&pdwproxyport), ::core::mem::transmute_copy(&pdwproxycontext)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -4397,7 +4397,7 @@ impl IWMSInternalAdminNetSource3_Vtbl {
         unsafe extern "system" fn FindProxyForURLEx2<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrhost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FindProxyForURLEx2(::core::mem::transmute_copy(&bstrprotocol), ::core::mem::transmute_copy(&bstrhost), ::core::mem::transmute_copy(&bstrurl), ::core::mem::transmute_copy(&pfproxyenabled), ::core::mem::transmute_copy(&pbstrproxyserver), ::core::mem::transmute_copy(&pdwproxyport), ::core::mem::transmute_copy(&pqwproxycontext)).into()
+            (*this).FindProxyForURLEx2(::core::mem::transmute(&bstrprotocol), ::core::mem::transmute(&bstrhost), ::core::mem::transmute(&bstrurl), ::core::mem::transmute_copy(&pfproxyenabled), ::core::mem::transmute_copy(&pbstrproxyserver), ::core::mem::transmute_copy(&pdwproxyport), ::core::mem::transmute_copy(&pqwproxycontext)).into()
         }
         unsafe extern "system" fn RegisterProxyFailure2<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrparam: ::windows::core::HRESULT, qwproxycontext: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4423,12 +4423,12 @@ impl IWMSInternalAdminNetSource3_Vtbl {
         unsafe extern "system" fn SetCredentialsEx2<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCredentialsEx2(::core::mem::transmute_copy(&bstrrealm), ::core::mem::transmute_copy(&bstrurl), ::core::mem::transmute_copy(&fproxy), ::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrpassword), ::core::mem::transmute_copy(&fpersist), ::core::mem::transmute_copy(&fconfirmedgood), ::core::mem::transmute_copy(&fcleartextauthentication)).into()
+            (*this).SetCredentialsEx2(::core::mem::transmute(&bstrrealm), ::core::mem::transmute(&bstrurl), ::core::mem::transmute_copy(&fproxy), ::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrpassword), ::core::mem::transmute_copy(&fpersist), ::core::mem::transmute_copy(&fconfirmedgood), ::core::mem::transmute_copy(&fcleartextauthentication)).into()
         }
         unsafe extern "system" fn GetCredentialsEx2<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCredentialsEx2(::core::mem::transmute_copy(&bstrrealm), ::core::mem::transmute_copy(&bstrurl), ::core::mem::transmute_copy(&fproxy), ::core::mem::transmute_copy(&fcleartextauthentication), ::core::mem::transmute_copy(&pdwurlpolicy), ::core::mem::transmute_copy(&pbstrname), ::core::mem::transmute_copy(&pbstrpassword), ::core::mem::transmute_copy(&pfconfirmedgood)).into()
+            (*this).GetCredentialsEx2(::core::mem::transmute(&bstrrealm), ::core::mem::transmute(&bstrurl), ::core::mem::transmute_copy(&fproxy), ::core::mem::transmute_copy(&fcleartextauthentication), ::core::mem::transmute_copy(&pdwurlpolicy), ::core::mem::transmute_copy(&pbstrname), ::core::mem::transmute_copy(&pbstrpassword), ::core::mem::transmute_copy(&pfconfirmedgood)).into()
         }
         Self {
             base: IWMSInternalAdminNetSource2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4704,7 +4704,7 @@ impl IWMStreamConfig2_Vtbl {
         unsafe extern "system" fn AddDataUnitExtension<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidextensionsystemid: ::windows::core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: *const u8, cbextensionsysteminfo: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddDataUnitExtension(::core::mem::transmute_copy(&guidextensionsystemid), ::core::mem::transmute_copy(&cbextensiondatasize), ::core::mem::transmute_copy(&pbextensionsysteminfo), ::core::mem::transmute_copy(&cbextensionsysteminfo)).into()
+            (*this).AddDataUnitExtension(::core::mem::transmute(&guidextensionsystemid), ::core::mem::transmute_copy(&cbextensiondatasize), ::core::mem::transmute_copy(&pbextensionsysteminfo), ::core::mem::transmute_copy(&cbextensionsysteminfo)).into()
         }
         unsafe extern "system" fn GetDataUnitExtensionCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdataunitextensions: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

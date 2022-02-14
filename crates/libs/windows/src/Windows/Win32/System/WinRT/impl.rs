@@ -294,7 +294,7 @@ impl ICorrelationVectorInformation_Vtbl {
         unsafe extern "system" fn SetNextCorrelationVectorForThread<Identity: ::windows::core::IUnknownImpl, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetNextCorrelationVectorForThread(::core::mem::transmute_copy(&cv)).into()
+            (*this).SetNextCorrelationVectorForThread(::core::mem::transmute(&cv)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, ICorrelationVectorInformation, OFFSET>(),
@@ -647,12 +647,12 @@ impl IRoSimpleMetaDataBuilder_Vtbl {
         unsafe extern "system" fn SetWinRtInterface<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetWinRtInterface(::core::mem::transmute_copy(&iid)).into()
+            (*this).SetWinRtInterface(::core::mem::transmute(&iid)).into()
         }
         unsafe extern "system" fn SetDelegate<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDelegate(::core::mem::transmute_copy(&iid)).into()
+            (*this).SetDelegate(::core::mem::transmute(&iid)).into()
         }
         unsafe extern "system" fn SetInterfaceGroupSimpleDefault<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, defaultinterfacename: super::super::Foundation::PWSTR, defaultinterfaceiid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -687,12 +687,12 @@ impl IRoSimpleMetaDataBuilder_Vtbl {
         unsafe extern "system" fn SetParameterizedInterface<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetParameterizedInterface(::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&numargs)).into()
+            (*this).SetParameterizedInterface(::core::mem::transmute(&piid), ::core::mem::transmute_copy(&numargs)).into()
         }
         unsafe extern "system" fn SetParameterizedDelegate<Identity: ::windows::core::IUnknownImpl, Impl: IRoSimpleMetaDataBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetParameterizedDelegate(::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&numargs)).into()
+            (*this).SetParameterizedDelegate(::core::mem::transmute(&piid), ::core::mem::transmute_copy(&numargs)).into()
         }
         Self {
             SetWinRtInterface: SetWinRtInterface::<Identity, Impl, OFFSET>,
@@ -886,7 +886,7 @@ impl IUserActivitySourceHostInterop_Vtbl {
         unsafe extern "system" fn SetActivitySourceHost<Identity: ::windows::core::IUnknownImpl, Impl: IUserActivitySourceHostInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activitysourcehost: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetActivitySourceHost(::core::mem::transmute_copy(&activitysourcehost)).into()
+            (*this).SetActivitySourceHost(::core::mem::transmute(&activitysourcehost)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IUserActivitySourceHostInterop, OFFSET>(),
@@ -911,7 +911,7 @@ impl IUserConsentVerifierInterop_Vtbl {
         unsafe extern "system" fn RequestVerificationForWindowAsync<Identity: ::windows::core::IUnknownImpl, Impl: IUserConsentVerifierInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RequestVerificationForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute_copy(&message), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
+            (*this).RequestVerificationForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute(&message), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
         }
         Self {
             base: ::windows::core::IInspectableVtbl::new::<Identity, IUserConsentVerifierInterop, OFFSET>(),

@@ -536,7 +536,7 @@ impl IAudioEffectsManager_Vtbl {
         unsafe extern "system" fn SetAudioEffectState<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffectsManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectid: ::windows::core::GUID, state: AUDIO_EFFECT_STATE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAudioEffectState(::core::mem::transmute_copy(&effectid), ::core::mem::transmute_copy(&state)).into()
+            (*this).SetAudioEffectState(::core::mem::transmute(&effectid), ::core::mem::transmute_copy(&state)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1187,7 +1187,7 @@ impl IAudioStateMonitor_Vtbl {
         unsafe extern "system" fn RegisterCallback<Identity: ::windows::core::IUnknownImpl, Impl: IAudioStateMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, registration: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RegisterCallback(::core::mem::transmute_copy(&callback), ::core::mem::transmute_copy(&context)) {
+            match (*this).RegisterCallback(::core::mem::transmute(&callback), ::core::mem::transmute_copy(&context)) {
                 ::core::result::Result::Ok(ok__) => {
                     *registration = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1285,7 +1285,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
         unsafe extern "system" fn OnPropertyChanged<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSystemEffectsPropertyChangeNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPropertyChanged(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&key)).into()
+            (*this).OnPropertyChanged(::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&key)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnPropertyChanged: OnPropertyChanged::<Identity, Impl, OFFSET> }
     }
@@ -2031,7 +2031,7 @@ impl IMMNotificationClient_Vtbl {
         unsafe extern "system" fn OnPropertyValueChanged<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: super::super::Foundation::PWSTR, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnPropertyValueChanged(::core::mem::transmute_copy(&pwstrdeviceid), ::core::mem::transmute_copy(&key)).into()
+            (*this).OnPropertyValueChanged(::core::mem::transmute_copy(&pwstrdeviceid), ::core::mem::transmute(&key)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

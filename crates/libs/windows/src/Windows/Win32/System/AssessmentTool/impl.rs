@@ -220,7 +220,7 @@ impl IQueryAllWinSATAssessments_Vtbl {
         unsafe extern "system" fn AllXML<Identity: ::windows::core::IUnknownImpl, Impl: IQueryAllWinSATAssessments_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, namespaces: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdomnodelist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AllXML(::core::mem::transmute_copy(&xpath), ::core::mem::transmute_copy(&namespaces)) {
+            match (*this).AllXML(::core::mem::transmute(&xpath), ::core::mem::transmute(&namespaces)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppdomnodelist = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -267,7 +267,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
         unsafe extern "system" fn XML<Identity: ::windows::core::IUnknownImpl, Impl: IQueryRecentWinSATAssessment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, namespaces: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdomnodelist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).XML(::core::mem::transmute_copy(&xpath), ::core::mem::transmute_copy(&namespaces)) {
+            match (*this).XML(::core::mem::transmute(&xpath), ::core::mem::transmute(&namespaces)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppdomnodelist = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

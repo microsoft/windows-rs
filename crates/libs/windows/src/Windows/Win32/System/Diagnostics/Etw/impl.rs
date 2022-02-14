@@ -163,7 +163,7 @@ impl ITraceRelogger_Vtbl {
         unsafe extern "system" fn AddLogfileTraceStream<Identity: ::windows::core::IUnknownImpl, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logfilename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddLogfileTraceStream(::core::mem::transmute_copy(&logfilename), ::core::mem::transmute_copy(&usercontext)) {
+            match (*this).AddLogfileTraceStream(::core::mem::transmute(&logfilename), ::core::mem::transmute_copy(&usercontext)) {
                 ::core::result::Result::Ok(ok__) => {
                     *tracehandle = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -174,7 +174,7 @@ impl ITraceRelogger_Vtbl {
         unsafe extern "system" fn AddRealtimeTraceStream<Identity: ::windows::core::IUnknownImpl, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddRealtimeTraceStream(::core::mem::transmute_copy(&loggername), ::core::mem::transmute_copy(&usercontext)) {
+            match (*this).AddRealtimeTraceStream(::core::mem::transmute(&loggername), ::core::mem::transmute_copy(&usercontext)) {
                 ::core::result::Result::Ok(ok__) => {
                     *tracehandle = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -211,7 +211,7 @@ impl ITraceRelogger_Vtbl {
         unsafe extern "system" fn SetOutputFilename<Identity: ::windows::core::IUnknownImpl, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logfilename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetOutputFilename(::core::mem::transmute_copy(&logfilename)).into()
+            (*this).SetOutputFilename(::core::mem::transmute(&logfilename)).into()
         }
         unsafe extern "system" fn SetCompressionMode<Identity: ::windows::core::IUnknownImpl, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

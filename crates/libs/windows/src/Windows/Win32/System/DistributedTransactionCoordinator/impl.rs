@@ -1108,7 +1108,7 @@ impl IRMHelper_Vtbl {
         unsafe extern "system" fn RMInfo<Identity: ::windows::core::IUnknownImpl, Impl: IRMHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: super::super::Foundation::PSTR, pszclosestring: super::super::Foundation::PSTR, guidrmrecovery: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RMInfo(::core::mem::transmute_copy(&pxa_switch), ::core::mem::transmute_copy(&fcdeclcallingconv), ::core::mem::transmute_copy(&pszopenstring), ::core::mem::transmute_copy(&pszclosestring), ::core::mem::transmute_copy(&guidrmrecovery)).into()
+            (*this).RMInfo(::core::mem::transmute_copy(&pxa_switch), ::core::mem::transmute_copy(&fcdeclcallingconv), ::core::mem::transmute_copy(&pszopenstring), ::core::mem::transmute_copy(&pszclosestring), ::core::mem::transmute(&guidrmrecovery)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -2214,7 +2214,7 @@ impl IXAConfig_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IXAConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidhelperdll: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Initialize(::core::mem::transmute_copy(&clsidhelperdll)).into()
+            (*this).Initialize(::core::mem::transmute(&clsidhelperdll)).into()
         }
         unsafe extern "system" fn Terminate<Identity: ::windows::core::IUnknownImpl, Impl: IXAConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

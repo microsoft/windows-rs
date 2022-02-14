@@ -55,12 +55,12 @@ impl IVdsAdmin_Vtbl {
         unsafe extern "system" fn RegisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: super::super::Foundation::PWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: super::super::Foundation::PWSTR, pwszversion: super::super::Foundation::PWSTR, guidversionid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterProvider(::core::mem::transmute_copy(&providerid), ::core::mem::transmute_copy(&providerclsid), ::core::mem::transmute_copy(&pwszname), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pwszmachinename), ::core::mem::transmute_copy(&pwszversion), ::core::mem::transmute_copy(&guidversionid)).into()
+            (*this).RegisterProvider(::core::mem::transmute(&providerid), ::core::mem::transmute(&providerclsid), ::core::mem::transmute_copy(&pwszname), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pwszmachinename), ::core::mem::transmute_copy(&pwszversion), ::core::mem::transmute(&guidversionid)).into()
         }
         unsafe extern "system" fn UnregisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterProvider(::core::mem::transmute_copy(&providerid)).into()
+            (*this).UnregisterProvider(::core::mem::transmute(&providerid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -467,7 +467,7 @@ impl IVdsHwProviderPrivateMpio_Vtbl {
         unsafe extern "system" fn SetAllPathStatusesFromHbaPort<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderPrivateMpio_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hbaportprop: VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAllPathStatusesFromHbaPort(::core::mem::transmute_copy(&hbaportprop), ::core::mem::transmute_copy(&status)).into()
+            (*this).SetAllPathStatusesFromHbaPort(::core::mem::transmute(&hbaportprop), ::core::mem::transmute_copy(&status)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -501,7 +501,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
         unsafe extern "system" fn CreateLunInStoragePool<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: ::windows::core::GUID, pwszunmaskinglist: super::super::Foundation::PWSTR, phints2: *const VDS_HINTS2, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateLunInStoragePool(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&ullsizeinbytes), ::core::mem::transmute_copy(&storagepoolid), ::core::mem::transmute_copy(&pwszunmaskinglist), ::core::mem::transmute_copy(&phints2)) {
+            match (*this).CreateLunInStoragePool(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&ullsizeinbytes), ::core::mem::transmute(&storagepoolid), ::core::mem::transmute_copy(&pwszunmaskinglist), ::core::mem::transmute_copy(&phints2)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppasync = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -512,7 +512,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
         unsafe extern "system" fn QueryMaxLunCreateSizeInStoragePool<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: VDS_LUN_TYPE, storagepoolid: ::windows::core::GUID, phints2: *const VDS_HINTS2, pullmaxlunsize: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).QueryMaxLunCreateSizeInStoragePool(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&storagepoolid), ::core::mem::transmute_copy(&phints2)) {
+            match (*this).QueryMaxLunCreateSizeInStoragePool(::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&storagepoolid), ::core::mem::transmute_copy(&phints2)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pullmaxlunsize = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -706,7 +706,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
         unsafe extern "system" fn AddPortal<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portalid: ::windows::core::GUID, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddPortal(::core::mem::transmute_copy(&portalid)) {
+            match (*this).AddPortal(::core::mem::transmute(&portalid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppasync = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -717,7 +717,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
         unsafe extern "system" fn RemovePortal<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portalid: ::windows::core::GUID, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RemovePortal(::core::mem::transmute_copy(&portalid)) {
+            match (*this).RemovePortal(::core::mem::transmute(&portalid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppasync = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -973,7 +973,7 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn AddPlex<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lunid: ::windows::core::GUID, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddPlex(::core::mem::transmute_copy(&lunid)) {
+            match (*this).AddPlex(::core::mem::transmute(&lunid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppasync = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -984,7 +984,7 @@ impl IVdsLun_Vtbl {
         unsafe extern "system" fn RemovePlex<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLun_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plexid: ::windows::core::GUID, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RemovePlex(::core::mem::transmute_copy(&plexid)) {
+            match (*this).RemovePlex(::core::mem::transmute(&plexid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppasync = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1397,7 +1397,7 @@ impl IVdsProviderPrivate_Vtbl {
         unsafe extern "system" fn GetObject<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProviderPrivate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectid: ::windows::core::GUID, r#type: VDS_OBJECT_TYPE, ppobjectunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetObject(::core::mem::transmute_copy(&objectid), ::core::mem::transmute_copy(&r#type)) {
+            match (*this).GetObject(::core::mem::transmute(&objectid), ::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppobjectunk = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1642,7 +1642,7 @@ impl IVdsSubSystem_Vtbl {
         unsafe extern "system" fn ReplaceDrive<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, drivetobereplaced: ::windows::core::GUID, replacementdrive: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ReplaceDrive(::core::mem::transmute_copy(&drivetobereplaced), ::core::mem::transmute_copy(&replacementdrive)).into()
+            (*this).ReplaceDrive(::core::mem::transmute(&drivetobereplaced), ::core::mem::transmute(&replacementdrive)).into()
         }
         unsafe extern "system" fn SetStatus<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: VDS_SUB_SYSTEM_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

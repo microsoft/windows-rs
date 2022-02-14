@@ -1964,7 +1964,7 @@ impl IFEDictionary_Vtbl {
         unsafe extern "system" fn ConvertFromOldMSIME<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchdic: super::super::super::Foundation::PSTR, pfnlog: ::windows::core::RawPtr, reg: IMEREG) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ConvertFromOldMSIME(::core::mem::transmute_copy(&pchdic), ::core::mem::transmute_copy(&pfnlog), ::core::mem::transmute_copy(&reg)).into()
+            (*this).ConvertFromOldMSIME(::core::mem::transmute_copy(&pchdic), ::core::mem::transmute(&pfnlog), ::core::mem::transmute_copy(&reg)).into()
         }
         unsafe extern "system" fn ConvertFromUserToSys<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2031,12 +2031,12 @@ impl IFELanguage_Vtbl {
         unsafe extern "system" fn GetPhonetic<Identity: ::windows::core::IUnknownImpl, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, string: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, start: i32, length: i32, phonetic: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetPhonetic(::core::mem::transmute_copy(&string), ::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&phonetic)).into()
+            (*this).GetPhonetic(::core::mem::transmute(&string), ::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&phonetic)).into()
         }
         unsafe extern "system" fn GetConversion<Identity: ::windows::core::IUnknownImpl, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, string: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetConversion(::core::mem::transmute_copy(&string), ::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&result)).into()
+            (*this).GetConversion(::core::mem::transmute(&string), ::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&result)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -2135,7 +2135,7 @@ impl IImePlugInDictDictionaryList_Vtbl {
         unsafe extern "system" fn DeleteDictionary<Identity: ::windows::core::IUnknownImpl, Impl: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdictionaryguid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteDictionary(::core::mem::transmute_copy(&bstrdictionaryguid)).into()
+            (*this).DeleteDictionary(::core::mem::transmute(&bstrdictionaryguid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

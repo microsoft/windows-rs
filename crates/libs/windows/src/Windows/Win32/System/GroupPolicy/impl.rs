@@ -96,7 +96,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetDomain<Identity: ::windows::core::IUnknownImpl, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdomain: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdomaincontroller: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ldcflags: i32, pigpmdomain: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDomain(::core::mem::transmute_copy(&bstrdomain), ::core::mem::transmute_copy(&bstrdomaincontroller), ::core::mem::transmute_copy(&ldcflags)) {
+            match (*this).GetDomain(::core::mem::transmute(&bstrdomain), ::core::mem::transmute(&bstrdomaincontroller), ::core::mem::transmute_copy(&ldcflags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pigpmdomain = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -107,7 +107,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetBackupDir<Identity: ::windows::core::IUnknownImpl, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pigpmbackupdir: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetBackupDir(::core::mem::transmute_copy(&bstrbackupdir)) {
+            match (*this).GetBackupDir(::core::mem::transmute(&bstrbackupdir)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pigpmbackupdir = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -118,7 +118,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetSitesContainer<Identity: ::windows::core::IUnknownImpl, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrforest: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdomain: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdomaincontroller: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ldcflags: i32, ppigpmsitescontainer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSitesContainer(::core::mem::transmute_copy(&bstrforest), ::core::mem::transmute_copy(&bstrdomain), ::core::mem::transmute_copy(&bstrdomaincontroller), ::core::mem::transmute_copy(&ldcflags)) {
+            match (*this).GetSitesContainer(::core::mem::transmute(&bstrforest), ::core::mem::transmute(&bstrdomain), ::core::mem::transmute(&bstrdomaincontroller), ::core::mem::transmute_copy(&ldcflags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppigpmsitescontainer = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -129,7 +129,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetRSOP<Identity: ::windows::core::IUnknownImpl, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmrsopmode: GPMRSOPMode, bstrnamespace: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lflags: i32, ppigpmrsop: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRSOP(::core::mem::transmute_copy(&gpmrsopmode), ::core::mem::transmute_copy(&bstrnamespace), ::core::mem::transmute_copy(&lflags)) {
+            match (*this).GetRSOP(::core::mem::transmute_copy(&gpmrsopmode), ::core::mem::transmute(&bstrnamespace), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppigpmrsop = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -140,7 +140,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn CreatePermission<Identity: ::windows::core::IUnknownImpl, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, perm: GPMPermissionType, binheritable: i16, ppperm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreatePermission(::core::mem::transmute_copy(&bstrtrustee), ::core::mem::transmute_copy(&perm), ::core::mem::transmute_copy(&binheritable)) {
+            match (*this).CreatePermission(::core::mem::transmute(&bstrtrustee), ::core::mem::transmute_copy(&perm), ::core::mem::transmute_copy(&binheritable)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppperm = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -162,7 +162,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn CreateTrustee<Identity: ::windows::core::IUnknownImpl, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmtrustee: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateTrustee(::core::mem::transmute_copy(&bstrtrustee)) {
+            match (*this).CreateTrustee(::core::mem::transmute(&bstrtrustee)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppigpmtrustee = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -195,7 +195,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn GetMigrationTable<Identity: ::windows::core::IUnknownImpl, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmigrationtable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetMigrationTable(::core::mem::transmute_copy(&bstrmigrationtablepath)) {
+            match (*this).GetMigrationTable(::core::mem::transmute(&bstrmigrationtablepath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppmigrationtable = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -217,7 +217,7 @@ impl IGPM_Vtbl {
         unsafe extern "system" fn InitializeReporting<Identity: ::windows::core::IUnknownImpl, Impl: IGPM_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).InitializeReporting(::core::mem::transmute_copy(&bstradmpath)).into()
+            (*this).InitializeReporting(::core::mem::transmute(&bstradmpath)).into()
         }
         Self {
             base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -250,7 +250,7 @@ impl IGPM2_Vtbl {
         unsafe extern "system" fn GetBackupDirEx<Identity: ::windows::core::IUnknownImpl, Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backupdirtype: GPMBackupType, ppigpmbackupdirex: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetBackupDirEx(::core::mem::transmute_copy(&bstrbackupdir), ::core::mem::transmute_copy(&backupdirtype)) {
+            match (*this).GetBackupDirEx(::core::mem::transmute(&bstrbackupdir), ::core::mem::transmute_copy(&backupdirtype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppigpmbackupdirex = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -261,7 +261,7 @@ impl IGPM2_Vtbl {
         unsafe extern "system" fn InitializeReportingEx<Identity: ::windows::core::IUnknownImpl, Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, reportingoptions: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).InitializeReportingEx(::core::mem::transmute_copy(&bstradmpath), ::core::mem::transmute_copy(&reportingoptions)).into()
+            (*this).InitializeReportingEx(::core::mem::transmute(&bstradmpath), ::core::mem::transmute_copy(&reportingoptions)).into()
         }
         Self {
             base: IGPM_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -415,7 +415,7 @@ impl IGPMBackup_Vtbl {
         unsafe extern "system" fn GenerateReportToFile<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&bstrtargetfilepath)) {
+            match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppigpmresult = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -517,7 +517,7 @@ impl IGPMBackupDir_Vtbl {
         unsafe extern "system" fn GetBackup<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupDir_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppbackup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetBackup(::core::mem::transmute_copy(&bstrid)) {
+            match (*this).GetBackup(::core::mem::transmute(&bstrid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppbackup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -582,7 +582,7 @@ impl IGPMBackupDirEx_Vtbl {
         unsafe extern "system" fn GetBackup<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarbackup: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetBackup(::core::mem::transmute_copy(&bstrid)) {
+            match (*this).GetBackup(::core::mem::transmute(&bstrid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvarbackup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1787,7 +1787,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn GetGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppgpo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetGPO(::core::mem::transmute_copy(&bstrguid)) {
+            match (*this).GetGPO(::core::mem::transmute(&bstrguid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppgpo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1814,7 +1814,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn GetSOM<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSOM(::core::mem::transmute_copy(&bstrpath)) {
+            match (*this).GetSOM(::core::mem::transmute(&bstrpath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppsom = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1836,7 +1836,7 @@ impl IGPMDomain_Vtbl {
         unsafe extern "system" fn GetWMIFilter<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwmifilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetWMIFilter(::core::mem::transmute_copy(&bstrpath)) {
+            match (*this).GetWMIFilter(::core::mem::transmute(&bstrpath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwmifilter = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1910,7 +1910,7 @@ impl IGPMDomain2_Vtbl {
         unsafe extern "system" fn GetStarterGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pptemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetStarterGPO(::core::mem::transmute_copy(&bstrguid)) {
+            match (*this).GetStarterGPO(::core::mem::transmute(&bstrguid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pptemplate = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1932,7 +1932,7 @@ impl IGPMDomain2_Vtbl {
         unsafe extern "system" fn LoadStarterGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrloadfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, boverwrite: i16, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).LoadStarterGPO(::core::mem::transmute_copy(&bstrloadfile), ::core::mem::transmute_copy(&boverwrite), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
+            (*this).LoadStarterGPO(::core::mem::transmute(&bstrloadfile), ::core::mem::transmute_copy(&boverwrite), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
         unsafe extern "system" fn RestoreStarterGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pigpmtmplbackup: ::windows::core::RawPtr, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1982,7 +1982,7 @@ impl IGPMDomain3_Vtbl {
         unsafe extern "system" fn SetInfrastructureDC<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetInfrastructureDC(::core::mem::transmute_copy(&newval)).into()
+            (*this).SetInfrastructureDC(::core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn SetInfrastructureFlags<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2050,7 +2050,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDisplayName(::core::mem::transmute_copy(&newval)).into()
+            (*this).SetDisplayName(::core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2223,7 +2223,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn Backup<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Backup(::core::mem::transmute_copy(&bstrbackupdir), ::core::mem::transmute_copy(&bstrcomment), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
+            (*this).Backup(::core::mem::transmute(&bstrbackupdir), ::core::mem::transmute(&bstrcomment), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
         unsafe extern "system" fn Import<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pigpmbackup: ::windows::core::RawPtr, pvarmigrationtable: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2238,7 +2238,7 @@ impl IGPMGPO_Vtbl {
         unsafe extern "system" fn GenerateReportToFile<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&bstrtargetfilepath)) {
+            match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppigpmresult = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2342,7 +2342,7 @@ impl IGPMGPO2_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescription(::core::mem::transmute_copy(&newval)).into()
+            (*this).SetDescription(::core::mem::transmute(&newval)).into()
         }
         Self {
             base: IGPMGPO_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2377,7 +2377,7 @@ impl IGPMGPO3_Vtbl {
         unsafe extern "system" fn SetInfrastructureDC<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetInfrastructureDC(::core::mem::transmute_copy(&newval)).into()
+            (*this).SetInfrastructureDC(::core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn SetInfrastructureFlags<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2750,17 +2750,17 @@ impl IGPMMigrationTable_Vtbl {
         unsafe extern "system" fn Save<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmigrationtablepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Save(::core::mem::transmute_copy(&bstrmigrationtablepath)).into()
+            (*this).Save(::core::mem::transmute(&bstrmigrationtablepath)).into()
         }
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, var: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Add(::core::mem::transmute_copy(&lflags), ::core::mem::transmute_copy(&var)).into()
+            (*this).Add(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&var)).into()
         }
         unsafe extern "system" fn AddEntry<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, gpmentrytype: GPMEntryType, pvardestination: *const super::Com::VARIANT, ppentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddEntry(::core::mem::transmute_copy(&bstrsource), ::core::mem::transmute_copy(&gpmentrytype), ::core::mem::transmute_copy(&pvardestination)) {
+            match (*this).AddEntry(::core::mem::transmute(&bstrsource), ::core::mem::transmute_copy(&gpmentrytype), ::core::mem::transmute_copy(&pvardestination)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppentry = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2771,7 +2771,7 @@ impl IGPMMigrationTable_Vtbl {
         unsafe extern "system" fn GetEntry<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEntry(::core::mem::transmute_copy(&bstrsource)) {
+            match (*this).GetEntry(::core::mem::transmute(&bstrsource)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppentry = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2782,12 +2782,12 @@ impl IGPMMigrationTable_Vtbl {
         unsafe extern "system" fn DeleteEntry<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteEntry(::core::mem::transmute_copy(&bstrsource)).into()
+            (*this).DeleteEntry(::core::mem::transmute(&bstrsource)).into()
         }
         unsafe extern "system" fn UpdateDestination<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvardestination: *const super::Com::VARIANT, ppentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).UpdateDestination(::core::mem::transmute_copy(&bstrsource), ::core::mem::transmute_copy(&pvardestination)) {
+            match (*this).UpdateDestination(::core::mem::transmute(&bstrsource), ::core::mem::transmute_copy(&pvardestination)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppentry = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2978,7 +2978,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetLoggingComputer<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLoggingComputer(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetLoggingComputer(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn LoggingComputer<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2994,7 +2994,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetLoggingUser<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLoggingUser(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetLoggingUser(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn LoggingUser<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3042,7 +3042,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningDomainController<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlanningDomainController(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetPlanningDomainController(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningDomainController<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3058,7 +3058,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningSiteName<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlanningSiteName(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetPlanningSiteName(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningSiteName<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3074,7 +3074,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningUser<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlanningUser(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetPlanningUser(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningUser<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3090,7 +3090,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningUserSOM<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlanningUserSOM(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetPlanningUserSOM(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningUserSOM<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3106,7 +3106,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningUserWMIFilters<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlanningUserWMIFilters(::core::mem::transmute_copy(&varval)).into()
+            (*this).SetPlanningUserWMIFilters(::core::mem::transmute(&varval)).into()
         }
         unsafe extern "system" fn PlanningUserWMIFilters<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3122,7 +3122,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningUserSecurityGroups<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlanningUserSecurityGroups(::core::mem::transmute_copy(&varval)).into()
+            (*this).SetPlanningUserSecurityGroups(::core::mem::transmute(&varval)).into()
         }
         unsafe extern "system" fn PlanningUserSecurityGroups<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3138,7 +3138,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningComputer<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlanningComputer(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetPlanningComputer(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningComputer<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3154,7 +3154,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningComputerSOM<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlanningComputerSOM(::core::mem::transmute_copy(&bstrval)).into()
+            (*this).SetPlanningComputerSOM(::core::mem::transmute(&bstrval)).into()
         }
         unsafe extern "system" fn PlanningComputerSOM<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3170,7 +3170,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningComputerWMIFilters<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlanningComputerWMIFilters(::core::mem::transmute_copy(&varval)).into()
+            (*this).SetPlanningComputerWMIFilters(::core::mem::transmute(&varval)).into()
         }
         unsafe extern "system" fn PlanningComputerWMIFilters<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3186,7 +3186,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn SetPlanningComputerSecurityGroups<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPlanningComputerSecurityGroups(::core::mem::transmute_copy(&varval)).into()
+            (*this).SetPlanningComputerSecurityGroups(::core::mem::transmute(&varval)).into()
         }
         unsafe extern "system" fn PlanningComputerSecurityGroups<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3228,7 +3228,7 @@ impl IGPMRSOP_Vtbl {
         unsafe extern "system" fn GenerateReportToFile<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&bstrtargetfilepath)) {
+            match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppigpmresult = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3521,7 +3521,7 @@ impl IGPMSearchCriteria_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSearchCriteria_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Add(::core::mem::transmute_copy(&searchproperty), ::core::mem::transmute_copy(&searchoperation), ::core::mem::transmute_copy(&varvalue)).into()
+            (*this).Add(::core::mem::transmute_copy(&searchproperty), ::core::mem::transmute_copy(&searchoperation), ::core::mem::transmute(&varvalue)).into()
         }
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Add: Add::<Identity, Impl, OFFSET> }
     }
@@ -3587,7 +3587,7 @@ impl IGPMSecurityInfo_Vtbl {
         unsafe extern "system" fn RemoveTrustee<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveTrustee(::core::mem::transmute_copy(&bstrtrustee)).into()
+            (*this).RemoveTrustee(::core::mem::transmute(&bstrtrustee)).into()
         }
         Self {
             base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3650,7 +3650,7 @@ impl IGPMSitesContainer_Vtbl {
         unsafe extern "system" fn GetSite<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsitename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSite(::core::mem::transmute_copy(&bstrsitename)) {
+            match (*this).GetSite(::core::mem::transmute(&bstrsitename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppsom = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3723,7 +3723,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDisplayName(::core::mem::transmute_copy(&newval)).into()
+            (*this).SetDisplayName(::core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3739,7 +3739,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescription(::core::mem::transmute_copy(&newval)).into()
+            (*this).SetDescription(::core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn Author<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3849,25 +3849,13 @@ impl IGPMStarterGPO_Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this)
-                .Save(
-                    ::core::mem::transmute_copy(&bstrsavefile),
-                    ::core::mem::transmute_copy(&boverwrite),
-                    ::core::mem::transmute_copy(&bsaveassystem),
-                    ::core::mem::transmute_copy(&bstrlanguage),
-                    ::core::mem::transmute_copy(&bstrauthor),
-                    ::core::mem::transmute_copy(&bstrproduct),
-                    ::core::mem::transmute_copy(&bstruniqueid),
-                    ::core::mem::transmute_copy(&bstrversion),
-                    ::core::mem::transmute_copy(&pvargpmprogress),
-                    ::core::mem::transmute_copy(&pvargpmcancel),
-                    ::core::mem::transmute_copy(&ppigpmresult),
-                )
+                .Save(::core::mem::transmute(&bstrsavefile), ::core::mem::transmute_copy(&boverwrite), ::core::mem::transmute_copy(&bsaveassystem), ::core::mem::transmute_copy(&bstrlanguage), ::core::mem::transmute_copy(&bstrauthor), ::core::mem::transmute_copy(&bstrproduct), ::core::mem::transmute_copy(&bstruniqueid), ::core::mem::transmute_copy(&bstrversion), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult))
                 .into()
         }
         unsafe extern "system" fn Backup<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Backup(::core::mem::transmute_copy(&bstrbackupdir), ::core::mem::transmute_copy(&bstrcomment), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
+            (*this).Backup(::core::mem::transmute(&bstrbackupdir), ::core::mem::transmute(&bstrcomment), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel), ::core::mem::transmute_copy(&ppigpmresult)).into()
         }
         unsafe extern "system" fn CopyTo<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarnewdisplayname: *const super::Com::VARIANT, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *const super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3894,7 +3882,7 @@ impl IGPMStarterGPO_Vtbl {
         unsafe extern "system" fn GenerateReportToFile<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&bstrtargetfilepath)) {
+            match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppigpmresult = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4065,7 +4053,7 @@ impl IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn GenerateReportToFile<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&bstrtargetfilepath)) {
+            match (*this).GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppigpmresult = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4438,7 +4426,7 @@ impl IGPMWMIFilter_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&newval)).into()
+            (*this).SetName(::core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4454,7 +4442,7 @@ impl IGPMWMIFilter_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescription(::core::mem::transmute_copy(&newval)).into()
+            (*this).SetDescription(::core::mem::transmute(&newval)).into()
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

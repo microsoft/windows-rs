@@ -440,7 +440,7 @@ impl IAudioSystemEffects3_Vtbl {
         unsafe extern "system" fn SetAudioSystemEffectState<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSystemEffects3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectid: ::windows::core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAudioSystemEffectState(::core::mem::transmute_copy(&effectid), ::core::mem::transmute_copy(&state)).into()
+            (*this).SetAudioSystemEffectState(::core::mem::transmute(&effectid), ::core::mem::transmute_copy(&state)).into()
         }
         Self {
             base: IAudioSystemEffects2_Vtbl::new::<Identity, Impl, OFFSET>(),

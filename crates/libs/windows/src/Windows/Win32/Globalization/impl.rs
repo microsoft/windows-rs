@@ -865,7 +865,7 @@ impl IMultiLanguage_Vtbl {
         unsafe extern "system" fn GetCharsetInfo<Identity: ::windows::core::IUnknownImpl, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, charset: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCharsetInfo(::core::mem::transmute_copy(&charset)) {
+            match (*this).GetCharsetInfo(::core::mem::transmute(&charset)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pcharsetinfo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -912,7 +912,7 @@ impl IMultiLanguage_Vtbl {
         unsafe extern "system" fn GetLcidFromRfc1766<Identity: ::windows::core::IUnknownImpl, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocale: *mut u32, bstrrfc1766: ::core::mem::ManuallyDrop<super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetLcidFromRfc1766(::core::mem::transmute_copy(&plocale), ::core::mem::transmute_copy(&bstrrfc1766)).into()
+            (*this).GetLcidFromRfc1766(::core::mem::transmute_copy(&plocale), ::core::mem::transmute(&bstrrfc1766)).into()
         }
         unsafe extern "system" fn EnumRfc1766<Identity: ::windows::core::IUnknownImpl, Impl: IMultiLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumrfc1766: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1050,7 +1050,7 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn GetCharsetInfo<Identity: ::windows::core::IUnknownImpl, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, charset: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pcharsetinfo: *mut MIMECSETINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCharsetInfo(::core::mem::transmute_copy(&charset)) {
+            match (*this).GetCharsetInfo(::core::mem::transmute(&charset)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pcharsetinfo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1097,7 +1097,7 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn GetLcidFromRfc1766<Identity: ::windows::core::IUnknownImpl, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocale: *mut u32, bstrrfc1766: ::core::mem::ManuallyDrop<super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetLcidFromRfc1766(::core::mem::transmute_copy(&plocale), ::core::mem::transmute_copy(&bstrrfc1766)).into()
+            (*this).GetLcidFromRfc1766(::core::mem::transmute_copy(&plocale), ::core::mem::transmute(&bstrrfc1766)).into()
         }
         unsafe extern "system" fn EnumRfc1766<Identity: ::windows::core::IUnknownImpl, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, langid: u16, ppenumrfc1766: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

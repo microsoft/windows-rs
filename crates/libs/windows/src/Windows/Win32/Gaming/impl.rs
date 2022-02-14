@@ -11,22 +11,22 @@ impl IGameExplorer_Vtbl {
         unsafe extern "system" fn AddGame<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, bstrgameinstalldirectory: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddGame(::core::mem::transmute_copy(&bstrgdfbinarypath), ::core::mem::transmute_copy(&bstrgameinstalldirectory), ::core::mem::transmute_copy(&installscope), ::core::mem::transmute_copy(&pguidinstanceid)).into()
+            (*this).AddGame(::core::mem::transmute(&bstrgdfbinarypath), ::core::mem::transmute(&bstrgameinstalldirectory), ::core::mem::transmute_copy(&installscope), ::core::mem::transmute_copy(&pguidinstanceid)).into()
         }
         unsafe extern "system" fn RemoveGame<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidinstanceid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveGame(::core::mem::transmute_copy(&guidinstanceid)).into()
+            (*this).RemoveGame(::core::mem::transmute(&guidinstanceid)).into()
         }
         unsafe extern "system" fn UpdateGame<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidinstanceid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UpdateGame(::core::mem::transmute_copy(&guidinstanceid)).into()
+            (*this).UpdateGame(::core::mem::transmute(&guidinstanceid)).into()
         }
         unsafe extern "system" fn VerifyAccess<Identity: ::windows::core::IUnknownImpl, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::core::mem::ManuallyDrop<super::Foundation::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).VerifyAccess(::core::mem::transmute_copy(&bstrgdfbinarypath)) {
+            match (*this).VerifyAccess(::core::mem::transmute(&bstrgdfbinarypath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfhasaccess = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

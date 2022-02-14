@@ -8,7 +8,7 @@ impl IWSCDefaultProduct_Vtbl {
         unsafe extern "system" fn SetDefaultProduct<Identity: ::windows::core::IUnknownImpl, Impl: IWSCDefaultProduct_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, etype: SECURITY_PRODUCT_TYPE, pguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDefaultProduct(::core::mem::transmute_copy(&etype), ::core::mem::transmute_copy(&pguid)).into()
+            (*this).SetDefaultProduct(::core::mem::transmute_copy(&etype), ::core::mem::transmute(&pguid)).into()
         }
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), SetDefaultProduct: SetDefaultProduct::<Identity, Impl, OFFSET> }
     }

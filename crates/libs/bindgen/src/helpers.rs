@@ -400,7 +400,7 @@ pub fn gen_winrt_upcall(sig: &Signature, inner: TokenStream) -> TokenStream {
 fn gen_win32_invoke_arg(param: &MethodParam) -> TokenStream {
     let name = gen_param_name(&param.def);
 
-    if !param.ty.is_pointer() && param.ty.is_nullable() {
+    if (!param.ty.is_pointer() && param.ty.is_nullable()) || (param.def.flags().input() && !param.ty.is_primitive()) {
         quote! { ::core::mem::transmute(&#name) }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }

@@ -588,7 +588,7 @@ impl IWdsTransportManager_Vtbl {
         unsafe extern "system" fn GetWdsTransportServer<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwdstransportserver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetWdsTransportServer(::core::mem::transmute_copy(&bszservername)) {
+            match (*this).GetWdsTransportServer(::core::mem::transmute(&bszservername)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwdstransportserver = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -759,7 +759,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&bszname)).into()
+            (*this).SetName(::core::mem::transmute(&bszname)).into()
         }
         unsafe extern "system" fn FriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbszfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -775,7 +775,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszfriendlyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFriendlyName(::core::mem::transmute_copy(&bszfriendlyname)).into()
+            (*this).SetFriendlyName(::core::mem::transmute(&bszfriendlyname)).into()
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -791,7 +791,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescription(::core::mem::transmute_copy(&bszdescription)).into()
+            (*this).SetDescription(::core::mem::transmute(&bszdescription)).into()
         }
         unsafe extern "system" fn ContentProvider<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbszcontentprovider: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -807,7 +807,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn SetContentProvider<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszcontentprovider: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetContentProvider(::core::mem::transmute_copy(&bszcontentprovider)).into()
+            (*this).SetContentProvider(::core::mem::transmute(&bszcontentprovider)).into()
         }
         unsafe extern "system" fn Configuration<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbszconfiguration: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -823,7 +823,7 @@ impl IWdsTransportNamespace_Vtbl {
         unsafe extern "system" fn SetConfiguration<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszconfiguration: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetConfiguration(::core::mem::transmute_copy(&bszconfiguration)).into()
+            (*this).SetConfiguration(::core::mem::transmute(&bszconfiguration)).into()
         }
         unsafe extern "system" fn Registered<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbregistered: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -958,7 +958,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
         unsafe extern "system" fn CreateNamespace<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bszcontentprovider: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bszconfiguration: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwdstransportnamespace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateNamespace(::core::mem::transmute_copy(&namespacetype), ::core::mem::transmute_copy(&bsznamespacename), ::core::mem::transmute_copy(&bszcontentprovider), ::core::mem::transmute_copy(&bszconfiguration)) {
+            match (*this).CreateNamespace(::core::mem::transmute_copy(&namespacetype), ::core::mem::transmute(&bsznamespacename), ::core::mem::transmute(&bszcontentprovider), ::core::mem::transmute(&bszconfiguration)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwdstransportnamespace = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -969,7 +969,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
         unsafe extern "system" fn RetrieveNamespace<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsznamespacename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwdstransportnamespace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RetrieveNamespace(::core::mem::transmute_copy(&bsznamespacename)) {
+            match (*this).RetrieveNamespace(::core::mem::transmute(&bsznamespacename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwdstransportnamespace = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -980,7 +980,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
         unsafe extern "system" fn RetrieveNamespaces<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportNamespaceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszcontentprovider: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bsznamespacename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bincludetombstones: i16, ppwdstransportnamespaces: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RetrieveNamespaces(::core::mem::transmute_copy(&bszcontentprovider), ::core::mem::transmute_copy(&bsznamespacename), ::core::mem::transmute_copy(&bincludetombstones)) {
+            match (*this).RetrieveNamespaces(::core::mem::transmute(&bszcontentprovider), ::core::mem::transmute(&bsznamespacename), ::core::mem::transmute_copy(&bincludetombstones)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwdstransportnamespaces = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1227,7 +1227,7 @@ impl IWdsTransportServicePolicy_Vtbl {
         unsafe extern "system" fn SetStartIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetStartIpAddress(::core::mem::transmute_copy(&addresstype), ::core::mem::transmute_copy(&bszstartipaddress)).into()
+            (*this).SetStartIpAddress(::core::mem::transmute_copy(&addresstype), ::core::mem::transmute(&bszstartipaddress)).into()
         }
         unsafe extern "system" fn EndIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszendipaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1243,7 +1243,7 @@ impl IWdsTransportServicePolicy_Vtbl {
         unsafe extern "system" fn SetEndIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetEndIpAddress(::core::mem::transmute_copy(&addresstype), ::core::mem::transmute_copy(&bszendipaddress)).into()
+            (*this).SetEndIpAddress(::core::mem::transmute_copy(&addresstype), ::core::mem::transmute(&bszendipaddress)).into()
         }
         unsafe extern "system" fn StartPort<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulstartport: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1546,12 +1546,12 @@ impl IWdsTransportSetupManager_Vtbl {
         unsafe extern "system" fn RegisterContentProvider<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportSetupManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bszdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bszfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bszinitializationroutine: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterContentProvider(::core::mem::transmute_copy(&bszname), ::core::mem::transmute_copy(&bszdescription), ::core::mem::transmute_copy(&bszfilepath), ::core::mem::transmute_copy(&bszinitializationroutine)).into()
+            (*this).RegisterContentProvider(::core::mem::transmute(&bszname), ::core::mem::transmute(&bszdescription), ::core::mem::transmute(&bszfilepath), ::core::mem::transmute(&bszinitializationroutine)).into()
         }
         unsafe extern "system" fn DeregisterContentProvider<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportSetupManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeregisterContentProvider(::core::mem::transmute_copy(&bszname)).into()
+            (*this).DeregisterContentProvider(::core::mem::transmute(&bszname)).into()
         }
         Self {
             base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),

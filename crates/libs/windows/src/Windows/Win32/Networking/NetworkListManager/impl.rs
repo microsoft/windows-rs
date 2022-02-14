@@ -153,7 +153,7 @@ impl INetwork_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sznetworknewname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&sznetworknewname)).into()
+            (*this).SetName(::core::mem::transmute(&sznetworknewname)).into()
         }
         unsafe extern "system" fn GetDescription<Identity: ::windows::core::IUnknownImpl, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -169,7 +169,7 @@ impl INetwork_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescription(::core::mem::transmute_copy(&szdescription)).into()
+            (*this).SetDescription(::core::mem::transmute(&szdescription)).into()
         }
         unsafe extern "system" fn GetNetworkId<Identity: ::windows::core::IUnknownImpl, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgdguidnetworkid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -433,12 +433,12 @@ impl INetworkConnectionCostEvents_Vtbl {
         unsafe extern "system" fn ConnectionCostChanged<Identity: ::windows::core::IUnknownImpl, Impl: INetworkConnectionCostEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, newcost: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ConnectionCostChanged(::core::mem::transmute_copy(&connectionid), ::core::mem::transmute_copy(&newcost)).into()
+            (*this).ConnectionCostChanged(::core::mem::transmute(&connectionid), ::core::mem::transmute_copy(&newcost)).into()
         }
         unsafe extern "system" fn ConnectionDataPlanStatusChanged<Identity: ::windows::core::IUnknownImpl, Impl: INetworkConnectionCostEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ConnectionDataPlanStatusChanged(::core::mem::transmute_copy(&connectionid)).into()
+            (*this).ConnectionDataPlanStatusChanged(::core::mem::transmute(&connectionid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -459,12 +459,12 @@ impl INetworkConnectionEvents_Vtbl {
         unsafe extern "system" fn NetworkConnectionConnectivityChanged<Identity: ::windows::core::IUnknownImpl, Impl: INetworkConnectionEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NetworkConnectionConnectivityChanged(::core::mem::transmute_copy(&connectionid), ::core::mem::transmute_copy(&newconnectivity)).into()
+            (*this).NetworkConnectionConnectivityChanged(::core::mem::transmute(&connectionid), ::core::mem::transmute_copy(&newconnectivity)).into()
         }
         unsafe extern "system" fn NetworkConnectionPropertyChanged<Identity: ::windows::core::IUnknownImpl, Impl: INetworkConnectionEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NetworkConnectionPropertyChanged(::core::mem::transmute_copy(&connectionid), ::core::mem::transmute_copy(&flags)).into()
+            (*this).NetworkConnectionPropertyChanged(::core::mem::transmute(&connectionid), ::core::mem::transmute_copy(&flags)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -548,22 +548,22 @@ impl INetworkEvents_Vtbl {
         unsafe extern "system" fn NetworkAdded<Identity: ::windows::core::IUnknownImpl, Impl: INetworkEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NetworkAdded(::core::mem::transmute_copy(&networkid)).into()
+            (*this).NetworkAdded(::core::mem::transmute(&networkid)).into()
         }
         unsafe extern "system" fn NetworkDeleted<Identity: ::windows::core::IUnknownImpl, Impl: INetworkEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NetworkDeleted(::core::mem::transmute_copy(&networkid)).into()
+            (*this).NetworkDeleted(::core::mem::transmute(&networkid)).into()
         }
         unsafe extern "system" fn NetworkConnectivityChanged<Identity: ::windows::core::IUnknownImpl, Impl: INetworkEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkid: ::windows::core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NetworkConnectivityChanged(::core::mem::transmute_copy(&networkid), ::core::mem::transmute_copy(&newconnectivity)).into()
+            (*this).NetworkConnectivityChanged(::core::mem::transmute(&networkid), ::core::mem::transmute_copy(&newconnectivity)).into()
         }
         unsafe extern "system" fn NetworkPropertyChanged<Identity: ::windows::core::IUnknownImpl, Impl: INetworkEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkid: ::windows::core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NetworkPropertyChanged(::core::mem::transmute_copy(&networkid), ::core::mem::transmute_copy(&flags)).into()
+            (*this).NetworkPropertyChanged(::core::mem::transmute(&networkid), ::core::mem::transmute_copy(&flags)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -606,7 +606,7 @@ impl INetworkListManager_Vtbl {
         unsafe extern "system" fn GetNetwork<Identity: ::windows::core::IUnknownImpl, Impl: INetworkListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gdnetworkid: ::windows::core::GUID, ppnetwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetNetwork(::core::mem::transmute_copy(&gdnetworkid)) {
+            match (*this).GetNetwork(::core::mem::transmute(&gdnetworkid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppnetwork = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -628,7 +628,7 @@ impl INetworkListManager_Vtbl {
         unsafe extern "system" fn GetNetworkConnection<Identity: ::windows::core::IUnknownImpl, Impl: INetworkListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gdnetworkconnectionid: ::windows::core::GUID, ppnetworkconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetNetworkConnection(::core::mem::transmute_copy(&gdnetworkconnectionid)) {
+            match (*this).GetNetworkConnection(::core::mem::transmute(&gdnetworkconnectionid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppnetworkconnection = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

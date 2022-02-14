@@ -33,7 +33,7 @@ impl ID3DDestructionNotifier_Vtbl {
         unsafe extern "system" fn RegisterDestructionCallback<Identity: ::windows::core::IUnknownImpl, Impl: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackfn: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RegisterDestructionCallback(::core::mem::transmute_copy(&callbackfn), ::core::mem::transmute_copy(&pdata)) {
+            match (*this).RegisterDestructionCallback(::core::mem::transmute(&callbackfn), ::core::mem::transmute_copy(&pdata)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pcallbackid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

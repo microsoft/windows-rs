@@ -619,32 +619,32 @@ impl ID3D12Device_Vtbl {
         unsafe extern "system" fn CreateConstantBufferView<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateConstantBufferView(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&destdescriptor))
+            (*this).CreateConstantBufferView(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn CreateShaderResourceView<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateShaderResourceView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&destdescriptor))
+            (*this).CreateShaderResourceView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn CreateUnorderedAccessView<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pcounterresource: ::windows::core::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateUnorderedAccessView(::core::mem::transmute(&presource), ::core::mem::transmute(&pcounterresource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&destdescriptor))
+            (*this).CreateUnorderedAccessView(::core::mem::transmute(&presource), ::core::mem::transmute(&pcounterresource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn CreateRenderTargetView<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateRenderTargetView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&destdescriptor))
+            (*this).CreateRenderTargetView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn CreateDepthStencilView<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateDepthStencilView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&destdescriptor))
+            (*this).CreateDepthStencilView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn CreateSampler<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateSampler(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&destdescriptor))
+            (*this).CreateSampler(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn CopyDescriptors<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -654,7 +654,7 @@ impl ID3D12Device_Vtbl {
         unsafe extern "system" fn CopyDescriptorsSimple<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CopyDescriptorsSimple(::core::mem::transmute_copy(&numdescriptors), ::core::mem::transmute_copy(&destdescriptorrangestart), ::core::mem::transmute_copy(&srcdescriptorrangestart), ::core::mem::transmute_copy(&descriptorheapstype))
+            (*this).CopyDescriptorsSimple(::core::mem::transmute_copy(&numdescriptors), ::core::mem::transmute(&destdescriptorrangestart), ::core::mem::transmute(&srcdescriptorrangestart), ::core::mem::transmute_copy(&descriptorheapstype))
         }
         unsafe extern "system" fn GetResourceAllocationInfo<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1103,7 +1103,7 @@ impl ID3D12Device8_Vtbl {
         unsafe extern "system" fn CreateSamplerFeedbackUnorderedAccessView<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetedresource: ::windows::core::RawPtr, pfeedbackresource: ::windows::core::RawPtr, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateSamplerFeedbackUnorderedAccessView(::core::mem::transmute(&ptargetedresource), ::core::mem::transmute(&pfeedbackresource), ::core::mem::transmute_copy(&destdescriptor))
+            (*this).CreateSamplerFeedbackUnorderedAccessView(::core::mem::transmute(&ptargetedresource), ::core::mem::transmute(&pfeedbackresource), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn GetCopyableFootprints1<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1669,12 +1669,12 @@ impl ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn SetComputeRootDescriptorTable<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, basedescriptor: D3D12_GPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetComputeRootDescriptorTable(::core::mem::transmute_copy(&rootparameterindex), ::core::mem::transmute_copy(&basedescriptor))
+            (*this).SetComputeRootDescriptorTable(::core::mem::transmute_copy(&rootparameterindex), ::core::mem::transmute(&basedescriptor))
         }
         unsafe extern "system" fn SetGraphicsRootDescriptorTable<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, basedescriptor: D3D12_GPU_DESCRIPTOR_HANDLE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetGraphicsRootDescriptorTable(::core::mem::transmute_copy(&rootparameterindex), ::core::mem::transmute_copy(&basedescriptor))
+            (*this).SetGraphicsRootDescriptorTable(::core::mem::transmute_copy(&rootparameterindex), ::core::mem::transmute(&basedescriptor))
         }
         unsafe extern "system" fn SetComputeRoot32BitConstant<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1749,22 +1749,22 @@ impl ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn ClearDepthStencilView<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, depthstencilview: D3D12_CPU_DESCRIPTOR_HANDLE, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ClearDepthStencilView(::core::mem::transmute_copy(&depthstencilview), ::core::mem::transmute_copy(&clearflags), ::core::mem::transmute_copy(&depth), ::core::mem::transmute_copy(&stencil), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
+            (*this).ClearDepthStencilView(::core::mem::transmute(&depthstencilview), ::core::mem::transmute_copy(&clearflags), ::core::mem::transmute_copy(&depth), ::core::mem::transmute_copy(&stencil), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
         }
         unsafe extern "system" fn ClearRenderTargetView<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ClearRenderTargetView(::core::mem::transmute_copy(&rendertargetview), ::core::mem::transmute_copy(&colorrgba), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
+            (*this).ClearRenderTargetView(::core::mem::transmute(&rendertargetview), ::core::mem::transmute_copy(&colorrgba), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
         }
         unsafe extern "system" fn ClearUnorderedAccessViewUint<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: ::windows::core::RawPtr, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ClearUnorderedAccessViewUint(::core::mem::transmute_copy(&viewgpuhandleincurrentheap), ::core::mem::transmute_copy(&viewcpuhandle), ::core::mem::transmute(&presource), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
+            (*this).ClearUnorderedAccessViewUint(::core::mem::transmute(&viewgpuhandleincurrentheap), ::core::mem::transmute(&viewcpuhandle), ::core::mem::transmute(&presource), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
         }
         unsafe extern "system" fn ClearUnorderedAccessViewFloat<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: ::windows::core::RawPtr, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ClearUnorderedAccessViewFloat(::core::mem::transmute_copy(&viewgpuhandleincurrentheap), ::core::mem::transmute_copy(&viewcpuhandle), ::core::mem::transmute(&presource), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
+            (*this).ClearUnorderedAccessViewFloat(::core::mem::transmute(&viewgpuhandleincurrentheap), ::core::mem::transmute(&viewcpuhandle), ::core::mem::transmute(&presource), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
         }
         unsafe extern "system" fn DiscardResource<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const D3D12_DISCARD_REGION) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2394,7 +2394,7 @@ impl ID3D12InfoQueue1_Vtbl {
         unsafe extern "system" fn RegisterMessageCallback<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12InfoQueue1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackfunc: ::windows::core::RawPtr, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *const ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterMessageCallback(::core::mem::transmute_copy(&callbackfunc), ::core::mem::transmute_copy(&callbackfilterflags), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&pcallbackcookie)).into()
+            (*this).RegisterMessageCallback(::core::mem::transmute(&callbackfunc), ::core::mem::transmute_copy(&callbackfilterflags), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&pcallbackcookie)).into()
         }
         unsafe extern "system" fn UnregisterMessageCallback<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12InfoQueue1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackcookie: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

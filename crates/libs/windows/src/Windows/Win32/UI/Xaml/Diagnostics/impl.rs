@@ -94,7 +94,7 @@ impl IVisualTreeService_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pinstancehandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateInstance(::core::mem::transmute_copy(&typename), ::core::mem::transmute_copy(&value)) {
+            match (*this).CreateInstance(::core::mem::transmute(&typename), ::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pinstancehandle = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -286,7 +286,7 @@ impl IVisualTreeServiceCallback_Vtbl {
         unsafe extern "system" fn OnVisualTreeChange<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relation: ParentChildRelation, element: ::core::mem::ManuallyDrop<VisualElement>, mutationtype: VisualMutationType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).OnVisualTreeChange(::core::mem::transmute_copy(&relation), ::core::mem::transmute_copy(&element), ::core::mem::transmute_copy(&mutationtype)).into()
+            (*this).OnVisualTreeChange(::core::mem::transmute(&relation), ::core::mem::transmute(&element), ::core::mem::transmute_copy(&mutationtype)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), OnVisualTreeChange: OnVisualTreeChange::<Identity, Impl, OFFSET> }
     }
@@ -384,7 +384,7 @@ impl IXamlDiagnostics_Vtbl {
         unsafe extern "system" fn HitTest<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDiagnostics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rect: super::super::super::Foundation::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).HitTest(::core::mem::transmute_copy(&rect), ::core::mem::transmute_copy(&pcount), ::core::mem::transmute_copy(&ppinstancehandles)).into()
+            (*this).HitTest(::core::mem::transmute(&rect), ::core::mem::transmute_copy(&pcount), ::core::mem::transmute_copy(&ppinstancehandles)).into()
         }
         unsafe extern "system" fn RegisterInstance<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDiagnostics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstance: *mut ::core::ffi::c_void, pinstancehandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

@@ -116,7 +116,7 @@ impl IBITSExtensionSetupFactory_Vtbl {
         unsafe extern "system" fn GetObject<Identity: ::windows::core::IUnknownImpl, Impl: IBITSExtensionSetupFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppextensionsetup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetObject(::core::mem::transmute_copy(&path)) {
+            match (*this).GetObject(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppextensionsetup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -471,7 +471,7 @@ impl IBackgroundCopyFile5_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProperty(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&propertyvalue)).into()
+            (*this).SetProperty(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute(&propertyvalue)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyFile5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: *mut BITS_FILE_PROPERTY_VALUE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -585,7 +585,7 @@ impl IBackgroundCopyGroup_Vtbl {
         unsafe extern "system" fn GetJob<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobid: ::windows::core::GUID, ppjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetJob(::core::mem::transmute_copy(&jobid)) {
+            match (*this).GetJob(::core::mem::transmute(&jobid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppjob = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -633,7 +633,7 @@ impl IBackgroundCopyGroup_Vtbl {
         unsafe extern "system" fn CreateJob<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidjobid: ::windows::core::GUID, ppjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateJob(::core::mem::transmute_copy(&guidjobid)) {
+            match (*this).CreateJob(::core::mem::transmute(&guidjobid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppjob = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1339,7 +1339,7 @@ impl IBackgroundCopyJob5_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProperty(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&propertyvalue)).into()
+            (*this).SetProperty(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute(&propertyvalue)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyJob5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: *mut BITS_JOB_PROPERTY_VALUE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1576,7 +1576,7 @@ impl IBackgroundCopyQMgr_Vtbl {
         unsafe extern "system" fn CreateGroup<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyQMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidgroupid: ::windows::core::GUID, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateGroup(::core::mem::transmute_copy(&guidgroupid)) {
+            match (*this).CreateGroup(::core::mem::transmute(&guidgroupid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppgroup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1587,7 +1587,7 @@ impl IBackgroundCopyQMgr_Vtbl {
         unsafe extern "system" fn GetGroup<Identity: ::windows::core::IUnknownImpl, Impl: IBackgroundCopyQMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, groupid: ::windows::core::GUID, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetGroup(::core::mem::transmute_copy(&groupid)) {
+            match (*this).GetGroup(::core::mem::transmute(&groupid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppgroup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

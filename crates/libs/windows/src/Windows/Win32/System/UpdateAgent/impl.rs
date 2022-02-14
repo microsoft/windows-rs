@@ -947,7 +947,7 @@ impl IInstallationAgent_Vtbl {
         unsafe extern "system" fn RecordInstallationResult<Identity: ::windows::core::IUnknownImpl, Impl: IInstallationAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, installationresultcookie: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, hresult: i32, extendedreportingdata: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RecordInstallationResult(::core::mem::transmute_copy(&installationresultcookie), ::core::mem::transmute_copy(&hresult), ::core::mem::transmute(&extendedreportingdata)).into()
+            (*this).RecordInstallationResult(::core::mem::transmute(&installationresultcookie), ::core::mem::transmute_copy(&hresult), ::core::mem::transmute(&extendedreportingdata)).into()
         }
         Self { base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), RecordInstallationResult: RecordInstallationResult::<Identity, Impl, OFFSET> }
     }
@@ -1507,7 +1507,7 @@ impl IStringCollection_Vtbl {
         unsafe extern "system" fn SetItem<Identity: ::windows::core::IUnknownImpl, Impl: IStringCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetItem(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&value)).into()
+            (*this).SetItem(::core::mem::transmute_copy(&index), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IStringCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1545,7 +1545,7 @@ impl IStringCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IStringCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, retval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Add(::core::mem::transmute_copy(&value)) {
+            match (*this).Add(::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1572,7 +1572,7 @@ impl IStringCollection_Vtbl {
         unsafe extern "system" fn Insert<Identity: ::windows::core::IUnknownImpl, Impl: IStringCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Insert(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&value)).into()
+            (*this).Insert(::core::mem::transmute_copy(&index), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: ::windows::core::IUnknownImpl, Impl: IStringCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2141,7 +2141,7 @@ impl IUpdate_Vtbl {
         unsafe extern "system" fn CopyFromCache<Identity: ::windows::core::IUnknownImpl, Impl: IUpdate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, toextractcabfiles: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CopyFromCache(::core::mem::transmute_copy(&path), ::core::mem::transmute_copy(&toextractcabfiles)).into()
+            (*this).CopyFromCache(::core::mem::transmute(&path), ::core::mem::transmute_copy(&toextractcabfiles)).into()
         }
         unsafe extern "system" fn DownloadPriority<Identity: ::windows::core::IUnknownImpl, Impl: IUpdate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut DownloadPriority) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2658,7 +2658,7 @@ impl IUpdateDownloader_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetClientApplicationID(::core::mem::transmute_copy(&value)).into()
+            (*this).SetClientApplicationID(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn IsForced<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2711,7 +2711,7 @@ impl IUpdateDownloader_Vtbl {
         unsafe extern "system" fn BeginDownload<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateDownloader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, onprogresschanged: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: ::core::mem::ManuallyDrop<super::Com::VARIANT>, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).BeginDownload(::core::mem::transmute(&onprogresschanged), ::core::mem::transmute(&oncompleted), ::core::mem::transmute_copy(&state)) {
+            match (*this).BeginDownload(::core::mem::transmute(&onprogresschanged), ::core::mem::transmute(&oncompleted), ::core::mem::transmute(&state)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3273,7 +3273,7 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetClientApplicationID(::core::mem::transmute_copy(&value)).into()
+            (*this).SetClientApplicationID(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn IsForced<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3342,7 +3342,7 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn BeginInstall<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, onprogresschanged: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: ::core::mem::ManuallyDrop<super::Com::VARIANT>, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).BeginInstall(::core::mem::transmute(&onprogresschanged), ::core::mem::transmute(&oncompleted), ::core::mem::transmute_copy(&state)) {
+            match (*this).BeginInstall(::core::mem::transmute(&onprogresschanged), ::core::mem::transmute(&oncompleted), ::core::mem::transmute(&state)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3353,7 +3353,7 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn BeginUninstall<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, onprogresschanged: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: ::core::mem::ManuallyDrop<super::Com::VARIANT>, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).BeginUninstall(::core::mem::transmute(&onprogresschanged), ::core::mem::transmute(&oncompleted), ::core::mem::transmute_copy(&state)) {
+            match (*this).BeginUninstall(::core::mem::transmute(&onprogresschanged), ::core::mem::transmute(&oncompleted), ::core::mem::transmute(&state)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3397,7 +3397,7 @@ impl IUpdateInstaller_Vtbl {
         unsafe extern "system" fn RunWizard<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateInstaller_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dialogtitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RunWizard(::core::mem::transmute_copy(&dialogtitle)) {
+            match (*this).RunWizard(::core::mem::transmute(&dialogtitle)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3639,7 +3639,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetClientApplicationID(::core::mem::transmute_copy(&value)).into()
+            (*this).SetClientApplicationID(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn IncludePotentiallySupersededUpdates<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3676,7 +3676,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn BeginSearch<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, criteria: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, oncompleted: *mut ::core::ffi::c_void, state: ::core::mem::ManuallyDrop<super::Com::VARIANT>, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).BeginSearch(::core::mem::transmute_copy(&criteria), ::core::mem::transmute(&oncompleted), ::core::mem::transmute_copy(&state)) {
+            match (*this).BeginSearch(::core::mem::transmute(&criteria), ::core::mem::transmute(&oncompleted), ::core::mem::transmute(&state)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3698,7 +3698,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn EscapeString<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unescaped: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EscapeString(::core::mem::transmute_copy(&unescaped)) {
+            match (*this).EscapeString(::core::mem::transmute(&unescaped)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3720,7 +3720,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn Search<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, criteria: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Search(::core::mem::transmute_copy(&criteria)) {
+            match (*this).Search(::core::mem::transmute(&criteria)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3769,7 +3769,7 @@ impl IUpdateSearcher_Vtbl {
         unsafe extern "system" fn SetServiceID<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateSearcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetServiceID(::core::mem::transmute_copy(&value)).into()
+            (*this).SetServiceID(::core::mem::transmute(&value)).into()
         }
         Self {
             base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4152,7 +4152,7 @@ impl IUpdateServiceManager_Vtbl {
         unsafe extern "system" fn AddService<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, authorizationcabpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddService(::core::mem::transmute_copy(&serviceid), ::core::mem::transmute_copy(&authorizationcabpath)) {
+            match (*this).AddService(::core::mem::transmute(&serviceid), ::core::mem::transmute(&authorizationcabpath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4163,22 +4163,22 @@ impl IUpdateServiceManager_Vtbl {
         unsafe extern "system" fn RegisterServiceWithAU<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterServiceWithAU(::core::mem::transmute_copy(&serviceid)).into()
+            (*this).RegisterServiceWithAU(::core::mem::transmute(&serviceid)).into()
         }
         unsafe extern "system" fn RemoveService<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveService(::core::mem::transmute_copy(&serviceid)).into()
+            (*this).RemoveService(::core::mem::transmute(&serviceid)).into()
         }
         unsafe extern "system" fn UnregisterServiceWithAU<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterServiceWithAU(::core::mem::transmute_copy(&serviceid)).into()
+            (*this).UnregisterServiceWithAU(::core::mem::transmute(&serviceid)).into()
         }
         unsafe extern "system" fn AddScanPackageService<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, scanfilelocation: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, ppservice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddScanPackageService(::core::mem::transmute_copy(&servicename), ::core::mem::transmute_copy(&scanfilelocation), ::core::mem::transmute_copy(&flags)) {
+            match (*this).AddScanPackageService(::core::mem::transmute(&servicename), ::core::mem::transmute(&scanfilelocation), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppservice = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4189,7 +4189,7 @@ impl IUpdateServiceManager_Vtbl {
         unsafe extern "system" fn SetOption<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateServiceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetOption(::core::mem::transmute_copy(&optionname), ::core::mem::transmute_copy(&optionvalue)).into()
+            (*this).SetOption(::core::mem::transmute(&optionname), ::core::mem::transmute(&optionvalue)).into()
         }
         Self {
             base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4230,12 +4230,12 @@ impl IUpdateServiceManager2_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateServiceManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetClientApplicationID(::core::mem::transmute_copy(&value)).into()
+            (*this).SetClientApplicationID(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn QueryServiceRegistration<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateServiceManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).QueryServiceRegistration(::core::mem::transmute_copy(&serviceid)) {
+            match (*this).QueryServiceRegistration(::core::mem::transmute(&serviceid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4246,7 +4246,7 @@ impl IUpdateServiceManager2_Vtbl {
         unsafe extern "system" fn AddService2<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateServiceManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, authorizationcabpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddService2(::core::mem::transmute_copy(&serviceid), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&authorizationcabpath)) {
+            match (*this).AddService2(::core::mem::transmute(&serviceid), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&authorizationcabpath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4360,7 +4360,7 @@ impl IUpdateSession_Vtbl {
         unsafe extern "system" fn SetClientApplicationID<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetClientApplicationID(::core::mem::transmute_copy(&value)).into()
+            (*this).SetClientApplicationID(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn ReadOnly<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4494,7 +4494,7 @@ impl IUpdateSession3_Vtbl {
         unsafe extern "system" fn QueryHistory<Identity: ::windows::core::IUnknownImpl, Impl: IUpdateSession3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, criteria: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, startindex: i32, count: i32, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).QueryHistory(::core::mem::transmute_copy(&criteria), ::core::mem::transmute_copy(&startindex), ::core::mem::transmute_copy(&count)) {
+            match (*this).QueryHistory(::core::mem::transmute(&criteria), ::core::mem::transmute_copy(&startindex), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4546,7 +4546,7 @@ impl IWebProxy_Vtbl {
         unsafe extern "system" fn SetAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWebProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAddress(::core::mem::transmute_copy(&value)).into()
+            (*this).SetAddress(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn BypassList<Identity: ::windows::core::IUnknownImpl, Impl: IWebProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4605,22 +4605,22 @@ impl IWebProxy_Vtbl {
         unsafe extern "system" fn SetUserName<Identity: ::windows::core::IUnknownImpl, Impl: IWebProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetUserName(::core::mem::transmute_copy(&value)).into()
+            (*this).SetUserName(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn SetPassword<Identity: ::windows::core::IUnknownImpl, Impl: IWebProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPassword(::core::mem::transmute_copy(&value)).into()
+            (*this).SetPassword(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn PromptForCredentials<Identity: ::windows::core::IUnknownImpl, Impl: IWebProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentwindow: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PromptForCredentials(::core::mem::transmute(&parentwindow), ::core::mem::transmute_copy(&title)).into()
+            (*this).PromptForCredentials(::core::mem::transmute(&parentwindow), ::core::mem::transmute(&title)).into()
         }
         unsafe extern "system" fn PromptForCredentialsFromHwnd<Identity: ::windows::core::IUnknownImpl, Impl: IWebProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentwindow: super::super::Foundation::HWND, title: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PromptForCredentialsFromHwnd(::core::mem::transmute_copy(&parentwindow), ::core::mem::transmute_copy(&title)).into()
+            (*this).PromptForCredentialsFromHwnd(::core::mem::transmute_copy(&parentwindow), ::core::mem::transmute(&title)).into()
         }
         unsafe extern "system" fn AutoDetect<Identity: ::windows::core::IUnknownImpl, Impl: IWebProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5123,7 +5123,7 @@ impl IWindowsUpdateAgentInfo_Vtbl {
         unsafe extern "system" fn GetInfo<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsUpdateAgentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varinfoidentifier: ::core::mem::ManuallyDrop<super::Com::VARIANT>, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInfo(::core::mem::transmute_copy(&varinfoidentifier)) {
+            match (*this).GetInfo(::core::mem::transmute(&varinfoidentifier)) {
                 ::core::result::Result::Ok(ok__) => {
                     *retval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

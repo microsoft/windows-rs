@@ -9,12 +9,12 @@ impl IVssAdmin_Vtbl {
         unsafe extern "system" fn RegisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproviderid: ::windows::core::GUID, classid: ::windows::core::GUID, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RegisterProvider(::core::mem::transmute_copy(&pproviderid), ::core::mem::transmute_copy(&classid), ::core::mem::transmute_copy(&pwszprovidername), ::core::mem::transmute_copy(&eprovidertype), ::core::mem::transmute_copy(&pwszproviderversion), ::core::mem::transmute_copy(&providerversionid)).into()
+            (*this).RegisterProvider(::core::mem::transmute(&pproviderid), ::core::mem::transmute(&classid), ::core::mem::transmute_copy(&pwszprovidername), ::core::mem::transmute_copy(&eprovidertype), ::core::mem::transmute_copy(&pwszproviderversion), ::core::mem::transmute(&providerversionid)).into()
         }
         unsafe extern "system" fn UnregisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).UnregisterProvider(::core::mem::transmute_copy(&providerid)).into()
+            (*this).UnregisterProvider(::core::mem::transmute(&providerid)).into()
         }
         unsafe extern "system" fn QueryProviders<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -54,7 +54,7 @@ impl IVssAdminEx_Vtbl {
         unsafe extern "system" fn GetProviderCapability<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdminEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproviderid: ::windows::core::GUID, plloriginalcapabilitymask: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetProviderCapability(::core::mem::transmute_copy(&pproviderid)) {
+            match (*this).GetProviderCapability(::core::mem::transmute(&pproviderid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plloriginalcapabilitymask = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -65,7 +65,7 @@ impl IVssAdminEx_Vtbl {
         unsafe extern "system" fn GetProviderContext<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdminEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, plcontext: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetProviderContext(::core::mem::transmute_copy(&providerid)) {
+            match (*this).GetProviderContext(::core::mem::transmute(&providerid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plcontext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -76,7 +76,7 @@ impl IVssAdminEx_Vtbl {
         unsafe extern "system" fn SetProviderContext<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdminEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, lcontext: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProviderContext(::core::mem::transmute_copy(&providerid), ::core::mem::transmute_copy(&lcontext)).into()
+            (*this).SetProviderContext(::core::mem::transmute(&providerid), ::core::mem::transmute_copy(&lcontext)).into()
         }
         Self {
             base: IVssAdmin_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -351,12 +351,12 @@ impl IVssComponent_Vtbl {
         unsafe extern "system" fn AddDifferencedFilesByLastModifyTime<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: super::super::Foundation::BOOL, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddDifferencedFilesByLastModifyTime(::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute_copy(&ftlastmodifytime)).into()
+            (*this).AddDifferencedFilesByLastModifyTime(::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&ftlastmodifytime)).into()
         }
         unsafe extern "system" fn AddDifferencedFilesByLastModifyLSN<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: super::super::Foundation::PWSTR, wszfilespec: super::super::Foundation::PWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddDifferencedFilesByLastModifyLSN(::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute_copy(&bstrlsnstring)).into()
+            (*this).AddDifferencedFilesByLastModifyLSN(::core::mem::transmute_copy(&wszpath), ::core::mem::transmute_copy(&wszfilespec), ::core::mem::transmute_copy(&brecursive), ::core::mem::transmute(&bstrlsnstring)).into()
         }
         unsafe extern "system" fn GetDifferencedFilesCount<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdifferencedfiles: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -579,7 +579,7 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
         unsafe extern "system" fn AddComponentDependency<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszforlogicalpath: super::super::Foundation::PWSTR, wszforcomponentname: super::super::Foundation::PWSTR, onwriterid: ::windows::core::GUID, wszonlogicalpath: super::super::Foundation::PWSTR, wszoncomponentname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddComponentDependency(::core::mem::transmute_copy(&wszforlogicalpath), ::core::mem::transmute_copy(&wszforcomponentname), ::core::mem::transmute_copy(&onwriterid), ::core::mem::transmute_copy(&wszonlogicalpath), ::core::mem::transmute_copy(&wszoncomponentname)).into()
+            (*this).AddComponentDependency(::core::mem::transmute_copy(&wszforlogicalpath), ::core::mem::transmute_copy(&wszforcomponentname), ::core::mem::transmute(&onwriterid), ::core::mem::transmute_copy(&wszonlogicalpath), ::core::mem::transmute_copy(&wszoncomponentname)).into()
         }
         unsafe extern "system" fn SetBackupSchema<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwschemamask: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -687,7 +687,7 @@ impl IVssCreateWriterMetadata_Vtbl {
         unsafe extern "system" fn AddComponentDependency<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszforlogicalpath: super::super::Foundation::PWSTR, wszforcomponentname: super::super::Foundation::PWSTR, onwriterid: ::windows::core::GUID, wszonlogicalpath: super::super::Foundation::PWSTR, wszoncomponentname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddComponentDependency(::core::mem::transmute_copy(&wszforlogicalpath), ::core::mem::transmute_copy(&wszforcomponentname), ::core::mem::transmute_copy(&onwriterid), ::core::mem::transmute_copy(&wszonlogicalpath), ::core::mem::transmute_copy(&wszoncomponentname)).into()
+            (*this).AddComponentDependency(::core::mem::transmute_copy(&wszforlogicalpath), ::core::mem::transmute_copy(&wszforcomponentname), ::core::mem::transmute(&onwriterid), ::core::mem::transmute_copy(&wszonlogicalpath), ::core::mem::transmute_copy(&wszoncomponentname)).into()
         }
         unsafe extern "system" fn SetBackupSchema<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwschemamask: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -785,7 +785,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
         unsafe extern "system" fn QueryDiffAreasForSnapshot<Identity: ::windows::core::IUnknownImpl, Impl: IVssDifferentialSoftwareSnapshotMgmt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).QueryDiffAreasForSnapshot(::core::mem::transmute_copy(&snapshotid)) {
+            match (*this).QueryDiffAreasForSnapshot(::core::mem::transmute(&snapshotid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppenum = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -841,7 +841,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
         unsafe extern "system" fn SetSnapshotPriority<Identity: ::windows::core::IUnknownImpl, Impl: IVssDifferentialSoftwareSnapshotMgmt2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idsnapshot: ::windows::core::GUID, priority: u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSnapshotPriority(::core::mem::transmute_copy(&idsnapshot), ::core::mem::transmute_copy(&priority)).into()
+            (*this).SetSnapshotPriority(::core::mem::transmute(&idsnapshot), ::core::mem::transmute_copy(&priority)).into()
         }
         Self {
             base: IVssDifferentialSoftwareSnapshotMgmt_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -895,7 +895,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
         unsafe extern "system" fn QuerySnapshotDeltaBitmap<Identity: ::windows::core::IUnknownImpl, Impl: IVssDifferentialSoftwareSnapshotMgmt3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idsnapshotolder: ::windows::core::GUID, idsnapshotyounger: ::windows::core::GUID, pcblocksizeperbit: *mut u32, pcbitmaplength: *mut u32, ppbbitmap: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).QuerySnapshotDeltaBitmap(::core::mem::transmute_copy(&idsnapshotolder), ::core::mem::transmute_copy(&idsnapshotyounger), ::core::mem::transmute_copy(&pcblocksizeperbit), ::core::mem::transmute_copy(&pcbitmaplength), ::core::mem::transmute_copy(&ppbbitmap)).into()
+            (*this).QuerySnapshotDeltaBitmap(::core::mem::transmute(&idsnapshotolder), ::core::mem::transmute(&idsnapshotyounger), ::core::mem::transmute_copy(&pcblocksizeperbit), ::core::mem::transmute_copy(&pcbitmaplength), ::core::mem::transmute_copy(&ppbbitmap)).into()
         }
         Self {
             base: IVssDifferentialSoftwareSnapshotMgmt2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1003,7 +1003,7 @@ impl IVssExpressWriter_Vtbl {
         unsafe extern "system" fn CreateMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssExpressWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writerid: ::windows::core::GUID, writername: super::super::Foundation::PWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32, ppmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateMetadata(::core::mem::transmute_copy(&writerid), ::core::mem::transmute_copy(&writername), ::core::mem::transmute_copy(&usagetype), ::core::mem::transmute_copy(&versionmajor), ::core::mem::transmute_copy(&versionminor), ::core::mem::transmute_copy(&reserved)) {
+            match (*this).CreateMetadata(::core::mem::transmute(&writerid), ::core::mem::transmute_copy(&writername), ::core::mem::transmute_copy(&usagetype), ::core::mem::transmute_copy(&versionmajor), ::core::mem::transmute_copy(&versionminor), ::core::mem::transmute_copy(&reserved)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppmetadata = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1024,7 +1024,7 @@ impl IVssExpressWriter_Vtbl {
         unsafe extern "system" fn Unregister<Identity: ::windows::core::IUnknownImpl, Impl: IVssExpressWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writerid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Unregister(::core::mem::transmute_copy(&writerid)).into()
+            (*this).Unregister(::core::mem::transmute(&writerid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1060,7 +1060,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
         unsafe extern "system" fn GetSnapshotProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSnapshotProperties(::core::mem::transmute_copy(&snapshotid)) {
+            match (*this).GetSnapshotProperties(::core::mem::transmute(&snapshotid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pprop = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1071,7 +1071,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
         unsafe extern "system" fn Query<Identity: ::windows::core::IUnknownImpl, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queriedobjectid: ::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Query(::core::mem::transmute_copy(&queriedobjectid), ::core::mem::transmute_copy(&equeriedobjecttype), ::core::mem::transmute_copy(&ereturnedobjectstype)) {
+            match (*this).Query(::core::mem::transmute(&queriedobjectid), ::core::mem::transmute_copy(&equeriedobjecttype), ::core::mem::transmute_copy(&ereturnedobjectstype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppenum = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1082,12 +1082,12 @@ impl IVssFileShareSnapshotProvider_Vtbl {
         unsafe extern "system" fn DeleteSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceobjectid: ::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: super::super::Foundation::BOOL, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteSnapshots(::core::mem::transmute_copy(&sourceobjectid), ::core::mem::transmute_copy(&esourceobjecttype), ::core::mem::transmute_copy(&bforcedelete), ::core::mem::transmute_copy(&pldeletedsnapshots), ::core::mem::transmute_copy(&pnondeletedsnapshotid)).into()
+            (*this).DeleteSnapshots(::core::mem::transmute(&sourceobjectid), ::core::mem::transmute_copy(&esourceobjecttype), ::core::mem::transmute_copy(&bforcedelete), ::core::mem::transmute_copy(&pldeletedsnapshots), ::core::mem::transmute_copy(&pnondeletedsnapshotid)).into()
         }
         unsafe extern "system" fn BeginPrepareSnapshot<Identity: ::windows::core::IUnknownImpl, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID, snapshotid: ::windows::core::GUID, pwszsharepath: *const u16, lnewcontext: i32, providerid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).BeginPrepareSnapshot(::core::mem::transmute_copy(&snapshotsetid), ::core::mem::transmute_copy(&snapshotid), ::core::mem::transmute_copy(&pwszsharepath), ::core::mem::transmute_copy(&lnewcontext), ::core::mem::transmute_copy(&providerid)).into()
+            (*this).BeginPrepareSnapshot(::core::mem::transmute(&snapshotsetid), ::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&pwszsharepath), ::core::mem::transmute_copy(&lnewcontext), ::core::mem::transmute(&providerid)).into()
         }
         unsafe extern "system" fn IsPathSupported<Identity: ::windows::core::IUnknownImpl, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszsharepath: *const u16, pbsupportedbythisprovider: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1108,7 +1108,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
         unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows::core::IUnknownImpl, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSnapshotProperty(::core::mem::transmute_copy(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute_copy(&vproperty)).into()
+            (*this).SetSnapshotProperty(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute(&vproperty)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1151,7 +1151,7 @@ impl IVssHardwareSnapshotProvider_Vtbl {
         unsafe extern "system" fn BeginPrepareSnapshot<Identity: ::windows::core::IUnknownImpl, Impl: IVssHardwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID, snapshotid: ::windows::core::GUID, lcontext: i32, lluncount: i32, rgdevicenames: *const *const u16, rgluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).BeginPrepareSnapshot(::core::mem::transmute_copy(&snapshotsetid), ::core::mem::transmute_copy(&snapshotid), ::core::mem::transmute_copy(&lcontext), ::core::mem::transmute_copy(&lluncount), ::core::mem::transmute_copy(&rgdevicenames), ::core::mem::transmute_copy(&rgluninformation)).into()
+            (*this).BeginPrepareSnapshot(::core::mem::transmute(&snapshotsetid), ::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&lcontext), ::core::mem::transmute_copy(&lluncount), ::core::mem::transmute_copy(&rgdevicenames), ::core::mem::transmute_copy(&rgluninformation)).into()
         }
         unsafe extern "system" fn GetTargetLuns<Identity: ::windows::core::IUnknownImpl, Impl: IVssHardwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lluncount: i32, rgdevicenames: *const *const u16, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, rgdestinationluns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1250,37 +1250,37 @@ impl IVssProviderCreateSnapshotSet_Vtbl {
         unsafe extern "system" fn EndPrepareSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EndPrepareSnapshots(::core::mem::transmute_copy(&snapshotsetid)).into()
+            (*this).EndPrepareSnapshots(::core::mem::transmute(&snapshotsetid)).into()
         }
         unsafe extern "system" fn PreCommitSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PreCommitSnapshots(::core::mem::transmute_copy(&snapshotsetid)).into()
+            (*this).PreCommitSnapshots(::core::mem::transmute(&snapshotsetid)).into()
         }
         unsafe extern "system" fn CommitSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CommitSnapshots(::core::mem::transmute_copy(&snapshotsetid)).into()
+            (*this).CommitSnapshots(::core::mem::transmute(&snapshotsetid)).into()
         }
         unsafe extern "system" fn PostCommitSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID, lsnapshotscount: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PostCommitSnapshots(::core::mem::transmute_copy(&snapshotsetid), ::core::mem::transmute_copy(&lsnapshotscount)).into()
+            (*this).PostCommitSnapshots(::core::mem::transmute(&snapshotsetid), ::core::mem::transmute_copy(&lsnapshotscount)).into()
         }
         unsafe extern "system" fn PreFinalCommitSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PreFinalCommitSnapshots(::core::mem::transmute_copy(&snapshotsetid)).into()
+            (*this).PreFinalCommitSnapshots(::core::mem::transmute(&snapshotsetid)).into()
         }
         unsafe extern "system" fn PostFinalCommitSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PostFinalCommitSnapshots(::core::mem::transmute_copy(&snapshotsetid)).into()
+            (*this).PostFinalCommitSnapshots(::core::mem::transmute(&snapshotsetid)).into()
         }
         unsafe extern "system" fn AbortSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AbortSnapshots(::core::mem::transmute_copy(&snapshotsetid)).into()
+            (*this).AbortSnapshots(::core::mem::transmute(&snapshotsetid)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1335,7 +1335,7 @@ impl IVssSnapshotMgmt_Vtbl {
         unsafe extern "system" fn GetProviderMgmtInterface<Identity: ::windows::core::IUnknownImpl, Impl: IVssSnapshotMgmt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, interfaceid: *const ::windows::core::GUID, ppitf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetProviderMgmtInterface(::core::mem::transmute_copy(&providerid), ::core::mem::transmute_copy(&interfaceid)) {
+            match (*this).GetProviderMgmtInterface(::core::mem::transmute(&providerid), ::core::mem::transmute_copy(&interfaceid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppitf = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1346,7 +1346,7 @@ impl IVssSnapshotMgmt_Vtbl {
         unsafe extern "system" fn QueryVolumesSupportedForSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssSnapshotMgmt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, lcontext: i32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).QueryVolumesSupportedForSnapshots(::core::mem::transmute_copy(&providerid), ::core::mem::transmute_copy(&lcontext)) {
+            match (*this).QueryVolumesSupportedForSnapshots(::core::mem::transmute(&providerid), ::core::mem::transmute_copy(&lcontext)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppenum = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1357,7 +1357,7 @@ impl IVssSnapshotMgmt_Vtbl {
         unsafe extern "system" fn QuerySnapshotsByVolume<Identity: ::windows::core::IUnknownImpl, Impl: IVssSnapshotMgmt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, providerid: ::windows::core::GUID, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).QuerySnapshotsByVolume(::core::mem::transmute_copy(&pwszvolumename), ::core::mem::transmute_copy(&providerid)) {
+            match (*this).QuerySnapshotsByVolume(::core::mem::transmute_copy(&pwszvolumename), ::core::mem::transmute(&providerid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppenum = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1422,7 +1422,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
         unsafe extern "system" fn GetSnapshotProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSnapshotProperties(::core::mem::transmute_copy(&snapshotid)) {
+            match (*this).GetSnapshotProperties(::core::mem::transmute(&snapshotid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pprop = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1433,7 +1433,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
         unsafe extern "system" fn Query<Identity: ::windows::core::IUnknownImpl, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queriedobjectid: ::windows::core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Query(::core::mem::transmute_copy(&queriedobjectid), ::core::mem::transmute_copy(&equeriedobjecttype), ::core::mem::transmute_copy(&ereturnedobjectstype)) {
+            match (*this).Query(::core::mem::transmute(&queriedobjectid), ::core::mem::transmute_copy(&equeriedobjecttype), ::core::mem::transmute_copy(&ereturnedobjectstype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppenum = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1444,12 +1444,12 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
         unsafe extern "system" fn DeleteSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceobjectid: ::windows::core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: super::super::Foundation::BOOL, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteSnapshots(::core::mem::transmute_copy(&sourceobjectid), ::core::mem::transmute_copy(&esourceobjecttype), ::core::mem::transmute_copy(&bforcedelete), ::core::mem::transmute_copy(&pldeletedsnapshots), ::core::mem::transmute_copy(&pnondeletedsnapshotid)).into()
+            (*this).DeleteSnapshots(::core::mem::transmute(&sourceobjectid), ::core::mem::transmute_copy(&esourceobjecttype), ::core::mem::transmute_copy(&bforcedelete), ::core::mem::transmute_copy(&pldeletedsnapshots), ::core::mem::transmute_copy(&pnondeletedsnapshotid)).into()
         }
         unsafe extern "system" fn BeginPrepareSnapshot<Identity: ::windows::core::IUnknownImpl, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID, snapshotid: ::windows::core::GUID, pwszvolumename: *const u16, lnewcontext: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).BeginPrepareSnapshot(::core::mem::transmute_copy(&snapshotsetid), ::core::mem::transmute_copy(&snapshotid), ::core::mem::transmute_copy(&pwszvolumename), ::core::mem::transmute_copy(&lnewcontext)).into()
+            (*this).BeginPrepareSnapshot(::core::mem::transmute(&snapshotsetid), ::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&pwszvolumename), ::core::mem::transmute_copy(&lnewcontext)).into()
         }
         unsafe extern "system" fn IsVolumeSupported<Identity: ::windows::core::IUnknownImpl, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pbsupportedbythisprovider: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1470,12 +1470,12 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
         unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows::core::IUnknownImpl, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSnapshotProperty(::core::mem::transmute_copy(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute_copy(&vproperty)).into()
+            (*this).SetSnapshotProperty(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute(&vproperty)).into()
         }
         unsafe extern "system" fn RevertToSnapshot<Identity: ::windows::core::IUnknownImpl, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RevertToSnapshot(::core::mem::transmute_copy(&snapshotid)).into()
+            (*this).RevertToSnapshot(::core::mem::transmute(&snapshotid)).into()
         }
         unsafe extern "system" fn QueryRevertStatus<Identity: ::windows::core::IUnknownImpl, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszvolume: *const u16, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1690,7 +1690,7 @@ impl IVssWriterImpl_Vtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this)
-                .Initialize(::core::mem::transmute_copy(&writerid), ::core::mem::transmute_copy(&wszwritername), ::core::mem::transmute_copy(&wszwriterinstancename), ::core::mem::transmute_copy(&dwmajorversion), ::core::mem::transmute_copy(&dwminorversion), ::core::mem::transmute_copy(&ut), ::core::mem::transmute_copy(&st), ::core::mem::transmute_copy(&nlevel), ::core::mem::transmute_copy(&dwtimeout), ::core::mem::transmute_copy(&aws), ::core::mem::transmute_copy(&biothrottlingonly))
+                .Initialize(::core::mem::transmute(&writerid), ::core::mem::transmute_copy(&wszwritername), ::core::mem::transmute_copy(&wszwriterinstancename), ::core::mem::transmute_copy(&dwmajorversion), ::core::mem::transmute_copy(&dwminorversion), ::core::mem::transmute_copy(&ut), ::core::mem::transmute_copy(&st), ::core::mem::transmute_copy(&nlevel), ::core::mem::transmute_copy(&dwtimeout), ::core::mem::transmute_copy(&aws), ::core::mem::transmute_copy(&biothrottlingonly))
                 .into()
         }
         unsafe extern "system" fn Subscribe<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsubscribetimeout: u32, dweventflags: u32) -> ::windows::core::HRESULT {
@@ -1782,7 +1782,7 @@ impl IVssWriterImpl_Vtbl {
         unsafe extern "system" fn InstallAlternateWriter<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idwriter: ::windows::core::GUID, clsid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).InstallAlternateWriter(::core::mem::transmute_copy(&idwriter), ::core::mem::transmute_copy(&clsid)).into()
+            (*this).InstallAlternateWriter(::core::mem::transmute(&idwriter), ::core::mem::transmute(&clsid)).into()
         }
         unsafe extern "system" fn GetIdentityInformation<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut IVssExamineWriterMetadata {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

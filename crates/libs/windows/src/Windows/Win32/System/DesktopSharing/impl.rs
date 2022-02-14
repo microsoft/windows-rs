@@ -471,7 +471,7 @@ impl IRDPSRAPIDebug_Vtbl {
         unsafe extern "system" fn SetCLXCmdLine<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIDebug_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clxcmdline: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCLXCmdLine(::core::mem::transmute_copy(&clxcmdline)).into()
+            (*this).SetCLXCmdLine(::core::mem::transmute(&clxcmdline)).into()
         }
         unsafe extern "system" fn CLXCmdLine<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIDebug_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclxcmdline: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -677,7 +677,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIInvitationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppinvitation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&item)) {
+            match (*this).Item(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppinvitation = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -699,7 +699,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
         unsafe extern "system" fn CreateInvitation<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIInvitationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrauthstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, attendeelimit: i32, ppinvitation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateInvitation(::core::mem::transmute_copy(&bstrauthstring), ::core::mem::transmute_copy(&bstrgroupname), ::core::mem::transmute_copy(&bstrpassword), ::core::mem::transmute_copy(&attendeelimit)) {
+            match (*this).CreateInvitation(::core::mem::transmute(&bstrauthstring), ::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&bstrpassword), ::core::mem::transmute_copy(&attendeelimit)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppinvitation = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -745,7 +745,7 @@ impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
         unsafe extern "system" fn CreateLogger<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIPerfCounterLoggingManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcountername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pplogger: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateLogger(::core::mem::transmute_copy(&bstrcountername)) {
+            match (*this).CreateLogger(::core::mem::transmute(&bstrcountername)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pplogger = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -770,7 +770,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
         unsafe extern "system" fn Property<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPISessionProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Property(::core::mem::transmute_copy(&propertyname)) {
+            match (*this).Property(::core::mem::transmute(&propertyname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -781,7 +781,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPISessionProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProperty(::core::mem::transmute_copy(&propertyname), ::core::mem::transmute_copy(&newval)).into()
+            (*this).SetProperty(::core::mem::transmute(&propertyname), ::core::mem::transmute(&newval)).into()
         }
         Self {
             base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -907,7 +907,7 @@ impl IRDPSRAPISharingSession_Vtbl {
         unsafe extern "system" fn ConnectToClient<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnectionstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ConnectToClient(::core::mem::transmute_copy(&bstrconnectionstring)).into()
+            (*this).ConnectToClient(::core::mem::transmute(&bstrconnectionstring)).into()
         }
         unsafe extern "system" fn SetDesktopSharedRect<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPISharingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -953,7 +953,7 @@ impl IRDPSRAPISharingSession2_Vtbl {
         unsafe extern "system" fn ConnectUsingTransportStream<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPISharingSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, bstrgroup: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrauthenticatedattendeename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ConnectUsingTransportStream(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&bstrgroup), ::core::mem::transmute_copy(&bstrauthenticatedattendeename)).into()
+            (*this).ConnectUsingTransportStream(::core::mem::transmute(&pstream), ::core::mem::transmute(&bstrgroup), ::core::mem::transmute(&bstrauthenticatedattendeename)).into()
         }
         unsafe extern "system" fn FrameBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPISharingSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1295,7 +1295,7 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnectionstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Connect(::core::mem::transmute_copy(&bstrconnectionstring), ::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&bstrpassword)).into()
+            (*this).Connect(::core::mem::transmute(&bstrconnectionstring), ::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrpassword)).into()
         }
         unsafe extern "system" fn Disconnect<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1370,7 +1370,7 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn SetDisconnectedText<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdisconnectedtext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDisconnectedText(::core::mem::transmute_copy(&bstrdisconnectedtext)).into()
+            (*this).SetDisconnectedText(::core::mem::transmute(&bstrdisconnectedtext)).into()
         }
         unsafe extern "system" fn DisconnectedText<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdisconnectedtext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1402,7 +1402,7 @@ impl IRDPSRAPIViewer_Vtbl {
         unsafe extern "system" fn StartReverseConnectListener<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIViewer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnectionstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrreverseconnectstring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).StartReverseConnectListener(::core::mem::transmute_copy(&bstrconnectionstring), ::core::mem::transmute_copy(&bstrusername), ::core::mem::transmute_copy(&bstrpassword)) {
+            match (*this).StartReverseConnectListener(::core::mem::transmute(&bstrconnectionstring), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrpassword)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrreverseconnectstring = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1446,7 +1446,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
         unsafe extern "system" fn SendData<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIVirtualChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lattendeeid: i32, channelsendflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SendData(::core::mem::transmute_copy(&bstrdata), ::core::mem::transmute_copy(&lattendeeid), ::core::mem::transmute_copy(&channelsendflags)).into()
+            (*this).SendData(::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&lattendeeid), ::core::mem::transmute_copy(&channelsendflags)).into()
         }
         unsafe extern "system" fn SetAccess<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIVirtualChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1522,7 +1522,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pchannel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&item)) {
+            match (*this).Item(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pchannel = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1533,7 +1533,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
         unsafe extern "system" fn CreateVirtualChannel<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrchannelname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, priority: CHANNEL_PRIORITY, channelflags: u32, ppchannel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateVirtualChannel(::core::mem::transmute_copy(&bstrchannelname), ::core::mem::transmute_copy(&priority), ::core::mem::transmute_copy(&channelflags)) {
+            match (*this).CreateVirtualChannel(::core::mem::transmute(&bstrchannelname), ::core::mem::transmute_copy(&priority), ::core::mem::transmute_copy(&channelflags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppchannel = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

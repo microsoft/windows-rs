@@ -1582,7 +1582,7 @@ impl IContactProperties_Vtbl {
         unsafe extern "system" fn SetDate<Identity: ::windows::core::IUnknownImpl, Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, ftdatetime: super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDate(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&ftdatetime)).into()
+            (*this).SetDate(::core::mem::transmute_copy(&pszpropertyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&ftdatetime)).into()
         }
         unsafe extern "system" fn SetBinary<Identity: ::windows::core::IUnknownImpl, Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, dwflags: u32, pszcontenttype: super::super::Foundation::PWSTR, pstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

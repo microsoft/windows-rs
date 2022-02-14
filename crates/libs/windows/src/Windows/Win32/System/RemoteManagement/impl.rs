@@ -11,7 +11,7 @@ impl IWSMan_Vtbl {
         unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connection: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, connectionoptions: ::windows::core::RawPtr, session: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateSession(::core::mem::transmute_copy(&connection), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&connectionoptions)) {
+            match (*this).CreateSession(::core::mem::transmute(&connection), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&connectionoptions)) {
                 ::core::result::Result::Ok(ok__) => {
                     *session = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -87,12 +87,12 @@ impl IWSManConnectionOptions_Vtbl {
         unsafe extern "system" fn SetUserName<Identity: ::windows::core::IUnknownImpl, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetUserName(::core::mem::transmute_copy(&name)).into()
+            (*this).SetUserName(::core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn SetPassword<Identity: ::windows::core::IUnknownImpl, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, password: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPassword(::core::mem::transmute_copy(&password)).into()
+            (*this).SetPassword(::core::mem::transmute(&password)).into()
         }
         Self {
             base: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -127,7 +127,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
         unsafe extern "system" fn SetCertificateThumbprint<Identity: ::windows::core::IUnknownImpl, Impl: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thumbprint: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCertificateThumbprint(::core::mem::transmute_copy(&thumbprint)).into()
+            (*this).SetCertificateThumbprint(::core::mem::transmute(&thumbprint)).into()
         }
         Self {
             base: IWSManConnectionOptions_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -156,7 +156,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         unsafe extern "system" fn SetProxy<Identity: ::windows::core::IUnknownImpl, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accesstype: i32, authenticationmechanism: i32, username: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, password: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProxy(::core::mem::transmute_copy(&accesstype), ::core::mem::transmute_copy(&authenticationmechanism), ::core::mem::transmute_copy(&username), ::core::mem::transmute_copy(&password)).into()
+            (*this).SetProxy(::core::mem::transmute_copy(&accesstype), ::core::mem::transmute_copy(&authenticationmechanism), ::core::mem::transmute(&username), ::core::mem::transmute(&password)).into()
         }
         unsafe extern "system" fn ProxyIEConfig<Identity: ::windows::core::IUnknownImpl, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -333,7 +333,7 @@ impl IWSManEx_Vtbl {
         unsafe extern "system" fn CreateResourceLocator<Identity: ::windows::core::IUnknownImpl, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strresourcelocator: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newresourcelocator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateResourceLocator(::core::mem::transmute_copy(&strresourcelocator)) {
+            match (*this).CreateResourceLocator(::core::mem::transmute(&strresourcelocator)) {
                 ::core::result::Result::Ok(ok__) => {
                     *newresourcelocator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -717,7 +717,7 @@ impl IWSManInternal_Vtbl {
         unsafe extern "system" fn ConfigSDDL<Identity: ::windows::core::IUnknownImpl, Impl: IWSManInternal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: ::windows::core::RawPtr, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ConfigSDDL(::core::mem::transmute(&session), ::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&flags)) {
+            match (*this).ConfigSDDL(::core::mem::transmute(&session), ::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *resource = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -753,7 +753,7 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn SetResourceURI<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetResourceURI(::core::mem::transmute_copy(&uri)).into()
+            (*this).SetResourceURI(::core::mem::transmute(&uri)).into()
         }
         unsafe extern "system" fn ResourceURI<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -769,7 +769,7 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn AddSelector<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceselname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, selvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddSelector(::core::mem::transmute_copy(&resourceselname), ::core::mem::transmute_copy(&selvalue)).into()
+            (*this).AddSelector(::core::mem::transmute(&resourceselname), ::core::mem::transmute(&selvalue)).into()
         }
         unsafe extern "system" fn ClearSelectors<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -790,7 +790,7 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn SetFragmentPath<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFragmentPath(::core::mem::transmute_copy(&text)).into()
+            (*this).SetFragmentPath(::core::mem::transmute(&text)).into()
         }
         unsafe extern "system" fn FragmentDialect<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -806,12 +806,12 @@ impl IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn SetFragmentDialect<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFragmentDialect(::core::mem::transmute_copy(&text)).into()
+            (*this).SetFragmentDialect(::core::mem::transmute(&text)).into()
         }
         unsafe extern "system" fn AddOption<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddOption(::core::mem::transmute_copy(&optionname), ::core::mem::transmute_copy(&optionvalue), ::core::mem::transmute_copy(&mustcomply)).into()
+            (*this).AddOption(::core::mem::transmute(&optionname), ::core::mem::transmute(&optionvalue), ::core::mem::transmute_copy(&mustcomply)).into()
         }
         unsafe extern "system" fn SetMustUnderstandOptions<Identity: ::windows::core::IUnknownImpl, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mustunderstand: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -896,7 +896,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32, resource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Get(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&flags)) {
+            match (*this).Get(::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *resource = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -907,7 +907,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Put<Identity: ::windows::core::IUnknownImpl, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, resource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, resultresource: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Put(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&resource), ::core::mem::transmute_copy(&flags)) {
+            match (*this).Put(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&resource), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *resultresource = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -918,7 +918,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, resource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, newuri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Create(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&resource), ::core::mem::transmute_copy(&flags)) {
+            match (*this).Create(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&resource), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *newuri = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -929,12 +929,12 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Delete(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&flags)).into()
+            (*this).Delete(::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn Invoke2<Identity: ::windows::core::IUnknownImpl, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actionuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, parameters: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, result: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Invoke2(::core::mem::transmute_copy(&actionuri), ::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&parameters), ::core::mem::transmute_copy(&flags)) {
+            match (*this).Invoke2(::core::mem::transmute(&actionuri), ::core::mem::transmute(&resourceuri), ::core::mem::transmute(&parameters), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -945,7 +945,7 @@ impl IWSManSession_Vtbl {
         unsafe extern "system" fn Enumerate<Identity: ::windows::core::IUnknownImpl, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::core::mem::ManuallyDrop<super::Com::VARIANT>, filter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dialect: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32, resultset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Enumerate(::core::mem::transmute_copy(&resourceuri), ::core::mem::transmute_copy(&filter), ::core::mem::transmute_copy(&dialect), ::core::mem::transmute_copy(&flags)) {
+            match (*this).Enumerate(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&filter), ::core::mem::transmute(&dialect), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *resultset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

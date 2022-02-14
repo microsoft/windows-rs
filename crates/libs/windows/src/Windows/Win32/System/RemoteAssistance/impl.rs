@@ -72,12 +72,12 @@ impl IRendezvousSession_Vtbl {
         unsafe extern "system" fn SendContextData<Identity: ::windows::core::IUnknownImpl, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SendContextData(::core::mem::transmute_copy(&bstrdata)).into()
+            (*this).SendContextData(::core::mem::transmute(&bstrdata)).into()
         }
         unsafe extern "system" fn Terminate<Identity: ::windows::core::IUnknownImpl, Impl: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, bstrappdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Terminate(::core::mem::transmute_copy(&hr), ::core::mem::transmute_copy(&bstrappdata)).into()
+            (*this).Terminate(::core::mem::transmute_copy(&hr), ::core::mem::transmute(&bstrappdata)).into()
         }
         Self {
             base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

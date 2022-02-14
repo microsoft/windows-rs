@@ -131,7 +131,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn EditInternalClient<Identity: ::windows::core::IUnknownImpl, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternalclient: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EditInternalClient(::core::mem::transmute_copy(&bstrinternalclient)).into()
+            (*this).EditInternalClient(::core::mem::transmute(&bstrinternalclient)).into()
         }
         unsafe extern "system" fn Enable<Identity: ::windows::core::IUnknownImpl, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vb: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -141,7 +141,7 @@ impl IDynamicPortMapping_Vtbl {
         unsafe extern "system" fn EditDescription<Identity: ::windows::core::IUnknownImpl, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EditDescription(::core::mem::transmute_copy(&bstrdescription)).into()
+            (*this).EditDescription(::core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn EditInternalPort<Identity: ::windows::core::IUnknownImpl, Impl: IDynamicPortMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linternalport: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -195,7 +195,7 @@ impl IDynamicPortMappingCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IDynamicPortMappingCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremotehost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdpm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&bstrremotehost), ::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol)) {
+            match (*this).Item(::core::mem::transmute(&bstrremotehost), ::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute(&bstrprotocol)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppdpm = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -217,12 +217,12 @@ impl IDynamicPortMappingCollection_Vtbl {
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl, Impl: IDynamicPortMappingCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremotehost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Remove(::core::mem::transmute_copy(&bstrremotehost), ::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol)).into()
+            (*this).Remove(::core::mem::transmute(&bstrremotehost), ::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute(&bstrprotocol)).into()
         }
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IDynamicPortMappingCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremotehost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternalport: i32, bstrinternalclient: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, benabled: i16, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lleaseduration: i32, ppdpm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Add(::core::mem::transmute_copy(&bstrremotehost), ::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol), ::core::mem::transmute_copy(&linternalport), ::core::mem::transmute_copy(&bstrinternalclient), ::core::mem::transmute_copy(&benabled), ::core::mem::transmute_copy(&bstrdescription), ::core::mem::transmute_copy(&lleaseduration)) {
+            match (*this).Add(::core::mem::transmute(&bstrremotehost), ::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute(&bstrprotocol), ::core::mem::transmute_copy(&linternalport), ::core::mem::transmute(&bstrinternalclient), ::core::mem::transmute_copy(&benabled), ::core::mem::transmute(&bstrdescription), ::core::mem::transmute_copy(&lleaseduration)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppdpm = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -519,7 +519,7 @@ impl INATExternalIPAddressCallback_Vtbl {
         unsafe extern "system" fn NewExternalIPAddress<Identity: ::windows::core::IUnknownImpl, Impl: INATExternalIPAddressCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnewexternalipaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NewExternalIPAddress(::core::mem::transmute_copy(&bstrnewexternalipaddress)).into()
+            (*this).NewExternalIPAddress(::core::mem::transmute(&bstrnewexternalipaddress)).into()
         }
         Self { base: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), NewExternalIPAddress: NewExternalIPAddress::<Identity, Impl, OFFSET> }
     }
@@ -805,7 +805,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&name)).into()
+            (*this).SetName(::core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn ProcessImageFileName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -821,7 +821,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetProcessImageFileName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProcessImageFileName(::core::mem::transmute_copy(&imagefilename)).into()
+            (*this).SetProcessImageFileName(::core::mem::transmute(&imagefilename)).into()
         }
         unsafe extern "system" fn IpVersion<Identity: ::windows::core::IUnknownImpl, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -869,7 +869,7 @@ impl INetFwAuthorizedApplication_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: ::windows::core::IUnknownImpl, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRemoteAddresses(::core::mem::transmute_copy(&remoteaddrs)).into()
+            (*this).SetRemoteAddresses(::core::mem::transmute(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl, Impl: INetFwAuthorizedApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -937,12 +937,12 @@ impl INetFwAuthorizedApplications_Vtbl {
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl, Impl: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Remove(::core::mem::transmute_copy(&imagefilename)).into()
+            (*this).Remove(::core::mem::transmute(&imagefilename)).into()
         }
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, app: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&imagefilename)) {
+            match (*this).Item(::core::mem::transmute(&imagefilename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *app = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1229,12 +1229,12 @@ impl INetFwMgr_Vtbl {
         unsafe extern "system" fn IsPortAllowed<Identity: ::windows::core::IUnknownImpl, Impl: INetFwMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsPortAllowed(::core::mem::transmute_copy(&imagefilename), ::core::mem::transmute_copy(&ipversion), ::core::mem::transmute_copy(&portnumber), ::core::mem::transmute_copy(&localaddress), ::core::mem::transmute_copy(&ipprotocol), ::core::mem::transmute_copy(&allowed), ::core::mem::transmute_copy(&restricted)).into()
+            (*this).IsPortAllowed(::core::mem::transmute(&imagefilename), ::core::mem::transmute_copy(&ipversion), ::core::mem::transmute_copy(&portnumber), ::core::mem::transmute(&localaddress), ::core::mem::transmute_copy(&ipprotocol), ::core::mem::transmute_copy(&allowed), ::core::mem::transmute_copy(&restricted)).into()
         }
         unsafe extern "system" fn IsIcmpTypeAllowed<Identity: ::windows::core::IUnknownImpl, Impl: INetFwMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION, localaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, r#type: u8, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IsIcmpTypeAllowed(::core::mem::transmute_copy(&ipversion), ::core::mem::transmute_copy(&localaddress), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&allowed), ::core::mem::transmute_copy(&restricted)).into()
+            (*this).IsIcmpTypeAllowed(::core::mem::transmute_copy(&ipversion), ::core::mem::transmute(&localaddress), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&allowed), ::core::mem::transmute_copy(&restricted)).into()
         }
         Self {
             base: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1284,7 +1284,7 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&name)).into()
+            (*this).SetName(::core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn IpVersion<Identity: ::windows::core::IUnknownImpl, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1364,7 +1364,7 @@ impl INetFwOpenPort_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: ::windows::core::IUnknownImpl, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRemoteAddresses(::core::mem::transmute_copy(&remoteaddrs)).into()
+            (*this).SetRemoteAddresses(::core::mem::transmute(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl, Impl: INetFwOpenPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1592,7 +1592,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn SetExcludedInterfaces<Identity: ::windows::core::IUnknownImpl, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetExcludedInterfaces(::core::mem::transmute_copy(&profiletype), ::core::mem::transmute_copy(&interfaces)).into()
+            (*this).SetExcludedInterfaces(::core::mem::transmute_copy(&profiletype), ::core::mem::transmute(&interfaces)).into()
         }
         unsafe extern "system" fn BlockAllInboundTraffic<Identity: ::windows::core::IUnknownImpl, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, block: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1667,12 +1667,12 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn EnableRuleGroup<Identity: ::windows::core::IUnknownImpl, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletypesbitmask: i32, group: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, enable: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EnableRuleGroup(::core::mem::transmute_copy(&profiletypesbitmask), ::core::mem::transmute_copy(&group), ::core::mem::transmute_copy(&enable)).into()
+            (*this).EnableRuleGroup(::core::mem::transmute_copy(&profiletypesbitmask), ::core::mem::transmute(&group), ::core::mem::transmute_copy(&enable)).into()
         }
         unsafe extern "system" fn IsRuleGroupEnabled<Identity: ::windows::core::IUnknownImpl, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletypesbitmask: i32, group: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsRuleGroupEnabled(::core::mem::transmute_copy(&profiletypesbitmask), ::core::mem::transmute_copy(&group)) {
+            match (*this).IsRuleGroupEnabled(::core::mem::transmute_copy(&profiletypesbitmask), ::core::mem::transmute(&group)) {
                 ::core::result::Result::Ok(ok__) => {
                     *enabled = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1720,7 +1720,7 @@ impl INetFwPolicy2_Vtbl {
         unsafe extern "system" fn IsRuleGroupCurrentlyEnabled<Identity: ::windows::core::IUnknownImpl, Impl: INetFwPolicy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsRuleGroupCurrentlyEnabled(::core::mem::transmute_copy(&group)) {
+            match (*this).IsRuleGroupCurrentlyEnabled(::core::mem::transmute(&group)) {
                 ::core::result::Result::Ok(ok__) => {
                     *enabled = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1794,7 +1794,7 @@ impl INetFwProduct_Vtbl {
         unsafe extern "system" fn SetRuleCategories<Identity: ::windows::core::IUnknownImpl, Impl: INetFwProduct_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rulecategories: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRuleCategories(::core::mem::transmute_copy(&rulecategories)).into()
+            (*this).SetRuleCategories(::core::mem::transmute(&rulecategories)).into()
         }
         unsafe extern "system" fn DisplayName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwProduct_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1810,7 +1810,7 @@ impl INetFwProduct_Vtbl {
         unsafe extern "system" fn SetDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwProduct_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDisplayName(::core::mem::transmute_copy(&displayname)).into()
+            (*this).SetDisplayName(::core::mem::transmute(&displayname)).into()
         }
         unsafe extern "system" fn PathToSignedProductExe<Identity: ::windows::core::IUnknownImpl, Impl: INetFwProduct_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2134,7 +2134,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRemoteAddresses(::core::mem::transmute_copy(&remoteaddrs)).into()
+            (*this).SetRemoteAddresses(::core::mem::transmute(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRemoteAdminSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2224,7 +2224,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetName(::core::mem::transmute_copy(&name)).into()
+            (*this).SetName(::core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desc: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2240,7 +2240,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desc: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDescription(::core::mem::transmute_copy(&desc)).into()
+            (*this).SetDescription(::core::mem::transmute(&desc)).into()
         }
         unsafe extern "system" fn ApplicationName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2256,7 +2256,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetApplicationName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetApplicationName(::core::mem::transmute_copy(&imagefilename)).into()
+            (*this).SetApplicationName(::core::mem::transmute(&imagefilename)).into()
         }
         unsafe extern "system" fn ServiceName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2272,7 +2272,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetServiceName<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetServiceName(::core::mem::transmute_copy(&servicename)).into()
+            (*this).SetServiceName(::core::mem::transmute(&servicename)).into()
         }
         unsafe extern "system" fn Protocol<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, protocol: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2304,7 +2304,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetLocalPorts<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumbers: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLocalPorts(::core::mem::transmute_copy(&portnumbers)).into()
+            (*this).SetLocalPorts(::core::mem::transmute(&portnumbers)).into()
         }
         unsafe extern "system" fn RemotePorts<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumbers: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2320,7 +2320,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetRemotePorts<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumbers: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRemotePorts(::core::mem::transmute_copy(&portnumbers)).into()
+            (*this).SetRemotePorts(::core::mem::transmute(&portnumbers)).into()
         }
         unsafe extern "system" fn LocalAddresses<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localaddrs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2336,7 +2336,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetLocalAddresses<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLocalAddresses(::core::mem::transmute_copy(&localaddrs)).into()
+            (*this).SetLocalAddresses(::core::mem::transmute(&localaddrs)).into()
         }
         unsafe extern "system" fn RemoteAddresses<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2352,7 +2352,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRemoteAddresses(::core::mem::transmute_copy(&remoteaddrs)).into()
+            (*this).SetRemoteAddresses(::core::mem::transmute(&remoteaddrs)).into()
         }
         unsafe extern "system" fn IcmpTypesAndCodes<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, icmptypesandcodes: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2368,7 +2368,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetIcmpTypesAndCodes<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, icmptypesandcodes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetIcmpTypesAndCodes(::core::mem::transmute_copy(&icmptypesandcodes)).into()
+            (*this).SetIcmpTypesAndCodes(::core::mem::transmute(&icmptypesandcodes)).into()
         }
         unsafe extern "system" fn Direction<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dir: *mut NET_FW_RULE_DIRECTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2400,7 +2400,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetInterfaces<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaces: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetInterfaces(::core::mem::transmute_copy(&interfaces)).into()
+            (*this).SetInterfaces(::core::mem::transmute(&interfaces)).into()
         }
         unsafe extern "system" fn InterfaceTypes<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfacetypes: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2416,7 +2416,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetInterfaceTypes<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfacetypes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetInterfaceTypes(::core::mem::transmute_copy(&interfacetypes)).into()
+            (*this).SetInterfaceTypes(::core::mem::transmute(&interfacetypes)).into()
         }
         unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2448,7 +2448,7 @@ impl INetFwRule_Vtbl {
         unsafe extern "system" fn SetGrouping<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetGrouping(::core::mem::transmute_copy(&context)).into()
+            (*this).SetGrouping(::core::mem::transmute(&context)).into()
         }
         unsafe extern "system" fn Profiles<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiletypesbitmask: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2608,7 +2608,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetLocalAppPackageId<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpackageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLocalAppPackageId(::core::mem::transmute_copy(&wszpackageid)).into()
+            (*this).SetLocalAppPackageId(::core::mem::transmute(&wszpackageid)).into()
         }
         unsafe extern "system" fn LocalUserOwner<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserowner: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2624,7 +2624,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetLocalUserOwner<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserowner: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLocalUserOwner(::core::mem::transmute_copy(&wszuserowner)).into()
+            (*this).SetLocalUserOwner(::core::mem::transmute(&wszuserowner)).into()
         }
         unsafe extern "system" fn LocalUserAuthorizedList<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2640,7 +2640,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetLocalUserAuthorizedList<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLocalUserAuthorizedList(::core::mem::transmute_copy(&wszuserauthlist)).into()
+            (*this).SetLocalUserAuthorizedList(::core::mem::transmute(&wszuserauthlist)).into()
         }
         unsafe extern "system" fn RemoteUserAuthorizedList<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2656,7 +2656,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetRemoteUserAuthorizedList<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRemoteUserAuthorizedList(::core::mem::transmute_copy(&wszuserauthlist)).into()
+            (*this).SetRemoteUserAuthorizedList(::core::mem::transmute(&wszuserauthlist)).into()
         }
         unsafe extern "system" fn RemoteMachineAuthorizedList<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2672,7 +2672,7 @@ impl INetFwRule3_Vtbl {
         unsafe extern "system" fn SetRemoteMachineAuthorizedList<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuserauthlist: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRemoteMachineAuthorizedList(::core::mem::transmute_copy(&wszuserauthlist)).into()
+            (*this).SetRemoteMachineAuthorizedList(::core::mem::transmute(&wszuserauthlist)).into()
         }
         unsafe extern "system" fn SecureFlags<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRule3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loptions: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2740,12 +2740,12 @@ impl INetFwRules_Vtbl {
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRules_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Remove(::core::mem::transmute_copy(&name)).into()
+            (*this).Remove(::core::mem::transmute(&name)).into()
         }
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: INetFwRules_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, rule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&name)) {
+            match (*this).Item(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *rule = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2874,7 +2874,7 @@ impl INetFwService_Vtbl {
         unsafe extern "system" fn SetRemoteAddresses<Identity: ::windows::core::IUnknownImpl, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, remoteaddrs: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRemoteAddresses(::core::mem::transmute_copy(&remoteaddrs)).into()
+            (*this).SetRemoteAddresses(::core::mem::transmute(&remoteaddrs)).into()
         }
         unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl, Impl: INetFwService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2935,12 +2935,12 @@ impl INetFwServiceRestriction_Vtbl {
         unsafe extern "system" fn RestrictService<Identity: ::windows::core::IUnknownImpl, Impl: INetFwServiceRestriction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, appname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, restrictservice: i16, servicesidrestricted: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RestrictService(::core::mem::transmute_copy(&servicename), ::core::mem::transmute_copy(&appname), ::core::mem::transmute_copy(&restrictservice), ::core::mem::transmute_copy(&servicesidrestricted)).into()
+            (*this).RestrictService(::core::mem::transmute(&servicename), ::core::mem::transmute(&appname), ::core::mem::transmute_copy(&restrictservice), ::core::mem::transmute_copy(&servicesidrestricted)).into()
         }
         unsafe extern "system" fn ServiceRestricted<Identity: ::windows::core::IUnknownImpl, Impl: INetFwServiceRestriction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, appname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, servicerestricted: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ServiceRestricted(::core::mem::transmute_copy(&servicename), ::core::mem::transmute_copy(&appname)) {
+            match (*this).ServiceRestricted(::core::mem::transmute(&servicename), ::core::mem::transmute(&appname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *servicerestricted = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3106,7 +3106,7 @@ impl INetSharingConfiguration_Vtbl {
         unsafe extern "system" fn AddPortMapping<Identity: ::windows::core::IUnknownImpl, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, etargettype: ICS_TARGETTYPE, ppmapping: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddPortMapping(::core::mem::transmute_copy(&bstrname), ::core::mem::transmute_copy(&ucipprotocol), ::core::mem::transmute_copy(&usexternalport), ::core::mem::transmute_copy(&usinternalport), ::core::mem::transmute_copy(&dwoptions), ::core::mem::transmute_copy(&bstrtargetnameoripaddress), ::core::mem::transmute_copy(&etargettype)) {
+            match (*this).AddPortMapping(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&ucipprotocol), ::core::mem::transmute_copy(&usexternalport), ::core::mem::transmute_copy(&usinternalport), ::core::mem::transmute_copy(&dwoptions), ::core::mem::transmute(&bstrtargetnameoripaddress), ::core::mem::transmute_copy(&etargettype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppmapping = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3652,7 +3652,7 @@ impl IStaticPortMapping_Vtbl {
         unsafe extern "system" fn EditInternalClient<Identity: ::windows::core::IUnknownImpl, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternalclient: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EditInternalClient(::core::mem::transmute_copy(&bstrinternalclient)).into()
+            (*this).EditInternalClient(::core::mem::transmute(&bstrinternalclient)).into()
         }
         unsafe extern "system" fn Enable<Identity: ::windows::core::IUnknownImpl, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vb: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3662,7 +3662,7 @@ impl IStaticPortMapping_Vtbl {
         unsafe extern "system" fn EditDescription<Identity: ::windows::core::IUnknownImpl, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EditDescription(::core::mem::transmute_copy(&bstrdescription)).into()
+            (*this).EditDescription(::core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn EditInternalPort<Identity: ::windows::core::IUnknownImpl, Impl: IStaticPortMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linternalport: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3713,7 +3713,7 @@ impl IStaticPortMappingCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IStaticPortMappingCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppspm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol)) {
+            match (*this).Item(::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute(&bstrprotocol)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppspm = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3735,12 +3735,12 @@ impl IStaticPortMappingCollection_Vtbl {
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl, Impl: IStaticPortMappingCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Remove(::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol)).into()
+            (*this).Remove(::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute(&bstrprotocol)).into()
         }
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IStaticPortMappingCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternalport: i32, bstrinternalclient: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, benabled: i16, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppspm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Add(::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute_copy(&bstrprotocol), ::core::mem::transmute_copy(&linternalport), ::core::mem::transmute_copy(&bstrinternalclient), ::core::mem::transmute_copy(&benabled), ::core::mem::transmute_copy(&bstrdescription)) {
+            match (*this).Add(::core::mem::transmute_copy(&lexternalport), ::core::mem::transmute(&bstrprotocol), ::core::mem::transmute_copy(&linternalport), ::core::mem::transmute(&bstrinternalclient), ::core::mem::transmute_copy(&benabled), ::core::mem::transmute(&bstrdescription)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppspm = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

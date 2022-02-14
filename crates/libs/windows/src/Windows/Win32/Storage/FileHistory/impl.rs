@@ -36,7 +36,7 @@ impl IFhConfigMgr_Vtbl {
         unsafe extern "system" fn AddRemoveExcludeRule<Identity: ::windows::core::IUnknownImpl, Impl: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AddRemoveExcludeRule(::core::mem::transmute_copy(&add), ::core::mem::transmute_copy(&category), ::core::mem::transmute_copy(&item)).into()
+            (*this).AddRemoveExcludeRule(::core::mem::transmute_copy(&add), ::core::mem::transmute_copy(&category), ::core::mem::transmute(&item)).into()
         }
         unsafe extern "system" fn GetIncludeExcludeRules<Identity: ::windows::core::IUnknownImpl, Impl: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, include: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, iterator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -95,7 +95,7 @@ impl IFhConfigMgr_Vtbl {
         unsafe extern "system" fn ValidateTarget<Identity: ::windows::core::IUnknownImpl, Impl: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ValidateTarget(::core::mem::transmute_copy(&targeturl)) {
+            match (*this).ValidateTarget(::core::mem::transmute(&targeturl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *validationresult = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -106,7 +106,7 @@ impl IFhConfigMgr_Vtbl {
         unsafe extern "system" fn ProvisionAndSetNewTarget<Identity: ::windows::core::IUnknownImpl, Impl: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, targetname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ProvisionAndSetNewTarget(::core::mem::transmute_copy(&targeturl), ::core::mem::transmute_copy(&targetname)).into()
+            (*this).ProvisionAndSetNewTarget(::core::mem::transmute(&targeturl), ::core::mem::transmute(&targetname)).into()
         }
         unsafe extern "system" fn ChangeDefaultTargetRecommendation<Identity: ::windows::core::IUnknownImpl, Impl: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recommend: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -154,7 +154,7 @@ impl IFhReassociation_Vtbl {
         unsafe extern "system" fn ValidateTarget<Identity: ::windows::core::IUnknownImpl, Impl: IFhReassociation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ValidateTarget(::core::mem::transmute_copy(&targeturl)) {
+            match (*this).ValidateTarget(::core::mem::transmute(&targeturl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *validationresult = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -165,7 +165,7 @@ impl IFhReassociation_Vtbl {
         unsafe extern "system" fn ScanTargetForConfigurations<Identity: ::windows::core::IUnknownImpl, Impl: IFhReassociation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ScanTargetForConfigurations(::core::mem::transmute_copy(&targeturl)).into()
+            (*this).ScanTargetForConfigurations(::core::mem::transmute(&targeturl)).into()
         }
         unsafe extern "system" fn GetConfigurationDetails<Identity: ::windows::core::IUnknownImpl, Impl: IFhReassociation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, username: *mut super::super::Foundation::BSTR, pcname: *mut super::super::Foundation::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

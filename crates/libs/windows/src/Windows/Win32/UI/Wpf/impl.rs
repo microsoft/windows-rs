@@ -260,7 +260,7 @@ impl IMILBitmapEffectEvents_Vtbl {
         unsafe extern "system" fn PropertyChange<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PropertyChange(::core::mem::transmute(&peffect), ::core::mem::transmute_copy(&bstrpropertyname)).into()
+            (*this).PropertyChange(::core::mem::transmute(&peffect), ::core::mem::transmute(&bstrpropertyname)).into()
         }
         unsafe extern "system" fn DirtyRegion<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr, prect: *const MilRectD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
