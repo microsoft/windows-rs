@@ -26,10 +26,19 @@ body:
       description: >
         Please provide a short summary of the bug, along with any information
         you feel relevant to replicating the bug.
-      value: |
-        ```rust
-        <code>
-        ```
+  - type: textarea
+    attributes:
+      label: Reproducible example
+      description: >
+        Please provide all code needed to reproduce the issue.
+      render: toml
+  - type: textarea
+    attributes:
+      label: Your crate manifest
+      description: >
+        Please provide a manifest (`Cargo.toml`) that corresponds
+        to the reproducible example.
+      render: toml
   - type: textarea
     attributes:
       label: Expected behavior
