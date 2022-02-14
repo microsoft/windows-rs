@@ -1,6 +1,6 @@
 pub trait ITraceEvent_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<ITraceEvent>;
-    fn GetUserContext(&self, usercontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetUserContext(&self) -> ::windows::core::Result<*mut ::core::ffi::c_void>;
     fn GetEventRecord(&self) -> ::windows::core::Result<*mut EVENT_RECORD>;
     fn SetPayload(&self, payload: *const u8, payloadsize: u32) -> ::windows::core::Result<()>;
     fn SetEventDescriptor(&self, eventdescriptor: *const EVENT_DESCRIPTOR) -> ::windows::core::Result<()>;
@@ -28,7 +28,13 @@ impl ITraceEvent_Vtbl {
         unsafe extern "system" fn GetUserContext<Identity: ::windows::core::IUnknownImpl, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usercontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetUserContext(::core::mem::transmute_copy(&usercontext)).into()
+            match (*this).GetUserContext() {
+                ::core::result::Result::Ok(ok__) => {
+                    *usercontext = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetEventRecord<Identity: ::windows::core::IUnknownImpl, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventrecord: *mut *mut EVENT_RECORD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

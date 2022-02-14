@@ -238,7 +238,7 @@ pub trait IPresentationManager_Impl: Sized {
     fn SetPreferredPresentDuration(&self, preferredduration: &SystemInterruptTime, deviationtolerance: &SystemInterruptTime) -> ::windows::core::Result<()>;
     fn ForceVSyncInterrupt(&self, forcevsyncinterrupt: u8) -> ::windows::core::Result<()>;
     fn Present(&self) -> ::windows::core::Result<()>;
-    fn GetPresentRetiringFence(&self, riid: *const ::windows::core::GUID, fence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetPresentRetiringFence(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<*mut ::core::ffi::c_void>;
     fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> ::windows::core::Result<()>;
     fn GetLostEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
     fn GetPresentStatisticsAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
@@ -298,7 +298,13 @@ impl IPresentationManager_Vtbl {
         unsafe extern "system" fn GetPresentRetiringFence<Identity: ::windows::core::IUnknownImpl, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, fence: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetPresentRetiringFence(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&fence)).into()
+            match (*this).GetPresentRetiringFence(::core::mem::transmute_copy(&riid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    *fence = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CancelPresentsFrom<Identity: ::windows::core::IUnknownImpl, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presentidtocancelfrom: u64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

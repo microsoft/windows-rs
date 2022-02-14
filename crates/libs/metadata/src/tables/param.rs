@@ -32,4 +32,8 @@ impl Param {
         // TODO: replace bool return with actual array info from attribute
         self.has_attribute("NativeArrayInfoAttribute")
     }
+
+    pub fn is_retval(&self) -> bool {
+        self.has_attribute("RetValAttribute")
+    }
 }
