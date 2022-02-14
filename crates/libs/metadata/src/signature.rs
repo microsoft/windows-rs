@@ -66,7 +66,12 @@ impl Signature {
 
 impl MethodParam {
     fn is_retval(&self) -> bool {
-        // TODO: why aren't we just using the retval flag? This is super brittle.
+        // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
+        // very sparingly, so this heuristic is used to apply the transformation more uniformly.
+
+        if self.def.is_retval() {
+            return true;
+        }
 
         if !self.ty.is_pointer() {
             return false;

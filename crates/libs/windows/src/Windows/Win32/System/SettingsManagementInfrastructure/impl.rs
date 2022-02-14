@@ -50,7 +50,7 @@ pub trait ISettingsContext_Impl: Sized {
     fn Serialize(&self, pstream: &::core::option::Option<super::Com::IStream>, ptarget: &::core::option::Option<ITargetInfo>) -> ::windows::core::Result<()>;
     fn Deserialize(&self, pstream: &::core::option::Option<super::Com::IStream>, ptarget: &::core::option::Option<ITargetInfo>, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: *mut usize) -> ::windows::core::Result<()>;
     fn SetUserData(&self, puserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetUserData(&self, puserdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetUserData(&self) -> ::windows::core::Result<*mut ::core::ffi::c_void>;
     fn GetNamespaces(&self) -> ::windows::core::Result<IItemEnumerator>;
     fn GetStoredSettings(&self, pidentity: &::core::option::Option<ISettingsIdentity>, ppaddedsettings: *mut ::core::option::Option<IItemEnumerator>, ppmodifiedsettings: *mut ::core::option::Option<IItemEnumerator>, ppdeletedsettings: *mut ::core::option::Option<IItemEnumerator>) -> ::windows::core::Result<()>;
     fn RevertSetting(&self, pidentity: &::core::option::Option<ISettingsIdentity>, pwzsetting: super::super::Foundation::PWSTR) -> ::windows::core::Result<()>;
@@ -76,7 +76,13 @@ impl ISettingsContext_Vtbl {
         unsafe extern "system" fn GetUserData<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puserdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).GetUserData(::core::mem::transmute_copy(&puserdata)).into()
+            match (*this).GetUserData() {
+                ::core::result::Result::Ok(ok__) => {
+                    *puserdata = ::core::mem::transmute(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetNamespaces<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnamespaceids: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

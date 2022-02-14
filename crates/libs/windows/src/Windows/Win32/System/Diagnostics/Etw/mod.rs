@@ -4019,8 +4019,9 @@ impl ITraceEvent {
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITraceEvent>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
-    pub unsafe fn GetUserContext(&self, usercontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetUserContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(usercontext)).ok()
+    pub unsafe fn GetUserContext(&self) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetUserContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut ::core::ffi::c_void>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub unsafe fn GetEventRecord(&self) -> ::windows::core::Result<*mut EVENT_RECORD> {

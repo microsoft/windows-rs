@@ -93,8 +93,9 @@ impl ISettingsContext {
         (::windows::core::Interface::vtable(self).SetUserData)(::core::mem::transmute_copy(self), ::core::mem::transmute(puserdata)).ok()
     }
     #[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
-    pub unsafe fn GetUserData(&self, puserdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetUserData)(::core::mem::transmute_copy(self), ::core::mem::transmute(puserdata)).ok()
+    pub unsafe fn GetUserData(&self) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetUserData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut ::core::ffi::c_void>(result__)
     }
     #[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
     pub unsafe fn GetNamespaces(&self) -> ::windows::core::Result<IItemEnumerator> {

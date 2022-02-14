@@ -11,8 +11,9 @@ impl IDisplayDeviceInterop {
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Display', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, nthandle: Param0, riid: Param1, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenSharedHandle)(::core::mem::transmute_copy(self), nthandle.into_param().abi(), riid.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    pub unsafe fn OpenSharedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, nthandle: Param0, riid: Param1) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).OpenSharedHandle)(::core::mem::transmute_copy(self), nthandle.into_param().abi(), riid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<*mut ::core::ffi::c_void>(result__)
     }
 }
 impl ::core::convert::From<IDisplayDeviceInterop> for ::windows::core::IUnknown {
